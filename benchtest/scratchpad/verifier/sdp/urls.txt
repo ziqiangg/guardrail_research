@@ -1,0 +1,96 @@
+https://cloud.google.com/dlp/demo	INV(d)
+https://cloud.google.com/sensitive-data-protection/pricing	INV(a),INV(c),INV(d),INV(e),SD1 R9,SD2 R9,SD3 R9,SD4 R9,SD5 R9,SD6 R9
+https://cloud.google.com/sensitive-data-protection/sla	INV(e),SD1 R9,SD3 R9,SD4 R9,SD5 R9
+https://cloud.google.com/terms	INV(f),SD1 R9,SD3 R9,SD4 R9,SD5 R9,SD6 R9
+https://cloud.google.com/terms/aup	SD6 R9
+https://cloud.google.com/terms/data-processing-addendum	INV(f),SD1 R9,SD3 R9,SD4 R9,SD5 R9,SD6 R9
+https://cloud.google.com/terms/service-terms	INV(f),SD1 R9,SD3 R9,SD4 R9,SD5 R9,SD6 R9
+https://cloud.google.com/terms/services	INV(f),SD1 R9,SD3 R9,SD4 R9,SD5 R9,SD6 R9
+https://docs.apigee.com/api-platform/reference/extensions/google-cloud-data-loss-prevention/google-cloud-data-loss-prevention-extension-120	INV(d)
+https://docs.cloud.google.com/data-fusion/docs/how-to/using-dlp	INV(d)
+https://docs.cloud.google.com/gemini/enterprise/docs/protect-sensitive-data	INV(a),INV(d),INV(e),INV(f),SD5 R9,SD6 R9
+https://docs.cloud.google.com/kms/docs/destroy-restore	SD4 R9
+https://docs.cloud.google.com/kms/docs/key-rotation	SD4 R9
+https://docs.cloud.google.com/kms/docs/locations	SD4 R9
+https://docs.cloud.google.com/logging/docs/reference/audit/auditlog/rest/Shared.Types/AuditLog	SD4 R9
+https://docs.cloud.google.com/model-armor/overview	INV(a),INV(d),SD1 R9,SD5 R9
+https://docs.cloud.google.com/model-armor/sanitize-prompts-responses	INV(d),SD3 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/access-control/roles-permissions	INV(a),SD1 R9,SD2 R9,SD3 R9,SD4 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/api-endpoints	INV(d),INV(e),INV(f),SD1 R9,SD4 R9,SD5 R9,SD6 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/audit-logging	SD4 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/auth	INV(d),SD4 R9,SD5 R9,SD6 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-date-shifting	SD3 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-deidentify-storage	INV(a)
+https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-hybrid-jobs	INV(a)
+https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-image-redaction	INV(b),SD5 R9,SD6 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-infotypes	INV(b),SD1 R9,SD2 R9,SD3 R9,SD4 R9,SD5 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-job-triggers	INV(a),INV(e)
+https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-method-types	INV(a),INV(d),INV(f),SD1 R9,SD2 R9,SD3 R9,SD4 R9,SD5 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-risk-analysis	INV(a)
+https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-templates	INV(a),INV(d),SD1 R9,SD3 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-text-redaction	SD1 R9,SD3 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/content-policy	INV(a),INV(d),SD1 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/create-custom-infotypes-metadata-labels	SD1 R9,SD2 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/create-wrapped-key	SD4 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes	INV(a),SD2 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes-dictionary	SD2 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes-likelihood	SD2 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes-regex	SD2 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes-rules	SD2 R9,SD6 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes	INV(a),SD2 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/data-profiles	INV(a),INV(d)
+https://docs.cloud.google.com/sensitive-data-protection/docs/deidentify-bq-tutorial	INV(d)
+https://docs.cloud.google.com/sensitive-data-protection/docs/deidentify-sensitive-data	INV(a),INV(c),INV(e),SD1 R9,SD3 R9,SD4 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/deidentify-storage	INV(a),INV(d)
+https://docs.cloud.google.com/sensitive-data-protection/docs/infotypes-reference	INV(a),INV(b),INV(f),SD1 R9,SD5 R9,SD6 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/inspect-sensitive-text-api	INV(d),SD1 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/inspect-sensitive-text-de-identify	SD4 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-images	INV(a),SD5 R9,SD6 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-storage	INV(a),INV(d)
+https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-structured-text	SD1 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-text	SD1 R9,SD3 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/libraries	INV(d),SD1 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/likelihood	INV(b),SD1 R9,SD4 R9,SD5 R9,SD6 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/listing-infotypes	INV(a)
+https://docs.cloud.google.com/sensitive-data-protection/docs/locations	INV(d),INV(f),SD1 R9,SD3 R9,SD5 R9,SD6 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/manage-content-policies	INV(a),INV(d),INV(f),SD1 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/pseudonymization	INV(c),SD4 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/quote	SD1 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/redacting-sensitive-data-images	INV(a),SD5 R9,SD6 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest	INV(a),INV(f)
+https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/ContentItem	INV(a),INV(e),SD1 R9,SD2 R9,SD3 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/DeidentifyContentResponse	SD2 R9,SD4 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/InspectConfig	INV(e),SD1 R9,SD2 R9,SD3 R9,SD4 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/InspectContentResponse	SD2 R9,SD4 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/InspectResult	SD5 R9,SD6 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/RedactImageResponse	SD5 R9,SD6 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/Regex	SD2 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/ReidentifyContentResponse	SD2 R9,SD4 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/organizations.deidentifyTemplates	SD5 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.content/deidentify	INV(a),SD3 R9,SD4 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.content/inspect	INV(a),SD1 R9,SD2 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.content/reidentify	INV(a),INV(c),SD4 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.deidentifyTemplates	SD3 R9,SD4 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.image/redact	INV(a),SD5 R9,SD6 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.locations.content/reidentify	SD4 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.locations.contentPolicies	INV(a),INV(f),SD1 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.locations.image/redact	SD5 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rpc/google.privacy.dlp.v2	INV(a),SD1 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/release-notes	INV(a),INV(b),INV(e),INV(f),SD1 R9,SD2 R9,SD3 R9,SD4 R9,SD5 R9,SD6 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/sensitive-data-protection-overview	INV(a),INV(d),INV(f),SD1 R9,SD3 R9,SD4 R9,SD5 R9,SD6 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location	INV(d),INV(f)
+https://docs.cloud.google.com/sensitive-data-protection/docs/supported-file-types	INV(a),SD3 R9,SD5 R9,SD6 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/transformations-reference	INV(b),INV(c),SD3 R9,SD4 R9
+https://docs.cloud.google.com/sensitive-data-protection/limits	INV(a),INV(d),INV(e),SD1 R9,SD2 R9,SD3 R9,SD4 R9,SD5 R9,SD6 R9
+https://github.com/GoogleCloudPlatform/community/blob/6f68203dec458268f177e97e2b57f3e085ca3668/archived/dlp-hybrid-inspect/index.md	INV(d)
+https://github.com/GoogleCloudPlatform/dlp-dataflow-deidentification/blob/4213e271f5889c7b889d98ab5b0623f1406687b0/README.md	INV(d)
+https://github.com/googleapis/google-cloud-python/blob/google-cloud-dlp-v3.40.0/packages/google-cloud-dlp/CHANGELOG.md	INV(d)
+https://github.com/googleapis/google-cloud-python/blob/google-cloud-dlp-v3.40.0/packages/google-cloud-dlp/LICENSE	INV(d)
+https://github.com/googleapis/google-cloud-python/blob/google-cloud-dlp-v3.40.0/packages/google-cloud-dlp/README.rst	SD1 R9,SD4 R9
+https://github.com/googleapis/google-cloud-python/blob/google-cloud-dlp-v3.40.0/packages/google-cloud-dlp/google/cloud/dlp/gapic_version.py	SD1 R9,SD4 R9,SD5 R9,SD6 R9
+https://github.com/googleapis/google-cloud-python/blob/google-cloud-dlp-v3.40.0/packages/google-cloud-dlp/google/cloud/dlp_v2/services/dlp_service/client.py	INV(a),INV(d),SD1 R9,SD3 R9,SD4 R9,SD5 R9,SD6 R9
+https://github.com/googleapis/google-cloud-python/blob/google-cloud-dlp-v3.40.0/packages/google-cloud-dlp/google/cloud/dlp_v2/services/dlp_service/transports/rest.py	INV(d)
+https://github.com/googleapis/google-cloud-python/blob/google-cloud-dlp-v3.40.0/packages/google-cloud-dlp/google/cloud/dlp_v2/types/dlp.py	INV(a),INV(e),SD1 R9,SD2 R9,SD3 R9,SD4 R9,SD5 R9,SD6 R9
+https://github.com/googleapis/google-cloud-python/blob/google-cloud-dlp-v3.40.0/packages/google-cloud-dlp/google/cloud/dlp_v2/types/storage.py	SD1 R9,SD2 R9
+https://github.com/googleapis/google-cloud-python/blob/google-cloud-dlp-v3.40.0/packages/google-cloud-dlp/setup.py	INV(d),SD1 R9,SD3 R9,SD4 R9
+https://github.com/googleapis/python-dlp/blob/21b91b9d51d4b21784ddede99d16ff15279c8f52/README.rst	INV(d)

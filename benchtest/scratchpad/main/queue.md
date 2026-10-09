@@ -18,6 +18,9 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| modelarmor P6 Q3 (AUP bullets extended to MA2/MA3/MA4) | confirmed (same test content) | main |
+| modelarmor P6 Q4 (banner check for Terraform/gcloud/console/SCC rows) | no extra pass; stay [Not disclosed] (optional) | main |
+| modelarmor P6 Q1/Q5 (service.pb.go line spot-check at modelarmor/v1.3.0; Service Extensions verbatim retry) | → P7 verifier | main |
 | sdp P6 Q1 (discovery doc URL in R9?) | keep plain-text citation, no URL cell (lessons 12: no googleapis.com API hosts in URL lists) | main |
 | sdp P6 Q2/Q3/Q6 (ruling ids removed; extra edits; T36) | accepted; verifier reviews extra edits at P7 | main |
 | sdp P6 Q4 (cross-product headers) | main re-compares after modelarmor/presidio P6 | main |

@@ -192,7 +192,7 @@ def apply(V):
     cov_add(V, "d", "Docker images", PD6, "T66 (main Q2): PD6 R7 cites running the Analyzer image with ad_hoc_recognizers")
     V.sub("d", "Kubernetes", "Status", "Sample [Inferred] (premise: lives under Samples in the nav)",
           "Sample [Inferred] (premise: the page sits under Samples > Deployment in mkdocs.yml:85,120-128 [Documented: repo data-privacy-stack/presidio@2.2.364])", "T63")
-    V.append("d", "Kubernetes", "Caveats", "Ingress by default; TLS not mentioned [Not disclosed] (checked K8S)", "T52")
+    V.append("d", "Kubernetes", "Caveats", "The K8S page says Presidio is deployed with an ingress controller (nginx) by default [Documented] (K8S); the chart is described above as having an optional ingress, so the two readings are both kept. TLS not mentioned [Not disclosed] (checked K8S)", "T52; ingress wording keeps both the chart reading and the page statement")
     V.url_add("d", "Kubernetes", [BLOB + "mkdocs.yml"], "T63")
     V.sub("d", "Azure App Service", "Status", "Sample [Inferred] (premise: under Samples in the nav)",
           "Sample [Inferred] (premise: the page sits under Samples > Deployment in mkdocs.yml:85,120-128 [Documented: repo data-privacy-stack/presidio@2.2.364])", "T63")

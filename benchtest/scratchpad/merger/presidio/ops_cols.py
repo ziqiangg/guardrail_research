@@ -63,9 +63,10 @@ def apply(C):
         "• FAQ: \"It was originally created at Microsoft and has since transitioned to an independent, vendor-neutral project maintained by contributors and volunteers from across the community.\" (Presidio docs, FAQ) " + D],
         "T1: second ownership source (tense differs from the transition page; both kept, README section 3 rule 4)")
     C.ins_after("PD1", 4, "Docs host: `https://data-privacy-stack.github.io", [
-        "• The docs site is published from the gh-pages branch of the repository by a manually started workflow (`.github/workflows/release-docs.yml@2.2.364`, trigger `workflow_dispatch`); the branch's last commit is dated 2026-07-04 " + RP,
+        "• The docs site is built and published to GitHub Pages by a manually started workflow (`.github/workflows/release-docs.yml@2.2.364`, trigger `workflow_dispatch`) " + RP,
+        "• The live site is the gh-pages branch of the repository: its `installation/index.html` lists Python 3.10 to 3.13 like the live page, and its last commit e1987e57 is dated 2026-07-04 **[Documented: repo data-privacy-stack/presidio@e1987e57]**",
         "• The live docs therefore predate the 2.2.364 tag, which is a likely reason they differ from `docs/` at the tag (premise: gh-pages head 2026-07-04, tag 2026-07-22) " + I],
-        "T14")
+        "T14: the gh-pages facts are pinned to the branch head e1987e57 rather than to the tag, so the bullet is split by pin")
     # ---- R5
     C.summary("PD1", 5, "Summary: **Spans and scores, no verdict.** Each hit has an entity type, start, end and a 0 to 1 score, plus an optional explanation. The default score threshold is 0. A vendor notebook reports F2 0.661 for default recognizers at threshold 0.4 on synthetic data. " + D,
               "T24, R014: figure keeps its setup qualifier (was 'default settings'; the notebook ran at threshold 0.4) (44 words)")
@@ -139,6 +140,7 @@ def apply(C):
         (BLOB + "presidio-analyzer/presidio_analyzer/predefined_recognizers/third_party/langextract_recognizer.py", "T8"),
         (BLOB + "presidio-analyzer/presidio_analyzer/nlp_engine/nlp_artifacts.py", "T55"),
         (BLOB + ".github/workflows/release-docs.yml", "T14"),
+        ("https://github.com/data-privacy-stack/presidio/tree/e1987e57d4474f14f9da03884ca1a99ece7dc6a5", "T14: gh-pages head"),
         (BLOB + "docs/supported_entities.md", "T20"),
         (BLOB + "docs/tutorial/09_ad_hoc.md", "T22"),
         (BLOB + "docs/samples/index.md", "T69"),
@@ -337,9 +339,20 @@ def apply(C):
               "T13, T47: drops non-pattern logic over REST and per-recognizer threshold status (both answered) (33 words)")
     C.delete("PD6", 8, "Whether non-pattern recognizers can be sent per request over REST", "T47: answered by the R4 bullet on PatternRecognizer.from_dict")
     C.delete("PD6", 8, "Whether per-recognizer `score_thresholds` is in the released 2.2.364 package", "T13: answered (tagged code, tagged docs and the 2.2.363 changelog section state it). The generic release-notes bullet T9 asks for here is not repeated: it is already in PD1, PD2, PD4 and PD5 R8")
+    C.repl("PD6", 8, "Whether the live docs lag the tag for other features",
+           "• Which other features documented at the tag are missing from the live docs (the live registry page and the tagged page differ; the site was last published on 2026-07-04, before the tag)",
+           "T14: the lag itself is now established (site published 18 days before the tag); the open part is which features differ")
     for u, why in [
         (RBLOB + "README.md", "T12"),
         (RBLOB + "presidio_evaluator/models/presidio_recognizer_wrapper.py", "T12"),
         (RBLOB + "presidio_evaluator/data_objects.py", "T12"),
     ]:
         C.add_url("PD6", u, why)
+
+    # ---- R9 Summaries (describe the sources actually listed)
+    C.summary("PD1", 9, "Summary: Presidio docs site pages, the Presidio repository at tag 2.2.364, the presidio-research repository at tag 0.3.2, and one Microsoft Learn page.", "R9 Summary updated: adds the Microsoft Learn page cited for AHDS (T7)")
+    C.summary("PD2", 9, "Summary: Presidio docs site pages, the Presidio repository at tag 2.2.364 and one commit on its main branch, and one Microsoft Learn page.", "R9 Summary updated: adds the main-branch commit (main Q3) and the Microsoft Learn page (T7)")
+    C.summary("PD3", 9, "Summary: Presidio docs site pages, the Presidio repository at tag 2.2.364, and the NVIDIA NeMo Guardrails page on Presidio.", "R9 Summary updated: adds the NVIDIA page cited in R4 (T37)")
+    C.summary("PD4", 9, "Summary: Presidio docs site pages (image redactor, getting started with images, installation, FAQ, evaluation, concepts, transition, samples, API spec), repo files at tag 2.2.364 (image redactor package, Dockerfile, tests, API spec), the licence, the presidio-research README at tag 0.3.2, and a Microsoft Learn page.", "R9 Summary updated: adds presidio-research (T12), the live API spec (T42) and the Microsoft Learn page (T7)")
+    C.summary("PD5", 9, "Summary: Presidio docs site pages (structured, getting started, home, installation, FAQ, evaluation, concepts, context tutorial, transition), repo files at tag 2.2.364 (structured package, Analyzer and Anonymizer code, changelog, licence) and the presidio-research README at tag 0.3.2.", "R9 Summary updated: adds the getting-started page (T44) and presidio-research (T12)")
+    C.summary("PD6", 9, "Summary: Presidio docs pages on adding and developing recognizers, the registry provider, tutorials (deny list, context, no-code, ad-hoc, allow list), decision process, FAQ and evaluation, plus repo files at tag 2.2.364 (Analyzer code, OpenAPI file, changelog) and presidio-research at tag 0.3.2.", "R9 Summary updated: adds presidio-research (T12)")

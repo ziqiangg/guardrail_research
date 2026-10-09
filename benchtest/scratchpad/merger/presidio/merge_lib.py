@@ -190,7 +190,7 @@ class Inv:
         before = cells[k]
         cells[k] = cells[k].rstrip() + ". " + text.rstrip(".")
         self._put(i, cells)
-        _log("inv", "INV (%s) %s / %s" % (blk, key[:40], colname[:30]), "add", "(end of cell) " + before[-80:], cells[k][len(before):], reason)
+        _log("inv", "INV (%s) %s / %s" % (blk, key[:40], colname[:30]), "add", "(end of cell) " + before[-80:], cells[k][len(before):].lstrip(". "), reason)
 
     def url_add(self, blk, key, urls, reason):
         hdr, i = self.row_index(blk, key)

@@ -96,7 +96,8 @@ Detail:
 • Ownership: "The Presidio project is in the process of transitioning from a Microsoft-owned project to an independent, community-governed open source project under the new GitHub organization Data Privacy Stack." and "Microsoft supports this transition" (Presidio docs, transition page) **[Documented]**
 • FAQ: "It was originally created at Microsoft and has since transitioned to an independent, vendor-neutral project maintained by contributors and volunteers from across the community." (Presidio docs, FAQ) **[Documented]**
 • Docs host: `https://data-privacy-stack.github.io/presidio/` answers HTTP 301 to `https://presidio.dataprivacystack.org/` (observed 2026-10-09); `https://microsoft.github.io/presidio/` returns a stub page saying "This page has moved." **[Documented]**
-• The docs site is published from the gh-pages branch of the repository by a manually started workflow (`.github/workflows/release-docs.yml@2.2.364`, trigger `workflow_dispatch`); the branch's last commit is dated 2026-07-04 **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• The docs site is built and published to GitHub Pages by a manually started workflow (`.github/workflows/release-docs.yml@2.2.364`, trigger `workflow_dispatch`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• The live site is the gh-pages branch of the repository: its `installation/index.html` lists Python 3.10 to 3.13 like the live page, and its last commit e1987e57 is dated 2026-07-04 **[Documented: repo data-privacy-stack/presidio@e1987e57]**
 • The live docs therefore predate the 2.2.364 tag, which is a likely reason they differ from `docs/` at the tag (premise: gh-pages head 2026-07-04, tag 2026-07-22) **[Inferred]**
 • The FAQ adds: "Presidio is not an official product of any company and comes with no warranty or SLA." **[Documented]**
 ### R5
@@ -196,7 +197,7 @@ Detail:
 • Behaviour on very long inputs (checked the docs and `app.py`; nothing stated; needs testing)
 • What the GitHub release notes for 2.2.364 say (the release page was not read; CHANGELOG.md at the tag lists the changes under its unreleased heading)
 ### R9
-Summary: Presidio docs site pages, the Presidio repository at tag 2.2.364, and the presidio-research repository at tag 0.3.2.
+Summary: Presidio docs site pages, the Presidio repository at tag 2.2.364, the presidio-research repository at tag 0.3.2, and one Microsoft Learn page.
 Detail:
 • https://presidio.dataprivacystack.org/
 • https://presidio.dataprivacystack.org/analyzer/
@@ -261,6 +262,7 @@ Detail:
 • https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-analyzer/presidio_analyzer/predefined_recognizers/third_party/langextract_recognizer.py
 • https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-analyzer/presidio_analyzer/nlp_engine/nlp_artifacts.py
 • https://github.com/data-privacy-stack/presidio/blob/2.2.364/.github/workflows/release-docs.yml
+• https://github.com/data-privacy-stack/presidio/tree/e1987e57d4474f14f9da03884ca1a99ece7dc6a5
 • https://github.com/data-privacy-stack/presidio/blob/2.2.364/docs/supported_entities.md
 • https://github.com/data-privacy-stack/presidio/blob/2.2.364/docs/tutorial/09_ad_hoc.md
 • https://github.com/data-privacy-stack/presidio/blob/2.2.364/docs/samples/index.md
@@ -408,7 +410,7 @@ Detail:
 • What the GitHub release notes for 2.2.364 say (the release page was not read; CHANGELOG.md at the tag lists the changes under its unreleased heading)
 • Whether the post-tag fix to `REMOVE_INTERSECTIONS` handling on the development branch (main commit 2523c7b, #2331; develop/unreleased) changes overlap results compared with tag 2.2.364 (see R2; needs testing against the next release)
 ### R9
-Summary: Presidio docs site pages and the Presidio repository at tag 2.2.364.
+Summary: Presidio docs site pages, the Presidio repository at tag 2.2.364 and one commit on its main branch, and one Microsoft Learn page.
 Detail:
 • https://presidio.dataprivacystack.org/anonymizer/
 • https://presidio.dataprivacystack.org/installation/
@@ -553,7 +555,7 @@ Detail:
 • Whether the batch deanonymiser is named in the 2.2.364 release notes (code is in the tag; the CHANGELOG lists it under its unreleased heading; the release page was not read)
 • What LiteLLM does beyond the Presidio page (the LiteLLM behaviour is not Presidio evidence)
 ### R9
-Summary: Presidio docs site pages and the Presidio repository at tag 2.2.364.
+Summary: Presidio docs site pages, the Presidio repository at tag 2.2.364, and the NVIDIA NeMo Guardrails page on Presidio.
 Detail:
 • https://presidio.dataprivacystack.org/anonymizer/
 • https://presidio.dataprivacystack.org/tutorial/12_encryption/
@@ -732,7 +734,7 @@ Detail:
 • Roadmap from beta to a stable release (checked the image-redactor page, home page and CHANGELOG, not stated)
 • What the GitHub release notes for 2.2.364 say (the release page was not read; CHANGELOG.md at the tag lists the changes under its unreleased heading)
 ### R9
-Summary: Presidio docs site pages (image redactor, getting started with images, installation, FAQ, evaluation, concepts, transition, samples), repo files at tag 2.2.364 (image redactor package, Dockerfile, tests, API spec) and the licence.
+Summary: Presidio docs site pages (image redactor, getting started with images, installation, FAQ, evaluation, concepts, transition, samples, API spec), repo files at tag 2.2.364 (image redactor package, Dockerfile, tests, API spec), the licence, the presidio-research README at tag 0.3.2, and a Microsoft Learn page.
 Detail:
 • https://presidio.dataprivacystack.org/image-redactor/
 • https://presidio.dataprivacystack.org/image-redactor/evaluating_dicom_redaction/
@@ -902,7 +904,7 @@ Detail:
 • Whether a REST or Docker route for structured data is planned (checked the repo tree at the tag, docker-compose.yml and docs, not stated)
 • What the GitHub release notes for 2.2.364 say (the release page was not read; CHANGELOG.md at the tag lists the changes under its unreleased heading)
 ### R9
-Summary: Presidio docs site pages (structured, home, installation, FAQ, evaluation, concepts, context tutorial, transition) and repo files at tag 2.2.364 (structured package, Analyzer and Anonymizer code, changelog, licence).
+Summary: Presidio docs site pages (structured, getting started, home, installation, FAQ, evaluation, concepts, context tutorial, transition), repo files at tag 2.2.364 (structured package, Analyzer and Anonymizer code, changelog, licence) and the presidio-research README at tag 0.3.2.
 Detail:
 • https://presidio.dataprivacystack.org/structured/
 • https://presidio.dataprivacystack.org/
@@ -1055,9 +1057,9 @@ Detail:
 • Recommended scores for weak patterns, and how a custom entity that overlaps a built-in one is resolved (not stated; needs testing)
 • Context words with `NoOpNlpEngine`: the code warns the Lemma enhancer cannot use words from the text then, only explicit request context (analyzer_engine.py@2.2.364:114-122; behaviour needs testing)
 • Accuracy and latency of typical custom recognizers (none published; developing recognizers page gives only a 100 ms guideline)
-• Whether the live docs lag the tag for other features, since the live registry page and the tagged page differ
+• Which other features documented at the tag are missing from the live docs (the live registry page and the tagged page differ; the site was last published on 2026-07-04, before the tag)
 ### R9
-Summary: Presidio docs pages on adding and developing recognizers, the registry provider, tutorials (deny list, context, no-code, ad-hoc, allow list), decision process, FAQ and evaluation, plus repo files at tag 2.2.364 (Analyzer code, OpenAPI file, changelog).
+Summary: Presidio docs pages on adding and developing recognizers, the registry provider, tutorials (deny list, context, no-code, ad-hoc, allow list), decision process, FAQ and evaluation, plus repo files at tag 2.2.364 (Analyzer code, OpenAPI file, changelog) and presidio-research at tag 0.3.2.
 Detail:
 • https://presidio.dataprivacystack.org/analyzer/adding_recognizers/
 • https://presidio.dataprivacystack.org/analyzer/developing_recognizers/

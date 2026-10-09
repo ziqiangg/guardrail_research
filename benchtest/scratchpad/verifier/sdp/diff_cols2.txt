@@ -1,0 +1,21 @@
+Summaries changed: 14 ['SD1 R4', 'SD1 R6', 'SD2 R5', 'SD2 R6', 'SD2 R8', 'SD3 R1', 'SD3 R4', 'SD4 R4', 'SD4 R5', 'SD5 R1', 'SD5 R2', 'SD6 R2', 'SD6 R4', 'SD6 R5']
+added/changed lines not found in log by prefix: 68
+final lines not explained by gsub or log.json: 0
+removed original lines not in any log.json before: 0
+log.json entries not findable in sdp_changes.md: 16
+   ('cols', 'SD1 R4', 'T1 (R018)', 'Summary: **Rules, checksums, context and machine learning.** Built-in detectors ', 'Summary: **Rules, checksums, context and machine learning.** Built-in detectors ')
+   ('cols', 'SD1 R6', 'T20 (CORRECTION)', 'Summary: **A project, a location and a list of infoTypes.** Send the text, the i', 'Summary: **A project, a location and a list of infoTypes.** Send the text, the i')
+   ('cols', 'SD2 R5', 'T17', 'Summary: **Same findings as inspection, under your detector name.** A custom mat', 'Summary: **Same findings as inspection, under your detector name.** A custom mat')
+   ('cols', 'SD2 R6', 'T20 (CORRECTION)', 'Summary: **A CustomInfoType object inside the inspect request.** Give a name, a ', 'Summary: **A CustomInfoType object inside the inspect request.** Give a name, a ')
+   ('cols', 'SD2 R8', 'T47', 'Summary: **Key open questions.** Which regex engine and syntax limits apply, con', 'Summary: **Key open questions.** Unsupported regex constructs, conflicting dicti')
+   ('cols', 'SD3 R1', 'T12', 'Summary: **Masks or replaces sensitive text and returns the cleaned item.** The ', 'Summary: **Masks or replaces sensitive text and returns the cleaned item.** The ')
+   ('cols', 'SD3 R4', 'T12', 'Summary: **Detect first, then transform each finding.** The call has three parts', 'Summary: **Detect first, then transform each finding.** The call has three parts')
+   ('cols', 'SD4 R4', 'T14', 'Summary: **Standard keyed encryption, not a model.** AES-SIV gives base64 tokens', 'Summary: **Standard keyed encryption, not a model.** AES-SIV gives base64 tokens')
+   ('cols', 'SD4 R5', 'T17', 'Summary: **Transformed text plus a summary, no verdict.** The response returns t', 'Summary: **Transformed text plus a summary of changes.** The response returns th')
+   ('cols', 'SD5 R1', 'T18', 'Summary: **Finds and blanks sensitive text and objects in images.** The service ', 'Summary: **Finds and blanks sensitive text and objects in images.** The service ')
+   ('cols', 'SD5 R2', 'T18', 'Summary: **Sensitive text and ID-type objects in pictures.** Text infoTypes run ', 'Summary: **Sensitive text and ID-type objects in pictures.** Text infoTypes run ')
+   ('cols', 'SD6 R2', 'T16', 'Summary: **Three image categories are listed.** They are sexually explicit, sexu', 'Summary: **Three image categories are listed.** They are sexually explicit, sexu')
+   ('cols', 'SD6 R4', 'T16', 'Summary: **A classifier over the whole image, with unnamed models.** Image conte', 'Summary: **A classifier over the whole image.** Image context detectors run an i')
+   ('cols', 'SD6 R5', 'T16', 'Summary: **A rated finding for the image, or a fully blanked image.** The docs s', 'Summary: **A rated finding for the image, or a fully blanked image.** The docs s')
+   ('cols', '(many)', 'T97', 'packages/google-cloud-dlp/(google/cloud/dlp/gapic_version\\.py@|README\\.rst@|setu', '\\1')
+   ('inv', "(f) row 'InfoType availability by location' cell 2", 'T89', 'Of 261 infoTypes, 240 are ANY_LOCATION and 21 are REGIONAL [Inferred] (my count ', 'Of 261 infoTypes, 240 are ANY_LOCATION and 21 are REGIONAL [Inferred] (count of ')
