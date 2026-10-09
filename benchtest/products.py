@@ -23,6 +23,9 @@ PRODUCTS = [
     dict(slug="sentinel", name="GovTech Sentinel", header_prefix="GovTech Sentinel:",
          two_level_md=DRAFTS / "sentinel_two_level.md", inventory_sheet="3e. GovTech Sentinel Inventory",
          inventory_builder_module="build_sentinel_inventory", notes="inventory via inventory_sheet"),
+    dict(slug="presidio", name="Presidio", header_prefix="Presidio:",
+         two_level_md=DRAFTS / "presidio_two_level.md", inventory_sheet="3f. Presidio Inventory",
+         inventory_builder_module="build_presidio_inventory", notes="inventory via inventory_sheet; PD1-PD6"),
 ]
 
 SHEET3 = "3. Guardrail Research Table"

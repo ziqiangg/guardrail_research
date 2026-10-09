@@ -1,0 +1,58 @@
+previous-commit sheet names: ['3. Guardrail Research Table', '3b. NeMo Rail Inventory', '3c. NeMo Evaluation Tooling', '3d. Llama Guard Inventory', '3e. GovTech Sentinel Inventory', '4. Candidate Comparison Groups']
+PASS - sheet order ['3. Guardrail Research Table', '3b. NeMo Rail Inventory', '3c. NeMo Evaluation Tooling', '3d. Llama Guard Inventory', '3e. GovTech Sentinel Inventory', '3f. Presidio Inventory', '4. Candidate Comparison Groups']
+PASS - previous sheets all present, in order, plus only 3f 
+derived: old last col AG (33), Presidio AH-AM (6), last col 39
+PASS - sheet 3: 39 columns (A-AM) 39
+PASS - sheet 3: max_row 21 21
+PASS - 27 merges equal to previous commit 
+PASS - outline levels (rows 5,7,..,21 level 1) [5, 7, 9, 11, 13, 15, 17, 19, 21]
+PASS - freeze panes E4 (as previous) 
+PASS - summaryBelow False 
+PASS - column widths 6/28/32/10 then 48 [48.0, 48.0, 48.0]
+PASS - old column widths A-AG identical to previous commit 
+PASS - AH3..AM3 are the 6 Presidio headers in md order (prefix 'Presidio:') ['PII detection in text (Analyzer)', 'PII anonymisation and masking in te', 'Reversible anonymisation and deanon', 'PII detection and redaction in imag', 'PII detection and anonymisation in ', 'Custom-recognizer detection (regex ']
+PASS - old header row identical (A3:AG3) 
+PASS - A-AG plain text vs previous commit: 0 diffs (0 diffs)
+PASS - F-AG rows 4-21 rich-text runs (text+bold) vs previous commit: 0 diffs (0 diffs)
+PASS - A-AG cell styles vs previous commit: 0 diffs (0 diffs)
+PASS - AH-AM plain text vs presidio_two_level.md parse: 0 mismatches (108 cells) (0)
+PASS - AH-AM Summary style checks (54 cells) (0 failing)
+PASS - AH-AM no ** or backticks (rows 4-21) []
+PASS - AH-AM non-Arial cells / rich runs: 0 ([], rich runs 0)
+PASS - AH-AM cell styles equal the AG styles row by row, all 6 columns (same house format) 
+PASS - 3b. NeMo Rail Inventory: values (incl. formulas), rich text, styles identical to previous commit (1430 cells, 0 diffs)
+PASS - 3b. NeMo Rail Inventory: merges, freeze, autofilter, widths, row heights/outline, extents identical 
+PASS - 3c. NeMo Evaluation Tooling: values (incl. formulas), rich text, styles identical to previous commit (760 cells, 0 diffs)
+PASS - 3c. NeMo Evaluation Tooling: merges, freeze, autofilter, widths, row heights/outline, extents identical 
+PASS - 3d. Llama Guard Inventory: values (incl. formulas), rich text, styles identical to previous commit (832 cells, 0 diffs)
+PASS - 3d. Llama Guard Inventory: merges, freeze, autofilter, widths, row heights/outline, extents identical 
+PASS - 3e. GovTech Sentinel Inventory: values (incl. formulas), rich text, styles identical to previous commit (1424 cells, 0 diffs)
+PASS - 3e. GovTech Sentinel Inventory: merges, freeze, autofilter, widths, row heights/outline, extents identical 
+PASS - 4. Candidate Comparison Groups: values (incl. formulas), rich text, styles identical to previous commit (544 cells, 0 diffs)
+PASS - 4. Candidate Comparison Groups: merges, freeze, autofilter, widths, row heights/outline, extents identical 
+PASS - 3f block row counts 14/31/10/14 [14, 31, 10, 14]
+PASS - 3f every cell equals cleaned md text (584 cells) (0 mismatches)
+PASS - 3f autofilter = block (a) only A4:H18
+PASS - 3f Covered-by values valid (real sheet-3 header or legacy/inventory-only marker), all 4 blocks (103 values; bad [])
+PASS - 3f amber fill exactly on marker cells 
+PASS - 3f validator validate_markers | markers: 5 marker cells; invalid or mixed values: 0 []
+panel: title row 88 (last block row 85 + 3 = 2 blank rows), 40 cells, equal to the specified formulas: OK
+two rows above the title empty: True | non-Arial panel cells: 0
+Python mirror counts per Table 3 column ['Recognizer families covering it', 'Operators covering it', 'Integration paths covering it', 'Components covering it']
+    [31, 0, 11, 6] Presidio: PII detection in text (Analyzer)
+    [0, 7, 11, 1] Presidio: PII anonymisation and masking in text (Anonymizer)
+    [0, 3, 6, 1] Presidio: Reversible anonymisation and deanonymisation (encrypt and decrypt)
+    [0, 0, 4, 2] Presidio: PII detection and redaction in images (Image Redactor)
+    [0, 8, 1, 1] Presidio: PII detection and anonymisation in structured data (tables and JSON)
+    [1, 0, 3, 1] Presidio: Custom-recognizer detection (regex patterns, deny lists, ad-hoc recognizers)
+    total Rows marked inventory only                           4
+    total Rows marked legacy                                   1
+Table 3 columns with a zero count: []
+PASS - 3f coverage panel equals spec; every Presidio column covered; inventory-only 4, legacy 1 {'Rows marked inventory only': 4, 'Rows marked legacy': 1}
+PASS - 3f no ** or backticks []
+PASS - 3f all Arial (cells + raw XML <c> check) (openpyxl 0, raw XML 0 of 643)
+PASS - 3f A1 bold 13; A2 italic grey; freeze A4 
+PASS - XML hygiene (all parts well-formed; worksheets + sharedStrings) (unpreserved <t>=0, <r> without rPr=0, empty <t>=0, parts checked=7, well-formed=True)
+urls: 223 unique (160 from AH20:AM21, 63 new from 3f Source URL cells) -> C:\Users\cys-c\Desktop\gzqr\gitubrepo\misc\researchrail\guardrail_research\benchtest\drafts\presidio_urls.txt
+
+SUMMARY: 41/41 checks passed

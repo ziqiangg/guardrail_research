@@ -273,9 +273,10 @@ def verify(wb, cfg, xlsx=None):
     counts_ok = all(len(p[1]) == n for p, (_, _, n) in zip(pos, cfg["blocks"]))
     h1, r1 = pos[0]
     W0 = len(blocks[0]["hdr"])
+    H1_WANT = 3 + (1 if blocks[0]["intro"] else 0)  # an md intro paragraph of block (a) becomes a note row above it
     want_af = f"A{h1}:{get_column_letter(W0)}{r1[-1]}"
     print("block row counts:", [len(p[1]) for p in pos], "OK" if counts_ok else "FAIL", "| first header row", h1,
-          "(3)", "OK" if h1 == 3 else "FAIL")
+          "(%d)" % H1_WANT, "OK" if h1 == H1_WANT else "FAIL")
     print("autofilter:", ws.auto_filter.ref, "expected", want_af, "OK" if ws.auto_filter.ref == want_af else "FAIL")
 
     # covered-by (every block that has the column)
@@ -320,7 +321,7 @@ def verify(wb, cfg, xlsx=None):
         n, xbad = xml_non_arial(xlsx, name)
         print("raw-XML font check (all %d <c> elements): non-Arial = %d" % (n, xbad))
     ok = (not mism and not bad and amber_ok and not marks and not nonar and not xbad and vok and counts_ok
-          and h1 == 3 and ws.auto_filter.ref == want_af and wb.sheetnames == exp_order)
+          and h1 == H1_WANT and ws.auto_filter.ref == want_af and wb.sheetnames == exp_order)
     print("%s overall:" % name, "PASS" if ok else "FAIL")
     assert ok
     return mism
