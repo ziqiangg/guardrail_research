@@ -118,7 +118,7 @@ Detail:
 • Run each set at all three confidence levels using one template per level, because the result gives a match state and a level, not a score; also compare a template that omits the level **[Inferred]**
 • Keep most test prompts at three words or more, and add a few two-word attacks to confirm the documented `NO_MATCH_FOUND` **[Inferred]**
 • Cover the nine tested languages and add Singlish, Malay and Tamil, which are not in the tested list (R2) **[Inferred]**
-• Region: choose a full-support location (for example us-central1); asia-southeast1 offers prompt injection and jailbreak detection with residency enforced, but not CSAM, multi-language, malicious URL, image or antivirus, unless `dataResidencyCompliant` is set to false (feature availability page, release note 2026-08-27) **[Inferred]**
+• Region: choose a full-support location (for example us-central1); asia-southeast1 offers prompt injection and jailbreak detection with residency enforced, but not CSAM, multi-language, malicious URL, image or antivirus; setting `dataResidencyCompliant` to false enables all of these except image, which stays limited to the us and eu multi-regions (feature availability page, templates page, release note 2026-08-27) **[Inferred]**
 • Repeat the run with templates pinned to v3 and then v4 (`filterVersionSelector`), since the model changes between versions **[Inferred]**
 • No self-hosted or offline option is described (R4), so tests need network access to Google Cloud and a billing account **[Inferred]**
 ### R8

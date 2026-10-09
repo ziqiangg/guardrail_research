@@ -123,7 +123,7 @@ Detail:
 • Send some items with the optional `userPrompt` field to see whether results change (R3) **[Inferred]**
 • Test short outputs of fewer than three words to see whether the documented three-word rule also applies to responses (R5) **[Inferred]**
 • Cover the nine tested languages and add Singlish, Malay and Tamil, which are not in the tested list (R2) **[Inferred]**
-• Region: choose a full-support location (for example us-central1); asia-southeast1 offers prompt injection and jailbreak detection with residency enforced, but not CSAM, multi-language, malicious URL, image or antivirus, unless `dataResidencyCompliant` is set to false (feature availability page, release note 2026-08-27) **[Inferred]**
+• Region: choose a full-support location (for example us-central1); asia-southeast1 offers prompt injection and jailbreak detection with residency enforced, but not CSAM, multi-language, malicious URL, image or antivirus; setting `dataResidencyCompliant` to false enables all of these except image, which stays limited to the us and eu multi-regions (feature availability page, templates page, release note 2026-08-27) **[Inferred]**
 • No self-hosted or offline option is described (R4), so tests need network access to Google Cloud and a billing account **[Inferred]**
 ### R8
 Summary: **Key open questions.** Which model backs the filter, what response-side detection covers, which threshold to use, whether the three-word rule applies to responses, accuracy by attack type, and the exclusion rules schema gap.

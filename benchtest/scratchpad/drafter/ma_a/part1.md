@@ -116,7 +116,7 @@ Detail:
 • Run each set at all three confidence levels using one template per level, because the result gives match states, not scores **[Inferred]**
 • Cover the nine tested languages and add Singlish, Malay and Tamil, which are not in the tested list (R2) **[Inferred]**
 • Do not build CSAM test material; check only that `csam` returns `EXECUTION_SUCCESS` and `NO_MATCH_FOUND` on benign text **[Inferred]**
-• Region: choose a full-support location (for example us-central1); asia-southeast1 offers the responsible AI filter with residency enforced but not CSAM, multi-language, malicious URL, image or antivirus, unless `dataResidencyCompliant` is set to false (feature availability page, release note 2026-08-27) **[Inferred]**
+• Region: choose a full-support location (for example us-central1); asia-southeast1 offers the responsible AI filter with residency enforced but not CSAM, multi-language, malicious URL, image or antivirus; setting `dataResidencyCompliant` to false enables all of these except image, which stays limited to the us and eu multi-regions (feature availability page, templates page, release note 2026-08-27) **[Inferred]**
 • No self-hosted or offline option is described (R4), so tests need network access to Google Cloud and a billing account **[Inferred]**
 ### R8
 Summary: **Key open questions.** Which model backs the filter, the default confidence level, what the per-category confidence field means, accuracy by category and language, CSAM behaviour in limited-support regions, and any topic enforcement.
