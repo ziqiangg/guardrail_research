@@ -151,7 +151,9 @@ Detail:
 • https://cloud.google.com/security/products/model-armor
 • https://cloud.google.com/security-command-center/pricing
 • https://github.com/googleapis/google-cloud-go/blob/37f936ac9d69e173da0ba4123e382c52b2dd741f/modelarmor/apiv1/modelarmorpb/service.pb.go
-
+• https://docs.cloud.google.com/model-armor/best-practices
+• https://docs.cloud.google.com/model-armor/reference/libraries
+• https://cloud.google.com/blog/products/identity-security/how-model-armor-can-help-protect-your-ai-apps
 ## Column MA6: Model Armor: Output-level sensitive data detection and de-identification (Sensitive Data Protection)
 ### R1
 Summary: **Output-level sensitive data detection and de-identification.** Model Armor calls Sensitive Data Protection on a model response to find sensitive items that the model produced or repeated. Advanced mode with a de-identify template returns a de-identified copy; basic mode only inspects. **[Documented]**
@@ -292,7 +294,9 @@ Detail:
 • https://cloud.google.com/security/products/model-armor
 • https://cloud.google.com/security-command-center/pricing
 • https://github.com/googleapis/google-cloud-go/blob/37f936ac9d69e173da0ba4123e382c52b2dd741f/modelarmor/apiv1/modelarmorpb/service.pb.go
-
+• https://docs.cloud.google.com/model-armor/best-practices
+• https://docs.cloud.google.com/model-armor/reference/libraries
+• https://cloud.google.com/blog/products/identity-security/how-model-armor-can-help-protect-your-ai-apps
 ## Column MA9: Model Armor: Document screening (PDF, CSV, text and Office files)
 ### R1
 Summary: **Screens the text inside uploaded documents.** Model Armor extracts text from supported PDF, CSV, text and Office files and runs the template's filters on it. Only the direct API and the Gemini Enterprise integration accept documents; other integrations take text only. **[Documented]**
@@ -571,3 +575,6 @@ Detail:
 • https://docs.cloud.google.com/model-armor/reference/rest/v1/SanitizationResult
 • https://cloud.google.com/security-command-center/pricing
 • https://github.com/googleapis/google-cloud-go/blob/37f936ac9d69e173da0ba4123e382c52b2dd741f/modelarmor/apiv1/modelarmorpb/service.pb.go
+• https://docs.cloud.google.com/model-armor/best-practices
+• https://cloud.google.com/blog/products/identity-security/how-model-armor-can-help-protect-your-ai-apps
+• https://cloud.google.com/security/products/model-armor
