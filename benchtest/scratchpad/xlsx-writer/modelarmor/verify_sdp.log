@@ -1,0 +1,8 @@
+previous-commit sheet names: ['3. Guardrail Research Table', '3b. NeMo Rail Inventory', '3c. NeMo Evaluation Tooling', '3d. Llama Guard Inventory', '3e. GovTech Sentinel Inventory', '3f. Presidio Inventory', '3g. SDP Inventory', '3h. Model Armor Inventory', '4. Candidate Comparison Groups']
+PASS - sheet order ['3. Guardrail Research Table', '3b. NeMo Rail Inventory', '3c. NeMo Evaluation Tooling', '3d. Llama Guard Inventory', '3e. GovTech Sentinel Inventory', '3f. Presidio Inventory', '3g. SDP Inventory', '3h. Model Armor Inventory', '4. Candidate Comparison Groups']
+FAIL - previous sheets all present, in order, plus only 3g 
+Traceback (most recent call last):
+  File "C:\Users\cys-c\Desktop\gzqr\gitubrepo\misc\researchrail\guardrail_research\benchtest\verify_sdp_apply.py", line 75, in <module>
+    assert len(mds) == 5, n_each
+           ^^^^^^^^^^^^^
+AssertionError: [16, 5, 7, 6, 6, 10]

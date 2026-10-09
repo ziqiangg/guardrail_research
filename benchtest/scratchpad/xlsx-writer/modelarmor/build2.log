@@ -1,0 +1,323 @@
+header diffs vs current sheet 3:
+  total differences: 0
+sheet order: ['3. Guardrail Research Table', '3b. NeMo Rail Inventory', '3c. NeMo Evaluation Tooling', '3d. Llama Guard Inventory', '3e. GovTech Sentinel Inventory', '3f. Presidio Inventory', '3g. SDP Inventory', '3h. Model Armor Inventory', '4. Candidate Comparison Groups']
+A3:BC3: ['No.', 'Research question', 'Why it affects the test-bench scope', 'Level', 'Amazon Bedrock Guardrails: PII detection and masking', 'NeMo Guardrails: Input-level jailbreak detection', 'NeMo Guardrails: Input-level content-safety moderation', 'NeMo Guardrails: Output-level content-safety moderation', 'NeMo Guardrails: Input-level topic control', 'NeMo Guardrails: Dialog-level conversational flow control', 'NeMo Guardrails: Input-level PII detection & masking', 'NeMo Guardrails: Output-level PII detection & masking', 'NeMo Guardrails: Retrieval-level chunk filtering', 'NeMo Guardrails: Regex pattern blocklist (input/output)', 'NeMo Guardrails: Output-level injection detection', 'NeMo Guardrails: Context-bloat detection (input)', 'NeMo Guardrails: Tool-call validation', 'NeMo Guardrails: Tool-result validation', 'NeMo Guardrails: Grounded fact-checking (output)', 'NeMo Guardrails: Self-consistency hallucination detection (output)', 'NeMo Guardrails: Execution-level custom action rails', 'Llama Guard: Input-level prompt content-safety classification', 'Llama Guard: Output-level response content-safety classification', 'Llama Guard: Multimodal (image + text) content-safety classification', 'Llama Guard: Code-interpreter and tool-use abuse classification', 'Llama Guard: Custom-policy classification', 'GovTech Sentinel: Localised harmful-content classification (LionGuard 2)', 'GovTech Sentinel: Prompt-attack detection', 'GovTech Sentinel: Off-topic prompt detection against the system prompt', 'GovTech Sentinel: System-prompt leakage detection', 'GovTech Sentinel: Refusal detection', 'GovTech Sentinel: PII detection and masking (AWS Bedrock)', 'GovTech Sentinel: Generic content moderation via AWS Bedrock Guardrails', 'Presidio: PII detection in text (Analyzer)', 'Presidio: PII anonymisation and masking in text (Anonymizer)', 'Presidio: Reversible anonymisation and deanonymisation (encrypt and decrypt)', 'Presidio: PII detection and redaction in images (Image Redactor)', 'Presidio: PII detection and anonymisation in structured data (tables and JSON)', 'Presidio: Custom-recognizer detection (regex patterns, deny lists, ad-hoc recognizers)', 'Sensitive Data Protection: Sensitive-data detection in text (infoType inspection)', 'Sensitive Data Protection: Custom detectors and inspection rules (custom infoTypes)', 'Sensitive Data Protection: Sensitive-data masking and de-identification in text', 'Sensitive Data Protection: Reversible tokenisation and re-identification (AES-SIV and FPE)', 'Sensitive Data Protection: Sensitive-data detection and redaction in images', 'Sensitive Data Protection: Image safety classification (sexual and violent content)', 'Model Armor: Input-level responsible AI safety filtering', 'Model Armor: Output-level responsible AI safety filtering', 'Model Armor: Input-level prompt injection and jailbreak detection', 'Model Armor: Output-level prompt injection and jailbreak detection', 'Model Armor: Input-level sensitive data detection and de-identification (Sensitive Data Protection)', 'Model Armor: Output-level sensitive data detection and de-identification (Sensitive Data Protection)', 'Model Armor: Input-level malicious URL detection', 'Model Armor: Output-level malicious URL detection', 'Model Armor: Document screening (PDF, CSV, text and Office files)', 'Model Armor: Image screening with OCR and visual scanning']
+max_row: 21 (21)  max_column: 55 (55)
+freeze_panes: E4
+merged count: 27 (27) ['A10:A11', 'A12:A13', 'A14:A15', 'A16:A17', 'A18:A19', 'A20:A21', 'A4:A5', 'A6:A7', 'A8:A9', 'B10:B11', 'B12:B13', 'B14:B15', 'B16:B17', 'B18:B19', 'B20:B21', 'B4:B5', 'B6:B7', 'B8:B9', 'C10:C11', 'C12:C13', 'C14:C15', 'C16:C17', 'C18:C19', 'C20:C21', 'C4:C5', 'C6:C7', 'C8:C9']
+outline problems: [] summaryBelow: False
+  FAIL F16 ['words=66']
+summary check failures: 1
+F-BC plain-text mismatches: 0
+Bedrock E mismatches: 0
+non-Arial cells rows 4-21: 27 ['A5', 'B5', 'C5', 'A7', 'B7']
+worksheet parts: ['xl/worksheets/sheet1.xml', 'xl/worksheets/sheet2.xml', 'xl/worksheets/sheet3.xml', 'xl/worksheets/sheet4.xml', 'xl/worksheets/sheet5.xml', 'xl/worksheets/sheet6.xml', 'xl/worksheets/sheet7.xml', 'xl/worksheets/sheet8.xml', 'xl/worksheets/sheet9.xml']
+all 17 parts well-formed
+inline <t> ws w/o xml:space=preserve: 0  <r> without rPr: 0  empty <t>: 0
+F10: Depends on the selected detector. A perplexity-based heuristic check (LLMRails only) or an embedding classifier served by an NVIDIA model service. If the detector is unreachable, requests are let through. Several third-party guards also offer jailbreak or prompt-injection detection. [Documented]
+F11: • Depends on the selected flow [Documented]
+• Heuristics check length-per-perplexity (threshold 89.79) [Documented]
+• Heuristics check prefix/suffix perplexity (threshold 1845.65, inputs over 20 words) [Documented]
+• Both heuristic thresholds are configurable and must be above 0; the code defaults match the docs [Documented]
+• Heuristics run in-process only with transformers and torch installed (perplexity uses gpt2-large); the manifest declares both as optional dependencies, and a server_endpoint avoids the local install [Documented]
+• In-process mode is for testing only [Documented]
+• Production should set server_endpoint [Documented]
+• Model flow uses a random forest on Snowflake Arctic embeddings [Documented]
+• Model flow is called through the NemoGuard JailbreakDetect NIM [Documented]
+  – settings: nim_base_url, nim_server_endpoint (code default classify), and api_key (takes precedence) or api_key_env_var
+  – the tutorial sets the endpoint to /v1/security/nvidia/nemoguard-jailbreak-detect
+  – nim_url and nim_port are deprecated
+• Engine support: heuristics run on LLMRails only (IORails blocks them because the backend is ambiguous, issue #2285) [Documented]
+• Engine support: model flow runs on both engines [Documented]
+• If the detector is unreachable the rail allows the request (fails open) [Documented]
+• NIM training data: the model card says a combination of three open datasets, de-duplicated and reviewed, while the NVIDIA docs page names different datasets (AdvBench, ToxicChat, JailbreakChat and 1000 Dolly-15k examples), so the two sources disagree [Documented]
+• Optional third-party backends (all-in-one guards whose NVIDIA pages state jailbreak/prompt-injection detection):
+  – AutoAlign (autoalign check input; page lists a jailbreak detection guardrail, https://docs.nvidia.com/nemo/guardrails/configure-guardrails/guardrail-catalog/third-party/auto-align; runs on LLMRails and IORails) [Documented] (licensing to be verified) [To be verified]
+  – Pangea AI Guard (pangea ai guard input; page lists prompt injection attacks, https://docs.nvidia.com/nemo/guardrails/configure-guardrails/guardrail-catalog/third-party/pangea; runs on LLMRails and IORails) (deprecated per NVIDIA third-party page) [Documented] (licensing to be verified) [To be verified]
+  – CrowdStrike AIDR (crowdstrike aidr guard input; page lists prompt injection and jailbreak attempts, https://docs.nvidia.com/nemo/guardrails/configure-guardrails/guardrail-catalog/third-party/crowdstrike-aidr; runs on LLMRails and IORails) [Documented] (commercial vendor; subscription required, contact-sales) [Documented: vendor site]
+  – Trend Micro (trend ai guard input; page lists prompt injection attacks, https://docs.nvidia.com/nemo/guardrails/configure-guardrails/guardrail-catalog/third-party/trend-micro; runs on LLMRails and IORails) [Documented] (commercial vendor; free trial and contact-sales, no public price; AI Guard product page not checked) [To be verified]
+  – Fiddler (fiddler user safety; page says it detects jailbreaking inputs, https://docs.nvidia.com/nemo/guardrails/configure-guardrails/guardrail-catalog/third-party/fiddler; runs on LLMRails and IORails) [Documented] (paid / non-OSS service with free tier) [Documented: vendor site]
+  – Guardrails AI (guardrailsai check input $validator=...; page lists jailbreak detection validators such as detect_jailbreak, https://docs.nvidia.com/nemo/guardrails/configure-guardrails/guardrail-catalog/third-party/guardrails-ai; runs on LLMRails and IORails) [Documented] (open-source, Apache-2.0) [Documented: vendor site]
+  – HF classifier (hf classifier check input $classifier=prompt_injection; page shows prompt injection detection on the input rail, https://docs.nvidia.com/nemo/guardrails/configure-guardrails/guardrail-catalog/third-party/hf-classifier; runs on LLMRails and IORails) [Documented] (licence depends on the chosen model) [To be verified]
+
+=== build_eval_sheet verification (3c) ===
+sheet order: ['3. Guardrail Research Table', '3b. NeMo Rail Inventory', '3c. NeMo Evaluation Tooling', '3d. Llama Guard Inventory', '3e. GovTech Sentinel Inventory', '3f. Presidio Inventory', '3g. SDP Inventory', '3h. Model Armor Inventory', '4. Candidate Comparison Groups'] OK
+A1: 3c. NeMo Guardrails Evaluation Tooling (v0.24.1) | bold/size: True 13.0
+A2: Built-in evaluation tools, datasets, published res ... italic/color: True 00808080
+freeze: A3 (A3)  widths: [30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0]
+block width: 8  max_row: 95  row heights set: 0 (0)
+section headings: ['Overview', 'Tools', 'Datasets', 'Published results', 'Red-teaming', 'Engine coverage', 'Reuse for the test bench', 'Open questions'] OK
+heading rows not merged across width: []
+  Overview: md tables rows [] vs sheet [] OK
+  Tools: md tables rows [9] vs sheet [9] OK
+  Datasets: md tables rows [14] vs sheet [14] OK
+  Published results: md tables rows [11] vs sheet [11] OK
+  Red-teaming: md tables rows [] vs sheet [] OK
+  Engine coverage: md tables rows [] vs sheet [] OK
+  Reuse for the test bench: md tables rows [] vs sheet [] OK
+  Open questions: md tables rows [] vs sheet [] OK
+table row-count failures: 0
+cells with ** or backtick: 0 []
+non-Arial cells: 0 [] | non-Arial rich runs: 0 | whitespace-only TextBlocks: 0 | rich cells: 49 bold runs: 78
+raw-XML font check (all 760 <c> elements incl. merged-away cells): non-Arial = 0
+plain-text mismatches vs md (293 content strings compared): 0
+
+=== inventory_sheet verification (3d. Llama Guard Inventory) ===
+sheet order: ['3. Guardrail Research Table', '3b. NeMo Rail Inventory', '3c. NeMo Evaluation Tooling', '3d. Llama Guard Inventory', '3e. GovTech Sentinel Inventory', '3f. Presidio Inventory', '3g. SDP Inventory', '3h. Model Armor Inventory', '4. Candidate Comparison Groups'] OK
+A1: 3d. Llama Guard Inventory (Llama Guard 1 to 4) | bold/size: True 13.0 | A2 italic/color: True 00808080
+freeze: A4 (A4)  max_row: 52  widths: [28.0, 30.0, 34.0, 30.0, 26.0, 45.0, 50.0, 40.0, 34.0, 30.0, 34.0, 32.0, 30.0, 40.0, 40.0, 50.0]
+  block 'Variant': header row 3, rows 8 (md 8), mismatches 0 | cells beyond block width: 0
+  block 'Hazard concept': header row 15, rows 14 (md 14), mismatches 0 | cells beyond block width: 0
+  block 'Path': header row 33, rows 9 (md 9), mismatches 0 | cells beyond block width: 0
+cell text vs cleaned md (339 cells compared): 0 mismatches
+block row counts: [8, 14, 9] OK | first header row 3 (3) OK
+autofilter: A3:P11 expected A3:P11 OK
+covered-by values not a sheet-3 row-3 header or marker: 0 [] | marker cells: 2 | amber cells == marker cells: True
+panel: title row 45 (last block row 42 + 3 = 2 blank rows), 15 cells, equal to the specified formulas: OK
+two rows above the title empty: True | non-Arial panel cells: 0
+Python mirror counts per Table 3 column ['Variants covering it']
+    [6] Llama Guard: Input-level prompt content-safety classification
+    [6] Llama Guard: Output-level response content-safety classification
+    [2] Llama Guard: Multimodal (image + text) content-safety classification
+    [3] Llama Guard: Code-interpreter and tool-use abuse classification
+    [5] Llama Guard: Custom-policy classification
+    total Variants marked legacy                               2
+Table 3 columns with a zero count: []
+  crosswalk rows: 14 (14) | LG3/4 codes: 14 (14) OK | LG2 codes: 11 (11) OK | LG1 codes: 6 (6) OK
+  variant rows: 8 (8) | integration rows: 9 (9)
+cells with ** or backtick on 3d. Llama Guard Inventory: 0 []
+non-Arial cells with values: 0 []
+raw-XML font check (all 361 <c> elements): non-Arial = 0
+3d. Llama Guard Inventory overall: PASS
+
+=== inventory_sheet verification (3e. GovTech Sentinel Inventory) ===
+sheet order: ['3. Guardrail Research Table', '3b. NeMo Rail Inventory', '3c. NeMo Evaluation Tooling', '3d. Llama Guard Inventory', '3e. GovTech Sentinel Inventory', '3f. Presidio Inventory', '3g. SDP Inventory', '3h. Model Armor Inventory', '4. Candidate Comparison Groups'] OK
+A1: 3e. GovTech Sentinel Inventory (Guardrails as a Service + GovTech models) | bold/size: True 13.0 | A2 italic/color: True 00808080
+freeze: A4 (A4)  max_row: 89  widths: [30.0, 42.0, 46.0, 38.0, 36.0, 40.0, 36.0, 46.0, 40.0, 46.0, 36.0, 36.0, 46.0, 40.0, 40.0, 46.0]
+  block 'Variant': header row 3, rows 9 (md 9), mismatches 0 | cells beyond block width: 0
+  block 'Guardrail ID': header row 16, rows 24 (md 24), mismatches 0 | cells beyond block width: 0
+  block 'Concept': header row 44, rows 12 (md 12), mismatches 0 | cells beyond block width: 0
+  block 'Path': header row 59, rows 9 (md 9), mismatches 0 | cells beyond block width: 0
+cell text vs cleaned md (603 cells compared): 0 mismatches
+block row counts: [9, 24, 12, 9] OK | first header row 3 (3) OK
+autofilter: A3:P12 expected A3:P12 OK
+covered-by values not a sheet-3 row-3 header or marker: 0 [] | marker cells: 3 | amber cells == marker cells: True
+panel: title row 71 (last block row 68 + 3 = 2 blank rows), 45 cells, equal to the specified formulas: OK
+two rows above the title empty: True | non-Arial panel cells: 0
+Python mirror counts per Table 3 column ['Model variants covering it', 'Guardrail IDs covering it']
+    [3, 11] GovTech Sentinel: Localised harmful-content classification (LionGuard 2)
+    [1, 1] GovTech Sentinel: Prompt-attack detection
+    [2, 1] GovTech Sentinel: Off-topic prompt detection against the system prompt
+    [1, 1] GovTech Sentinel: System-prompt leakage detection
+    [1, 1] GovTech Sentinel: Refusal detection
+    [0, 1] GovTech Sentinel: PII detection and masking (AWS Bedrock)
+    [0, 6] GovTech Sentinel: Generic content moderation via AWS Bedrock Guardrails
+    total Guardrail IDs Available                              22
+    total Guardrail IDs Planned                                2
+    total Guardrail IDs owned by GovTech                       16
+    total Guardrail IDs owned by AWS                           7
+    total Guardrail IDs owned by Meta (model; listed under owner govtech) 1
+    total Guardrail IDs: Input/Output (first stated)           13
+    total Guardrail IDs: Input only (first stated)             8
+    total Guardrail IDs: Output only (first stated)            3
+    total Covered-by values marked planned                     2
+    total Covered-by values marked legacy                      1
+Table 3 columns with a zero count: []
+  catalogue: 24 rows, IDs unique=True | Available 22, Planned 2 | Available rows with non-header or marker covered-by / Planned rows without planned marker: 0 []
+  crosswalk rows: 12 (12) | LG1 keys missing: [] (of 8) | LG2 keys missing: [] (of 11)
+  panel partitions of the 24 IDs: status 24, owner 24, input/output 24 (all 24)
+cells with ** or backtick on 3e. GovTech Sentinel Inventory: 0 []
+non-Arial cells with values: 0 []
+raw-XML font check (all 667 <c> elements): non-Arial = 0
+3e. GovTech Sentinel Inventory overall: PASS
+
+=== inventory_sheet verification (3f. Presidio Inventory) ===
+sheet order: ['3. Guardrail Research Table', '3b. NeMo Rail Inventory', '3c. NeMo Evaluation Tooling', '3d. Llama Guard Inventory', '3e. GovTech Sentinel Inventory', '3f. Presidio Inventory', '3g. SDP Inventory', '3h. Model Armor Inventory', '4. Candidate Comparison Groups'] OK
+A1: 3f. Presidio Inventory (PII detection and de-identification toolkit) | bold/size: True 13.0 | A2 italic/color: True 00808080
+freeze: A4 (A4)  max_row: 97  widths: [34.0, 44.0, 48.0, 36.0, 36.0, 40.0, 44.0, 46.0]
+  block 'Component': header row 4, rows 14 (md 14), mismatches 0 | cells beyond block width: 0
+  block 'Recognizer or family': header row 22, rows 31 (md 31), mismatches 0 | cells beyond block width: 0
+  block 'Operator': header row 57, rows 10 (md 10), mismatches 0 | cells beyond block width: 0
+  block 'Path': header row 71, rows 14 (md 14), mismatches 0 | cells beyond block width: 0
+cell text vs cleaned md (584 cells compared): 0 mismatches
+block row counts: [14, 31, 10, 14] OK | first header row 4 (4) OK
+autofilter: A4:H18 expected A4:H18 OK
+covered-by values not a sheet-3 row-3 header or marker: 0 [] | marker cells: 5 | amber cells == marker cells: True
+panel: title row 88 (last block row 85 + 3 = 2 blank rows), 40 cells, equal to the specified formulas: OK
+two rows above the title empty: True | non-Arial panel cells: 0
+Python mirror counts per Table 3 column ['Recognizer families covering it', 'Operators covering it', 'Integration paths covering it', 'Components covering it']
+    [31, 0, 11, 6] Presidio: PII detection in text (Analyzer)
+    [0, 7, 11, 1] Presidio: PII anonymisation and masking in text (Anonymizer)
+    [0, 3, 6, 1] Presidio: Reversible anonymisation and deanonymisation (encrypt and decrypt)
+    [0, 0, 4, 2] Presidio: PII detection and redaction in images (Image Redactor)
+    [0, 8, 1, 1] Presidio: PII detection and anonymisation in structured data (tables and JSON)
+    [1, 0, 3, 1] Presidio: Custom-recognizer detection (regex patterns, deny lists, ad-hoc recognizers)
+    total Rows marked inventory only                           4
+    total Rows marked legacy                                   1
+Table 3 columns with a zero count: []
+  markers: 5 marker cells; invalid or mixed values: 0 []
+cells with ** or backtick on 3f. Presidio Inventory: 0 []
+non-Arial cells with values: 0 []
+raw-XML font check (all 643 <c> elements): non-Arial = 0
+3f. Presidio Inventory overall: PASS
+
+=== inventory_sheet verification (3g. SDP Inventory) ===
+sheet order: ['3. Guardrail Research Table', '3b. NeMo Rail Inventory', '3c. NeMo Evaluation Tooling', '3d. Llama Guard Inventory', '3e. GovTech Sentinel Inventory', '3f. Presidio Inventory', '3g. SDP Inventory', '3h. Model Armor Inventory', '4. Candidate Comparison Groups'] OK
+A1: 3g. Sensitive Data Protection Inventory (Google Cloud sensitive-data detection and de-identification) | bold/size: True 13.0 | A2 italic/color: True 00808080
+freeze: A4 (A4)  max_row: 123  widths: [34.0, 44.0, 40.0, 36.0, 36.0, 40.0, 44.0, 46.0]
+  block 'Component': header row 4, rows 15 (md 15), mismatches 0 | cells beyond block width: 0
+  block 'Group': header row 23, rows 24 (md 24), mismatches 0 | cells beyond block width: 0
+  block 'Transformation': header row 51, rows 12 (md 12), mismatches 0 | cells beyond block width: 0
+  block 'Path': header row 67, rows 13 (md 13), mismatches 0 | cells beyond block width: 0
+  block 'Item': header row 84, rows 16 (md 16), mismatches 0 | cells beyond block width: 0
+  block 'Topic': header row 104, rows 7 (md 7), mismatches 0 | cells beyond block width: 0
+cell text vs cleaned md (619 cells compared): 0 mismatches
+block row counts: [15, 24, 12, 13, 16, 7] OK | first header row 4 (4) OK
+autofilter: A4:H19 expected A4:H19 OK
+covered-by values not a sheet-3 row-3 header or marker: 0 [] | marker cells: 16 | amber cells == marker cells: True
+panel: title row 114 (last block row 111 + 3 = 2 blank rows), 40 cells, equal to the specified formulas: OK
+two rows above the title empty: True | non-Arial panel cells: 0
+Python mirror counts per Table 3 column ['Methods and components covering it', 'InfoType groups covering it', 'Transformations covering it', 'Integration paths covering it']
+    [3, 22, 0, 4] Sensitive Data Protection: Sensitive-data detection in text (infoType inspection)
+    [2, 0, 0, 4] Sensitive Data Protection: Custom detectors and inspection rules (custom infoTypes)
+    [2, 0, 12, 4] Sensitive Data Protection: Sensitive-data masking and de-identification in text
+    [2, 0, 2, 4] Sensitive Data Protection: Reversible tokenisation and re-identification (AES-SIV and FPE)
+    [2, 1, 0, 4] Sensitive Data Protection: Sensitive-data detection and redaction in images
+    [2, 1, 0, 4] Sensitive Data Protection: Image safety classification (sexual and violent content)
+    total Rows marked inventory only                           15
+    total Rows marked legacy                                   1
+Table 3 columns with a zero count: []
+  markers: 16 marker cells; invalid or mixed values: 0 []
+cells with ** or backtick on 3g. SDP Inventory: 0 []
+non-Arial cells with values: 0 []
+raw-XML font check (all 682 <c> elements): non-Arial = 0
+3g. SDP Inventory overall: PASS
+
+=== inventory_sheet verification (3h. Model Armor Inventory) ===
+sheet order: ['3. Guardrail Research Table', '3b. NeMo Rail Inventory', '3c. NeMo Evaluation Tooling', '3d. Llama Guard Inventory', '3e. GovTech Sentinel Inventory', '3f. Presidio Inventory', '3g. SDP Inventory', '3h. Model Armor Inventory', '4. Candidate Comparison Groups'] OK
+A1: 3h. Model Armor Inventory (Google Cloud prompt and response screening service) | bold/size: True 13.0 | A2 italic/color: True 00808080
+freeze: A4 (A4)  max_row: 114  widths: [34.0, 44.0, 40.0, 36.0, 36.0, 40.0, 44.0, 40.0, 40.0, 50.0]
+  block 'Filter': header row 4, rows 10 (md 10), mismatches 0 | cells beyond block width: 0
+  block 'Path': header row 18, rows 15 (md 15), mismatches 0 | cells beyond block width: 0
+  block 'Parameter': header row 37, rows 16 (md 16), mismatches 0 | cells beyond block width: 0
+  block 'Location': header row 57, rows 20 (md 20), mismatches 0 | cells beyond block width: 0
+  block 'Item': header row 81, rows 16 (md 16), mismatches 0 | cells beyond block width: 0
+cell text vs cleaned md (727 cells compared): 0 mismatches
+block row counts: [10, 15, 16, 20, 16] OK | first header row 4 (4) OK
+autofilter: A4:J14 expected A4:J14 OK
+covered-by values not a sheet-3 row-3 header or marker: 0 [] | marker cells: 8 | amber cells == marker cells: True
+panel: title row 100 (last block row 97 + 3 = 2 blank rows), 40 cells, equal to the specified formulas: OK
+two rows above the title empty: True | non-Arial panel cells: 0
+Python mirror counts per Table 3 column ['Filters and detectors covering it', 'Integration paths covering it']
+    [2, 8] Model Armor: Input-level responsible AI safety filtering
+    [2, 8] Model Armor: Output-level responsible AI safety filtering
+    [1, 8] Model Armor: Input-level prompt injection and jailbreak detection
+    [1, 8] Model Armor: Output-level prompt injection and jailbreak detection
+    [3, 8] Model Armor: Input-level sensitive data detection and de-identification (Sensitive Data Protection)
+    [3, 8] Model Armor: Output-level sensitive data detection and de-identification (Sensitive Data Protection)
+    [1, 8] Model Armor: Input-level malicious URL detection
+    [1, 8] Model Armor: Output-level malicious URL detection
+    [1, 3] Model Armor: Document screening (PDF, CSV, text and Office files)
+    [2, 3] Model Armor: Image screening with OCR and visual scanning
+    total Rows marked inventory only                           8
+    total Rows marked legacy                                   0
+    total Rows marked planned                                  0
+Table 3 columns with a zero count: []
+  markers: 8 marker cells; invalid or mixed values: 0 []
+cells with ** or backtick on 3h. Model Armor Inventory: 0 []
+non-Arial cells with values: 0 []
+raw-XML font check (all 783 <c> elements): non-Arial = 0
+3h. Model Armor Inventory overall: PASS
+
+=== build_inventory verification ===
+sheet order: ['3. Guardrail Research Table', '3b. NeMo Rail Inventory', '3c. NeMo Evaluation Tooling', '3d. Llama Guard Inventory', '3e. GovTech Sentinel Inventory', '3f. Presidio Inventory', '3g. SDP Inventory', '3h. Model Armor Inventory', '4. Candidate Comparison Groups'] OK
+surface rows: 80 (80); header: ['#', 'Manifest (library folder)', 'Direction', 'Flow (surface)', 'LLMRails', 'IORails', 'IORails note', 'Built-in / third-party', 'Covered by Table 3 column', 'Source URL']
+direction counts: {'input': 32, 'output': 35, 'retrieval': 11, 'tool_output': 1, 'tool_input': 1} OK
+IORails ✓ among input/output/retrieval: 59 (59) OK
+covered-by values not exact sheet-3 header: 0 []
+rail-type header row: [86] ; rail-type rows: 7 (7) ['Input rails', 'Output rails', 'Dialog rails', 'Retrieval (RAG and knowledge base) rails', 'Execution rails (custom actions)', 'Tool rails', 'Transform (mask, redact, sanitize) rails']
+cells with ** or backtick on 3b: 0 []
+freeze: A4  autofilter: A3:J83  widths: [5.0, 20.0, 11.0, 34.0, 11.0, 11.0, 45.0, 40.0, 40.0, 50.0]
+max_row 3b: 143
+XML (9 parts checked, all parts well-formed): t-ws-no-preserve=0, r-no-rPr=0, empty-t=0
+urls: 107 unique (103 from sheet3 R9 detail, 4 new from 3b) -> C:\Users\cys-c\Desktop\gzqr\gitubrepo\misc\researchrail\guardrail_research\benchtest\drafts\v2_urls.txt
+
+=== 3b formula panel verification ===
+surface table: header row 3 = # ..; last row 83 = 80 ; row 84 = None (None); rows: 80 (80)
+rail-type table rows 87 - 93 Covered-by column F ; panel heading row 106 col A = 'Summary panel (live formulas)'
+panel cells: 125 ; rows 106 - 143 ; panel cells inside A3:J83: 0
+two rows above the heading empty: True
+panel formulas: 97  dynamic-array functions found: []
+rail-type Covered-by values: ['Input-side columns (jailbreak, content safety, topic, PII, regex, context bloat)', 'Output-side columns (content safety, PII, regex, injection, fact-checking, hallucination)', 'NeMo Guardrails: Dialog-level conversational flow control', 'NeMo Guardrails: Retrieval-level chunk filtering', 'NeMo Guardrails: Execution-level custom action rails (new column)', 'NeMo Guardrails: Tool-call validation; NeMo Guardrails: Tool-result validation', 'NeMo Guardrails: Input-level PII detection & masking; NeMo Guardrails: Output-level PII detection & masking; also NeMo Guardrails: Context-bloat detection (input) (truncate), NeMo Guardrails: Output-level injection detection (omit), and rewriting vendor rails under the content-safety columns (autoalign, crowdstrike, pangea, prompt security)']
+Python-expected  A: {'input': (32, 32, 31, 1), 'output': (35, 35, 28, 7), 'retrieval': (11, 11, 0, 11), 'tool_output': (1, 1, 1, 0), 'tool_input': (1, 1, 1, 0), 'Total': (80, 80, 61, 19)}
+Python-expected  B: {'built-in': 30, 'third-party': 50, 'of which commercial vendor': 17, 'of which licensing to be verified': 22, 'of which open-source / open-weight': 5, 'deprecated': 2}
+Python-expected  C surfaces: {'NeMo Guardrails: Input-level jailbreak detection': 9, 'NeMo Guardrails: Input-level content-safety moderation': 19, 'NeMo Guardrails: Output-level content-safety moderation': 16, 'NeMo Guardrails: Input-level topic control': 1, 'NeMo Guardrails: Dialog-level conversational flow control': 0, 'NeMo Guardrails: Input-level PII detection & masking': 8, 'NeMo Guardrails: Output-level PII detection & masking': 8, 'NeMo Guardrails: Retrieval-level chunk filtering': 11, 'NeMo Guardrails: Regex pattern blocklist (input/output)': 2, 'NeMo Guardrails: Output-level injection detection': 1, 'NeMo Guardrails: Context-bloat detection (input)': 1, 'NeMo Guardrails: Tool-call validation': 1, 'NeMo Guardrails: Tool-result validation': 1, 'NeMo Guardrails: Grounded fact-checking (output)': 8, 'NeMo Guardrails: Self-consistency hallucination detection (output)': 1, 'NeMo Guardrails: Execution-level custom action rails': 0}  not covered: 0
+Python-expected  C rail-type rows: {'NeMo Guardrails: Input-level jailbreak detection': 0, 'NeMo Guardrails: Input-level content-safety moderation': 0, 'NeMo Guardrails: Output-level content-safety moderation': 0, 'NeMo Guardrails: Input-level topic control': 0, 'NeMo Guardrails: Dialog-level conversational flow control': 1, 'NeMo Guardrails: Input-level PII detection & masking': 1, 'NeMo Guardrails: Output-level PII detection & masking': 1, 'NeMo Guardrails: Retrieval-level chunk filtering': 1, 'NeMo Guardrails: Regex pattern blocklist (input/output)': 0, 'NeMo Guardrails: Output-level injection detection': 1, 'NeMo Guardrails: Context-bloat detection (input)': 1, 'NeMo Guardrails: Tool-call validation': 1, 'NeMo Guardrails: Tool-result validation': 1, 'NeMo Guardrails: Grounded fact-checking (output)': 0, 'NeMo Guardrails: Self-consistency hallucination detection (output)': 0, 'NeMo Guardrails: Execution-level custom action rails': 1}  not covered: 0
+Python-expected  C total: {'NeMo Guardrails: Input-level jailbreak detection': 9, 'NeMo Guardrails: Input-level content-safety moderation': 19, 'NeMo Guardrails: Output-level content-safety moderation': 16, 'NeMo Guardrails: Input-level topic control': 1, 'NeMo Guardrails: Dialog-level conversational flow control': 1, 'NeMo Guardrails: Input-level PII detection & masking': 9, 'NeMo Guardrails: Output-level PII detection & masking': 9, 'NeMo Guardrails: Retrieval-level chunk filtering': 12, 'NeMo Guardrails: Regex pattern blocklist (input/output)': 2, 'NeMo Guardrails: Output-level injection detection': 2, 'NeMo Guardrails: Context-bloat detection (input)': 2, 'NeMo Guardrails: Tool-call validation': 2, 'NeMo Guardrails: Tool-result validation': 2, 'NeMo Guardrails: Grounded fact-checking (output)': 8, 'NeMo Guardrails: Self-consistency hallucination detection (output)': 1, 'NeMo Guardrails: Execution-level custom action rails': 1}  not covered: 0
+LibreOffice (soffice) or the xlsx skill (XLSX_SKILL_DIR) is NOT available on this machine: recalc skipped; formulas have no cached values (Excel will calculate them on open). Panel values above are Python-expected, NOT recalculated.
+
+=== build_groups_sheet verification (sheet 4) ===
+  OK   sheet 4 is the last sheet ['3. Guardrail Research Table', '3b. NeMo Rail Inventory', '3c. NeMo Evaluation Tooling', '3d. Llama Guard Inventory', '3e. GovTech Sentinel Inventory', '3f. Presidio Inventory', '3g. SDP Inventory', '3h. Model Armor Inventory', '4. Candidate Comparison Groups']
+  OK   A1 title 
+  OK   row 3 header equals groups_v2.md header 
+  OK   header style (Arial 10 bold white, fill 4472C4) 
+  OK   widths A=28, B=40, C-H=42 [28.0, 40.0, 42.0, 42.0, 42.0, 42.0, 42.0, 42.0]
+  OK   freeze B4 
+  OK   autofilter A3:H29 A3:H29
+  OK   group rows: C1-C6 = rows 5-10, C7-C24 = rows 12-29 
+  OK   last table row is 29 
+  OK   band row 4: 'Comparison groups (2+ products)', bold Arial 10, fill D9D9D9 across A:H, table borders 
+  OK   band row 11: 'Single-product functions (no comparator yet)', bold Arial 10, fill D9D9D9 across A:H, table borders 
+  OK   no merged cells in the table area (bands unmerged) 
+  OK   rows 5-10 and 12-29: plain text of all 24 x 8 cells equals groups_v2.md Section A (newline joins) (0 mismatches)
+  OK   fonts: A bold, text runs Arial 10 (black rows 5-10, 595959 rows 12-29), 'Refs:' runs Arial 8 808080 (144 rich cells, 113 refs runs; bad: [])
+  OK   fills: DCE6F2 alternating within each section (rows 5,7,9 / 12,14,...), none on the others []
+  OK   cells: wrap, top, thin 8EA9DB borders []
+  OK   nothing beyond column H []
+  OK   no ** or backticks on sheet 4 []
+  OK   all cells with values are Arial []
+  OK   raw-XML font check: all <c> elements Arial (0 of 331 not Arial)
+  OK   panel cells equal the specified formulas 
+  OK   panel title row = last table row + 2 (31, one blank row between) 
+  OK   panel title merged across A:C 
+  OK   panel formulas A-letters are E..AG 
+  OK   panel ranges: groups $B$5:$B$29, single-product $H$5:$H$29 with "*Single-product:*" 
+  OK   no dynamic-array functions in panel 
+  OK   panel cells Arial []
+  OK   mirror counts equal the lines naming each column (no accidental substring matches) 
+  Python mirror, groups listing each sheet-3 function:
+    E   2  Amazon Bedrock Guardrails: PII detection and masking
+    F   1  NeMo Guardrails: Input-level jailbreak detection
+    G   1  NeMo Guardrails: Input-level content-safety moderation
+    H   1  NeMo Guardrails: Output-level content-safety moderation
+    I   1  NeMo Guardrails: Input-level topic control
+    J   1  NeMo Guardrails: Dialog-level conversational flow control
+    K   1  NeMo Guardrails: Input-level PII detection & masking
+    L   1  NeMo Guardrails: Output-level PII detection & masking
+    M   1  NeMo Guardrails: Retrieval-level chunk filtering
+    N   2  NeMo Guardrails: Regex pattern blocklist (input/output)
+    O   1  NeMo Guardrails: Output-level injection detection
+    P   1  NeMo Guardrails: Context-bloat detection (input)
+    Q   1  NeMo Guardrails: Tool-call validation
+    R   1  NeMo Guardrails: Tool-result validation
+    S   1  NeMo Guardrails: Grounded fact-checking (output)
+    T   1  NeMo Guardrails: Self-consistency hallucination detection (output)
+    U   1  NeMo Guardrails: Execution-level custom action rails
+    V   1  Llama Guard: Input-level prompt content-safety classification
+    W   1  Llama Guard: Output-level response content-safety classification
+    X   2  Llama Guard: Multimodal (image + text) content-safety classification
+    Y   1  Llama Guard: Code-interpreter and tool-use abuse classification
+    Z   2  Llama Guard: Custom-policy classification
+    AA  2  GovTech Sentinel: Localised harmful-content classification (LionGuard 2)
+    AB  1  GovTech Sentinel: Prompt-attack detection
+    AC  1  GovTech Sentinel: Off-topic prompt detection against the system prompt
+    AD  1  GovTech Sentinel: System-prompt leakage detection
+    AE  1  GovTech Sentinel: Refusal detection
+    AF  2  GovTech Sentinel: PII detection and masking (AWS Bedrock)
+    AG  2  GovTech Sentinel: Generic content moderation via AWS Bedrock Guardrails
+  Python mirror totals: {'Functions in no group': 0, 'Functions in more than one group': 7, 'Groups including NeMo Guardrails': 17, 'Groups including Llama Guard': 7, 'Groups including GovTech Sentinel': 8, 'Groups including Amazon Bedrock': 2, 'Single-product rows': 18}
+  functions in more than one group: ['E', 'N', 'X', 'Z', 'AA', 'AF', 'AG'] | in no group: []
+  OK   every sheet-3 function is in at least one group 
+  OK   mirror totals: >1 group 7, NeMo 17, Llama Guard 7, Sentinel 8, Bedrock 2, single-product 18 
+  OK   title and header row identical to v7 
+sheet 4 overall: PASS
