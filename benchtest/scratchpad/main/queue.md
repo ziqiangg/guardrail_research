@@ -37,3 +37,7 @@
 | modelarmor P2 cols_b Q1 (response-side file/image evidence → alt (e) split?) | default single MA9/MA10; to user at CP1 with evidence summary | user at CP1 |
 | modelarmor P2 cols_b Q2 (align inventory block (b)/(d)) | inventory already has us-east7/global/Seoul/Melbourne; remaining cross-draft items → triage → merger | main |
 | modelarmor P2 cols_b Q3 (release-note GA vs page "(Preview)") | status: a dated release-note statement beats an undated page label; keep both as a labelled conflict pair; Apigee status → P5 resolver | main |
+| modelarmor P2 cols_a Q1 (block (d) 18 vs 20 regions) | merger: block (d) lists the union (20), with a labelled note that us-east7 and global appear only in the feature table (C15) | main |
+| modelarmor P2 cols_a Q2 (Apigee flow-variable bullets) | keep: Apigee docs on docs.cloud.google.com are Google's official docs (R007 item 1); attribute "Apigee docs" in plain text | main |
+| modelarmor P2 cols_a Q3 (RAI/PI/URL on OCR and extracted text) | → triage → P5 resolver | main |
+| modelarmor P2 cols_a Q5 (default level C3, CSAM in limited regions C14, confidenceLevel semantics) | needs-testing → triage → CP1 | main |

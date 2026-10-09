@@ -71,7 +71,7 @@ Detail:
 • Client libraries exist for C#, Go, Java, Node.js, PHP and Python; the C# install line is a pre-release package (`--version 1.0.0-beta05`) (client libraries page, 2026-10-09) **[Documented]**
 • Self-hosted or offline option: none described (checked overview, product page, locations page, client libraries page, which all call the managed API) **[Not disclosed]**
 ### R5
-Summary: **Match flags per category, no numeric score.** The result gives an overall match state and a match state for each of the four categories, sometimes with a confidence level. Google publishes no accuracy figures. **[Documented]**
+Summary: **Match states per category.** The result gives an overall match state and one for each of the four categories, sometimes with a confidence level. Google states two different defaults for an omitted level. **[Documented]**
 Detail:
 • Overall result `sanitizationResult.filterMatchState` is `NO_MATCH_FOUND` or `MATCH_FOUND`; `invocationResult` is `SUCCESS`, `PARTIAL` or `FAILURE` (REST result ref, 2026-10-09) **[Documented]**
 • `filterResults.rai.raiFilterResult` holds `executionState` (`EXECUTION_SUCCESS` or `EXECUTION_SKIPPED`), `matchState`, `messageItems` and `raiFilterTypeResults` keyed `sexually_explicit`, `hate_speech`, `harassment` and `dangerous`, each with `filterType`, `confidenceLevel` and `matchState` (REST result ref, 2026-10-09) **[Documented]**
@@ -237,7 +237,7 @@ Detail:
 • Client libraries exist for C#, Go, Java, Node.js, PHP and Python; the C# install line is a pre-release package (`--version 1.0.0-beta05`) (client libraries page, 2026-10-09) **[Documented]**
 • Self-hosted or offline option: none described (checked overview, product page, locations page, client libraries page, which all call the managed API) **[Not disclosed]**
 ### R5
-Summary: **Match flags per category, no numeric score.** The result gives an overall match state and a match state for each of the four categories, sometimes with a confidence level. Google publishes no accuracy figures. **[Documented]**
+Summary: **Match states per category.** The result gives an overall match state and one for each of the four categories, sometimes with a confidence level. The docs sample for a response flags a masked IP address string as dangerous. **[Documented]**
 Detail:
 • Overall result `sanitizationResult.filterMatchState` is `NO_MATCH_FOUND` or `MATCH_FOUND`; `invocationResult` is `SUCCESS`, `PARTIAL` or `FAILURE` (REST result ref, 2026-10-09) **[Documented]**
 • `filterResults.rai.raiFilterResult` holds `executionState` (`EXECUTION_SUCCESS` or `EXECUTION_SKIPPED`), `matchState`, `messageItems` and `raiFilterTypeResults` keyed `sexually_explicit`, `hate_speech`, `harassment` and `dangerous`, each with `filterType`, `confidenceLevel` and `matchState` (REST result ref, 2026-10-09) **[Documented]**
@@ -332,7 +332,7 @@ Detail:
 • https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy
 ## Column MA3: Model Armor: Input-level prompt injection and jailbreak detection
 ### R1
-Summary: **Input-level prompt injection and jailbreak detection.** Model Armor screens a user prompt for attempts to override instructions or bypass the model's safety rules and returns a match state with a confidence level. It needs a prompt of at least three words. **[Documented]**
+Summary: **Input-level prompt injection and jailbreak detection.** Model Armor screens a user prompt for attempts to override instructions or bypass the model's safety rules. The filter is switched on in a template with a confidence level, and the calling service enforces any block. **[Documented]**
 Detail:
 • Overview definition of prompt injection: "a security vulnerability where attackers craft special commands within the text input (the prompt) to trick an AI model" (overview, 2026-10-09) **[Documented]**
 • Overview definition of jailbreaking: "the act of bypassing the safety protocols and ethical guidelines that are built into the model" (overview, 2026-10-09) **[Documented]**
@@ -405,7 +405,7 @@ Detail:
 • Apigee policies `SanitizeUserPrompt` and `SanitizeModelResponse` and load-balancer Service Extensions other than GKE: no GA or Preview label found on the pages read **[To be verified]**
 • Self-hosted or offline option: none described (checked overview, product page, locations page, client libraries page, which all call the managed API) **[Not disclosed]**
 ### R5
-Summary: **Match flag plus a confidence level, no numeric score.** The result gives an execution state, a match state and a confidence level. Google advises both Medium and High as the setting in different places, and publishes no accuracy figures. **[Documented]**
+Summary: **Match flag plus a confidence level.** The result gives an execution state, a match state and a confidence level. Google advises Medium in one place and High in another as the setting. **[Documented]**
 Detail:
 • Overall result `sanitizationResult.filterMatchState` is `NO_MATCH_FOUND` or `MATCH_FOUND`; `invocationResult` is `SUCCESS`, `PARTIAL` or `FAILURE` (REST result ref, 2026-10-09) **[Documented]**
 • `filterResults.pi_and_jailbreak.piAndJailbreakFilterResult` holds `executionState`, `messageItems`, `matchState` and `confidenceLevel` (REST result ref, 2026-10-09) **[Documented]**
@@ -427,6 +427,7 @@ Detail:
 Summary: **A template with the filter enabled, a regional endpoint and the message text.** The caller needs the Model Armor User role and a prompt of at least three words, up to 65,536 tokens. Default quota is 1,200 queries per minute per project. **[Documented]**
 Detail:
 • The filter runs only if `piAndJailbreakFilterSettings.filterEnforcement` is `ENABLED`; "Confidence level will only be used if the filter is enabled." (REST templates ref, 2026-10-09) **[Documented]**
+• Minimum length: "if the word count is fewer than three words, Model Armor returns NO_MATCH_FOUND" (overview, quotas page, 2026-10-09) **[Documented]**
 • "Note: To sanitize prompts and responses, you must use regional endpoints." and the template must be in the location of the endpoint (sanitize page, templates page, 2026-10-09) **[Documented]**
 • Required before calling: enable `modelarmor.googleapis.com`, create a template, and hold Model Armor User (`roles/modelarmor.user`); creating templates needs Model Armor Admin (`roles/modelarmor.admin`) (sanitize page, templates page, 2026-10-09) **[Documented]**
 • Cross-project use: the calling account needs `roles/modelarmor.user` in the project that hosts the template (sanitize page, 2026-10-09) **[Documented]**
@@ -500,7 +501,7 @@ Detail:
 • https://github.com/googleapis/google-cloud-go/blob/37f936ac9d69e173da0ba4123e382c52b2dd741f/modelarmor/apiv1/modelarmorpb/service.pb.go
 ## Column MA4: Model Armor: Output-level prompt injection and jailbreak detection
 ### R1
-Summary: **Output-level prompt injection and jailbreak detection.** The same filter can run on a model response or tool output and returns a match state with a confidence level. Google's wording for responses is partly general; the sample response output is the clearest evidence. **[Documented]**
+Summary: **Output-level prompt injection and jailbreak detection.** The overview, a sample response output and the Apigee response policy all show the filter running on model responses. The templates page describes it for prompts only. The calling service enforces any block. **[Documented]**
 Detail:
 • Overview: "When prompt injection and jailbreak detection is enabled, Model Armor scans prompts and responses for malicious content. If detected, Model Armor blocks the prompt or response." (overview, 2026-10-09) **[Documented]**
 • Templates page describes the check for prompts only: "Detects malicious content and jailbreak attempts in a prompt." (templates page, 2026-10-09) **[Documented]**
@@ -536,7 +537,7 @@ Detail:
 • Whether any filter uses that prompt as context (checked the sanitize page, the REST template reference, the overview and the Go client comments; none says) **[Not disclosed]**
 • MCP tip: "Don't enable the prompt injection and jailbreak filter unless your MCP traffic carries natural language data." (MCP page, 2026-10-09) **[Documented]**
 • MCP payloads sanitized: `tools/call` request and response, `prompts/get` request and response, and MCP tool execution errors; `tools/list`, `resources/*`, `notifications/*`, Streamable HTTP/SSE and MCP protocol errors are allowed without sanitization (MCP page, 2026-10-09) **[Documented]**
-• Agent Gateway egress: "Model Armor screens the response payload, and Agent Gateway either allows it to reach the agent or blocks it"; A2A `SendMessage` payloads and OpenAI-protocol chat completions and responses (non-streaming) are sanitized, other payloads pass (Agent Gateway page, 2026-10-09) **[Documented]**
+• Agent Gateway egress: "Model Armor screens the response payload, and Agent Gateway either allows it to reach the agent or blocks it"; A2A `SendMessage` payloads are sanitized while `SendStreamingMessage` is allowed without sanitization; for OpenAI-protocol traffic the page lists chat completions and responses (non-streaming variants only) and says payloads not listed are allowed without sanitization (Agent Gateway page, 2026-10-09) **[Documented]**
 • Agent Gateway ingress: replies from agents built with the Agent Development Kit are screened; LangChain payloads are not sent to Model Armor (Agent Gateway page, 2026-10-09) **[Documented]**
 • Retrieved and intermediate text: the Gemini Enterprise, Agent Runtime and Apigee integrations also sanitize "intermediate steps, such as grounding data and responses returned by web search tools" (integrations page, 2026-10-09) **[Documented]**
 • Routes that run this filter on responses (docs pages named in each item, 2026-10-09) **[Documented]**
@@ -577,7 +578,7 @@ Detail:
 • Apigee policies `SanitizeUserPrompt` and `SanitizeModelResponse` and load-balancer Service Extensions other than GKE: no GA or Preview label found on the pages read **[To be verified]**
 • Self-hosted or offline option: none described (checked overview, product page, locations page, client libraries page, which all call the managed API) **[Not disclosed]**
 ### R5
-Summary: **Match flag plus a confidence level, no numeric score.** The result gives an execution state, a match state and a confidence level. Google advises both Medium and High as the setting in different places, and publishes no accuracy figures. **[Documented]**
+Summary: **Match flag plus a confidence level.** The result gives an execution state, a match state and a confidence level. Google advises Medium in one place and High in another as the setting. **[Documented]**
 Detail:
 • Overall result `sanitizationResult.filterMatchState` is `NO_MATCH_FOUND` or `MATCH_FOUND`; `invocationResult` is `SUCCESS`, `PARTIAL` or `FAILURE` (REST result ref, 2026-10-09) **[Documented]**
 • `filterResults.pi_and_jailbreak.piAndJailbreakFilterResult` holds `executionState`, `messageItems`, `matchState` and `confidenceLevel` (REST result ref, 2026-10-09) **[Documented]**
@@ -671,7 +672,7 @@ Detail:
 • https://github.com/googleapis/google-cloud-go/blob/37f936ac9d69e173da0ba4123e382c52b2dd741f/modelarmor/apiv1/modelarmorpb/service.pb.go
 ## Column MA7: Model Armor: Input-level malicious URL detection
 ### R1
-Summary: **Input-level malicious URL detection.** Model Armor extracts the URLs in a user prompt and checks whether each is malicious, such as a phishing or malware link. It returns a match state and the matched URLs, and scans only the first 256 URLs. **[Documented]**
+Summary: **Input-level malicious URL detection.** Model Armor scans the URLs in a user prompt to identify whether they are malicious, such as phishing or malware links. The overview frames the filter mainly around URLs returned in output. The calling service enforces any block. **[Documented]**
 Detail:
 • Overview: "When malicious URL detection is enabled, Model Armor scans URLs to identify whether they're malicious." (overview, 2026-10-09) **[Documented]**
 • Templates page lists it among the detection checks "on prompts and responses": it "Identifies web addresses (URLs) that are designed to harm users or systems" (templates page, 2026-10-09) **[Documented]**
@@ -705,6 +706,7 @@ Detail:
 • Streaming variant `StreamSanitizeUserPrompt` has buffered and real-time modes and takes text only (sanitize page, 2026-10-09) **[Documented]**
 • Input rules: `userPromptData` "must contain only the content of the latest message from the user"; "Don't include conversation history"; "Don't include system prompts" (sanitize page, conversational AI best practices, 2026-10-09) **[Documented]**
 • Each prompt is inspected "independently as a single-turn request" (overview, Limitations, 2026-10-09) **[Documented]**
+• URL extraction: "Model Armor extracts URLs until it reaches 256 URLs or the end of the payload" (overview, 2026-10-09) **[Documented]**
 • Retrieved and intermediate text: the Gemini Enterprise, Agent Runtime and Apigee integrations also sanitize "intermediate steps, such as grounding data and responses returned by web search tools" (integrations page, 2026-10-09) **[Documented]**
 • Routes whose pages mention this filter on traffic into a model or tool (docs pages named in each item, 2026-10-09) **[Documented]**
   – Agent Platform `generateContent`: the documented template example sets `malicious_uri_filter_settings` enabled, with `promptTemplateName` or project floor settings (Agent Platform page)
@@ -734,7 +736,7 @@ Detail:
 • Apigee policies `SanitizeUserPrompt` and `SanitizeModelResponse` and load-balancer Service Extensions other than GKE: no GA or Preview label found on the pages read **[To be verified]**
 • Self-hosted or offline option: none described (checked overview, product page, locations page, client libraries page, which all call the managed API) **[Not disclosed]**
 ### R5
-Summary: **Match flag and the matched URLs, no confidence level.** The result gives an execution state, a match state and a list of matched URIs, with character ranges for plain text. Confidence levels cannot be set for this filter. **[Documented]**
+Summary: **Match flag and the matched URLs.** The result gives an execution state, a match state and a list of matched URIs, with character ranges for plain text. Confidence levels cannot be set for this filter. **[Documented]**
 Detail:
 • Overall result `sanitizationResult.filterMatchState` is `NO_MATCH_FOUND` or `MATCH_FOUND`; `invocationResult` is `SUCCESS`, `PARTIAL` or `FAILURE` (REST result ref, 2026-10-09) **[Documented]**
 • `filterResults.malicious_uris.maliciousUriFilterResult` holds `executionState`, `messageItems`, `matchState` and `maliciousUriMatchedItems[]` (REST result ref, 2026-10-09) **[Documented]**
@@ -752,7 +754,7 @@ Detail:
 ### R6
 Summary: **A template with the filter on and text containing URLs.** The only setting is on or off. Token limits do not apply, but only the first 256 URLs are scanned, and the location must be full-support or have data residency enforcement turned off. **[Documented]**
 Detail:
-• The filter runs only if `maliciousUriFilterSettings.filterEnforcement` is `ENABLED` (REST templates ref, 2026-10-09) **[Documented]**
+• The filter runs only if `maliciousUriFilterSettings.filterEnforcement`, its only field, is `ENABLED` (REST templates ref, 2026-10-09) **[Documented]**
 • "Note: To sanitize prompts and responses, you must use regional endpoints." and the template must be in the location of the endpoint (sanitize page, templates page, 2026-10-09) **[Documented]**
 • Required before calling: enable `modelarmor.googleapis.com`, create a template, and hold Model Armor User (`roles/modelarmor.user`); creating templates needs Model Armor Admin (`roles/modelarmor.admin`) (sanitize page, templates page, 2026-10-09) **[Documented]**
 • Request fields for text: `userPromptData.text`; optional `multiLanguageDetectionMetadata` (sanitize page, 2026-10-09) **[Documented]**
@@ -819,7 +821,7 @@ Detail:
 • https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-user-prompt-policy
 ## Column MA8: Model Armor: Output-level malicious URL detection
 ### R1
-Summary: **Output-level malicious URL detection.** Model Armor extracts the URLs in a model response and checks whether each is malicious, such as a phishing or malware link, so a returned link can be blocked. It returns a match state and the matched URLs. **[Documented]**
+Summary: **Output-level malicious URL detection.** Model Armor scans the URLs in a model response to identify whether they are malicious, such as phishing or malware links, so that a returned link can be blocked. The calling service enforces the block. **[Documented]**
 Detail:
 • Overview: "When malicious URL detection is enabled, Model Armor scans URLs to identify whether they're malicious. This lets you take action and prevent malicious URLs from being returned." (overview, 2026-10-09) **[Documented]**
 • Overview scenario for Inspect and block: an LLM summarising web content "includes a link to a known phishing site in its response" and "Model Armor blocks the entire LLM response" (overview, 2026-10-09) **[Documented]**
@@ -857,6 +859,7 @@ Detail:
 • The docs examples for the response method send the response text alone (sanitize page, 2026-10-09) **[Documented]**
 • The Go client request struct for the response method has an optional `UserPrompt` field, commented "User Prompt associated with Model response." (modelarmor/apiv1/modelarmorpb/service.pb.go@37f936ac:2380-2381) **[Documented: repo googleapis/google-cloud-go@37f936ac]**
 • Each response is inspected "independently as a single-turn request" (overview, Limitations, 2026-10-09) **[Documented]**
+• URL extraction: "Model Armor extracts URLs until it reaches 256 URLs or the end of the payload" (overview, 2026-10-09) **[Documented]**
 • Tool and retrieved output: Agent Gateway egress states "Model Armor screens the response payload, and Agent Gateway either allows it to reach the agent or blocks it"; the MCP integration sanitizes `tools/call` responses and `prompts/get` responses; the Gemini Enterprise, Agent Runtime and Apigee integrations sanitize "responses returned by web search tools" (Agent Gateway page, MCP page, integrations page, 2026-10-09) **[Documented]**
 • Routes whose pages mention this filter on traffic coming out of a model or tool (docs pages named in each item, 2026-10-09) **[Documented]**
   – Agent Platform `generateContent`: the documented template example sets `malicious_uri_filter_settings` enabled, with `responseTemplateName` or project floor settings (Agent Platform page)
@@ -887,7 +890,7 @@ Detail:
 • Apigee policies `SanitizeUserPrompt` and `SanitizeModelResponse` and load-balancer Service Extensions other than GKE: no GA or Preview label found on the pages read **[To be verified]**
 • Self-hosted or offline option: none described (checked overview, product page, locations page, client libraries page, which all call the managed API) **[Not disclosed]**
 ### R5
-Summary: **Match flag and the matched URLs, no confidence level.** The result gives an execution state, a match state and a list of matched URIs, with character ranges for plain text. Confidence levels cannot be set for this filter. **[Documented]**
+Summary: **Match flag and the matched URLs.** The result gives an execution state, a match state and a list of matched URIs, with character ranges for plain text. Confidence levels cannot be set for this filter. **[Documented]**
 Detail:
 • Overall result `sanitizationResult.filterMatchState` is `NO_MATCH_FOUND` or `MATCH_FOUND`; `invocationResult` is `SUCCESS`, `PARTIAL` or `FAILURE` (REST result ref, 2026-10-09) **[Documented]**
 • `filterResults.malicious_uris.maliciousUriFilterResult` holds `executionState`, `messageItems`, `matchState` and `maliciousUriMatchedItems[]` (REST result ref, 2026-10-09) **[Documented]**
@@ -905,7 +908,7 @@ Detail:
 ### R6
 Summary: **A template with the filter on and the response text.** The only setting is on or off. Token limits do not apply, but only the first 256 URLs are scanned, and the location must be full-support or have data residency enforcement turned off. **[Documented]**
 Detail:
-• The filter runs only if `maliciousUriFilterSettings.filterEnforcement` is `ENABLED` (REST templates ref, 2026-10-09) **[Documented]**
+• The filter runs only if `maliciousUriFilterSettings.filterEnforcement`, its only field, is `ENABLED` (REST templates ref, 2026-10-09) **[Documented]**
 • "Note: To sanitize prompts and responses, you must use regional endpoints." and the template must be in the location of the endpoint (sanitize page, templates page, 2026-10-09) **[Documented]**
 • Required before calling: enable `modelarmor.googleapis.com`, create a template, and hold Model Armor User (`roles/modelarmor.user`); creating templates needs Model Armor Admin (`roles/modelarmor.admin`) (sanitize page, templates page, 2026-10-09) **[Documented]**
 • Request fields for text: `modelResponseData.text`; optional `multiLanguageDetectionMetadata` (sanitize page, 2026-10-09) **[Documented]**

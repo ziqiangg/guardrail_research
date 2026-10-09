@@ -43,7 +43,7 @@ Detail:
 • "Sensitive Data Protection helps you discover, classify, and de-identify sensitive data inside and outside Google Cloud." {{D:sensitive-data-protection-overview}} **[Documented]**
 • Prompt injection or jailbreak text inside an image is not described as something the service looks for (checked the same image pages); OCR text is matched only against the infoTypes requested **[Not disclosed]**
 ### R3
-Summary: **Image bytes only, with no input or output flag.** The caller sends one image per call, whether it came from a prompt, a response, a retrieved file or a tool result. Results are not stored in Google Cloud. Only the first frame of a multiframe image is processed. **[Inferred]**
+Summary: **Image bytes only, with no input or output flag.** One image goes in per call, whether from a prompt, a response, a retrieved file or a tool result. Results are not stored in Google Cloud, and only the first frame of a multiframe image is used. **[Inferred]**
 Detail:
 • "To inspect an image for sensitive data, you submit a base64-encoded image to the content.inspect method." {{D:inspecting-images}} **[Documented]**
 • "To redact sensitive data from an image, submit the image to the DLP API's image.redact method." {{D:redacting-sensitive-data-images}} **[Documented]**
@@ -120,7 +120,7 @@ Detail:
 • Singapore: image scanning was added for `asia-southeast1` on 2026-06-22 {{D:release-notes}} **[Documented]**
 • "When you redact data from images, you can't include limits in your inspection configuration." and "If you set the limits field in your request, Sensitive Data Protection generates an error." {{D:redacting-sensitive-data-images}} **[Documented]**
 • Default detectors, statement 1: "Unless you specify specific information types (infoTypes) to search for, Sensitive Data Protection searches for the most common infoTypes." {{D:redacting-sensitive-data-images}} **[Documented]**
-• Default detectors, statement 2: "When no InfoTypes or CustomInfoTypes are specified in this request, the system will automatically choose what detectors to run. By default this may be all types, but may change over time." {{D:REST projects.image.redact}} **[Documented]**
+• Default detectors, statement 2: "When no InfoTypes or CustomInfoTypes are specified in this request, the system will automatically choose what detectors to run. By default this may be all types, but may change over time as detectors are updated." {{D:REST projects.image.redact}} **[Documented]**
 • Advice from the infoType concepts page: "Always specify infoType detectors explicitly. Don't use an empty infoTypes list." {{D:concepts-infotypes}} **[Documented]**
 • Encoding and parameters: REST callers base64-encode the image; client libraries take bytes; optional `includeFindings`, `inspectConfig`, `imageRedactionConfigs`, `inspectTemplate` and `deidentifyTemplate` {{D:redacting-sensitive-data-images}} **[Documented]**
 • Auth and roles: a role with `serviceusage.services.use` such as DLP User (`roles/dlp.user`); an API key also works for `image.redact` {{D:redacting-sensitive-data-images}} **[Documented]**

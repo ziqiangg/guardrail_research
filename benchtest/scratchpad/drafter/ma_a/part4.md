@@ -1,6 +1,6 @@
 ## Column MA4: Model Armor: Output-level prompt injection and jailbreak detection
 ### R1
-Summary: **Output-level prompt injection and jailbreak detection.** The same filter can run on a model response or tool output and returns a match state with a confidence level. Google's wording for responses is partly general; the sample response output is the clearest evidence. **[Documented]**
+Summary: **Output-level prompt injection and jailbreak detection.** The overview, a sample response output and the Apigee response policy all show the filter running on model responses. The templates page describes it for prompts only. The calling service enforces any block. **[Documented]**
 Detail:
 • Overview: "When prompt injection and jailbreak detection is enabled, Model Armor scans prompts and responses for malicious content. If detected, Model Armor blocks the prompt or response." (overview, 2026-10-09) **[Documented]**
 • Templates page describes the check for prompts only: "Detects malicious content and jailbreak attempts in a prompt." (templates page, 2026-10-09) **[Documented]**
@@ -36,7 +36,7 @@ Detail:
 • Whether any filter uses that prompt as context (checked the sanitize page, the REST template reference, the overview and the Go client comments; none says) **[Not disclosed]**
 • MCP tip: "Don't enable the prompt injection and jailbreak filter unless your MCP traffic carries natural language data." (MCP page, 2026-10-09) **[Documented]**
 • MCP payloads sanitized: `tools/call` request and response, `prompts/get` request and response, and MCP tool execution errors; `tools/list`, `resources/*`, `notifications/*`, Streamable HTTP/SSE and MCP protocol errors are allowed without sanitization (MCP page, 2026-10-09) **[Documented]**
-• Agent Gateway egress: "Model Armor screens the response payload, and Agent Gateway either allows it to reach the agent or blocks it"; A2A `SendMessage` payloads and OpenAI-protocol chat completions and responses (non-streaming) are sanitized, other payloads pass (Agent Gateway page, 2026-10-09) **[Documented]**
+• Agent Gateway egress: "Model Armor screens the response payload, and Agent Gateway either allows it to reach the agent or blocks it"; A2A `SendMessage` payloads are sanitized while `SendStreamingMessage` is allowed without sanitization; for OpenAI-protocol traffic the page lists chat completions and responses (non-streaming variants only) and says payloads not listed are allowed without sanitization (Agent Gateway page, 2026-10-09) **[Documented]**
 • Agent Gateway ingress: replies from agents built with the Agent Development Kit are screened; LangChain payloads are not sent to Model Armor (Agent Gateway page, 2026-10-09) **[Documented]**
 • Retrieved and intermediate text: the Gemini Enterprise, Agent Runtime and Apigee integrations also sanitize "intermediate steps, such as grounding data and responses returned by web search tools" (integrations page, 2026-10-09) **[Documented]**
 • Routes that run this filter on responses (docs pages named in each item, 2026-10-09) **[Documented]**
@@ -77,7 +77,7 @@ Detail:
 • Apigee policies `SanitizeUserPrompt` and `SanitizeModelResponse` and load-balancer Service Extensions other than GKE: no GA or Preview label found on the pages read **[To be verified]**
 • Self-hosted or offline option: none described (checked overview, product page, locations page, client libraries page, which all call the managed API) **[Not disclosed]**
 ### R5
-Summary: **Match flag plus a confidence level, no numeric score.** The result gives an execution state, a match state and a confidence level. Google advises both Medium and High as the setting in different places, and publishes no accuracy figures. **[Documented]**
+Summary: **Match flag plus a confidence level.** The result gives an execution state, a match state and a confidence level. Google advises Medium in one place and High in another as the setting. **[Documented]**
 Detail:
 • Overall result `sanitizationResult.filterMatchState` is `NO_MATCH_FOUND` or `MATCH_FOUND`; `invocationResult` is `SUCCESS`, `PARTIAL` or `FAILURE` (REST result ref, 2026-10-09) **[Documented]**
 • `filterResults.pi_and_jailbreak.piAndJailbreakFilterResult` holds `executionState`, `messageItems`, `matchState` and `confidenceLevel` (REST result ref, 2026-10-09) **[Documented]**

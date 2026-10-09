@@ -1,6 +1,6 @@
 ## Column MA3: Model Armor: Input-level prompt injection and jailbreak detection
 ### R1
-Summary: **Input-level prompt injection and jailbreak detection.** Model Armor screens a user prompt for attempts to override instructions or bypass the model's safety rules and returns a match state with a confidence level. It needs a prompt of at least three words. **[Documented]**
+Summary: **Input-level prompt injection and jailbreak detection.** Model Armor screens a user prompt for attempts to override instructions or bypass the model's safety rules. The filter is switched on in a template with a confidence level, and the calling service enforces any block. **[Documented]**
 Detail:
 • Overview definition of prompt injection: "a security vulnerability where attackers craft special commands within the text input (the prompt) to trick an AI model" (overview, 2026-10-09) **[Documented]**
 • Overview definition of jailbreaking: "the act of bypassing the safety protocols and ethical guidelines that are built into the model" (overview, 2026-10-09) **[Documented]**
@@ -73,7 +73,7 @@ Detail:
 • Apigee policies `SanitizeUserPrompt` and `SanitizeModelResponse` and load-balancer Service Extensions other than GKE: no GA or Preview label found on the pages read **[To be verified]**
 • Self-hosted or offline option: none described (checked overview, product page, locations page, client libraries page, which all call the managed API) **[Not disclosed]**
 ### R5
-Summary: **Match flag plus a confidence level, no numeric score.** The result gives an execution state, a match state and a confidence level. Google advises both Medium and High as the setting in different places, and publishes no accuracy figures. **[Documented]**
+Summary: **Match flag plus a confidence level.** The result gives an execution state, a match state and a confidence level. Google advises Medium in one place and High in another as the setting. **[Documented]**
 Detail:
 • Overall result `sanitizationResult.filterMatchState` is `NO_MATCH_FOUND` or `MATCH_FOUND`; `invocationResult` is `SUCCESS`, `PARTIAL` or `FAILURE` (REST result ref, 2026-10-09) **[Documented]**
 • `filterResults.pi_and_jailbreak.piAndJailbreakFilterResult` holds `executionState`, `messageItems`, `matchState` and `confidenceLevel` (REST result ref, 2026-10-09) **[Documented]**
@@ -95,6 +95,7 @@ Detail:
 Summary: **A template with the filter enabled, a regional endpoint and the message text.** The caller needs the Model Armor User role and a prompt of at least three words, up to 65,536 tokens. Default quota is 1,200 queries per minute per project. **[Documented]**
 Detail:
 • The filter runs only if `piAndJailbreakFilterSettings.filterEnforcement` is `ENABLED`; "Confidence level will only be used if the filter is enabled." (REST templates ref, 2026-10-09) **[Documented]**
+• Minimum length: "if the word count is fewer than three words, Model Armor returns NO_MATCH_FOUND" (overview, quotas page, 2026-10-09) **[Documented]**
 • "Note: To sanitize prompts and responses, you must use regional endpoints." and the template must be in the location of the endpoint (sanitize page, templates page, 2026-10-09) **[Documented]**
 • Required before calling: enable `modelarmor.googleapis.com`, create a template, and hold Model Armor User (`roles/modelarmor.user`); creating templates needs Model Armor Admin (`roles/modelarmor.admin`) (sanitize page, templates page, 2026-10-09) **[Documented]**
 • Cross-project use: the calling account needs `roles/modelarmor.user` in the project that hosts the template (sanitize page, 2026-10-09) **[Documented]**

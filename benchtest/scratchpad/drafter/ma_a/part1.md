@@ -71,7 +71,7 @@ Detail:
 • Client libraries exist for C#, Go, Java, Node.js, PHP and Python; the C# install line is a pre-release package (`--version 1.0.0-beta05`) (client libraries page, 2026-10-09) **[Documented]**
 • Self-hosted or offline option: none described (checked overview, product page, locations page, client libraries page, which all call the managed API) **[Not disclosed]**
 ### R5
-Summary: **Match flags per category, no numeric score.** The result gives an overall match state and a match state for each of the four categories, sometimes with a confidence level. Google publishes no accuracy figures. **[Documented]**
+Summary: **Match states per category.** The result gives an overall match state and one for each of the four categories, sometimes with a confidence level. Google states two different defaults for an omitted level. **[Documented]**
 Detail:
 • Overall result `sanitizationResult.filterMatchState` is `NO_MATCH_FOUND` or `MATCH_FOUND`; `invocationResult` is `SUCCESS`, `PARTIAL` or `FAILURE` (REST result ref, 2026-10-09) **[Documented]**
 • `filterResults.rai.raiFilterResult` holds `executionState` (`EXECUTION_SUCCESS` or `EXECUTION_SKIPPED`), `matchState`, `messageItems` and `raiFilterTypeResults` keyed `sexually_explicit`, `hate_speech`, `harassment` and `dangerous`, each with `filterType`, `confidenceLevel` and `matchState` (REST result ref, 2026-10-09) **[Documented]**

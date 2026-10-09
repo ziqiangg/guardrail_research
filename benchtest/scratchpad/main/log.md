@@ -17,3 +17,4 @@
 - 2026-10-09 presidio P2 done (cols_a PD1–PD3, cols_b PD4–PD6, inventory). P3: cols_a 0/0, cols_b 0/0, inventory --headers 0/0. R014 (vendor notebook figures). Known pin inconsistency: presidio-research 0.3.2 (cols_a) vs 0cb36502 (inventory) → triage. P4 started
 - 2026-10-09 modelarmor P2 inventory done: 10/15/16/18/16 = 75 rows, check 0 errors (--headers too). Note: ~550 MB of ignored vendor clones in scratchpad/drafter/ma_inv (rm -rf is denied by settings; left in place, gitignored)
 - 2026-10-09 modelarmor P2 cols_b done (MA5, MA6, MA9, MA10), check 0 errors, 193 quotes matched; found sanitize method reference pages (200), sanitizeModelResponse.userPrompt; Q3 ruled (release note wins for status)
+- 2026-10-09 modelarmor P2 cols_a done (MA1–4, 7, 8), 371 quotes matched; P3: cols_a 0/0, cols_b 0/0, inventory --headers 0/0; new conflicts C14 (CSAM), C15 (regions), C16 (Go client fields); P4 started

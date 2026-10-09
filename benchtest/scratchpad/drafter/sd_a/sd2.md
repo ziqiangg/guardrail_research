@@ -54,7 +54,7 @@ Detail:
 • Image rules do nothing on text: "This rule is silently ignored if the content being inspected is not an image." (SDP docs, REST InspectConfig page, read 2026-10-09) **[Documented]**
 • Statelessness: inline dictionaries, regexes and rules travel in the request, while a stored infoType is a project resource, with its term list and generated dictionary files kept in Cloud Storage (SDP docs, large custom dictionary page, read 2026-10-09) **[Documented]**
 ### R4
-Summary: **Literal matching, then rule passes.** Dictionary and regex detectors match text, each with a base likelihood. Hotword, exclusion and adjustment rules then raise, lower or drop findings by nearby text or overlap with other findings. No model is named. **[Documented]**
+Summary: **Literal matching, then rule passes.** Dictionary and regex detectors match text, each with a base likelihood. Hotword, exclusion and adjustment rules then raise, lower or drop findings by nearby text or overlap with other findings. **[Documented]**
 Detail:
 • Dictionary matching: "Dictionary words are case-insensitive." and "The characters surrounding any match must be of a different type (letters or digits) than the adjacent characters within the word." (SDP docs, regular custom dictionary page, read 2026-10-09) **[Documented]**
 • Dictionary characters: all characters other than Unicode Basic Multilingual Plane letters, digits and other alphabetic characters "are considered as whitespace when scanning for matches" (SDP docs, regular custom dictionary page, read 2026-10-09) **[Documented]**
@@ -81,10 +81,10 @@ Detail:
 Summary: **Same findings as inspection, under your detector name.** A custom match returns the name you chose and a likelihood you set, Very likely unless changed, after any rules have run. There is no verdict. **[Documented]**
 Detail:
 • Findings carry the custom name: the `infoType` field is the "name of the custom infoType detector" and the result uses the same finding shape as built-in inspection (SDP docs, custom infoType detectors overview page, read 2026-10-09) **[Documented]**
-• Base likelihood: "If you don't include the "likelihood" field, the custom infoType detector defaults to VERY_LIKELY." (SDP docs, custom infoType detectors overview page, read 2026-10-09) **[Documented]**
-• Rules then alter it: "Rules are applied in the order that they are specified." (SDP docs, custom infoType detectors overview page, read 2026-10-09) **[Documented]**
+• Base likelihood: if the likelihood field is omitted, the custom infoType detector "defaults to VERY_LIKELY" (SDP docs, custom infoType detectors overview page, read 2026-10-09) **[Documented]**
+• Rules then alter it: "Rules are applied in the order that they are specified." (SDP docs, REST InspectConfig page, read 2026-10-09) **[Documented]**
 • A relative adjustment is capped: "Likelihood may never drop below VERY_UNLIKELY or exceed VERY_LIKELY" (SDP docs, REST InspectConfig page, read 2026-10-09) **[Documented]**
-• A detector can be silent: with `EXCLUSION_TYPE_EXCLUDE` it "will not cause a finding to be returned. It still can be used for rule matching" (SDP docs, REST InspectConfig page, read 2026-10-09) **[Documented]**
+• A detector can be silent: with `EXCLUSION_TYPE_EXCLUDE` it "will not cause a finding to be returned. It still can be used for rules matching" (SDP docs, REST InspectConfig page, read 2026-10-09) **[Documented]**
 • Sensitivity score is for profiling only: "If unset for a CustomInfoType, it will default to HIGH. This only applies to data profiling." (SDP docs, REST InspectConfig page, read 2026-10-09) **[Documented]**
 • Metadata findings: "The finding's MetadataType for MetadataLocation is populated based on whether the match is embedded in the file (CONTENT_METADATA) or provided by the client (CLIENT_PROVIDED_METADATA)." (SDP docs, custom metadata label page, read 2026-10-09) **[Documented]**
 • Threshold guidance: "If you notice a regex custom infoType detector returning too many false positives, try reducing the base likelihood and using detection rules to boost the likelihood using contextual information." (SDP docs, custom regex page, read 2026-10-09) **[Documented]**
@@ -94,7 +94,7 @@ Detail:
 ### R6
 Summary: **A CustomInfoType object inside the inspect request.** Give a name, a dictionary, regex or stored reference, an optional base likelihood and rules. Limits per request include 30 custom detectors, 10 regular dictionaries, 10 rule sets and 1000-character regexes. **[Documented]**
 Detail:
-• Required parts: a name in an `InfoType` object, one detector body (`dictionary`, `regex`, `storedType`, `metadataKeyValueExpression`, `fileLabelInfoType` or `surrogateType`), and optional `likelihood`, `detectionRules` and `sensitivityScore` (SDP docs, custom infoType detectors overview page, read 2026-10-09) **[Documented]**
+• Parts of the object: a name in an `InfoType` object, one detector body (`dictionary`, `regex`, `storedType`, `metadataKeyValueExpression`, `fileLabelInfoType` or `surrogateType`), and optional `likelihood`, `detectionRules` and `sensitivityScore` (SDP docs, custom infoType detectors overview page, read 2026-10-09) **[Documented]**
 • Custom infoType limits (SDP docs, quotas and limits page, read 2026-10-09; the page says its limits "are subject to change") **[Documented]**
   – Maximum number of custom infoTypes per request | 30
   – Maximum number of built-in and custom infoTypes per request | 150
@@ -107,7 +107,11 @@ Detail:
 • Rule limits in a content request (SDP docs, quotas and limits page, read 2026-10-09) **[Documented]**
   – Maximum number of inspection rules per set | 10
   – Maximum number of inspection rule sets per inspection configuration | 10
-• Stored infoType limits: "Maximum number of stored infoTypes | 30" per project, a single Cloud Storage input file up to 200 MB, 5,000,000 input table rows in BigQuery and output files up to 500 MB (SDP docs, quotas and limits page, read 2026-10-09) **[Documented]**
+• Stored infoType limits (SDP docs, quotas and limits page, read 2026-10-09) **[Documented]**
+  – Maximum number of stored infoTypes | 30
+  – Maximum size of a single input file stored in Cloud Storage | 200 MB
+  – Maximum number of input table rows in BigQuery | 5,000,000
+  – Maximum size of output files | 500 MB
 • Phrase components: "Maximum number of components (continuous sequences containing only letters, only digits, only non-letter characters, or only non-digit characters) per regular custom dictionary phrase | 40" (SDP docs, quotas and limits page, read 2026-10-09) **[Documented]**
 • Request-level caps from the detection column (0.5 MB, 3,000 findings, 50,000 table values) still apply (SDP docs, quotas and limits page, read 2026-10-09) **[Documented]**
 • A large dictionary needs a term list first: either "a text file within Cloud Storage or a column in a BigQuery table", then a stored infoType with an output location (SDP docs, large custom dictionary page, read 2026-10-09) **[Documented]**
@@ -122,7 +126,7 @@ Detail:
 • Minimum setup: the project, billing, API and `roles/dlp.user` from the detection column, plus a request that carries a `customInfoTypes` list or `ruleSet`; no extra resource is created for inline detectors (premise: the REST fields and the overview page) **[Inferred]**
 • A large dictionary needs a Cloud Storage bucket and a folder where the generated dictionary is written (SDP docs, large custom dictionary page, read 2026-10-09) **[Documented]**
 • The Python client has the custom-detector types (`google/cloud/dlp_v2/types/storage.py@google-cloud-dlp-v3.40.0:338` "file_label_info_type (google.cloud.dlp_v2.types.CustomInfoType.FileLabelInfoType):") **[Documented: repo googleapis/google-cloud-python@google-cloud-dlp-v3.40.0]**
-• A sample inline dictionary request is on the docs page, for example the room-name word list that returns "RM-Orange", "RM-Yellow" and "RM-Green" matches (SDP docs, regular custom dictionary page, read 2026-10-09) **[Documented]**
+• A sample inline dictionary request is on the docs page, for example a room-name word list of RM-Orange, RM-Yellow and RM-Green (SDP docs, regular custom dictionary page, read 2026-10-09) **[Documented]**
 • Test design: a labelled set of true matches and near-misses per detector, run once with no rules and once with each rule, to measure what the rule removes or boosts (premise: rules change only likelihood or presence) **[Inferred]**
 • Test the boundary and case rules: words next to digits, letters or unspaced scripts, and mixed case (premise: the matching rules in R4) **[Inferred]**
 • Test metadata detectors with a content item that carries `contentMetadata` key-value pairs and check that the finding location type reads client-provided metadata (premise: the metadata page example) **[Inferred]**

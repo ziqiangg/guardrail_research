@@ -108,7 +108,7 @@ Detail:
 • The likelihood page describes the trade-off at each level (for example VERY_LIKELY gives "the highest precision at the expense of recall") but names no recommended value for tokenisation {{D:likelihood}} **[Not disclosed]**
 • No published measure of round-trip correctness, token collision rate or throughput (checked the pseudonymization, transformation-reference, quickstart, pricing, limits, SLA and release-note pages) **[Not disclosed]**
 ### R6
-Summary: **Needs a key, a surrogate name and a supported input.** Requests need a wrapped key in a matching region (or a transient or raw key), a surrogate annotation for free text, and values within AES-SIV or FPE limits. API keys cannot be used with wrapped keys. **[Documented]**
+Summary: **Needs a key, a surrogate name and a supported input.** Requests need a Cloud KMS wrapped key in a matching region, a surrogate annotation for free text, and values within AES-SIV or FPE limits. API keys cannot be used with wrapped keys. **[Documented]**
 Detail:
 • Parent resource: `projects/{projectId}` or `projects/{projectId}/locations/{locationId}`; "Authorization requires the following IAM permission on the specified resource parent: serviceusage.services.use" {{D:REST projects.content.reidentify}} **[Documented]**
 • DLP User (`roles/dlp.user`) is described as "Inspect, Redact, and De-identify Content" and holds `dlp.kms.encrypt` and `serviceusage.services.use` {{D:roles and permissions}} **[Documented]**

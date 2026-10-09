@@ -1,6 +1,6 @@
 ## Column MA7: Model Armor: Input-level malicious URL detection
 ### R1
-Summary: **Input-level malicious URL detection.** Model Armor extracts the URLs in a user prompt and checks whether each is malicious, such as a phishing or malware link. It returns a match state and the matched URLs, and scans only the first 256 URLs. **[Documented]**
+Summary: **Input-level malicious URL detection.** Model Armor scans the URLs in a user prompt to identify whether they are malicious, such as phishing or malware links. The overview frames the filter mainly around URLs returned in output. The calling service enforces any block. **[Documented]**
 Detail:
 • Overview: "When malicious URL detection is enabled, Model Armor scans URLs to identify whether they're malicious." (overview, 2026-10-09) **[Documented]**
 • Templates page lists it among the detection checks "on prompts and responses": it "Identifies web addresses (URLs) that are designed to harm users or systems" (templates page, 2026-10-09) **[Documented]**
@@ -34,6 +34,7 @@ Detail:
 • Streaming variant `StreamSanitizeUserPrompt` has buffered and real-time modes and takes text only (sanitize page, 2026-10-09) **[Documented]**
 • Input rules: `userPromptData` "must contain only the content of the latest message from the user"; "Don't include conversation history"; "Don't include system prompts" (sanitize page, conversational AI best practices, 2026-10-09) **[Documented]**
 • Each prompt is inspected "independently as a single-turn request" (overview, Limitations, 2026-10-09) **[Documented]**
+• URL extraction: "Model Armor extracts URLs until it reaches 256 URLs or the end of the payload" (overview, 2026-10-09) **[Documented]**
 • Retrieved and intermediate text: the Gemini Enterprise, Agent Runtime and Apigee integrations also sanitize "intermediate steps, such as grounding data and responses returned by web search tools" (integrations page, 2026-10-09) **[Documented]**
 • Routes whose pages mention this filter on traffic into a model or tool (docs pages named in each item, 2026-10-09) **[Documented]**
   – Agent Platform `generateContent`: the documented template example sets `malicious_uri_filter_settings` enabled, with `promptTemplateName` or project floor settings (Agent Platform page)
@@ -63,7 +64,7 @@ Detail:
 • Apigee policies `SanitizeUserPrompt` and `SanitizeModelResponse` and load-balancer Service Extensions other than GKE: no GA or Preview label found on the pages read **[To be verified]**
 • Self-hosted or offline option: none described (checked overview, product page, locations page, client libraries page, which all call the managed API) **[Not disclosed]**
 ### R5
-Summary: **Match flag and the matched URLs, no confidence level.** The result gives an execution state, a match state and a list of matched URIs, with character ranges for plain text. Confidence levels cannot be set for this filter. **[Documented]**
+Summary: **Match flag and the matched URLs.** The result gives an execution state, a match state and a list of matched URIs, with character ranges for plain text. Confidence levels cannot be set for this filter. **[Documented]**
 Detail:
 • Overall result `sanitizationResult.filterMatchState` is `NO_MATCH_FOUND` or `MATCH_FOUND`; `invocationResult` is `SUCCESS`, `PARTIAL` or `FAILURE` (REST result ref, 2026-10-09) **[Documented]**
 • `filterResults.malicious_uris.maliciousUriFilterResult` holds `executionState`, `messageItems`, `matchState` and `maliciousUriMatchedItems[]` (REST result ref, 2026-10-09) **[Documented]**
@@ -81,7 +82,7 @@ Detail:
 ### R6
 Summary: **A template with the filter on and text containing URLs.** The only setting is on or off. Token limits do not apply, but only the first 256 URLs are scanned, and the location must be full-support or have data residency enforcement turned off. **[Documented]**
 Detail:
-• The filter runs only if `maliciousUriFilterSettings.filterEnforcement` is `ENABLED` (REST templates ref, 2026-10-09) **[Documented]**
+• The filter runs only if `maliciousUriFilterSettings.filterEnforcement`, its only field, is `ENABLED` (REST templates ref, 2026-10-09) **[Documented]**
 • "Note: To sanitize prompts and responses, you must use regional endpoints." and the template must be in the location of the endpoint (sanitize page, templates page, 2026-10-09) **[Documented]**
 • Required before calling: enable `modelarmor.googleapis.com`, create a template, and hold Model Armor User (`roles/modelarmor.user`); creating templates needs Model Armor Admin (`roles/modelarmor.admin`) (sanitize page, templates page, 2026-10-09) **[Documented]**
 • Request fields for text: `userPromptData.text`; optional `multiLanguageDetectionMetadata` (sanitize page, 2026-10-09) **[Documented]**
