@@ -87,7 +87,7 @@ Detail:
 • Docs host: `https://data-privacy-stack.github.io/presidio/` answers HTTP 301 to `https://presidio.dataprivacystack.org/` (observed 2026-10-09); `https://microsoft.github.io/presidio/` returns a stub page saying "This page has moved." **[Documented]**
 • The FAQ adds: "Presidio is not an official product of any company and comes with no warranty or SLA." **[Documented]**
 ### R5
-Summary: **Spans and scores, no verdict.** Each hit has an entity type, start, end and a 0 to 1 score, with an optional explanation of which recognizer and context word fired. The default score threshold is 0. Vendor notebooks report F2 0.661 for default settings on synthetic data. **[Documented]**
+Summary: **Spans and scores, no verdict.** Each hit has an entity type, start, end and a 0 to 1 score, plus an optional explanation. The default score threshold is 0. A vendor notebook reports F2 0.661 for default settings on synthetic data. **[Documented]**
 Detail:
 • Result fields: `entity_type`, `start`, `end`, `score`, `analysis_explanation`, `recognition_metadata` and nothing else (`recognizer_result.py@2.2.364:34-47`); there is no verdict or action field **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • Over REST the metadata is stripped: `_exclude_attributes_from_dto` deletes `recognition_metadata` (`presidio-analyzer/app.py@2.2.364:170`) and `analysis_explanation` is null unless `return_decision_process` is true (`analyzer_engine.py@2.2.364:502`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
@@ -239,7 +239,7 @@ Detail:
 • Built-in anonymize operators: `replace`, `redact`, `hash`, `mask`, `custom`, `keep`, `surrogate_ahds` and `encrypt`; `encrypt` is reversible and is covered by the reversible-anonymisation column (Presidio docs, operator table) **[Documented]**
 • Presidio returns rewritten text, not a verdict: the output carries no score or pass-fail value, so the Anonymizer is a transformation step rather than a guardrail check **[Inferred]**
 ### R2
-Summary: **Hides whatever spans it is given.** Built-in one-way operators replace, redact, hash, mask, run custom code, keep a value, or, with an Azure extra, generate a realistic surrogate. The default is replace with the entity type in angle brackets. It acts only on the spans it receives. **[Documented]**
+Summary: **Hides whatever spans it is given.** One-way operators replace, redact, hash, mask, run custom code, keep a value or, with an Azure extra, generate a realistic surrogate. The default is replace, writing the entity type in angle brackets. **[Documented]**
 Detail:
 • Default operator: `DEFAULT = "replace"` (`anonymizer_engine.py@2.2.364:16`); `__check_or_add_default_operator` adds it when the operator map is empty or lacks a `DEFAULT` entry (line 106 calls it) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • Docs note: "The replacing value will be the entity type e.g.: <PHONE_NUMBER>" (Presidio docs, anonymizer page) **[Documented]**
@@ -280,7 +280,7 @@ Detail:
 • Applying the Anonymizer to model replies, retrieved passages or tool results is the same call on a different string; no Presidio page shows it on replies **[Inferred]**
 • Images and tables have their own modules (image redaction column and structured-data column); this column is for text strings **[Documented]**
 ### R4
-Summary: **Operators applied to detected spans.** A factory holds the built-in operators; the engine resolves overlaps, then applies the operator set for each entity type and falls back to replace. Python package or REST service on GHCR images. MIT licence, now under the Data Privacy Stack community. **[Documented]**
+Summary: **Operators applied to detected spans.** The engine resolves overlaps, then applies the operator set for each entity type, falling back to replace. Python package or REST service on GHCR images. MIT licence, now under the Data Privacy Stack community. **[Documented]**
 Detail:
 • Operator list: `ANONYMIZERS = [Custom, Encrypt, Hash, Keep, Mask, Redact, Replace]` (`operators_factory.py@2.2.364:24`) plus the AHDS surrogate when its extra is installed (line 26) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • Flow in `anonymize`: copy results, sort by `(start, end)` (`anonymizer_engine.py@2.2.364:93`), remove conflicts, merge spaced same-type entities, add the default operator (line 106), then operate **[Documented: repo data-privacy-stack/presidio@2.2.364]**
@@ -424,9 +424,9 @@ Detail:
 • Encrypt runs before the model and decrypt after it; there is no direction flag or system-prompt input **[Inferred]**
 • The same restore step works on any returned string that still carries the tokens, such as retrieved passages or tool output **[Inferred]**
 ### R4
-Summary: **AES-CBC with a random IV per entity.** Encrypt returns URL-safe base64 of the IV plus ciphertext; decrypt reverses it with the same 128, 192 or 256-bit key. Python engines, a batch engine and a REST route exist. MIT licence, now under the Data Privacy Stack community. **[Documented]**
+Summary: **AES-CBC with a random IV per entity.** Encrypt returns URL-safe base64 of the IV plus ciphertext; decrypt reverses it with the same 128, 192 or 256-bit key. Python, batch and REST entry points exist. MIT licence, now under the Data Privacy Stack community. **[Documented]**
 Detail:
-• Cipher: """Advanced Encryption Standard (aka Rijndael) en/decryption in CBC mode.""" (`aes_cipher.py@2.2.364:9`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Cipher docstring: "Advanced Encryption Standard (aka Rijndael) en/decryption in CBC mode." (`aes_cipher.py@2.2.364:9`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • Padding and IV: `padder = padding.PKCS7(algorithms.AES.block_size).padder()` (line 22) and `iv = os.urandom(16)` (line 24); the output is `base64.urlsafe_b64encode(` of the IV plus ciphertext (line 27) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • Decrypt: `decoded_text = base64.urlsafe_b64decode(text)` (line 41) and `iv = decoded_text[:16]` (line 42) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • Keys: "Invalid input, {self.KEY} must be of length 128, 192 or 256 bits" (`encrypt.py@2.2.364:43`); a string key is encoded with `key = key.encode("utf8")` (line 25) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
@@ -455,7 +455,7 @@ Detail:
 • A key of the wrong length raises `InvalidParamError` (`encrypt.py@2.2.364:43`, reused by `decrypt.py@2.2.364:37`), returned as HTTP 422 (`presidio-anonymizer/app.py@2.2.364:104`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • A wrong key or damaged token probably fails inside `unpadder.finalize()` or the UTF-8 decode (`aes_cipher.py@2.2.364:46`) and, over REST, becomes `jsonify(error="Internal server error"), 500` (`presidio-anonymizer/app.py@2.2.364:113`); this is a reading of the code paths, not tested **[Inferred]**
 • Encrypting the same value twice gives different tokens (random IV), so outputs are not repeatable **[Inferred]**
-• Token size: the docs samples turn the 10-character name "James Bond" (start 11, end 21 in the encrypt tutorial) into a token spanning start 11 to end 55 (anonymizer page), 44 characters **[Inferred]**
+• Token size: AES-CBC pads to 16-byte blocks and prefixes a 16-byte IV, so a value of 1 to 15 bytes becomes 32 bytes, which is 44 base64 characters; the docs samples agree, with the 10-character name "James Bond" (start 11, end 21 in the encrypt tutorial) shown as a token from start 11 to end 55 (anonymizer page) **[Inferred]**
 • Accuracy, latency or throughput figures for encrypt and decrypt (checked the anonymizer page, encrypt and decrypt tutorial and sample, FAQ and evaluation page) **[Not disclosed]**
 ### R6
 Summary: **Key, token text and token offsets.** Required are the same AES key used to encrypt, the text holding the tokens, and each token's start, end and entity type. The REST route takes these as JSON. The caller supplies and holds the key. **[Documented]**
