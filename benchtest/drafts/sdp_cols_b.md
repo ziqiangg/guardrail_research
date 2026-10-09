@@ -233,7 +233,7 @@ Detail:
 • "Sensitive Data Protection helps you discover, classify, and de-identify sensitive data inside and outside Google Cloud." (SDP docs, sensitive-data-protection-overview page, read 2026-10-09) **[Documented]**
 • Prompt injection or jailbreak text inside an image is not described as something the service looks for (checked the same image pages); OCR text is matched only against the infoTypes requested **[Not disclosed]**
 ### R3
-Summary: **Image bytes only, with no input or output flag.** One image goes in per call, whether from a prompt, a response, a retrieved file or a tool result. Results are not stored in Google Cloud, and only the first frame of a multiframe image is used. **[Inferred]**
+Summary: **Image bytes only, with no input or output flag.** One image per call, whether from a prompt, a response, a retrieved file or a tool result. Results are not stored in Google Cloud, and only the first frame of a multiframe image is used. **[Inferred]**
 Detail:
 • "To inspect an image for sensitive data, you submit a base64-encoded image to the content.inspect method." (SDP docs, inspecting-images page, read 2026-10-09) **[Documented]**
 • "To redact sensitive data from an image, submit the image to the DLP API's image.redact method." (SDP docs, redacting-sensitive-data-images page, read 2026-10-09) **[Documented]**
