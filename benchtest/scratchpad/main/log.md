@@ -38,3 +38,4 @@
 - 2026-10-09 modelarmor P7: PASS WITH FIXES, 7 required (support bullets, T21 [Not disclosed], ~250 ms latency from Service Extensions docs, label splits), 29/30 MATCH, 14 Go line refs verified at v1.3.0; R021; fix loop sent to same merger
 - 2026-10-09 sdp P7 fix loop done: 7 required + rulings + 2 optional; 15 Summaries changed vs drafts; checks 0/0; ready for CP2
 - 2026-10-09 modelarmor P7 fix loop done: 7 required + R021/Q2/Q3; BLOCKS 10/15/16/20/16; checks 0/0; ready for CP2. All B1 at CP2.
+- 2026-10-09 CP2 (user): presidio R022, sdp R023, modelarmor R024 approved; R025 (AUP recorded/deferred; Preview features synthetic data only → pre-P8 merger edit). Queue: presidio, sdp, modelarmor. User low on credits → handover written (benchtest/scratchpad/main/handover_20261009.md).

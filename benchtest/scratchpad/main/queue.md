@@ -3,6 +3,9 @@
 ## xlsx-writer queue (products with a CP2 approval ruling, apply in this order, one at a time)
 | # | Slug | CP2 ruling | Queued | Applied (commit) |
 |---|---|---|---|---|
+| 1 | presidio | R022 | 2026-10-09 | |
+| 2 | sdp | R023 | 2026-10-09 | |
+| 3 | modelarmor | R024 (+ R025 pre-P8 merger edit first) | 2026-10-09 | |
 
 ## Open questions (from agents)
 | Q file | Product | Routed to | State | Ruling |
@@ -13,11 +16,13 @@
 | explorer/20261009_modelarmor_q01.md: 10 columns (R002 split) vs 6 vs folding MA9/MA10; antivirus + MCP screening as inventory or MA11; prefix `Model Armor:` (Q03); P1 adds alt (e) 14 cols if response-side file/image evidence appears, MA11 = tool-call screening (MCP and Agent Gateway) | modelarmor | user at modelarmor CP1 | resolved | see CP1 ruling |
 | explorer/20261009_sdp_q01–q03.md: prefix `Sensitive Data Protection:` vs `Google Cloud …`; content policy (SD7) column vs inventory; fold SD2→SD1, SD4→SD3 | sdp | user at sdp CP1 | resolved | see CP1 ruling |
 
-| modelarmor P5 r2 Q1/Q2: Google Cloud AUP forbids using Services "to test … to find limitations or vulnerabilities, or to evade filtering capabilities, except as expressly permitted" — does red-team testing of Model Armor fall under it? Synthetic data only for Preview features (Pre-GA terms: no personal data)? | modelarmor (+ bench design) | **user at modelarmor CP2** | open (non-blocking for research; recorded as [Documented] clause + [Not disclosed] permission) | — |
+| modelarmor P5 r2 Q1/Q2: Google Cloud AUP forbids using Services "to test … to find limitations or vulnerabilities, or to evade filtering capabilities, except as expressly permitted" — does red-team testing of Model Armor fall under it? Synthetic data only for Preview features (Pre-GA terms: no personal data)? | modelarmor (+ bench design) | user at modelarmor CP2 | resolved | R025 |
 
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| modelarmor P5 r2 Q1/Q2 (AUP testing clause; Preview synthetic data) | R025 | user |
+| B1 CP2 (presidio, sdp, modelarmor) | R022, R023, R024 | user |
 | modelarmor P7 Q1 (T21 read via curl + stdlib parse) | R021: counts as verbatim; label [Not disclosed] | main |
 | modelarmor P7 Q2 (Service Extensions latency figure) | yes: Google docs on docs.cloud.google.com, attributed "Service Extensions docs" (R007 item 1, Apigee precedent) | main |
 | modelarmor P7 Q3 (load-balancer route limits) | add to INV(b) now ([Documented], attributed) | main |
