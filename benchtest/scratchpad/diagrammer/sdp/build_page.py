@@ -108,7 +108,7 @@ NO = '<span class="pill no">No</span>'
 # ----------------------------------------------------------------------------------------------
 overview = """<section class="overview">
   <figure>
-    <svg viewBox="0 0 900 400" role="img" aria-label="A user's message goes through Sensitive Data Protection's input checks for personal data, secrets and your own detectors before it reaches the AI model, and pictures the user sends go through picture checks. The AI model's answer goes through output checks before the user sees it, and pictures the AI makes go through picture checks. In both cases SDP returns findings or a cleaned copy, and your app decides whether to refuse, discard or mask. Documents fetched for the AI model can be checked for personal data only, and actions the AI takes have no SDP check.">
+    <svg viewBox="0 0 900 400" role="img" aria-label="A user's message goes through Sensitive Data Protection's input checks for personal data, secrets and your own detectors before it reaches the AI model, and pictures the user sends go through picture checks. The AI model's answer goes through output checks before the user sees it, and pictures the AI makes go through picture checks. In both cases SDP returns findings or a cleaned copy, and your app decides whether to refuse, discard or mask. Documents fetched for the AI model can be checked for personal data and keys but not for hidden instructions, and actions the AI takes have no SDP check.">
       <defs>
         %(o)s
       </defs>
@@ -147,10 +147,10 @@ overview = """<section class="overview">
       <text class="ts" x="235" y="82" text-anchor="middle">text · IDs · safety</text>
       <path class="ln" d="M235,110 V151" marker-end="url(#o-a)"/>
 
-      <!-- documents: personal data only -->
+      <!-- documents: personal data and keys -->
       <rect class="part" x="350" y="30" width="170" height="80" rx="8"/>
       <text class="tb" x="435" y="62" text-anchor="middle">Your documents</text>
-      <text class="ts" x="435" y="82" text-anchor="middle">personal data only</text>
+      <text class="ts" x="435" y="82" text-anchor="middle">personal data and keys</text>
       <path class="ln" d="M435,110 V156" marker-end="url(#o-a)"/>
 
       <!-- pictures the AI makes -->
@@ -178,7 +178,7 @@ overview = """<section class="overview">
       <text class="tb" x="635" y="340" text-anchor="middle">Your app</text>
       <text class="ts" x="635" y="360" text-anchor="middle">discards or masks</text>
     </svg>
-    <figcaption>SDP can check text and pictures going to the AI model and coming back, and can check passages from your documents for personal data only. It has no check for actions the AI takes. At every point it returns findings or a cleaned copy; your app decides whether to continue, refuse, discard or use the masked version.</figcaption>
+    <figcaption>SDP can check text and pictures going to the AI model and coming back, and can check passages from your documents for personal data and keys, but not for hidden instructions. It has no check for actions the AI takes. At every point it returns findings or a cleaned copy; your app decides whether to continue, refuse, discard or use the masked version.</figcaption>
   </figure>
 </section>""" % dict(o=marker("o-a", "ah"))
 
@@ -256,7 +256,7 @@ positioning = """<section class="stage">
         </tbody>
       </table>
     </div>
-    <p class="know"><b>Good to know:</b> SDP still carries its old name in places: the web address, the role name and the Python package all say DLP. Google's Model Armor, a separate product, can call SDP on prompts and answers; how it does so is covered separately, and this page is about SDP itself.</p>
+    <p class="know"><b>Good to know:</b> SDP still carries its old name in places: the web address, the role name and the Python package all say DLP. Google's <a href="modelarmor-explained.html">Model Armor</a>, a separate product, can call SDP on prompts and answers; how it does so is covered on its own page, and this page is about SDP itself.</p>
   </article>
 </section>"""
 
@@ -348,11 +348,11 @@ how = """<section class="stage">
           <tr><td>Money</td><td>Card, bank, IBAN and SWIFT numbers</td><td>10</td><td class="code">CREDIT_CARD_NUMBER</td></tr>
           <tr><td>Health</td><td>Medical codes, record numbers and terms, blood type</td><td>8</td><td class="code">MEDICAL_RECORD_NUMBER</td></tr>
           <tr><td>Secrets</td><td>Cloud and AI-provider keys (Anthropic, OpenAI, Gemini), tokens, passwords</td><td>21</td><td class="code">ANTHROPIC_API_KEY</td></tr>
-          <tr><td>Worldwide IDs</td><td>Passport (the list of countries includes Singapore), government ID, driver's licence, VAT, vehicle number</td><td>6</td><td class="code">PASSPORT</td></tr>
+          <tr><td>Worldwide IDs</td><td>Passport (the list of countries includes Singapore), government ID, driver's licence, VAT, vehicle identification number (VIN)</td><td>6</td><td class="code">PASSPORT</td></tr>
           <tr><td>Singapore</td><td>NRIC number, passport number</td><td>2</td><td class="code">SINGAPORE_NATIONAL_REGISTRATION_ID_NUMBER</td></tr>
-          <tr><td>Other countries</td><td>National IDs, tax and health numbers, grouped by region in Google's reference</td><td>125</td><td class="code">US_SOCIAL_SECURITY_NUMBER</td></tr>
+          <tr><td>Other countries</td><td>National IDs, tax and health numbers, listed by country in Google's reference</td><td>125</td><td class="code">US_SOCIAL_SECURITY_NUMBER</td></tr>
           <tr><td>Documents and source code</td><td>Document kinds (legal, finance, HR, medical), topic labels (offensive, politics, religion), 15 programming languages</td><td>37</td><td class="code">DOCUMENT_TYPE/CONTEXT/POLITICS</td></tr>
-          <tr><td>Pictures</td><td>Objects in an image (passport, photo ID, face, signature, licence plate, barcode, whiteboard) and three whole-image safety labels</td><td>11</td><td class="code">OBJECT_TYPE/PERSON/PASSPORT</td></tr>
+          <tr><td>Pictures</td><td>Objects in an image (person, passport, photo ID, face, signature, licence plate, barcode, whiteboard) and three whole-image safety labels</td><td>11</td><td class="code">OBJECT_TYPE/PERSON/PASSPORT</td></tr>
         </tbody>
       </table>
     </div>
@@ -375,7 +375,7 @@ r3 = rail(
          "Your app routes or refuses", "SDP only reports findings"),
     "SDP reports what it finds: the kind of data, a likelihood level (diagram 2) and where it sits in the text. It has built-in detectors for Singapore NRIC and passport numbers, and for AI-provider keys such as Anthropic, OpenAI and Gemini. Whether the message goes on is your app's call.",
     [("In", "My NRIC is S1234567D, email tan@example.com. (illustrative)"),
-     ("Result", "Two findings, a Singapore NRIC number and an email address, each with a likelihood level and a position (illustrative)")],
+     ("Result", "Expected: two findings, a Singapore NRIC number and an email address, each with a likelihood level and a position (illustrative)")],
     "Google calls its detectors 'not a perfectly accurate detection method' and publishes no accuracy figure for any of them, including the Singapore NRIC one. Whether Singapore FIN numbers or +65 phone numbers are found is not stated. If you list no kinds of data, SDP picks a default list that Google says is for testing only.")
 
 r4 = rail(
@@ -389,7 +389,7 @@ r4 = rail(
     "SDP finds each value first, then changes it the way you chose: delete it, replace it with fixed text or with its type name, mask some characters, or hash it (a one-way scramble). Only the kinds of data you list are changed. Your app decides whether to pass the cleaned copy on.",
     [("Rule", "Mask email addresses with # (Google's docs)"),
      ("Masked", "My name is Alicia Abernathy, and my email address is <mark>##########@#######.###</mark>.")],
-    "A value the detectors miss stays in the text, and Google publishes no figure for how much is missed. Bucketing and date shifting are offered, but Google's samples show them on table fields only, so use on free text is to be verified. More than 3,000 findings in one request returns an error message.")
+    "A value the detectors miss stays in the text, and Google publishes no figure for how much is missed. Bucketing and time extraction are offered, but Google's samples show them on tables only, so use on free text is to be verified; one sample does shift a date in a plain string. More than 3,000 findings in one request returns an error message.")
 
 stage1 = """<section class="stage">
   <div class="stage-head">
@@ -421,7 +421,7 @@ r5 = rail(
     "There is no input or output setting, so the draft answer goes in the same kind of request as the user's message. NeMo's diagram 4 masks personal data on the answer in the same spirit; this page claims no link between NeMo and SDP.",
     [("Draft", "You can reach Jane Tan at jane.tan@example.com."),
      ("Result", "Two findings, a person name and an email address; your app discards or masks (illustrative)")],
-    "Google's own examples describe prompts going to outside AI models; sending the answer through the same calls is our reading of the request format. Model Armor, a separate Google product, can call SDP on prompts and answers, but its docs say its streaming methods and file-based prompts do not support SDP's masking.")
+    "Google's own examples describe prompts going to outside AI models; sending the answer through the same calls is our reading of the request format. <a href=\"modelarmor-explained.html\">Model Armor</a>, a separate Google product, can call SDP on prompts and answers, but its docs say its streaming methods and file-based prompts do not support SDP's masking.")
 
 stage2 = """<section class="stage">
   <div class="stage-head">
@@ -489,7 +489,7 @@ r7 = rail(
     "Two reversible methods exist: AES-SIV, a standard encryption mode that Google recommends, and format-preserving encryption, which keeps a value's length and character set but 'can run very slowly'. The key can be kept wrapped by Cloud KMS, Google's key-storage service. To swap back, your app sends the whole token and the same key.",
     [("Rule", "Token form: name, then the length of the coded part in brackets, then the coded part (Google's docs)"),
      ("Masked", "An email address becomes <mark>EMAIL_ADDRESS_TOKEN(52):AVAx2eIEnIQP5jbNEr2j9wLOAd5m4kpSBR/0jjjGdAOmryzZbE/q.</mark>")],
-    "No Google page describes a round trip through an AI model, so it only works if the model repeats the token unchanged. Google's docs disagree on whether an AES-SIV token keeps the length of the original value. The client docs warn that re-identifying text can restore a stand-in that matches no real value, or fail, so the token name must not occur naturally in your data.")
+    "None of the Google pages we read describes a round trip through an AI model, so it only works if the model repeats the token unchanged. Google's docs disagree on whether an AES-SIV token keeps the length of the original value. The client docs warn that re-identifying text can restore a stand-in that matches no real value, or fail, so the token name must not occur naturally in your data.")
 
 stage_custom = """<section class="stage">
   <div class="stage-head">
@@ -566,7 +566,7 @@ r10 = rail(
     "NeMo's diagram 5 masks personal data on retrieved passages in the same spirit. SDP's request has no document or retrieval setting: your app sends the passage as ordinary text, or the file's bytes, and reads the findings.",
     [("Passage", "Ticket raised by Ahmad Rahim, phone 9123 4567. (illustrative)"),
      ("Result", "A person name is likely to be found; whether a Singapore phone number is found is not stated (illustrative)")],
-    "No Google page describes checking retrieved passages, so this is our reading of the request format. Masking is shown for plain text and CSV or TSV files only: the docs list no masking for PDF, Word, Excel or PowerPoint files, although PDF bytes can be inspected.")
+    "None of the Google pages we read describes checking retrieved passages, so this is our reading of the request format. Masking is shown for plain text and CSV or TSV files only: the docs list no masking for PDF, Word, Excel or PowerPoint files, although PDF bytes can be inspected.")
 
 stage_retrieval = """<section class="stage">
   <div class="stage-head">
@@ -593,7 +593,7 @@ scorecard = """<section class="stage">
       <tbody>
         <tr><td>Input</td><td>%(yes)s</td><td>Personal data and secrets in text, from built-in detectors and your own, with masking or reversible tokens (diagrams 3, 4, 6 and 7). It does not check for attacks, jailbreaks or harmful wording; the docs name no such detector.</td></tr>
         <tr><td>Output</td><td>%(yes)s</td><td>The same calls can run on the AI's draft answer (diagram 5). That is our reading of the request, which has no input or output setting; Google's examples describe prompts.</td></tr>
-        <tr><td>Retrieval (your documents)</td><td>%(partly)s</td><td>Personal data and secrets in any passage or file your app sends (diagram 10), but nothing checks for instructions hidden in a document, and no Google page describes retrieval use.</td></tr>
+        <tr><td>Retrieval (your documents)</td><td>%(partly)s</td><td>Personal data and secrets in any passage or file your app sends (diagram 10), but nothing checks for instructions hidden in a document, and none of the Google pages we read describes retrieval use.</td></tr>
         <tr><td>Dialog (topics, fixed replies)</td><td>%(no)s</td><td>No topic rules and no fixed replies. Document-category detectors for politics, religion or offensive topics are listed, but whether they run on a plain text string is not stated.</td></tr>
         <tr><td>Execution (actions, tools)</td><td>%(no)s</td><td>No check for tool requests or actions. Text going into or out of a tool could be sent through the same calls, but nothing official describes this, and business limits like NeMo's diagram 8 still need a written rule.</td></tr>
         <tr><td>Images</td><td>%(yes)s</td><td>Text and ID-type objects in pictures can be found and covered (diagram 8). The whole-picture safety check covers three categories only (diagram 9), which is why it is marked Partly there.</td></tr>
@@ -618,7 +618,7 @@ limits = """<section class="stage">
       <li><b>No published accuracy.</b> Google publishes no precision, recall or speed figure for any detector, including the Singapore NRIC one, and says detectors are 'not a perfectly accurate detection method'. It promises 99.5% monthly uptime for the inspect and de-identify calls in most regions; no uptime figure is stated for re-identify or picture redaction.</li>
       <li><b>Singapore coverage is thin and partly unknown.</b> NRIC and passport numbers have detectors. No FIN, UEN, +65 phone or address detector is named, and support for Chinese, Malay, Tamil and Singlish is not stated.</li>
       <li><b>Models are not named, and they change.</b> The person-name detector's backing model, the OCR and the picture classifiers are not disclosed. A new person-name version was announced on 2026-10-03 and is due to become the standard about 30 days later, so the same test can give different results over time.</li>
-      <li><b>Its docs disagree in places:</b> which detectors run when you list none, which image formats work, where picture box coordinates start, whether AES-SIV tokens keep the original length, the output format of the one-way hash, and the order rules run in.</li>
+      <li><b>Its docs disagree in places.</b> They differ on which detectors run when you list none, which image formats work, where picture box coordinates start, whether AES-SIV tokens keep the original length, the output format of the one-way hash, and the order rules run in.</li>
       <li><b>Your text goes to Google's API.</b> No offline mode was found. Google says request data is encrypted in transit and not stored, and that regional addresses (one exists for Singapore) keep data in the chosen place, while the global address makes no such promise for data in transit. What the web demo does with text is not described.</li>
       <li><b>Caps, cost and test terms apply.</b> A request is capped at 0.5 MB (4 MB for picture redaction), and the first gibibyte (a little over a billion bytes) a month is free, then $3.00 per gibibyte inspected. The face detector is in Preview, so Google's terms say it has no SLA. Published test results need all the information to replicate them, and Google's Acceptable Use Policy bars illegal content; which explicit or violent test pictures are acceptable is for the bench design to decide.</li>
     </ul>
@@ -655,6 +655,8 @@ page = "\n".join([
     "<style>",
     layout_comment,
     base_css,
+    "/* Additions for this page: links to sibling pages inside body text */",
+    ".stage-head a, .know a { color: var(--accent); }",
     "</style>",
     "",
     '<div class="wrap">',

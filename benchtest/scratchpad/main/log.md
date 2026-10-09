@@ -56,3 +56,4 @@
 - 2026-10-09 purplellama P0 code done (redone after rate limit): PL1–PL6 (+ optional PL7 custom/PII, PL8 hidden ASCII), inventory (a)–(f), CyberSecEval eval sections; no tags → pin sha 172c1074; 11 gaps, 8 conflicts; Q14/Q15 ruled by main; Q11–Q13 → CP1
 - 2026-10-09 sdp P10 review: PASS WITH FIXES (3 required: date-shifting claim, region wording, overview 'personal data only'); counts 125/37/11 verified; fix loop sent to same diagrammer (+ O1–O4, O6, reciprocal modelarmor link); R026 retrieval-score convention
 - 2026-10-09 lionguard P0 done (redone after rate limit): LN1 single column proposed (alt per-variant); inventory (a)–(e); embedder deps (OpenAI/Gemini keys; Lite gated Gemma); 9 gaps, 4 conflicts; q01–q03 → CP1, q04 → P5; P1 started
+- 2026-10-09 sdp P10 fix loop done: RF1–RF3 + O1–O4, O6 + reciprocal modelarmor links; old strings gone (grep 0), base CSS identical; awaiting user review (+ shared CSS question)
