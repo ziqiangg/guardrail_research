@@ -53,7 +53,7 @@ new = load_workbook(XLSX, rich_text=True)
 old = load_workbook(V7, rich_text=True)
 print("v7 sheets:", old.sheetnames)
 check("sheet order unchanged (6 sheets, sheet 4 last)", new.sheetnames == old.sheetnames ==
-      [S3, S3B, S3C, S3D, S3E, S4] and len(new.sheetnames) == 6 and new.sheetnames[-1] == S4)
+      BI.ORDER and len(new.sheetnames) == len(BI.ORDER) and new.sheetnames[-1] == S4)
 
 # ---------------------------------------------------------------- sheets 3, 3b, 3c, 3d, 3e identical to v7 (3d/3e incl. panels)
 for nm in (S3, S3B, S3C, S3D, S3E):

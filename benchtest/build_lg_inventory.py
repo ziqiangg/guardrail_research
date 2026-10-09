@@ -5,12 +5,13 @@ Public API: add_sheet(wb, ws3) -> ws ; verify(wb, xlsx=None)
 """
 import re
 
+import paths as P
 import inventory_sheet as IS
 import build_inventory as BI
 from build_inventory import S3C, S3D
 
 DIR = BI.DIR
-MD = DIR + r"\drafts\lg_inventory_final.md"
+MD = str(P.DRAFTS / "lg_inventory_final.md")
 TITLE = "3d. Llama Guard Inventory (Llama Guard 1 to 4)"
 NOTE = ("Source: Meta PurpleLlama model cards, Hugging Face, dev.meta.ai docs, llama-cookbook and OGX, with the "
         "refs pinned in each cell. Covered-by maps each variant to a Table 3 column; LG1 and LG2 are legacy.")

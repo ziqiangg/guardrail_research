@@ -7,12 +7,13 @@ Blocks: (a) model variants (16 cols, autofilter), (b) Sentinel guardrail catalog
 """
 import re
 
+import paths as P
 import inventory_sheet as IS
 import build_inventory as BI
 from build_inventory import S3D, S3E
 
 DIR = BI.DIR
-MD = DIR + r"\drafts\sentinel_inventory_final.md"
+MD = str(P.DRAFTS / "sentinel_inventory_final.md")
 TITLE = "3e. GovTech Sentinel Inventory (Guardrails as a Service + GovTech models)"
 NOTE = ("Source: aiguardian.gov.sg Sentinel docs, GovTech Responsible AI playbook, govtech Hugging Face repos and "
         "GovTech arXiv papers, with the refs pinned in each cell. Sentinel is in closed beta for Singapore public "

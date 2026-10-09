@@ -1,0 +1,15 @@
+# R004 — Purple Llama scope
+- Date: 2026-10-09   Product: purplellama   Asked by: main (handover planning)
+- Question: How is Meta's Purple Llama umbrella broken down?
+- Ruling:
+  - **Table 3 columns** for each runtime tool:
+    - **Prompt Guard 2.** Prompt Guard 1 is legacy and goes in the inventory only.
+    - **LlamaFirewall**, one column per scanner: PromptGuard scanner, AlignmentCheck, CodeShield scanner, and regex/custom scanners. Split further only if the evidence shows distinct functions; that is a CP1 question.
+    - **Code Shield.**
+  - **CyberSecEval** goes in an evaluation-tooling sheet (R003).
+  - **Llama Guard:** the existing columns V–Z and sheet 3d stay **untouched** and are cross-referenced. Llama Guard is not researched again.
+  - **Header prefix:** decide at P1 between `Purple Llama:` with the tool named in the header, or per-tool prefixes such as `Prompt Guard:` and `LlamaFirewall:`. Present the choice at CP1.
+  - **HTML:** one page, `purplellama-explained.html`, covers the whole umbrella with a section per tool, and links `llama-guard-explained.html` instead of repeating it.
+- Decided by: user
+- Applies to: purplellama
+- Supersedes: none

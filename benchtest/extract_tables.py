@@ -11,9 +11,11 @@ from openpyxl.cell.text import InlineFont
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils import get_column_letter
 
-DIR = r"C:\Users\cys-c\Desktop\gzqr\benchtest"
-SRC = DIR + r"\AI Guardrails Research and Comparison.docx"
-DST = DIR + r"\AI Guardrails Research and Comparison.xlsx"
+import paths as P
+
+DIR = str(P.ROOT)
+SRC = str(P.DOCX)
+DST = str(P.XLSX)
 
 FIX = lambda s: s.replace("\ufffd", "\u2019")
 

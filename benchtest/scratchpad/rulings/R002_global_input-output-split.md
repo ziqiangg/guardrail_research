@@ -1,0 +1,15 @@
+# R002 — Input-level and output-level functions are separate
+- Date: 2026-10-08 (sheet 4); applied to Table 3 since NeMo/Llama Guard   Product: global   Asked by: main
+- Question: Should input and output versions of one function be one column/group or two?
+- Options considered: (a) separate; (b) one, with direction as a variant
+- Ruling:
+  - **Table 3:** a function that checks prompts and also checks responses is split into an "Input-level …" column and an "Output-level …" column. Llama Guard is the precedent (V and W).
+  - **Exception:** a single column is allowed only when the product exposes one undifferentiated check with no direction flag. Its R3/R6 must then explain both uses. Sentinel's LionGuard 2 column (AA) is the precedent.
+  - **Sheet 4:** input and output groups are separate, and a function is listed in each group it applies to. Multimodal and custom-policy rows were split the same way.
+  - **Definition (added 2026-10-09 after the Presidio dry run).** Direction is a property of the product's own surface: separate rails, endpoints, flags, prompt roles or config sections for input versus output.
+    - **Libraries that only receive a string** are undifferentiated, so they get one column. Examples: the Presidio Analyzer and Anonymizer, the LionGuard models. R3 and R6 must say the column applies to both prompts and responses.
+    - **A wrapper with per-direction flows** keeps its split, even when the wrapped engine has none. NeMo's input and output PII rails over Presidio stay as two columns.
+- Decided by: user (definition clarified by main, 2026-10-09)
+- Rationale & sources: the test inputs and ground truth differ (prompts vs prompt+response pairs).
+- Applies to: all products
+- Supersedes: none

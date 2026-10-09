@@ -1,0 +1,11 @@
+# R008 — Cloud environment, tools and skills
+- Date: 2026-10-09   Product: global   Asked by: main (handover planning)
+- Ruling:
+  - **Plan:** Pro/Max. Network access **Full**. The setup script installs LibreOffice (calc), the Python requirements and Playwright Chromium (see `handover_plan.md` §2).
+  - **Context7 and Hugging Face** come from **claude.ai connectors** added by the user; nothing in the repo. If the HF connector is missing, use curl on huggingface.co and its REST API.
+  - **xlsx skill:** proprietary licence, so **not vendored**. It is enabled on the user's claude.ai account and used by gr-xlsx-writer.
+  - **webapp-testing skill:** Apache-2.0, vendored in `.claude/skills/webapp-testing` and used by gr-diagrammer.
+  - **Permissions:** an allowlist in `.claude/settings.json`. Force-push, tags, `rm -rf`, hard reset and edits to `baselines/` are denied.
+- Decided by: user
+- Applies to: all sessions
+- Supersedes: none

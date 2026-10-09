@@ -6,17 +6,18 @@ from openpyxl.cell.text import InlineFont
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils import get_column_letter
 
-DIR = r"C:\Users\cys-c\Desktop\gzqr\benchtest"
-XLSX = DIR + r"\AI Guardrails Research and Comparison.xlsx"
-DRAFTS = [DIR + r"\drafts" + "\\" + n for n in
-          ("jailbreak.md", "batch1.md", "batch2.md", "batch3.md")]
+import paths as P
+from products import HDR_RE
+
+DIR = str(P.ROOT)
+XLSX = str(P.XLSX)
+DRAFTS = [str(P.DRAFTS / n) for n in ("jailbreak.md", "batch1.md", "batch2.md", "batch3.md")]
 S3, S4 = "3. Guardrail Research Table", "4. Candidate Comparison Groups"
 
 thin = Side(style="thin", color="8EA9DB")
 BORDER = Border(left=thin, right=thin, top=thin, bottom=thin)
 ALIGN = Alignment(wrap_text=True, vertical="top")
 
-HDR_RE = re.compile(r"^## Column[^:]*:\s*((?:NeMo Guardrails|Llama Guard|GovTech Sentinel):.*)$")
 CELL_RE = re.compile(r"^- \*\*R([1-9]):\*\* (.*)$")
 LABEL_RE = re.compile(r"\[(Documented|Inferred|To be verified|Not disclosed)")
 

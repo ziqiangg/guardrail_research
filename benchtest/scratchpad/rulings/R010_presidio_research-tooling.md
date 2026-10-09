@@ -1,0 +1,12 @@
+# R010 — presidio-research (evaluation tooling) placement
+- Date: 2026-10-09   Product: presidio   Asked by: gr-explorer (dry run, `explorer/20261009_presidio_q03.md`)
+- Question: Does Presidio's evaluation toolkit (`presidio-research`) get an evaluation-tooling sheet? R003 pre-approves eval sheets only for Litmus and CyberSecEval.
+- Options considered: (a) an inventory row plus R7 Detail bullets in the relevant columns; (b) ask the user for a new sheet.
+- Ruling: (a).
+  - presidio-research is a **row in the Presidio inventory**, in its components or integration block.
+  - It is cited in the R7 Detail ("minimum test setup") of the detection columns.
+  - No new sheet. If the evidence later shows it needs sheet-level treatment, that becomes a user question.
+- Decided by: main
+- Rationale & sources: R003 (no new sheets beyond the pre-approved ones without a user ruling). Precedent: NeMo's own eval tooling was valuable but is NeMo-only.
+- Applies to: presidio
+- Supersedes: none

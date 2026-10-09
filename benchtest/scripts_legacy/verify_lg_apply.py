@@ -1,3 +1,5 @@
+# Legacy: verified the Llama Guard change against v4; superseded by verify_sentinel_apply.py / verify_groups_apply.py;
+# not runnable against the current workbook (it expects the old 26-column workbook and old hard-coded paths).
 """Independent verification of the Llama Guard apply (sheet 3 V-Z, sheet 3d, untouched sheets vs .v4)."""
 import re, sys
 from openpyxl import load_workbook

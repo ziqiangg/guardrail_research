@@ -11,15 +11,17 @@ from openpyxl.worksheet.properties import Outline
 import extract_tables as ET
 from fill_nemo_columns import HDR_RE, LABEL_RE, BORDER, ALIGN
 
+import paths as P
+import products
+
 DIR = ET.DIR
-XLSX = DIR + r"\AI Guardrails Research and Comparison.xlsx"
-BAK = DIR + r"\AI Guardrails Research and Comparison.v2.xlsx"
-BAK3 = DIR + r"\AI Guardrails Research and Comparison.v3.xlsx"
-BAK6 = DIR + r"\AI Guardrails Research and Comparison.v6.xlsx"  # state before the sheet-4 fill and the 3d/3e panels
-BAK7 = DIR + r"\AI Guardrails Research and Comparison.v7.xlsx"  # state before the sheet-4 readability update
-MDS = [DIR + r"\drafts\two_level_v2.md", DIR + r"\drafts\lg_two_level.md",
-       DIR + r"\drafts\sentinel_two_level.md"]  # NeMo columns first, then Llama Guard, then GovTech Sentinel
-# override with a single draft: python build_two_level.py <md path> (e.g. drafts\two_level.md)
+XLSX = str(P.XLSX)
+BAK = str(P.bak(2))
+BAK3 = str(P.bak(3))
+BAK6 = str(P.bak(6))  # state before the sheet-4 fill and the 3d/3e panels
+BAK7 = str(P.bak(7))  # state before the sheet-4 readability update
+MDS = [str(m) for m in products.MDS]  # registry order: NeMo columns first, then Llama Guard, then GovTech Sentinel
+# override with a single draft: python build_two_level.py <md path> (e.g. drafts/two_level.md)
 S3, S4 = "3. Guardrail Research Table", "4. Candidate Comparison Groups"
 GREY = "808080"
 
@@ -94,17 +96,10 @@ def plain_of(v):
 
 def main(md=None):
     mds = [md] if md else MDS
-    if not os.path.exists(BAK):
-        shutil.copy2(XLSX, BAK)
-        print("backup created")
-    else:
-        print("backup exists, not overwritten")
-
-    if not os.path.exists(BAK3):
-        shutil.copy2(XLSX, BAK3)
-        print("v3 backup created")
-    else:
-        print("v3 backup exists, not overwritten")
+    for b in (BAK, BAK3, BAK6, BAK7):
+        if not os.path.exists(b):
+            raise FileNotFoundError("frozen baseline missing: %s (baselines are committed under benchtest/baselines/; "
+                                    "restore them from git, do not regenerate)" % b)
 
     doc = Document(ET.SRC)
     t0 = doc.tables[0]
@@ -186,10 +181,13 @@ def main(md=None):
     build_inventory.add_sheet(wb, ws)
     import build_eval_sheet
     build_eval_sheet.add_sheet(wb)
-    import build_lg_inventory
-    build_lg_inventory.add_sheet(wb, ws)
-    import build_sentinel_inventory
-    build_sentinel_inventory.add_sheet(wb, ws)
+    import importlib
+    import products
+    # every product after NeMo has an inventory_sheet-based builder module registered in products.py
+    inv_mods = [importlib.import_module(p["inventory_builder_module"])
+                for p in products.PRODUCTS if p["inventory_builder_module"] != "build_inventory"]
+    for m in inv_mods:
+        m.add_sheet(wb, ws)
     import build_groups_sheet
     build_groups_sheet.add_sheet(wb)
     wb.save(XLSX)
@@ -296,8 +294,8 @@ def main(md=None):
     print("F10:", plain_of(ws["F10"].value))
     print("F11:", plain_of(ws["F11"].value))
     build_eval_sheet.verify(wb2, BAK3, XLSX)
-    build_lg_inventory.verify(wb2, XLSX)
-    build_sentinel_inventory.verify(wb2, XLSX)
+    for m in inv_mods:
+        m.verify(wb2, XLSX)
     build_inventory.verify(XLSX, wb2, BAK, post_check=post_check)
     # sheet 4 is no longer the docx template: verified against drafts/groups_v2.md (and v7 for title/header)
     build_groups_sheet.verify(load_workbook(XLSX, rich_text=True), XLSX, BAK7)

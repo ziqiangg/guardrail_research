@@ -1,0 +1,11 @@
+# R005 — LionGuard as a standalone product
+- Date: 2026-10-09   Product: lionguard   Asked by: main (handover planning)
+- Question: LionGuard is already covered inside Sentinel (column AA, sheet 3e). Add it again?
+- Ruling:
+  - **New columns:** add LionGuard as a **standalone self-hosted product**, the open models on Hugging Face: LionGuard 2, 2.1 and 2 Lite, with LionGuard 1 as legacy in the inventory only.
+  - **Columns** cover what you get when you run the models yourselves. Split input and output per R002; LionGuard is one classifier with no direction flag, so a single column is acceptable if justified at CP1.
+  - **Cross-reference** Sentinel column AA and sheet 3e (catalogue and crosswalk). Reuse their verified facts, re-checked at source. Don't duplicate Sentinel-service facts; hosted-API behaviour stays under Sentinel.
+  - **HTML:** `lionguard-explained.html`.
+- Decided by: user
+- Applies to: lionguard
+- Supersedes: none

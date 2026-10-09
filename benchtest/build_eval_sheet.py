@@ -7,8 +7,11 @@ from openpyxl.cell.rich_text import CellRichText, TextBlock
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils import get_column_letter
 
-DIR = r"C:\Users\cys-c\Desktop\gzqr\benchtest"
-MD = DIR + r"\drafts\eval_tooling.md"
+import paths as P
+from products import ORDER
+
+DIR = str(P.ROOT)
+MD = str(P.DRAFTS / "eval_tooling.md")
 S3, S3B, S3C, S4 = ("3. Guardrail Research Table", "3b. NeMo Rail Inventory",
                     "3c. NeMo Evaluation Tooling", "4. Candidate Comparison Groups")
 TITLE = "3c. NeMo Guardrails Evaluation Tooling (v0.24.1)"
@@ -262,7 +265,7 @@ def verify(wb, bak=None, xlsx=None):
     print("\n=== build_eval_sheet verification (3c) ===")
     secs = parse_md()
     exp = expected_texts(secs)
-    exp_order = [S3, S3B, S3C, "3d. Llama Guard Inventory", "3e. GovTech Sentinel Inventory", S4]
+    exp_order = ORDER
     print("sheet order:", wb.sheetnames, "OK" if wb.sheetnames == exp_order else "FAIL (want %s)" % exp_order)
     ws = wb[S3C]
     print("A1:", ws["A1"].value, "| bold/size:", ws["A1"].font.b, ws["A1"].font.sz)

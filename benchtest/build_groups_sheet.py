@@ -11,12 +11,13 @@ from openpyxl.cell.text import InlineFont
 from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter
 
+import paths as P
 import build_inventory as BI
 import inventory_sheet as IS
 from build_eval_sheet import split_row
 
 DIR = BI.DIR
-MD = DIR + r"\drafts\groups_v2.md"
+MD = str(P.DRAFTS / "groups_v2.md")
 S3, S4 = BI.S3, BI.S4
 R1 = 4  # first row after the header (the first band)
 NMULTI = 6  # C1-C6 are comparison groups (2+ products); C7-C24 are single-product

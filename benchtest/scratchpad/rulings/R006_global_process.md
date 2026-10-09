@@ -1,0 +1,11 @@
+# R006 — Process: checkpoints, models, batches, sheet 4
+- Date: 2026-10-09   Product: global   Asked by: main (handover planning)
+- Ruling:
+  - **Checkpoints:** two per product. CP1 comes after triage and covers column split, open items and conflicts. CP2 comes before the xlsx write and covers the Summary preview, the inventory preview and judgement calls. Diagrams are reviewed by the user at the end of each product; this doesn't block other work.
+  - **Models:** the "Balanced" profile, as in `handover_plan.md` §6.
+  - **Batches:** B1 presidio, modelarmor, sdp. B2 purplellama, lionguard. B3 cloak, litmus. Then the sheet 4 regroup.
+  - **Sheet 4** is regrouped **once, at the end** by gr-grouper, and needs user approval before writing. It uses the same format as `groups_v2.md`: 8 template columns, bullets of 12 words or fewer, a grey Refs line, section bands, and C-IDs.
+  - **Main session:** a manager only. It escalates only decision-bearing questions to the user.
+- Decided by: user
+- Applies to: all products
+- Supersedes: none

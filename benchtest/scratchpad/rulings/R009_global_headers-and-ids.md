@@ -1,0 +1,13 @@
+# R009 — Column headers, prefixes and IDs
+- Date: 2026-10-09   Product: global   Asked by: gr-explorer (dry run, `explorer/20261009_presidio_q04.md`; audit #7)
+- Question: There's no rule for the header prefix (vendor in or out), the wording of the function part, or the column-ID prefixes. The example ID `PR1` collides with purplellama.
+- Options considered: (a) a fixed rule and an ID table; (b) decide per product.
+- Ruling: (a). The binding rules are in `benchtest/drafts/README.md` §4, "Headers and IDs":
+  - **Prefix:** the product's own name as its owner writes it, including the vendor only when it is part of the brand.
+  - **Function part:** sentence case, about 4–12 words, level first (R002), "and" not "&", British spelling except for product and class names.
+  - **ID prefixes:** PD presidio, MA modelarmor, SD sdp, PL purplellama, LN lionguard, CK cloak.
+  - **Timing:** the prefix is proposed at P1, fixed at CP1, and frozen after CP2.
+- Decided by: main
+- Rationale & sources: the existing precedents (`NeMo Guardrails:`, `Llama Guard:`, `GovTech Sentinel:`), and uniqueness across the 10 slugs.
+- Applies to: all new products
+- Supersedes: none

@@ -1,0 +1,11 @@
+# R003 — New sheets and evaluation tools
+- Date: 2026-10-09   Product: global   Asked by: main (handover planning)
+- Question: Where do new products and evaluation tools go in the workbook, and which new sheets are pre-approved?
+- Ruling:
+  - **Inventory sheets:** each new product gets one, lettered `3f`, `3g`, … in the order products reach the workbook (P8). Name: `3x. <Product> Inventory`, matching existing names; for Purple Llama, `3x. Purple Llama Inventory`.
+  - **Evaluation tools** (GovTech Litmus, Meta CyberSecEval) get **evaluation-tooling sheets** like `3c. NeMo Evaluation Tooling`, **not** Table 3 columns. Litmus has no Table 3 columns at all.
+  - **Pre-approved:** the inventory sheets and the Litmus and CyberSecEval eval sheets. Any other new sheet needs a user ruling.
+  - **Sheet order:** product inventory sheets in registry order, each product's eval sheet right after its inventory sheet, and sheet 4 last.
+- Decided by: user
+- Applies to: all new products
+- Supersedes: none

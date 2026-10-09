@@ -4,20 +4,34 @@ from collections import Counter
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils import get_column_letter
 
-DIR = r"C:\Users\cys-c\Desktop\gzqr\benchtest"
-INV = DIR + r"\drafts\inventory.md"
-URLS_OUT = DIR + r"\drafts\v2_urls.txt"
+import paths as P
+from products import ORDER
+
+DIR = str(P.ROOT)
+INV = str(P.DRAFTS / "inventory.md")
+URLS_OUT = str(P.DRAFTS / "v2_urls.txt")
 S3, S3B, S4 = "3. Guardrail Research Table", "3b. NeMo Rail Inventory", "4. Candidate Comparison Groups"
 S3C = "3c. NeMo Evaluation Tooling"
 S3D = "3d. Llama Guard Inventory"
 S3E = "3e. GovTech Sentinel Inventory"
-ORDER = [S3, S3B, S3C, S3D, S3E, S4]
-BAK4 = DIR + r"\AI Guardrails Research and Comparison.v4.xlsx"
-BAK5 = DIR + r"\AI Guardrails Research and Comparison.v5.xlsx"
-BAK6 = DIR + r"\AI Guardrails Research and Comparison.v6.xlsx"
-BAK7 = DIR + r"\AI Guardrails Research and Comparison.v7.xlsx"
-SKILL = (r"C:\Users\cys-c\AppData\Roaming\Claude\local-agent-mode-sessions\skills-plugin"
-         r"\83a0dd2b-9f62-42a2-bdbb-7ca10dbfee57\8e055232-48fa-4a7d-80fb-77845d6c51b7\skills\xlsx")
+BAK4, BAK5, BAK6, BAK7 = (str(P.bak(n)) for n in (4, 5, 6, 7))
+
+
+def _find_skill():
+    """xlsx skill dir (contains scripts/recalc.py): $XLSX_SKILL_DIR, else first */xlsx/scripts/recalc.py under
+    ~/.claude/skills or ~/.claude/plugins, else None."""
+    env = os.environ.get("XLSX_SKILL_DIR")
+    if env:
+        return env
+    from pathlib import Path
+    for base in (Path.home() / ".claude" / "skills", Path.home() / ".claude" / "plugins"):
+        if base.is_dir():
+            for hit in sorted(base.glob("**/xlsx/scripts/recalc.py")):
+                return str(hit.parent.parent)
+    return None
+
+
+SKILL = _find_skill()
 R1, RN = 4, 83  # surface table rows (header is row 3)
 thin = Side(style="thin", color="8EA9DB")
 BORDER = Border(left=thin, right=thin, top=thin, bottom=thin)
@@ -310,8 +324,8 @@ def verify_panel(xlsx, post_check=None):
     print("Python-expected  C rail-type rows:", dict(zip(hdrs, ecr)), " not covered:", encr)
     print("Python-expected  C total:", dict(zip(hdrs, [a + b for a, b in zip(ec, ecr)])), " not covered:", enc + encr)
 
-    if shutil.which("soffice") is None:
-        print("LibreOffice (soffice) is NOT available on this machine: recalc skipped; formulas have no cached "
+    if shutil.which("soffice") is None or not SKILL:
+        print("LibreOffice (soffice) or the xlsx skill (XLSX_SKILL_DIR) is NOT available on this machine: recalc skipped; formulas have no cached "
               "values (Excel will calculate them on open). Panel values above are Python-expected, NOT recalculated.")
         return None
     tmp = xlsx + ".pre_recalc.tmp"

@@ -1,0 +1,14 @@
+# R001 — Repository, baseline and backups
+- Date: 2026-10-09   Product: global   Asked by: main (handover planning)
+- Question: Repo visibility, baseline contents, backup handling, folder layout.
+- Options considered: private/public; everything vs finals only; keep v1–v7 vs v7 only vs baselines/ folder.
+- Ruling:
+  - **Repo:** `ziqiangg/guardrail_research` is **public**. The user confirmed that pushing to the personal account is permitted.
+  - **Baseline:** tag `baseline-2026-10-09`. It contains everything except junk; unreferenced backup v1 was dropped.
+  - **Backups:** v2–v7 live in `benchtest/baselines/`, are frozen and must never be edited. New work does not create v8+; the previous git commit is the baseline.
+  - **Layout:** at the root, `CLAUDE.md`, `handover_plan.md`, `.claude/` and `requirements.txt`. Under `benchtest/`, the workbook, docx, scripts, `diagrams/` (the plural name is kept), `drafts/`, `scratchpad/` and `baselines/`.
+  - **Workflow:** one session branch. Drafts are written in parallel, and a single xlsx writer applies them. The user merges via PR on claude.ai/code.
+- Decided by: user
+- Rationale & sources: handover planning Q&A, 2026-10-09.
+- Applies to: all products
+- Supersedes: none

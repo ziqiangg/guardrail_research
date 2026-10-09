@@ -13,7 +13,7 @@ from fill_nemo_columns import LABEL_RE
 DIR = B2.DIR
 XLSX = B2.XLSX
 V5 = BI.BAK5
-URLS = DIR + r"\drafts\sentinel_urls.txt"
+URLS = str(BI.P.DRAFTS / "sentinel_urls.txt")
 S3, S3B, S3C, S3D, S3E, S4 = B2.S3, BI.S3B, BI.S3C, BI.S3D, BI.S3E, B2.S4
 RESULTS = []
 
@@ -56,7 +56,7 @@ def full_snap(w, max_row=None):
 new = load_workbook(XLSX, rich_text=True)
 old = load_workbook(V5, rich_text=True)
 print("v5 sheet names:", old.sheetnames)
-want_order = [S3, S3B, S3C, S3D, S3E, S4]
+want_order = list(BI.ORDER)  # from products.py
 check("sheet order", new.sheetnames == want_order, str(new.sheetnames))
 check("v5 sheet names unchanged in the new workbook", [n for n in new.sheetnames if n != S3E] == old.sheetnames
       == [S3, S3B, S3C, S3D, S4])
