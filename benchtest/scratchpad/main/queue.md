@@ -18,6 +18,9 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| modelarmor P7 Q1 (T21 read via curl + stdlib parse) | R021: counts as verbatim; label [Not disclosed] | main |
+| modelarmor P7 Q2 (Service Extensions latency figure) | yes: Google docs on docs.cloud.google.com, attributed "Service Extensions docs" (R007 item 1, Apigee precedent) | main |
+| modelarmor P7 Q3 (load-balancer route limits) | add to INV(b) now ([Documented], attributed) | main |
 | sdp P7 Q1 (Apigee row, path deprecated) | marker `— (legacy, not in Table 3)`; P8 config markers include legacy | main |
 | sdp P7 Q2 (SD6 R7 AUP bullet) | policy wording [Documented] + applicability [Inferred] (CLAUDE.md rule 2) | main |
 | sdp P7 Q3 (who records fix 7) | merger, in Verifier fixes | main |
