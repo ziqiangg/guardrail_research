@@ -245,8 +245,8 @@ w('')
 w('## Self-check')
 w('')
 w('- Items %d; all %d ids in the table are unique; every `{k:...}` reference resolved; %d item touches no draft (%s, the suggested licence item).' % (n, n, len(nofile), ', '.join(nofile) if nofile else 'none'))
-w('- Counts in this file are generated from the item list by `scratchpad/triager/build_triage.py` (items in `items.py`), so class, priority and per-file totals add up (a %d + b %d + c %d = %d; H %d + M %d + L %d = %d).' % (cls['a'], cls['b'], cls['c'], n, pri['H'], pri['M'], pri['L'], n))
-w('- Statistics quoted (label counts, duplicate bullets, Summary word counts, Covered-by validation) come from `stats.py` and `labels.py` and inline checks in the same folder; `check_drafts.py` exit codes were 0 for all three inputs.')
+w('- Counts in this file are generated from the item list by `scratchpad/triager/modelarmor_build_triage.py` (items in `modelarmor_items.py`), so class, priority and per-file totals add up (a %d + b %d + c %d = %d; H %d + M %d + L %d = %d).' % (cls['a'], cls['b'], cls['c'], n, pri['H'], pri['M'], pri['L'], n))
+w('- Statistics quoted (label counts, duplicate bullets, Summary word counts, Covered-by validation) come from `modelarmor_stats.py` and `modelarmor_labels.py` and inline checks in the same folder; `check_drafts.py` exit codes were 0 for all three inputs.')
 
 out = '\n'.join(md) + '\n'
 open('benchtest/drafts/modelarmor_triage.md', 'w', encoding='utf-8').write(out)
