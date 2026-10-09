@@ -130,7 +130,7 @@ ul.limits b { color: var(--ink); }
 <!-- OVERVIEW -->
 <section class="overview">
   <figure>
-    <svg viewBox="0 0 900 400" role="img" aria-label="A user's message is screened by Model Armor's input checks before it reaches the AI model: harmful content, prompt attacks, sensitive data and bad web links. Files and images sent with it go through the same checks. The AI model's answer is screened by the output checks before the user sees it. In both cases Model Armor returns a verdict, and your app, or the Google service that called Model Armor, blocks, discards or masks. Text fetched for the AI model, topic rules and tool calls are only partly covered, on some Google routes.">
+    <svg viewBox="0 0 900 400" role="img" aria-label="A user's message is screened by Model Armor's input checks before it reaches the AI model: harmful content, prompt attacks, sensitive data and bad web links. Files and images sent with it go through the same checks. The AI model's answer is screened by the output checks before the user sees it. In both cases Model Armor returns a verdict, and your app, or the Google service that called Model Armor, blocks, discards or masks. Text fetched for the AI model and tool calls are only partly covered, on some Google routes, and topic rules appear only as a scenario in Google's docs.">
       <defs>
         <marker id="o-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker>
       </defs>
@@ -200,7 +200,7 @@ ul.limits b { color: var(--ink); }
       <text class="tb" x="635" y="340" text-anchor="middle">Your app</text>
       <text class="ts" x="635" y="360" text-anchor="middle">discards or masks</text>
     </svg>
-    <figcaption>Model Armor screens what the user sends, what the AI answers, and files or images sent with a message. Fetched text, topic rules and tool calls are only partly covered, and only on some Google routes. At every point Model Armor returns a verdict; your app, or the Google service that called it, decides what happens next.</figcaption>
+    <figcaption>Model Armor screens what the user sends, what the AI answers, and files or images sent with a message. Fetched text and tool calls are only partly covered, and only on some Google routes; topic rules appear only as a scenario in Google's docs. At every point Model Armor returns a verdict; your app, or the Google service that called it, decides what happens next.</figcaption>
   </figure>
 </section>
 
@@ -214,7 +214,7 @@ ul.limits b { color: var(--ink); }
 
     <article class="rail">
       <div class="rail-head">
-        <h3>1. Four different kinds of tool</h3>
+        <h3>1. Three different kinds of tool</h3>
         <span class="tag">What each one is, and what it hands back to your app</span>
       </div>
       <figure>
@@ -318,7 +318,7 @@ ul.limits b { color: var(--ink); }
           <text class="ts" x="574" y="187">masked text, redacted image</text>
           <text class="ts" x="556" y="224">plus one overall verdict</text>
         </svg>
-        <figcaption>There is no switch for "this is input" or "this is output": your app calls one method for messages and another for answers. Each call is judged alone. Google says not to send the chat history or the system prompt, the hidden set of instructions that tells the AI how to behave. There is no numeric score: the verdict is match or no match.</figcaption>
+        <figcaption>There is no switch for "this is input" or "this is output": your app calls one method for messages and another for answers. Each call is judged alone. Google says not to send the chat history or the system prompt, the hidden set of instructions that tells the AI how to behave. There is no numeric score: the verdict is match or no match. Preview, used for image checks, is Google's pre-release stage, meant for test environments.</figcaption>
       </figure>
       <figure>
         <svg viewBox="0 0 760 110" role="img" aria-label="Three confidence levels. High reports only the surest matches and gives the fewest false alarms. Medium and above also reports likely matches and gives some false alarms. Low and above reports even weak matches and gives the most false alarms.">
@@ -332,7 +332,7 @@ ul.limits b { color: var(--ink); }
           <text class="tb" x="612" y="52" text-anchor="middle">Low and above</text>
           <text class="ts" x="612" y="72" text-anchor="middle">the most false alarms</text>
         </svg>
-        <figcaption>A confidence level says how sure Model Armor must be before it reports a match, and a false alarm (a false positive) is a harmless text wrongly flagged. Google suggests High for production apps that want uninterrupted chats and Medium and above for standard enterprise apps. It calls Low and above "not recommended" for the general harm categories, though it may suit high-stakes checks such as prompt attacks. Its docs state three different defaults when you leave the level out, so set it yourself.</figcaption>
+        <figcaption>A confidence level says how sure Model Armor must be before it reports a match, and a false alarm (a false positive) is a harmless text wrongly flagged. Google suggests High for production apps that want uninterrupted chats and Medium and above for standard enterprise apps. It calls Low and above "not recommended" for the general harm categories, though it may suit high-stakes checks such as prompt attacks. Its docs state three different defaults when you leave the level out, and which one applies needs testing.</figcaption>
       </figure>
       <p class="know"><b>Good to know:</b> a template can be set to Inspect only, which blocks nothing and is useful only with Cloud Logging on, or to Inspect and block, which is the default when nothing is set. Either way, through the web API Google says Model Armor "functions only as a detector" and the calling service blocks. The default quota is 1,200 calls a minute per project.</p>
     </article>
@@ -347,12 +347,12 @@ ul.limits b { color: var(--ink); }
           <thead><tr><th>Check</th><th>Looks for</th><th>You set</th><th>Comes back</th><th>Where</th></tr></thead>
           <tbody>
             <tr><td>Harmful content</td><td>Hate speech, harassment, sexually explicit and dangerous content</td><td>A confidence level for each of the four</td><td>Match or not for each category, plus the level</td><td>Input and output</td></tr>
-            <tr><td>Child safety</td><td>References to child sexual abuse material</td><td>Nothing: on by default and cannot be turned off</td><td>Match or not; no level</td><td>Input and output; listed as unavailable in seven limited-support locations, Singapore included, when data residency is enforced</td></tr>
+            <tr><td>Child safety</td><td>References to child sexual abuse material</td><td>Nothing: on by default and cannot be turned off</td><td>Match or not; no level</td><td>Input and output; listed as unavailable in seven limited-support locations, Singapore included, when data residency is enforced (a template setting, on by default, that keeps processing inside the region's jurisdiction)</td></tr>
             <tr><td>Prompt injection and jailbreak</td><td>Commands that trick the AI, or bypass its safety rules</td><td>On or off, and a confidence level</td><td>Match or not, plus a level</td><td>Input; answers per the overview, thinly described</td></tr>
             <tr><td>Sensitive data</td><td>Card and ID numbers, secrets, or whatever your own template lists</td><td>Basic or advanced mode</td><td>What was found, or a de-identified copy</td><td>Input and output</td></tr>
             <tr><td>Malicious links</td><td>Phishing and malware links; only the first 256 per message</td><td>On or off</td><td>Match or not, and the matched links</td><td>Input and output</td></tr>
             <tr><td>Files</td><td>The text inside PDF, CSV, text, Word, PowerPoint and Excel files, up to 4 MB</td><td>Which checks the template turns on</td><td>The same verdicts as for text</td><td>Input; the docs show no answer-side example</td></tr>
-            <tr><td>Images</td><td>Text and visuals in one JPEG, PNG or BMP picture (Preview)</td><td>Image mode in the template; an advanced data template for the visuals</td><td>A verdict, the text read from the picture, a redacted picture</td><td>Input; the us and eu regions only</td></tr>
+            <tr><td>Images</td><td>Text and visuals in one JPEG, PNG or BMP picture (Preview)</td><td>Image mode in the template; an advanced data template for the visuals</td><td>A verdict, the text read from the picture, a redacted picture</td><td>Input; answers too per Google's docs, with no example; the us and eu regions only</td></tr>
             <tr><td>Antivirus scanning</td><td>Google lists it in its region tables and has a result type for PDF</td><td>No setting is described</td><td>No example is shown</td><td>Full-support regions only</td></tr>
           </tbody>
         </table>
@@ -431,16 +431,16 @@ ul.limits b { color: var(--ink); }
           <tbody>
             <tr><td>Direct web request, or Google's client libraries (C#, Go, Java, Node.js, PHP, Python)</td><td>Your app</td><td>Text, files and images. The streaming versions take text only and are generally available (GA) since 2026-07-10.</td></tr>
             <tr><td>Gemini Enterprise Agent Platform (Google's name for the Vertex AI route)</td><td>The platform blocks if the template says Inspect and block; it does not pass de-identified text back</td><td>GA since 2025-12-03; text only. If Model Armor is unavailable or errors, the check is skipped and the request carries on.</td></tr>
-            <tr><td>Gemini Enterprise</td><td>It blocks the message or answer, and discards a violating file whole; no de-identification</td><td>GA since 2025-09-16; text and documents (its own page also lists images, and the docs disagree). Custom agents (ADK, A2A, Dialogflow) are not screened.</td></tr>
-            <tr><td>Agent Gateway, a Google gateway that intercepts an AI agent's traffic and calls Model Armor</td><td>The gateway allows or blocks; the docs disagree on whether masked text is forwarded</td><td>GA since 2026-06-24; covers agents built with the Agent Development Kit, and calls to MCP servers, other agents and OpenAI-format services; text only.</td></tr>
+            <tr><td>Gemini Enterprise, Google's AI assistant product</td><td>It blocks the message or answer, and discards a violating file whole; no de-identification</td><td>GA since 2025-09-16; text and documents (its own page also lists images, and the docs disagree). Custom agents, such as ones built with Google's Agent Development Kit or Dialogflow, are not screened.</td></tr>
+            <tr><td>Agent Gateway, a Google gateway that intercepts an AI agent's traffic and calls Model Armor</td><td>The gateway allows or blocks; the docs disagree on whether masked text is forwarded</td><td>GA since 2026-06-24; covers agents built with the Agent Development Kit, and calls to MCP servers (MCP is a way for an AI agent to call tools), other agents and OpenAI-format services; text only.</td></tr>
             <tr><td>Apigee, a Google service that sits between apps and the web APIs they call</td><td>Apigee allows, blocks or redacts</td><td>GA since 2025-09-04 on Apigee X; text only.</td></tr>
             <tr><td>Load balancers, GKE Inference Gateway and Secure Web Proxy (Service Extensions)</td><td>The network service allows, blocks or modifies the traffic</td><td>GKE integration GA since 2025-09-15; a GA date for the others is not disclosed. Google's guide says Model Armor has a latency of "approximately 250 milliseconds", with no measurement conditions.</td></tr>
-            <tr><td>Google and Google Cloud MCP servers, set up through floor settings (a minimum set of checks that applies across a project, folder or organisation)</td><td>Tool calls that match are blocked</td><td>GA per the release note of 2026-04-22, although the floor settings page still says Preview.</td></tr>
+            <tr><td>Google and Google Cloud MCP servers, set up through floor settings (a minimum set of checks that applies across a project, folder or organisation)</td><td>Tool calls that match can be blocked</td><td>GA per the release note of 2026-04-22, although the floor settings page still says Preview.</td></tr>
             <tr><td>LangChain</td><td>Your code; a fail-open flag decides whether findings block</td><td>Preview; text only. Edits made after the check are not filtered.</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="know"><b>Good to know:</b> on the Agent Platform route, a failed or unreachable Model Armor does not stop the request: the check is skipped and the request continues, so some messages can go unscreened. LangChain's fail-open flag does the same if you set it to true.</p>
+      <p class="know"><b>Good to know:</b> on the Agent Platform route, a failed or unreachable Model Armor does not stop the request: the check is skipped and the request continues, so some messages can go unscreened. LangChain's fail-open flag, if set to true, lets content through with only a warning, even when risks are found.</p>
     </article>
 </section>
 
@@ -491,7 +491,7 @@ ul.limits b { color: var(--ink); }
           <dt>Verdict</dt><dd>match found in a harm category (illustrative)</dd>
           <dt>Out</dt><dd>Sorry, I can't help with that. (written by your app)</dd>
         </dl>
-        <p class="know"><b>Good to know:</b> Google names no model behind this filter and publishes no accuracy, so this needs testing. Its docs give three different defaults for a missing level, so set it yourself. In Singapore's region the child-safety check is listed as unavailable when data residency is enforced, even though the overview says it cannot be turned off.</p>
+        <p class="know"><b>Good to know:</b> Google names no model behind this filter and publishes no accuracy, so this needs testing. Its docs give three different defaults for a missing level, and which one applies needs testing. In Singapore's region the child-safety check is listed as unavailable when data residency is enforced, even though the overview says it cannot be turned off.</p>
       </article>
 
       <article class="rail">
@@ -550,7 +550,7 @@ ul.limits b { color: var(--ink); }
       <article class="rail">
         <div class="rail-head">
           <h3>6. Dangerous links in the answer</h3>
-          <span class="tag">Malicious URL detection · input and output, mainly output · <span class="pill yes">Yes</span></span>
+          <span class="tag">Malicious URL detection · input and output · <span class="pill yes">Yes</span></span>
         </div>
         <figure>
           <svg viewBox="0 0 760 250" role="img" aria-label="The AI's draft answer is scanned by the link check, which looks at up to the first 256 web links for phishing and malware. If none is found, the answer is shown to the user. If a bad link is found, your app discards the draft, or the calling Google service blocks it.">
@@ -639,7 +639,7 @@ ul.limits b { color: var(--ink); }
         <span class="tag">Sensitive Data Protection filter · input and output · <span class="pill yes">Yes</span></span>
       </div>
       <figure>
-        <svg viewBox="0 0 760 200" role="img" aria-label="Text, either a message or an answer, is scanned by Model Armor's sensitive-data check, which calls Google's separate Sensitive Data Protection service. In basic mode it reports what it found. In advanced mode with a de-identify template it also returns a copy with each match replaced by a label. Your app decides whether to use the copy.">
+        <svg viewBox="0 0 760 200" role="img" aria-label="Text, either a message or an answer, is scanned by Model Armor's sensitive-data check, which calls Google's separate Sensitive Data Protection service. In basic mode it reports what it found. In advanced mode with a de-identify template it also returns a copy with each match changed as that template says, for example replaced by a label. Your app decides whether to use the copy.">
           <defs>
             <marker id="a8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker>
             <marker id="a8e" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ahed"/></marker>
@@ -658,7 +658,7 @@ ul.limits b { color: var(--ink); }
           <text class="tb" x="630" y="95" text-anchor="middle">De-identified copy</text>
           <text class="ts" x="630" y="115" text-anchor="middle">advanced mode, with a template</text>
         </svg>
-        <figcaption>Basic mode only inspects: it reports a match, what it found, and a likelihood word such as LIKELY. Advanced mode uses a template you build in Sensitive Data Protection; with a de-identify template as well, Model Armor also returns a copy with the items swapped for labels. Your app decides whether to forward the copy or the original. Gemini Enterprise and the Agent Platform block instead of passing the copy on.</figcaption>
+        <figcaption>Basic mode only inspects: it reports a match, what it found, and a likelihood word such as "likely". Advanced mode uses a template you build in Sensitive Data Protection; with a de-identify template as well, Model Armor also returns a copy with the items changed as that template says, for example swapped for a label such as [IP_ADDRESS]. Your app decides whether to forward the copy or the original. Gemini Enterprise and the Agent Platform block instead of passing the copy on.</figcaption>
       </figure>
       <dl class="example">
         <dt>In</dt><dd>(a question that contains an IP address, from Google's docs)</dd>
@@ -766,7 +766,7 @@ ul.limits b { color: var(--ink); }
           <dt>In</dt><dd>(a picture of an email address, from Google's docs)</dd>
           <dt>Result</dt><dd>email address found at a marked box; a redacted copy of the picture can come back (Google's docs)</dd>
         </dl>
-        <p class="know"><b>Good to know:</b> image screening is Preview, takes one image per request, and works only in the us and eu regions, not Singapore's. Which checks run on the text read from a picture, the languages it reads, and whether answers can carry images are not stated. Google's terms for Preview features say not to use them to process personal data, so tests need made-up data.</p>
+        <p class="know"><b>Good to know:</b> image screening is Preview, takes one image per request, and works only in the us and eu regions, not Singapore's. Which checks run on the text read from a picture and the languages it reads are not stated, and no answer-side example is shown. Google's terms for Preview features say not to use them to process personal data, so the project's rule is to test Preview features with made-up data only.</p>
       </article>
   </div>
 </section>
@@ -810,7 +810,7 @@ ul.limits b { color: var(--ink); }
           <text class="tb" x="630" y="192" text-anchor="middle">Blocked and logged</text>
           <text class="ts" x="630" y="211" text-anchor="middle">by the Google service</text>
         </svg>
-        <figcaption>Google's integrations page says these three routes (Agent Runtime is where agents built with Google's Agent Development Kit run) screen the first prompt, the final answer and in-between steps such as grounding data and web search results. For passages from your own document store sent through your own code, nothing official describes this. The API takes text, so you could send passages, but that is our reading and it is untested.</figcaption>
+        <figcaption>Google's integrations page says these three routes (Agent Runtime is a Google service that runs AI agents, such as ones built with Google's Agent Development Kit) screen the first prompt, the final answer and in-between steps such as grounding data (reference text fetched to support the answer) and web search results. For passages from your own document store sent through your own code, nothing official describes this. The API takes text, so you could send passages, but that is our reading and it is untested.</figcaption>
       </figure>
       <p class="know"><b>Good to know:</b> Google's product page promises to stop "embedded threats like indirect prompt injection", but whether the attack check catches instructions hidden in retrieved text is not stated, and no evaluation is published. Uploaded files are covered in diagram 9.</p>
     </article>
@@ -871,7 +871,7 @@ ul.limits b { color: var(--ink); }
           <span class="tag">Google and Google Cloud MCP servers, Agent Gateway · <span class="pill partly">Partly</span></span>
         </div>
         <figure>
-          <svg viewBox="0 0 760 250" role="img" aria-label="An agent's tool call, or the tool's reply, is screened as text on Google's MCP servers and on Agent Gateway. If nothing matches, the call goes ahead. If a check matches, the server or gateway blocks the call or the reply. Whether the action itself is sensible is not checked.">
+          <svg viewBox="0 0 760 250" role="img" aria-label="An agent's tool call, or the tool's reply, is screened as text on Google's MCP servers and on Agent Gateway. If nothing matches, the call goes ahead. If a check matches, the server or gateway blocks the call or the reply. Nothing official describes a check on whether the action itself is sensible.">
             <defs>
               <marker id="a13" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker>
               <marker id="a13o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ahok"/></marker>
@@ -896,9 +896,9 @@ ul.limits b { color: var(--ink); }
             <text class="tb" x="630" y="192" text-anchor="middle">Call or reply is blocked</text>
             <text class="ts" x="630" y="211" text-anchor="middle">by the server or gateway</text>
           </svg>
-          <figcaption>MCP is a common way for an AI agent to call tools. On Google's MCP servers, set up through floor settings, Model Armor screens calls to run a tool and requests to fetch a prompt, and the replies. Listing tools, reading resources and notifications pass through unchecked, and so does anything Agent Gateway does not list.</figcaption>
+          <figcaption>On Google's MCP servers, set up through floor settings, Model Armor screens calls to run a tool and requests to fetch a prompt, and the replies. Listing tools, reading resources and notifications pass through unchecked, and so does anything Agent Gateway does not list.</figcaption>
         </figure>
-        <p class="know"><b>Good to know:</b> Google advises turning on the attack check for this traffic only where it carries natural language. There is no check for whether an action is sensible, so a business limit, such as a refund of $5,000 against a $200 limit, still needs a written rule like NeMo's diagram 8.</p>
+        <p class="know"><b>Good to know:</b> Google advises turning on the attack check for this traffic only where it carries natural language. Nothing official describes a check for whether an action is sensible, so a business limit, such as a refund of $5,000 against a $200 limit, still needs a written rule like NeMo's diagram 8.</p>
       </article>
   </div>
 </section>
@@ -937,11 +937,11 @@ ul.limits b { color: var(--ink); }
     <ul class="limits">
       <li><b>It reports; the caller acts.</b> Through the web API you get match found or not, with a confidence level for two checks and no score. Your app blocks, forwards and replies. Google-run routes can block for you, and on the Agent Platform route a failed Model Armor step is skipped.</li>
       <li><b>No accuracy is published, and no model is named.</b> Google says only that the service "combines rules-based controls, ML models, and powerful AI reasoning models". Release notes mention a new model in filter version 3 and false-positive fixes in version 4, with no figures.</li>
-      <li><b>Its docs disagree in places:</b> on the default confidence level, on six or seven basic sensitive-data items, on whether images inside files are screened, on whether Gemini Enterprise handles images, and on whether the MCP route is GA or Preview.</li>
-      <li><b>Language and place limits.</b> Nine languages are tested; Singlish, Malay and Tamil are not on the list, and quality in other languages "might vary". Singapore's region has only the harm, prompt-attack and sensitive-data checks while data residency is enforced. Data residency enforcement is a template setting, on by default, that keeps processing inside the region's jurisdiction. Switching it off enables the other checks, and Google cautions that cross-jurisdictional routing "can impact your data residency compliance".</li>
+      <li><b>Its docs disagree in places.</b> They differ on the default confidence level, on six or seven basic sensitive-data items, on whether images inside files are screened, on whether Gemini Enterprise handles images, and on whether the MCP route is GA or Preview.</li>
+      <li><b>Language and place limits.</b> Nine languages are tested; Singlish, Malay and Tamil are not on the list, and quality in other languages "might vary". Singapore's region has only the harm, prompt-attack and sensitive-data checks while data residency is enforced. Data residency enforcement is a template setting, on by default, that keeps processing inside the region's jurisdiction. Switching it off enables the other checks, except image screening, which stays in the us and eu regions, and Google cautions that cross-jurisdictional routing "can impact your data residency compliance".</li>
       <li><b>Each message is judged alone.</b> There is no chat history, encoded text such as Base64 is not decoded, and audio, video and text-plus-image requests are not supported.</li>
       <li><b>Size and length limits can leave content unscanned.</b> Most text checks stop at 65,536 tokens (about 262,144 characters) and sensitive data at 130,000. Over the limit, a check that finds no match is reported as skipped. Files over 4 MB are skipped, only 256 links are scanned, and the attack check ignores messages under three words.</li>
-      <li><b>Some features are Preview.</b> Image screening, exclusion rules (which switch off a known false positive) and the LangChain route are Preview, and Google's terms say not to use Preview features to process personal data. Plan tests with made-up data.</li>
+      <li><b>Some features are Preview.</b> Image screening, exclusion rules (which switch off a known false positive) and the LangChain route are Preview, and Google's terms say not to use Preview features to process personal data. The project's rule is to test Preview features with made-up data only.</li>
       <li><b>Google's terms may limit testing.</b> The acceptable-use policy bars using the service "to test or reverse-engineer the Services in order to find limitations or vulnerabilities, or to evade filtering capabilities, except as expressly permitted in the Agreement". Whether benchmark testing is permitted is not stated, and that decision is still open.</li>
     </ul>
   </article>
@@ -949,7 +949,7 @@ ul.limits b { color: var(--ink); }
 
 <footer>
   <p>Sources: Google Cloud's Model Armor documentation (overview, templates, sanitising prompts and responses, quotas, filter versions and version history, feature availability by region, data residency, integrations, floor settings, exclusion rules, logging, monitoring, best practices, client libraries and release notes), the REST references for templates and results, the Model Armor product page, the Security Command Center pricing page, Google's Cloud blog post on Model Armor, the Sensitive Data Protection detector list, the Apigee policy reference and release notes, the Service Extensions guides, and Google's Acceptable Use Policy and General Service Terms. Google publishes no accuracy figures for Model Armor. Example messages are illustrative where marked and quoted from Google's documentation otherwise.</p>
-  <p><a href="https://docs.cloud.google.com/model-armor/overview">Model Armor overview</a> · <a href="https://docs.cloud.google.com/model-armor/manage-templates">Templates</a> · <a href="https://docs.cloud.google.com/model-armor/sanitize-prompts-responses">Sanitising prompts and responses</a> · <a href="https://docs.cloud.google.com/model-armor/reference/rest/v1/projects.locations.templates">Template reference</a> · <a href="https://docs.cloud.google.com/model-armor/reference/rest/v1/SanitizationResult">Result reference</a> · <a href="https://docs.cloud.google.com/model-armor/quotas">Quotas and limits</a> · <a href="https://docs.cloud.google.com/model-armor/set-filter-version">Filter versions</a> · <a href="https://docs.cloud.google.com/model-armor/version-history">Version history</a> · <a href="https://docs.cloud.google.com/model-armor/feature-availability-by-region">Feature availability by region</a> · <a href="https://docs.cloud.google.com/model-armor/data-residency">Data residency</a> · <a href="https://docs.cloud.google.com/model-armor/integrations">Integrations</a> · <a href="https://docs.cloud.google.com/model-armor/model-armor-vertex-integration">Agent Platform integration</a> · <a href="https://docs.cloud.google.com/model-armor/model-armor-gemini-enterprise-integration">Gemini Enterprise integration</a> · <a href="https://docs.cloud.google.com/model-armor/model-armor-agent-gateway-integration">Agent Gateway integration</a> · <a href="https://docs.cloud.google.com/model-armor/model-armor-apigee-integration">Apigee integration</a> · <a href="https://docs.cloud.google.com/model-armor/model-armor-networking-integration">Networking integration</a> · <a href="https://docs.cloud.google.com/model-armor/model-armor-mcp-google-cloud-integration">MCP servers integration</a> · <a href="https://docs.cloud.google.com/model-armor/model-armor-langchain-integration">LangChain integration</a> · <a href="https://docs.cloud.google.com/model-armor/configure-floor-settings">Floor settings</a> · <a href="https://docs.cloud.google.com/model-armor/configure-exclusion-rules">Exclusion rules</a> · <a href="https://docs.cloud.google.com/model-armor/configure-logging">Logging</a> · <a href="https://docs.cloud.google.com/model-armor/monitoring-dashboard">Monitoring dashboard</a> · <a href="https://docs.cloud.google.com/model-armor/best-practices">Best practices</a> · <a href="https://docs.cloud.google.com/model-armor/reference/libraries">Client libraries</a> · <a href="https://docs.cloud.google.com/model-armor/release-notes">Release notes</a> · <a href="https://cloud.google.com/security/products/model-armor">Product page</a> · <a href="https://cloud.google.com/security-command-center/pricing">Pricing</a> · <a href="https://cloud.google.com/blog/products/identity-security/how-model-armor-can-help-protect-your-ai-apps">Google Cloud blog</a> · <a href="https://docs.cloud.google.com/sensitive-data-protection/docs/infotypes-reference">Sensitive Data Protection detectors</a> · <a href="https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-user-prompt-policy">Apigee prompt policy</a> · <a href="https://docs.cloud.google.com/apigee/docs/release-notes">Apigee release notes</a> · <a href="https://docs.cloud.google.com/service-extensions/docs/configure-traffic-extensions">Service Extensions guide</a> · <a href="https://cloud.google.com/terms/aup">Acceptable Use Policy</a> · <a href="https://cloud.google.com/terms/service-terms">General Service Terms</a></p>
+  <p><a href="https://docs.cloud.google.com/model-armor/overview">Model Armor overview</a> · <a href="https://docs.cloud.google.com/model-armor/manage-templates">Templates</a> · <a href="https://docs.cloud.google.com/model-armor/sanitize-prompts-responses">Sanitising prompts and responses</a> · <a href="https://docs.cloud.google.com/model-armor/reference/rest/v1/projects.locations.templates">Template reference</a> · <a href="https://docs.cloud.google.com/model-armor/reference/rest/v1/SanitizationResult">Result reference</a> · <a href="https://docs.cloud.google.com/model-armor/quotas">Quotas and limits</a> · <a href="https://docs.cloud.google.com/model-armor/set-filter-version">Filter versions</a> · <a href="https://docs.cloud.google.com/model-armor/version-history">Version history</a> · <a href="https://docs.cloud.google.com/model-armor/feature-availability-by-region">Feature availability by region</a> · <a href="https://docs.cloud.google.com/model-armor/data-residency">Data residency</a> · <a href="https://docs.cloud.google.com/model-armor/integrations">Integrations</a> · <a href="https://docs.cloud.google.com/model-armor/model-armor-vertex-integration">Agent Platform integration</a> · <a href="https://docs.cloud.google.com/model-armor/model-armor-gemini-enterprise-integration">Gemini Enterprise integration</a> · <a href="https://docs.cloud.google.com/model-armor/model-armor-agent-gateway-integration">Agent Gateway integration</a> · <a href="https://docs.cloud.google.com/model-armor/model-armor-apigee-integration">Apigee integration</a> · <a href="https://docs.cloud.google.com/model-armor/model-armor-networking-integration">Networking integration</a> · <a href="https://docs.cloud.google.com/model-armor/model-armor-mcp-google-cloud-integration">MCP servers integration</a> · <a href="https://docs.cloud.google.com/model-armor/model-armor-langchain-integration">LangChain integration</a> · <a href="https://docs.cloud.google.com/model-armor/configure-floor-settings">Floor settings</a> · <a href="https://docs.cloud.google.com/model-armor/configure-exclusion-rules">Exclusion rules</a> · <a href="https://docs.cloud.google.com/model-armor/configure-logging">Logging</a> · <a href="https://docs.cloud.google.com/model-armor/monitoring-dashboard">Monitoring dashboard</a> · <a href="https://docs.cloud.google.com/model-armor/best-practices">Best practices</a> · <a href="https://docs.cloud.google.com/model-armor/reference/libraries">Client libraries</a> · <a href="https://docs.cloud.google.com/model-armor/release-notes">Release notes</a> · <a href="https://cloud.google.com/security/products/model-armor">Product page</a> · <a href="https://cloud.google.com/security-command-center/pricing">Pricing</a> · <a href="https://cloud.google.com/blog/products/identity-security/how-model-armor-can-help-protect-your-ai-apps">Google Cloud blog</a> · <a href="https://docs.cloud.google.com/sensitive-data-protection/docs/infotypes-reference">Sensitive Data Protection detectors</a> · <a href="https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-user-prompt-policy">Apigee prompt policy</a> · <a href="https://docs.cloud.google.com/apigee/docs/release-notes">Apigee release notes</a> · <a href="https://docs.cloud.google.com/service-extensions/docs/configure-extensions-to-google-services">Service Extensions guide</a> · <a href="https://cloud.google.com/terms/aup">Acceptable Use Policy</a> · <a href="https://cloud.google.com/terms/service-terms">General Service Terms</a></p>
 </footer>
 
 </div>
