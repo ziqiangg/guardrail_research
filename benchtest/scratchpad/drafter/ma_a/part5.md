@@ -126,6 +126,7 @@ Detail:
 • https://docs.cloud.google.com/model-armor/reference/rest/v1/SanitizationResult
 • https://docs.cloud.google.com/model-armor/quotas
 • https://docs.cloud.google.com/model-armor/set-filter-version
+• https://docs.cloud.google.com/model-armor/version-history
 • https://docs.cloud.google.com/model-armor/release-notes
 • https://docs.cloud.google.com/model-armor/feature-availability-by-region
 • https://docs.cloud.google.com/model-armor/locations

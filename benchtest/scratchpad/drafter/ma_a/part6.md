@@ -30,7 +30,7 @@ Detail:
 • Whether URLs inside generated images are extracted and checked (response-side image examples are not shown; see MA10) **[To be verified]**
 • Malicious files and malware are a separate antivirus capability: the product page and the region tables mention it and the result schema has a `virusScanFilterResult` for PDF; it is not part of this column (product page, feature availability page, REST result ref, 2026-10-09) **[Documented]**
 ### R3
-Summary: **URLs found in the model response or tool output.** The caller posts the response to the sanitize-model-response method of a regional endpoint with a template name, and the filter extracts URLs from the text, up to 256. No user prompt is needed in the documented examples. **[Documented]**
+Summary: **URLs found in the model response or tool output.** The caller posts the response to the sanitize-model-response method of a regional endpoint with a template name, and the filter extracts up to 256 URLs from the text. The documented examples need no user prompt. **[Documented]**
 Detail:
 • Method and field: `POST https://modelarmor.LOCATION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/templates/TEMPLATE_ID:sanitizeModelResponse` with body `{"modelResponseData":{"text":"..."}}` (sanitize page, 2026-10-09) **[Documented]**
 • Streaming variant `StreamSanitizeModelResponse`: "Streams and sanitizes LLM-generated text"; in real-time mode Model Armor "Processes each chunk individually as it is received" (sanitize page, 2026-10-09) **[Documented]**
@@ -103,7 +103,7 @@ Summary: **Minimum setup:** a Google Cloud project with billing and the Model Ar
 Detail:
 • **Minimum setup:** a project with billing, the Model Armor API enabled, `roles/modelarmor.admin` to create a template and `roles/modelarmor.user` to call; one template in a regional location with `maliciousUriFilterSettings` set to `ENABLED`; a script that posts each output to `:sanitizeModelResponse` and records `filterMatchState` and `maliciousUriMatchedItems`. **[Inferred]**
 • Cost: the premise is the standalone allowance of 2 million tokens a month (R4); responses are longer than prompts, so count tokens before a large run **[Inferred]**
-• Test data: Google supplies none; write model-style outputs such as a web summary or a "further reading" list that contains the phishing test URL used in the MCP docs, known-bad URLs from a reputation list you trust, and benign URLs from popular and internal sites. Do not open the URLs from the test machine **[Inferred]**
+• Test data: Google supplies none; write model-style outputs such as a web summary or a further-reading list that contains the phishing test URL used in the MCP docs, known-bad URLs from a reputation list you trust, and benign URLs from popular and internal sites. Do not open the URLs from the test machine **[Inferred]**
 • Variants to test: markdown links, bare URLs, shortened and redirecting URLs, defanged forms such as hxxp, URL-encoded and Base64 forms, internationalised domains, and IP-address hosts **[Inferred]**
 • Test the cap: place a malicious URL after 255, 256 and 257 benign URLs to confirm the first-256 rule **[Inferred]**
 • Test a streamed response in real-time mode with a URL split across two chunks (R3) **[Inferred]**
@@ -133,6 +133,7 @@ Detail:
 • https://docs.cloud.google.com/model-armor/reference/rest/v1/SanitizationResult
 • https://docs.cloud.google.com/model-armor/quotas
 • https://docs.cloud.google.com/model-armor/set-filter-version
+• https://docs.cloud.google.com/model-armor/version-history
 • https://docs.cloud.google.com/model-armor/release-notes
 • https://docs.cloud.google.com/model-armor/feature-availability-by-region
 • https://docs.cloud.google.com/model-armor/locations

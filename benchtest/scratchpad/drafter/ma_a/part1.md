@@ -143,6 +143,7 @@ Detail:
 • https://docs.cloud.google.com/model-armor/version-history
 • https://docs.cloud.google.com/model-armor/release-notes
 • https://docs.cloud.google.com/model-armor/feature-availability-by-region
+• https://docs.cloud.google.com/model-armor/locations
 • https://docs.cloud.google.com/model-armor/configure-exclusion-rules
 • https://docs.cloud.google.com/model-armor/configure-logging
 • https://docs.cloud.google.com/model-armor/integrations

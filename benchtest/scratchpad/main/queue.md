@@ -34,3 +34,6 @@
 | modelarmor P2 inventory Q2 (Agent Gateway ingress MA1–MA8 vs egress marker) | bundled with modelarmor CP1 Q-B (tool-call screening) | user at CP1 |
 | modelarmor P2 inventory Q3 (console + monitoring rows) | keep; brief targets not binding | main |
 | modelarmor P2 inventory Q4 (Terraform registry page official?) | registry.terraform.io is HashiCorp's, not Google's → not an official source for Model Armor; cite Google's own Terraform docs on docs.cloud.google.com if found, else [To be verified]; Apigee status → P5 resolver | main |
+| modelarmor P2 cols_b Q1 (response-side file/image evidence → alt (e) split?) | default single MA9/MA10; to user at CP1 with evidence summary | user at CP1 |
+| modelarmor P2 cols_b Q2 (align inventory block (b)/(d)) | inventory already has us-east7/global/Seoul/Melbourne; remaining cross-draft items → triage → merger | main |
+| modelarmor P2 cols_b Q3 (release-note GA vs page "(Preview)") | status: a dated release-note statement beats an undated page label; keep both as a labelled conflict pair; Apigee status → P5 resolver | main |

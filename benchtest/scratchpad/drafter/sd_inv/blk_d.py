@@ -9,7 +9,7 @@ ROWS_D = [
  AUTH,
  "No location in the path means the global region; a location in the path means processing in that region or multi-region, with no guarantee that in-transit data stays there [Documented] (DOCS api-endpoints)",
  BOTH,
- "Quota 10,000 requests per minute in total and 600 per minute per region when a location is specified [Documented] (DOCS limits). The global endpoint terminates TLS as close to the client as possible [Documented] (DOCS api-endpoints)",
+ "Quota 10,000 requests per minute in total and 600 per minute per region when a location is specified [Documented] (DOCS limits). The global endpoint terminates TLS as close to the client as possible [Documented] (DOCS api-endpoints). The product is now part of Sensitive Data Protection but the API name remains Cloud Data Loss Prevention API [Documented] (DOCS overview)",
  ALL6, urls("endpoints","inspapi","auth","limits")],
 ["REST regional endpoint",
  "HTTPS to dlp.REGION.rep.googleapis.com, for example dlp.us-west1.rep.googleapis.com [Documented] (DOCS api-endpoints)",

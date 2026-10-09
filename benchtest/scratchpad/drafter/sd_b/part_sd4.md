@@ -48,7 +48,7 @@ Detail:
 • "A surrogate annotation is required for re-identification of unstructured data." {{D:pseudonymization}} **[Documented]**
 • For tables the annotation is optional: "Sensitive Data Protection can perform both de-identification and re-identification on an entire column using a RecordTransformation without a surrogate annotation." {{D:pseudonymization}} **[Documented]**
 • Context tweaks apply to structured data only: the step is titled "Step 5 (Format preserving and deterministic encryption with AES-SIV of structured data only)" {{D:pseudonymization}} **[Documented]**
-• For plain strings with no record, the client docstring says the context is ignored: "plaintext would be used as is for encryption." ({{L:T|plaintext would be used as is for encryption.|2}}) **[Documented: repo googleapis/google-cloud-python@google-cloud-dlp-v3.40.0]**
+• For plain strings with no record, the client docstring says the context is ignored: "plaintext would be used as is for encryption." ({{L:T|plaintext would be used as is for encryption.}}) **[Documented: repo googleapis/google-cloud-python@google-cloud-dlp-v3.40.0]**
 • Nothing in the request carries a system prompt or conversation roles, so no prompt context is needed to tokenise or restore a string **[Inferred]**
 ### R4
 Summary: **Standard keyed encryption, not a model.** AES-SIV gives base64 tokens of any length; format-preserving encryption keeps length and a chosen alphabet, though the docs steer users to AES-SIV. Keys can be wrapped by Cloud KMS. Detectors that pick the values are separate. **[Documented]**

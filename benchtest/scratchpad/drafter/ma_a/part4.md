@@ -1,6 +1,6 @@
 ## Column MA4: Model Armor: Output-level prompt injection and jailbreak detection
 ### R1
-Summary: **Output-level prompt injection and jailbreak detection.** The same filter can be run on a model response or a tool output and returns a match state with a confidence level. Google's text on the response side is partly general, and the sample response output is the clearest evidence. **[Documented]**
+Summary: **Output-level prompt injection and jailbreak detection.** The same filter can run on a model response or tool output and returns a match state with a confidence level. Google's wording for responses is partly general; the sample response output is the clearest evidence. **[Documented]**
 Detail:
 • Overview: "When prompt injection and jailbreak detection is enabled, Model Armor scans prompts and responses for malicious content. If detected, Model Armor blocks the prompt or response." (overview, 2026-10-09) **[Documented]**
 • Templates page describes the check for prompts only: "Detects malicious content and jailbreak attempts in a prompt." (templates page, 2026-10-09) **[Documented]**
@@ -151,6 +151,7 @@ Detail:
 • https://docs.cloud.google.com/model-armor/version-history
 • https://docs.cloud.google.com/model-armor/release-notes
 • https://docs.cloud.google.com/model-armor/feature-availability-by-region
+• https://docs.cloud.google.com/model-armor/locations
 • https://docs.cloud.google.com/model-armor/configure-exclusion-rules
 • https://docs.cloud.google.com/model-armor/configure-floor-settings
 • https://docs.cloud.google.com/model-armor/configure-logging
