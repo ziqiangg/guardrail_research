@@ -8,7 +8,7 @@ Phases: P0 explore · P1 brief · P2 drafts · P3 mechanical · P4 triage · CP1
 | llamaguard | — | done | V–Z (5) | 3d | — | llama-guard-explained.html | baseline-2026-10-09 | |
 | sentinel | — | done | AA–AG (7) | 3e | — | sentinel-explained.html | baseline-2026-10-09 | |
 | presidio | B1 | P1 done → P2 running (2026-10-09) | PD1–PD6 proposed | | presidio-research → inventory (R010) | | | Q01/Q02 for CP1; project moved to data-privacy-stack |
-| modelarmor | B1 | P0 running (2026-10-09) | | | | | | |
+| modelarmor | B1 | P0 done → P1 running (2026-10-09) | MA1–MA10 proposed | | | | | |
 | sdp | B1 | P0 running (2026-10-09) | | | | | | |
 | purplellama | B2 | not started | | | CyberSecEval | | | R004 |
 | lionguard | B2 | not started | | | | | | R005 |

@@ -19,10 +19,12 @@ Each entry gives the explorer a starting point. **UNVERIFIED** marks a starting 
   - Docs host chain (P1, 2026-10-09): data-privacy-stack.github.io/presidio/ → 301 → presidio.dataprivacystack.org/ (cite the final host). Deployed site ≠ docs/ at tag 2.2.364 (Python 3.10–3.13 live vs 3.10–3.14 at tag).
   - github.com via fetch_text.py returned 403 at P1; cite code from a shallow clone at the tag with blob URLs. Clone form that matches the allow-list: `git clone --depth 1 <url> /tmp/<name>`.
 
-## modelarmor (B1) — UNVERIFIED
-- **Owner:** Google Cloud. Docs start: https://cloud.google.com/security-command-center/docs/model-armor-overview (UNVERIFIED path; Model Armor docs may sit under the Security Command Center or have their own section).
-- **What to confirm:** templates and filters (responsible AI, prompt injection/jailbreak, malicious URLs, sensitive data via SDP), prompt vs response sanitisation APIs, floor settings, integrations (Vertex AI, GKE, Apigee, etc.), regions, pricing page, quotas. Pin docs by date read (no repo).
-- **Cross-reference:** SDP (Model Armor's sensitive-data filter uses Sensitive Data Protection).
+## modelarmor (B1) — VERIFIED at P0 2026-10-09
+- **Owner:** Google Cloud. Own docs section: https://docs.cloud.google.com/model-armor/ (overview: /model-armor/overview). The old cloud.google.com/security-command-center/docs/model-armor-overview path 301s there; cloud.google.com/model-armor/docs is 404. No repo; pin docs by date read.
+- **Pricing:** https://cloud.google.com/security/products/model-armor and https://cloud.google.com/security-command-center/pricing. **Quotas:** /model-armor/quotas. **Release notes:** /model-armor/release-notes. **Regions:** /model-armor/feature-availability-by-region, /model-armor/data-residency (asia-southeast1 is limited-support).
+- **P0 note:** `scratchpad/explorer/20261009_modelarmor_p0.md` (S1–S24, 12 gaps, 9 conflicts). Proposes MA1–MA10; antivirus and MCP screening default to inventory (q01, CP1).
+- **Caveats:** Vertex AI is now "Gemini Enterprise Agent Platform" in docs; release notes may carry next-day dates (C9); GoogleCloudPlatform GitHub samples 403 (R013).
+- **Cross-reference:** SDP (R012).
 
 ## sdp (B1) — UNVERIFIED
 - **Owner:** Google Cloud Sensitive Data Protection, formerly Cloud DLP. Docs start: https://cloud.google.com/sensitive-data-protection/docs (UNVERIFIED).
