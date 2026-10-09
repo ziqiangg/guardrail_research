@@ -79,3 +79,4 @@
 - 2026-10-09 lionguard P4 done: 59 items (a 34, b 20, c 5), H 10; Q1–Q3 + T5 ruled by main; CP1 decisions Q01–Q03 + T4 embedder terms → user (batched with purplellama CP1)
 - 2026-10-09 purplellama P4 triager stopped by session limit (reset 22:50); partial triage (76 KB) committed as WIP; resumed
 - 2026-10-09 purplellama P4 done: 105 items (a 56, b 37, c 12), H 20; Q1–Q4 ruled by main; CP1 (Q-A..Q-D) + lionguard CP1 → user
+- 2026-10-09 CP1 (user) for B2: purplellama R030 (per-tool prefix, 7 cols, one column per scanner; negatives not decided), lionguard R031 (LN1, LionGuard:, keep all variants, decide test text later); R032 global: bench-design content reported as proposals, not decisions. P5 started.

@@ -1,0 +1,11 @@
+# R030 — purplellama CP1
+- Date: 2026-10-09   Product: purplellama   Asked by: main (CP1, after P4 triage: 105 items, H 20)
+- Ruling:
+  - **Q-A prefix:** per-tool prefixes `Prompt Guard 2:`, `LlamaFirewall:`, `Code Shield:` (option B, as drafted). Register three prefixes at P8.
+  - **Q-B column set:** 7 columns as drafted, PL1–PL7. PL7 Hidden ASCII stays a column. PL5 stays one column (regex + custom LLM-prompt scanners incl. PIICheck as separate bullets); a PL8 split may be revisited at CP2.
+  - **Q-C direction:** one column per scanner; roles in R3/R6 Detail and inventory block (c); headers keep the Input-/Output-/Trace-level words for the documented default use.
+  - **Q-D bench negative set:** NOT decided (user, 2026-10-09: "we are not to rule on things now"). The drafts report it as a proposal only: Meta's attack examples (MIT CyberSecEval data) are a possible source; testing false alarms needs harmless look-alike messages, which Meta did not publish; possible sources are suggested, not chosen. See R032.
+- Main rulings at P4 stand (queue.md): HF Hub metadata JSON allowed; PyPI sdists read-only; git history reads; Together catalogue pages for availability facts only.
+- Class (c) licensing items follow the R025 pattern: record the clause [Documented], keep the R8 question open, decide before bench testing.
+- decided_by: user (AskUserQuestion, 2026-10-09)
+- Applies to: purplellama

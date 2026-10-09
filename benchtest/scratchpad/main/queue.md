@@ -10,11 +10,11 @@
 ## Open questions (from agents)
 | Q file | Product | Routed to | State | Ruling |
 |---|---|---|---|---|
-| purplellama P2 eval Q2: PL1/PL2 dataset reuse needs "injection-removed" negatives Meta does not ship — may the bench build its own negative set? | purplellama (bench design) | P4 triage → user at purplellama CP1 | open | |
+| purplellama P2 eval Q2: PL1/PL2 dataset reuse needs "injection-removed" negatives Meta does not ship — may the bench build its own negative set? | purplellama (bench design) | P4 triage → user at purplellama CP1 | resolved | |
 | purplellama P2 eval Q1: P8 eval builder MD/TITLE/NOTE; proposed "3j. CyberSecEval Eval Tooling" (letter assigned at P8, ≤31 chars) | purplellama | P8 xlsx-writer note | noted | |
-| explorer/20261009_lionguard_q01–q03 + triage T4 (embedder third-party terms vs harmful test text): single column LN1 vs per-variant; prefix `LionGuard:` vs `GovTech LionGuard:`; "self-hosted" framing given OpenAI/Gemini embedder keys and gated Gemma (Lite) | lionguard | user at lionguard CP1 (brief records default + alternative) | open | |
+| explorer/20261009_lionguard_q01–q03 + triage T4 (embedder third-party terms vs harmful test text): single column LN1 vs per-variant; prefix `LionGuard:` vs `GovTech LionGuard:`; "self-hosted" framing given OpenAI/Gemini embedder keys and gated Gemma (Lite) | lionguard | user at lionguard CP1 (brief records default + alternative) | resolved | |
 | explorer/20261009_lionguard_q04: licence conflict (MIT+SIAC vs paper "research and public interest purposes only") | lionguard | P4 triage (c) → P5 resolver; judgement to user at CP1/CP2 if unresolved | routed | |
-| explorer/20261009_purplellama_q01 + q03 + q11–q13 (brief Q-A prefix default per-tool / Q-B 7 cols default incl. provisional PL7 Hidden ASCII / Q-C one column per scanner default): header prefix (Purple Llama: vs per-tool); R002 direction for LlamaFirewall scanners (one column per scanner, roles in Detail); Hidden ASCII / PII / custom scanners as columns vs inventory | purplellama | user at purplellama CP1 | open | |
+| explorer/20261009_purplellama_q01 + q03 + q11–q13 (brief Q-A prefix default per-tool / Q-B 7 cols default incl. provisional PL7 Hidden ASCII / Q-C one column per scanner default): header prefix (Purple Llama: vs per-tool); R002 direction for LlamaFirewall scanners (one column per scanner, roles in Detail); Hidden ASCII / PII / custom scanners as columns vs inventory | purplellama | user at purplellama CP1 | resolved | |
 | ~~sdp P10 Q1~~ (resolved R028): base diagram CSS overflows at 375 px (scrollWidth 628, same on sentinel page); fix `.wrap > * { min-width: 0 }` would change the shared CSS on ALL pages incl. done products | all diagrams | user (batched with diagram review) | resolved | R028 |
 | explorer/20261009_presidio_q01.md: official org after the transfer (data-privacy-stack vs Microsoft) and the header prefix | presidio | user at presidio CP1 | resolved | see CP1 ruling |
 | explorer/20261009_presidio_q02.md: six single columns vs a merged set; recognizer-family granularity; + (i) PD5 column vs inventory-only, (ii) ~30 family rows vs ~120 per-entity rows (P1) | presidio | user at presidio CP1 | resolved | see CP1 ruling |
@@ -27,6 +27,9 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| purplellama CP1 (Q-A per-tool prefix, Q-B 7 cols, Q-C one column per scanner; Q-D not decided) | R030 | user |
+| lionguard CP1 (one column LN1, prefix LionGuard:, keep all variants + state dependencies, decide test text later) | R031 | user |
+| bench-design wording (report sources and needs as proposals, never decided) | R032 | user |
 | purplellama P4 Q1 (huggingface.co/api/models JSON as evidence) | allowed: public unauthenticated read-only Hub metadata of the vendor org, not a product API (sdp discovery-doc precedent); never gated files | main |
 | purplellama P4 Q2 (download public PyPI sdists to read) | allowed read-only, no install/execution, into own empty scratch dir, treated as untrusted (R019) | main |
 | purplellama P4 Q3 (non-shallow git history reads) | allowed: anonymous read-only git (R013, R015) | main |
