@@ -10,6 +10,7 @@
 ## Open questions (from agents)
 | Q file | Product | Routed to | State | Ruling |
 |---|---|---|---|---|
+| explorer/20261009_purplellama_q11–q13: header prefix (Purple Llama: vs per-tool); R002 direction for LlamaFirewall scanners (one column per scanner, roles in Detail); Hidden ASCII / PII / custom scanners as columns vs inventory | purplellama | user at purplellama CP1 | open | |
 | sdp P10 Q1: base diagram CSS overflows at 375 px (scrollWidth 628, same on sentinel page); fix `.wrap > * { min-width: 0 }` would change the shared CSS on ALL pages incl. done products | all diagrams | user (batched with diagram review) | open | |
 | explorer/20261009_presidio_q01.md: official org after the transfer (data-privacy-stack vs Microsoft) and the header prefix | presidio | user at presidio CP1 | resolved | see CP1 ruling |
 | explorer/20261009_presidio_q02.md: six single columns vs a merged set; recognizer-family granularity; + (i) PD5 column vs inventory-only, (ii) ~30 family rows vs ~120 per-entity rows (P1) | presidio | user at presidio CP1 | resolved | see CP1 ruling |
@@ -22,6 +23,8 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| explorer/20261009_purplellama_q14 (no tag/release/CHANGELOG; pin form) | pin commit 172c1074 (2026-09-29) + PyPI versions (llamafirewall 1.0.3, codeshield 1.0.1) and HF revisions stated separately; release notes [Not disclosed] (R015 substitute unavailable, R020) | main |
+| explorer/20261009_purplellama_q15 (engine vs LlamaFirewall wrapper as separate columns) | yes, separate with cross-refs: R004 lists Prompt Guard 2 + PromptGuard scanner and Code Shield + CodeShield scanner as columns | main |
 | modelarmor P10 Q3 (reciprocal link sdp → modelarmor page) | yes: add in the sdp diagram fix loop where the sdp page names Model Armor (R012) | main |
 | modelarmor P10 Q2/Q4 (AUP line pending R025 ruling 1; Monitoring "Partly") | AUP line stays "open" until user rules; Monitoring call → diagram verifier | main |
 | presidio P10 Q2 (screenshots in scratch) | scratch PNGs are gitignored (`benchtest/scratchpad/**/*.png`); scripts committed | main |

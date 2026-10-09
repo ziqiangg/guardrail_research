@@ -53,3 +53,4 @@
 - 2026-10-09 session rate limit (reset 15:50 SGT) stopped 7 agents (modelarmor diagram + P9, presidio/sdp diagram reviews, purplellama P0 docs/code, lionguard P0); all resumed via SendMessage after reset; partial modelarmor-explained.html left uncommitted until done
 - 2026-10-09 modelarmor P10 diagram written (15 SVGs; checklist all ticked except shared 375 px overflow); diagram verifier started
 - 2026-10-09 modelarmor P9 done: 61/61 URLs 200 (4 github 429 → raw + recheck 200); 0 broken. All B1 P8/P9 complete.
+- 2026-10-09 purplellama P0 code done (redone after rate limit): PL1–PL6 (+ optional PL7 custom/PII, PL8 hidden ASCII), inventory (a)–(f), CyberSecEval eval sections; no tags → pin sha 172c1074; 11 gaps, 8 conflicts; Q14/Q15 ruled by main; Q11–Q13 → CP1
