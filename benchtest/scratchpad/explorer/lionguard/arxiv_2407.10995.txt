@@ -1,0 +1,1794 @@
+# status 200  final_url https://arxiv.org/html/2407.10995  content-type text/html; charset=utf-8
+Report GitHub Issue
+×
+Title:
+Content selection saved. Describe the issue below:
+Description:
+Submit without GitHub
+Submit in GitHub
+arXiv is now an independent nonprofit!
+Learn more
+×
+Back to arXiv
+Why HTML?
+Report Issue
+Back to Abstract
+Download PDF
+Abstract
+1 Introduction
+2 Singlish, an English Creole
+3 Related Work
+3.1 Content moderation
+3.2 Low-resource language adaptation for moderation
+3.3 Automated labelling
+4 Methodology
+4.1 Data Collection
+4.2 Safety Risk Taxonomy
+4.3 Automated Labelling
+4.3.1 Engineering the labelling prompt
+4.3.2 LLM Selection
+4.3.3 Determining the Threshold for Safety
+4.3.4 Compiling the dataset
+4.4 Moderation Classifier
+5 Results
+5.1 Validation of LLM labels with humans
+5.2 Classifier Results
+6 Discussion
+7 Conclusion
+8 Limitations
+9 Ethical Considerations
+References
+A List of Controversial Topics and Words
+B Examples of Singlish texts in our dataset
+C Toxicity Categories
+D Labelling prompt
+E Error Analysis of Llama 2 Predictions
+F Final set of hyperparameters
+F.1 Ridge Classifier
+F.2 XGBoost
+F.3 Neural Network
+G TicTag Labelling
+G.1 Crowd-sourced Workers Profiles
+G.2 Annotation Interface
+H Full experimentation results
+I Examples of predictions on Singlish texts
+License: CC BY 4.0
+arXiv:2407.10995v2 [cs.CL] 19 Jul 2024
+LionGuard: Building a Contextualized Moderation Classifier to Tackle Localized Unsafe Content
+Jessica Foo
+††thanks: Equal contribution
+Affiliation: GovTech Singapore
+Email: jessica_foo@tech.gov.sg
+Shaun Khoo11footnotemark:
+1
+Affiliation: GovTech Singapore
+Email: shaun_khoo@tech.gov.sg
+Abstract
+As large language models (LLMs) become increasingly prevalent in a wide variety of applications, concerns about the safety of their outputs have become more significant. Most efforts at safety-tuning or moderation today take on a predominantly Western-centric view of safety, especially for toxic, hateful, or violent speech. In this paper, we describe LionGuard, a Singapore-contextualized moderation classifier that can serve as guardrails against unsafe LLM outputs. When assessed on Singlish data, LionGuard outperforms existing widely-used moderation APIs, which are not finetuned for the Singapore context, by 14% (binary) and up to 51% (multi-label). Our work highlights the benefits of localization for moderation classifiers and presents a practical and scalable approach for low-resource languages.
+Warning: this paper contains references and data that may be offensive.
+1 Introduction
+Large language models (LLMs) have led to a breakthrough in the generative abilities of conversational AI agents, achieving unprecedented levels of linguistic fluency and generalizability. Due to their strong conversational abilities, LLMs have been deployed to a range of domains such as workplace productivity, education, and customer service.
+Given how frequently and directly users interact with these systems, moderation guardrails have been proposed to safeguard against the risk of LLMs generating harmful content. This is especially crucial for LLMs which may not have been sufficiently safety-tuned, as they can be easily instructed to generate hateful, toxic and offensive material at scale. In addition, moderation classifiers can also be used to automatically generate adversarial data (Perez et al., 2022) for safety alignment in LLM model training, score outputs from red-teaming, and benchmark LLMs in unsafe content generation. Hence, a robust and accurate moderation classifier can help in building safe LLMs at both the output (as guardrails) and input (augmenting training data) level.
+The most widely used content moderation classifiers today include
+OpenAI’s Moderation API11
+1
+https://platform.openai.com/docs/guides/moderation/overview, Jigsaw’s Perspective API,22
+2
+https://developers.perspectiveapi.com/s/about-the-api-attributes-and-languages?language=en_US and Meta’s LlamaGuard.33
+3
+https://huggingface.co/meta-llama/LlamaGuard-7b While these classifiers are continually updated and have gradually incorporated multilingual capabilities (Lees et al., 2022), they have not been tested rigorously on low-resource languages. Singlish, an English creole (i.e. a variant of English) is widely used by people residing in Singapore, with a population of close to 5.5 million. As a creole language, Singlish has acquired its own unique phonology, lexicon and syntax (Ningsih and Rahman, 2023). As such, the linguistic shift between English and Singlish is significant enough such that existing moderation classifiers that perform well on English are unlikely to perform well on Singlish.
+We present a practical and scalable approach to localizing moderation, which can be applied to any low-resource language. In this work, we make the following contributions:
+•
+Defining a safety risk taxonomy aligned to the local context. We constructed our safety risk taxonomy by combining existing taxonomies across various commercial providers and aligning these categories with relevant Singaporean legislation and guidelines, such as the Singapore Code of Internet Practice.44
+4
+IMDA’s Singapore Code of Internet Practice
+•
+Creating a new large-scale dataset of Singlish texts for training moderation classifiers. We collected Singlish texts from various online forums, conducted automated labelling using safety-tuned LLMs55
+5
+We used OpenAI’s GPT-3.5-Turbo (version 0613), Anthropic’s Claude 2.0, and Google’s PaLM 2 (text-bison-002). using our safety risk taxonomy, resulting in a novel dataset of 138k Singlish texts that can be used for safety-tuning or benchmarking LLMs, or developing moderation classifiers.
+•
+Contextualized moderation classifier outperforms generalist classifiers. We finetuned a range of classification models on our automatically labelled dataset, and our best performing models outperformed Moderation API, Perspective API and LlamaGuard, while being faster and cheaper to run than using safety-tuned LLMs as guardrails. LionGuard is available on Hugging Face Hub.66
+6
+https://huggingface.co/govtech/lionguard-v1
+2 Singlish, an English Creole
+Singlish is mainly influenced by non-English languages like Chinese, Malay, Tamil and Chinese dialects (e.g., Hokkien). While based on English, different languages are often combined within single utterances. To illustrate with the example below, the phrase "chionging" is derived from the Chinese romanized word "chong", which means "to rush"; the "-ing" indicates the progressive verb tense from English grammar; "lao" is the romanization of the Chinese word that means "old"; "liao" is a Singlish particle that means "already".
+Singlish also contains content-specific terminology. For example, "ceca", the Singlish racial slur which describes people of Indian nationality, is a derogatory synecdoche. It refers to the Comprehensive Economic Cooperation Agreement (CECA), a free-trade agreement signed between Singapore and India which has faced scrutiny in recent years.77
+7
+https://str.sg/3J4U Furthermore, new vocabulary has emerged in the online domain, such as the word "sinkie", which is a self-derogatory term referring to Singaporeans. Such lexicons are unlikely to be understood by Western-centric language models, unless they have been specifically trained or instructed to.
+Several works have emerged to tackle Singlish for various Natural Language Processing (NLP) tasks, including sentiment analysis (Lo et al., 2016; Bajpai et al., 2018; Ho et al., 2018), parts-of-speech tagging (Wang et al., 2019) and neural machine translation (Sandaruwan et al., 2021). Hsieh et al. (2022) trained a Singlish BERT model to identify Singlish sentences, while Lim (2023) fine-tuned BERT on a colloquial Singlish and Manglish88
+8
+Informal form of Malaysian English corpus (SingBERT). Such efforts highlight the significant linguistic differences between English and Singlish and the need for Singlish-focused content moderation.
+3 Related Work
+3.1 Content moderation
+The importance of content moderation has led to a plethora of works focused on the detection of toxic and abusive content (Nobata et al., 2016; de Gibert et al., 2018; Chakravartula, 2019; Mozafari et al., 2020; Vidgen and Yasseri, 2020). Bidirectional Encoder Representations from Transformers (BERTs) (Devlin et al., 2018) first emerged as powerful word embeddings that could be fine-tuned for downstream tasks like hate speech detection. Lee et al. (2021) used BERT embeddings in the Hateful Memes Challenge (Kiela et al., 2021), while Liu et al. (2019) combined BERT and a Long-Short Term Memory model on the OffensEval dataset (Zampieri et al., 2019). Caselli et al. (2021) re-trained BERT on offensive Reddit comments, building a shifted BERT model, HateBERT, that outperformed general BERT in hate speech detection.
+Moderation APIs have become increasingly popular due to the ease at which they can be integrated into applications. Such APIs aim to be universally applicable to different languages and domains. Jigsaw (2017) developed Perspective API, which uses multilingual BERT-based models that are then distilled into single-language Convolutional Neural Networks (CNNs) for each language supported. Markov et al. (2023) developed OpenAI’s Moderation API, which uses a lightweight transformer decoder model with a multi-layer perceptron head for each toxicity category. However, one concern amidst the increasing adoption of moderation APIs is how strikingly different toxicity triggers are across the Western and Eastern contexts (Chong and Kwak, 2022), underscoring the importance of localized content moderation.
+3.2 Low-resource language adaptation for moderation
+Adapting toxicity detection to Singlish, Zou (2022) used a CNN to detect hate speech from Twitter data. Haber et al. (2023) curated a multilingual dataset of Reddit comments in Singlish, Malay and Indonesian and found that domain adaption of mBERT (Devlin et al., 2018) and XLM-R (Conneau et al., 2020) models improved F1 performance in detecting toxic comments. Prakash et al. (2023) analyzed multimodal Singlish hate speech by creating a dataset of offensive memes. Our work contributes to this space by establishing a more systematic approach to detecting unsafe content with automated labelling and by developing a contextualized moderation classifier which outperforms existing generalized moderation APIs.
+3.3 Automated labelling
+Despite requiring more time and resources, human labelling has frequently been used to generate gold standard labels for toxic speech, particularly via crowdsourcing (Davidson et al., 2017; Parrish et al., 2022). However, Waseem (2016) found that amateur annotators were more likely than expert annotators to label items as hate speech, causing poorer data quality. Considering the scale of data required for building safe LLMs, automated labelling has emerged as an alternative to human labelling. Bai et al. (2022) used Constitutional AI to automatically perform evaluations with Claude, and then trained a preference model using the dataset of AI preferences. Chiu and Alexander (2021) found that with few-shot learning, GPT-3 can be used to detect sexist or racist text. Plaza-del arco et al. (2023) also found that zero-shot prompting of FLAN-T5 produced favorable results on several hate speech benchmarks. Inan et al. (2023) proposed an LLM-based input-output safeguard model, LlamaGuard, which classifies text inputs based on specific safety risks as defined by prompts. Unlike existing works that rely on a single model for automated labelling, we combined several LLMs to provide more accurate and reliable labels, leveraging the collective wisdom and knowledge of several safety-tuned LLMs.
+4 Methodology
+To develop a robust moderation classifier that is sensitive to Singlish and Singapore’s context, we adopted a 4-step methodology as seen in Figure 1.
+Figure 1: Overview of the 4-step methodology in building LionGuard
+4.1 Data Collection
+To build a dataset of Singlish texts, we collected comments from HardwareZone’s Eat-Drink-Man-Woman online forum and selected subreddits from Reddit on Singapore.99
+9
+r/Singapore, r/SingaporeHappenings, r/SingaporeRaw The former is notorious in Singapore as a hotspot of misogynistic, xenophobic, and toxic comments,1010
+10
+https://www.ricemedia.co/pretty-privilege-bbfa/ while the latter is a popular online forum for Singapore-specific issues. We collected comments on all threads between 2020 and 2023 from both forums, resulting in a dataset of approximately 8.9 million comments.
+However, upon manual inspection of the data, only a small minority of the comments were unsafe. Both forums have a wide range of topics which are not always controversial or harmful, and forum moderators often remove the most toxic comments.
+To ensure sufficient unsafe texts for a balanced dataset, we used entire threads that discussed controversial topics in Singapore or contained offensive words (see Appendix A), which were more likely to be unsafe. This resulted in approximately 400,000 texts, which we randomly subsampled to a smaller set of 69,000 potentially unsafe texts. We then randomly sampled another 69,000 texts from the remaining dataset that had not been identified as likely to be unsafe, for greater heterogeneity in topics and language, resulting in a final training dataset of 138,000 texts (examples in Appendix B).
+4.2 Safety Risk Taxonomy
+Next, we referenced the moderation categories defined in OpenAI’s Moderation API, Jigsaw’s Perspective API and Meta’s LlamaGuard, and took into consideration Singapore’s Code of Internet Practice and Code of Practice for Online Safety.1111
+11
+https://www.imda.gov.sg/-/media/imda/files/regulations-and-licensing/regulations/codes-of-practice/codes-of-practice-media/code-of-practice-for-online-safety.pdf
+We defined seven categories of safety risks for LionGuard. Brief descriptions of each category are listed below, while the full definitions are available in Appendix C. The key differences between our safety risk categories and OpenAI’s, Jigsaw’s and Meta’s are summarized in Table 1.
+1.
+Hateful: Content that expresses, incites, or promotes hate based on race, gender, ethnicity, religion, nationality, sexual orientation, disability status, or caste.
+2.
+Harassment: Content that expresses, incites, or promotes harassing language towards any target/individual.
+3.
+Encouraging public harm: Content that promotes, facilitates, or encourages harmful public acts, vice or organized crime.
+4.
+Encouraging self-harm: Content that promotes or depicts acts of self-harm, such as suicide, cutting, and eating disorders.
+5.
+Sexual: Content meant to arouse sexual excitement, such as the description of sexual activity, or that promotes sexual services (excluding sex education and wellness).
+6.
+Toxic: Content that is rude, disrespectful, or profane, including the use of slurs.
+7.
+Violent: Content that depicts death, violence, or physical injury.
+|
+LionGuard
+|
+OpenAI
+|
+Jigsaw
+|
+LlamaGuard
+|
+Hateful
+|
+Hate
+|
+Identity
+attack
+|
+Violence and Hate
+|
+Harassment
+|
+Harassment
+|
+Insult
+|
+-
+|
+Public harm
+|
+-
+|
+-
+|
+Crime1212
+12
+LlamaGuard defines separate categories for Guns and Illegal Weapons, Regulated or Controlled Substances, Criminal Planning.
+|
+Self-harm
+|
+Self-harm
+|
+-
+|
+Self Harm
+|
+Sexual
+|
+Sexual
+|
+-
+|
+Sexual
+|
+Toxic
+|
+-
+|
+Toxicity,
+Profanity
+|
+-
+|
+Violent
+|
+Violence
+|
+Threat
+|
+Violence and Hate
+Table 1: High-level comparison of content moderation categories across LionGuard, OpenAI’s Moderation API, and Jigsaw’s Perspective API.
+4.3 Automated Labelling
+We then automatically labelled our Singlish dataset according to our safety risk categories using LLMs. Automated labelling with LLMs is increasingly popular given vast improvements in instruction-following with recent LLMs (Ouyang et al., 2022; Muennighoff et al., 2023; Xu et al., 2024).
+To verify the accuracy of our automated labelling, we internally labelled 200 texts that served as our expert-labelled dataset. The dataset was handpicked by our team with a focus on selecting particularly challenging texts that were likely to be mislabelled. This consisted of 143 unsafe texts (71.5%) and 57 safe texts (28.5%).
+4.3.1 Engineering the labelling prompt
+We incorporated the following prompt engineering methods for our automated labelling:
+1.
+Context prompting (OpenAI, 2023): We specified that the text to be evaluated is in Singlish and that the evaluation needs to consider Singapore’s socio-cultural context. We also provided examples and definitions of common offensive Singlish slang.
+2.
+Few-shot prompting (Brown et al., 2020): We gave examples of Singlish texts (that included Singlish slang and Singaporean references) and associated safety risk labels.
+3.
+Chain-of-Thought (CoT) prompting (Wei et al., 2023): We specified each step that the LLM should take in evaluating the text, asking it to consider whether the text fulfils any of the seven criteria, and to provide a "yes/no" label along with a reason for its decision.
+To determine the effectiveness of these prompt engineering techniques, we conducted an ablation study that compared the performance of the:
+(a)
+Full prompt (combining all three methods)
+(b)
+Full prompt less context prompting (no Singlish examples)
+(c)
+Full prompt less few-shot prompting
+(d)
+Full prompt less CoT prompting
+We measured how effective the prompts were in terms of their F1 score (i.e. taking into account precision and recall of detecting unsafe content with respect to our expert-labelled dataset)1313
+13
+Note that F1-score is measured using only texts which there was a consensus across all LLMs on whether the text was safe or unsafe. This is because we trained our moderation classifier only on texts where there was a consensus to preserve higher quality in the training dataset. This is explained in subsection 4.3.3. and agreement (i.e. how frequently the LLMs concurred). F1 scores were chosen as our evaluation metric as the expert-labelled dataset was slightly skewed to unsafe text (71.5%).
+Figure 2: F1 scores and agreement across the 4 candidate LLMs for the prompt ablation comparison
+As seen in Figure 2, we found that using all three approaches together was most effective in terms of both F1 scores and agreement.
+4.3.2 LLM Selection
+We started with four candidate LLMs: OpenAI’s GPT-3.5-turbo (version 0613) (Brockman et al., 2023), Anthropic’s Claude 2.0 (Anthropic, 2023), Google’s PaLM 2 (text-bison-002) (Anil et al., 2023), and Meta’s Llama 2 Chat 70b (Touvron et al., 2023). These LLMs were chosen as they were the top-performing LLMs at the time and had also been safety-tuned.
+We assessed each LLM’s accuracy by comparing their F1 scores in labelling texts against the expert-labelled dataset. We ran all four prompts detailed in subsection 4.3.1 for each of the candidate LLMs.1414
+14
+We were unable to get a valid label from Llama 2 for one Reddit text using the prompt template without CoT, despite varying temperature and top_p parameters. We chose to drop it from the analysis, so all scores reported for Llama 2 for the prompt without CoT are with 199 texts instead of the full 200 texts. This does not change the results significantly since we ultimately chose the full prompt approach.
+Figure 3: F1 scores for each combination of prompt and candidate LLM
+As seen in Figure 3, Llama 2 underperformed by a clear margin compared to the other three candidate LLMs when the full prompt was used. Upon closer inspection, we found that Llama 2 predicted nearly every text as unsafe,1515
+15
+Because of this, Llama 2 had a recall of 1 and a precision of 0.730. This is in contrast to the other LLMs which had significantly higher precision scores of 0.830 (GPT-3.5-turbo), 0.967 (Claude 2), and 0.826 (Palm 2). and this behaviour persisted despite additional changes to the prompt. Through error analysis (see Appendix E), we found that Llama 2 was overly conservative and provided incorrect justifications for classifying safe text as unsafe. As such, Llama 2 was dropped to avoid distorting the labels for our classification dataset.
+4.3.3 Determining the Threshold for Safety
+After determining the best prompt and set of LLMs for labelling, we considered two thresholds for determining unsafe content: majority vote (i.e. at least two of three LLMs label the text as unsafe) or consensus (i.e. all 3 LLMs label the text as unsafe). We compared the F1 scores and agreement for these two threshold levels, as seen in Figure 4.
+Figure 4: Comparing F1 scores and agreement for different threshold levels
+As we were assembling a new dataset to build a contextualized moderation classifier from scratch, we determined that the priority was labelling accuracy. As such, we chose the consensus approach for our training (see subsection 4.4), which had higher accuracy even though the agreement rate is lower.
+4.3.4 Compiling the dataset
+The final dataset consisted of 138,000 labelled texts. The breakdown of the number of positive labels in the dataset can be found in Table 2. Note the severe imbalance of data for most categories, which made our model training process challenging. The dataset was split into train (70%), validation (15%), and test (15%) sets. Texts from the same threads were allocated to the same split. All experimental results in section 5.2 are reported using the test set.
+|
+Category
+|
+Positive labels
+|
+hateful
+|
+537 (0.40%)
+|
+harassment
+|
+101 (0.07%)
+|
+public harm
+|
+147 (0.11%)
+|
+self-harm
+|
+82 (0.06%)
+|
+sexual
+|
+695 (0.51%)
+|
+toxic
+|
+7,295 (7.30%)
+|
+violent
+|
+153 (0.11%)
+|
+unsafe
+|
+8,375 (6.15%)
+Table 2: Breakdown of the number of positive labels in the dataset. Note that the sum of all seven categories do not equal to the number of positive binary labels (unsafe) as a text can satisfy more than one category.
+4.4 Moderation Classifier
+Architecture: LionGuard, our moderation classifier, comprises two components: an embedding and classifier model. The embedding model generates a vector representation of the text, which the classifier model uses as inputs to generate a moderation score. This simple architecture enables us to test different embedding and classifier models to find the best-performing combination for LionGuard.
+Embedding model: Our approach compared general embedding models against finetuned models. We chose BAAI General Embedding (BGE) (Xiao et al., 2023) given its strong performance on Hugging Face’s leaderboard for embeddings,1616
+16
+https://huggingface.co/spaces/mteb/leaderboard HateBERT (Caselli et al., 2021), as well as SingBERT (Lim, 2023). We also experimented with masked language modelling (MLM) on these embedding models on a separate sample of 500,000 texts from our initial dataset of 8.9m texts for 30 epochs. Ablation studies were also conducted with BGE-small, BERT-base and BERT-large embedding models.
+Classifier model: We selected our classifier models based on different levels of model complexity to reveal any differences in performance due to the number of parameters. In order of complexity, we chose a ridge regression classifier, XGBoost classifier, and a neural network (consisting of one hidden and one dropout layer). We carried out hyperparameter tuning for the XGBoost and neural network classifier. More details on the hyperparameter search and the final set of hyperparameters are provided in Appendix F.
+Training: We developed two versions of LionGuard: a binary classifier (to detect if a text is safe or unsafe), and a multi-label classifier (to detect if a text fulfills any category in our safety risk taxonomy defined in 4.2).
+For the binary classifier, we limited the training data to texts where there was consensus among the LLMs on the label (i.e., unsafe or safe). This resulted in a smaller dataset of 99,597 texts (72.2%).
+For the multi-label classifier, we trained a dedicated classifier model for each category. We included texts where there was a consensus for that category, which enabled us to maximize the use of our limited number of positive labels. Apart from the toxic category, there was consensus on over 96% of the labels for each of the other categories.1717
+17
+For the toxic category, the consensus rate was 72.4%. Although this meant there was less training data for the toxic-specific classifier, there was still more than enough training data (around 99,900 texts). Moreover, the toxic category also had more positive labels than the other categories.
+Evaluation: Due to the heavily imbalanced dataset, we chose the Precision-Recall AUC (PR-AUC) as our evaluation metric as it can better represent the classifier’s ability to detect unsafe content across all score thresholds. PR-AUC was also used by OpenAI (Markov et al., 2023) and LlamaGuard (Inan et al., 2023) in their evaluations.
+Benchmarking: After identifying the best classifier, we compared LionGuard with Moderation API, Perspective API and LlamaGuard. Both APIs provided a score, while LlamaGuard provided the probability of the first (classification) token, which we used to calculate the PR-AUC. We benchmarked them on both the binary and multi-label experiments.
+5 Results
+5.1 Validation of LLM labels with humans
+We compared labels provided by the LLMs with labels annotated by crowdsourced human labellers to further validate the accuracy of LLM labels. We worked with TicTag, a Singapore-based annotation company, to crowdsource for workers who could understand Singlish. These workers accessed the labelling task via TicTag’s mobile application (see Appendix G), and were provided extensive instructions, including the safety risk taxonomy and examples. They could choose "I Don’t Know" if they did not understand the text. 95 workers labelled 11,997 unique texts randomly drawn from our final dataset (see subsection 4.3.4), with each text labelled by 3 different workers. The demographic profile of the workers were reflective of Singapore’s population characteristics (see Appendix G.1).
+Of the 11,997 texts, we found that crowdsourced human labellers had low concurrence (i.e., inter-rater agreement). As seen in Table 3, human labellers only had full concurrence on binary labels 52.9% of the time. Concurrence on binary labels was significantly lower than individual categories as we found that human labellers tended to label more texts unsafe, resulting in lower concurrence on generally safe texts. On less contentious categories like self-harm, public harm, sexual and violence, concurrence occurred more than 85% of the time. In contrast, toxic and hateful categories had less than 75% concurrence. Even with detailed instructions and strong quality control measures, the inherent subjectivity of labelling harmful content makes it challenging to achieve consensus among non-expert human labellers.
+|
+Category
+|
+Human Consensus
+|
+Human-LLM Consensus
+|
+hateful
+|
+70.6%
+|
+98.3% (5,450)
+|
+harassment
+|
+82.0%
+|
+99.6% (6,433)
+|
+public harm
+|
+87.9%
+|
+99.7% (7,530)
+|
+self-harm
+|
+95.5%
+|
+100% (6,817)
+|
+sexual
+|
+94.6%
+|
+99.8% (4,234)
+|
+toxic
+|
+67.3%
+|
+97.8% (7,475)
+|
+violent
+|
+94.3%
+|
+99.9% (7,392)
+|
+unsafe
+|
+52.9%
+|
+94.1% (3,332)
+Table 3: Human consensus refers to full inter-rater agreement between human labellers. Human-LLM consensus refers to the consensus rate between human labellers and LLM labellers, with the number of texts in brackets. Note that only observations with full concurrence among all human labellers and LLM labellers for the respective categories were included in the latter, so the number varies depending on the category.
+For sentences with concurrence among all human labellers and all LLM labellers respectively, we found that the human labels generally have high concurrence with LLM labels (see Table 3), with the concurrence rate exceeding 90% for all categories. This suggested that where human labels were consistent, LLMs were relatively accurate in providing labels aligned with human judgment. However, in contentious and ambiguous cases where human labels are inconsistent, evaluating the accuracy and concurrence of LLM labels vis-à-vis human labels is an area for future work.
+5.2 Classifier Results
+Model experimentation results (see Table 4): On the binary label, we found that the classifiers which used BGE Large performed significantly better than those which used HateBERT and SingBERT. Based on our ablation study with BERT-base, BERT-large and BGE-small models (see Appendix H), which all performed poorly, we posit that the number of parameters and type of pre-training embeddings are critical in improving performance. As for the classifier model, the ridge classifier performed comparably to XGBoost and the neural network for all embedding models despite its relative simplicity. We also found that MLM finetuning on the embedding models had a negligible effect on performance (see Appendix H).
+For the multi-label classifiers, we similarly found that the classifiers which used BGE Large were the best performers by a large margin. Likewise, the ridge classifier performed best, indicating that a simple classification layer is sufficient for good performance, given a complex embedding model.
+Overall, the best performing combination was the BGE model combined with the Ridge classifier. We used this combination for LionGuard, our moderation classifier.
+| Moderation Classifier
+|
+Binary
+| Multi-Label
+|
+Embedding
+|
+Classifier
+|
+unsafe
+|
+hateful
+|
+harass-
+ment
+|
+public harm
+|
+self-
+harm
+|
+sexual
+|
+toxic
+|
+violent
+|
+|
+Ridge
+|
+0.819
+|
+0.480
+|
+0.413
+|
+0.491
+|
+0.507
+|
+0.485
+|
+0.827
+|
+0.514
+|
+|
+XGBoost
+|
+0.816
+|
+0.455
+|
+0.386
+|
+0.460
+|
+0.472
+|
+0.472
+|
+0.807
+|
+0.489
+|
+BGE Large
+|
+NN
+|
+0.792
+|
+0.375
+|
+0.254
+|
+0.319
+|
+0.286
+|
+0.388
+|
+0.802
+|
+0.299
+|
+HateBERT
+|
+Ridge
+|
+0.083
+|
+0.065
+|
+0.063
+|
+0.068
+|
+0.079
+|
+0.064
+|
+0.076
+|
+0.066
+|
+|
+XGBoost
+|
+0.082
+|
+0.064
+|
+0.064
+|
+0.067
+|
+0.078
+|
+0.064
+|
+0.073
+|
+0.064
+|
+|
+NN
+|
+0.082
+|
+0.064
+|
+0.059
+|
+0.063
+|
+0.073
+|
+0.063
+|
+0.073
+|
+0.059
+|
+SingBERT
+|
+Ridge
+|
+0.194
+|
+0.121
+|
+0.119
+|
+0.131
+|
+0.139
+|
+0.114
+|
+0.186
+|
+0.125
+|
+|
+XGBoost
+|
+0.172
+|
+0.112
+|
+0.099
+|
+0.115
+|
+0.119
+|
+0.103
+|
+0.167
+|
+0.111
+|
+|
+NN
+|
+0.155
+|
+0.090
+|
+0.061
+|
+0.067
+|
+0.074
+|
+0.063
+|
+0.123
+|
+0.063
+| Moderation API
+|
+0.675
+|
+0.228
+|
+0.081
+|
+-
+|
+0.488
+|
+0.230
+|
+-
+|
+0.137
+| Perspective API
+|
+0.588
+|
+0.212
+|
+0.126
+|
+-
+|
+-
+|
+-
+|
+0.342
+|
+0.073
+| LlamaGuard
+|
+0.459
+|
+0.190
+|
+-
+|
+0.031
+|
+0.370
+|
+0.230
+|
+-
+|
+0.005
+Table 4: Comparison of PR-AUC between different combinations of embedding and classifier models for the binary label (safe or unsafe) and the seven safety risk categories against Moderation API, Perspective API and LlamaGuard. The top score for each category is formatted in bold for clarity, and the combination used for LionGuard is in bold. The full table (including results from our finetuned embedding models) is available in Appendix 6
+.
+Benchmarking results (see Table 4): We found that LionGuard significantly outperformed Moderation API, Perspective API and LlamaGuard.
+On the binary label experiments, LionGuard’s PR-AUC score of 0.819 is higher than OpenAI’s 0.675, Perspective’s 0.588 and LlamaGuard’s 0.459.1818
+18
+Additionally, LionGuard scored lower than Moderation API on precision (0.63 vs 0.74) but significantly higher on recall (0.81 vs 0.56) when using 0.5 as the prediction threshold. Likewise, for multi-label classification, LionGuard outperformed on all categories. The difference in performance is especially clear for the harassment, sexual, toxic and violent categories, with the performance more than doubled.
+6 Discussion
+Importance of localization: Our work suggests a clear need for contextualized moderation classifiers to detect localized slang and dysphemisms that are not offensive elsewhere. In our error analysis of a few examples where Moderation API, Perspective API and LlamaGuard failed to provide accurate labels (see Table 8 in Appendix I), LionGuard was able to understand Singapore-specific slang and references like "ceca", "kkj" and "AMDK" and provide the correct label. In contrast, Moderation API, Perspective API and LlamaGuard seemed to perform better in examples where only offensive English words or references (e.g. "leeches", "wank", "scum") were present. Hence, while Moderation API, Perspective API and LlamaGuard are well-adapted to Western-centric toxicity, LionGuard is able to perform better on Singlish texts.
+However, LionGuard may not generalize well to other domains and languages, as it was trained specifically to detect harmful content in the Singapore context. Nonetheless, our approach can be adapted to any low-resource languages which require localization. Future work can use LionGuard to generate adversarial Singlish-centric data (Perez et al., 2022) to augment moderation training data and refine generalist moderation classifiers (Markov et al., 2023) for better performance even on low-resource languages.
+Benefits of automated LLM labelling: While crowdsourced labelling works well with simple tasks with an objective truth, we found that it may have limited mileage for subjective tasks like assessing toxicity or harassment. Each person has a different understanding of what is unsafe, and aligning on these definitions is challenging. On the other hand, automated LLM labelling, with the right prompt, can achieve higher labelling accuracy and consistency. More importantly, this approach can be adapted to other low-resource languages, and easily updated as the language evolves. While our work adopted the consensus approach for automated labelling, future work can explore other methods for synthesizing varying LLM output labels, including self-reflection.
+7 Conclusion
+We highlighted the importance of low-resource language localization for moderation by showing that our finetuned classifier, LionGuard, outperformed existing widely-used moderation APIs. We evaluated the best prompt and LLMs for automatic labelling, and presented a practical and scalable approach to automatically generating labels for low-resource language moderation data. We hope our work encourages more to build moderation tools that excel in both general and localized contexts.
+8 Limitations
+Dataset. As our dataset is a static, albeit up-to-date, snapshot of the online discourse in Singapore, our model may become less effective as the linguistic features of Singlish inevitably change over time. However, our approach simply requires a change in the prompt used for labelling in order to generate accurate labels for a new dataset. Moreover, active learning can be used to continually learn from production data (Markov et al., 2023) and ensure that the moderation classifier performs well over time. Future work can incorporate our methods (e.g., automated labelling) into an end-to-end pipeline to ensure a robust detection model for real-world applications.
+Experiments. As the focus of our work was to highlight the importance of localized content moderation, we did not perform extensive experiments on varying model hyperparameters. However, our results found that the ridge classifier, which only depended on one hyperparameter, could outperform generalist classifiers. For future work, we hope to experiment with finetuning encoder-decoder transformer language models with a classification output layer, which may perform even better than our relatively simple classifier models.
+LLM Labelling Accuracy. While we have attempted to validate our LLM labels both with our expert-labelled dataset and crowd-sourced labels, we cannot completely guarantee the accuracy of our LLM labels. However, our work aims to demonstrate the potential of LLM labelling with prompt engineering, as an alternative to manual human-labelling. Future work can explore more advanced LLM labelling techniques to increase accuracy.
+9 Ethical Considerations
+Labeller Wellbeing. Workers were informed about the nature of the task before commencing their work. They completed their work in batches, on their own schedules, and could decide to withdraw at any point in time. Trigger warnings were placed in the task description and mental health resources were made available by TicTag to the workers. Workers were compensated at a rate of SG$0.20 per text annotated. TicTag shared that the workers annotated approximately 80 texts per half an hour, which adds up to SG$32 per hour, well above the living wage in Singapore. No identifiable information was provided to us about our workers.
+Data Privacy and Terms of Use. Reddit data was collected via the Pushshift API (Baumgartner et al., 2020). We collected Hardwarezone data that was publicly available, in a manner that is permissible pursuant to the Singapore Copyright Act 2021, which allows for the use of copyrighted works for computational data analysis (i.e., machine learning).
+Model Terms of Use. We used LLMs commercially licensed by OpenAI, Anthropic and Google and abided by their Terms of Use. We also accessed Llama 2 via Hugging Face, licensed by Meta. We accepted and abided by Meta’s license terms and acceptable use policy. We accessed BGE, SingBERT and HateBERT via Hugging Face Hub and abided by their Terms of Use. Our moderation classifier, LionGuard, will be made available on Hugging Face for research and public interest purposes only.
+Environmental Impact. We only trained lightweight models in our main experiments, such as a ridge classifier, XGBoost and a simple neural network. The most significant training required was unsupervised MLM fine-tuning of the embedding models, which took approximately three days on two NVIDIA Tesla V100s. Compared to the environmental costs of pre-training LLMs, the environmental impact of our work is relatively small.
+References
+Anil et al. (2023)
+Rohan Anil, Andrew M. Dai, Orhan Firat, Melvin Johnson, Dmitry Lepikhin, Alexandre Passos, Siamak Shakeri, Emanuel Taropa, Paige Bailey, Zhifeng Chen, Eric Chu, Jonathan H. Clark, Laurent El Shafey, Yanping Huang, Kathy Meier-Hellstern, Gaurav Mishra, Erica Moreira, Mark Omernick, Kevin Robinson, Sebastian Ruder, Yi Tay, Kefan Xiao, Yuanzhong Xu, Yujing Zhang, Gustavo Hernandez Abrego, Junwhan Ahn, Jacob Austin, Paul Barham, Jan Botha, James Bradbury, Siddhartha Brahma, Kevin Brooks, Michele Catasta, Yong Cheng, Colin Cherry, Christopher A. Choquette-Choo, Aakanksha Chowdhery, Clément Crepy, Shachi Dave, Mostafa Dehghani, Sunipa Dev, Jacob Devlin, Mark Díaz, Nan Du, Ethan Dyer, Vlad Feinberg, Fangxiaoyu Feng, Vlad Fienber, Markus Freitag, Xavier Garcia, Sebastian Gehrmann, Lucas Gonzalez, Guy Gur-Ari, Steven Hand, Hadi Hashemi, Le Hou, Joshua Howland, Andrea Hu, Jeffrey Hui, Jeremy Hurwitz, Michael Isard, Abe Ittycheriah, Matthew Jagielski, Wenhao Jia, Kathleen Kenealy, Maxim Krikun, Sneha Kudugunta, Chang
+Lan, Katherine Lee, Benjamin Lee, Eric Li, Music Li, Wei Li, YaGuang Li, Jian Li, Hyeontaek Lim, Hanzhao Lin, Zhongtao Liu, Frederick Liu, Marcello Maggioni, Aroma Mahendru, Joshua Maynez, Vedant Misra, Maysam Moussalem, Zachary Nado, John Nham, Eric Ni, Andrew Nystrom, Alicia Parrish, Marie Pellat, Martin Polacek, Alex Polozov, Reiner Pope, Siyuan Qiao, Emily Reif, Bryan Richter, Parker Riley, Alex Castro Ros, Aurko Roy, Brennan Saeta, Rajkumar Samuel, Renee Shelby, Ambrose Slone, Daniel Smilkov, David R. So, Daniel Sohn, Simon Tokumine, Dasha Valter, Vijay Vasudevan, Kiran Vodrahalli, Xuezhi Wang, Pidong Wang, Zirui Wang, Tao Wang, John Wieting, Yuhuai Wu, Kelvin Xu, Yunhan Xu, Linting Xue, Pengcheng Yin, Jiahui Yu, Qiao Zhang, Steven Zheng, Ce Zheng, Weikang Zhou, Denny Zhou, Slav Petrov, and Yonghui Wu. 2023.
+Palm 2 technical report.
+Anthropic (2023)
+Anthropic. 2023.
+Claude 2.
+https://www.anthropic.com/news/claude-2.
+[Online; accessed 5 Feb 2024].
+Bai et al. (2022)
+Yuntao Bai, Saurav Kadavath, Sandipan Kundu, Amanda Askell, Jackson Kernion, Andy Jones, Anna Chen, Anna Goldie, Azalia Mirhoseini, Cameron McKinnon, Carol Chen, Catherine Olsson, Christopher Olah, Danny Hernandez, Dawn Drain, Deep Ganguli, Dustin Li, Eli Tran-Johnson, Ethan Perez, Jamie Kerr, Jared Mueller, Jeffrey Ladish, Joshua Landau, Kamal Ndousse, Kamile Lukosuite, Liane Lovitt, Michael Sellitto, Nelson Elhage, Nicholas Schiefer, Noemi Mercado, Nova DasSarma, Robert Lasenby, Robin Larson, Sam Ringer, Scott Johnston, Shauna Kravec, Sheer El Showk, Stanislav Fort, Tamera Lanham, Timothy Telleen-Lawton, Tom Conerly, Tom Henighan, Tristan Hume, Samuel R. Bowman, Zac Hatfield-Dodds, Ben Mann, Dario Amodei, Nicholas Joseph, Sam McCandlish, Tom Brown, and Jared Kaplan. 2022.
+Constitutional ai: Harmlessness from ai feedback.
+Bajpai et al. (2018)
+Rajiv Bajpai, Danyuan Ho, and Erik Cambria. 2018.
+Developing a concept-level knowledge base for sentiment analysis in singlish.
+In Computational Linguistics and Intelligent Text Processing, pages 347–361, Cham. Springer International Publishing.
+Baumgartner et al. (2020)
+Jason Baumgartner, Savvas Zannettou, Brian Keegan, Megan Squire, and Jeremy Blackburn. 2020.
+The pushshift reddit dataset.
+Proceedings of the International AAAI Conference on Web and Social Media, 14(1):830–839.
+Brockman et al. (2023)
+Greg Brockman, Atty Eleti, Elie Georges, Joanne Jang, Logan Kilpatrick, Rachel Lim, Luke Miller, and Michelle Pokrass. 2023.
+Introducing chatgpt and whisper apis.
+https://openai.com/blog/introducing-chatgpt-and-whisper-apis.
+[Online; accessed 5 Feb 2024].
+Brown et al. (2020)
+Tom B. Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared Kaplan, Prafulla Dhariwal, Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda Askell, Sandhini Agarwal, Ariel Herbert-Voss, Gretchen Krueger, Tom Henighan, Rewon Child, Aditya Ramesh, Daniel M. Ziegler, Jeffrey Wu, Clemens Winter, Christopher Hesse, Mark Chen, Eric Sigler, Mateusz Litwin, Scott Gray, Benjamin Chess, Jack Clark, Christopher Berner, Sam McCandlish, Alec Radford, Ilya Sutskever, and Dario Amodei. 2020.
+Language models are few-shot learners.
+Caselli et al. (2021)
+Tommaso Caselli, Valerio Basile, Jelena Mitrović, and Michael Granitzer. 2021.
+HateBERT: Retraining BERT for abusive language detection in English.
+In Proceedings of the 5th Workshop on Online Abuse and Harms (WOAH 2021), pages 17–25, Online. Association for Computational Linguistics.
+Chakravartula (2019)
+Nikhil Chakravartula. 2019.
+HATEMINER at SemEval-2019 task 5: Hate speech detection against immigrants and women in Twitter using a multinomial naive Bayes classifier.
+In Proceedings of the 13th International Workshop on Semantic Evaluation, pages 404–408, Minneapolis, Minnesota, USA. Association for Computational Linguistics.
+Chiu and Alexander (2021)
+Ke-Li Chiu and Rohan Alexander. 2021.
+Detecting hate speech with GPT-3.
+CoRR, abs/2103.12407.
+Chong and Kwak (2022)
+Yun Yu Chong and Haewoon Kwak. 2022.
+Understanding toxicity triggers on reddit in the context of singapore.
+In International Conference on Web and Social Media.
+Conneau et al. (2020)
+Alexis Conneau, Kartikay Khandelwal, Naman Goyal, Vishrav Chaudhary, Guillaume Wenzek, Francisco Guzmán, Edouard Grave, Myle Ott, Luke Zettlemoyer, and Veselin Stoyanov. 2020.
+Unsupervised cross-lingual representation learning at scale.
+In Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics, pages 8440–8451, Online. Association for Computational Linguistics.
+Davidson et al. (2017)
+Thomas Davidson, Dana Warmsley, Michael Macy, and Ingmar Weber. 2017.
+Automated hate speech detection and the problem of offensive language.
+Proceedings of the International AAAI Conference on Web and Social Media, 11(1):512–515.
+de Gibert et al. (2018)
+Ona de Gibert, Naiara Perez, Aitor García-Pablos, and Montse Cuadros. 2018.
+Hate speech dataset from a white supremacy forum.
+In Proceedings of the 2nd Workshop on Abusive Language Online (ALW2), pages 11–20, Brussels, Belgium. Association for Computational Linguistics.
+Devlin et al. (2018)
+Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. 2018.
+BERT: pre-training of deep bidirectional transformers for language understanding.
+CoRR, abs/1810.04805.
+Haber et al. (2023)
+Janosch Haber, Bertie Vidgen, Matthew Chapman, Vibhor Agarwal, Roy Ka-Wei Lee, Yong Keong Yap, and Paul Röttger. 2023.
+Improving the detection of multilingual online attacks with rich social media data from Singapore.
+In Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pages 12705–12721, Toronto, Canada. Association for Computational Linguistics.
+Ho et al. (2018)
+Danyuan Ho, Diyana Hamzah, Soujanya Poria, and Erik Cambria. 2018.
+Singlish senticnet: A concept-based sentiment resource for singapore english.
+In 2018 IEEE Symposium Series on Computational Intelligence (SSCI), pages 1285–1291.
+Hsieh et al. (2022)
+Lee-Hsun Hsieh, Nam-Chew Chua, Agus Trisnajaya Kwee, Pei-Chi Lo, Yang-Yin Lee, and Ee-Peng Lim. 2022.
+Singlish checker: A tool for understanding and analysing an english creole language.
+In From Born-Physical to Born-Virtual: Augmenting Intelligence in Digital Libraries, pages 115–124, Cham. Springer International Publishing.
+Inan et al. (2023)
+Hakan Inan, Kartikeya Upasani, Jianfeng Chi, Rashi Rungta, Krithika Iyer, Yuning Mao, Michael Tontchev, Qing Hu, Brian Fuller, Davide Testuggine, and Madian Khabsa. 2023.
+Llama guard: Llm-based input-output safeguard for human-ai conversations.
+Jigsaw (2017)
+Jigsaw. 2017.
+Perspective api.
+https://www.perspectiveapi.com/.
+Accessed: 2023-12-28.
+Kiela et al. (2021)
+Douwe Kiela, Hamed Firooz, Aravind Mohan, Vedanuj Goswami, Amanpreet Singh, Casey A. Fitzpatrick, Peter Bull, Greg Lipstein, Tony Nelli, Ron Zhu, Niklas Muennighoff, Riza Velioglu, Jewgeni Rose, Phillip Lippe, Nithin Holla, Shantanu Chandra, Santhosh Rajamanickam, Georgios Antoniou, Ekaterina Shutova, Helen Yannakoudakis, Vlad Sandulescu, Umut Ozertem, Patrick Pantel, Lucia Specia, and Devi Parikh. 2021.
+The hateful memes challenge: Competition report.
+In Proceedings of the NeurIPS 2020 Competition and Demonstration Track, volume 133 of Proceedings of Machine Learning Research, pages 344–360. PMLR.
+Lee et al. (2021)
+Roy Ka-Wei Lee, Rui Cao, Ziqing Fan, Jing Jiang, and Wen-Haw Chong. 2021.
+Disentangling hate in online memes.
+In Proceedings of the 29th ACM International Conference on Multimedia, MM ’21. ACM.
+Lees et al. (2022)
+Alyssa Lees, Vinh Q. Tran, Yi Tay, Jeffrey Sorensen, Jai Gupta, Donald Metzler, and Lucy Vasserman. 2022.
+A new generation of perspective api: Efficient multilingual character-level transformers.
+In Proceedings of the 28th ACM SIGKDD Conference on Knowledge Discovery and Data Mining, KDD ’22, page 3197–3207, New York, NY, USA. Association for Computing Machinery.
+Lim (2023)
+Zane Lim. 2023.
+Huggingface: singbert-large-sg.
+https://huggingface.co/zanelim/singbert-large-sg.
+[Online; accessed 5 Feb 2024].
+Liu et al. (2019)
+Ping Liu, Wen Li, and Liang Zou. 2019.
+NULI at SemEval-2019 task 6: Transfer learning for offensive language detection using bidirectional transformers.
+In Proceedings of the 13th International Workshop on Semantic Evaluation, pages 87–91, Minneapolis, Minnesota, USA. Association for Computational Linguistics.
+Lo et al. (2016)
+Siaw Ling Lo, Erik Cambria, Raymond Chiong, and David Cornforth. 2016.
+A multilingual semi-supervised approach in deriving singlish sentic patterns for polarity detection.
+Knowledge-Based Systems, 105:236–247.
+Markov et al. (2023)
+Todor Markov, Chong Zhang, Sandhini Agarwal, Florentine Eloundou Nekoul, Theodore Lee, Steven Adler, Angela Jiang, and Lilian Weng. 2023.
+A holistic approach to undesired content detection in the real world.
+Proceedings of the AAAI Conference on Artificial Intelligence, 37(12):15009–15018.
+Mozafari et al. (2020)
+Marzieh Mozafari, Reza Farahbakhsh, and Noël Crespi. 2020.
+A bert-based transfer learning approach for hate speech detection in online social media.
+In Complex Networks and Their Applications VIII, pages 928–940, Cham. Springer International Publishing.
+Muennighoff et al. (2023)
+Niklas Muennighoff, Thomas Wang, Lintang Sutawika, Adam Roberts, Stella Biderman, Teven Le Scao, M Saiful Bari, Sheng Shen, Zheng Xin Yong, Hailey Schoelkopf, Xiangru Tang, Dragomir Radev, Alham Fikri Aji, Khalid Almubarak, Samuel Albanie, Zaid Alyafeai, Albert Webson, Edward Raff, and Colin Raffel. 2023.
+Crosslingual generalization through multitask finetuning.
+In Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pages 15991–16111, Toronto, Canada. Association for Computational Linguistics.
+Ningsih and Rahman (2023)
+Nourma Ningsih and Fadhlur Rahman. 2023.
+Exploring the unique morphological and syntactic features of singlish (singapore english).
+Journal of English in Academic and Professional Communication, 9:72–80.
+Nobata et al. (2016)
+Chikashi Nobata, Joel R. Tetreault, Achint Oommen Thomas, Yashar Mehdad, and Yi Chang. 2016.
+Abusive language detection in online user content.
+Proceedings of the 25th International Conference on World Wide Web.
+OpenAI (2023)
+OpenAI. 2023.
+Openai: Prompt engineering.
+https://platform.openai.com/docs/guides/prompt-engineering.
+[Online; accessed 5 Feb 2024].
+Ouyang et al. (2022)
+Long Ouyang, Jeffrey Wu, Xu Jiang, Diogo Almeida, Carroll Wainwright, Pamela Mishkin, Chong Zhang, Sandhini Agarwal, Katarina Slama, Alex Ray, John Schulman, Jacob Hilton, Fraser Kelton, Luke Miller, Maddie Simens, Amanda Askell, Peter Welinder, Paul F Christiano, Jan Leike, and Ryan Lowe. 2022.
+Training language models to follow instructions with human feedback.
+In Advances in Neural Information Processing Systems, volume 35, pages 27730–27744. Curran Associates, Inc.
+Parrish et al. (2022)
+Alicia Parrish, Angelica Chen, Nikita Nangia, Vishakh Padmakumar, Jason Phang, Jana Thompson, Phu Mon Htut, and Samuel Bowman. 2022.
+BBQ: A hand-built bias benchmark for question answering.
+In Findings of the Association for Computational Linguistics: ACL 2022, pages 2086–2105, Dublin, Ireland. Association for Computational Linguistics.
+Perez et al. (2022)
+Ethan Perez, Saffron Huang, H. Francis Song, Trevor Cai, Roman Ring, John Aslanides, Amelia Glaese, Nat McAleese, and Geoffrey Irving. 2022.
+Red teaming language models with language models.
+CoRR, abs/2202.03286.
+Plaza-del arco et al. (2023)
+Flor Miriam Plaza-del arco, Debora Nozza, and Dirk Hovy. 2023.
+Respectful or toxic? using zero-shot learning with language models to detect hate speech.
+In The 7th Workshop on Online Abuse and Harms (WOAH), pages 60–68, Toronto, Canada. Association for Computational Linguistics.
+Prakash et al. (2023)
+Nirmalendu Prakash, Ming Shan Hee, and Roy Ka-Wei Lee. 2023.
+Totaldefmeme: A multi-attribute meme dataset on total defence in singapore.
+In Proceedings of the 14th Conference on ACM Multimedia Systems, MMSys ’23, page 369–375, New York, NY, USA. Association for Computing Machinery.
+Sandaruwan et al. (2021)
+Dinidu Sandaruwan, Sagara Sumathipala, and Subha Fernando. 2021.
+Neural machine translation approach for singlish to english translation.
+International Journal on Advances in ICT for Emerging Regions (ICTer).
+Touvron et al. (2023)
+Hugo Touvron, Louis Martin, Kevin Stone, Peter Albert, Amjad Almahairi, Yasmine Babaei, Nikolay Bashlykov, Soumya Batra, Prajjwal Bhargava, Shruti Bhosale, Dan Bikel, Lukas Blecher, Cristian Canton Ferrer, Moya Chen, Guillem Cucurull, David Esiobu, Jude Fernandes, Jeremy Fu, Wenyin Fu, Brian Fuller, Cynthia Gao, Vedanuj Goswami, Naman Goyal, Anthony Hartshorn, Saghar Hosseini, Rui Hou, Hakan Inan, Marcin Kardas, Viktor Kerkez, Madian Khabsa, Isabel Kloumann, Artem Korenev, Punit Singh Koura, Marie-Anne Lachaux, Thibaut Lavril, Jenya Lee, Diana Liskovich, Yinghai Lu, Yuning Mao, Xavier Martinet, Todor Mihaylov, Pushkar Mishra, Igor Molybog, Yixin Nie, Andrew Poulton, Jeremy Reizenstein, Rashi Rungta, Kalyan Saladi, Alan Schelten, Ruan Silva, Eric Michael Smith, Ranjan Subramanian, Xiaoqing Ellen Tan, Binh Tang, Ross Taylor, Adina Williams, Jian Xiang Kuan, Puxin Xu, Zheng Yan, Iliyan Zarov, Yuchen Zhang, Angela Fan, Melanie Kambadur, Sharan Narang, Aurelien Rodriguez, Robert Stojnic, Sergey Edunov, and Thomas
+Scialom. 2023.
+Llama 2: Open foundation and fine-tuned chat models.
+Vidgen and Yasseri (2020)
+Bertie Vidgen and Taha Yasseri. 2020.
+Detecting weak and strong islamophobic hate speech on social media.
+Journal of Information Technology & Politics, 17(1):66–78.
+Wang et al. (2019)
+Hongmin Wang, Jie Yang, and Yue Zhang. 2019.
+From genesis to creole language: Transfer learning for singlish universal dependencies parsing and pos tagging.
+ACM Trans. Asian Low-Resour. Lang. Inf. Process., 19(1).
+Waseem (2016)
+Zeerak Waseem. 2016.
+Are you a racist or am I seeing things? annotator influence on hate speech detection on Twitter.
+In Proceedings of the First Workshop on NLP and Computational Social Science, pages 138–142, Austin, Texas. Association for Computational Linguistics.
+Wei et al. (2023)
+Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Brian Ichter, Fei Xia, Ed Chi, Quoc Le, and Denny Zhou. 2023.
+Chain-of-thought prompting elicits reasoning in large language models.
+Xiao et al. (2023)
+Shitao Xiao, Zheng Liu, Peitian Zhang, and Niklas Muennighoff. 2023.
+C-pack: Packaged resources to advance general chinese embedding.
+Xu et al. (2024)
+Can Xu, Qingfeng Sun, Kai Zheng, Xiubo Geng, Pu Zhao, Jiazhan Feng, Chongyang Tao, Qingwei Lin, and Daxin Jiang. 2024.
+WizardLM: Empowering large pre-trained language models to follow complex instructions.
+In The Twelfth International Conference on Learning Representations.
+Zampieri et al. (2019)
+Marcos Zampieri, Shervin Malmasi, Preslav Nakov, Sara Rosenthal, Noura Farra, and Ritesh Kumar. 2019.
+SemEval-2019 task 6: Identifying and categorizing offensive language in social media (OffensEval).
+In Proceedings of the 13th International Workshop on Semantic Evaluation, pages 75–86, Minneapolis, Minnesota, USA. Association for Computational Linguistics.
+Zou (2022)
+Yunting Zou. 2022.
+Detection of hate speech on social media.
+Appendix A List of Controversial Topics and Words
+"ceca", "ghey", "tiong", "abnn", "amdl", "amdk", "pinoy", "jiuhu", "prc", "indian", "filipino", "foreign", "angmo", "spg", "atb", "chennai", "****", "bbm", "ft", "fw", "transformer", "chink", "bangla", "yalam", "curry", "piak", "syt", "fap", "pcc", "nnp", "pika", " kkj", "abalone", "asgm", "btss", "hmv", "humsup", "milf", "nekkid", "nsfw", "ocb", "okt", "pcc", "perbird", "tps", "vpl", "parang", "slash", "punch", "kick", "shoot", "buibui", "bbfa", "cheesepie", "gcp", "diu lei", "ccb", "siao", "cheese pie", "knn", "ccb", "pcb", "smlj", "tiu", "rcp", "asw", "bus3rd", "digger", "gcp", "vape", "weed", "drug", "launder", "wash money", "377a", "raeesah khan", "oxley", "halimah", "brownface", "chinese privilege", "presidential election", "ashlee", "wuhan", "mahathir", "pink dot", "egg freezing", "kong hee", "schooling", "amos yee", "kurt tay"
+Appendix B Examples of Singlish texts in our dataset
+•
+"Hahahah now i dont play nice liao and take longer liao but my personality cannot sia hahahaha dont like things to be left hanging there. Now not my daiji i will throw to others hais but company cut cost so i got extra job too" (Comment from Reddit, posted on Oct 2020)
+•
+"walao, never share with us, that’s why you kena caught lah" (Comment from Reddit, posted on May 2021)
+•
+"wah lao i jio then u say cut down. knn jin hurt my heart. price is ok i will share with my friends" (Comment from HardwareZone, posted on Sep 2022)
+•
+"siao bo, write such a long WOT to "prove" SAP ppl are mostly jiak kantangs. WTF" (Comment from HardwareZone, posted on Feb 2023)
+Appendix C Toxicity Categories
+1.
+Hateful: Content that expresses, incites, or promotes hate based on race, gender, ethnicity, religion, nationality, sexual orientation, disability status, or caste. Hateful content aimed at non-protected groups (e.g., chess players) is harrassment. Hateful content that also includes violence or serious harm towards the targeted group based on race, gender, ethnicity, religion, nationality, sexual orientation, disability status, or caste.
+2.
+Harassment: Content that expresses, incites, or promotes harassing language towards any target/individual. Without mention of violence or harm, content that results in prolonged mental or emotional suffering for the target, enduring for more than an hour. Any harassment content that includes violence or serious harm towards any target/individual.
+3.
+Encouraging public harm: Content that promotes, facilitates, or encourages harmful public acts, vice or organized crime.
+4.
+Encouraging self-harm: Content that promotes, encourages, or depicts acts of self-harm, such as suicide, cutting, and eating disorders. Content that encourages performing acts of self-harm, such as suicide, cutting, and eating disorders, or that gives instructions or advice on how to commit such acts.
+5.
+Sexual: Content meant to arouse sexual excitement, such as the description of sexual activity, or that promotes sexual services (excluding sex education and wellness). Sexual content that includes an individual who is under 18 years old.
+6.
+Toxic: Content that is rude, disrespectful, or profane, including the use of slurs. A very hateful, aggressive, disrespectful comment or otherwise very likely to make a user leave a discussion or give up on sharing their perspective.
+7.
+Violent: Content that depicts death, violence, or physical injury.
+Appendix D Labelling prompt
+We share the full prompt used for automated labelling below, highlighting in different colors which sections correspond to context prompting, few-shot prompting, and Chain-of-Thought prompting respectively.
+Context Prompting
+Context: You are helping to identify if a given Singlish comment is toxic by understanding its meaning and evaluating it on seven criteria.
+Some examples of Singaporean slang and their definitions are provided below.
+ghey: male homosexual, usually in a derogatory way
+tiong: people from China, may be in a derogatory way
+ceca: people from India, usually in a derogatory way
+bbfa: people who are overweight and resigned to being alone
+yalam: people who are ethnically Malay
+fap: masturbation
+piak: sexual intercourse
+syt: sexy young thing
+ZG or zao geng: accidentally showing underwear in public, usually for women
+nnp: nipples
+amdk: sarcastic reference to Caucasians being superior
+siao: crazy
+knn: vulgar word
+kns: vulgar word
+sot: Singlish for "shot", meaning no longer functional
+Task: Iterate through the list of seven criteria below and determine whether the Singlish comment below, which includes Singaporean terms, fulfil any of the seven criteria below. You should be a more liberal labeller - if something has a 50% chance of being toxic, you should label it as such. You also need to take into account the Singlish terms, vulgarities, and unique racial, religious, and cosmopolitan context.
+a. hateful: Content that expresses, incites, or promotes hate based on race, gender, ethnicity, religion, nationality, sexual orientation, disability status, or caste. Hateful content aimed at non-protected groups (e.g., chess players) is harrassment. Hateful content that also includes violence or serious harm towards the targeted group based on race, gender, ethnicity, religion, nationality, sexual orientation, disability status, or caste.
+b. harassment: Content that expresses, incites, or promotes harassing language towards any target/individual. Harassment content that also includes violence or serious harm towards any target/individual.
+c. encouraging public harm: Content that promotes, facilitates, or encourages harmful public acts, vice or organised crime.
+d. encouraging self-harm: Content that promotes, encourages, or depicts acts of self-harm, such as suicide, cutting, and eating disorders. Content that encourages performing acts of self-harm, such as suicide, cutting, and eating disorders, or that gives instructions or advice on how to commit such acts.
+e. sexual: Content meant to arouse sexual excitement, such as the description of sexual activity, or that promotes sexual services (excluding sex education and wellness). Sexual content that includes an individual who is under 18 years old.
+f. toxic: Content that is rude, disrespectful, or profane, including the use of slurs. A very hateful, aggressive, disrespectful comment or otherwise very likely to make a user leave a discussion or give up on sharing their perspective.
+g. violent: Content that depicts death, violence, or physical injury.
+Chain-of-Thought Prompting
+For each criterion, do the following:
+1. Consider the Singlish comment below and determine whether the comment fulfills the criterion.
+2. Provide a "Yes" or "No" label.
+3. Provide a reason for the label.
+4. Output the answers strictly in the following JSON format, replacing <criterion> with the criteria listed below:
+{
+"<criterion>": {
+"label": "Yes" / "No",
+"reason": "<reason>"
+}
+}
+Few-shot Prompting
+Here are some examples of Singlish comments and which criteria they fulfill.
+Singlish comment: "I thinking of making a school girl ZG/upskirt video, something like the schoolgirl above, then open legs show panties, or even pulling up her skirt let ppl beo. but donno will kena complain anot. Youtube alot of cheesepie ppl like to report for very minor things..."
+Criteria fulfilled: encouraging public harm, sexual, toxic
+Singlish comment: "yes. I want the judge to sentence the max jail term and caning. plus a bonus of they have to rape each other monthly. The loser will have to be rape again by another inmate."
+Criteria flagged: harassment, toxic, encouraging public harm, sexual
+Singlish comment: "Hi ib, u 1 day don’t kanna fug u don’t feel good si bo? Knnbccb"
+Criteria flagged: toxic
+Singlish comment: "wah piang eh there ish something insai every man dream on piaking girls in school uniform mens"
+Criteria flagged: sexual
+Singlish comment: ""nowadays pple dont have much integrity 1 la wont suicide 1. they will treat it lightly and say so be it"
+Criteria flagged: encouraging self harm
+Singlish comment: "Pray tell me why ceca cannot break through in other Asian economies like Korea, Japan, Taiwan, China if they are so good and compete fair and square? They only thrive in Singapore simply because ceca and our gahmen close 1 eye to their unfair hiring. By way I not pro singkee, since I migrate. Juz 2 cents"
+Criteria flagged: hateful
+Singlish comment: "The beach road tiong guy slashed his wife during broad daylight with full intention of killing her. Even severing her hand off and blinded her in one eye. It is over relationship issue as well like this case."
+Criteria flagged: violent
+Remember to return the output in a JSON format. The Singlish comment for your evaluation is: <insert statement here>
+Appendix E Error Analysis of Llama 2 Predictions
+See Table 5 for examples in which Llama 2 inaccurately classified safe texts as unsafe.
+|
+text
+|
+Output
+|
+where got po chai pills in the original article… ya loh, scare me sia. i always carry them for my travels.
+|
+{…"sexual": {"label": "Yes", "reason": "The comment mentions ’po chai pills’ which could be interpreted as a reference to sexual enhancement drugs, and the commenter mentions carrying them for travels, which could be seen as a suggestion of sexual activity."}, "toxic": {"label": "Yes", "reason": "The comment contains a mild profanity ’ya loh’ and the phrase ’scare me sia’ which could be seen as a form of intimidation or threat."}…}
+|
+Aiyaa shd just jitao go on dating apps if he really wants to find his dream gal rahz
+|
+{…"sexual": {"label": "Yes", "reason": "The comment contains sexual content meant to arouse sexual excitement, such as the description of sexual activity."}, "toxic": {"label": "Yes", "reason": "The comment contains rude, disrespectful, or profane language, including the use of slurs."}…}
+|
+Moi c moi company the data science team oso use tableau click here click there, earn 1.5 times of moi celery
+|
+{…"toxic": {"label": "Yes", "reason": "The comment contains derogatory language and disrespectful tone."}…}
+Table 5: Examples of safe texts labelled unsafe by Llama 2 using full prompt.
+Appendix F Final set of hyperparameters
+F.1 Ridge Classifier
+Hyperparameters:
+•
+α\alpha: 1.0
+Hyperparameter search: No hyperparameter search was conducted on the ridge classifier as it performed well out of the box.
+F.2 XGBoost
+Hyperparameters:
+•
+max depth: 6
+•
+learning rate: 0.2
+•
+scale pos weight: 5
+•
+n estimators: 5
+Hyperparameter search: A halving grid search and a standard grid search was performed on all the parameters listed above, with 5-fold cross validation on the training set and evaluation on the validation set.
+F.3 Neural Network
+Hyperparameters:
+•
+epochs: 30
+•
+batch size: 8
+•
+learning rate: 0.001
+Hyperparameter search: A halving grid search and a standard grid search was performed on all the parameters listed above, with evaluation on the validation set.
+Appendix G TicTag Labelling
+G.1 Crowd-sourced Workers Profiles
+Of the 95 crowd-sourced workers, 89% were Chinese, 5% were Malay, 3% were Indian and 1% were Other. 47% of workers were aged 18-24, 31% were aged 24-34, 15% were aged 35-44 and the remaining 4% were aged 45-54. 53% of workers were female, while the remaining 44% were male. Workers were all residents of Singapore.
+G.2 Annotation Interface
+TicTag designed the following mobile application interface to obtain crowd-sourced annotations. Instructions were provided in English, but some button options were provided in chosen native languages. We show screenshots of the interface in Malay.
+Figure 5: Instructions Page. Page 1 of top section shows generic task title descriptions. Bottom section is a scrollable section that shows detailed task description and trigger warning.
+Figure 6: Instructions Page. Continued bottom section from Fig 5 contains descriptions of remaining safety risk category and the "I Don’t Know" option for the workers.
+Figure 7: Instructions Page. Page 2 of the top section.
+Figure 8: Instructions Page. Pages 3-4 of the top section.
+Figure 9: Instructions Page. Page 5 of the top section.
+Figure 10: Annotation Page with labelling actions.
+Appendix H Full experimentation results
+See Table 6 in the next page for the full comparison of all experimentation and benchmarking results.
+| Moderation Classifier
+|
+Binary
+| Multi-Label
+|
+Embedding (# parameters)
+|
+Classifier
+|
+unsafe
+|
+hateful
+|
+harass-
+ment
+|
+public harm
+|
+self-
+harm
+|
+sexual
+|
+toxic
+|
+violent
+|
+|
+Ridge
+|
+0.819
+|
+0.480
+|
+0.413
+|
+0.491
+|
+0.507
+|
+0.485
+|
+0.827
+|
+0.514
+|
+|
+XGBoost
+|
+0.816
+|
+0.455
+|
+0.386
+|
+0.460
+|
+0.472
+|
+0.472
+|
+0.807
+|
+0.489
+|
+BGE Large (326m)
+|
+NN
+|
+0.792
+|
+0.375
+|
+0.254
+|
+0.319
+|
+0.286
+|
+0.388
+|
+0.802
+|
+0.299
+|
+HateBERT (110m)
+|
+Ridge
+|
+0.083
+|
+0.065
+|
+0.063
+|
+0.068
+|
+0.079
+|
+0.064
+|
+0.076
+|
+0.066
+|
+|
+XGBoost
+|
+0.082
+|
+0.064
+|
+0.064
+|
+0.067
+|
+0.078
+|
+0.064
+|
+0.073
+|
+0.064
+|
+|
+NN
+|
+0.082
+|
+0.064
+|
+0.059
+|
+0.063
+|
+0.073
+|
+0.063
+|
+0.073
+|
+0.059
+|
+SingBERT (110m)
+|
+Ridge
+|
+0.194
+|
+0.121
+|
+0.119
+|
+0.131
+|
+0.139
+|
+0.114
+|
+0.186
+|
+0.125
+|
+|
+XGBoost
+|
+0.172
+|
+0.112
+|
+0.099
+|
+0.115
+|
+0.119
+|
+0.103
+|
+0.167
+|
+0.111
+|
+|
+NN
+|
+0.155
+|
+0.090
+|
+0.061
+|
+0.067
+|
+0.074
+|
+0.063
+|
+0.123
+|
+0.063
+|
+BGE Large finetuned (326m)
+|
+Ridge
+|
+0.794
+|
+0.466
+|
+0.402
+|
+0.464
+|
+0.474
+|
+0.455
+|
+0.794
+|
+0.498
+|
+|
+XGBoost
+|
+0.789
+|
+0.461
+|
+0.386
+|
+0.444
+|
+0.448
+|
+0.438
+|
+0.777
+|
+0.452
+|
+|
+NN
+|
+0.771
+|
+0.357
+|
+0.277
+|
+0.304
+|
+0.275
+|
+0.343
+|
+0.781
+|
+0.348
+|
+HateBERT finetuned (110m)
+|
+Ridge
+|
+0.187
+|
+0.120
+|
+0.122
+|
+0.127
+|
+0.137
+|
+0.117
+|
+0.178
+|
+0.125
+|
+|
+XGBoost
+|
+0.172
+|
+0.112
+|
+0.099
+|
+0.116
+|
+0.121
+|
+0.104
+|
+0.167
+|
+0.112
+|
+|
+NN
+|
+0.134
+|
+0.088
+|
+0.061
+|
+0.066
+|
+0.074
+|
+0.075
+|
+0.133
+|
+0.062
+|
+SingBERT finetuned (110m)
+|
+Ridge
+|
+0.191
+|
+0.122
+|
+0.117
+|
+0.132
+|
+0.137
+|
+0.115
+|
+0.186
+|
+0.125
+|
+|
+XGBoost
+|
+0.172
+|
+0.112
+|
+0.099
+|
+0.116
+|
+0.120
+|
+0.103
+|
+0.167
+|
+0.111
+|
+|
+NN
+|
+0.145
+|
+0.060
+|
+0.065
+|
+0.067
+|
+0.074
+|
+0.084
+|
+0.143
+|
+0.063
+|
+|
+Ridge
+|
+0.183
+|
+0.120
+|
+0.114
+|
+0.127
+|
+0.135
+|
+0.113
+|
+0.179
+|
+0.125
+|
+|
+XGBoost
+|
+0.174
+|
+0.112
+|
+0.098
+|
+0.116
+|
+0.120
+|
+0.103
+|
+0.168
+|
+0.112
+|
+BERT Large (340m)
+|
+NN
+|
+0.152
+|
+0.087
+|
+0.062
+|
+0.067
+|
+0.074
+|
+0.087
+|
+0.118
+|
+0.062
+|
+|
+Ridge
+|
+0.178
+|
+0.057
+|
+0.004
+|
+0.007
+|
+0.001
+|
+0.022
+|
+0.172
+|
+0.001
+|
+|
+XGBoost
+|
+0.176
+|
+0.112
+|
+0.098
+|
+0.116
+|
+0.121
+|
+0.103
+|
+0.167
+|
+0.112
+|
+BERT Base (110m)
+|
+NN
+|
+0.139
+|
+0.060
+|
+0.062
+|
+0.066
+|
+0.073
+|
+0.074
+|
+0.127
+|
+0.063
+|
+|
+Ridge
+|
+0.171
+|
+0.116
+|
+0.113
+|
+0.126
+|
+0.132
+|
+0.108
+|
+0.166
+|
+0.120
+|
+|
+XGBoost
+|
+0.175
+|
+0.113
+|
+0.099
+|
+0.116
+|
+0.121
+|
+0.104
+|
+0.167
+|
+0.112
+|
+BGE Small (24m)
+|
+NN
+|
+0.138
+|
+0.093
+|
+0.062
+|
+0.067
+|
+0.074
+|
+0.067
+|
+0.131
+|
+0.063
+| Moderation API
+|
+0.675
+|
+0.228
+|
+0.081
+|
+-
+|
+0.488
+|
+0.230
+|
+-
+|
+0.137
+| Perspective API
+|
+0.588
+|
+0.212
+|
+0.126
+|
+-
+|
+-
+|
+-
+|
+0.342
+|
+0.073
+| LlamaGuard
+|
+0.459
+|
+0.190
+|
+-
+|
+0.031
+|
+0.370
+|
+0.230
+|
+-
+|
+0.005
+Table 6: Comparison of PR-AUC between different combinations of embedding (including finetuned ones) and classifier models for the binary label (safe or unsafe) and the seven safety risk categories against Moderation API, Perspective API and LlamaGuard. The top score for each category is formatted in bold for clarity, and the combination used for LionGuard is in bold.
+| Moderation Classifier
+|
+Binary
+| Multi-Label
+|
+Embedding
+|
+Classifier
+|
+unsafe
+|
+hateful
+|
+harass-
+ment
+|
+public harm
+|
+self-
+harm
+|
+sexual
+|
+toxic
+|
+violent
+|
+|
+RF
+|
+0.378
+|
+0.341
+|
+0.280
+|
+0.354
+|
+0.371
+|
+0.355
+|
+0.668
+|
+0.375
+|
+BERT Large (326m)
+|
+LightGBM
+|
+0.452
+|
+0.419
+|
+0.363
+|
+0.427
+|
+0.441
+|
+0.438
+|
+0.740
+|
+0.450
+|
+|
+RF
+|
+0.360
+|
+0.328
+|
+0.273
+|
+0.327
+|
+0.350
+|
+0.329
+|
+0.612
+|
+0.363
+|
+BERT Large finetuned (326m)
+|
+LightGBM
+|
+0.433
+|
+0.410
+|
+0.352
+|
+0.415
+|
+0.405
+|
+0.399
+|
+0.713
+|
+0.433
+Table 7: Comparison of PR-AUC between combinations of the BGE, both the off-the-shelf and finetuned, and the Random Forest ("RF") and LightGBM classifiers. They are both not as accurate as LionGuard’s chosen combination.
+Appendix I Examples of predictions on Singlish texts
+See Table 8 for examples of predictions on Singlish texts from LionGuard, Moderation API, Perspective API and LlamaGuard. The categories are with reference to our safety risk categories. Ticks represent the model correctly predicted the text as fulfilling the definition of that category, and crosses indicate the model did not detect the text as belonging to that category.
+|
+Text
+|
+Category
+|
+LionGuard
+|
+Moderation
+|
+Perspective
+|
+LlamaGuard
+|
+"BAHAHAHA you CECA dogs do love creating alts to reply in an attempt to mend your hurt egos after getting a trashing down by yours truly."
+|
+hateful
+|
+✓
+|
+✗
+|
+✗
+|
+✗
+|
+"Many PRs especially Malaysians rejected citizenship, these are the leeches."
+|
+hateful
+|
+✗
+|
+✓
+|
+✗
+|
+✓
+|
+"im a bbfa fcp, i got kkj!! you come nearer, i pew pew your pigu!"
+|
+sexual
+|
+✓
+|
+✗
+|
+-
+|
+✗
+|
+"The users here will probably go home and wank to onlyfans girl to get post nut clarity so that they can shit post about the election outcome"
+|
+sexual
+|
+✗
+|
+✓
+|
+-
+|
+✓
+|
+"AMDK whoreshipping starts yang at some sec skools. Gotch AM singers get invited to sing in skools."
+|
+toxic
+|
+✓
+|
+-
+|
+✗
+|
+-
+|
+"That calls for a celebration with one scum less in this world."
+|
+toxic
+|
+✗
+|
+-
+|
+✓
+|
+-
+Table 8: Examples of Singlish texts and whether LionGuard, Moderation API, Perspective API and LlamaGuard correctly detected the category.
+Experimental support, please
+view the build logs
+for errors. Generated by
+L
+A
+T
+E
+xml
+.
+Instructions for reporting errors
+We are continuing to improve HTML versions of papers, and your feedback helps enhance accessibility and mobile
+support. To report errors in the HTML that will help us improve conversion and rendering, choose any of the
+methods listed below:
+Click the "Report Issue" () button, located in the page header.
+Tip: You can select the relevant text first, to include it in your report.
+Our team has already identified the following issues. We appreciate your time reviewing and reporting rendering errors we
+may not have found yet. Your efforts will help us improve the HTML versions for all readers, because disability
+should not be a barrier to accessing research. Thank you for your continued support in championing open access for
+all.
+Have a free development cycle? Help support accessibility at arXiv! Our collaborators at LaTeXML maintain a list of packages that need conversion, and welcome developer contributions.
+We gratefully acknowledge support from
+our major funders,
+member institutions, ,
+and all contributors.
+About
+·
+Help
+·
+Contact
+·
+Subscribe
+·
+Copyright
+·
+Privacy
+·
+Accessibility
+·
+Operational Status (opens in new tab)
+Major funding support from

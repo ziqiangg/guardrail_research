@@ -1,0 +1,49 @@
+{
+  "architectures": [
+    "LionGuard2LiteModel"
+  ],
+  "categories": {
+    "all_other_misconduct": [
+      "all_other_misconduct_l1",
+      "all_other_misconduct_l2"
+    ],
+    "binary": [
+      "binary"
+    ],
+    "hateful": [
+      "hateful_l1",
+      "hateful_l2"
+    ],
+    "insults": [
+      "insults"
+    ],
+    "physical_violence": [
+      "physical_violence"
+    ],
+    "self_harm": [
+      "self_harm_l1",
+      "self_harm_l2"
+    ],
+    "sexual": [
+      "sexual_l1",
+      "sexual_l2"
+    ]
+  },
+  "category_order": [
+    "binary",
+    "hateful",
+    "insults",
+    "sexual",
+    "physical_violence",
+    "self_harm",
+    "all_other_misconduct"
+  ],
+  "input_dim": 768,
+  "model_type": "lionguard2lite",
+  "torch_dtype": "float32",
+  "transformers_version": "4.50.3",
+  "auto_map": {
+    "AutoConfig": "lionguard2lite.LionGuard2LiteConfig",
+    "AutoModel": "lionguard2lite.LionGuard2LiteModel"
+  }
+}

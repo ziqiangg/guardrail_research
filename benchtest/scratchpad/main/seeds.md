@@ -40,7 +40,7 @@ Each entry gives the explorer a starting point. **UNVERIFIED** marks a starting 
 - **Papers:** a LlamaFirewall paper and the CyberSecEval series on arXiv (UNVERIFIED ids).
 - **Existing work to reuse:** `drafts/lg_*` (Llama Guard columns V–Z, sheet 3d). The Llama Guard research noted Meta points to Prompt Guard 2 for jailbreak and injection.
 
-## lionguard (B2) — VERIFIED from Sentinel research (R005)
+## lionguard (B2) — VERIFIED from Sentinel research (R005); re-checked at P0 2026-10-09: HF pins unchanged, lionguard-v1 @92cc0491, Space lionguard-demo @4ade46d1, no GitHub repo (code in HF repos); www.aiguardian.gov.sg 403 from this network
 - **Hugging Face:** `govtech/lionguard-v1` (legacy), `govtech/lionguard-2` (@be4e38c9), `govtech/lionguard-2.1` (@1c3a9ea7), `govtech/lionguard-2-lite` (@d56c17a0). Not gated. Licence: govtech-singapore (MIT + Singapore law/SIAC).
 - **Papers:** arXiv 2407.10995 (LionGuard 1) and 2507.15339 (LionGuard 2). Blogs: blog.ai.gov.sg (LionGuard 2 post, 21 Aug 2026 retraining post, 28 Sep 2026 Jev/Kev 2.1 evaluation post).
 - **Playbook:** https://govtech-responsibleai.github.io/playbook/tools/lionguard/ (source `govtech-responsibleai/playbook`, staging branch @45908b48).
