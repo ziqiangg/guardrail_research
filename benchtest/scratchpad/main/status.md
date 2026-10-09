@@ -7,9 +7,9 @@ Phases: P0 explore · P1 brief · P2 drafts · P3 mechanical · P4 triage · CP1
 | nemo | — | done | F–U (16) | 3b | 3c | nemo-rails-explained.html | baseline-2026-10-09 | F16 summary 66 words (known) |
 | llamaguard | — | done | V–Z (5) | 3d | — | llama-guard-explained.html | baseline-2026-10-09 | |
 | sentinel | — | done | AA–AG (7) | 3e | — | sentinel-explained.html | baseline-2026-10-09 | |
-| presidio | B1 | P4 done (70 items: a40 b27 c3; H13) → CP1 pending | PD1–PD6 proposed | | presidio-research → inventory (R010) | | | Q01/Q02 for CP1; project moved to data-privacy-stack |
-| modelarmor | B1 | P4 done (87 items: a46 b38 c3; H25) → CP1 pending | MA1–MA10 (provisional) | | | | | |
-| sdp | B1 | P4 done (98 items: a46 b41 c4 D7; H46) → CP1 pending | SD1–SD6 (provisional; SD7 reserved) | | | | | |
+| presidio | B1 | CP1 approved → P5 resolve running (2026-10-09) | PD1–PD6 (R016) | | presidio-research → inventory (R010) | | | |
+| modelarmor | B1 | CP1 approved → P5 resolve running (2026-10-09) | MA1–MA10 (R017) | | | | | |
+| sdp | B1 | CP1 approved → P5 resolve running (2026-10-09) | SD1–SD6 (R018; SD7 inventory only) | | | | | |
 | purplellama | B2 | not started | | | CyberSecEval | | | R004 |
 | lionguard | B2 | not started | | | | | | R005 |
 | cloak | B3 | not started | | | | | | |

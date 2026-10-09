@@ -55,7 +55,7 @@ The source brief is `benchtest/AI Guardrails Research and Comparison.docx`. Its 
 | nemo | NVIDIA NeMo Guardrails | done (sheet 3 F–U, 3b, 3c, diagram) |
 | llamaguard | Meta Llama Guard 3/4 | done (V–Z, 3d, diagram) |
 | sentinel | GovTech Sentinel | done (AA–AG, 3e, diagram) |
-| presidio | Presidio (created by Microsoft; moved to the independent `data-privacy-stack` org in 2026, so naming and official-source scope are decided at CP1, see seeds.md) | to do (batch B1) |
+| presidio | Presidio (created by Microsoft; moved to the independent `data-privacy-stack` org in 2026; data-privacy-stack sources are official and the prefix is `Presidio:` per R016) | in progress (batch B1) |
 | modelarmor | Google Cloud Model Armor | to do (B1) |
 | sdp | Google Cloud Sensitive Data Protection (Cloud DLP) | to do (B1) |
 | purplellama | Meta Purple Llama: Prompt Guard 2, LlamaFirewall, Code Shield (columns); CyberSecEval (eval sheet); Llama Guard (existing, cross-referenced) | to do (B2) |

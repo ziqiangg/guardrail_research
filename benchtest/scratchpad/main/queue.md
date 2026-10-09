@@ -7,15 +7,18 @@
 ## Open questions (from agents)
 | Q file | Product | Routed to | State | Ruling |
 |---|---|---|---|---|
-| explorer/20261009_presidio_q01.md: official org after the transfer (data-privacy-stack vs Microsoft) and the header prefix | presidio | **user at presidio CP1** | open (blocking for P1: brief must state the prefix as provisional `Presidio:`) | — |
-| explorer/20261009_presidio_q02.md: six single columns vs a merged set; recognizer-family granularity; + (i) PD5 column vs inventory-only, (ii) ~30 family rows vs ~120 per-entity rows (P1) | presidio | **user at presidio CP1** | open (non-blocking) | — |
+| explorer/20261009_presidio_q01.md: official org after the transfer (data-privacy-stack vs Microsoft) and the header prefix | presidio | user at presidio CP1 | resolved | see CP1 ruling |
+| explorer/20261009_presidio_q02.md: six single columns vs a merged set; recognizer-family granularity; + (i) PD5 column vs inventory-only, (ii) ~30 family rows vs ~120 per-entity rows (P1) | presidio | user at presidio CP1 | resolved | see CP1 ruling |
 
-| explorer/20261009_modelarmor_q01.md: 10 columns (R002 split) vs 6 vs folding MA9/MA10; antivirus + MCP screening as inventory or MA11; prefix `Model Armor:` (Q03); P1 adds alt (e) 14 cols if response-side file/image evidence appears, MA11 = tool-call screening (MCP and Agent Gateway) | modelarmor | **user at modelarmor CP1** | open (non-blocking) | — |
-| explorer/20261009_sdp_q01–q03.md: prefix `Sensitive Data Protection:` vs `Google Cloud …`; content policy (SD7) column vs inventory; fold SD2→SD1, SD4→SD3 | sdp | **user at sdp CP1** | open (non-blocking; P1 drafts defaults) | — |
+| explorer/20261009_modelarmor_q01.md: 10 columns (R002 split) vs 6 vs folding MA9/MA10; antivirus + MCP screening as inventory or MA11; prefix `Model Armor:` (Q03); P1 adds alt (e) 14 cols if response-side file/image evidence appears, MA11 = tool-call screening (MCP and Agent Gateway) | modelarmor | user at modelarmor CP1 | resolved | see CP1 ruling |
+| explorer/20261009_sdp_q01–q03.md: prefix `Sensitive Data Protection:` vs `Google Cloud …`; content policy (SD7) column vs inventory; fold SD2→SD1, SD4→SD3 | sdp | user at sdp CP1 | resolved | see CP1 ruling |
 
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| presidio CP1 (Q01, Q02, T1–T7, local runs) | R016, R019 | user |
+| modelarmor CP1 (Q01, D1–D7) | R017, R019 | user |
+| sdp CP1 (Q01–Q03, T1–T4, T92/T93) | R018, R019 | user |
 | modelarmor P4 Q2/Q3 (doc-answerable H items; T55 NRIC built-in infoType per sdp_cols_a) | → modelarmor P5 resolver (with sdp evidence for T55) | main |
 | modelarmor P4 Q4/Q5 (triager file renames; Settled table; T83 block (d) = 20 rows → counts 10/15/16/20/16) | accepted; counts asserted at P8 | main |
 | modelarmor P4 Q1 (D1–D7: split 10/6, MA11 tool-call screening, alt (e) 14 cols, antivirus, prefix, live testing/terms, Preview reliance) | user at modelarmor CP1 | user |

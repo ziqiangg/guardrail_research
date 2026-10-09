@@ -23,3 +23,4 @@
 - 2026-10-09 presidio P4 done: 70 items (a 40, b 27, c 3), H 13; R015 ruled by main (out-of-purpose label; release notes via clone/CHANGELOG); Q1–Q4 → user at CP1
 - 2026-10-09 sdp P4 done: 98 items (a 46, b 41, c 4, CP1-decisions 7), H 46; cols A/B reviewer notes were lost (harvested from R8/labels); Q5–Q9 ruled by main; Q1–Q4 → user at CP1
 - 2026-10-09 modelarmor P4 done: 87 items (a 46, b 38, c 3), H 25; Q2–Q5 ruled/routed by main; D1–D7 → user at CP1. All B1 products at CP1.
+- 2026-10-09 CP1 (user) for all B1: presidio R016 (6 cols, data-privacy-stack official, prefix Presidio:), modelarmor R017 (10 cols, antivirus+tool-call inventory only), sdp R018 (6 cols, prefix Sensitive Data Protection:, content policy inventory only; re-asked in plain wording), R019 read-only + terms. P5 started.
