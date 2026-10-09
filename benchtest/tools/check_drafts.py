@@ -24,7 +24,7 @@ ANY_BRACKET_LABEL = re.compile(r"\[(Documented[^\]]*|Inferred|To be verified|Not
 ALLOWED = re.compile(LABEL)
 HDR = re.compile(r"^## Column ([A-Za-z]{1,4}\d{1,2}): ([^:]+): (.+?)\s*$")
 URL = re.compile(r"https?://\S+")
-MARKERS = {"— (legacy, not in Table 3)", "— (planned, not in Table 3)"}
+MARKERS = {"— (legacy, not in Table 3)", "— (planned, not in Table 3)", "— (inventory only, not in Table 3)"}  # 3rd marker: R011
 
 
 def words(s):

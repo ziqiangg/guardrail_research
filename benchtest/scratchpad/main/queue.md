@@ -8,10 +8,11 @@
 | Q file | Product | Routed to | State | Ruling |
 |---|---|---|---|---|
 | explorer/20261009_presidio_q01.md: official org after the transfer (data-privacy-stack vs Microsoft) and the header prefix | presidio | **user at presidio CP1** | open (blocking for P1: brief must state the prefix as provisional `Presidio:`) | — |
-| explorer/20261009_presidio_q02.md: six single columns vs a merged set; recognizer-family granularity | presidio | **user at presidio CP1** | open (non-blocking) | — |
+| explorer/20261009_presidio_q02.md: six single columns vs a merged set; recognizer-family granularity; + (i) PD5 column vs inventory-only, (ii) ~30 family rows vs ~120 per-entity rows (P1) | presidio | **user at presidio CP1** | open (non-blocking) | — |
 
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
 | explorer/20261009_presidio_q03.md (presidio-research placement) | R010 | main |
 | explorer/20261009_presidio_q04.md (column ID prefix) | R009 | main |
+| presidio P1 report: Covered-by marker for current non-column rows | R011 | main |

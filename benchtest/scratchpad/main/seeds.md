@@ -15,7 +15,9 @@ Each entry gives the explorer a starting point. **UNVERIFIED** marks a starting 
   - The supported-entities page lists country entities that `default_recognizers.yaml` disables.
   - Python 3.10–3.13 is stated on the install page, but 3.14 appears in the release notes.
   - No published accuracy, latency or threshold was found.
-  - NeMo K/L wrap Presidio. Cross-reference them; never duplicate.
+  - NeMo's PII columns wrap Presidio: two_level_v2.md "Column E" (input-level PII detection & masking, line 509) and "Column F" (output-level, line 611). K/L are tool-call/tool-result validation (corrected at presidio P1). Cross-reference; never duplicate.
+  - Docs host chain (P1, 2026-10-09): data-privacy-stack.github.io/presidio/ → 301 → presidio.dataprivacystack.org/ (cite the final host). Deployed site ≠ docs/ at tag 2.2.364 (Python 3.10–3.13 live vs 3.10–3.14 at tag).
+  - github.com via fetch_text.py returned 403 at P1; cite code from a shallow clone at the tag with blob URLs. Clone form that matches the allow-list: `git clone --depth 1 <url> /tmp/<name>`.
 
 ## modelarmor (B1) — UNVERIFIED
 - **Owner:** Google Cloud. Docs start: https://cloud.google.com/security-command-center/docs/model-armor-overview (UNVERIFIED path; Model Armor docs may sit under the Security Command Center or have their own section).
