@@ -76,7 +76,7 @@ Detail:
 • The page text says the de-identified output is in "the deidentifyResult.data.text field of the finding" (templates page and sanitize page, read 2026-10-09) **[Documented]**
 • Whether a findings list with positions also comes back when a de-identify template is set is not shown (checked the sanitize page example and REST reference) **[Not disclosed]**
 • Likelihood values: VERY_UNLIKELY, UNLIKELY, POSSIBLE, LIKELY, VERY_LIKELY; unspecified is "same as POSSIBLE" (SanitizationResult reference, read 2026-10-09) **[Documented]**
-• How a likelihood is turned into a match, and any minimum-likelihood setting, belong to the Sensitive Data Protection template; Model Armor's overview only points to "Sensitive Data Protection match likelihood" **[Inferred]**
+• How a likelihood is turned into a match, and any minimum-likelihood setting, belong to the Sensitive Data Protection template; Model Armor's overview only points to "Sensitive Data Protection match likelihood" (overview, read 2026-10-09) **[Inferred]**
 • No numeric score field exists in the SanitizationResult reference (searched the page text for "score") **[Not disclosed]**
 • Execution problems: if text exceeds the token limit the filter returns EXECUTION_SKIPPED with "Detection skipped as token limit exceeded." (quotas page, read 2026-10-09) **[Documented]**
 • Error text for transient or quota errors in this detector became "Error occurred while processing sensitive data detection. Please try again." (release note 2026-02-10) **[Documented]**
@@ -323,9 +323,9 @@ Detail:
 • Response side: the request field `modelResponseData` has the same data item type as `userPromptData`, which can be text or a byte item (sanitizeModelResponse and DataItem references, read 2026-10-09) **[Documented]**
 • The generated Go request type has `ModelResponseData *DataItem`, the same type as the prompt field (service.pb.go@37f936ac:2379) **[Documented: repo googleapis/google-cloud-go@37f936ac]**
 • No example in the sanitize page sends a document through `modelResponseData`; its response examples are text only (checked the sanitize page, overview and templates page) **[Not disclosed]**
-• Whether a document in a model response is accepted, and how an LLM would produce one, is not stated; the overview example of a PDF "processing LLM outputs" is about downstream systems **[To be verified]**
+• Whether a document in a model response is accepted, and how an LLM would produce one, is not stated; the overview example of a PDF "processing LLM outputs" is about downstream systems (overview, read 2026-10-09) **[To be verified]**
 • Template modality must allow text: `TEXT` "Scans text strings and text embedded in the supported file formats" and an empty `modalities` field scans only text (templates page and templates reference, read 2026-10-09) **[Documented]**
-• With a single modality set, the other is skipped: "If you specify a single modality (IMAGE or TEXT), Model Armor skips the other and returns EXECUTION_SKIPPED." So an image-only template should skip documents **[Inferred]**
+• With a single modality set, the other is skipped: "If you specify a single modality (IMAGE or TEXT), Model Armor skips the other and returns EXECUTION_SKIPPED." So an image-only template should skip documents (sanitize page, read 2026-10-09) **[Inferred]**
 • Streaming methods are text only: "Model Armor streaming methods support only textual input, not attachments like images and files." (sanitize page, read 2026-10-09) **[Documented]**
 • Integrations: Gemini Enterprise screens documents (such as PDFs) only when users upload them to the assistant; Agent Platform and Agent Gateway say documents or file uploads are not supported (integration pages, read 2026-10-09) **[Documented]**
 • LangChain (Preview): the runnables "are limited to text screening. If a prompt includes a document, the system scans only the extracted text." (LangChain page, read 2026-10-09) **[Documented]**

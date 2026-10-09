@@ -15,7 +15,7 @@ R.append(row([
 "Token limit for prompt injection and jailbreak, responsible AI and CSAM [Documented] (QUO)","System limit",
 "65,536 tokens (about 262,144 characters); a token is about 4 characters [Documented] (QUO). Earlier release notes gave 2,000 (2025-05-28), 10,000 for prompt injection (2025-07-28) and 65,536 (2026-08-25) [Documented] (RN)",
 "Direct text in prompts and responses and text extracted from supported files; not the Gemini Enterprise integration [Documented] (QUO)",
-"No match found: the filter returns EXECUTION_SKIPPED with the message 'Detection skipped as token limit exceeded.' A match found: MATCH_FOUND [Documented] (QUO)"]))
+"If a match is found the filter returns MATCH_FOUND; if none is found and the limit is exceeded it returns EXECUTION_SKIPPED with the message 'Detection skipped as token limit exceeded.' [Documented] (QUO)"]))
 R.append(row([
 "Sensitive Data Protection token limit [Documented] (QUO)","System limit",
 "130,000 tokens [Documented] (QUO)",

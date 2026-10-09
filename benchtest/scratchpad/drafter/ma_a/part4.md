@@ -11,7 +11,7 @@ Detail:
 • Configured in a template under `filterConfig.piAndJailbreakFilterSettings` with `filterEnforcement` (`ENABLED` or `DISABLED`; unspecified is "Same as Disabled") and `confidenceLevel`; the template does not mark filters as input or output (REST templates ref, 2026-10-09) **[Documented]**
 • The service returns a verdict and the caller acts on it: "The calling service or integration point or Policy Enforcement Point (PEP) is responsible for blocking the further processing." (overview, 2026-10-09) **[Documented]**
 ### R2
-Summary: **Injection payloads and jailbreak output arriving from the model side.** The docs name MCP tool results as a target for injection by malicious tool authors and describe indirect injection through files and URLs. They give no response-side taxonomy. **[Documented]**
+Summary: **Injection payloads and jailbreak output arriving from the model side.** The docs name MCP tool results as a target for injection by malicious tool authors and describe indirect injection through files and URLs. **[Documented]**
 Detail:
 • Overview definitions apply to both sides: prompt injection is "a security vulnerability where attackers craft special commands within the text input (the prompt) to trick an AI model" and jailbreaking is "the act of bypassing the safety protocols and ethical guidelines that are built into the model" (overview, 2026-10-09) **[Documented]**
 • MCP: Model Armor sanitizes `tools/call` responses, `prompts/get` responses and "MCP tool execution errors (target for prompt injection by malicious MCP tools authors)" (MCP page, Agent Gateway page, 2026-10-09) **[Documented]**
@@ -88,7 +88,7 @@ Detail:
 • Threshold advice B (C1), templates page: "We recommend that you set the confidence level to High to minimize false positives and ensure consistent detection behavior." (templates page, 2026-10-09) **[Documented]**
 • Threshold advice C, overview table: Low and above is "Potentially suitable for high-stakes categories like prompt injection and jailbreak detection, where preventing false negatives is critical, even at the risk of accepting false positives" (overview, 2026-10-09) **[Documented]**
 • Default when the level is omitted: the enum says unspecified is "Same as LOW_AND_ABOVE", and the filter field has no separate default statement, so an omitted level would behave as Low and above **[Inferred]**
-• Whether the three-word minimum applies to responses: the overview note speaks of "inputs" and the quotas page repeats it without naming a side **[To be verified]**
+• Whether the three-word minimum applies to responses: the overview and quotas notes both say "such inputs lack enough information to constitute an attack" **[To be verified]**
 • Google's advice is "Always test your filter configurations against a representative dataset of prompts and responses, including known good and bad examples." (overview, 2026-10-09) **[Documented]**
 • Published accuracy, recall, F1 or false-positive rates for the filter on responses (checked overview, best practices, product page, blog, release notes, version history) **[Not disclosed]**
 • Enforcement type in `templateMetadata.enforcementType`: `INSPECT_ONLY` ("No action will be taken on the request") or `INSPECT_AND_BLOCK`; unspecified is "Same as INSPECT_AND_BLOCK" (REST templates ref, 2026-10-09) **[Documented]**
