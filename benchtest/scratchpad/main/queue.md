@@ -27,6 +27,8 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| purplellama P5 r1 Q2 (licence/terms items T6–T8, T10, T11, T13–T15 incl. Together §4 "benchmarking"/"probe, scan, or test" clause) | listed in the CP2 summary as recorded clauses; decided before bench testing (R025/R031 pattern, R032 wording); no separate user question now | main |
+| purplellama P5 r1 Q3 (Together removed Llama Guard 4 12B from serverless 2026-08-25) | Llama Guard frozen (R004); final-run summary follow-up note | main |
 | lionguard P5 Q-A (INV(d) 11th row arXiv 2507.05980 → BLOCKS 4/11/8/11/4) | yes; counts asserted at P8 from the final | main |
 | lionguard P5 Q-B (arXiv 2507.11966 translation paper) | not needed; optional suggestion dropped (auto-default) | main |
 | lionguard P5 Q-C (licence texts unreconciled, T6) | keep separate labelled bullets per R031; flag at CP2 summary, no user question now | main |
