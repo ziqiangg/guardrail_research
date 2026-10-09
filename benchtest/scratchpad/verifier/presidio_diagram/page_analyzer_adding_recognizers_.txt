@@ -1,0 +1,359 @@
+# status 200  final_url https://presidio.dataprivacystack.org/analyzer/adding_recognizers/  content-type text/html; charset=utf-8
+Skip to content
+Presidio
+Supporting detection of new types of PII entities
+Search
+GitHub
+Presidio
+Quick start
+Learn Presidio
+Resources
+Recipes
+Samples
+Presidio
+GitHub
+Presidio
+Presidio
+Home
+Installation
+FAQ
+Quick start
+Quick start
+Home
+Text
+Images
+Semi/Structured data
+Learn Presidio
+Learn Presidio
+Home
+Concepts
+Tutorial
+Tutorial
+Home
+Getting started
+Deny-list recognizers
+Regex recognizers
+Rule-based recognizers
+Additional models/languages
+External services
+Context enhancement
+Decision process
+No-code recognizers
+Ad-hoc recognizers
+Simple anonymization
+Custom anonymization
+Encryption/Decryption
+Allow-lists
+Text de-identification
+Text de-identification
+Home
+Presidio Analyzer
+Presidio Analyzer
+Home
+Developing PII recognizers
+Developing PII recognizers
+Tutorial
+Tutorial
+On this page
+Introduction to recognizer development
+Types of recognizer classes in Presidio
+Extending the analyzer for additional PII entities
+Simple example
+Creating a new EntityRecognizer in code
+Creating a remote recognizer
+Creating pre-defined recognizers
+Azure AI Language recognizer
+Azure Health Data Services (AHDS) de-identification recognizer
+Language Model-based PII/PHI detection recognizer
+Creating ad-hoc recognizers
+Reading pattern recognizers from YAML
+Best practices
+Recognizer registry from file
+Filtering recognizers by country
+Multi-language support
+Customizing the NLP model
+Customizing the NLP model
+Home
+Spacy/Stanza
+Transformers
+GPU Acceleration
+Tracing the decision process
+Configure from file
+Presidio Anonymizer
+Presidio Anonymizer
+Home
+Developing PII anonymization operators
+Azure Health Data Services de-identification service integration
+Image de-identification
+Image de-identification
+Home
+Evaluating DICOM redaction
+Structured and Semi-structured
+Structured and Semi-structured
+Home
+PII detection evaluation
+Resources
+Resources
+Supported entities
+Project transition update
+Community
+Change log
+Setting up a development environment
+Build and release process
+Changes from V1 to V2
+Python API reference
+Python API reference
+Home
+Presidio Analyzer Python API
+Presidio Anonymizer Python API
+Presidio Image Redactor Python API
+Presidio Structured Python API
+REST API reference
+Recipes
+Recipes
+Home
+Contributing
+Template
+Samples
+Samples
+Home
+Text
+Text
+Presidio Basic Usage Notebook
+Customizing Presidio Analyzer
+Configuring The NLP engine
+Encrypting and Decrypting identified entities
+Getting the identified entity value using a custom Operator
+Anonymizing known values
+Keeping some entities from being anonymized
+Integrating with external services
+Remote Recognizer
+Azure AI Language as a Remote Recognizer
+Azure Health DataServices De-identification as a Remote Recognizer
+Using Flair as an external PII model
+Using Span Marker as an external PII model
+Using Transformers as an external PII model
+Using GLiNER as an external PII model
+Pseudonymization (replace PII values using mappings)
+Passing a lambda as a Presidio anonymizer using Faker
+Synthetic data generation with OpenAI
+YAML based no-code configuration
+Data
+Data
+Analyzing structured / semi-structured data in batch
+Presidio Structured Basic Usage Notebook
+Analyze and Anonymize CSV file
+Images
+Images
+Redacting Text PII from DICOM images
+Using an allow list with image redaction
+Plot custom bounding boxes
+Example DICOM redaction evaluation
+PDF
+PDF
+Annotating PII in a PDF
+Deployment
+Deployment
+Presidio with App Service
+Presidio with Kubernetes
+Presidio with Spark
+Presidio with Fabric
+Redacting Telemetry with Presidio
+Azure Data Factory
+Azure Data Factory
+ETL using AppService/Databricks
+Add Presidio as an HTTP service to your Azure Data Factory
+Add Presidio on Databricks to your Azure Data Factory
+PII Masking LLM calls using LiteLLM proxy
+Demo app
+Demo app
+Create a simple demo app using Streamlit
+On this page
+Introduction to recognizer development
+Types of recognizer classes in Presidio
+Extending the analyzer for additional PII entities
+Simple example
+Creating a new EntityRecognizer in code
+Creating a remote recognizer
+Creating pre-defined recognizers
+Azure AI Language recognizer
+Azure Health Data Services (AHDS) de-identification recognizer
+Language Model-based PII/PHI detection recognizer
+Creating ad-hoc recognizers
+Reading pattern recognizers from YAML
+Supporting detection of new types of PII entities
+Presidio can be extended to support detection of new types of PII entities, and to support additional languages.
+These PII recognizers could be added via code or ad-hoc as part of the request.
+Introduction to recognizer development
+Entity recognizers are Python objects capable of detecting one or more entities in a specific language.
+In order to extend Presidio's detection capabilities to new types of PII entities,
+these EntityRecognizer objects should be added to the existing list of recognizers.
+Types of recognizer classes in Presidio
+The following class diagram shows the different types of recognizer families Presidio contains.
+The EntityRecognizer is an abstract class for all recognizers.
+The RemoteRecognizer is an abstract class for calling external PII detectors.
+See more info here.
+The abstract class LocalRecognizer is implemented by all recognizers running within the Presidio-analyzer process.
+The PatternRecognizer is an class for supporting regex and deny-list based recognition logic,
+including validation (e.g., with checksum) and context support. See an example here.
+Extending the analyzer for additional PII entities
+Create a new class based on EntityRecognizer.
+Add the new recognizer to the recognizer registry so that the AnalyzerEngine can use the new recognizer during analysis.
+Simple example
+For simple recognizers based on regular expressions or deny-lists,
+we can leverage the provided PatternRecognizer:
+from presidio_analyzer import PatternRecognizer
+titles_recognizer = PatternRecognizer(supported_entity="TITLE",
+deny_list=["Mr.","Mrs.","Miss"])
+Calling the recognizer itself:
+titles_recognizer.analyze(text="Mr. Schmidt", entities="TITLE")
+Adding it to the list of recognizers:
+from presidio_analyzer import AnalyzerEngine, RecognizerRegistry
+registry = RecognizerRegistry()
+registry.load_predefined_recognizers()
+# Add the recognizer to the existing list of recognizers
+registry.add_recognizer(titles_recognizer)
+# Set up analyzer with our updated recognizer registry
+analyzer = AnalyzerEngine(registry=registry)
+# Run with input text
+text="His name is Mr. Jones"
+results = analyzer.analyze(text=text, language="en")
+print(results)
+Alternatively, we can add the recognizer directly to the existing registry:
+from presidio_analyzer import AnalyzerEngine
+analyzer = AnalyzerEngine()
+analyzer.registry.add_recognizer(titles_recognizer)
+results = analyzer.analyze(text=text, language="en")
+print(results)
+For pattern based recognizers, it is possible to change the regex flags, either for
+one recognizer or for all.
+For one recognizer, use the global_regex_flags parameter
+in the PatternRecognizer constructor.
+For all recognizers, use the global_regex_flags parameter in the RecognizerRegistry constructor:
+from presidio_analyzer import AnalyzerEngine, RecognizerRegistry
+import regex as re
+registry = RecognizerRegistry(global_regex_flags=re.DOTALL | re.MULTILINE | re.IGNORECASE)
+engine = AnalyzerEngine(registry=registry)
+engine.analyze(...)
+Creating a new EntityRecognizer in code
+To create a new recognizer via code:
+Create a new Python class which implements LocalRecognizer.
+(LocalRecognizer implements the base EntityRecognizer class)
+This class has the following functions:
+i. load: load a model / resource to be used during recognition
+def load(self)
+ii. analyze: The main function to be called for getting entities out of the new recognizer:
+def analyze(self, text, entities, nlp_artifacts)
+Notes:
+1. Each recognizer has access to different NLP assets such as tokens, lemmas, and more.
+These are given through the nlp_artifacts parameter.
+Refer to the source code for more information.
+The analyze method should return a list of RecognizerResult.
+Add it to the recognizer registry using registry.add_recognizer(my_recognizer).
+For more examples, see the Customizing Presidio Analyzer jupyter notebook.
+Creating a remote recognizer
+A remote recognizer is an EntityRecognizer object interacting with an external service. The external service could be a 3rd party PII detection service or a custom service deployed in parallel to Presidio.
+Sample implementation of a RemoteRecognizer.
+In this example, an external PII detection service exposes two APIs: detect and supported_entities. The class implemented here, ExampleRemoteRecognizer, uses the requests package to call the external service via HTTP.
+In this code snippet, we simulate the external PII detector by using the Presidio analyzer. In reality, we would adapt this code to fit the external PII detector we have in hand.
+For an example of integrating a RemoteRecognizer with Presidio-Analyzer, see this example.
+Creating pre-defined recognizers
+Once a recognizer is created, it can either be added to the RecognizerRegistry via the add_recognizer method, or it could be added into the list of predefined recognizers.
+To add a recognizer to the list of pre-defined recognizers:
+Clone the repo.
+Create a file containing the new recognizer Python class.
+Add the recognizer to the recognizers in the default_recognizers config. Details of recognizer parameters are given Here.
+If the recognizer is country-specific (file lives under predefined_recognizers/country_specific/<country>/), declare its country by setting the class-level COUNTRY_CODE = "<iso-3166-1-alpha-2>" attribute. This makes the recognizer participate in the country filter — see Filtering recognizers by country. Generic / locale-agnostic recognizers leave COUNTRY_CODE unset (defaults to None).
+Optional: Update documentation (e.g., the supported entities list).
+Azure AI Language recognizer
+On how to integrate Presidio with Azure AI Language PII detection service,
+and a sample for a Text Analytics Remote Recognizer, refer to the
+Azure Text Analytics Integration document.
+Azure Health Data Services (AHDS) de-identification recognizer
+On how to integrate Presidio with AHDS De-Identification Protected Health Information (PHI) detection service,
+and a sample for a ADHS Remote Recognizer, refer to the
+AHDS de-Identification Integration document.
+Language Model-based PII/PHI detection recognizer
+Presidio supports language model-based entity detection using LLMs and SLMs for flexible PII/PHI recognition.
+The current implementation uses LangExtract with Ollama (local models). For full setup instructions and usage examples,
+see the Language Model-based PII/PHI Detection guide.
+Creating ad-hoc recognizers
+In addition to recognizers in code, it is possible to create ad-hoc recognizers via the Presidio Analyzer API for regex and deny-list based logic.
+These recognizers, in JSON form, are added to the /analyze request and are only used in the context of this request.
+The json structure for a regex ad-hoc recognizer is the following:
+{
+"text": "John Smith drivers license is AC432223. Zip code: 10023",
+"language": "en",
+"ad_hoc_recognizers":[
+{
+"name": "Zip code Recognizer",
+"supported_language": "en",
+"patterns": [
+{
+"name": "zip code (weak)",
+"regex": "(\\b\\d{5}(?:\\-\\d{4})?\\b)",
+"score": 0.01
+}
+],
+"context": ["zip", "code"],
+"supported_entity":"ZIP"
+}
+]
+}
+The json structure for a deny-list based recognizers is the following:
+{
+"text": "Mr. John Smith's drivers license is AC432223",
+"language": "en",
+"ad_hoc_recognizers":[
+{
+"name": "Mr. Recognizer",
+"supported_language": "en",
+"deny_list": ["Mr", "Mr.", "Mister"],
+"supported_entity":"MR_TITLE"
+},
+{
+"name": "Ms. Recognizer",
+"supported_language": "en",
+"deny_list": ["Ms", "Ms.", "Miss", "Mrs", "Mrs."],
+"supported_entity":"MS_TITLE"
+}
+]
+}
+In both examples, the /analyze request is extended with a list of ad_hoc_recognizers, which could be either patterns, deny_list or both.
+Additional examples can be found in the OpenAPI spec.
+Reading pattern recognizers from YAML
+Recognizers can be loaded from a YAML file, which allows users to add recognition logic without writing code.
+An example YAML file can be found here.
+Once the YAML file is created, it can be loaded into the RecognizerRegistry instance.
+This example creates a RecognizerRegistry holding only the recognizers in the YAML file:
+from presidio_analyzer import AnalyzerEngine
+from presidio_analyzer.recognizer_registry import RecognizerRegistryProvider
+recognizer_registry_conf_file = "./analyzer/recognizers-config.yml"
+provider = RecognizerRegistryProvider(
+conf_file=recognizer_registry_conf_file
+)
+registry = provider.create_recognizer_registry()
+analyzer = AnalyzerEngine(registry=registry)
+results = analyzer.analyze(text="My name is Morris", language="en")
+print(results)
+This example adds the new recognizers to the predefined recognizers in Presidio:
+from presidio_analyzer import AnalyzerEngine, RecognizerRegistry
+yaml_file = "recognizers.yaml"
+registry = RecognizerRegistry()
+registry.load_predefined_recognizers()
+registry.add_recognizers_from_yaml(yaml_file)
+analyzer = AnalyzerEngine()
+analyzer.analyze(text="Mr. and Mrs. Smith", language="en")
+Further reading:
+PII detection in different languages.
+Customizing the NLP model.
+Best practices for developing PII recognizers.
+Code samples for customizing Presidio Analyzer with new recognizers.
+Back to top
+Previous
+Home
+Next
+Best practices
+Data Privacy Stack
+Made with
+Zensical

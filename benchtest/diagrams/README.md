@@ -184,6 +184,8 @@ Number rails sequentially across the whole page (1, 2, 3...). Tables that are ra
 
 Every factual claim comes from the product's merged drafts in `../drafts/`: `<slug>_two_level.md` and `<slug>_inventory_final.md` (existing prefixes in that folder are `lg_` for Llama Guard and `sentinel_`; follow the folder's actual file names). **No new research** while writing the page; if a fact is missing from the drafts, say "is not stated" or leave it out, and tell the reviewer. Anything marked uncertain or unverified in the drafts stays hedged in the page.
 
+**Exception, other products in the positioning table (R027):** the NeMo, Llama Guard and Sentinel cells (and those of any later reviewed page) may be copied word for word from their already-reviewed sibling pages, e.g. `sentinel-explained.html`'s positioning table. Do not paraphrase or add to them; facts about the page's own product still come only from its drafts.
+
 Footer: first `<p>` begins "Sources: " and lists the official documents used (vendor docs, model cards, papers with arXiv numbers, source repositories with release tag), then states "Accuracy figures are <Vendor>'s own reported results." and "Example messages ... are illustrative." (name which). Second `<p>` is the link list, labels in plain words, separated by ` · `, using the official URLs that appear in the drafts. Do not add URLs that are not in the drafts.
 
 ## 11. Review checklist

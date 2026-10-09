@@ -1,0 +1,17 @@
+https://presidio.dataprivacystack.org/
+https://presidio.dataprivacystack.org/analyzer/
+https://presidio.dataprivacystack.org/supported_entities/
+https://presidio.dataprivacystack.org/anonymizer/
+https://presidio.dataprivacystack.org/image-redactor/
+https://presidio.dataprivacystack.org/structured/
+https://presidio.dataprivacystack.org/analyzer/adding_recognizers/
+https://presidio.dataprivacystack.org/samples/python/encrypt_decrypt/
+https://presidio.dataprivacystack.org/samples/docker/litellm/
+https://presidio.dataprivacystack.org/installation/
+https://presidio.dataprivacystack.org/faq/
+https://presidio.dataprivacystack.org/project_transition/
+https://presidio.dataprivacystack.org/evaluation/
+https://github.com/data-privacy-stack/presidio-research/blob/0.3.2/notebooks/4_Evaluate_Presidio_Analyzer.ipynb
+https://github.com/data-privacy-stack/presidio-research/blob/0.3.2/notebooks/5_Evaluate_Custom_Presidio_Analyzer.ipynb
+https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-analyzer/presidio_analyzer/conf/default_recognizers.yaml
+https://docs.nvidia.com/nemo/guardrails/configure-guardrails/guardrail-catalog/third-party/presidio

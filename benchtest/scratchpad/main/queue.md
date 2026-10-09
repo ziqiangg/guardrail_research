@@ -25,6 +25,7 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| presidio P10 review Q2 (reuse sibling-page NeMo/Llama Guard/Sentinel cells in positioning) | R027 (+ diagrams/README.md §10 exception) | main |
 | explorer/20261009_purplellama_q02 (merge 6→4: engine vs wrapper) | keep separate (R004; same as q15); AlignmentCheck header carries "Trace-level" direction label (R002 naming) | main |
 | explorer/20261009_purplellama_q04 (AlignmentCheck column vs inventory; external Together API key) | column (R004 names AlignmentCheck); R7 states external LLM/API key dependency | main |
 | explorer/20261009_purplellama_q05 (CodeShield languages/latency, scanner enum) | → P1 drafter re-verifies in code at 172c1074 (code note C1–C5 already has the code side) | main |
