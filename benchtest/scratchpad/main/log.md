@@ -92,3 +92,4 @@
 - 2026-10-10 CP2 (user): lionguard approved (R033) → P8 queue #4
 - 2026-10-10 lionguard P8 done: BD (LN1) + '3i. LionGuard Inventory' (4/11/8/11/4); verify_lionguard_apply 47/47; uncapped compare vs HEAD 116 diffs, all BD + sheet order + dims; recalc skipped; 45 URLs → P9
 - 2026-10-10 lionguard P9 done: 43 ok + 2 expected-403 (OpenAI policy pages); 0 broken
+- 2026-10-10 purplellama P6 done: 463 edits (302 col, 113 inv, 48 eval), 29/63 Summaries changed, inventory 16/8/11/16/12/8/12/5 = 88, eval 8 sections; checks 0 err (1 expected multi-prefix warn) / 0/0; P7 started

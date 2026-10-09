@@ -28,6 +28,8 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| purplellama P6 Q1–Q4 (PL6 R4 Summary [Inferred]; HF api URLs removed in all columns; block (c) heading without ruling id; PL2 R6 support bullet) | confirmed (label rules, lessons 12, process-text rule, Summary entailment) | main |
+| purplellama P6 Q5 (brief says CSE4 paper TBV; finals ND) | brief is a historical P1 file; finals govern | main |
 | lionguard P8 (coverage panel counts blocks (a)–(c) only; (d)/(e) are all inventory-only) | accepted; no shared-module change | main |
 | lionguard CP2 | R033 approved | user |
 | lionguard P7 Q (verifier GETs to huggingface.co/api/models URLs in R9) | GETs covered by the P4 Hub-metadata ruling; but R9/Source URL cells cite public model pages at the pinned revision, not api paths (same as purplellama P5 Q4) → added to the fix loop | main |

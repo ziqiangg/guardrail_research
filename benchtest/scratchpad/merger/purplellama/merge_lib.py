@@ -328,10 +328,26 @@ class Ev:
         _log("eval", "EV %s" % sec, "delete", before, "(deleted)", reason)
 
     def render(self, head_line):
-        out = [head_line, ""]
-        out.extend(self.head[2:] if False else [l for l in self.head[1:]])
+        out = [head_line]
+        out.extend(self.head[1:])
         for k in self.order:
             out.append("## " + k)
             out.extend(self.secs[k])
             out.append("")
         return "\n".join(out).rstrip("\n") + "\n"
+
+
+def _ev_gsub(self, sec, old, new, reason, kind="style"):
+    hit = 0
+    L_ = self.secs[sec]
+    for i, l in enumerate(L_):
+        if old in l:
+            b = l
+            L_[i] = l.replace(old, new)
+            _log("eval", "EV %s" % sec, kind, b, L_[i], reason)
+            hit += 1
+    assert hit, (sec, old)
+    return hit
+
+
+Ev.gsub = _ev_gsub

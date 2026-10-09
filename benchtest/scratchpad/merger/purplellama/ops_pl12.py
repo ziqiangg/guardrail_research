@@ -185,6 +185,9 @@ def apply(K):
     K.sub(C, 5, "Paper, AgentDojo with Prompt Guard 2 86M on user and tool messages", "(arXiv 2505.03574 section 4.3)",
           "(arXiv 2505.03574 sections 4.3.1 and 4.3.2)", "T103", kind="style")
     # R6
+    K.ins_after(C, 6, "Input object: Message(role, content)",
+        "• Python 3.10 or later and `pip install llamafirewall` (LlamaFirewall/README.md@172c1074:53,60) " + PR,
+        "Entailment fix found at merge: the R6 Summary states the Python requirement but no R6 bullet carried it (the fact is in R4)")
     K.summary(C, 6,
         "Summary: **A message with role and text content, plus gated model access.** Weights are downloaded from Hugging Face on first use, with an interactive login if no token exists. Python 3.10 or later is needed, and text over 512 tokens is truncated. " + DOC,
         "T94 (r2): the class name 'Message' is a code identifier; the truncation clause now has a documented R6 bullet")

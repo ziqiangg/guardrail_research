@@ -93,7 +93,8 @@ def apply(K):
         "• Enum bases, pin: plain enums (issues.py@172c1074:18, codeshield.py@172c1074:24) " + PR],
         "T19 (CORRECTION, r2): PyPI 1.0.1 differs from the pin; sdist facts [Documented] with hash and date in plain text, comparisons [Inferred]")
     K.repl(C, 4, "Semgrep is a third-party component installed as a dependency", [
-        "• The Semgrep repository LICENSE is the GNU Lesser General Public License, Version 2.1, at tag v1.69.0 (the first tag above the semgrep>1.68 floor) and at v1.180.0, the newest tag on 2026-10-09 (Semgrep's own repository, not Meta docs) " + SG,
+        "• The Semgrep repository LICENSE is the GNU Lesser General Public License, Version 2.1, at tag v1.69.0, the first tag above the semgrep>1.68 floor (Semgrep's own repository, not Meta docs) " + SG,
+        "• The Semgrep repository LICENSE is also the GNU Lesser General Public License, Version 2.1, at tag v1.180.0, the newest tag on 2026-10-09 (Semgrep's own repository, not Meta docs) " + "**[Documented: repo semgrep/semgrep@v1.180.0]**",
         "• Code Shield passes rule files from its own folder to Semgrep: the --config argument is a local path (insecure_code_detector.py@172c1074:314-329; oss.py@172c1074:24-25,65-75) " + PR,
         "• So Semgrep Registry rules are not loaded by this route (premise: the config argument is a local path) " + INF,
         '• Semgrep\'s separate rules licence says "You may use the rules only for your own internal business purposes." (semgrep.dev/legal/rules-license, not Meta docs, read 2026-10-09) ' + DOC],
@@ -167,6 +168,7 @@ def apply(K):
               "https://pypi.org/project/codeshield/",
               "https://arxiv.org/html/2408.01605",
               "https://github.com/semgrep/semgrep/blob/v1.69.0/LICENSE",
+              "https://github.com/semgrep/semgrep/blob/v1.180.0/LICENSE",
               "https://semgrep.dev/legal/rules-license",
               PGB + "CodeShield/insecure_code_detector/insecure_patterns.py",
               PGB + "CodeShield/insecure_code_detector/rules/regex/c.yaml",

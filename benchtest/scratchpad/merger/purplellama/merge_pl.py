@@ -3,7 +3,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import merge_lib as L
-import ops_pl12, ops_pl64, ops_pl357
+import ops_pl12, ops_pl64, ops_pl357, ops_inv, ops_ev
 
 D = "benchtest/drafts/"
 IDS = ["PL1", "PL2", "PL3", "PL4", "PL5", "PL6", "PL7"]
@@ -56,8 +56,22 @@ def build():
     return K
 
 
+def build_inv():
+    V = L.Inv(D + "purplellama_inventory.md")
+    ops_inv.apply(V)
+    return V
+
+
 if __name__ == "__main__":
     K = build()
     out = K.render(IDS)
     open(D + "purplellama_two_level.md", "w", encoding="utf-8").write(out)
-    print("col ops:", len(L.LOG), L.COUNTS)
+    n1 = len(L.LOG)
+    V = build_inv()
+    open(D + "purplellama_inventory_final.md", "w", encoding="utf-8").write(V.render())
+    n2 = len(L.LOG)
+    E = L.Ev(D + "purplellama_eval_tooling.md")
+    ops_ev.apply(E)
+    open(D + "purplellama_eval_tooling_final.md", "w", encoding="utf-8").write(
+        E.render("## Topic: Meta CyberSecEval 4 evaluation tooling (reuse assessment for the test bench)"))
+    print("col ops:", n1, "inv ops:", n2 - n1, "eval ops:", len(L.LOG) - n2, L.COUNTS)
