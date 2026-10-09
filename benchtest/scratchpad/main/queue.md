@@ -3,8 +3,8 @@
 ## xlsx-writer queue (products with a CP2 approval ruling, apply in this order, one at a time)
 | # | Slug | CP2 ruling | Queued | Applied (commit) |
 |---|---|---|---|---|
-| 1 | presidio | R022 | 2026-10-09 | |
-| 2 | sdp | R023 | 2026-10-09 | |
+| 1 | presidio | R022 | 2026-10-09 | 450e3d7 |
+| 2 | sdp | R023 | 2026-10-09 | 6710895 |
 | 3 | modelarmor | R024 (+ R025 pre-P8 merger edit first) | 2026-10-09 | |
 
 ## Open questions (from agents)
