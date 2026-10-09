@@ -1,0 +1,285 @@
+# status 200  final_url https://presidio.dataprivacystack.org/structured/  content-type text/html; charset=utf-8
+Skip to content
+Presidio
+Presidio structured
+Search
+GitHub
+Presidio
+Quick start
+Learn Presidio
+Resources
+Recipes
+Samples
+Presidio
+GitHub
+Presidio
+Presidio
+Home
+Installation
+FAQ
+Quick start
+Quick start
+Home
+Text
+Images
+Semi/Structured data
+Learn Presidio
+Learn Presidio
+Home
+Concepts
+Tutorial
+Tutorial
+Home
+Getting started
+Deny-list recognizers
+Regex recognizers
+Rule-based recognizers
+Additional models/languages
+External services
+Context enhancement
+Decision process
+No-code recognizers
+Ad-hoc recognizers
+Simple anonymization
+Custom anonymization
+Encryption/Decryption
+Allow-lists
+Text de-identification
+Text de-identification
+Home
+Presidio Analyzer
+Presidio Analyzer
+Home
+Developing PII recognizers
+Developing PII recognizers
+Tutorial
+Best practices
+Recognizer registry from file
+Filtering recognizers by country
+Multi-language support
+Customizing the NLP model
+Customizing the NLP model
+Home
+Spacy/Stanza
+Transformers
+GPU Acceleration
+Tracing the decision process
+Configure from file
+Presidio Anonymizer
+Presidio Anonymizer
+Home
+Developing PII anonymization operators
+Azure Health Data Services de-identification service integration
+Image de-identification
+Image de-identification
+Home
+Evaluating DICOM redaction
+Structured and Semi-structured
+Structured and Semi-structured
+Home
+Home
+On this page
+Description
+Installation
+As a python package
+Getting started
+Example 1: Anonymizing DataFrames
+Example 2: Anonymizing JSON Data
+Selection Strategy for Entity Detection in Tabular Data
+Usage
+Future work
+More information
+PII detection evaluation
+Resources
+Resources
+Supported entities
+Project transition update
+Community
+Change log
+Setting up a development environment
+Build and release process
+Changes from V1 to V2
+Python API reference
+Python API reference
+Home
+Presidio Analyzer Python API
+Presidio Anonymizer Python API
+Presidio Image Redactor Python API
+Presidio Structured Python API
+REST API reference
+Recipes
+Recipes
+Home
+Contributing
+Template
+Samples
+Samples
+Home
+Text
+Text
+Presidio Basic Usage Notebook
+Customizing Presidio Analyzer
+Configuring The NLP engine
+Encrypting and Decrypting identified entities
+Getting the identified entity value using a custom Operator
+Anonymizing known values
+Keeping some entities from being anonymized
+Integrating with external services
+Remote Recognizer
+Azure AI Language as a Remote Recognizer
+Azure Health DataServices De-identification as a Remote Recognizer
+Using Flair as an external PII model
+Using Span Marker as an external PII model
+Using Transformers as an external PII model
+Using GLiNER as an external PII model
+Pseudonymization (replace PII values using mappings)
+Passing a lambda as a Presidio anonymizer using Faker
+Synthetic data generation with OpenAI
+YAML based no-code configuration
+Data
+Data
+Analyzing structured / semi-structured data in batch
+Presidio Structured Basic Usage Notebook
+Analyze and Anonymize CSV file
+Images
+Images
+Redacting Text PII from DICOM images
+Using an allow list with image redaction
+Plot custom bounding boxes
+Example DICOM redaction evaluation
+PDF
+PDF
+Annotating PII in a PDF
+Deployment
+Deployment
+Presidio with App Service
+Presidio with Kubernetes
+Presidio with Spark
+Presidio with Fabric
+Redacting Telemetry with Presidio
+Azure Data Factory
+Azure Data Factory
+ETL using AppService/Databricks
+Add Presidio as an HTTP service to your Azure Data Factory
+Add Presidio on Databricks to your Azure Data Factory
+PII Masking LLM calls using LiteLLM proxy
+Demo app
+Demo app
+Create a simple demo app using Streamlit
+On this page
+Description
+Installation
+As a python package
+Getting started
+Example 1: Anonymizing DataFrames
+Example 2: Anonymizing JSON Data
+Selection Strategy for Entity Detection in Tabular Data
+Usage
+Future work
+More information
+Presidio structured
+Description
+The Presidio structured package is a flexible and customizable framework designed to identify and protect structured sensitive data.
+This tool extends the capabilities of Presidio, focusing on structured data formats such as tabular formats and semi-structured formats (JSON).
+It leverages the detection capabilities of Presidio-Analyzer to identify columns or keys containing personally identifiable information (PII), and establishes a mapping between these column/keys names and the detected PII entities.
+Following the detection, Presidio-Anonymizer is used to apply de-identification techniques
+to each value in columns identified as containing PII, ensuring the sensitive data is appropriately protected.
+Note that sensitive data might not be automatically detected in some cases. Consequently, additional systems and protections should be employed.
+Installation
+As a python package
+To install the presidio-structured package, run the following command:
+pip install presidio-structured
+Getting started
+Example 1: Anonymizing DataFrames
+import pandas as pd
+from presidio_structured import StructuredEngine, PandasAnalysisBuilder
+from presidio_anonymizer.entities import OperatorConfig
+from faker import Faker # optionally using faker as an example
+# Initialize the engine with a Pandas data processor (default)
+pandas_engine = StructuredEngine()
+# Create a sample DataFrame
+sample_df = pd.DataFrame({'name': ['John Doe', 'Jane Smith'], 'email': ['john.doe@example.com', 'jane.smith@example.com']})
+# Generate a tabular analysis which describes PII entities in the DataFrame.
+tabular_analysis = PandasAnalysisBuilder().generate_analysis(sample_df)
+# Define anonymization operators
+fake = Faker()
+operators = {
+"PERSON": OperatorConfig("replace", {"new_value": "REDACTED"}),
+"EMAIL_ADDRESS": OperatorConfig("custom", {"lambda": lambda x: fake.safe_email()})
+}
+# Anonymize DataFrame
+anonymized_df = pandas_engine.anonymize(sample_df, tabular_analysis, operators=operators)
+print(anonymized_df)
+Example 2: Anonymizing JSON Data
+from presidio_structured import StructuredEngine, JsonAnalysisBuilder, StructuredAnalysis, JsonDataProcessor
+from presidio_anonymizer.entities import OperatorConfig
+from faker import Faker # optionally using faker as an example
+# Initialize the engine with a JSON data processor
+json_engine = StructuredEngine(data_processor=JsonDataProcessor())
+# Sample JSON data
+sample_json = {
+"user": {
+"name": "John Doe",
+"email": "john.doe@example.com"
+}
+}
+# Generate analysis for simple JSON data
+json_analysis = JsonAnalysisBuilder().generate_analysis(sample_json)
+# Define anonymization operators
+fake = Faker() # using faker for email generation.
+operators = {
+"PERSON": OperatorConfig("replace", {"new_value": "REDACTED"}),
+"EMAIL_ADDRESS": OperatorConfig("custom", {"lambda": lambda x: fake.safe_email()})
+}
+# Anonymize JSON data
+anonymized_json = json_engine.anonymize(sample_json, json_analysis, operators=operators)
+print(anonymized_json)
+# Handling Json Data with nested objects in lists
+sample_complex_json = {
+"users": [
+{"name": "John Doe", "email": "john.doe@example.com"},
+{"name": "Jane Smith", "email": "jane.smith@example.com"}
+]
+}
+# Nesting objects in lists is not supported in JsonAnalysisBuilder for now,
+# Manually defining the analysis for complex JSON data
+json_complex_analysis = StructuredAnalysis(entity_mapping={
+"users.name": "PERSON",
+"users.email": "EMAIL_ADDRESS"
+})
+# Anonymize complex JSON data
+anonymized_complex_json = json_engine.anonymize(sample_complex_json, json_complex_analysis, operators=operators)
+print(anonymized_complex_json)
+A more detailed sample can be found here:
+https://github.com/data-privacy-stack/presidio/blob/main/docs/samples/python/example_structured.ipynb
+Selection Strategy for Entity Detection in Tabular Data
+Most Common (default): Identifies the most frequently occurring PII entity in a data column or field.
+Highest Confidence: Selects PII entities based on the highest confidence scores, irrespective of their occurrence frequency.
+Mixed: Combines the strengths of both the above strategies. It selects the entity with the highest confidence score if that score exceeds a specified threshold (controlled by mixed_strategy_threshold); otherwise, it defaults to the most common entity.
+Usage
+Specify the selection_strategy and optionally the mixed_strategy_threshold in the generate_analysis() method:
+# Generate a tabular analysis using the most common strategy
+tabular_analysis = PandasAnalysisBuilder().generate_analysis(sample_df)
+# Generate a tabular analysis using the highest confidence strategy
+tabular_analysis = PandasAnalysisBuilder().generate_analysis(sample_df, selection_strategy="highest_confidence")
+# Generate a tabular analysis using the mixed strategy
+tabular_analysis = PandasAnalysisBuilder().generate_analysis(sample_df, selection_strategy="mixed", mixed_strategy_threshold=0.75)
+Future work
+Improve support for datasets with mixed free-text and structure data (e.g. some columns contain free text)
+Add support for the detection of sensitive column names
+PySpark implementation
+Integration of additional anonymization techniques such as K-Anonymity and Differential Privacy.
+Contributions are welcome! Please refer to the Contributing Guide.
+More information
+API documentation
+Sample code
+Join the discussion
+Relevant issues on GitHub
+Back to top
+Previous
+Evaluating DICOM redaction
+Next
+PII detection evaluation
+Data Privacy Stack
+Made with
+Zensical

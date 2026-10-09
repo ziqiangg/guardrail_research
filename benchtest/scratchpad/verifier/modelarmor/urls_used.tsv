@@ -1,0 +1,59 @@
+https://cloud.google.com/blog/products/identity-security/how-model-armor-can-help-protect-your-ai-apps	MA1 R9, MA10 R9, MA2 R9, MA3 R9, MA4 R9, MA5 R9, MA6 R9, MA7 R9, MA8 R9, MA9 R9
+https://cloud.google.com/products	MA10 R9
+https://cloud.google.com/security-command-center/pricing	INV(b), INV(e), MA1 R9, MA10 R9, MA2 R9, MA3 R9, MA4 R9, MA5 R9, MA6 R9, MA7 R9, MA8 R9, MA9 R9
+https://cloud.google.com/security/products/model-armor	INV(a), MA1 R9, MA10 R9, MA2 R9, MA3 R9, MA4 R9, MA5 R9, MA6 R9, MA7 R9, MA8 R9, MA9 R9
+https://cloud.google.com/terms/aup	MA1 R9, MA10 R9, MA2 R9, MA3 R9, MA4 R9, MA7 R9, MA8 R9
+https://cloud.google.com/terms/service-terms	MA1 R9, MA10 R9, MA2 R9, MA3 R9, MA4 R9, MA7 R9, MA8 R9
+https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy	INV(b), MA2 R9, MA4 R9, MA6 R9, MA8 R9
+https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-user-prompt-policy	INV(b), MA1 R9, MA3 R9, MA7 R9
+https://docs.cloud.google.com/apigee/docs/release-notes	INV(b), MA1 R9, MA2 R9, MA3 R9, MA4 R9, MA5 R9, MA6 R9, MA7 R9, MA8 R9
+https://docs.cloud.google.com/mcp/model-armor-supported-products	INV(b)
+https://docs.cloud.google.com/model-armor/best-practices	MA1 R9, MA10 R9, MA2 R9, MA3 R9, MA4 R9, MA5 R9, MA6 R9, MA7 R9, MA8 R9
+https://docs.cloud.google.com/model-armor/configure-exclusion-rules	INV(a), INV(c), INV(e), MA1 R9, MA2 R9, MA3 R9, MA4 R9, MA7 R9, MA8 R9
+https://docs.cloud.google.com/model-armor/configure-floor-settings	INV(a), INV(b), INV(c), MA3 R9, MA4 R9, MA5 R9, MA6 R9, MA7 R9
+https://docs.cloud.google.com/model-armor/configure-logging	INV(b), INV(c), INV(e), MA1 R9, MA2 R9, MA3 R9, MA4 R9, MA5 R9, MA6 R9, MA7 R9, MA8 R9
+https://docs.cloud.google.com/model-armor/data-residency	INV(b), INV(c), INV(d), MA7 R9, MA8 R9, MA9 R9
+https://docs.cloud.google.com/model-armor/feature-availability-by-region	INV(a), INV(c), INV(d), MA1 R9, MA10 R9, MA2 R9, MA3 R9, MA4 R9, MA5 R9, MA6 R9, MA7 R9, MA8 R9, MA9 R9
+https://docs.cloud.google.com/model-armor/integrations	INV(b), INV(e), MA1 R9, MA10 R9, MA2 R9, MA3 R9, MA4 R9, MA5 R9, MA6 R9, MA7 R9, MA8 R9, MA9 R9
+https://docs.cloud.google.com/model-armor/locations	INV(d), MA1 R9, MA2 R9, MA3 R9, MA4 R9, MA7 R9, MA8 R9
+https://docs.cloud.google.com/model-armor/manage-templates	INV(a), INV(b), INV(c), INV(d), INV(e), MA1 R9, MA10 R9, MA2 R9, MA3 R9, MA4 R9, MA5 R9, MA6 R9, MA7 R9, MA8 R9, MA9 R9
+https://docs.cloud.google.com/model-armor/model-armor-agent-gateway-integration	INV(b), MA1 R9, MA2 R9, MA3 R9, MA4 R9, MA5 R9, MA6 R9, MA8 R9, MA9 R9
+https://docs.cloud.google.com/model-armor/model-armor-apigee-integration	INV(b), MA1 R9, MA2 R9, MA3 R9, MA4 R9, MA5 R9, MA6 R9, MA7 R9, MA8 R9
+https://docs.cloud.google.com/model-armor/model-armor-gemini-enterprise-integration	INV(a), INV(b), MA1 R9, MA10 R9, MA2 R9, MA3 R9, MA4 R9, MA5 R9, MA6 R9, MA9 R9
+https://docs.cloud.google.com/model-armor/model-armor-langchain-integration	INV(b), MA1 R9, MA2 R9, MA3 R9, MA4 R9, MA6 R9, MA7 R9, MA8 R9, MA9 R9
+https://docs.cloud.google.com/model-armor/model-armor-mcp-google-cloud-integration	INV(b), INV(c), MA1 R9, MA2 R9, MA3 R9, MA4 R9, MA5 R9, MA6 R9, MA7 R9, MA8 R9
+https://docs.cloud.google.com/model-armor/model-armor-networking-integration	INV(b), MA1 R9, MA2 R9, MA3 R9, MA4 R9, MA5 R9, MA6 R9, MA7 R9, MA8 R9
+https://docs.cloud.google.com/model-armor/model-armor-vertex-integration	INV(a), INV(b), INV(c), MA1 R9, MA10 R9, MA2 R9, MA3 R9, MA4 R9, MA5 R9, MA6 R9, MA7 R9, MA8 R9, MA9 R9
+https://docs.cloud.google.com/model-armor/monitoring-dashboard	INV(b)
+https://docs.cloud.google.com/model-armor/overview	INV(a), INV(b), INV(c), INV(d), INV(e), MA1 R9, MA10 R9, MA2 R9, MA3 R9, MA4 R9, MA5 R9, MA6 R9, MA7 R9, MA8 R9, MA9 R9
+https://docs.cloud.google.com/model-armor/quotas	INV(a), INV(b), INV(e), MA1 R9, MA10 R9, MA2 R9, MA3 R9, MA4 R9, MA5 R9, MA6 R9, MA7 R9, MA8 R9, MA9 R9
+https://docs.cloud.google.com/model-armor/reference/libraries	INV(b), MA1 R9, MA2 R9, MA3 R9, MA4 R9, MA5 R9, MA6 R9, MA7 R9, MA8 R9
+https://docs.cloud.google.com/model-armor/reference/rest/v1/DataItem	MA10 R9, MA9 R9
+https://docs.cloud.google.com/model-armor/reference/rest/v1/FloorSetting	MA5 R9
+https://docs.cloud.google.com/model-armor/reference/rest/v1/SanitizationResult	INV(a), INV(c), MA1 R9, MA10 R9, MA2 R9, MA3 R9, MA4 R9, MA5 R9, MA6 R9, MA7 R9, MA8 R9, MA9 R9
+https://docs.cloud.google.com/model-armor/reference/rest/v1/projects.locations.templates	INV(a), INV(b), INV(c), INV(e), MA1 R9, MA10 R9, MA2 R9, MA3 R9, MA4 R9, MA5 R9, MA6 R9, MA7 R9, MA8 R9, MA9 R9
+https://docs.cloud.google.com/model-armor/reference/rest/v1/projects.locations.templates/sanitizeModelResponse	MA10 R9, MA2 R9, MA4 R9, MA6 R9, MA8 R9, MA9 R9
+https://docs.cloud.google.com/model-armor/release-notes	INV(a), INV(b), INV(c), INV(d), INV(e), MA1 R9, MA10 R9, MA2 R9, MA3 R9, MA4 R9, MA5 R9, MA6 R9, MA7 R9, MA8 R9, MA9 R9
+https://docs.cloud.google.com/model-armor/retry-strategy	INV(e)
+https://docs.cloud.google.com/model-armor/sanitize-prompts-responses	INV(a), INV(b), INV(c), INV(d), INV(e), MA1 R9, MA10 R9, MA2 R9, MA3 R9, MA4 R9, MA5 R9, MA6 R9, MA7 R9, MA8 R9, MA9 R9
+https://docs.cloud.google.com/model-armor/set-filter-version	INV(a), INV(c), INV(d), MA1 R9, MA2 R9, MA3 R9, MA4 R9, MA5 R9, MA6 R9, MA7 R9, MA8 R9
+https://docs.cloud.google.com/model-armor/version-history	MA1 R9, MA2 R9, MA3 R9, MA4 R9, MA7 R9, MA8 R9
+https://docs.cloud.google.com/security-command-center/docs/concepts-vulnerabilities-findings	INV(a), INV(b)
+https://docs.cloud.google.com/security-command-center/docs/terraform	INV(b)
+https://docs.cloud.google.com/sensitive-data-protection/docs/create-custom-infotypes-metadata-labels	INV(a), MA9 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/infotypes-reference	MA5 R9, MA6 R9
+https://docs.cloud.google.com/sensitive-data-protection/docs/redacting-sensitive-data-images	MA10 R9
+https://github.com/GoogleCloudPlatform/apigee-samples/blob/2b1a9f00fabb4e837c39d80570ff50ebc3b1349e/LICENSE.txt	INV(b)
+https://github.com/GoogleCloudPlatform/apigee-samples/blob/2b1a9f00fabb4e837c39d80570ff50ebc3b1349e/llm-security-v2/README.md	INV(b)
+https://github.com/GoogleCloudPlatform/apigee-samples/blob/2b1a9f00fabb4e837c39d80570ff50ebc3b1349e/llm-security-v2/sharedflowbundles/ModelArmor-v2/sharedflowbundle/sharedflows/default.xml	MA6 R9
+https://github.com/googleapis/google-cloud-dotnet/tree/Google.Cloud.ModelArmor.V1-1.0.0-beta07	INV(b)
+https://github.com/googleapis/google-cloud-go/blob/modelarmor/v1.3.0/LICENSE	INV(b)
+https://github.com/googleapis/google-cloud-go/blob/modelarmor/v1.3.0/modelarmor/CHANGES.md	INV(b)
+https://github.com/googleapis/google-cloud-go/blob/modelarmor/v1.3.0/modelarmor/apiv1/modelarmorpb/service.pb.go	INV(a), INV(b), INV(c), MA10 R9, MA2 R9, MA3 R9, MA4 R9, MA5 R9, MA6 R9, MA8 R9, MA9 R9
+https://github.com/googleapis/google-cloud-go/blob/modelarmor/v1.3.0/modelarmor/apiv1beta/modelarmorpb/service.pb.go	INV(b), MA3 R9, MA4 R9
+https://github.com/googleapis/google-cloud-go/blob/modelarmor/v1.3.0/modelarmor/internal/version.go	INV(b)
+https://github.com/googleapis/google-cloud-java/blob/v1.93.0/java-modelarmor/pom.xml	INV(b)
+https://github.com/googleapis/google-cloud-java/blob/v1.93.0/java-modelarmor/proto-google-cloud-modelarmor-v1/src/main/proto/google/cloud/modelarmor/v1/service.proto	INV(b), INV(c), MA3 R9, MA4 R9
+https://github.com/googleapis/google-cloud-node/tree/modelarmor-v0.10.0	INV(b)
+https://github.com/googleapis/google-cloud-php-modelarmor/tree/v0.8.3	INV(b)
+https://github.com/googleapis/google-cloud-python/tree/google-cloud-modelarmor-v0.7.2	INV(b)

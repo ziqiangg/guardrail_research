@@ -1,0 +1,722 @@
+# status 200  final_url https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Sensitive Data Protection
+Start free
+Overview
+Guides
+Reference
+Samples
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Samples
+Resources
+Console
+Discover
+Product overview
+Plan your data risk management strategy
+Evaluate your data risk management needs
+Learn about your data through discovery and inspection
+Recommended strategies for mitigating data risk
+Release notes
+Pricing
+Locations
+Global and regional endpoints for Sensitive Data Protection
+Sensitive Data Protection locations
+Specify a processing location
+Service method types
+Supported file types and scanning modes
+Get started
+Quickstarts
+Inspect text using the command-line tool
+Inspect text using a JSON request
+Schedule an inspection scan
+Create an inspection template
+De-identify and re-identify sensitive text
+Google Cloud Skills Boost labs
+Detect sensitive data
+Discover and profile data resources
+Overview of sensitive data discovery
+Common discovery enablement scenarios
+Allow discovery within service perimeters
+Profile your data
+Profile a single data resource
+Profile BigQuery data
+Estimate BigQuery data profiling cost
+Estimate the cost of profiling BigQuery data in a project
+Estimate the cost of profiling BigQuery data in an organization or folder
+Profile BigQuery data in a project
+Profile BigQuery data in an organization or folder
+Profile Cloud SQL data
+Profile Cloud SQL data in a project
+Profile Cloud SQL data in an organization or folder
+Manage connections
+Profile Cloud Storage data
+Profile Cloud Storage data in a project
+Profile Cloud Storage data in an organization or folder
+Profile Vertex AI data
+Sensitive data discovery for Vertex AI data
+Profile Vertex AI data in a project
+Profile Vertex AI data in an organization or folder
+Profile Amazon S3 data
+Sensitive data discovery for Amazon S3 data
+Profile Amazon S3 data
+Profile Azure Blob Storage data
+Report secrets in environment variables to Security Command Center
+Grant data profiling access to a service agent
+Manage data profiles
+Control IAM access to resources based on data sensitivity
+Send discovery insights to other services
+Enable discovery actions
+Send data profiles to Security Command Center
+Receive and parse Pub/Sub messages about data profiles
+Tag tables in Data Catalog based on insights from data profiles
+Add Knowledge Catalog aspects based on insights from data profiles
+Analyze and visualize data profiles
+Visualize data profiles in the discovery dashboard
+Analyze data profiles
+Remediate findings from the data profiler
+Manage scan configurations
+Troubleshoot issues with the data profiler
+Metrics reference
+Data risk and sensitivity levels
+Inspect for sensitive data
+Inspect data stored in Google Cloud
+Inspect data from any source
+Inspect unstructured text synchronously
+Inspect structured text synchronously
+Inspect an image synchronously
+Asynchronous inspection overview
+Inspect data from any source asynchronously
+Quote the sensitive data in the results
+Work with inspection results
+Actions
+Send inspection results to Knowledge Catalog as aspects
+Send inspection results to Data Catalog
+Send inspection results to Security Command Center
+Analyze and report on inspection findings
+Query inspection findings in BigQuery
+Parse findings stored as Protobuf text
+Jobs and job triggers
+Overview of jobs and job triggers
+Create and manage jobs and job triggers
+Web-based inspection demonstration app
+Allow or block content based on sensitivity
+Overview of content policies
+Create and manage content policies
+Configure detection
+Templates
+Overview of templates
+Create inspection templates
+InfoTypes and infoType detectors
+Overview of infoTypes and infoType detectors
+Built-in infoType detectors
+List built-in infoType detectors
+InfoType detector reference
+Custom infoType detectors
+Overview of custom infoType detectors
+Create a regular custom dictionary detector
+Create a large custom dictionary detector
+Create a custom regex detector
+Create a custom metadata label detector
+Custom infoType examples
+Manage infoTypes through the Google Cloud console
+Modify infoType detectors to refine scan results
+Match likelihood
+Likelihood overview
+Customize match likelihood
+Mask and de-identify data
+Overview
+Transformation methods
+Transformation reference
+Text classification and redaction
+Date shifting
+Generalization and bucketing
+Pseudonymization
+De-identify sensitive data
+De-identify data stored in Google Cloud
+Overview
+Through the Cloud console
+Through the DLP API
+Transformation details reference
+De-identify data from any source
+De-identify text or tabular content
+Examples of text redaction
+Examples of tabular data de-identification
+Image inspection and redaction
+Redact sensitive data from images
+Create a de-identification template
+Create a wrapped key
+De-identify BigQuery data at query time
+De-identification and re-identification of PII in large-scale datasets
+Redact sensitive data from PDF files
+Analyze re-identification risk
+Overview of re-identification risk analysis
+Re-identification risk analysis techniques
+Compute k-anonymity for a dataset
+Compute l-diversity for a dataset
+Compute k-map for a dataset
+Compute δ-presence for a dataset
+Compute numerical and categorical statistics
+Visualize re-identification risk using Data Studio
+Connect to other services
+Use Sensitive Data Protection with BigQuery
+Use Sensitive Data Protection with Cloud Storage
+Use Sensitive Data Protection with Cloud Storage
+Automate the classification of data uploaded to Cloud Storage
+Send inspection results to Data Catalog
+Send inspection results to Security Command Center
+Monitor your usage with Cloud Monitoring
+Use Sensitive Data Protection with AWS S3
+Use Sensitive Data Protection with JDBC Databases
+Use Sensitive Data Protection with Apigee
+Use Sensitive Data Protection with Data Fusion
+Build a secure anomaly detection solution using Dataflow, BigQuery ML, and Sensitive Data Protection
+Troubleshoot
+Troubleshoot issues with the data profiler
+Control access
+Authentication
+IAM
+Access control with IAM
+Sensitive Data Protection roles and permissions
+Sensitive Data Protection service agents
+Control access with VPC Service Controls
+Monitor
+Audit logging
+Monitor your usage with Cloud Monitoring
+Develop
+All Sensitive Data Protection code samples
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Cloud Data Loss Prevention (Cloud DLP) is now a part of Sensitive Data Protection. The API name remains the same: Cloud Data Loss Prevention API (DLP API). For information about the services that make up Sensitive Data Protection, see Sensitive Data Protection overview.
+Home
+Documentation
+Security
+Sensitive Data Protection
+Guides
+Send feedback
+Specifying processing locations
+Stay organized with collections
+Save and categorize content based on your preferences.
+With the ability to specify a region in which to perform your Sensitive Data Protection
+operations, you can control where your potentially sensitive data is processed.
+This document explains the concept of Sensitive Data Protection processing location
+and shows you how to specify a region.
+To see a list of supported regions and multi-regions, see
+Sensitive Data Protection locations.
+About regions and multi-regions
+A region is a specific geographic place, such as the western United States or
+northeast Asia. A multi-region location (or just multi-region) is a large
+geographic area, such as the European Union, that contains two or more
+geographic regions.
+Location considerations
+A good location balances latency, availability, and bandwidth costs.
+Use a region to help optimize latency and network bandwidth.
+Use a multi-region when you want to process data from outside of the Google
+network and distributed across large geographic areas, or when you want the
+higher availability that comes with being redundant across regions.
+Generally, you should process your data in a location that is convenient or
+contains the majority of the users of your data.
+If your organization is required to keep in-transit data within a specified
+location, then use only the regions or multi-regions that support regional
+endpoints. In this
+case, you need to use the Cloud Data Loss Prevention API, because the regional endpoints for
+Sensitive Data Protection aren't available for use with the
+Google Cloud console.
+Specify a region
+How you specify the processing region depends on the type of endpoint you are
+sending the request to—the global endpoint or a regional endpoint. The
+type of endpoint you choose depends on whether you're required to keep
+in-transit data within a specified region. For more information, see Global and
+regional endpoints for
+Sensitive Data Protection.
+Specify a region in a request to the global endpoint
+Console
+Choose a region when setting up your Sensitive Data Protection operation.
+For example, when creating a job trigger,
+choose a location from the Resource location menu, as shown here:
+If the processing location is not a concern, use the Global region and Google chooses
+the location where processing should take place. Global is the default
+region choice.
+REST
+Insert region information into the request endpoint URL. If the processing location is
+not a concern, use the global region and Google chooses the location where
+processing should take place. Note that any resources created by a request that
+specifies the global region are stored under the global region.
+The following are some example requests to the global endpoint.
+Using the global region
+The following two requests have the same effect. Not including a region is the
+same as specifying locations/global/.
+POST https://www.googleapis.com/dlp/v2/projects/PROJECT_ID/locations/global/content:inspect
+POST https://www.googleapis.com/dlp/v2/projects/PROJECT_ID/content:inspect
+Using a specific region
+To specify a region for processing, within the resource URL, insert
+locations/ and then the region name.
+POST https://www.googleapis.com/dlp/v2/projects/PROJECT_ID/locations/us-west2/content:inspect
+Specify a region in a request to a regional endpoint
+Console
+For Sensitive Data Protection, regional endpoints aren't available for use
+with the Google Cloud console.
+C#
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Google.Api.Gax.ResourceNames;
+using Google.Cloud.Dlp.V2;
+using static Google.Cloud.Dlp.V2.InspectConfig.Types;
+public class InspectStringRep
+{
+public static InspectContentResponse Inspect(
+string projectId,
+string repLocation,
+string dataValue,
+string minLikelihood,
+int maxFindings,
+bool includeQuote,
+IEnumerable<InfoType> infoTypes,
+IEnumerable<CustomInfoType> customInfoTypes)
+{
+var inspectConfig = new InspectConfig
+{
+MinLikelihood = (Likelihood)Enum.Parse(typeof(Likelihood), minLikelihood, true),
+Limits = new FindingLimits
+{
+MaxFindingsPerRequest = maxFindings
+},
+IncludeQuote = includeQuote,
+InfoTypes = { infoTypes },
+CustomInfoTypes = { customInfoTypes }
+};
+var request = new InspectContentRequest
+{
+Parent = new LocationName(projectId, repLocation).ToString(),
+Item = new ContentItem
+{
+Value = dataValue
+},
+InspectConfig = inspectConfig
+};
+var dlp = new DlpServiceClientBuilder
+{
+Endpoint = $"dlp.{repLocation}.rep.googleapis.com"
+}.Build();
+var response = dlp.InspectContent(request);
+PrintResponse(includeQuote, response);
+return response;
+}
+private static void PrintResponse(bool includeQuote, InspectContentResponse response)
+{
+var findings = response.Result.Findings;
+if (findings.Any())
+{
+Console.WriteLine("Findings:");
+foreach (var finding in findings)
+{
+if (includeQuote)
+{
+Console.WriteLine($" Quote: {finding.Quote}");
+}
+Console.WriteLine($" InfoType: {finding.InfoType}");
+Console.WriteLine($" Likelihood: {finding.Likelihood}");
+}
+}
+else
+{
+Console.WriteLine("No findings.");
+}
+}
+}
+Go
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import (
+"context"
+"fmt"
+"io"
+dlp "cloud.google.com/go/dlp/apiv2"
+"cloud.google.com/go/dlp/apiv2/dlppb"
+"google.golang.org/api/option"
+)
+// inspectString inspects the a given string, and prints results.
+func inspectStringRep(w io.Writer, projectID, repLocation, textToInspect string) error {
+// projectID := "my-project-id"
+// textToInspect := "My name is Gary and my email is gary@example.com"
+ctx := context.Background()
+// Assemble the regional endpoint url using provided rep location
+repEndpoint := fmt.Sprintf("dlp.%s.rep.googleapis.com:443", repLocation)
+// Initialize client.
+client, err := dlp.NewClient(ctx, option.WithEndpoint(repEndpoint))
+if err != nil {
+return err
+}
+defer client.Close() // Closing the client safely cleans up background resources.
+// Create and send the request.
+req := &dlppb.InspectContentRequest{
+Parent: fmt.Sprintf("projects/%s/locations/%s", projectID, repLocation),
+Item: &dlppb.ContentItem{
+DataItem: &dlppb.ContentItem_Value{
+Value: textToInspect,
+},
+},
+InspectConfig: &dlppb.InspectConfig{
+InfoTypes: []*dlppb.InfoType{
+{Name: "PHONE_NUMBER"},
+{Name: "EMAIL_ADDRESS"},
+{Name: "CREDIT_CARD_NUMBER"},
+},
+IncludeQuote: true,
+},
+}
+resp, err := client.InspectContent(ctx, req)
+if err != nil {
+return err
+}
+// Process the results.
+result := resp.Result
+fmt.Fprintf(w, "Findings: %d\n", len(result.Findings))
+for _, f := range result.Findings {
+fmt.Fprintf(w, "\tQuote: %s\n", f.Quote)
+fmt.Fprintf(w, "\tInfo type: %s\n", f.InfoType.Name)
+fmt.Fprintf(w, "\tLikelihood: %s\n", f.Likelihood)
+}
+return nil
+}
+Java
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import com.google.cloud.dlp.v2.DlpServiceClient;
+import com.google.cloud.dlp.v2.DlpServiceSettings;
+import com.google.privacy.dlp.v2.ByteContentItem;
+import com.google.privacy.dlp.v2.ByteContentItem.BytesType;
+import com.google.privacy.dlp.v2.ContentItem;
+import com.google.privacy.dlp.v2.Finding;
+import com.google.privacy.dlp.v2.InfoType;
+import com.google.privacy.dlp.v2.InspectConfig;
+import com.google.privacy.dlp.v2.InspectContentRequest;
+import com.google.privacy.dlp.v2.InspectContentResponse;
+import com.google.privacy.dlp.v2.LocationName;
+import com.google.protobuf.ByteString;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+public class InspectStringRep {
+public static void main(String[] args) throws Exception {
+// TODO(developer): Replace these variables before running the sample.
+String projectId = "your-project-id";
+String repLocation = "regional-endpoint-location-to-use";
+String textToInspect = "My name is Gary and my email is gary@example.com";
+inspectString(projectId, repLocation, textToInspect);
+}
+// Inspects the provided text.
+public static void inspectString(String projectId, String repLocation, String textToInspect)
+throws IOException {
+// Assemble the regional endpoint url using provided rep location
+String repEndpoint = String.format("dlp.%s.rep.googleapis.com:443", repLocation);
+DlpServiceSettings settings = DlpServiceSettings.newBuilder()
+.setEndpoint(repEndpoint)
+.build();
+// Initialize client that will be used to send requests. This client only needs to be created
+// once, and can be reused for multiple requests. After completing all of your requests, call
+// the "close" method on the client to safely clean up any remaining background resources.
+try (DlpServiceClient dlp = DlpServiceClient.create(settings)) {
+// Specify the type and content to be inspected.
+ByteContentItem byteItem =
+ByteContentItem.newBuilder()
+.setType(BytesType.TEXT_UTF8)
+.setData(ByteString.copyFromUtf8(textToInspect))
+.build();
+ContentItem item = ContentItem.newBuilder().setByteItem(byteItem).build();
+// Specify the type of info the inspection will look for.
+List<InfoType> infoTypes = new ArrayList<>();
+// See https://cloud.google.com/dlp/docs/infotypes-reference for complete list of info types
+for (String typeName : new String[] {"PHONE_NUMBER", "EMAIL_ADDRESS", "CREDIT_CARD_NUMBER"}) {
+infoTypes.add(InfoType.newBuilder().setName(typeName).build());
+}
+// Construct the configuration for the Inspect request.
+InspectConfig config =
+InspectConfig.newBuilder().addAllInfoTypes(infoTypes).setIncludeQuote(true).build();
+// Construct the Inspect request to be sent by the client.
+InspectContentRequest request =
+InspectContentRequest.newBuilder()
+.setParent(LocationName.of(projectId, repLocation).toString())
+.setItem(item)
+.setInspectConfig(config)
+.build();
+// Use the client to send the API request.
+InspectContentResponse response = dlp.inspectContent(request);
+// Parse the response and process results
+System.out.println("Findings: " + response.getResult().getFindingsCount());
+for (Finding f : response.getResult().getFindingsList()) {
+System.out.println("\tQuote: " + f.getQuote());
+System.out.println("\tInfo type: " + f.getInfoType().getName());
+System.out.println("\tLikelihood: " + f.getLikelihood());
+}
+}
+}
+}
+REST
+The following example sends a content.inspect request to a regional endpoint.
+Any data attached to this request remains in the specified region while in
+transit, in use, and at rest.
+Before using any of the request data,
+make the following replacements:
+REGION: a region where a regional endpoint for
+Sensitive Data Protection is available—for example, us-west2. For a full
+list of regions, see Sensitive Data Protection locations.
+PROJECT_ID: your Google Cloud project ID. Project IDs are
+alphanumeric strings, like example-project.
+HTTP method and URL:
+POST https://dlp.REGION.rep.googleapis.com/v2/projects/PROJECT_ID/locations/REGION/content:inspect
+Request JSON body:
+{
+"inspectConfig": {
+"infoTypes": [
+{
+"name": "CREDIT_CARD_NUMBER"
+}
+]
+},
+"item": {
+"value": "hi, my ccn is 4111111111111111"
+}
+}
+To send your request, expand one of these options:
+curl (Linux, macOS, or Cloud Shell)
+Note:
+The following command assumes that you have logged in to
+the gcloud CLI with your user account by running
+gcloud init
+or
+gcloud auth login
+, or by using Cloud Shell,
+which automatically logs you into the gcloud CLI
+.
+You can check the currently active account by running
+gcloud auth list.
+Save the request body in a file named inspect-request.json,
+and execute the following command:
+curl -X POST \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "x-goog-user-project: PROJECT_ID" \
+-H "Content-Type: application/json; charset=utf-8" \
+-d @inspect-request.json \
+"https://dlp.REGION.rep.googleapis.com/v2/projects/PROJECT_ID/locations/REGION/content:inspect"
+PowerShell (Windows)
+Note:
+The following command assumes that you have logged in to
+the gcloud CLI with your user account by running
+gcloud init
+or
+gcloud auth login
+.
+You can check the currently active account by running
+gcloud auth list.
+Save the request body in a file named inspect-request.json,
+and execute the following command:
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred"; "x-goog-user-project" = "PROJECT_ID" }
+Invoke-WebRequest `
+-Method POST `
+-Headers $headers `
+-ContentType: "application/json; charset=utf-8" `
+-InFile inspect-request.json `
+-Uri "https://dlp.REGION.rep.googleapis.com/v2/projects/PROJECT_ID/locations/REGION/content:inspect" | Select-Object -Expand Content
+You should receive a JSON response similar to the following:
+{
+"result": {
+"findings": [
+{
+"infoType": {
+"name": "CREDIT_CARD_NUMBER",
+"sensitivityScore": {
+"score": "SENSITIVITY_HIGH"
+}
+},
+"likelihood": "LIKELY",
+"location": {
+"byteRange": {
+"start": "14",
+"end": "30"
+},
+"codepointRange": {
+"start": "14",
+"end": "30"
+}
+},
+"createTime": "2024-08-09T19:54:13.348Z",
+"findingId": "2024-08-09T19:54:13.352163Z4747901452516738787"
+}
+]
+}
+}
+Co-location considerations
+When you scan a storage repository such as Cloud Storage or
+BigQuery, you should specify the same location in your
+Sensitive Data Protection request as the location of the repository you're
+scanning. For example, if the BigQuery dataset is in the European
+Union multi-region location, specify the European Union multi-region (europe)
+when configuring the Sensitive Data Protection job.
+If you do not co-locate your Sensitive Data Protection request with the storage
+repository you're scanning, processing of your request may be split between the
+location of the data and the location specified in the request.
+Note: Sensitive Data Protection templates, stored infoTypes, and Cloud KMS
+keys can only be used by Sensitive Data Protection jobs, job triggers, and the
+content methods in the same region.
+What's next
+Learn more about geography and zones.
+See a list of supported regions and
+multi-regions.
+Learn more about Global and regional endpoints for
+Sensitive Data Protection.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-07 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

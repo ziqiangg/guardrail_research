@@ -32,3 +32,4 @@
 - 2026-10-09 sdp P6 done: 208 edits, 14/54 Summaries changed, 62 items open; checks 0/0; inventory 15/24/12/13/16/7; P7 started
 - 2026-10-09 modelarmor P6 done: 247 column ops + 64 inventory ops, 26 Summary changes; checks 0/0; BLOCKS 10/15/16/20/16; pin modelarmor/v1.3.0; P7 started
 - 2026-10-09 presidio P6 done: 262 edits, 25/54 Summaries changed; checks 0/0; inventory 14/31/10/14; P7 started
+- 2026-10-09 presidio P7: PASS WITH FIXES, 4 required (2523c7b bullet split; PD1 R1 and PD4 R6 support bullets; surrogate_ahds PD5), 27/27 spot-checks MATCH, 0 real URL failures; fix loop sent to same merger

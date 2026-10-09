@@ -1,0 +1,942 @@
+
+=== MA1 R1 SUMMARY
+- **Input-level responsible AI safety filtering.** Model Armor screens a user prompt for hate speech, harassment, sexually explicit and dangerous content at a confidence level set per category. A CSAM check also runs and cannot be turned off. The calling service enforces any block. **[Documented]**
++ **Input-level responsible AI safety filtering.** Model Armor screens a user prompt for hate speech, harassment, sexually explicit and dangerous content at a per-category confidence level. A CSAM check is on by default but unavailable in limited-support locations with residency enforced. The caller enforces any block. **[Documented]**
+
+--- MA1 R2 insert
+  + • The feature table shows multi-language detection as "No" in all seven limited-support locations when data residency is enforced, while the Skipped Detection note names only asia-south1 and northamerica-northeast2 (feature availability page, sanitize page, 2026-10-09) **[Documented]**
+  +!• What a non-English prompt returns in the other five limited-support locations, including asia-southeast1 (checked the sanitize, feature availability, data residency and release notes pages) **[Not disclosed]**
+
+--- MA1 R2 replace
+  - • Docs state the CSAM filter "cannot be turned off" (overview) but the feature table for templates with data residency enforced shows CSAM support "No" in all seven limited-support locations and "Yes" in the full-support ones (feature availability page, 2026-10-09) **[Documented]**
+  + • Overview: the CSAM filter "is applied by default and cannot be turned off" (overview, 2026-10-09) **[Documented]**
+  +!• Feature table for templates with data residency enforcement enabled: CSAM support is "No" in asia-northeast1, asia-northeast3, asia-south1, asia-southeast1, australia-southeast2, europe-west2 and northamerica-northeast2, and "Yes" in the full-support locations (feature availability page, 2026-10-09) **[Documented]**
+  +!• Disabling data residency enforcement "allows cross-jurisdictional routing to enable Model Armor features that are otherwise unavailable in limited-support regions"; floor-setting configurations have all features available (release note 2026-08-27, feature availability page, 2026-10-09) **[Documented]**
+  +!• CSAM detection is therefore expected to run in a limited-support location when enforcement is off; the pages do not name CSAM in that sentence **[Inferred]**
+
+--- MA1 R2 insert
+  + • The overview and the blog place "topicality" inside the sensitive data protection filter ("sensitive data protection (including topicality)") (overview, Google Cloud blog, 2026-10-09) **[Documented]**
+  +!• Topic rules are probably custom detectors in a Sensitive Data Protection template; the premise is the "including topicality" phrase and the absence of any topic setting **[Inferred]**
+
+--- MA1 R3 insert
+  + • Naming: the docs call the Vertex AI route "Gemini Enterprise Agent Platform" (short form Agent Platform below); they still say "Gemini API in Vertex AI" for the generateContent method and use VERTEX_AI in gcloud flags, and list "Gemini Enterprise" as a separate integration (integrations page, Agent Platform integration page, 2026-10-09) **[Documented]**
+
+--- MA1 R3 replace
+  - • Whether the responsible AI filter is applied to text read out of images by OCR: the image examples show only `csam` and `sdp` results, and the reference says text and visual content "will be sanitized depending on the filter configuration" (sanitize page, REST templates ref, 2026-10-09) **[To be verified]**
+  + • The REST modality reference says the text content of an image is sanitized "depending on the filter configuration" (REST templates ref, 2026-10-09) **[Documented]**
+  +!• Whether the responsible AI filter examines text read out of images by OCR is not stated (checked the overview image section, the sanitize page image examples, which show only `csam` and `sdp` results, the templates page, the REST references and release notes 2026-06-25 and 2026-07-01) **[Not disclosed]**
+
+--- MA1 R4 replace
+  - • Pricing: standalone use has "no cost for using Model Armor up to 2 million tokens per month" and then "$0.10 per million tokens"; separately, "Security Command Center includes Model Armor with a predefined number of tokens per month at no additional cost" (pricing page, 2026-10-09) **[Documented]**
+  - • Data handling: Model Armor "operates as a stateless service, processing all prompts and model responses entirely in memory"; content is stored only if Cloud Logging is enabled, and `logSanitizeOperations` logs the full content of prompts and responses (overview, logging page, 2026-10-09) **[Documented]**
+  + • Pricing: standalone use has "no cost for using Model Armor up to 2 million tokens per month" and then "$0.10 per million tokens" (pricing page, 2026-10-09) **[Documented]**
+  +!• Pricing: "Security Command Center includes Model Armor with a predefined number of tokens per month at no additional cost" (pricing page, 2026-10-09) **[Documented]**
+  +!• Whether the standalone allowance applies per project, organisation or billing account is not stated (checked the pricing page, overview and quotas page) **[Not disclosed]**
+  + • Data handling: Model Armor "operates as a stateless service, processing all prompts and model responses entirely in memory"; content is stored only if Cloud Logging is enabled (overview, 2026-10-09) **[Documented]**
+  +!• The logging page says `log_sanitize_operations` lets you "log the full content of user prompts and model responses during sanitize operations" (logging page, 2026-10-09) **[Documented]**
+  + • The overview says that with Cloud Logging enabled, event details "might include metadata or snippets of the analyzed content as configured" (overview, 2026-10-09) **[Documented]**
+
+--- MA1 R4 replace
+  - • Release status of routes: Agent Platform GA (release note 2025-12-03), Agent Gateway GA (2026-06-24), Gemini Enterprise GA (2025-09-16), Google and Google Cloud MCP servers GA (2026-04-22), GKE integration GA (2025-09-15), streaming sanitization GA (2026-07-10), LangChain Preview (LangChain page) **[Documented]**
+  - • Apigee policies `SanitizeUserPrompt` and `SanitizeModelResponse` and load-balancer Service Extensions other than GKE: no GA or Preview label found on the pages read **[To be verified]**
+  - • Client libraries exist for C#, Go, Java, Node.js, PHP and Python; the C# install line is a pre-release package (`--version 1.0.0-beta05`) (client libraries page, 2026-10-09) **[Documented]**
+  + • Release status of routes (release notes unless stated, 2026-10-09) **[Documented]**
+  +!  – Agent Platform: GA (release note 2025-12-03)
+  +!  – Agent Gateway: GA (release note 2026-06-24)
+  +!  – Gemini Enterprise: GA (release note 2025-09-16)
+  +!  – Google and Google Cloud MCP servers: GA (release note 2026-04-22)
+  +!  – GKE integration: GA (release note 2025-09-15)
+  +!  – Streaming sanitization: GA (release note 2026-07-10)
+  +!  – LangChain: Preview (LangChain page)
+  + • The floor settings page still labels the Google Cloud MCP servers integration "(Preview)" (floor settings page, 2026-10-09); the dated release note 2026-04-22 says General Availability and is preferred, because the page label is undated **[Documented]**
+  + • Apigee policies `SanitizeUserPrompt` and `SanitizeModelResponse`: Public Preview on 2025-05-22 and Generally Available on 2025-09-04 on Apigee X (Apigee release notes, Apigee docs not Model Armor docs, 2026-10-09) **[Documented]**
+  +!• Service Extensions on application load balancers: Preview in release note 2025-04-09; the GKE Inference Gateway integration is Generally Available from release note 2025-09-15 (release notes, 2026-10-09) **[Documented]**
+  +!• A GA date for other load balancers and for Secure Web Proxy (checked the release notes, the networking page and the integrations page; the Service Extensions configuration page returned no text through the raw fetch, so it is unread) **[To be verified]**
+  + • Client libraries exist for C#, Go, Java, Node.js, PHP and Python; the page shows Java 0.40.0 in its sbt line and a pre-release C# package (`--version 1.0.0-beta05`) (client libraries page, 2026-10-09) **[Documented]**
+
+=== MA1 R5 SUMMARY
+- **Match states per category.** The result gives an overall match state and one for each of the four categories, sometimes with a confidence level. Google states two different defaults for an omitted level. **[Documented]**
++ **Match states per category.** The result gives an overall match state and one for each of the four categories, sometimes with a confidence level. Google's pages state three different defaults for an omitted level. **[Documented]**
+
+--- MA1 R5 replace
+  - • The two default statements differ and no page says which applies to an API call that omits the level **[To be verified]**
+  + • Default level, floor settings console: "If you don't specify a confidence level, it defaults to Medium and above." (floor settings page, console steps, 2026-10-09) **[Documented]**
+  + • The three default statements differ (High on the templates page; unspecified equals LOW_AND_ABOVE or "a reasonable default level based on the filterType" in the REST reference; Medium and above on the floor settings page) and no page says which applies to a template created through the API without a level (checked the templates page, floor settings page, REST templates reference and overview) **[To be verified]**
+
+--- MA1 R5 replace
+  - • The false-positive risk ratings in the overview table (very low, moderate, high) are qualitative; no measured rates accompany them **[Inferred]**
+  + • The overview table rates the false-positive risk per level in words (very low, moderate, high) (overview, 2026-10-09) **[Documented]**
+
+--- MA1 R6 replace
+  - • Over the limit the filter returns `EXECUTION_SKIPPED` with the message "Detection skipped as token limit exceeded." (quotas page, 2026-10-09) **[Documented]**
+  - • Unlimited tokens apply in real-time streaming mode, and the limits "don't apply to the Model Armor integration with Gemini Enterprise" (quotas page, 2026-10-09) **[Documented]**
+  + • Over the limit, a filter that finds a match still returns `MATCH_FOUND`; a filter that finds no match returns `EXECUTION_SKIPPED` with "Detection skipped as token limit exceeded." in `messageItems` (quotas page, 2026-10-09) **[Documented]**
+  +!• A payload longer than the limit may be only partly screened. Premise: the quotas page says Model Armor "screens text up to 65,536 tokens" and states the skip result only for the no-match case **[Inferred]**
+  + • In real-time streaming mode Model Armor "supports unlimited tokens"; buffered streaming mode keeps the token limits (quotas page, sanitize page, 2026-10-09) **[Documented]**
+  + • For streamed content, "make sure that individual chunks don't exceed the token limits" (sanitize page, 2026-10-09) **[Documented]**
+  +!• The token limits "don't apply to the Model Armor integration with Gemini Enterprise" (quotas page, 2026-10-09) **[Documented]**
+
+--- MA1 R7 insert
+  + • The Acceptable Use Policy lists "child sexual exploitation, child abuse" among illegal activity (Google Cloud Acceptable Use Policy, 2026-10-09) **[Documented]**
+
+--- MA1 R7 insert
+  + • Google's Acceptable Use Policy bars using the Services "to test or reverse-engineer the Services in order to find limitations or vulnerabilities, or to evade filtering capabilities, except as expressly permitted in the Agreement" (Google Cloud Acceptable Use Policy, 2026-10-09) **[Documented]**
+  +!• Whether sending jailbreak, injection or harmful-content prompts to measure detection rates is "expressly permitted" is not stated (checked the Acceptable Use Policy and the General Service Terms) **[Not disclosed]**
+
+--- MA1 R8 replace
+  - • Default confidence level when the field is omitted: High (templates page console note) or the same as Low and above (REST reference); needs testing
+  + • Default confidence level when the field is omitted: High (templates page console note), Medium and above (floor settings page) or the same as Low and above (REST reference); needs testing
+
+--- MA1 R8 insert
+  + • Whether the Acceptable Use Policy testing clause covers detection benchmarks (checked the Acceptable Use Policy and General Service Terms, not stated; needs the project owner's reading)
+
+=== MA1 R9 SUMMARY
+- Model Armor documentation pages on docs.cloud.google.com, the Model Armor product page, the Security Command Center pricing page and the Apigee policy reference.
++ Model Armor documentation pages on docs.cloud.google.com, the product page, the Security Command Center pricing page, the Google Cloud blog, the Apigee policy reference and release notes, and Google's terms pages.
+
+--- MA1 R9 insert
+  + • https://docs.cloud.google.com/apigee/docs/release-notes
+  + • https://cloud.google.com/terms/aup
+  + • https://cloud.google.com/terms/service-terms
+  + • https://cloud.google.com/blog/products/identity-security/how-model-armor-can-help-protect-your-ai-apps
+
+--- MA10 R1 replace
+  - • Sensitive Data Protection is a separate Google Cloud service; what its image detectors and redaction transformations can do is covered in the Sensitive Data Protection columns on sheet 3, and this column covers how Model Armor invokes them. The premise is that Model Armor docs only describe the call **[Inferred]**
+  + • The overview links to the Sensitive Data Protection infoTypes reference, match likelihood and overview pages (overview page links, 2026-10-09) **[Documented]**
+  + • Sensitive Data Protection is a separate Google Cloud service; what its image detectors and redaction transformations can do is covered in the Sensitive Data Protection columns on sheet 3 for images, and this column covers how Model Armor invokes them. The premise is that the overview links out for these topics (previous bullet) **[Inferred]**
+
+--- MA10 R2 replace
+  - • Source conflict on embedded images (2): the Gemini Enterprise page says the integration screens "Images contained inside other files and documents that you upload directly" (Gemini Enterprise integration page, 2026-10-09) **[Documented]**
+  + • Source conflict on embedded images (2): the integrations page says "images embedded in documents aren't screened" for the Gemini Enterprise integration (integrations page, 2026-10-09) **[Documented]**
+  +!• Source conflict on embedded images (3): the Gemini Enterprise page says the integration screens "Images contained inside other files and documents that you upload directly" (Gemini Enterprise integration page, 2026-10-09) **[Documented]**
+  + • No page reconciles the three statements on embedded images (checked the overview, integrations page, Gemini Enterprise page, release notes 2025-09-16 and 2026-06-25, and the sanitize page) **[Not disclosed]**
+
+=== MA10 R3 SUMMARY
+- **One base64 image in the prompt field.** The image goes in a byte item typed IMAGE, in a template with image modality, at a us or eu endpoint. Docs say responses are screened too but show no response example. Text-plus-image requests are unsupported. **[Documented]**
++ **One base64 image in the prompt field.** The image goes in a data item of image type, in a template with image modality, at a us or eu endpoint. Docs say responses are screened too but show no response example. Text-plus-image requests are unsupported. **[Not disclosed]**
+
+--- MA10 R3 insert
+  + • No page reconciles the two lists (checked the integrations page, the Gemini Enterprise page and release notes 2025-09-16 and 2026-06-25) **[Not disclosed]**
+  + • Naming: the docs call the Vertex AI route "Gemini Enterprise Agent Platform" (short form Agent Platform below); they still say "Gemini API in Vertex AI" for the generateContent method and use VERTEX_AI in gcloud flags, and list "Gemini Enterprise" as a separate integration (integrations page, Agent Platform integration page, 2026-10-09) **[Documented]**
+
+=== MA10 R4 SUMMARY
+- **OCR plus advanced Sensitive Data Protection, in Preview.** The service reads image text and uses your inspect template for visuals; redaction needs a de-identify template with image redaction. The OCR engine is not disclosed. Images run only in the us and eu multi-regions. **[Documented]**
++ **OCR plus advanced Sensitive Data Protection, in Preview.** The service reads image text and uses your inspect template for visuals; redaction needs a de-identify template with image redaction. The OCR engine is not disclosed. Images run only in the us and eu multi-regions. **[Not disclosed]**
+
+--- MA10 R4 insert
+  + • Preview features are Pre-GA Offerings: "PRE-GA OFFERINGS ARE PROVIDED “AS IS” WITHOUT ANY EXPRESS OR IMPLIED WARRANTIES OR REPRESENTATIONS OF ANY KIND." (Google Cloud General Service Terms, Pre-GA Offerings Terms, 2026-10-09) **[Documented]**
+  +!• Unless Google's documentation says otherwise, "no data processing terms (including the Cloud Data Processing Addendum) apply to Pre-GA Offerings and Customer should not use Pre-GA Offerings to process personal data or other data subject to legal or regulatory compliance requirements" (Google Cloud General Service Terms, 2026-10-09) **[Documented]**
+  +!• Google's launch-stage description says "Unless stated otherwise by Google, Preview offerings are intended for use in test environments only." (Google Cloud products page, 2026-10-09) **[Documented]**
+
+=== MA10 R5 SUMMARY
+- **Match state, extracted text and an optional redacted image.** Results come as inspect or redact results with execution and match state. A redact result can carry the redacted image, findings with pixel boxes and the extracted text. No score or accuracy figure is published. **[Documented]**
++ **Match state, extracted text and an optional redacted image.** Results come as inspect or redact results with execution and match state. A redact result can carry the redacted image, findings with pixel boxes and the extracted text. **[Documented]**
+
+--- MA10 R5 insert
+  + • In the Sensitive Data Protection API, `includeFindings` is a field of the image redact request ("Whether the response should include findings along with the redacted image."), not of an inspect or de-identify template (Sensitive Data Protection API discovery document, 2026-10-09) **[Documented]**
+  +!• Where Model Armor sets `include_findings`, and whether a template setting controls it, is not stated (checked the templates reference, templates page, sanitize page and floor settings page) **[Not disclosed]**
+
+--- MA10 R5 replace
+  - • Source conflict on box shape (2): the sanitize page example shows a single `boundingBox` object with top 16, left 121, width 620, height 90 (sanitize page, 2026-10-09) **[Documented]**
+  + • The pinned Go library types `BoundingBoxes` as a list of boxes with `Top`, `Left`, `Width` and `Height` (modelarmor/apiv1/modelarmorpb/service.pb.go@modelarmor/v1.3.0:3376) **[Documented: repo googleapis/google-cloud-go@modelarmor/v1.3.0]**
+  + • Source conflict on box shape (2): the sanitize page redaction example shows a single `boundingBox` object (top 16, left 121, width 620, height 90) (sanitize page, 2026-10-09) **[Documented]**
+  +!• The example is probably abbreviated or from an older format. Premise: the REST reference and the pinned Go type both give a list **[Inferred]**
+
+=== MA10 R6 SUMMARY
+- **Base64 image, 4 MB cap, one image per call.** The type must be IMAGE and the format JPEG, PNG or BMP. The template needs image modality, a us or eu location and, for visual scanning, an advanced template; redaction needs a de-identify template. **[Documented]**
++ **Base64 image, 4 MB cap, one image per call.** The data type must be image and the format JPEG, PNG or BMP. The template needs image modality, a us or eu location and, for visual scanning, an advanced template; redaction needs a de-identify template. **[Documented]**
+
+--- MA10 R6 insert
+  + • The enum value MODALITY_UNSPECIFIED is described as "Unspecified modality. If specified, all modalities will be sanitized." (templates reference, 2026-10-09) **[Documented]**
+  +!• Listing MODALITY_UNSPECIFIED explicitly would scan all modalities, while omitting the field scans text only. Premise: the two REST descriptions; no example shows it **[Inferred]**
+
+--- MA10 R7 insert
+  + • The General Service Terms commit to storing Customer Data at rest only in the selected region or multi-region and "do not limit the locations from which Customer or Customer End Users may access Customer Data" (Google Cloud General Service Terms, 2026-10-09) **[Documented]**
+
+--- MA10 R7 insert
+  + • Image tests should use synthetic images only, because the Pre-GA terms in R4 advise against processing personal data in Pre-GA Offerings **[Inferred]**
+
+--- MA10 R7 insert
+  + • Google's Acceptable Use Policy bars using the Services "to test or reverse-engineer the Services in order to find limitations or vulnerabilities, or to evade filtering capabilities, except as expressly permitted in the Agreement" (Google Cloud Acceptable Use Policy, 2026-10-09) **[Documented]**
+  +!• Whether sending jailbreak, injection or harmful-content prompts to measure detection rates is "expressly permitted" is not stated (checked the Acceptable Use Policy and the General Service Terms) **[Not disclosed]**
+
+--- MA10 R8 replace
+  - • Whether `include_findings` in the Sensitive Data Protection template must be set for findings, and where it is set (checked the SanitizationResult reference and Go comments, not explained)
+  - • Whether `redactedImage` is returned when enforcement is Inspect only (needs testing)
+  - • Box field name: `boundingBox` in the sanitize page example against `boundingBoxes` list in the REST reference (needs testing)
+  + • Where include_findings is set when Model Armor calls Sensitive Data Protection (the Model Armor reference says "in the SDP template", but in the Sensitive Data Protection API it is an image redact request field; checked the Model Armor pages, not stated; needs testing)
+  +!• Whether `redactedImage` is returned when enforcement is Inspect only (needs testing; checked the overview, templates page, REST references, sanitize page and the Agent Platform and Gemini Enterprise pages, not stated)
+  + • Whether a live redaction response returns `boundingBoxes` as a list as the REST reference and Go library say (one sample shows a single `boundingBox`; needs testing)
+
+--- MA10 R8 insert
+  + • Whether the Acceptable Use Policy testing clause covers detection benchmarks (checked the Acceptable Use Policy and General Service Terms, not stated; needs the project owner's reading)
+
+=== MA10 R9 SUMMARY
+- Model Armor docs (overview, sanitize, templates, quotas, integrations, release notes, REST references, feature availability), the pricing page, and the pinned Google Go client library.
++ Model Armor docs (overview, sanitize, templates, quotas, integrations, release notes, REST references, feature availability), the pricing page, Google's Sensitive Data Protection, terms and products pages, and the pinned Google Go client library.
+
+--- MA10 R9 insert
+  + • https://docs.cloud.google.com/sensitive-data-protection/docs/redacting-sensitive-data-images
+  + • https://cloud.google.com/terms/service-terms
+  + • https://cloud.google.com/terms/aup
+  +!• https://cloud.google.com/products
+
+=== MA2 R1 SUMMARY
+- **Output-level responsible AI safety filtering.** Model Armor screens a model response for hate speech, harassment, sexually explicit and dangerous content at a confidence level set per category. A CSAM check also runs and cannot be turned off. The calling service enforces any block. **[Documented]**
++ **Output-level responsible AI safety filtering.** Model Armor screens a model response for hate speech, harassment, sexually explicit and dangerous content at a per-category confidence level. A CSAM check is on by default but unavailable in limited-support locations with residency enforced. The caller enforces any block. **[Documented]**
+
+--- MA2 R2 insert
+  + • The feature table shows multi-language detection as "No" in all seven limited-support locations when data residency is enforced, while the Skipped Detection note names only asia-south1 and northamerica-northeast2 (feature availability page, sanitize page, 2026-10-09) **[Documented]**
+  +!• What a non-English prompt returns in the other five limited-support locations, including asia-southeast1 (checked the sanitize, feature availability, data residency and release notes pages) **[Not disclosed]**
+
+--- MA2 R2 replace
+  - • Docs state the CSAM filter "cannot be turned off" (overview) but the feature table for templates with data residency enforced shows CSAM support "No" in all seven limited-support locations and "Yes" in the full-support ones (feature availability page, 2026-10-09) **[Documented]**
+  - • Hallucination, grounding or factuality checks on responses: none described (checked the overview filter section, templates page detection list, REST `FilterConfig`, blog capabilities and product page features) **[Not disclosed]**
+  + • Overview: the CSAM filter "is applied by default and cannot be turned off" (overview, 2026-10-09) **[Documented]**
+  +!• Feature table for templates with data residency enforcement enabled: CSAM support is "No" in asia-northeast1, asia-northeast3, asia-south1, asia-southeast1, australia-southeast2, europe-west2 and northamerica-northeast2, and "Yes" in the full-support locations (feature availability page, 2026-10-09) **[Documented]**
+  +!• Disabling data residency enforcement "allows cross-jurisdictional routing to enable Model Armor features that are otherwise unavailable in limited-support regions"; floor-setting configurations have all features available (release note 2026-08-27, feature availability page, 2026-10-09) **[Documented]**
+  +!• CSAM detection is therefore expected to run in a limited-support location when enforcement is off; the pages do not name CSAM in that sentence **[Inferred]**
+  + • Hallucination, grounding or factuality filter or setting: none described (checked the overview filter section, templates page detection list, REST `FilterConfig`, blog capabilities, product page features and best practices) **[Not disclosed]**
+  + • The product page lists "providing incorrect policy information" and "generating inaccurate, offensive, or off-brand material" among chatbot and marketing risks and says Model Armor "helps mitigate these threats" and "helps ensure brand safety and integrity" (product page, marketing text, 2026-10-09) **[Documented]**
+  +!• No accuracy or factuality check is named behind those marketing lines; the premise is that FilterConfig and the filter lists name none **[Inferred]**
+
+--- MA2 R2 insert
+  + • The overview and the blog place "topicality" inside the sensitive data protection filter ("sensitive data protection (including topicality)") (overview, Google Cloud blog, 2026-10-09) **[Documented]**
+  +!• Topic rules are probably custom detectors in a Sensitive Data Protection template; the premise is the "including topicality" phrase and the absence of any topic setting **[Inferred]**
+
+=== MA2 R3 SUMMARY
+- **The model response text, sent on its own.** The caller posts it to the sanitize-model-response method of a regional endpoint with a template name. The docs examples send no user prompt, though the client library has an optional field for one. **[Documented]**
++ **The model response text, sent on its own.** The caller posts it to the sanitize-model-response method of a regional endpoint with a template name. The docs examples send no user prompt, though the REST method reference lists an optional field for one. **[Documented]**
+
+--- MA2 R3 replace
+  - • The Go client request struct for the response method has an optional `UserPrompt` field, commented "User Prompt associated with Model response." (modelarmor/apiv1/modelarmorpb/service.pb.go@modelarmor/v1.3.0:2380-2381) **[Documented: repo googleapis/google-cloud-go@modelarmor/v1.3.0]**
+  - • Whether any filter uses that prompt as context (checked the sanitize page, the REST template reference, the overview and the Go client comments; none says) **[Not disclosed]**
+  + • The REST method reference for sanitizeModelResponse lists an optional `userPrompt` string, "User Prompt associated with Model response." (sanitizeModelResponse reference, 2026-10-09) **[Documented]**
+  +!• The Go client request struct has the same optional `UserPrompt` field (modelarmor/apiv1/modelarmorpb/service.pb.go@modelarmor/v1.3.0:2380-2381) **[Documented: repo googleapis/google-cloud-go@modelarmor/v1.3.0]**
+  +!• The Apigee SanitizeModelResponse policy has a required `<UserPromptSource>` element and sets a `userPrompt` flow variable (Apigee policy ref, Apigee docs not Model Armor docs, 2026-10-09) **[Documented]**
+  + • Whether any filter uses that prompt as context (checked the sanitize page, the REST method and templates references, the overview, the Apigee policy page and the Go client comments; none says) **[Not disclosed]**
+
+--- MA2 R3 insert
+  + • Naming: the docs call the Vertex AI route "Gemini Enterprise Agent Platform" (short form Agent Platform below); they still say "Gemini API in Vertex AI" for the generateContent method and use VERTEX_AI in gcloud flags, and list "Gemini Enterprise" as a separate integration (integrations page, Agent Platform integration page, 2026-10-09) **[Documented]**
+
+--- MA2 R4 replace
+  - • Pricing: standalone use has "no cost for using Model Armor up to 2 million tokens per month" and then "$0.10 per million tokens"; separately, "Security Command Center includes Model Armor with a predefined number of tokens per month at no additional cost" (pricing page, 2026-10-09) **[Documented]**
+  - • Data handling: Model Armor "operates as a stateless service, processing all prompts and model responses entirely in memory"; content is stored only if Cloud Logging is enabled, and `logSanitizeOperations` logs the full content of prompts and responses (overview, logging page, 2026-10-09) **[Documented]**
+  + • Pricing: standalone use has "no cost for using Model Armor up to 2 million tokens per month" and then "$0.10 per million tokens" (pricing page, 2026-10-09) **[Documented]**
+  +!• Pricing: "Security Command Center includes Model Armor with a predefined number of tokens per month at no additional cost" (pricing page, 2026-10-09) **[Documented]**
+  +!• Whether the standalone allowance applies per project, organisation or billing account is not stated (checked the pricing page, overview and quotas page) **[Not disclosed]**
+  + • Data handling: Model Armor "operates as a stateless service, processing all prompts and model responses entirely in memory"; content is stored only if Cloud Logging is enabled (overview, 2026-10-09) **[Documented]**
+  +!• The logging page says `log_sanitize_operations` lets you "log the full content of user prompts and model responses during sanitize operations" (logging page, 2026-10-09) **[Documented]**
+  + • The overview says that with Cloud Logging enabled, event details "might include metadata or snippets of the analyzed content as configured" (overview, 2026-10-09) **[Documented]**
+
+--- MA2 R4 replace
+  - • Release status of routes: Agent Platform GA (release note 2025-12-03), Agent Gateway GA (2026-06-24), Gemini Enterprise GA (2025-09-16), Google and Google Cloud MCP servers GA (2026-04-22), GKE integration GA (2025-09-15), streaming sanitization GA (2026-07-10), LangChain Preview (LangChain page) **[Documented]**
+  - • Apigee policies `SanitizeUserPrompt` and `SanitizeModelResponse` and load-balancer Service Extensions other than GKE: no GA or Preview label found on the pages read **[To be verified]**
+  - • Client libraries exist for C#, Go, Java, Node.js, PHP and Python; the C# install line is a pre-release package (`--version 1.0.0-beta05`) (client libraries page, 2026-10-09) **[Documented]**
+  + • Release status of routes (release notes unless stated, 2026-10-09) **[Documented]**
+  +!  – Agent Platform: GA (release note 2025-12-03)
+  +!  – Agent Gateway: GA (release note 2026-06-24)
+  +!  – Gemini Enterprise: GA (release note 2025-09-16)
+  +!  – Google and Google Cloud MCP servers: GA (release note 2026-04-22)
+  +!  – GKE integration: GA (release note 2025-09-15)
+  +!  – Streaming sanitization: GA (release note 2026-07-10)
+  +!  – LangChain: Preview (LangChain page)
+  + • The floor settings page still labels the Google Cloud MCP servers integration "(Preview)" (floor settings page, 2026-10-09); the dated release note 2026-04-22 says General Availability and is preferred, because the page label is undated **[Documented]**
+  + • Apigee policies `SanitizeUserPrompt` and `SanitizeModelResponse`: Public Preview on 2025-05-22 and Generally Available on 2025-09-04 on Apigee X (Apigee release notes, Apigee docs not Model Armor docs, 2026-10-09) **[Documented]**
+  +!• Service Extensions on application load balancers: Preview in release note 2025-04-09; the GKE Inference Gateway integration is Generally Available from release note 2025-09-15 (release notes, 2026-10-09) **[Documented]**
+  +!• A GA date for other load balancers and for Secure Web Proxy (checked the release notes, the networking page and the integrations page; the Service Extensions configuration page returned no text through the raw fetch, so it is unread) **[To be verified]**
+  + • Client libraries exist for C#, Go, Java, Node.js, PHP and Python; the page shows Java 0.40.0 in its sbt line and a pre-release C# package (`--version 1.0.0-beta05`) (client libraries page, 2026-10-09) **[Documented]**
+
+=== MA2 R5 SUMMARY
+- **Match states per category.** The result gives an overall match state and one for each of the four categories, sometimes with a confidence level. The docs sample for a response flags a masked IP address string as dangerous. **[Documented]**
++ **Match states per category.** The result gives an overall match state and one for each of the four categories, sometimes with a confidence level. Google's pages state three different defaults for an omitted level. **[Documented]**
+
+--- MA2 R5 replace
+  - • The two default statements differ and no page says which applies to an API call that omits the level **[To be verified]**
+  + • Default level, floor settings console: "If you don't specify a confidence level, it defaults to Medium and above." (floor settings page, console steps, 2026-10-09) **[Documented]**
+  + • The three default statements differ (High on the templates page; unspecified equals LOW_AND_ABOVE or "a reasonable default level based on the filterType" in the REST reference; Medium and above on the floor settings page) and no page says which applies to a template created through the API without a level (checked the templates page, floor settings page, REST templates reference and overview) **[To be verified]**
+
+--- MA2 R5 replace
+  - • The false-positive risk ratings in the overview table (very low, moderate, high) are qualitative; no measured rates accompany them **[Inferred]**
+  + • The overview table rates the false-positive risk per level in words (very low, moderate, high) (overview, 2026-10-09) **[Documented]**
+
+--- MA2 R6 replace
+  - • Optional `UserPrompt` string in the Go client request for this method, "User Prompt associated with Model response." (modelarmor/apiv1/modelarmorpb/service.pb.go@modelarmor/v1.3.0:2380-2381) **[Documented: repo googleapis/google-cloud-go@modelarmor/v1.3.0]**
+  + • Optional `userPrompt` string in the request body of this method (sanitizeModelResponse reference, 2026-10-09) **[Documented]**
+
+--- MA2 R6 replace
+  - • Over the limit the filter returns `EXECUTION_SKIPPED` with the message "Detection skipped as token limit exceeded." (quotas page, 2026-10-09) **[Documented]**
+  - • Unlimited tokens apply in real-time streaming mode, which suits long model outputs; buffered mode keeps the limits, and the limits "don't apply to the Model Armor integration with Gemini Enterprise" (quotas page, sanitize page, 2026-10-09) **[Documented]**
+  + • Over the limit, a filter that finds a match still returns `MATCH_FOUND`; a filter that finds no match returns `EXECUTION_SKIPPED` with "Detection skipped as token limit exceeded." in `messageItems` (quotas page, 2026-10-09) **[Documented]**
+  +!• A payload longer than the limit may be only partly screened. Premise: the quotas page says Model Armor "screens text up to 65,536 tokens" and states the skip result only for the no-match case **[Inferred]**
+  + • In real-time streaming mode Model Armor "supports unlimited tokens"; buffered streaming mode keeps the token limits (quotas page, sanitize page, 2026-10-09) **[Documented]**
+  + • For streamed content, "make sure that individual chunks don't exceed the token limits" (sanitize page, 2026-10-09) **[Documented]**
+  +!• The token limits "don't apply to the Model Armor integration with Gemini Enterprise" (quotas page, 2026-10-09) **[Documented]**
+
+--- MA2 R7 insert
+  + • The Acceptable Use Policy lists "child sexual exploitation, child abuse" among illegal activity (Google Cloud Acceptable Use Policy, 2026-10-09) **[Documented]**
+
+--- MA2 R7 insert
+  + • Google's Acceptable Use Policy bars using the Services "to test or reverse-engineer the Services in order to find limitations or vulnerabilities, or to evade filtering capabilities, except as expressly permitted in the Agreement" (Google Cloud Acceptable Use Policy, 2026-10-09) **[Documented]**
+  +!• Whether sending jailbreak, injection or harmful-content prompts to measure detection rates is "expressly permitted" is not stated (checked the Acceptable Use Policy and the General Service Terms) **[Not disclosed]**
+
+--- MA2 R8 replace
+  - • Default confidence level when the field is omitted: High (templates page console note) or the same as Low and above (REST reference); needs testing
+  + • Default confidence level when the field is omitted: High (templates page console note), Medium and above (floor settings page) or the same as Low and above (REST reference); needs testing
+
+--- MA2 R8 replace
+  - • Whether any filter uses the optional `userPrompt` field of the response request (the Go client documents it; the docs pages do not mention it)
+  + • Whether any filter uses the optional `userPrompt` field of the response request (the REST method reference and the Apigee policy page list the field; none says what it changes)
+
+--- MA2 R8 insert
+  + • Whether the Acceptable Use Policy testing clause covers detection benchmarks (checked the Acceptable Use Policy and General Service Terms, not stated; needs the project owner's reading)
+
+=== MA2 R9 SUMMARY
+- Model Armor documentation pages on docs.cloud.google.com, the Model Armor product page, the Security Command Center pricing page and the Apigee policy reference.
++ Model Armor documentation pages on docs.cloud.google.com, the product page, the pricing page, the blog, the Apigee policy reference and release notes, the Go client source and Google's terms pages.
+
+--- MA2 R9 insert
+  + • https://docs.cloud.google.com/apigee/docs/release-notes
+  + • https://docs.cloud.google.com/model-armor/reference/rest/v1/projects.locations.templates/sanitizeModelResponse
+  + • https://cloud.google.com/terms/aup
+  + • https://cloud.google.com/terms/service-terms
+  + • https://cloud.google.com/blog/products/identity-security/how-model-armor-can-help-protect-your-ai-apps
+
+--- MA3 R2 replace
+  - • Release note 2026-10-10 (entry dated 2026-10-10 present on 2026-10-09): enhanced prompt injection and jailbreak protection "when screening Workspace content, such as emails, documents, and files", on the us and eu multi-regions with filter version v3 or later (release notes, 2026-10-09) **[Documented]**
+  + • Release note dated 2026-10-09: "Model Armor includes enhanced prompt injection and jailbreak protection for Workspace data", on the us and eu multi-regions with filter version v3 or later (release notes, 2026-10-09) **[Documented]**
+  +!• What the Workspace data enhancement changes for ordinary prompts is not stated; the note scopes it to emails, documents and files from Workspace (checked the release note) **[Not disclosed]**
+
+--- MA3 R2 insert
+  + • The feature table shows multi-language detection as "No" in all seven limited-support locations when data residency is enforced, while the Skipped Detection note names only asia-south1 and northamerica-northeast2 (feature availability page, sanitize page, 2026-10-09) **[Documented]**
+  +!• What a non-English prompt returns in the other five limited-support locations, including asia-southeast1 (checked the sanitize, feature availability, data residency and release notes pages) **[Not disclosed]**
+
+--- MA3 R3 insert
+  + • Naming: the docs call the Vertex AI route "Gemini Enterprise Agent Platform" (short form Agent Platform below); they still say "Gemini API in Vertex AI" for the generateContent method and use VERTEX_AI in gcloud flags, and list "Gemini Enterprise" as a separate integration (integrations page, Agent Platform integration page, 2026-10-09) **[Documented]**
+
+--- MA3 R3 replace
+  - • Whether the filter runs on text read out of images by OCR: the image examples show only `csam` and `sdp` results (sanitize page, 2026-10-09) **[To be verified]**
+  + • The REST modality reference says the text content of an image is sanitized "depending on the filter configuration" (REST templates ref, 2026-10-09) **[Documented]**
+  +!• Whether the prompt injection and jailbreak filter examines text read out of images by OCR is not stated (checked the overview image section, the sanitize page image examples, which show only `csam` and `sdp` results, the templates page, the REST references and release notes 2026-06-25 and 2026-07-01) **[Not disclosed]**
+
+--- MA3 R4 replace
+  - • The Go client at v1.3.0 has no field for filter versions or exclusion-rule settings (grep of modelarmor/apiv1 and apiv1beta at googleapis/google-cloud-go@modelarmor/v1.3.0 found no match for FilterVersion, FilterRule or exclusion); the docs describe both **[Not disclosed]**
+  - • Pricing: standalone use has "no cost for using Model Armor up to 2 million tokens per month" and then "$0.10 per million tokens"; separately, "Security Command Center includes Model Armor with a predefined number of tokens per month at no additional cost" (pricing page, 2026-10-09) **[Documented]**
+  - • Data handling: Model Armor "operates as a stateless service, processing all prompts and model responses entirely in memory"; content is stored only if Cloud Logging is enabled, and `logSanitizeOperations` logs the full content of prompts and responses (overview, logging page, 2026-10-09) **[Documented]**
+  + • The Go v1 `FilterConfig` has four fields (`RaiSettings`, `SdpSettings`, `PiAndJailbreakFilterSettings`, `MaliciousUriFilterSettings`); the strings FilterVersion, FilterRule, ExclusionRule and DataResidency occur 0 times in the apiv1 and apiv1beta `service.pb.go`, while the docs describe filter versions, exclusion rules and data residency (modelarmor/apiv1/modelarmorpb/service.pb.go@modelarmor/v1.3.0:1861) **[Documented: repo googleapis/google-cloud-go@modelarmor/v1.3.0]**
+  + • The Java v1 proto has the same four `FilterConfig` fields and none of the filter-version, exclusion-rule or data-residency fields (java-modelarmor/proto-google-cloud-modelarmor-v1/src/main/proto/google/cloud/modelarmor/v1/service.proto@v1.93.0:622) **[Documented: repo googleapis/google-cloud-java@v1.93.0]**
+  +!• The docs and REST reference describe these fields, so the client libraries lag the documented API; the premise is that the clients are generated from the same API definition **[Inferred]**
+  + • Pricing: standalone use has "no cost for using Model Armor up to 2 million tokens per month" and then "$0.10 per million tokens" (pricing page, 2026-10-09) **[Documented]**
+  +!• Pricing: "Security Command Center includes Model Armor with a predefined number of tokens per month at no additional cost" (pricing page, 2026-10-09) **[Documented]**
+  +!• Whether the standalone allowance applies per project, organisation or billing account is not stated (checked the pricing page, overview and quotas page) **[Not disclosed]**
+  + • Data handling: Model Armor "operates as a stateless service, processing all prompts and model responses entirely in memory"; content is stored only if Cloud Logging is enabled (overview, 2026-10-09) **[Documented]**
+  +!• The logging page says `log_sanitize_operations` lets you "log the full content of user prompts and model responses during sanitize operations" (logging page, 2026-10-09) **[Documented]**
+  + • The overview says that with Cloud Logging enabled, event details "might include metadata or snippets of the analyzed content as configured" (overview, 2026-10-09) **[Documented]**
+
+--- MA3 R4 replace
+  - • Client libraries exist for C#, Go, Java, Node.js, PHP and Python; the C# install line is a pre-release package (`--version 1.0.0-beta05`) (client libraries page, 2026-10-09) **[Documented]**
+  - • Release status of routes: Agent Platform GA (release note 2025-12-03), Agent Gateway GA (2026-06-24), Gemini Enterprise GA (2025-09-16), Google and Google Cloud MCP servers GA (2026-04-22), GKE integration GA (2025-09-15), streaming sanitization GA (2026-07-10), LangChain Preview (LangChain page) **[Documented]**
+  - • Apigee policies `SanitizeUserPrompt` and `SanitizeModelResponse` and load-balancer Service Extensions other than GKE: no GA or Preview label found on the pages read **[To be verified]**
+  + • Client libraries exist for C#, Go, Java, Node.js, PHP and Python; the page shows Java 0.40.0 in its sbt line and a pre-release C# package (`--version 1.0.0-beta05`) (client libraries page, 2026-10-09) **[Documented]**
+  + • Release status of routes (release notes unless stated, 2026-10-09) **[Documented]**
+  +!  – Agent Platform: GA (release note 2025-12-03)
+  +!  – Agent Gateway: GA (release note 2026-06-24)
+  +!  – Gemini Enterprise: GA (release note 2025-09-16)
+  +!  – Google and Google Cloud MCP servers: GA (release note 2026-04-22)
+  +!  – GKE integration: GA (release note 2025-09-15)
+  +!  – Streaming sanitization: GA (release note 2026-07-10)
+  +!  – LangChain: Preview (LangChain page)
+  + • The floor settings page still labels the Google Cloud MCP servers integration "(Preview)" (floor settings page, 2026-10-09); the dated release note 2026-04-22 says General Availability and is preferred, because the page label is undated **[Documented]**
+  + • Apigee policies `SanitizeUserPrompt` and `SanitizeModelResponse`: Public Preview on 2025-05-22 and Generally Available on 2025-09-04 on Apigee X (Apigee release notes, Apigee docs not Model Armor docs, 2026-10-09) **[Documented]**
+  +!• Service Extensions on application load balancers: Preview in release note 2025-04-09; the GKE Inference Gateway integration is Generally Available from release note 2025-09-15 (release notes, 2026-10-09) **[Documented]**
+  +!• A GA date for other load balancers and for Secure Web Proxy (checked the release notes, the networking page and the integrations page; the Service Extensions configuration page returned no text through the raw fetch, so it is unread) **[To be verified]**
+
+=== MA3 R5 SUMMARY
+- **Match flag plus a confidence level.** The result gives an execution state, a match state and a confidence level. Google advises Medium in one place and High in another as the setting. **[Documented]**
++ **Match flag plus a confidence level.** The result gives an execution state, a match state and a confidence level. Google's pages advise Medium or High as the setting, and Low and above for high-stakes categories. **[Documented]**
+
+--- MA3 R5 insert
+  + • Threshold advice D, overview considerations: "for both prompt injection and jailbreak detection and general content safety (hate speech, harassment, dangerous content), start with High or Medium and above to minimize false positives." (overview, 2026-10-09) **[Documented]**
+
+--- MA3 R5 replace
+  - • Default when the level is omitted: the enum says unspecified is "Same as LOW_AND_ABOVE", and the filter field has no separate default statement, so an omitted level would behave as Low and above **[Inferred]**
+  + • Floor settings: "If you don't specify the prompt injection and jailbreak detection confidence level, the confidence level defaults to LOW_AND_ABOVE for all levels: project, organization, or folder." (floor settings page, 2026-10-09) **[Documented]**
+  +!• Template without a level: the REST enum says unspecified is "Same as LOW_AND_ABOVE" and the filter field states no default of its own, so an omitted level on a template would behave as Low and above; the premise is that the enum text applies to every filter that uses it **[Inferred]**
+
+--- MA3 R5 replace
+  - • The exclusion rules page shows `filterConfig.filterRuleSettings` in v1 requests, but the REST `FilterConfig` lists only `raiSettings`, `sdpSettings`, `piAndJailbreakFilterSettings` and `maliciousUriFilterSettings`; the field is absent from the Go v1 client at googleapis/google-cloud-go@modelarmor/v1.3.0 (C11) **[To be verified]**
+  + • Exclusion rules are a Preview feature and Preview offerings are Pre-GA Offerings: "PRE-GA OFFERINGS ARE PROVIDED “AS IS” WITHOUT ANY EXPRESS OR IMPLIED WARRANTIES OR REPRESENTATIONS OF ANY KIND." (Google Cloud General Service Terms, Pre-GA Offerings Terms, 2026-10-09) **[Documented]**
+  + • The exclusion rules page and the templates page use `filterConfig.filterRuleSettings` in v1 requests and update masks (exclusion rules page, templates page, 2026-10-09) **[Documented]**
+  +!• The REST `FilterConfig` lists only `raiSettings`, `sdpSettings`, `piAndJailbreakFilterSettings` and `maliciousUriFilterSettings`, and the page footer reads "Last updated 2026-09-07 UTC", before release note 2026-09-28 that introduced exclusion rules (REST templates ref, release notes, 2026-10-09) **[Documented]**
+  +!• The REST reference probably lags the feature; the premise is the footer date before the release note **[Inferred]**
+  +!• Whether the v1 template API accepts `filterRuleSettings` (needs testing; the Go and Java v1 clients at the pins in R4 do not have the field) **[To be verified]**
+
+--- MA3 R6 replace
+  - • Over the limit the filter returns `EXECUTION_SKIPPED` with the message "Detection skipped as token limit exceeded." (quotas page, 2026-10-09) **[Documented]**
+  - • Unlimited tokens apply in real-time streaming mode, and the limits "don't apply to the Model Armor integration with Gemini Enterprise" (quotas page, 2026-10-09) **[Documented]**
+  + • Over the limit, a filter that finds a match still returns `MATCH_FOUND`; a filter that finds no match returns `EXECUTION_SKIPPED` with "Detection skipped as token limit exceeded." in `messageItems` (quotas page, 2026-10-09) **[Documented]**
+  +!• A payload longer than the limit may be only partly screened. Premise: the quotas page says Model Armor "screens text up to 65,536 tokens" and states the skip result only for the no-match case **[Inferred]**
+  + • In real-time streaming mode Model Armor "supports unlimited tokens"; buffered streaming mode keeps the token limits (quotas page, sanitize page, 2026-10-09) **[Documented]**
+  + • For streamed content, "make sure that individual chunks don't exceed the token limits" (sanitize page, 2026-10-09) **[Documented]**
+  +!• The token limits "don't apply to the Model Armor integration with Gemini Enterprise" (quotas page, 2026-10-09) **[Documented]**
+
+--- MA3 R7 insert
+  + • Google's Acceptable Use Policy bars using the Services "to test or reverse-engineer the Services in order to find limitations or vulnerabilities, or to evade filtering capabilities, except as expressly permitted in the Agreement" (Google Cloud Acceptable Use Policy, 2026-10-09) **[Documented]**
+  +!• Whether sending jailbreak, injection or harmful-content prompts to measure detection rates is "expressly permitted" is not stated (checked the Acceptable Use Policy and the General Service Terms) **[Not disclosed]**
+
+--- MA3 R8 replace
+  - • Default level when the field is omitted (inferred as Low and above from the enum; needs testing)
+  + • Default level of a template that omits the field (floor settings default to Low and above; the template default is inferred from the enum; needs testing)
+
+--- MA3 R8 replace
+  - • What the Workspace data enhancement of 2026-10-10 changes for ordinary prompts
+  + • What the Workspace data enhancement of 2026-10-09 changes for ordinary prompts (needs testing; the release note scopes it to Workspace content)
+
+--- MA3 R8 insert
+  + • Whether the Acceptable Use Policy testing clause covers detection benchmarks (checked the Acceptable Use Policy and General Service Terms, not stated; needs the project owner's reading)
+
+=== MA3 R9 SUMMARY
+- Model Armor documentation pages on docs.cloud.google.com, the Model Armor product page, the Security Command Center pricing page, the Apigee policy reference and the Google Cloud Go client source.
++ Model Armor documentation pages on docs.cloud.google.com, the product page, the pricing page, the blog, the Apigee policy reference and release notes, Go and Java client sources and Google's terms pages.
+
+--- MA3 R9 insert
+  + • https://docs.cloud.google.com/apigee/docs/release-notes
+  + • https://github.com/googleapis/google-cloud-go/blob/modelarmor/v1.3.0/modelarmor/apiv1beta/modelarmorpb/service.pb.go
+  + • https://github.com/googleapis/google-cloud-java/blob/v1.93.0/java-modelarmor/proto-google-cloud-modelarmor-v1/src/main/proto/google/cloud/modelarmor/v1/service.proto
+  + • https://cloud.google.com/terms/service-terms
+  + • https://cloud.google.com/terms/aup
+  + • https://cloud.google.com/blog/products/identity-security/how-model-armor-can-help-protect-your-ai-apps
+
+=== MA4 R1 SUMMARY
+- **Output-level prompt injection and jailbreak detection.** The overview, a sample response output and the Apigee response policy all show the filter running on model responses. The templates page describes it for prompts only. The calling service enforces any block. **[Documented]**
++ **Output-level prompt injection and jailbreak detection.** The overview says the filter scans prompts and responses, and a sample response result shows it running. The templates page describes it for prompts only. The calling service enforces any block. **[Documented]**
+
+--- MA4 R1 replace
+  - • Taken together, the overview, the sample output and the Apigee variables show the filter runs on responses; the templates page wording is narrower, and the docs do not say which reading is intended **[Inferred]**
+  + • The overview sentence is a direct statement; the templates page wording "in a prompt" is narrower and the docs do not say which reading is intended, so treating the filter as active on responses rests on the overview sentence and the sample result **[Inferred]**
+
+=== MA4 R2 SUMMARY
+- **Injection payloads and jailbreak output arriving from the model side.** The docs name MCP tool results as a target for injection by malicious tool authors and describe indirect injection through files and URLs. **[Documented]**
++ **Injection payloads and jailbreak output arriving from the model side.** The docs name MCP tool execution errors as a target for injection by malicious tool authors and describe indirect injection through files and URLs. **[Documented]**
+
+--- MA4 R2 replace
+  - • Release note 2026-10-10 (entry dated 2026-10-10 present on 2026-10-09): enhanced prompt injection and jailbreak protection "when screening Workspace content, such as emails, documents, and files", on the us and eu multi-regions with filter version v3 or later (release notes, 2026-10-09) **[Documented]**
+  + • Release note dated 2026-10-09: "Model Armor includes enhanced prompt injection and jailbreak protection for Workspace data", on the us and eu multi-regions with filter version v3 or later (release notes, 2026-10-09) **[Documented]**
+  +!• What the Workspace data enhancement changes for ordinary prompts is not stated; the note scopes it to emails, documents and files from Workspace (checked the release note) **[Not disclosed]**
+
+--- MA4 R2 replace
+  - • System-prompt leakage detection on responses: none described; the docs' sample attack "reveal your system prompt" is treated as an input attack (checked the overview filter list, templates page detection list, REST `FilterConfig`, product page features and blog capabilities) **[Not disclosed]**
+  +!• System-prompt leakage detection on responses: none described; the docs' sample attack "reveal your system prompt" is treated as an input attack (checked the overview filter list, templates page detection list, REST `FilterConfig`, product page features, best practices and blog capabilities) **[Not disclosed]**
+
+--- MA4 R2 insert
+  + • The feature table shows multi-language detection as "No" in all seven limited-support locations when data residency is enforced, while the Skipped Detection note names only asia-south1 and northamerica-northeast2 (feature availability page, sanitize page, 2026-10-09) **[Documented]**
+  +!• What a non-English prompt returns in the other five limited-support locations, including asia-southeast1 (checked the sanitize, feature availability, data residency and release notes pages) **[Not disclosed]**
+
+--- MA4 R3 replace
+  - • The Go client request struct for the response method has an optional `UserPrompt` field, commented "User Prompt associated with Model response." (modelarmor/apiv1/modelarmorpb/service.pb.go@modelarmor/v1.3.0:2380-2381) **[Documented: repo googleapis/google-cloud-go@modelarmor/v1.3.0]**
+  - • Whether any filter uses that prompt as context (checked the sanitize page, the REST template reference, the overview and the Go client comments; none says) **[Not disclosed]**
+  + • The REST method reference for sanitizeModelResponse lists an optional `userPrompt` string, "User Prompt associated with Model response." (sanitizeModelResponse reference, 2026-10-09) **[Documented]**
+  +!• The Go client request struct has the same optional `UserPrompt` field (modelarmor/apiv1/modelarmorpb/service.pb.go@modelarmor/v1.3.0:2380-2381) **[Documented: repo googleapis/google-cloud-go@modelarmor/v1.3.0]**
+  +!• The Apigee SanitizeModelResponse policy has a required `<UserPromptSource>` element and sets a `userPrompt` flow variable (Apigee policy ref, Apigee docs not Model Armor docs, 2026-10-09) **[Documented]**
+  + • Whether any filter uses that prompt as context (checked the sanitize page, the REST method and templates references, the overview, the Apigee policy page and the Go client comments; none says) **[Not disclosed]**
+
+--- MA4 R3 insert
+  + • Naming: the docs call the Vertex AI route "Gemini Enterprise Agent Platform" (short form Agent Platform below); they still say "Gemini API in Vertex AI" for the generateContent method and use VERTEX_AI in gcloud flags, and list "Gemini Enterprise" as a separate integration (integrations page, Agent Platform integration page, 2026-10-09) **[Documented]**
+
+--- MA4 R4 replace
+  - • The Go client at v1.3.0 has no field for filter versions or exclusion-rule settings (grep of modelarmor/apiv1 and apiv1beta at googleapis/google-cloud-go@modelarmor/v1.3.0 found no match for FilterVersion, FilterRule or exclusion); the docs describe both **[Not disclosed]**
+  - • Pricing: standalone use has "no cost for using Model Armor up to 2 million tokens per month" and then "$0.10 per million tokens"; separately, "Security Command Center includes Model Armor with a predefined number of tokens per month at no additional cost" (pricing page, 2026-10-09) **[Documented]**
+  - • Data handling: Model Armor "operates as a stateless service, processing all prompts and model responses entirely in memory"; content is stored only if Cloud Logging is enabled, and `logSanitizeOperations` logs the full content of prompts and responses (overview, logging page, 2026-10-09) **[Documented]**
+  + • The Go v1 `FilterConfig` has four fields (`RaiSettings`, `SdpSettings`, `PiAndJailbreakFilterSettings`, `MaliciousUriFilterSettings`); the strings FilterVersion, FilterRule, ExclusionRule and DataResidency occur 0 times in the apiv1 and apiv1beta `service.pb.go`, while the docs describe filter versions, exclusion rules and data residency (modelarmor/apiv1/modelarmorpb/service.pb.go@modelarmor/v1.3.0:1861) **[Documented: repo googleapis/google-cloud-go@modelarmor/v1.3.0]**
+  + • The Java v1 proto has the same four `FilterConfig` fields and none of the filter-version, exclusion-rule or data-residency fields (java-modelarmor/proto-google-cloud-modelarmor-v1/src/main/proto/google/cloud/modelarmor/v1/service.proto@v1.93.0:622) **[Documented: repo googleapis/google-cloud-java@v1.93.0]**
+  +!• The docs and REST reference describe these fields, so the client libraries lag the documented API; the premise is that the clients are generated from the same API definition **[Inferred]**
+  + • Pricing: standalone use has "no cost for using Model Armor up to 2 million tokens per month" and then "$0.10 per million tokens" (pricing page, 2026-10-09) **[Documented]**
+  +!• Pricing: "Security Command Center includes Model Armor with a predefined number of tokens per month at no additional cost" (pricing page, 2026-10-09) **[Documented]**
+  +!• Whether the standalone allowance applies per project, organisation or billing account is not stated (checked the pricing page, overview and quotas page) **[Not disclosed]**
+  + • Data handling: Model Armor "operates as a stateless service, processing all prompts and model responses entirely in memory"; content is stored only if Cloud Logging is enabled (overview, 2026-10-09) **[Documented]**
+  +!• The logging page says `log_sanitize_operations` lets you "log the full content of user prompts and model responses during sanitize operations" (logging page, 2026-10-09) **[Documented]**
+  + • The overview says that with Cloud Logging enabled, event details "might include metadata or snippets of the analyzed content as configured" (overview, 2026-10-09) **[Documented]**
+
+--- MA4 R4 replace
+  - • Client libraries exist for C#, Go, Java, Node.js, PHP and Python; the C# install line is a pre-release package (`--version 1.0.0-beta05`) (client libraries page, 2026-10-09) **[Documented]**
+  - • Release status of routes: Agent Platform GA (release note 2025-12-03), Agent Gateway GA (2026-06-24), Gemini Enterprise GA (2025-09-16), Google and Google Cloud MCP servers GA (2026-04-22), GKE integration GA (2025-09-15), streaming sanitization GA (2026-07-10), LangChain Preview (LangChain page) **[Documented]**
+  - • Apigee policies `SanitizeUserPrompt` and `SanitizeModelResponse` and load-balancer Service Extensions other than GKE: no GA or Preview label found on the pages read **[To be verified]**
+  + • Client libraries exist for C#, Go, Java, Node.js, PHP and Python; the page shows Java 0.40.0 in its sbt line and a pre-release C# package (`--version 1.0.0-beta05`) (client libraries page, 2026-10-09) **[Documented]**
+  + • Release status of routes (release notes unless stated, 2026-10-09) **[Documented]**
+  +!  – Agent Platform: GA (release note 2025-12-03)
+  +!  – Agent Gateway: GA (release note 2026-06-24)
+  +!  – Gemini Enterprise: GA (release note 2025-09-16)
+  +!  – Google and Google Cloud MCP servers: GA (release note 2026-04-22)
+  +!  – GKE integration: GA (release note 2025-09-15)
+  +!  – Streaming sanitization: GA (release note 2026-07-10)
+  +!  – LangChain: Preview (LangChain page)
+  + • The floor settings page still labels the Google Cloud MCP servers integration "(Preview)" (floor settings page, 2026-10-09); the dated release note 2026-04-22 says General Availability and is preferred, because the page label is undated **[Documented]**
+  + • Apigee policies `SanitizeUserPrompt` and `SanitizeModelResponse`: Public Preview on 2025-05-22 and Generally Available on 2025-09-04 on Apigee X (Apigee release notes, Apigee docs not Model Armor docs, 2026-10-09) **[Documented]**
+  +!• Service Extensions on application load balancers: Preview in release note 2025-04-09; the GKE Inference Gateway integration is Generally Available from release note 2025-09-15 (release notes, 2026-10-09) **[Documented]**
+  +!• A GA date for other load balancers and for Secure Web Proxy (checked the release notes, the networking page and the integrations page; the Service Extensions configuration page returned no text through the raw fetch, so it is unread) **[To be verified]**
+
+=== MA4 R5 SUMMARY
+- **Match flag plus a confidence level.** The result gives an execution state, a match state and a confidence level. Google advises Medium in one place and High in another as the setting. **[Documented]**
++ **Match flag plus a confidence level field.** The result type has an execution state, a match state and a confidence level, though the docs' response example shows no level. Google's pages advise Medium or High as the setting. **[Documented]**
+
+--- MA4 R5 replace
+  - • Default when the level is omitted: the enum says unspecified is "Same as LOW_AND_ABOVE", and the filter field has no separate default statement, so an omitted level would behave as Low and above **[Inferred]**
+  + • Threshold advice D, overview considerations: "for both prompt injection and jailbreak detection and general content safety (hate speech, harassment, dangerous content), start with High or Medium and above to minimize false positives." (overview, 2026-10-09) **[Documented]**
+  + • Floor settings: "If you don't specify the prompt injection and jailbreak detection confidence level, the confidence level defaults to LOW_AND_ABOVE for all levels: project, organization, or folder." (floor settings page, 2026-10-09) **[Documented]**
+  +!• Template without a level: the REST enum says unspecified is "Same as LOW_AND_ABOVE" and the filter field states no default of its own, so an omitted level on a template would behave as Low and above; the premise is that the enum text applies to every filter that uses it **[Inferred]**
+
+--- MA4 R5 replace
+  - • The exclusion rules page shows `filterConfig.filterRuleSettings` in v1 requests, but the REST `FilterConfig` lists only `raiSettings`, `sdpSettings`, `piAndJailbreakFilterSettings` and `maliciousUriFilterSettings`; the field is absent from the Go v1 client at googleapis/google-cloud-go@modelarmor/v1.3.0 (C11) **[To be verified]**
+  + • Exclusion rules are a Preview feature and Preview offerings are Pre-GA Offerings: "PRE-GA OFFERINGS ARE PROVIDED “AS IS” WITHOUT ANY EXPRESS OR IMPLIED WARRANTIES OR REPRESENTATIONS OF ANY KIND." (Google Cloud General Service Terms, Pre-GA Offerings Terms, 2026-10-09) **[Documented]**
+  + • The exclusion rules page and the templates page use `filterConfig.filterRuleSettings` in v1 requests and update masks (exclusion rules page, templates page, 2026-10-09) **[Documented]**
+  +!• The REST `FilterConfig` lists only `raiSettings`, `sdpSettings`, `piAndJailbreakFilterSettings` and `maliciousUriFilterSettings`, and the page footer reads "Last updated 2026-09-07 UTC", before release note 2026-09-28 that introduced exclusion rules (REST templates ref, release notes, 2026-10-09) **[Documented]**
+  +!• The REST reference probably lags the feature; the premise is the footer date before the release note **[Inferred]**
+  +!• Whether the v1 template API accepts `filterRuleSettings` (needs testing; the Go and Java v1 clients at the pins in R4 do not have the field) **[To be verified]**
+
+--- MA4 R6 replace
+  - • Optional `UserPrompt` string in the Go client request for this method, "User Prompt associated with Model response." (modelarmor/apiv1/modelarmorpb/service.pb.go@modelarmor/v1.3.0:2380-2381) **[Documented: repo googleapis/google-cloud-go@modelarmor/v1.3.0]**
+  + • Optional `userPrompt` string in the request body of this method (sanitizeModelResponse reference, 2026-10-09) **[Documented]**
+
+--- MA4 R6 replace
+  - • Over the limit the filter returns `EXECUTION_SKIPPED` with the message "Detection skipped as token limit exceeded." (quotas page, 2026-10-09) **[Documented]**
+  - • Unlimited tokens apply in real-time streaming mode, which suits long model outputs; buffered mode keeps the limits, and the limits "don't apply to the Model Armor integration with Gemini Enterprise" (quotas page, sanitize page, 2026-10-09) **[Documented]**
+  + • Over the limit, a filter that finds a match still returns `MATCH_FOUND`; a filter that finds no match returns `EXECUTION_SKIPPED` with "Detection skipped as token limit exceeded." in `messageItems` (quotas page, 2026-10-09) **[Documented]**
+  +!• A payload longer than the limit may be only partly screened. Premise: the quotas page says Model Armor "screens text up to 65,536 tokens" and states the skip result only for the no-match case **[Inferred]**
+  + • In real-time streaming mode Model Armor "supports unlimited tokens"; buffered streaming mode keeps the token limits (quotas page, sanitize page, 2026-10-09) **[Documented]**
+  + • For streamed content, "make sure that individual chunks don't exceed the token limits" (sanitize page, 2026-10-09) **[Documented]**
+  +!• The token limits "don't apply to the Model Armor integration with Gemini Enterprise" (quotas page, 2026-10-09) **[Documented]**
+
+--- MA4 R7 insert
+  + • Google's Acceptable Use Policy bars using the Services "to test or reverse-engineer the Services in order to find limitations or vulnerabilities, or to evade filtering capabilities, except as expressly permitted in the Agreement" (Google Cloud Acceptable Use Policy, 2026-10-09) **[Documented]**
+  +!• Whether sending jailbreak, injection or harmful-content prompts to measure detection rates is "expressly permitted" is not stated (checked the Acceptable Use Policy and the General Service Terms) **[Not disclosed]**
+
+--- MA4 R8 replace
+  - • Default level when the field is omitted (inferred as Low and above from the enum; needs testing)
+  + • Default level of a template that omits the field (floor settings default to Low and above; the template default is inferred from the enum; needs testing)
+
+--- MA4 R8 replace
+  - • Whether the optional `userPrompt` field of the response request changes any result (the Go client documents it; the docs pages do not mention it)
+  + • Whether the optional `userPrompt` field of the response request changes any result (the REST method reference and the Apigee policy page list the field; none says what it changes)
+
+--- MA4 R8 insert
+  + • Whether the Acceptable Use Policy testing clause covers detection benchmarks (checked the Acceptable Use Policy and General Service Terms, not stated; needs the project owner's reading)
+
+=== MA4 R9 SUMMARY
+- Model Armor documentation pages on docs.cloud.google.com, the Model Armor product page, the Security Command Center pricing page, the Apigee policy reference and the Google Cloud Go client source.
++ Model Armor documentation pages on docs.cloud.google.com, the product page, the pricing page, the blog, the Apigee policy reference and release notes, Go and Java client sources and Google's terms pages.
+
+--- MA4 R9 insert
+  + • https://docs.cloud.google.com/apigee/docs/release-notes
+  + • https://docs.cloud.google.com/model-armor/reference/rest/v1/projects.locations.templates/sanitizeModelResponse
+  + • https://github.com/googleapis/google-cloud-go/blob/modelarmor/v1.3.0/modelarmor/apiv1beta/modelarmorpb/service.pb.go
+  + • https://github.com/googleapis/google-cloud-java/blob/v1.93.0/java-modelarmor/proto-google-cloud-modelarmor-v1/src/main/proto/google/cloud/modelarmor/v1/service.proto
+  + • https://cloud.google.com/terms/service-terms
+  + • https://cloud.google.com/terms/aup
+  + • https://cloud.google.com/blog/products/identity-security/how-model-armor-can-help-protect-your-ai-apps
+
+--- MA5 R1 replace
+  - • Sensitive Data Protection is a separate Google Cloud service that Model Armor calls; the infoType catalogue, transformation types and likelihood meaning are defined there, so this column covers only how Model Armor invokes it (see the Sensitive Data Protection columns on sheet 3). The premise is that Model Armor docs link out to the Sensitive Data Protection documentation for these topics **[Inferred]**
+  + • The overview links to the Sensitive Data Protection infoTypes reference, match likelihood and overview pages (overview page links, 2026-10-09) **[Documented]**
+  + • Sensitive Data Protection is a separate Google Cloud service that Model Armor calls; its infoType catalogue, transformation types and likelihood meaning are covered in the Sensitive Data Protection columns on sheet 3, so this column covers only how Model Armor invokes it. The premise is that the overview links out for these topics (previous bullet) **[Inferred]**
+
+--- MA5 R2 replace
+  - • Source conflict: the overview and the REST reference say six items, while the sanitize page lists seven (it adds PASSWORD); no page reconciles the two counts (overview, REST reference and sanitize page, 2026-10-09) **[Documented]**
+  + • Source conflict: the overview and the REST reference say six items, the sanitize page lists seven (it adds PASSWORD) (overview, REST reference, sanitize page, 2026-10-09) **[Documented]**
+  + • A Go client comment on the basic configuration also says "a fixed set of six info-types" (modelarmor/apiv1/modelarmorpb/service.pb.go@modelarmor/v1.3.0:2160) **[Documented: repo googleapis/google-cloud-go@modelarmor/v1.3.0]**
+  +!• Which count is current: no page reconciles them and no release note mentions PASSWORD (checked the overview, REST reference, sanitize page and release notes) **[Not disclosed]**
+
+--- MA5 R2 insert
+  + • "US-based regions" is probably the set of locations whose jurisdiction is the United States (the us multi-region, us-central1, us-east1, us-east4, us-west1); the premise is the jurisdiction column of the data residency page **[Inferred]**
+
+=== MA5 R3 SUMMARY
+- **The latest user message, sent in the prompt field.** The text goes to the regional prompt-sanitising method; send only the current message, never history or system prompts. Each call is judged alone. Documented examples exist for the prompt side only. **[Documented]**
++ **The latest user message, sent in the prompt field.** The text goes to the regional prompt-sanitising method; send only the current message, never history or system prompts. Each call is judged alone. **[Documented]**
+
+=== MA5 R4 SUMMARY
+- **A managed call from Model Armor to Sensitive Data Protection.** Basic mode uses a fixed list; advanced mode names an inspect template and optionally a de-identify template in the same location. The detectors are not described; the REST route only returns the result. **[Documented]**
++ **A managed call from Model Armor to Sensitive Data Protection.** Basic mode uses a fixed list; advanced mode names an inspect template and optionally a de-identify template in the same location. The detectors are not described; the REST route only returns the result. **[Not disclosed]**
+
+--- MA5 R4 insert
+  + • Naming: the docs call the Vertex AI route "Gemini Enterprise Agent Platform" (short form Agent Platform below); they still say "Gemini API in Vertex AI" for the generateContent method and use VERTEX_AI in gcloud flags, and list "Gemini Enterprise" as a separate integration (integrations page, Agent Platform integration page, 2026-10-09) **[Documented]**
+
+--- MA5 R4 replace
+  - • Apigee route: "Apigee allows, blocks, or redacts the request or response", and redacted data is extracted from flow variables and passed to the LLM; the pages read do not state GA or Preview (Apigee integration page, 2026-10-09) **[Documented]**
+  +!• Apigee route: "Apigee allows, blocks, or redacts the request or response", and redacted data is extracted from flow variables and passed to the LLM (Apigee integration page, 2026-10-09) **[Documented]**
+  + • Apigee policies `SanitizeUserPrompt` and `SanitizeModelResponse`: Public Preview on 2025-05-22 and Generally Available on 2025-09-04 on Apigee X (Apigee release notes, Apigee docs not Model Armor docs, 2026-10-09) **[Documented]**
+
+--- MA5 R4 replace
+  - • Whether Agent Gateway or Service Extensions forward de-identified input text to the model is not stated (checked both pages; only Apigee documents extracting redacted data) **[Not disclosed]**
+  + • Agent Gateway page: a template can "block and redact content that violates policies", yet its flow text says the gateway "either allows or blocks it based on the verdict"; the networking page says Model Armor instructs the service to "allow, block, or modify" traffic (Agent Gateway and networking pages, 2026-10-09) **[Documented]**
+  + • Whether Agent Gateway or Service Extensions forward the de-identified text rather than only blocking (checked the Agent Gateway, networking and integrations pages) **[Not disclosed]**
+
+--- MA5 R4 insert
+  + • The overview says that with Cloud Logging enabled, event details "might include metadata or snippets of the analyzed content as configured" (overview, 2026-10-09) **[Documented]**
+
+=== MA5 R5 SUMMARY
+- **Match state plus findings or a de-identified copy.** The result holds an inspect, de-identify or redact result, each with execution and match state. Findings carry infoType, a likelihood word and a position. There is no numeric score and no published accuracy figure. **[Documented]**
++ **Match state plus findings or a de-identified copy.** The result holds an inspect, de-identify or redact result, each with execution and match state. Findings carry infoType, a likelihood word and a position. **[Documented]**
+
+--- MA5 R5 replace
+  - • Execution problems: if text exceeds the token limit the filter returns EXECUTION_SKIPPED with "Detection skipped as token limit exceeded." (quotas page, 2026-10-09) **[Documented]**
+  + • Over the 130,000-token limit a filter that finds a match returns MATCH_FOUND; otherwise it returns EXECUTION_SKIPPED with "Detection skipped as token limit exceeded." (quotas page, 2026-10-09) **[Documented]**
+
+--- MA5 R5 replace
+  - • Source conflict on shape: the REST reference says `filterResults` is a map keyed "csam", "malicious_uris", "rai", "pi_and_jailbreak", "sdp" (SanitizationResult reference, 2026-10-09) **[Documented]**
+  - • Source conflict on shape: the basic and advanced sections of the sanitize page show `filterResults` as a JSON array of objects without keys (sanitize page, 2026-10-09) **[Documented]**
+  + • The sanitize page shows `filterResults` as a keyed object in six of its eight example responses and as an array of single-key objects in the two Sensitive Data Protection prompt examples (basic and advanced) (sanitize page, 2026-10-09) **[Documented]**
+  +!• The pinned Go library types the field as `map[string]*FilterResult` and describes it as "Results for all filters where the key is the filter name" (modelarmor/apiv1/modelarmorpb/service.pb.go@modelarmor/v1.3.0:2559) **[Documented: repo googleapis/google-cloud-go@modelarmor/v1.3.0]**
+  +!• The REST reference and the pinned Go type agree on a keyed map, so the two array examples are probably an older or abbreviated sample format; the live shape is untested. Premise: code at the pinned tag outranks page examples **[Inferred]**
+
+=== MA5 R6 SUMMARY
+- **Template, location and a per-mode setting.** Basic mode needs one switch; advanced mode needs an inspect template name and optionally a de-identify template name in the same location. Cross-project use needs two Sensitive Data Protection roles. Text over 130,000 tokens is skipped. **[Documented]**
++ **Template, location and a per-mode setting.** Basic mode needs one switch; advanced mode needs inspect and optional de-identify templates in the same location. Cross-project use needs two Sensitive Data Protection roles. Past 130,000 tokens a match still counts; no match gives a skipped check. **[Documented]**
+
+--- MA5 R6 insert
+  + • Apigee route: "Model Armor has token limits for processing prompts and responses, which vary by filter. Content exceeding these limits might not be fully scanned." (Apigee integration page, 2026-10-09) **[Documented]**
+  +!• Whether the token limits apply on the Agent Platform, Agent Gateway (non-streaming), Service Extensions and MCP routes is not stated (checked the quotas page and the five integration pages) **[Not disclosed]**
+
+--- MA5 R6 replace
+  - • Real-time streaming mode "supports unlimited tokens", but streaming does not de-identify (quotas page and sanitize page, 2026-10-09) **[Documented]**
+  + • In real-time streaming mode Model Armor "supports unlimited tokens"; buffered streaming mode keeps the token limits (quotas page, sanitize page, 2026-10-09) **[Documented]**
+  + • For streamed content, "make sure that individual chunks don't exceed the token limits" (sanitize page, 2026-10-09) **[Documented]**
+  +!• Streaming methods do not support Sensitive Data Protection de-identification (sanitize page, 2026-10-09) **[Documented]**
+
+--- MA5 R6 insert
+  + • A floor setting's `filterConfig` is the same `FilterConfig` type as a template's, which includes `sdpSettings.advancedConfig` (FloorSetting and templates REST references, 2026-10-09) **[Documented]**
+  + • The pinned Go `FloorSetting` has `FilterConfig *FilterConfig` (modelarmor/apiv1/modelarmorpb/service.pb.go@modelarmor/v1.3.0:1129) **[Documented: repo googleapis/google-cloud-go@modelarmor/v1.3.0]**
+  +!• A floor setting can therefore carry an advanced inspect template. Premise: the shared FilterConfig type; no page shows an example, and the only floor-setting example uses basic mode **[Inferred]**
+  +!• Which location the inspect template must be in for a floor setting stored at `locations/global` is not stated (checked the floor settings, sanitize and Agent Platform pages and both REST references) **[Not disclosed]**
+
+--- MA5 R7 replace
+  - • Singapore (asia-southeast1) lists Sensitive Data Protection as supported, but basic mode names only US national identifiers, so a Singapore NRIC test needs an advanced template with a custom detector (see the Sensitive Data Protection columns) **[Inferred]**
+  + • Singapore (asia-southeast1) lists Sensitive Data Protection as supported, but basic mode names only US national identifiers (feature availability page, overview and sanitize page, 2026-10-09) **[Documented]**
+  +!• Singapore NRIC is a built-in Sensitive Data Protection infoType: SINGAPORE_NATIONAL_REGISTRATION_ID_NUMBER, "A unique set of nine alpha-numeric characters on the Singapore National Registration Identity Card.", available in any location (Sensitive Data Protection infoTypes reference, 2026-10-09) **[Documented]**
+  +!• A Singapore NRIC test therefore needs an advanced template whose inspect template lists that built-in infoType; no custom detector is needed. Premise: an inspect template holds "what predefined or custom detectors to use" (templates page) **[Inferred]**
+
+--- MA5 R8 replace
+  - • Whether the de-identified text is returned when enforcement is Inspect only (needs testing; checked the overview and templates page, not stated)
+  - • Whether floor settings accept an advanced inspect template given the same-location rule and the global floor-setting location (checked the floor settings page and Agent Platform page, not stated)
+  +!• Whether the de-identified text is returned when enforcement is Inspect only (needs testing; checked the overview, templates page, REST references, sanitize page and the Agent Platform and Gemini Enterprise pages, not stated)
+  + • Which location an advanced inspect template must have when it is used from a floor setting at locations/global (checked the floor settings page, Agent Platform page and REST references, not stated; needs testing)
+
+--- MA5 R8 replace
+  - • What the sanitize page examples mean by a bare array for `filterResults` against the keyed map in the REST reference (needs testing)
+  + • Whether a live call returns `filterResults` as the keyed map in the REST reference and the Go library or as the array in two sample responses (needs one test call)
+
+--- MA5 R8 replace
+  - • Whether the 130,000-token Sensitive Data Protection limit applies to the text sent by integrations (Gemini Enterprise is exempt per the quotas page)
+  + • Whether the 130,000-token limit applies on the Agent Platform, Agent Gateway, Service Extensions and MCP routes (Gemini Enterprise is exempt and Apigee is limited per the integration pages; the others are not stated)
+
+=== MA5 R9 SUMMARY
+- Model Armor docs (overview, templates, sanitize, quotas, integrations, floor settings, filter versions, logging, release notes, REST references), the product and pricing pages, and the pinned Google Go client library.
++ Model Armor docs (overview, templates, sanitize, quotas, integrations, floor settings, filter versions, logging, release notes, REST references), the product and pricing pages, the Apigee release notes, the Sensitive Data Protection infoTypes reference, and the pinned Google Go client library.
+
+--- MA5 R9 insert
+  + • https://docs.cloud.google.com/model-armor/reference/rest/v1/FloorSetting
+  + • https://docs.cloud.google.com/sensitive-data-protection/docs/infotypes-reference
+  + • https://docs.cloud.google.com/apigee/docs/release-notes
+
+--- MA6 R1 replace
+  - • Sensitive Data Protection is a separate Google Cloud service; its infoType catalogue, transformations and likelihood meaning are covered in the Sensitive Data Protection columns on sheet 3, and this column covers only how Model Armor invokes it on responses. The premise is the same as for the input-level column **[Inferred]**
+  + • The overview links to the Sensitive Data Protection infoTypes reference, match likelihood and overview pages (overview page links, 2026-10-09) **[Documented]**
+  + • Sensitive Data Protection is a separate Google Cloud service; its infoType catalogue, transformations and likelihood meaning are covered in the Sensitive Data Protection columns on sheet 3, and this column covers only how Model Armor invokes it on responses. The premise is that the overview links out for these topics (previous bullet) **[Inferred]**
+
+=== MA6 R2 SUMMARY
+- **Sensitive items a model might output.** The documented lists are written for prompts: a short, US-leaning fixed list in basic mode and the customer template in advanced mode. Model Armor docs do not say whether the basic list is the same for responses. **[Documented]**
++ **Sensitive items a model might output.** The documented basic lists are written for prompts: a short, US-leaning fixed list. Advanced mode uses the customer's template. Google's pages do not say whether the basic list also applies to responses. **[Not disclosed]**
+
+--- MA6 R2 replace
+  - • Source conflict: six items (overview, REST reference) against seven (sanitize page); no page reconciles them (overview, REST reference and sanitize page, 2026-10-09) **[Documented]**
+  + • Source conflict: the overview and the REST reference say six items, the sanitize page lists seven (it adds PASSWORD) (overview, REST reference, sanitize page, 2026-10-09) **[Documented]**
+  + • A Go client comment on the basic configuration also says "a fixed set of six info-types" (modelarmor/apiv1/modelarmorpb/service.pb.go@modelarmor/v1.3.0:2160) **[Documented: repo googleapis/google-cloud-go@modelarmor/v1.3.0]**
+  +!• Which count is current: no page reconciles them and no release note mentions PASSWORD (checked the overview, REST reference, sanitize page and release notes) **[Not disclosed]**
+
+--- MA6 R2 insert
+  + • Advanced mode on responses: "Model Armor screens the LLM prompts and responses using the advanced Sensitive Data Protection configuration setting." (sanitize page, 2026-10-09) **[Documented]**
+  +!• Template note: "Model Armor returns the de-identified sensitive data and sanitized version of prompts or responses in the deidentifyResult.data.text field of the finding." (templates page, 2026-10-09) **[Documented]**
+  +!• Google's Apigee sample checks the response-side result: its shared flow tests SanitizeModelResponse.SMR-Sanitize-Model-Response.sdpFilterResult.inspectResult.matchState for MATCH_FOUND (llm-security-v2/sharedflowbundles/ModelArmor-v2/sharedflowbundle/sharedflows/default.xml:44) **[Documented: repo GoogleCloudPlatform/apigee-samples@2b1a9f00]**
+  +!• Basic mode probably scans responses with the same list as prompts. Premise: the basic or advanced setting sits once in the template filter config, which has no direction field and is used by both sanitize methods (templates reference, 2026-10-09) **[Inferred]**
+
+=== MA6 R3 SUMMARY
+- **The model response, sent in its own field.** The text goes to the regional response-sanitising method. An optional field can carry the matching user prompt. Documented examples for response-side de-identification are missing. **[Documented]**
++ **The model response, sent in its own field.** The text goes to the regional response-sanitising method, with an optional field for the matching user prompt. Google shows no worked response-side de-identification example. **[Not disclosed]**
+
+--- MA6 R3 insert
+  + • The templates page says the de-identified "prompts or responses" are returned in `deidentifyResult.data.text`, so response-side de-identified text is documented in prose but not by example (templates page, 2026-10-09) **[Documented]**
+
+--- MA6 R3 insert
+  + • For streamed content, "make sure that individual chunks don't exceed the token limits" (sanitize page, 2026-10-09) **[Documented]**
+
+--- MA6 R4 insert
+  + • Naming: the docs call the Vertex AI route "Gemini Enterprise Agent Platform" (short form Agent Platform below); they still say "Gemini API in Vertex AI" for the generateContent method and use VERTEX_AI in gcloud flags, and list "Gemini Enterprise" as a separate integration (integrations page, Agent Platform integration page, 2026-10-09) **[Documented]**
+
+--- MA6 R4 replace
+  - • Apigee route: the SanitizeModelResponse policy sits in the response flow, and "If the request or response is redacted, extract the redacted data using flow variables"; GA or Preview is not stated (Apigee integration page, 2026-10-09) **[Documented]**
+  +!• Apigee route: the SanitizeModelResponse policy sits in the response flow, and "If the request or response is redacted, extract the redacted data using flow variables" (Apigee integration page, 2026-10-09) **[Documented]**
+  + • Apigee policies `SanitizeUserPrompt` and `SanitizeModelResponse`: Public Preview on 2025-05-22 and Generally Available on 2025-09-04 on Apigee X (Apigee release notes, Apigee docs not Model Armor docs, 2026-10-09) **[Documented]**
+
+--- MA6 R4 insert
+  + • Whether Agent Gateway or Service Extensions forward the de-identified response text rather than only blocking (checked the Agent Gateway, networking and integrations pages) **[Not disclosed]**
+
+--- MA6 R4 insert
+  + • The overview says that with Cloud Logging enabled, event details "might include metadata or snippets of the analyzed content as configured" (overview, 2026-10-09) **[Documented]**
+
+=== MA6 R5 SUMMARY
+- **Same result shape as for prompts.** The sdp result holds an inspect, de-identify or redact result with execution and match state. Findings carry infoType, likelihood and position, and de-identified text sits in a data field. No numeric score or accuracy figure is published. **[Documented]**
++ **Same result shape as for prompts.** The sdp result holds an inspect, de-identify or redact result with execution and match state. Findings carry infoType, likelihood and position, and de-identified text sits in a data field. **[Documented]**
+
+--- MA6 R5 replace
+  - • Over-limit text returns EXECUTION_SKIPPED with "Detection skipped as token limit exceeded." (quotas page, 2026-10-09) **[Documented]**
+  + • Over the 130,000-token limit a filter that finds a match returns MATCH_FOUND; otherwise it returns EXECUTION_SKIPPED with "Detection skipped as token limit exceeded." (quotas page, 2026-10-09) **[Documented]**
+
+--- MA6 R5 replace
+  - • Source conflict on shape: the REST reference describes `filterResults` as a keyed map, while the Sensitive Data Protection examples on the sanitize page show an array (SanitizationResult reference and sanitize page, 2026-10-09) **[Documented]**
+  + • The sanitize page shows `filterResults` as a keyed object in six of its eight example responses and as an array of single-key objects in the two Sensitive Data Protection prompt examples (basic and advanced) (sanitize page, 2026-10-09) **[Documented]**
+  +!• The pinned Go library types the field as `map[string]*FilterResult` and describes it as "Results for all filters where the key is the filter name" (modelarmor/apiv1/modelarmorpb/service.pb.go@modelarmor/v1.3.0:2559) **[Documented: repo googleapis/google-cloud-go@modelarmor/v1.3.0]**
+  +!• The REST reference and the pinned Go type agree on a keyed map, so the two array examples are probably an older or abbreviated sample format; the live shape is untested. Premise: code at the pinned tag outranks page examples **[Inferred]**
+
+=== MA6 R6 SUMMARY
+- **Template, location and the response text.** The same template settings, roles and location rule as for prompts apply. The response goes in its own field, optionally with the prompt. Text over 130,000 tokens is skipped, and cross-project use needs two Sensitive Data Protection roles. **[Documented]**
++ **Template, location and the response text.** Template settings, roles and the location rule are as for prompts; the response goes in its own field. Past 130,000 tokens a match still counts; no match gives a skipped check. Cross-project use needs two Sensitive Data Protection roles. **[Documented]**
+
+--- MA6 R6 insert
+  + • Apigee route: "Model Armor has token limits for processing prompts and responses, which vary by filter. Content exceeding these limits might not be fully scanned." (Apigee integration page, 2026-10-09) **[Documented]**
+  +!• Whether the token limits apply on the Agent Platform, Agent Gateway (non-streaming), Service Extensions and MCP routes is not stated (checked the quotas page and the five integration pages) **[Not disclosed]**
+
+--- MA6 R7 replace
+  - • Singapore (asia-southeast1) lists Sensitive Data Protection as supported; the basic list names only US national identifiers, so Singapore identifiers need an advanced template **[Inferred]**
+  + • Singapore (asia-southeast1) lists Sensitive Data Protection as supported, but basic mode names only US national identifiers (feature availability page, overview and sanitize page, 2026-10-09) **[Documented]**
+  +!• Singapore NRIC is a built-in Sensitive Data Protection infoType: SINGAPORE_NATIONAL_REGISTRATION_ID_NUMBER, "A unique set of nine alpha-numeric characters on the Singapore National Registration Identity Card.", available in any location (Sensitive Data Protection infoTypes reference, 2026-10-09) **[Documented]**
+  +!• A Singapore NRIC test on model output therefore needs an advanced template whose inspect template lists that built-in infoType; no custom detector is needed. Premise: an inspect template holds "what predefined or custom detectors to use" (templates page) **[Inferred]**
+
+--- MA6 R8 replace
+  - • Whether the basic infoType list is the same for responses as for prompts (checked the sanitize page, overview and REST reference; the lists say "scanned in the prompt")
+  - • A real response-side `deidentifyResult` and findings (needs testing; the sanitize page has no such example)
+  + • Whether the basic infoType list is the same for responses as for prompts (checked the sanitize page, overview, templates page, REST references and the Apigee policy page; the lists say "scanned in the prompt"; needs testing)
+  + • A real response-side `deidentifyResult` and findings (needs testing; the templates page names the field but the sanitize page has no response example)
+
+--- MA6 R8 delete
+  - • Whether the Apigee integration is GA or Preview (checked the Apigee integration page and both policy reference pages, not stated)
+
+--- MA6 R8 replace
+  - • Whether de-identification is applied when enforcement is Inspect only (needs testing)
+  +!• Whether de-identification is applied when enforcement is Inspect only (needs testing; checked the overview, templates page, REST references, sanitize page and the Agent Platform and Gemini Enterprise pages, not stated)
+
+=== MA6 R9 SUMMARY
+- Model Armor docs (overview, templates, sanitize, REST references, quotas, integrations, floor settings, logging, release notes), the product and pricing pages, Apigee policy references, and the pinned Google Go client library.
++ Model Armor docs (overview, templates, sanitize, REST references, quotas, integrations, floor settings, logging, release notes), the product and pricing pages, Apigee docs and sample, the Sensitive Data Protection infoTypes reference, and the pinned Google Go client library.
+
+--- MA6 R9 insert
+  + • https://github.com/GoogleCloudPlatform/apigee-samples/blob/2b1a9f00fabb4e837c39d80570ff50ebc3b1349e/llm-security-v2/sharedflowbundles/ModelArmor-v2/sharedflowbundle/sharedflows/default.xml
+  + • https://docs.cloud.google.com/sensitive-data-protection/docs/infotypes-reference
+  + • https://docs.cloud.google.com/apigee/docs/release-notes
+
+=== MA7 R1 SUMMARY
+- **Input-level malicious URL detection.** Model Armor scans the URLs in a user prompt to identify whether they are malicious, such as phishing or malware links. The overview frames the filter mainly around URLs returned in output. The calling service enforces any block. **[Documented]**
++ **Input-level malicious URL detection.** Model Armor scans the URLs in a user prompt to identify phishing or malware links. The overview gives both a URL inside a PDF and a link returned in a response as examples. The calling service enforces any block. **[Documented]**
+
+--- MA7 R1 replace
+  - • The overview frames the filter mainly around output: it "lets you take action and prevent malicious URLs from being returned", and its input-template focus does not name URLs while its output-template focus does (overview, 2026-10-09) **[Documented]**
+  + • The overview section says the filter lets you "prevent malicious URLs from being returned" and speaks of "downstream systems processing LLM outputs"; its input-template focus does not name URLs while its output-template focus does (overview, 2026-10-09) **[Documented]**
+  +!• The same section also gives a URL embedded in a PDF as its example and limits scanning to "the first 256 URLs found in prompts and responses", so the filter is not output-only; "mainly output" is a reading **[Inferred]**
+
+--- MA7 R2 replace
+  - • Whether URLs inside images are extracted by OCR and checked (the image examples show only `csam` and `sdp` results) **[To be verified]**
+  - • The product page and the region tables also mention malware and antivirus scanning, and the result schema has a `virusScanFilterResult` for PDF; that is a separate capability and not part of this column (product page, feature availability page, REST result ref, 2026-10-09) **[Documented]**
+  + • The REST modality reference says the text content of an image is sanitized "depending on the filter configuration" (REST templates ref, 2026-10-09) **[Documented]**
+  +!• Whether the malicious URL filter examines text read out of images by OCR is not stated (checked the overview image section, the sanitize page image examples, which show only `csam` and `sdp` results, the templates page, the REST references and release notes 2026-06-25 and 2026-07-01) **[Not disclosed]**
+  + • The product page says Model Armor "Detects malicious files, malware, and unsafe URLs within AI prompts and responses", the region tables list "Antivirus scanning" and the result schema has a `virusScanFilterResult` for PDF (product page, feature availability page, REST result ref, 2026-10-09) **[Documented]**
+  +!• Antivirus scanning is a separate capability outside this column. Premise: it has its own result type, no URL element and no configuration setting, and the project covers it in the inventory only **[Inferred]**
+
+--- MA7 R3 insert
+  + • Naming: the docs call the Vertex AI route "Gemini Enterprise Agent Platform" (short form Agent Platform below); they still say "Gemini API in Vertex AI" for the generateContent method and use VERTEX_AI in gcloud flags, and list "Gemini Enterprise" as a separate integration (integrations page, Agent Platform integration page, 2026-10-09) **[Documented]**
+
+--- MA7 R4 replace
+  - • Pricing: standalone use has "no cost for using Model Armor up to 2 million tokens per month" and then "$0.10 per million tokens"; separately, "Security Command Center includes Model Armor with a predefined number of tokens per month at no additional cost" (pricing page, 2026-10-09) **[Documented]**
+  - • Data handling: Model Armor "operates as a stateless service, processing all prompts and model responses entirely in memory"; content is stored only if Cloud Logging is enabled, and `logSanitizeOperations` logs the full content of prompts and responses (overview, logging page, 2026-10-09) **[Documented]**
+  + • Pricing: standalone use has "no cost for using Model Armor up to 2 million tokens per month" and then "$0.10 per million tokens" (pricing page, 2026-10-09) **[Documented]**
+  +!• Pricing: "Security Command Center includes Model Armor with a predefined number of tokens per month at no additional cost" (pricing page, 2026-10-09) **[Documented]**
+  +!• Whether the standalone allowance applies per project, organisation or billing account is not stated (checked the pricing page, overview and quotas page) **[Not disclosed]**
+  + • Data handling: Model Armor "operates as a stateless service, processing all prompts and model responses entirely in memory"; content is stored only if Cloud Logging is enabled (overview, 2026-10-09) **[Documented]**
+  +!• The logging page says `log_sanitize_operations` lets you "log the full content of user prompts and model responses during sanitize operations" (logging page, 2026-10-09) **[Documented]**
+  + • The overview says that with Cloud Logging enabled, event details "might include metadata or snippets of the analyzed content as configured" (overview, 2026-10-09) **[Documented]**
+
+--- MA7 R4 replace
+  - • Client libraries exist for C#, Go, Java, Node.js, PHP and Python; the C# install line is a pre-release package (`--version 1.0.0-beta05`) (client libraries page, 2026-10-09) **[Documented]**
+  - • Release status of routes: Agent Platform GA (release note 2025-12-03), Agent Gateway GA (2026-06-24), Gemini Enterprise GA (2025-09-16), Google and Google Cloud MCP servers GA (2026-04-22), GKE integration GA (2025-09-15), streaming sanitization GA (2026-07-10), LangChain Preview (LangChain page) **[Documented]**
+  - • Apigee policies `SanitizeUserPrompt` and `SanitizeModelResponse` and load-balancer Service Extensions other than GKE: no GA or Preview label found on the pages read **[To be verified]**
+  + • Client libraries exist for C#, Go, Java, Node.js, PHP and Python; the page shows Java 0.40.0 in its sbt line and a pre-release C# package (`--version 1.0.0-beta05`) (client libraries page, 2026-10-09) **[Documented]**
+  + • Release status of routes (release notes unless stated, 2026-10-09) **[Documented]**
+  +!  – Agent Platform: GA (release note 2025-12-03)
+  +!  – Agent Gateway: GA (release note 2026-06-24)
+  +!  – Gemini Enterprise: GA (release note 2025-09-16)
+  +!  – Google and Google Cloud MCP servers: GA (release note 2026-04-22)
+  +!  – GKE integration: GA (release note 2025-09-15)
+  +!  – Streaming sanitization: GA (release note 2026-07-10)
+  +!  – LangChain: Preview (LangChain page)
+  + • The floor settings page still labels the Google Cloud MCP servers integration "(Preview)" (floor settings page, 2026-10-09); the dated release note 2026-04-22 says General Availability and is preferred, because the page label is undated **[Documented]**
+  + • Apigee policies `SanitizeUserPrompt` and `SanitizeModelResponse`: Public Preview on 2025-05-22 and Generally Available on 2025-09-04 on Apigee X (Apigee release notes, Apigee docs not Model Armor docs, 2026-10-09) **[Documented]**
+  +!• Service Extensions on application load balancers: Preview in release note 2025-04-09; the GKE Inference Gateway integration is Generally Available from release note 2025-09-15 (release notes, 2026-10-09) **[Documented]**
+  +!• A GA date for other load balancers and for Secure Web Proxy (checked the release notes, the networking page and the integrations page; the Service Extensions configuration page returned no text through the raw fetch, so it is unread) **[To be verified]**
+
+--- MA7 R7 insert
+  + • Google's Acceptable Use Policy bars using the Services "to test or reverse-engineer the Services in order to find limitations or vulnerabilities, or to evade filtering capabilities, except as expressly permitted in the Agreement" (Google Cloud Acceptable Use Policy, 2026-10-09) **[Documented]**
+  +!• Whether sending jailbreak, injection or harmful-content prompts to measure detection rates is "expressly permitted" is not stated (checked the Acceptable Use Policy and the General Service Terms) **[Not disclosed]**
+
+--- MA7 R8 replace
+  - • Whether `us-east7` and `global` rows in the feature availability table are real locations for templates, given the locations page lists 16 regions and 2 multi-regions
+  - • Whether input-side use is intended, given the overview frames the filter around returned URLs
+  + • Whether us-east7 and global in the feature availability table are locations where a template can be created (the locations page lists 16 regions and 2 multi-regions; the data residency page says the global endpoint cannot manage templates; checked both, not stated)
+  + • Whether input-side use is intended (the overview gives both a URL inside a PDF and a returned link as examples; its input-template focus does not name URLs)
+
+--- MA7 R8 insert
+  + • Whether the Acceptable Use Policy testing clause covers detection benchmarks (checked the Acceptable Use Policy and General Service Terms, not stated; needs the project owner's reading)
+
+=== MA7 R9 SUMMARY
+- Model Armor documentation pages on docs.cloud.google.com, the Model Armor product page, the Security Command Center pricing page, the Google Cloud blog and the Apigee policy reference.
++ Model Armor documentation pages on docs.cloud.google.com, the product page, the pricing page, the Google Cloud blog, the Apigee policy reference and release notes, and Google's terms pages.
+
+--- MA7 R9 insert
+  + • https://docs.cloud.google.com/apigee/docs/release-notes
+  + • https://cloud.google.com/terms/aup
+  + • https://cloud.google.com/terms/service-terms
+
+--- MA8 R2 replace
+  - • Whether URLs inside generated images are extracted and checked (response-side image examples are not shown; see MA10) **[To be verified]**
+  - • Malicious files and malware are a separate antivirus capability: the product page and the region tables mention it and the result schema has a `virusScanFilterResult` for PDF; it is not part of this column (product page, feature availability page, REST result ref, 2026-10-09) **[Documented]**
+  + • The REST modality reference says the text content of an image is sanitized "depending on the filter configuration" (REST templates ref, 2026-10-09) **[Documented]**
+  +!• Whether the malicious URL filter extracts and checks URLs inside generated images is not stated (checked the overview image section, the sanitize page image examples, which show only `csam` and `sdp` results, the templates page, the REST references and release notes 2026-06-25 and 2026-07-01) **[Not disclosed]**
+  + • The product page says Model Armor "Detects malicious files, malware, and unsafe URLs within AI prompts and responses", the region tables list "Antivirus scanning" and the result schema has a `virusScanFilterResult` for PDF (product page, feature availability page, REST result ref, 2026-10-09) **[Documented]**
+  +!• Antivirus scanning is a separate capability outside this column. Premise: it has its own result type, no URL element and no configuration setting, and the project covers it in the inventory only **[Inferred]**
+
+--- MA8 R3 replace
+  - • The Go client request struct for the response method has an optional `UserPrompt` field, commented "User Prompt associated with Model response." (modelarmor/apiv1/modelarmorpb/service.pb.go@modelarmor/v1.3.0:2380-2381) **[Documented: repo googleapis/google-cloud-go@modelarmor/v1.3.0]**
+  + • The REST method reference for sanitizeModelResponse lists an optional `userPrompt` string, "User Prompt associated with Model response." (sanitizeModelResponse reference, 2026-10-09) **[Documented]**
+  +!• The Go client request struct has the same optional `UserPrompt` field (modelarmor/apiv1/modelarmorpb/service.pb.go@modelarmor/v1.3.0:2380-2381) **[Documented: repo googleapis/google-cloud-go@modelarmor/v1.3.0]**
+  +!• The Apigee SanitizeModelResponse policy has a required `<UserPromptSource>` element and sets a `userPrompt` flow variable (Apigee policy ref, Apigee docs not Model Armor docs, 2026-10-09) **[Documented]**
+
+--- MA8 R3 insert
+  + • Naming: the docs call the Vertex AI route "Gemini Enterprise Agent Platform" (short form Agent Platform below); they still say "Gemini API in Vertex AI" for the generateContent method and use VERTEX_AI in gcloud flags, and list "Gemini Enterprise" as a separate integration (integrations page, Agent Platform integration page, 2026-10-09) **[Documented]**
+
+--- MA8 R4 replace
+  - • Pricing: standalone use has "no cost for using Model Armor up to 2 million tokens per month" and then "$0.10 per million tokens"; separately, "Security Command Center includes Model Armor with a predefined number of tokens per month at no additional cost" (pricing page, 2026-10-09) **[Documented]**
+  - • Data handling: Model Armor "operates as a stateless service, processing all prompts and model responses entirely in memory"; content is stored only if Cloud Logging is enabled, and `logSanitizeOperations` logs the full content of prompts and responses (overview, logging page, 2026-10-09) **[Documented]**
+  + • Pricing: standalone use has "no cost for using Model Armor up to 2 million tokens per month" and then "$0.10 per million tokens" (pricing page, 2026-10-09) **[Documented]**
+  +!• Pricing: "Security Command Center includes Model Armor with a predefined number of tokens per month at no additional cost" (pricing page, 2026-10-09) **[Documented]**
+  +!• Whether the standalone allowance applies per project, organisation or billing account is not stated (checked the pricing page, overview and quotas page) **[Not disclosed]**
+  + • Data handling: Model Armor "operates as a stateless service, processing all prompts and model responses entirely in memory"; content is stored only if Cloud Logging is enabled (overview, 2026-10-09) **[Documented]**
+  +!• The logging page says `log_sanitize_operations` lets you "log the full content of user prompts and model responses during sanitize operations" (logging page, 2026-10-09) **[Documented]**
+  + • The overview says that with Cloud Logging enabled, event details "might include metadata or snippets of the analyzed content as configured" (overview, 2026-10-09) **[Documented]**
+
+--- MA8 R4 replace
+  - • Client libraries exist for C#, Go, Java, Node.js, PHP and Python; the C# install line is a pre-release package (`--version 1.0.0-beta05`) (client libraries page, 2026-10-09) **[Documented]**
+  - • Release status of routes: Agent Platform GA (release note 2025-12-03), Agent Gateway GA (2026-06-24), Gemini Enterprise GA (2025-09-16), Google and Google Cloud MCP servers GA (2026-04-22), GKE integration GA (2025-09-15), streaming sanitization GA (2026-07-10), LangChain Preview (LangChain page) **[Documented]**
+  - • Apigee policies `SanitizeUserPrompt` and `SanitizeModelResponse` and load-balancer Service Extensions other than GKE: no GA or Preview label found on the pages read **[To be verified]**
+  + • Client libraries exist for C#, Go, Java, Node.js, PHP and Python; the page shows Java 0.40.0 in its sbt line and a pre-release C# package (`--version 1.0.0-beta05`) (client libraries page, 2026-10-09) **[Documented]**
+  + • Release status of routes (release notes unless stated, 2026-10-09) **[Documented]**
+  +!  – Agent Platform: GA (release note 2025-12-03)
+  +!  – Agent Gateway: GA (release note 2026-06-24)
+  +!  – Gemini Enterprise: GA (release note 2025-09-16)
+  +!  – Google and Google Cloud MCP servers: GA (release note 2026-04-22)
+  +!  – GKE integration: GA (release note 2025-09-15)
+  +!  – Streaming sanitization: GA (release note 2026-07-10)
+  +!  – LangChain: Preview (LangChain page)
+  + • The floor settings page still labels the Google Cloud MCP servers integration "(Preview)" (floor settings page, 2026-10-09); the dated release note 2026-04-22 says General Availability and is preferred, because the page label is undated **[Documented]**
+  + • Apigee policies `SanitizeUserPrompt` and `SanitizeModelResponse`: Public Preview on 2025-05-22 and Generally Available on 2025-09-04 on Apigee X (Apigee release notes, Apigee docs not Model Armor docs, 2026-10-09) **[Documented]**
+  +!• Service Extensions on application load balancers: Preview in release note 2025-04-09; the GKE Inference Gateway integration is Generally Available from release note 2025-09-15 (release notes, 2026-10-09) **[Documented]**
+  +!• A GA date for other load balancers and for Secure Web Proxy (checked the release notes, the networking page and the integrations page; the Service Extensions configuration page returned no text through the raw fetch, so it is unread) **[To be verified]**
+
+--- MA8 R7 insert
+  + • Google's Acceptable Use Policy bars using the Services "to test or reverse-engineer the Services in order to find limitations or vulnerabilities, or to evade filtering capabilities, except as expressly permitted in the Agreement" (Google Cloud Acceptable Use Policy, 2026-10-09) **[Documented]**
+  +!• Whether sending jailbreak, injection or harmful-content prompts to measure detection rates is "expressly permitted" is not stated (checked the Acceptable Use Policy and the General Service Terms) **[Not disclosed]**
+
+--- MA8 R8 replace
+  - • Whether the Go client's optional `userPrompt` field changes the result for this filter (the docs pages do not mention it)
+  + • Whether the optional `userPrompt` field of the response request changes the result for this filter (the REST method reference and the Apigee policy page list the field; none says what it changes)
+
+--- MA8 R8 replace
+  - • Whether `us-east7` and `global` rows in the feature availability table are real locations for templates, given the locations page lists 16 regions and 2 multi-regions
+  + • Whether us-east7 and global in the feature availability table are locations where a template can be created (the locations page lists 16 regions and 2 multi-regions; the data residency page says the global endpoint cannot manage templates; checked both, not stated)
+
+--- MA8 R8 insert
+  + • Whether the Acceptable Use Policy testing clause covers detection benchmarks (checked the Acceptable Use Policy and General Service Terms, not stated; needs the project owner's reading)
+
+=== MA8 R9 SUMMARY
+- Model Armor documentation pages on docs.cloud.google.com, the Model Armor product page, the Security Command Center pricing page, the Google Cloud blog, the Apigee policy reference and the Google Cloud Go client source.
++ Model Armor documentation pages on docs.cloud.google.com, the product page, the pricing page, the blog, the Apigee policy reference and release notes, the Go client source and Google's terms pages.
+
+--- MA8 R9 insert
+  + • https://docs.cloud.google.com/apigee/docs/release-notes
+  + • https://docs.cloud.google.com/model-armor/reference/rest/v1/projects.locations.templates/sanitizeModelResponse
+  + • https://cloud.google.com/terms/aup
+  + • https://cloud.google.com/terms/service-terms
+
+--- MA9 R1 replace
+  - • Antivirus scanning is covered only in the inventory sheet, not as a Table 3 column; its configuration (a template setting, enable flag or threshold) is not found in the template reference, manage-templates page or overview (checked all three) **[To be verified]**
+  + • Antivirus scanning is covered only in the inventory sheet, not as a Table 3 column; no configuration for it (a template setting, enable flag or threshold) appears in the templates reference, the FilterConfig in the Go v1 library, the floor settings page, the templates page, the overview, the sanitize page or the Security Command Center findings page (checked all) **[Not disclosed]**
+
+--- MA9 R2 insert
+  + • The pinned Go library repeats "XLSX, XLSM, XLTX, XLYM" in its comment for the Excel byte item type (modelarmor/apiv1/modelarmorpb/service.pb.go@modelarmor/v1.3.0:783) **[Documented: repo googleapis/google-cloud-go@modelarmor/v1.3.0]**
+  +!• XLYM is probably a typo for XLTM. Premise: the overview and the release note both say XLTM and the REST text and the Go comment appear to share one source comment **[Inferred]**
+
+--- MA9 R2 replace
+  - • Rich documents with metadata labels: release note 2026-04-06 says Model Armor "can sanitize data passed in as rich documents that have specific metadata labels", using a custom metadata-label infoType in an advanced Sensitive Data Protection configuration (release notes, 2026-10-09) **[Documented]**
+  + • Rich documents with metadata labels: release note 2026-04-06 says Model Armor "can sanitize data passed in as rich documents that have specific metadata labels" (release notes, 2026-10-09) **[Documented]**
+  +!• It needs a custom metadata-label infoType in an advanced Sensitive Data Protection configuration of the Model Armor template; detected labels are Google Drive labels and Microsoft sensitivity labels on DOCX, PDF, PPTX and XLSX (Sensitive Data Protection custom metadata label page, 2026-10-09) **[Documented]**
+  +!• Custom metadata label detectors are not supported in inspection rule sets or de-identification transformations (Sensitive Data Protection custom metadata label page, 2026-10-09) **[Documented]**
+  +!• A Model Armor request field for client-provided metadata is not documented (checked the DataItem, sanitizeUserPrompt and sanitizeModelResponse references and the sanitize page) **[Not disclosed]**
+
+--- MA9 R2 insert
+  + • No page reconciles the three statements on embedded images (checked the overview, integrations page, Gemini Enterprise page, release notes 2025-09-16 and 2026-06-25, and the sanitize page) **[Not disclosed]**
+  +!• The pinned Go comment for the finding container says nested names "could be absent if the embedded object has no string identifier (for example, an image contained within a document)", so the result schema allows an embedded-image container (modelarmor/apiv1/modelarmorpb/service.pb.go@modelarmor/v1.3.0:3433) **[Documented: repo googleapis/google-cloud-go@modelarmor/v1.3.0]**
+
+=== MA9 R3 SUMMARY
+- **A base64 file in the prompt field.** The file goes in a byte item with its type set by hand. The schema lets a response carry a file too, but the docs show no response-side example. The template modality must include text. **[Documented]**
++ **A base64 file in the prompt field.** The file goes in a data item with its file type set by hand. The schema lets a response carry a file too, but the docs show no response-side example. The template modality must include text. **[Not disclosed]**
+
+--- MA9 R3 insert
+  + • Naming: the docs call the Vertex AI route "Gemini Enterprise Agent Platform" (short form Agent Platform below); they still say "Gemini API in Vertex AI" for the generateContent method and use VERTEX_AI in gcloud flags, and list "Gemini Enterprise" as a separate integration (integrations page, Agent Platform integration page, 2026-10-09) **[Documented]**
+
+=== MA9 R4 SUMMARY
+- **Text extraction, then the ordinary filters.** Extraction runs inside the managed service on the direct API and Gemini Enterprise routes, and Gemini Enterprise discards a violating file whole. The extractor and its handling of scans and layout are not described. **[Documented]**
++ **Text extraction, then the ordinary filters.** Gemini Enterprise discards a violating file whole. The extractor and its handling of scans and layout are not described. **[Not disclosed]**
+
+=== MA9 R5 SUMMARY
+- **The standard verdict, with limited location detail.** Output is the usual per-filter result. Malicious URL positions exist only for plain text, oversize files are skipped and files under 69 bytes are rejected. No score or accuracy figure is published. **[Documented]**
++ **The standard verdict, with limited location detail.** Output is the usual per-filter result. Malicious URL positions exist only for plain text, oversize files are skipped and files under 69 bytes are rejected. **[Documented]**
+
+--- MA9 R5 replace
+  - • Which response field returns the file label is not shown (checked the SanitizationResult reference and sanitize page) **[Not disclosed]**
+  + • The file label is probably returned as that container name. Premise: both fields are described as identifying the file; no page names the response field **[Inferred]**
+  +!• The pinned Go v1 `ByteDataItem` has only `ByteDataType` and `ByteData`, no file label (modelarmor/apiv1/modelarmorpb/service.pb.go@modelarmor/v1.3.0:3222) **[Documented: repo googleapis/google-cloud-go@modelarmor/v1.3.0]**
+
+--- MA9 R5 replace
+  - • Token overflow in extracted text: the filter returns EXECUTION_SKIPPED with "Detection skipped as token limit exceeded." (quotas page, 2026-10-09) **[Documented]**
+  + • Token overflow in extracted text: a filter that finds a match returns MATCH_FOUND; otherwise it returns EXECUTION_SKIPPED with "Detection skipped as token limit exceeded." (quotas page, 2026-10-09) **[Documented]**
+
+=== MA9 R6 SUMMARY
+- **Base64 bytes, a stated type and a 4 MB cap.** The byte data type must be set; files under 69 bytes fail and files over 4 MB are skipped. Extracted text counts against the filter token limits. Callers need the user role. **[Documented]**
++ **Base64 bytes, a stated type and a 4 MB cap.** The file type must be set; files under 69 bytes fail and files over 4 MB are skipped. Extracted text counts against the filter token limits. Callers need the user role. **[Documented]**
+
+--- MA9 R6 insert
+  + • The enum value MODALITY_UNSPECIFIED is described as "Unspecified modality. If specified, all modalities will be sanitized." (templates reference, 2026-10-09) **[Documented]**
+  +!• Listing MODALITY_UNSPECIFIED explicitly would scan all modalities, while omitting the field scans text only. Premise: the two REST descriptions; no example shows it **[Inferred]**
+
+--- MA9 R8 replace
+  - • Antivirus: configuration, supported file types beyond PDF, and whether it runs on documents sent through the REST API (checked the REST references, overview, manage-templates and release notes; only the result type, region table and 2026-04-10 note exist)
+  +!• Antivirus: configuration, supported file types beyond PDF, and whether it runs on documents sent through the REST API (checked the REST references, overview, manage-templates, floor settings, sanitize, quotas and integrations pages, the Security Command Center findings page and release notes; only the result type, region table and 2026-04-10 note exist)
+
+--- MA9 R8 replace
+  - • Whether the rich-document metadata-label feature needs special request fields beyond a custom infoType in an advanced Sensitive Data Protection template (checked the release note only)
+  + • Whether the rich-document metadata-label feature works through the direct REST API as well as Gemini Enterprise (needs testing)
+
+--- MA9 R8 replace
+  - • Whether filters report which page or sheet matched (checked the SanitizationResult reference; only character ranges and a container name)
+  + • Whether filters report which page or sheet matched (checked the SanitizationResult reference and the Go comments; only a container name and text ranges are described)
+
+=== MA9 R9 SUMMARY
+- Model Armor docs (overview, sanitize, templates, quotas, integrations, release notes, REST references, data residency, feature availability), the product and pricing pages, the Google Cloud blog, and the pinned Google Go client library.
++ Model Armor docs (overview, sanitize, templates, quotas, integrations, release notes, REST references, data residency, feature availability), the product and pricing pages, the blog, a Sensitive Data Protection page, and the pinned Google Go client library.
+
+--- MA9 R9 insert
+  + • https://docs.cloud.google.com/sensitive-data-protection/docs/create-custom-infotypes-metadata-labels

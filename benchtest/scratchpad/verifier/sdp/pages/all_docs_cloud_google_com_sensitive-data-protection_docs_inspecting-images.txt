@@ -1,0 +1,1995 @@
+# status 200  final_url https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-images  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Sensitive Data Protection
+Start free
+Overview
+Guides
+Reference
+Samples
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Samples
+Resources
+Console
+Discover
+Product overview
+Plan your data risk management strategy
+Evaluate your data risk management needs
+Learn about your data through discovery and inspection
+Recommended strategies for mitigating data risk
+Release notes
+Pricing
+Locations
+Global and regional endpoints for Sensitive Data Protection
+Sensitive Data Protection locations
+Specify a processing location
+Service method types
+Supported file types and scanning modes
+Get started
+Quickstarts
+Inspect text using the command-line tool
+Inspect text using a JSON request
+Schedule an inspection scan
+Create an inspection template
+De-identify and re-identify sensitive text
+Google Cloud Skills Boost labs
+Detect sensitive data
+Discover and profile data resources
+Overview of sensitive data discovery
+Common discovery enablement scenarios
+Allow discovery within service perimeters
+Profile your data
+Profile a single data resource
+Profile BigQuery data
+Estimate BigQuery data profiling cost
+Estimate the cost of profiling BigQuery data in a project
+Estimate the cost of profiling BigQuery data in an organization or folder
+Profile BigQuery data in a project
+Profile BigQuery data in an organization or folder
+Profile Cloud SQL data
+Profile Cloud SQL data in a project
+Profile Cloud SQL data in an organization or folder
+Manage connections
+Profile Cloud Storage data
+Profile Cloud Storage data in a project
+Profile Cloud Storage data in an organization or folder
+Profile Vertex AI data
+Sensitive data discovery for Vertex AI data
+Profile Vertex AI data in a project
+Profile Vertex AI data in an organization or folder
+Profile Amazon S3 data
+Sensitive data discovery for Amazon S3 data
+Profile Amazon S3 data
+Profile Azure Blob Storage data
+Report secrets in environment variables to Security Command Center
+Grant data profiling access to a service agent
+Manage data profiles
+Control IAM access to resources based on data sensitivity
+Send discovery insights to other services
+Enable discovery actions
+Send data profiles to Security Command Center
+Receive and parse Pub/Sub messages about data profiles
+Tag tables in Data Catalog based on insights from data profiles
+Add Knowledge Catalog aspects based on insights from data profiles
+Analyze and visualize data profiles
+Visualize data profiles in the discovery dashboard
+Analyze data profiles
+Remediate findings from the data profiler
+Manage scan configurations
+Troubleshoot issues with the data profiler
+Metrics reference
+Data risk and sensitivity levels
+Inspect for sensitive data
+Inspect data stored in Google Cloud
+Inspect data from any source
+Inspect unstructured text synchronously
+Inspect structured text synchronously
+Inspect an image synchronously
+Asynchronous inspection overview
+Inspect data from any source asynchronously
+Quote the sensitive data in the results
+Work with inspection results
+Actions
+Send inspection results to Knowledge Catalog as aspects
+Send inspection results to Data Catalog
+Send inspection results to Security Command Center
+Analyze and report on inspection findings
+Query inspection findings in BigQuery
+Parse findings stored as Protobuf text
+Jobs and job triggers
+Overview of jobs and job triggers
+Create and manage jobs and job triggers
+Web-based inspection demonstration app
+Allow or block content based on sensitivity
+Overview of content policies
+Create and manage content policies
+Configure detection
+Templates
+Overview of templates
+Create inspection templates
+InfoTypes and infoType detectors
+Overview of infoTypes and infoType detectors
+Built-in infoType detectors
+List built-in infoType detectors
+InfoType detector reference
+Custom infoType detectors
+Overview of custom infoType detectors
+Create a regular custom dictionary detector
+Create a large custom dictionary detector
+Create a custom regex detector
+Create a custom metadata label detector
+Custom infoType examples
+Manage infoTypes through the Google Cloud console
+Modify infoType detectors to refine scan results
+Match likelihood
+Likelihood overview
+Customize match likelihood
+Mask and de-identify data
+Overview
+Transformation methods
+Transformation reference
+Text classification and redaction
+Date shifting
+Generalization and bucketing
+Pseudonymization
+De-identify sensitive data
+De-identify data stored in Google Cloud
+Overview
+Through the Cloud console
+Through the DLP API
+Transformation details reference
+De-identify data from any source
+De-identify text or tabular content
+Examples of text redaction
+Examples of tabular data de-identification
+Image inspection and redaction
+Redact sensitive data from images
+Create a de-identification template
+Create a wrapped key
+De-identify BigQuery data at query time
+De-identification and re-identification of PII in large-scale datasets
+Redact sensitive data from PDF files
+Analyze re-identification risk
+Overview of re-identification risk analysis
+Re-identification risk analysis techniques
+Compute k-anonymity for a dataset
+Compute l-diversity for a dataset
+Compute k-map for a dataset
+Compute δ-presence for a dataset
+Compute numerical and categorical statistics
+Visualize re-identification risk using Data Studio
+Connect to other services
+Use Sensitive Data Protection with BigQuery
+Use Sensitive Data Protection with Cloud Storage
+Use Sensitive Data Protection with Cloud Storage
+Automate the classification of data uploaded to Cloud Storage
+Send inspection results to Data Catalog
+Send inspection results to Security Command Center
+Monitor your usage with Cloud Monitoring
+Use Sensitive Data Protection with AWS S3
+Use Sensitive Data Protection with JDBC Databases
+Use Sensitive Data Protection with Apigee
+Use Sensitive Data Protection with Data Fusion
+Build a secure anomaly detection solution using Dataflow, BigQuery ML, and Sensitive Data Protection
+Troubleshoot
+Troubleshoot issues with the data profiler
+Control access
+Authentication
+IAM
+Access control with IAM
+Sensitive Data Protection roles and permissions
+Sensitive Data Protection service agents
+Control access with VPC Service Controls
+Monitor
+Audit logging
+Monitor your usage with Cloud Monitoring
+Develop
+All Sensitive Data Protection code samples
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Cloud Data Loss Prevention (Cloud DLP) is now a part of Sensitive Data Protection. The API name remains the same: Cloud Data Loss Prevention API (DLP API). For information about the services that make up Sensitive Data Protection, see Sensitive Data Protection overview.
+Home
+Documentation
+Security
+Sensitive Data Protection
+Guides
+Send feedback
+Inspect images for sensitive data
+Stay organized with collections
+Save and categorize content based on your preferences.
+This document describes how to use the Cloud Data Loss Prevention API to detect sensitive text and
+objects in an image. Sensitive Data Protection returns the
+location of any sensitive data that it detects.
+Notes: Sensitive Data Protection can inspect
+many image types for sensitive data, including JPEG, BMP, PNG, and SVG.
+Sensitive Data Protection can also inspect other file formats such as PDF, DOCX,
+XLSX, and PPTX, but may generate mixed findings—including byte offsets
+and bounding boxes—depending on the contents of each specific file. For
+more information, see Supported file
+types.
+Inspecting files using the method described in this document is subject to
+file size limits. For larger files, consider using Sensitive Data Protection to
+scan a storage repository containing the
+files. To learn more about file size limits and Sensitive Data Protection, see
+Usage limits.
+Given an image as input, Sensitive Data Protection detects sensitive data
+in the image. The output of an inspection operation includes the detected
+infoTypes, the
+likelihood of the match, and pixel
+coordinates and length values that indicate the areas within which
+Sensitive Data Protection found the sensitive data. The coordinates at the bottom
+left corner of an image are (0,0).
+Inspect an image for all default infoTypes
+To inspect an image for sensitive data, you submit a base64-encoded image to the
+content.inspect
+method. If you don't specify specific information types (infoTypes)
+to search for, Sensitive Data Protection
+searches for the most common infoTypes.
+To inspect an image for all default infoTypes, follow these steps:
+Encode the image as base64.
+Submit a request to the content.inspect method of the DLP API.
+The request requires only the base64-encoded image.
+For example, consider this image of a document.
+Original image (click to enlarge).
+Important:
+The code on this page requires that you first set up a Sensitive Data Protection client. For more
+information about installing and creating a Sensitive Data Protection client, see
+Sensitive Data Protection client libraries. (Sending JSON
+to Sensitive Data Protection REST endpoints does not require a client
+library.)
+C#
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+using System;
+using System.IO;
+using System.Linq;
+using Google.Api.Gax.ResourceNames;
+using Google.Cloud.Dlp.V2;
+using Google.Protobuf;
+public class InspectImageForSensitiveDataWithInfoTypes
+{
+public static InspectContentResponse InspectImage(
+string projectId,
+string filePath)
+{
+// Instantiate dlp client.
+var dlp = DlpServiceClient.Create();
+// Construct the content item.
+var contentItem = new ContentItem
+{
+ByteItem = new ByteContentItem
+{
+Type = ByteContentItem.Types.BytesType.ImagePng,
+Data = ByteString.FromStream(new FileStream(filePath, FileMode.Open))
+}
+};
+// Construct the request.
+var request = new InspectContentRequest
+{
+ParentAsLocationName = new LocationName(projectId, "global"),
+Item = contentItem,
+InspectConfig = new InspectConfig
+{
+IncludeQuote = true,
+InfoTypes =
+{
+new InfoType { Name = "PHONE_NUMBER" },
+new InfoType { Name = "EMAIL_ADDRESS" },
+new InfoType { Name = "PERSON_NAME" }
+}
+}
+};
+// Call the API.
+var response = dlp.InspectContent(request);
+// Inspect the response.
+var resultFindings = response.Result.Findings;
+Console.WriteLine($"Findings: {resultFindings.Count}\n");
+foreach (var f in resultFindings)
+{
+var data = from location in f.Location.ContentLocations
+from b in location.ImageLocation.BoundingBoxes
+select new { b.Height, b.Width, b.Top, b.Left };
+Console.WriteLine("Info type: " + f.InfoType.Name);
+Console.WriteLine("\tImageLocations: " + string.Join(',', data));
+Console.WriteLine("\tQuote: " + f.Quote);
+Console.WriteLine("\tLikelihood: " + f.Likelihood + "\n");
+}
+return response;
+}
+}
+Go
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import (
+"context"
+"fmt"
+"io"
+"os"
+dlp "cloud.google.com/go/dlp/apiv2"
+"cloud.google.com/go/dlp/apiv2/dlppb"
+)
+// inspectImageFileAllInfoTypes inspects a image for sensitive data with infoTypes
+func inspectImageFileAllInfoTypes(w io.Writer, projectID, inputPath string) error {
+// projectId := "your-project-id"
+// inputPath := "your-input-path"
+ctx := context.Background()
+// Initialize a client once and reuse it to send multiple requests. Clients
+// are safe to use across goroutines. When the client is no longer needed,
+// call the Close method to cleanup its resources.
+client, err := dlp.NewClient(ctx)
+if err != nil {
+return err
+}
+// Closing the client safely cleans up background resources.
+defer client.Close()
+// read the image file
+data, err := os.ReadFile(inputPath)
+if err != nil {
+return err
+}
+// Create and send the request.
+req := &dlppb.InspectContentRequest{
+Parent: fmt.Sprintf("projects/%s/locations/global", projectID),
+Item: &dlppb.ContentItem{
+// Specify the content to be inspected.
+DataItem: &dlppb.ContentItem_ByteItem{
+ByteItem: &dlppb.ByteContentItem{
+Type: dlppb.ByteContentItem_IMAGE_JPEG,
+Data: data,
+},
+},
+},
+}
+// Send the request.
+resp, err := client.InspectContent(ctx, req)
+if err != nil {
+return fmt.Errorf("InspectContent: %w", err)
+}
+// Process the results.
+fmt.Fprintf(w, "Findings: %d\n", len(resp.Result.Findings))
+for _, f := range resp.Result.Findings {
+fmt.Fprintf(w, "\tQuote: %s\n", f.Quote)
+fmt.Fprintf(w, "\tInfo type: %s\n", f.InfoType.Name)
+fmt.Fprintf(w, "\tLikelihood: %s\n", f.Likelihood)
+}
+return nil
+}
+Java
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import com.google.cloud.dlp.v2.DlpServiceClient;
+import com.google.privacy.dlp.v2.ByteContentItem;
+import com.google.privacy.dlp.v2.ByteContentItem.BytesType;
+import com.google.privacy.dlp.v2.ContentItem;
+import com.google.privacy.dlp.v2.Finding;
+import com.google.privacy.dlp.v2.InspectContentRequest;
+import com.google.privacy.dlp.v2.InspectContentResponse;
+import com.google.privacy.dlp.v2.LocationName;
+import com.google.protobuf.ByteString;
+import java.io.FileInputStream;
+import java.io.IOException;
+class InspectImageFileAllInfoTypes {
+public static void main(String[] args) throws IOException {
+// TODO(developer): Replace these variables before running the sample.
+String projectId = "my-project-id";
+String inputPath = "src/test/resources/sensitive-data-image.jpeg";
+inspectImageFileAllInfoTypes(projectId, inputPath);
+}
+static void inspectImageFileAllInfoTypes(String projectId, String inputPath) throws IOException {
+// Initialize client that will be used to send requests. This client only needs to be created
+// once, and can be reused for multiple requests. After completing all of your requests, call
+// the "close" method on the client to safely clean up any remaining background resources.
+try (DlpServiceClient dlp = DlpServiceClient.create()) {
+// Specify the content to be inspected.
+ByteString fileBytes = ByteString.readFrom(new FileInputStream(inputPath));
+ByteContentItem byteItem =
+ByteContentItem.newBuilder().setType(BytesType.IMAGE_JPEG).setData(fileBytes).build();
+// Construct the Inspect request to be sent by the client.
+// Do not specify the type of info to inspect.
+InspectContentRequest request =
+InspectContentRequest.newBuilder()
+.setParent(LocationName.of(projectId, "global").toString())
+.setItem(ContentItem.newBuilder().setByteItem(byteItem).build())
+.build();
+// Use the client to send the API request.
+InspectContentResponse response = dlp.inspectContent(request);
+// Parse the response and process results.
+System.out.println("Findings: " + response.getResult().getFindingsCount());
+for (Finding f : response.getResult().getFindingsList()) {
+System.out.println("\tQuote: " + f.getQuote());
+System.out.println("\tInfo type: " + f.getInfoType().getName());
+System.out.println("\tLikelihood: " + f.getLikelihood());
+}
+}
+}
+}
+Node.js
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+// Imports the Google Cloud Data Loss Prevention library
+const DLP = require('@google-cloud/dlp');
+const mime = require('mime');
+const fs = require('fs');
+// Instantiates a client
+const dlp = new DLP.DlpServiceClient();
+// The project ID to run the API call under
+// const projectId = 'my-project';
+// Image Path
+// const imagePath = './test.jpeg';
+async function inspectImageFileAllType() {
+let fileBytes = null;
+let fileTypeConstant = null;
+try {
+// Load Image
+fileTypeConstant =
+['image/jpeg', 'image/bmp', 'image/png', 'image/svg'].indexOf(
+mime.getType(imagePath)
+) + 1;
+fileBytes = Buffer.from(fs.readFileSync(imagePath)).toString('base64');
+} catch (error) {
+console.error(error.message);
+return;
+}
+// Specify the content to be inspected.
+const item = {
+byteItem: {
+type: fileTypeConstant,
+data: fileBytes,
+},
+};
+// Construct the Inspect request to be sent by the client.
+// Do not specify the type of info to inspect.
+const request = {
+parent: `projects/${projectId}/locations/global`,
+item: item,
+inspectConfig: {
+includeQuote: true,
+},
+};
+// Use the client to send the API request.
+const [response] = await dlp.inspectContent(request);
+// Print findings.
+const findings = response.result.findings;
+if (findings.length > 0) {
+console.log(`Findings: ${findings.length}\n`);
+findings.forEach(finding => {
+console.log(`InfoType: ${finding.infoType.name}`);
+console.log(`\tQuote: ${finding.quote}`);
+console.log(`\tLikelihood: ${finding.likelihood} \n`);
+});
+} else {
+console.log('No findings.');
+}
+}
+inspectImageFileAllType();
+PHP
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+use Google\Cloud\Dlp\V2\ByteContentItem;
+use Google\Cloud\Dlp\V2\ByteContentItem\BytesType;
+use Google\Cloud\Dlp\V2\Client\DlpServiceClient;
+use Google\Cloud\Dlp\V2\ContentItem;
+use Google\Cloud\Dlp\V2\InspectContentRequest;
+use Google\Cloud\Dlp\V2\Likelihood;
+/**
+* Inspect image for sensitive data with infoTypes.
+* To inspect an image for sensitive data, you submit a base64-encoded image to the Cloud DLP API's
+* content.inspect method. Unless you specify information types (infoTypes) to search for, Cloud DLP
+* searches for the most common infoTypes.
+*
+* @param string $projectId The Google Cloud project id to use as a parent resource.
+* @param string $inputPath The image path to inspect.
+*/
+function inspect_image_all_infotypes(
+// TODO(developer): Replace sample parameters before running the code.
+string $projectId,
+string $inputPath = './test/data/test.png'
+): void {
+// Instantiate a client.
+$dlp = new DlpServiceClient();
+// Get the bytes of the file.
+$fileBytes = (new ByteContentItem())
+->setType(BytesType::IMAGE_PNG)
+->setData(file_get_contents($inputPath));
+$parent = "projects/$projectId/locations/global";
+// Specify what content you want the service to Inspect.
+$item = (new ContentItem())
+->setByteItem($fileBytes);
+// Run request.
+$inspectContentRequest = (new InspectContentRequest())
+->setParent($parent)
+->setItem($item);
+$response = $dlp->inspectContent($inspectContentRequest);
+// Print the results.
+$findings = $response->getResult()->getFindings();
+if (count($findings) == 0) {
+printf('No findings.' . PHP_EOL);
+} else {
+printf('Findings:' . PHP_EOL);
+foreach ($findings as $finding) {
+printf(' Info type: %s' . PHP_EOL, $finding->getInfoType()->getName());
+printf(' Likelihood: %s' . PHP_EOL, Likelihood::name($finding->getLikelihood()));
+}
+}
+}
+Python
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import google.cloud.dlp
+def inspect_image_file_all_infotypes(
+project: str,
+filename: str,
+include_quote: bool = True,
+) -> None:
+"""Uses the Data Loss Prevention API to analyze strings for protected data in image file.
+Args:
+project: The Google Cloud project id to use as a parent resource.
+filename: The path to the file to inspect.
+include_quote: Boolean for whether to display a quote of the detected
+information in the results.
+Returns:
+None; the response from the API is printed to the terminal.
+"""
+# Instantiate a client.
+dlp = google.cloud.dlp_v2.DlpServiceClient()
+# Construct the byte_item, containing the image file's byte data.
+with open(filename, mode="rb") as f:
+byte_item = {"type_": "IMAGE", "data": f.read()}
+# Convert the project id into a full resource id.
+parent = f"projects/{project}"
+# Call the API.
+response = dlp.inspect_content(
+request={
+"parent": parent,
+"inspect_config": {"include_quote": include_quote},
+"item": {"byte_item": byte_item},
+}
+)
+# Print out the results.
+print("Findings: ", response.result.findings.count)
+if response.result.findings:
+for finding in response.result.findings:
+print(f"Quote: {finding.quote}")
+print(f"Info type: {finding.info_type.name}")
+print(f"Likelihood: {finding.likelihood}")
+else:
+print("No findings.")
+REST
+Important: Before sending this
+request, use a base64 utility to encode the image into ASCII text data, and
+then replace the BASE64_ENCODED_IMAGE placeholder with
+the base64-encoded image. Most development environments contain a native
+base64 utility. To encode an image file:
+Linux: base64 input.jpg > output.txt
+macOS: base64 -i input.jpg -o output.txt
+PowerShell: [Convert]::ToBase64String([IO.File]::ReadAllBytes("./input.jpg")) > output.txt
+To inspect this image for default infoTypes, send the following JSON to
+the content.inspect method:
+{
+"item": {
+"byteItem": {
+"data": "BASE64_ENCODED_IMAGE",
+"type": "IMAGE_PNG"
+}
+}
+}
+The output is similar to the following:
+{
+"result": {
+"findings": [
+{
+"infoType": {
+"name": "PERSON_NAME",
+"sensitivityScore": {
+"score": "SENSITIVITY_MODERATE"
+}
+},
+"likelihood": "LIKELY",
+"location": {
+"contentLocations": [
+{
+"imageLocation": {
+"boundingBoxes": [
+{
+"top": 383,
+"left": 419,
+"width": 82,
+"height": 38
+},
+{
+"top": 383,
+"left": 494,
+"width": 91,
+"height": 37
+}
+]
+}
+}
+]
+},
+"createTime": "2025-05-22T20:27:03.730Z",
+"findingId": "2025-05-22T20:27:03.731510Z4997664074931396457"
+},
+{
+"infoType": {
+"name": "EMAIL_ADDRESS",
+"sensitivityScore": {
+"score": "SENSITIVITY_MODERATE"
+}
+},
+"likelihood": "VERY_LIKELY",
+"location": {
+"contentLocations": [
+{
+"imageLocation": {
+"boundingBoxes": [
+{
+"top": 445,
+"left": 390,
+"width": 357,
+"height": 48
+}
+]
+}
+}
+]
+},
+"createTime": "2025-05-22T20:27:03.728Z",
+"findingId": "2025-05-22T20:27:03.731538Z284444825812417100"
+},
+{
+"infoType": {
+"name": "PHONE_NUMBER",
+"sensitivityScore": {
+"score": "SENSITIVITY_MODERATE"
+}
+},
+"likelihood": "VERY_LIKELY",
+"location": {
+"contentLocations": [
+{
+"imageLocation": {
+"boundingBoxes": [
+{
+"top": 515,
+"left": 404,
+"width": 223,
+"height": 34
+}
+]
+}
+}
+]
+},
+"createTime": "2025-05-22T20:27:03.729Z",
+"findingId": "2025-05-22T20:27:03.731544Z7910624062018243126"
+},
+{
+"infoType": {
+"name": "PERSON_NAME",
+"sensitivityScore": {
+"score": "SENSITIVITY_MODERATE"
+}
+},
+"likelihood": "UNLIKELY",
+"location": {
+"contentLocations": [
+{
+"imageLocation": {
+"boundingBoxes": [
+{
+"top": 798,
+"left": 473,
+"width": 81,
+"height": 45
+}
+]
+}
+}
+]
+},
+"createTime": "2025-05-22T20:27:03.730Z",
+"findingId": "2025-05-22T20:27:03.731551Z2345136870450870227"
+},
+{
+"infoType": {
+"name": "PERSON_NAME",
+"sensitivityScore": {
+"score": "SENSITIVITY_MODERATE"
+}
+},
+"likelihood": "UNLIKELY",
+"location": {
+"contentLocations": [
+{
+"imageLocation": {
+"boundingBoxes": [
+{
+"top": 837,
+"left": 1166,
+"width": 46,
+"height": 45
+}
+]
+}
+}
+]
+},
+"createTime": "2025-05-22T20:27:03.730Z",
+"findingId": "2025-05-22T20:27:03.731557Z6725780456697828166"
+},
+{
+"infoType": {
+"name": "PERSON_NAME",
+"sensitivityScore": {
+"score": "SENSITIVITY_MODERATE"
+}
+},
+"likelihood": "UNLIKELY",
+"location": {
+"contentLocations": [
+{
+"imageLocation": {
+"boundingBoxes": [
+{
+"top": 915,
+"left": 453,
+"width": 141,
+"height": 43
+}
+]
+}
+}
+]
+},
+"createTime": "2025-05-22T20:27:03.730Z",
+"findingId": "2025-05-22T20:27:03.731562Z7328853308213386463"
+},
+{
+"infoType": {
+"name": "PERSON_NAME",
+"sensitivityScore": {
+"score": "SENSITIVITY_MODERATE"
+}
+},
+"likelihood": "UNLIKELY",
+"location": {
+"contentLocations": [
+{
+"imageLocation": {
+"boundingBoxes": [
+{
+"top": 915,
+"left": 1180,
+"width": 105,
+"height": 43
+}
+]
+}
+}
+]
+},
+"createTime": "2025-05-22T20:27:03.730Z",
+"findingId": "2025-05-22T20:27:03.731569Z5618332947461439057"
+}
+]
+}
+}
+In this example, Sensitive Data Protection found the following infoTypes, though
+its match confidence for each one varies:
+PERSON_NAME
+EMAIL_ADDRESS
+PHONE_NUMBER
+See the JSON quickstart for
+more information about using the DLP API with JSON.
+Be aware that Sensitive Data Protection often uses multiple boxes to
+indicate where a single instance of sensitive data is in the image.
+Inspect an image for specific infoTypes
+To inspect an image for only certain sensitive data types, specify
+their corresponding built-in infoTypes.
+Note: You can also inspect for data matching your custom infoType
+detectors.
+To inspect an image for specific infoTypes, follow these steps:
+Encode the image as base64.
+Submit a request to the
+content.inspect method of the
+DLP API. The request must include the following:
+The base64-encoded image.
+One or more infoType detectors.
+Important:
+The code on this page requires that you first set up a Sensitive Data Protection client. For more
+information about installing and creating a Sensitive Data Protection client, see
+Sensitive Data Protection client libraries. (Sending JSON
+to Sensitive Data Protection REST endpoints does not require a client
+library.)
+C#
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+using System;
+using System.IO;
+using System.Linq;
+using Google.Api.Gax.ResourceNames;
+using Google.Cloud.Dlp.V2;
+using Google.Protobuf;
+public class InspectImageForSensitiveDataWithListedInfoTypes
+{
+public static InspectContentResponse InspectImage(
+string projectId,
+string filePath)
+{
+// Instantiate dlp client.
+var dlp = DlpServiceClient.Create();
+// Construct the content item by providing the image file and its type.
+var contentItem = new ContentItem
+{
+ByteItem = new ByteContentItem
+{
+Type = ByteContentItem.Types.BytesType.ImagePng,
+Data = ByteString.FromStream(new FileStream(filePath, FileMode.Open))
+}
+};
+// Specify the type of info the inspection will look for.
+var infoTypes = new InfoType[]
+{
+new InfoType { Name = "PHONE_NUMBER" },
+new InfoType { Name = "EMAIL_ADDRESS" },
+new InfoType { Name = "US_SOCIAL_SECURITY_NUMBER" }
+};
+// Construct the Inspect config.
+var inspectConfig = new InspectConfig
+{
+InfoTypes = { infoTypes },
+IncludeQuote = true
+};
+// Construct the request.
+var request = new InspectContentRequest
+{
+ParentAsLocationName = new LocationName(projectId, "global"),
+InspectConfig = inspectConfig,
+Item = contentItem
+};
+// Call the API.
+InspectContentResponse response = dlp.InspectContent(request);
+// Inspect the response.
+var resultFindings = response.Result.Findings;
+Console.WriteLine($"Findings: {resultFindings.Count}");
+foreach (var f in resultFindings)
+{
+var data = from location in f.Location.ContentLocations
+from b in location.ImageLocation.BoundingBoxes
+select new { b.Height, b.Width, b.Top, b.Left };
+Console.WriteLine("Info type: " + f.InfoType.Name);
+Console.WriteLine("\tQuote: " + f.Quote);
+Console.WriteLine("\tImageLocations: " + string.Join(",", data));
+Console.WriteLine("\tLikelihood: " + f.Likelihood);
+}
+return response;
+}
+}
+Go
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import (
+"context"
+"fmt"
+"io"
+"os"
+dlp "cloud.google.com/go/dlp/apiv2"
+"cloud.google.com/go/dlp/apiv2/dlppb"
+)
+// inspectImageFileListedInfoTypes inspects an image for sensitive data listed infoTypes.
+func inspectImageFileListedInfoTypes(w io.Writer, projectID, filePath string) error {
+// projectId := "my-project-id"
+// filePath := "testdata/image.jpg"
+ctx := context.Background()
+// Initialize a client once and reuse it to send multiple requests. Clients
+// are safe to use across goroutines. When the client is no longer needed,
+// call the Close method to cleanup its resources.
+client, err := dlp.NewClient(ctx)
+if err != nil {
+return err
+}
+// Closing the client safely cleans up background resources.
+defer client.Close()
+// Read a image file
+data, err := os.ReadFile(filePath)
+if err != nil {
+return err
+}
+// Specify the type and content to be inspected.
+item := &dlppb.ContentItem{
+DataItem: &dlppb.ContentItem_ByteItem{
+ByteItem: &dlppb.ByteContentItem{
+Type: dlppb.ByteContentItem_IMAGE_JPEG,
+Data: data,
+},
+},
+}
+// Construct the configuration for the Inspect request.
+inspectConfig := &dlppb.InspectConfig{
+InfoTypes: []*dlppb.InfoType{
+{Name: "PHONE_NUMBER"},
+{Name: "EMAIL_ADDRESS"},
+{Name: "US_SOCIAL_SECURITY_NUMBER"},
+},
+IncludeQuote: true,
+}
+// Construct the Inspect request to be sent by the client.
+req := &dlppb.InspectContentRequest{
+Parent: fmt.Sprintf("projects/%s/locations/global", projectID),
+Item: item,
+InspectConfig: inspectConfig,
+}
+// Send the request.
+resp, err := client.InspectContent(ctx, req)
+if err != nil {
+return err
+}
+// Process the results.
+fmt.Fprintf(w, "Findings: %d\n", len(resp.Result.Findings))
+for _, f := range resp.Result.Findings {
+fmt.Fprintf(w, "\tQuote: %s\n", f.Quote)
+fmt.Fprintf(w, "\tInfo type: %s\n", f.InfoType.Name)
+fmt.Fprintf(w, "\tLikelihood: %s\n", f.Likelihood)
+}
+return nil
+}
+Java
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import com.google.cloud.dlp.v2.DlpServiceClient;
+import com.google.privacy.dlp.v2.ByteContentItem;
+import com.google.privacy.dlp.v2.ByteContentItem.BytesType;
+import com.google.privacy.dlp.v2.ContentItem;
+import com.google.privacy.dlp.v2.Finding;
+import com.google.privacy.dlp.v2.InfoType;
+import com.google.privacy.dlp.v2.InspectConfig;
+import com.google.privacy.dlp.v2.InspectContentRequest;
+import com.google.privacy.dlp.v2.InspectContentResponse;
+import com.google.privacy.dlp.v2.LocationName;
+import com.google.protobuf.ByteString;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+class InspectImageFileListedInfoTypes {
+public static void main(String[] args) throws IOException {
+// TODO(developer): Replace these variables before running the sample.
+String projectId = "my-project-id";
+String inputPath = "src/test/resources/sensitive-data-image.jpeg";
+inspectImageFileListedInfoTypes(projectId, inputPath);
+}
+static void inspectImageFileListedInfoTypes(String projectId, String inputPath)
+throws IOException {
+// Initialize client that will be used to send requests. This client only needs to be created
+// once, and can be reused for multiple requests. After completing all of your requests, call
+// the "close" method on the client to safely clean up any remaining background resources.
+try (DlpServiceClient dlp = DlpServiceClient.create()) {
+// Specify the content to be inspected.
+ByteString fileBytes = ByteString.readFrom(new FileInputStream(inputPath));
+ByteContentItem byteItem =
+ByteContentItem.newBuilder().setType(BytesType.IMAGE_JPEG).setData(fileBytes).build();
+// Specify the type of info the inspection will look for.
+List<InfoType> infoTypes = new ArrayList<>();
+// See https://cloud.google.com/dlp/docs/infotypes-reference for complete list of info types
+for (String typeName :
+new String[] {"US_SOCIAL_SECURITY_NUMBER", "EMAIL_ADDRESS", "PHONE_NUMBER"}) {
+infoTypes.add(InfoType.newBuilder().setName(typeName).build());
+}
+// Construct the configuration for the Inspect request.
+InspectConfig inspectConfig = InspectConfig.newBuilder().addAllInfoTypes(infoTypes).build();
+// Construct the Inspect request to be sent by the client.
+InspectContentRequest request =
+InspectContentRequest.newBuilder()
+.setParent(LocationName.of(projectId, "global").toString())
+.setItem(ContentItem.newBuilder().setByteItem(byteItem).build())
+.setInspectConfig(inspectConfig)
+.build();
+// Use the client to send the API request.
+InspectContentResponse response = dlp.inspectContent(request);
+// Parse the response and process results.
+System.out.println("Findings: " + response.getResult().getFindingsCount());
+for (Finding f : response.getResult().getFindingsList()) {
+System.out.println("\tQuote: " + f.getQuote());
+System.out.println("\tInfo type: " + f.getInfoType().getName());
+System.out.println("\tLikelihood: " + f.getLikelihood());
+}
+}
+}
+}
+Node.js
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+// Imports the Google Cloud Data Loss Prevention library
+const DLP = require('@google-cloud/dlp');
+const mime = require('mime');
+const fs = require('fs');
+// Instantiates a client
+const dlp = new DLP.DlpServiceClient();
+// The project ID to run the API call under
+// const imagePath = './test.pdf';
+// InfoTypes
+const infoTypes = [
+{name: 'PHONE_NUMBER'},
+{name: 'EMAIL_ADDRESS'},
+{name: 'US_SOCIAL_SECURITY_NUMBER'},
+];
+async function inspectImageFileListedInfoTypes() {
+let fileBytes = null;
+let fileTypeConstant = null;
+try {
+// Load Image
+fileTypeConstant =
+['image/jpeg', 'image/bmp', 'image/png', 'image/svg'].indexOf(
+mime.getType(imagePath)
+) + 1;
+fileBytes = Buffer.from(fs.readFileSync(imagePath)).toString('base64');
+} catch (error) {
+console.log(error);
+return;
+}
+// Specify item to inspect
+const item = {
+byteItem: {
+type: fileTypeConstant,
+data: fileBytes,
+},
+};
+// Specify inspect configuration to match information with mentioned infotypes.
+const inspectConfig = {
+infoTypes: infoTypes,
+includeQuote: true,
+};
+// Combine configurations into a request for the service.
+const request = {
+parent: `projects/${projectId}/locations/global`,
+inspectConfig: inspectConfig,
+item: item,
+};
+// Use the client to send the request.
+const [response] = await dlp.inspectContent(request);
+// Print Findings
+const findings = response.result.findings;
+if (findings.length > 0) {
+console.log(`Findings: ${findings.length}\n`);
+findings.forEach(finding => {
+console.log(`InfoType: ${finding.infoType.name}`);
+console.log(`\tQuote: ${finding.quote}`);
+console.log(`\tLikelihood: ${finding.likelihood} \n`);
+});
+} else {
+console.log('No findings.');
+}
+}
+inspectImageFileListedInfoTypes();
+PHP
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+use Google\Cloud\Dlp\V2\ByteContentItem;
+use Google\Cloud\Dlp\V2\ByteContentItem\BytesType;
+use Google\Cloud\Dlp\V2\Client\DlpServiceClient;
+use Google\Cloud\Dlp\V2\ContentItem;
+use Google\Cloud\Dlp\V2\InfoType;
+use Google\Cloud\Dlp\V2\InspectConfig;
+use Google\Cloud\Dlp\V2\InspectContentRequest;
+use Google\Cloud\Dlp\V2\Likelihood;
+/**
+* Inspect an image for sensitive data with listed infoTypes.
+* If you want to inspect an image for only certain sensitive data types, specify their corresponding
+* built-in infoTypes.
+*
+* @param string $projectId The Google Cloud project id to use as a parent resource.
+* @param string $inputPath The image path to inspect.
+*/
+function inspect_image_listed_infotypes(
+// TODO(developer): Replace sample parameters before running the code.
+string $projectId,
+string $inputPath = './test/data/test.png'
+): void {
+// Instantiate a client.
+$dlp = new DlpServiceClient();
+// Get the bytes of the file.
+$fileBytes = (new ByteContentItem())
+->setType(BytesType::IMAGE_PNG)
+->setData(file_get_contents($inputPath));
+$parent = "projects/$projectId/locations/global";
+// Specify what content you want the service to Inspect.
+$item = (new ContentItem())
+->setByteItem($fileBytes);
+// Create inspect config configuration.
+$inspectConfig = (new InspectConfig())
+// The infoTypes of information to match.
+->setInfoTypes([
+(new InfoType())->setName('PHONE_NUMBER'),
+(new InfoType())->setName('EMAIL_ADDRESS'),
+(new InfoType())->setName('US_SOCIAL_SECURITY_NUMBER')
+]);
+// Run request.
+$inspectContentRequest = (new InspectContentRequest())
+->setParent($parent)
+->setInspectConfig($inspectConfig)
+->setItem($item);
+$response = $dlp->inspectContent($inspectContentRequest);
+// Print the results.
+$findings = $response->getResult()->getFindings();
+if (count($findings) == 0) {
+printf('No findings.' . PHP_EOL);
+} else {
+printf('Findings:' . PHP_EOL);
+foreach ($findings as $finding) {
+printf(' Info type: %s' . PHP_EOL, $finding->getInfoType()->getName());
+printf(' Likelihood: %s' . PHP_EOL, Likelihood::name($finding->getLikelihood()));
+}
+}
+}
+Python
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+from typing import List
+import google.cloud.dlp
+def inspect_image_file_listed_infotypes(
+project: str,
+filename: str,
+info_types: List[str],
+include_quote: bool = True,
+) -> None:
+"""Uses the Data Loss Prevention API to analyze strings in an image for
+data matching the given infoTypes.
+Args:
+project: The Google Cloud project id to use as a parent resource.
+filename: The path of the image file to inspect.
+info_types: A list of strings representing infoTypes to look for.
+A full list of info type categories can be fetched from the API.
+include_quote: Boolean for whether to display a matching snippet of
+the detected information in the results.
+"""
+# Instantiate a client.
+dlp = google.cloud.dlp_v2.DlpServiceClient()
+# Prepare info_types by converting the list of strings into a list of
+# dictionaries.
+info_types = [{"name": info_type} for info_type in info_types]
+# Construct the configuration dictionary.
+inspect_config = {
+"info_types": info_types,
+"include_quote": include_quote,
+}
+# Construct the byte_item, containing the image file's byte data.
+with open(filename, mode="rb") as f:
+byte_item = {"type_": "IMAGE", "data": f.read()}
+# Convert the project id into a full resource id.
+parent = f"projects/{project}"
+# Call the API.
+response = dlp.inspect_content(
+request={
+"parent": parent,
+"inspect_config": inspect_config,
+"item": {"byte_item": byte_item},
+}
+)
+# Print out the results.
+if response.result.findings:
+for finding in response.result.findings:
+print(f"Info type: {finding.info_type.name}")
+if include_quote:
+print(f"Quote: {finding.quote}")
+print(f"Likelihood: {finding.likelihood} \n")
+else:
+print("No findings.")
+REST
+Important: Before sending this
+request, use a base64 utility to encode the image into ASCII text data, and
+then replace the BASE64_ENCODED_IMAGE placeholder with
+the base64-encoded image. Most development environments contain a native
+base64 utility. To encode an image file:
+Linux: base64 input.jpg > output.txt
+macOS: base64 -i input.jpg -o output.txt
+PowerShell: [Convert]::ToBase64String([IO.File]::ReadAllBytes("./input.jpg")) > output.txt
+Consider the original image from the previous section. To inspect for only email
+addresses and telephone numbers, send the following JSON to the
+content.inspect method.
+{
+"item": {
+"byteItem": {
+"data": "BASE64_ENCODED_IMAGE",
+"type": "IMAGE_PNG"
+}
+},
+"inspectConfig": {
+"infoTypes": [
+{
+"name": "PHONE_NUMBER"
+},
+{
+"name": "EMAIL_ADDRESS"
+}
+]
+}
+}
+The output is similar to the following:
+{
+"result": {
+"findings": [
+{
+"infoType": {
+"name": "EMAIL_ADDRESS",
+"sensitivityScore": {
+"score": "SENSITIVITY_MODERATE"
+}
+},
+"likelihood": "VERY_LIKELY",
+"location": {
+"contentLocations": [
+{
+"imageLocation": {
+"boundingBoxes": [
+{
+"top": 445,
+"left": 390,
+"width": 357,
+"height": 48
+}
+]
+}
+}
+]
+},
+"createTime": "2025-05-22T20:59:48.653Z",
+"findingId": "2025-05-22T20:59:48.654873Z3907900286477341146"
+},
+{
+"infoType": {
+"name": "PHONE_NUMBER",
+"sensitivityScore": {
+"score": "SENSITIVITY_MODERATE"
+}
+},
+"likelihood": "VERY_LIKELY",
+"location": {
+"contentLocations": [
+{
+"imageLocation": {
+"boundingBoxes": [
+{
+"top": 515,
+"left": 404,
+"width": 223,
+"height": 34
+}
+]
+}
+}
+]
+},
+"createTime": "2025-05-22T20:59:48.653Z",
+"findingId": "2025-05-22T20:59:48.654914Z7486984971818202511"
+}
+]
+}
+}
+See the JSON quickstart for more information about
+using the DLP API with JSON.
+Inspect an image for sensitive objects
+To inspect an image for sensitive objects, specify the built-in object infoType
+detectors in the request.
+Note: When the Sensitive Data Protection detects an object infoType, the
+inspection result doesn't include a
+quote for the detected
+object.
+To inspect an image for specific object infoTypes, follow these steps:
+Encode the image as base64.
+Submit a request to the
+content.inspect method of the
+DLP API. The request must include the following:
+The base64-encoded image.
+One or more object infoType
+detectors.
+For example, consider the following image.
+AI-generated image that contains a barcode, license plate, and
+whiteboard (click to enlarge).
+Important: Before sending this
+request, use a base64 utility to encode the image into ASCII text data, and
+then replace the BASE64_ENCODED_IMAGE placeholder with
+the base64-encoded image. Most development environments contain a native
+base64 utility. To encode an image file:
+Linux: base64 input.jpg > output.txt
+macOS: base64 -i input.jpg -o output.txt
+PowerShell: [Convert]::ToBase64String([IO.File]::ReadAllBytes("./input.jpg")) > output.txt
+To inspect this image for specific object infoTypes, send the following JSON to
+the content.inspect method:
+{
+"item": {
+"byteItem": {
+"data": "BASE64_ENCODED_IMAGE",
+"type": "IMAGE_PNG"
+}
+},
+"inspectConfig": {
+"infoTypes": [
+{
+"name": "OBJECT_TYPE/BARCODE"
+},
+{
+"name": "OBJECT_TYPE/LICENSE_PLATE"
+},
+{
+"name": "OBJECT_TYPE/WHITEBOARD"
+}
+]
+}
+}
+The output is similar to the following:
+{
+"result": {
+"findings": [
+{
+"infoType": {
+"name": "OBJECT_TYPE/WHITEBOARD",
+"sensitivityScore": {
+"score": "SENSITIVITY_LOW"
+}
+},
+"likelihood": "LIKELY",
+"location": {
+"contentLocations": [
+{
+"imageLocation": {
+"boundingBoxes": [
+{
+"left": 427,
+"width": 561,
+"height": 678
+}
+]
+}
+}
+]
+},
+"createTime": "2025-05-22T22:25:09.564718Z",
+"findingId": "2025-05-22T22:25:09.564721Z3400818180961962648"
+},
+{
+"infoType": {
+"name": "OBJECT_TYPE/LICENSE_PLATE",
+"sensitivityScore": {
+"score": "SENSITIVITY_MODERATE"
+}
+},
+"likelihood": "LIKELY",
+"location": {
+"contentLocations": [
+{
+"imageLocation": {
+"boundingBoxes": [
+{
+"top": 554,
+"left": 137,
+"width": 187,
+"height": 70
+}
+]
+}
+}
+]
+},
+"createTime": "2025-05-22T22:25:09.564752Z",
+"findingId": "2025-05-22T22:25:09.564753Z2359274424382836782"
+},
+{
+"infoType": {
+"name": "OBJECT_TYPE/BARCODE",
+"sensitivityScore": {
+"score": "SENSITIVITY_LOW"
+}
+},
+"likelihood": "LIKELY",
+"location": {
+"contentLocations": [
+{
+"imageLocation": {
+"boundingBoxes": [
+{
+"top": 569,
+"left": 666,
+"width": 306,
+"height": 274
+}
+]
+}
+}
+]
+},
+"createTime": "2025-05-22T22:25:09.564762Z",
+"findingId": "2025-05-22T22:25:09.564762Z1655085669963455621"
+}
+]
+}
+}
+See the JSON quickstart for
+more information about using the DLP API with JSON.
+Code examples
+Following is sample code in several languages that demonstrates how to
+use Sensitive Data Protection to inspect an image for sensitive data.
+Important:
+The code on this page requires that you first set up a Sensitive Data Protection client. For more
+information about installing and creating a Sensitive Data Protection client, see
+Sensitive Data Protection client libraries. (Sending JSON
+to Sensitive Data Protection REST endpoints does not require a client
+library.)
+C#
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using Google.Api.Gax.ResourceNames;
+using Google.Cloud.Dlp.V2;
+using Google.Protobuf;
+public class InspectImage
+{
+public static InspectContentResponse Inspect(
+string projectId,
+string filePath,
+IEnumerable<InfoType> infoTypes = null)
+{
+// Instantiate dlp client.
+var dlp = DlpServiceClient.Create();
+// Construct the content item by setting the type of image and data to be inspected.
+var contentItem = new ContentItem
+{
+ByteItem = new ByteContentItem
+{
+Type = ByteContentItem.Types.BytesType.ImagePng,
+Data = ByteString.FromStream(new FileStream(filePath, FileMode.Open))
+}
+};
+// Construct the Inspect config by specifying the type of info to be inspected.
+var inspectConfig = new InspectConfig
+{
+InfoTypes =
+{
+infoTypes ?? new InfoType[]
+{
+new InfoType { Name = "PHONE_NUMBER" },
+new InfoType { Name = "EMAIL_ADDRESS" },
+new InfoType { Name = "CREDIT_CARD_NUMBER" }
+}
+},
+IncludeQuote = true
+};
+// Construct the request.
+var request = new InspectContentRequest
+{
+ParentAsLocationName = new LocationName(projectId, "global"),
+InspectConfig = inspectConfig,
+Item = contentItem
+};
+// Call the API.
+InspectContentResponse response = dlp.InspectContent(request);
+// Inspect the response.
+var resultFindings = response.Result.Findings;
+Console.WriteLine($"Findings: {resultFindings.Count}\n");
+// Print the results.
+foreach (var f in resultFindings)
+{
+var data = from location in f.Location.ContentLocations
+from b in location.ImageLocation.BoundingBoxes
+select new { b.Height, b.Width, b.Top, b.Left };
+Console.WriteLine("Info type: " + f.InfoType.Name);
+Console.WriteLine("\tQuote: " + f.Quote);
+Console.WriteLine("\tImageLocations: " + string.Join(",", data));
+Console.WriteLine("\tLikelihood: " + f.Likelihood);
+}
+return response;
+}
+}
+Go
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import (
+"context"
+"fmt"
+"io"
+"os"
+dlp "cloud.google.com/go/dlp/apiv2"
+"cloud.google.com/go/dlp/apiv2/dlppb"
+)
+// inspectImageFile inspects an image file for sensitive data
+func inspectImageFile(w io.Writer, projectID, filePath string) error {
+// projectId := "my-project-id"
+// filePath := "inspect/testdata/test.png"
+ctx := context.Background()
+// Initialize a client once and reuse it to send multiple requests. Clients
+// are safe to use across goroutines. When the client is no longer needed,
+// call the Close method to cleanup its resources.
+client, err := dlp.NewClient(ctx)
+if err != nil {
+return err
+}
+// Closing the client safely cleans up background resources.
+defer client.Close()
+// Read a image file
+data, err := os.ReadFile(filePath)
+if err != nil {
+return err
+}
+// Specify the type and content to be inspected.
+item := &dlppb.ContentItem{
+DataItem: &dlppb.ContentItem_ByteItem{
+ByteItem: &dlppb.ByteContentItem{
+Type: dlppb.ByteContentItem_IMAGE,
+Data: data,
+},
+},
+}
+// Construct the configuration for the Inspect request.
+inspectConfig := &dlppb.InspectConfig{
+InfoTypes: []*dlppb.InfoType{
+{Name: "PHONE_NUMBER"},
+{Name: "EMAIL_ADDRESS"},
+{Name: "CREDIT_CARD_NUMBER"},
+},
+IncludeQuote: true,
+}
+// Construct the Inspect request to be sent by the client.
+req := &dlppb.InspectContentRequest{
+Parent: fmt.Sprintf("projects/%s/locations/global", projectID),
+Item: item,
+InspectConfig: inspectConfig,
+}
+// Send the request.
+resp, err := client.InspectContent(ctx, req)
+if err != nil {
+return err
+}
+// Process the results.
+fmt.Fprintf(w, "Findings: %d\n", len(resp.Result.Findings))
+for _, f := range resp.Result.Findings {
+fmt.Fprintf(w, "\tQuote: %s\n", f.Quote)
+fmt.Fprintf(w, "\tInfo type: %s\n", f.InfoType.Name)
+fmt.Fprintf(w, "\tLikelihood: %s\n", f.Likelihood)
+}
+return nil
+}
+Java
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import com.google.cloud.dlp.v2.DlpServiceClient;
+import com.google.privacy.dlp.v2.ByteContentItem;
+import com.google.privacy.dlp.v2.ByteContentItem.BytesType;
+import com.google.privacy.dlp.v2.ContentItem;
+import com.google.privacy.dlp.v2.Finding;
+import com.google.privacy.dlp.v2.InfoType;
+import com.google.privacy.dlp.v2.InspectConfig;
+import com.google.privacy.dlp.v2.InspectContentRequest;
+import com.google.privacy.dlp.v2.InspectContentResponse;
+import com.google.privacy.dlp.v2.LocationName;
+import com.google.protobuf.ByteString;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+public class InspectImageFile {
+public static void main(String[] args) throws Exception {
+// TODO(developer): Replace these variables before running the sample.
+String projectId = "your-project-id";
+String filePath = "path/to/image.png";
+inspectImageFile(projectId, filePath);
+}
+// Inspects the specified image file.
+public static void inspectImageFile(String projectId, String filePath) throws IOException {
+// Initialize client that will be used to send requests. This client only needs to be created
+// once, and can be reused for multiple requests. After completing all of your requests, call
+// the "close" method on the client to safely clean up any remaining background resources.
+try (DlpServiceClient dlp = DlpServiceClient.create()) {
+// Specify the type and content to be inspected.
+ByteString fileBytes = ByteString.readFrom(new FileInputStream(filePath));
+ByteContentItem byteItem =
+ByteContentItem.newBuilder().setType(BytesType.IMAGE).setData(fileBytes).build();
+ContentItem item = ContentItem.newBuilder().setByteItem(byteItem).build();
+// Specify the type of info the inspection will look for.
+List<InfoType> infoTypes = new ArrayList<>();
+// See https://cloud.google.com/dlp/docs/infotypes-reference for complete list of info types
+for (String typeName : new String[] {"PHONE_NUMBER", "EMAIL_ADDRESS", "CREDIT_CARD_NUMBER"}) {
+infoTypes.add(InfoType.newBuilder().setName(typeName).build());
+}
+// Construct the configuration for the Inspect request.
+InspectConfig config =
+InspectConfig.newBuilder().addAllInfoTypes(infoTypes).setIncludeQuote(true).build();
+// Construct the Inspect request to be sent by the client.
+InspectContentRequest request =
+InspectContentRequest.newBuilder()
+.setParent(LocationName.of(projectId, "global").toString())
+.setItem(item)
+.setInspectConfig(config)
+.build();
+// Use the client to send the API request.
+InspectContentResponse response = dlp.inspectContent(request);
+// Parse the response and process results.
+System.out.println("Findings: " + response.getResult().getFindingsCount());
+for (Finding f : response.getResult().getFindingsList()) {
+System.out.println("\tQuote: " + f.getQuote());
+System.out.println("\tInfo type: " + f.getInfoType().getName());
+System.out.println("\tLikelihood: " + f.getLikelihood());
+}
+}
+}
+}
+Node.js
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+// Imports the Google Cloud Data Loss Prevention library
+const DLP = require('@google-cloud/dlp');
+const mime = require('mime');
+const fs = require('fs');
+// Instantiates a client
+const dlp = new DLP.DlpServiceClient();
+// The project ID to run the API call under
+// const imagePath = './test.jpeg';
+// InfoTypes
+const infoTypes = [
+{name: 'PHONE_NUMBER'},
+{name: 'EMAIL_ADDRESS'},
+{name: 'CREDIT_CARD_NUMBER'},
+];
+async function inspectImageFile() {
+let fileBytes = null;
+let fileTypeConstant = null;
+try {
+// Load Image
+fileTypeConstant =
+['image/jpeg', 'image/bmp', 'image/png', 'image/svg'].indexOf(
+mime.getType(imagePath)
+) + 1;
+fileBytes = Buffer.from(fs.readFileSync(imagePath)).toString('base64');
+} catch (error) {
+console.log(error);
+return;
+}
+// Specify item to inspect
+const item = {
+byteItem: {
+type: fileTypeConstant,
+data: fileBytes,
+},
+};
+// Specify inspect configuration to match information with mentioned infotypes.
+const inspectConfig = {
+infoTypes: infoTypes,
+includeQuote: true,
+};
+// Combine configurations into a request for the service.
+const request = {
+parent: `projects/${projectId}/locations/global`,
+inspectConfig: inspectConfig,
+item: item,
+};
+// Use the client to send the request.
+const [response] = await dlp.inspectContent(request);
+// Print Findings
+const findings = response.result.findings;
+if (findings.length > 0) {
+console.log(`Findings: ${findings.length}\n`);
+findings.forEach(finding => {
+console.log(`InfoType: ${finding.infoType.name}`);
+console.log(`\tQuote: ${finding.quote}`);
+console.log(`\tLikelihood: ${finding.likelihood} \n`);
+});
+} else {
+console.log('No findings.');
+}
+}
+inspectImageFile();
+PHP
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+use Google\Cloud\Dlp\V2\ByteContentItem;
+use Google\Cloud\Dlp\V2\ByteContentItem\BytesType;
+use Google\Cloud\Dlp\V2\Client\DlpServiceClient;
+use Google\Cloud\Dlp\V2\ContentItem;
+use Google\Cloud\Dlp\V2\InfoType;
+use Google\Cloud\Dlp\V2\InspectConfig;
+use Google\Cloud\Dlp\V2\InspectContentRequest;
+use Google\Cloud\Dlp\V2\Likelihood;
+/**
+* @param string $projectId
+* @param string $filepath
+*/
+function inspect_image_file(string $projectId, string $filepath): void
+{
+// Instantiate a client.
+$dlp = new DlpServiceClient();
+// Get the bytes of the file
+$fileBytes = (new ByteContentItem())
+->setType(BytesType::IMAGE_PNG)
+->setData(file_get_contents($filepath));
+// Construct request
+$parent = "projects/$projectId/locations/global";
+$item = (new ContentItem())
+->setByteItem($fileBytes);
+$inspectConfig = (new InspectConfig())
+// The infoTypes of information to match
+->setInfoTypes([
+(new InfoType())->setName('PHONE_NUMBER'),
+(new InfoType())->setName('EMAIL_ADDRESS'),
+(new InfoType())->setName('CREDIT_CARD_NUMBER')
+])
+// Whether to include the matching string
+->setIncludeQuote(true);
+// Run request
+$inspectContentRequest = (new InspectContentRequest())
+->setParent($parent)
+->setInspectConfig($inspectConfig)
+->setItem($item);
+$response = $dlp->inspectContent($inspectContentRequest);
+// Print the results
+$findings = $response->getResult()->getFindings();
+if (count($findings) == 0) {
+print('No findings.' . PHP_EOL);
+} else {
+print('Findings:' . PHP_EOL);
+foreach ($findings as $finding) {
+print(' Quote: ' . $finding->getQuote() . PHP_EOL);
+print(' Info type: ' . $finding->getInfoType()->getName() . PHP_EOL);
+$likelihoodString = Likelihood::name($finding->getLikelihood());
+print(' Likelihood: ' . $likelihoodString . PHP_EOL);
+}
+}
+}
+Python
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import google.cloud.dlp
+def inspect_image_file(
+project: str,
+filename: str,
+include_quote: bool = True,
+) -> None:
+"""Uses the Data Loss Prevention API to analyze strings for
+protected data in image file.
+Args:
+project: The Google Cloud project id to use as a parent resource.
+filename: The path to the file to inspect.
+include_quote: Boolean for whether to display a quote of the detected
+information in the results.
+"""
+# Instantiate a client.
+dlp = google.cloud.dlp_v2.DlpServiceClient()
+# Prepare info_types by converting the list of strings into a list of
+# dictionaries.
+info_types = ["PHONE_NUMBER", "EMAIL_ADDRESS", "CREDIT_CARD_NUMBER"]
+info_types = [{"name": info_type} for info_type in info_types]
+# Construct the configuration for the Inspect request.
+inspect_config = {
+"info_types": info_types,
+"include_quote": include_quote,
+}
+# Construct the byte_item, containing the image file's byte data.
+with open(filename, mode="rb") as f:
+byte_item = {"type_": "IMAGE", "data": f.read()}
+# Convert the project id into a full resource id.
+parent = f"projects/{project}/locations/global"
+# Call the API.
+response = dlp.inspect_content(
+request={
+"parent": parent,
+"inspect_config": inspect_config,
+"item": {"byte_item": byte_item},
+}
+)
+# Parse the response and process results.
+if response.result.findings:
+for finding in response.result.findings:
+print(f"Quote: {finding.quote}")
+print(f"Info type: {finding.info_type.name}")
+print(f"Likelihood: {finding.likelihood}")
+else:
+print("No findings.")
+Try it out
+You can try each of these examples out yourself—or experiment with your
+own images—in the API Explorer on the reference page for
+content.inspect:
+Go to API Explorer
+Tip: For experiments with non-sensitive
+materials, it's sufficient to uncheck Google OAuth 2.0 and
+enter projects/testff in the parent
+field.
+What's next
+Learn more about image inspection and redaction.
+Learn how to redact sensitive data from images.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-07 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

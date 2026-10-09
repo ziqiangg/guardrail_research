@@ -18,6 +18,8 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| presidio P7 Q1 (surrogate_ahds Covered-by) | add PD5 (consistent test) | main |
+| presidio P7 Q2 (/tree/ URLs → 400 not 403) | merger updates changes.md 5b; url-checker told at P9 | main |
 | presidio P6 Q1 (2523c7b placement: labelled fact in PD2 R2, plain R8 question) | confirmed (README: no labels in R8) | main |
 | presidio P6 Q2/Q3 (recommit; CLAUDE.md row; seeds 0.0.60) | done by main (CLAUDE.md row updated at CP1; seeds note added at P4) | main |
 | presidio P6 Covered-by surrogate_ahds | leave as merged (resolver proposal); verifier may flag | main |

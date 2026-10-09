@@ -1,0 +1,929 @@
+# status 200  final_url https://docs.cloud.google.com/kms/docs/destroy-restore  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Cloud KMS
+Start free
+Overview
+Guides
+Reference
+Samples
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Samples
+Resources
+Console
+Discover
+Product overview
+Protection levels
+Overview
+Cloud HSM overview
+Single-tenant Cloud HSM overview
+Cloud EKM overview
+Reference architectures for Cloud EKM
+CMEK overview
+Cloud KMS with Autokey
+Compatible services
+Cloud HSM for Google Workspace
+Locations
+Get started
+Cloud KMS resources
+Key purposes and algorithms
+Separation of duties
+Create and use encryption keys
+CMEK recommended practices
+CMEK key rotation
+Create and manage Single-tenant Cloud HSM instances
+Create keys
+Automate key creation
+Autokey overview
+Enable Autokey
+Create a resource with Autokey
+Create a key ring
+Create a key
+Import keys
+About key import
+Key wrapping
+Format a key for import
+Manually wrap a key for import
+Configure OpenSSL for manual key wrapping
+Wrap a key using OpenSSL
+Quantum-safe key import
+Set up automatic key wrapping
+Import a key version
+Verify an imported key version
+Create external keys
+Set up Cloud EKM over the internet
+Create an EKM connection
+Create an external Key
+Control access
+Manage IAM roles
+Use Organization Policy Contraints
+Create custom organization policy constraints for Cloud KMS
+CMEK organization policies
+Control Autokey usage
+Control key destruction
+Secure data using keys
+Key APIs
+Use gRPC
+Access the API
+Sort and filter API list results
+Generate random bytes
+Use Cloud KMS keys in Google Cloud
+Encrypt and decrypt data
+Envelope encryption
+Additional authenticated data
+Asymmetric encryption
+Encrypt and decrypt data with a symmetric key
+Encrypt and decrypt data with a raw symmetric key
+Encrypt and decrypt data with an asymmetric key
+Verify end-to-end data integrity
+Encrypt application data
+Set up client-side encryption with Tink
+Onboard to Cloud HSM for Google Workspace
+Sign and validate data
+Digital signatures
+Create and validate signatures
+MAC signatures
+Create and validate MAC signatures
+Share secrets using key encapsulation mechanisms
+Key encapsulation mechanisms
+Encapsulate and decapsulate using KEMs
+Manage keys
+Resource consistency
+Key version states
+View keys and key details
+View keys by project
+View encryption metrics
+View key usage
+Get a Cloud KMS resource ID
+Retrieve a public key
+Attest a Cloud HSM key
+View post-quantum cryptography (PQC) insights
+Label a key
+Create and manage tags
+Migrate external keys
+Enable and disable a key version
+Destroy and restore a key version
+Delete Cloud KMS resources
+Rotate keys
+About key rotation
+Rotate a key
+Re-encrypt data
+Update external key reference
+Monitor
+Using Cloud Audit Logging
+Cloud KMS Inventory Service audit logging
+Monitor state changes
+Monitor and adjust quotas
+Use Cloud Monitoring
+Monitor EKM usage
+Troubleshoot
+Troubleshoot failed imports
+Troubleshoot EKM via VPC errors
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Home
+Documentation
+Security
+Cloud KMS
+Guides
+Send feedback
+Destroy and restore key versions
+Stay organized with collections
+Save and categorize content based on your preferences.
+This page shows you how to schedule a Cloud Key Management Service key version for permanent
+destruction. In Cloud KMS, the cryptographic key material that you use
+to encrypt, decrypt, sign, and verify data is stored in a key version. A key
+has zero or more key versions. When you rotate a key, you create a new key
+version.
+Destroying a key version means that the key material is permanently deleted.
+When you destroy a key version, other details such as the key name and key
+version number aren't deleted. After a key is destroyed, data that was encrypted
+with the key version can't be decrypted.
+The only exception is
+key re-import,
+which lets you restore a previously imported key by providing the same original
+key material.
+Because key destruction is generally irreversible, Cloud KMS doesn't
+let you destroy key versions immediately. Instead, you schedule a key version
+for destruction. The key version remains in the scheduled for destruction
+state for a configurable time. During the scheduled for destruction duration,
+you can restore a key version to cancel its destruction.
+The default scheduled for destruction duration is
+30 days. You can set a custom scheduled for
+destruction duration for a key during key
+creation. Your organization can enforce
+a minimum scheduled for destruction duration by setting the Minimum destroy
+scheduled duration per key constraint in your organization policies.
+You can also manage access to the key using Identity and Access Management (IAM).
+IAM operations are consistent within seconds. For more
+information, see Using IAM.
+Caution: Destroying a key is a permanent operation that can cause unrecoverable
+data loss. Make sure that you understand the risks before
+destroying a key version.
+You can also temporarily disable a key version. We
+recommend disabling key versions prior to scheduling them for destruction as
+part of your procedures for ensuring that the key can be safely destroyed.
+Depending on your organization policies, you might be required to disable a key
+version before you can schedule it for destruction. For more information about
+controlling key version destruction using organization policies, see Control
+key version destruction.
+Note:
+Key rings can't be deleted. You can delete keys and key
+versions in some circumstances, but names of deleted keys can't be reused. This ensures that the
+resource identifier of a key version is unique and
+always points to the original key material for that key version unless it has been destroyed.
+You can store an unlimited number of key rings, enabled or disabled keys, and
+enabled, disabled, or destroyed key versions.
+For more information, see Pricing and Quotas.
+In the rest of this document, scheduling a key for destruction is referred to
+as destroying the key, even though destruction is not immediate.
+Before you begin
+Understand the risks
+Destroying a key version is a permanent operation. Destroying a key version that
+is still needed has risks including the following:
+Service outage: If you destroy a key that is required to start a container
+or instance, your services or applications can become unavailable.
+Permanent data loss: If you destroy a key that was used to encrypt data,
+that data becomes unavailable. Data encrypted with a key that has been
+destroyed is considered crypto-shredded. In some cases, destroying a key
+can cause encrypted resources to be permanently deleted.
+Regulatory or compliance issues: If you destroy a key that is required to
+access data that is subject to a retention period before that retention
+period is complete, you might be in violation of a regulatory or compliance
+requirement.
+Required roles
+To get the permissions that
+you need to destroy and restore key versions,
+ask your administrator to grant you the
+Cloud KMS Admin (roles/cloudkms.admin) IAM role on the key.
+For more information about granting roles, see Manage access to projects, folders, and organizations.
+You might also be able to get
+the required permissions through custom
+roles or other predefined
+roles.
+Check whether the key version is in use
+Before you destroy a key version, complete the following steps to see whether
+the key version is in use:
+View key usage tracking details for the key.
+If any resources are protected by the key version that you want to destroy,
+re-encrypt them with another key version.
+Caution: Key usage tracking details can be delayed or incomplete.
+Familiarize yourself with the
+limitations of this data.
+Turn on logs for any service or application that could be using the key
+version.
+Turn on logs on the Cloud KMS project that contains the key.
+Disable the key version. Disabling the key
+version prevents the key version from being used. With the
+key version disabled, any attempts to use the key version fail.
+Monitor the logs until you're sure that no application or service still
+relies on the key version that you disabled. If any errors indicate failed
+access to the key version, configure the application or resource to use
+another key version.
+The length of time that you spend monitoring logs before destroying a
+key version depends on the type of key, its usage pattern, and its
+sensitivity level. For example, before destroying a key version that is used
+in a process that runs quarterly, keep the key version disabled until that
+process completes successfully.
+Check the usage of the key against any applicable compliance requirements.
+For example, the key version and data encrypted with it may be subject to
+data retention periods.
+These steps help you to identify whether a key might still be needed; however,
+they can't guarantee that a key version is no longer needed. Your organization
+should implement procedures and guidelines to ensure that key version
+destruction won't cause negative effects.
+Warning: It is your responsibility to ensure that a key version is
+safe to destroy. Google is not responsible for outages, loss of data, or
+compliance issues that result from you destroying a key version.
+Destroy a key version
+You can destroy an enabled or disabled key version.
+Caution: Key material isn't immediately destroyed. Instead, the key
+version stays scheduled for destruction for the configured scheduled for
+destruction duration. After this period has ended, the key material is
+automatically destroyed. There is no way to override this safety fallback.
+If you decide that you don't want the destruction to occur, you can
+restore
+the key version. However, after the configured scheduled for
+destruction duration, destruction isn't reversible. Any data encrypted with
+this key version can't be decrypted.
+Console
+In the Google Cloud console, go to the
+Key Management page.
+Go to Key Management
+Check the box next to the key version that you want to schedule for
+destruction.
+Click Destroy in the header.
+In the confirmation prompt, enter the key name and then click Schedule
+Destruction.
+gcloud
+To use Cloud KMS on the command line, first
+Install or upgrade to the latest version of Google Cloud CLI.
+gcloud kms keys versions destroy KEY_VERSION \
+--key KEY_NAME \
+--keyring KEY_RING \
+--location LOCATION
+Replace the following:
+KEY_VERSION: the number of the key version that you want to
+destroy.
+KEY_NAME: the name of the key that contains the key version that
+you want to destroy.
+KEY_RING: the name of the key ring that contains the key version
+that you want to destroy.
+LOCATION: the location of the key ring that contains the key
+version that you want to destroy.
+For information on all flags and possible values, run the command with the
+--help flag.
+C#
+To run this code, first set up a C# development environment and
+install the Cloud KMS C# SDK.
+using Google.Cloud.Kms.V1;
+public class DestroyKeyVersionSample
+{
+public CryptoKeyVersion DestroyKeyVersion(
+string projectId = "my-project", string locationId = "us-east1", string keyRingId = "my-key-ring", string keyId = "my-key", string keyVersionId = "123")
+{
+// Create the client.
+KeyManagementServiceClient client = KeyManagementServiceClient.Create();
+// Build the key version name.
+CryptoKeyVersionName keyVersionName = new CryptoKeyVersionName(projectId, locationId, keyRingId, keyId, keyVersionId);
+// Call the API.
+CryptoKeyVersion result = client.DestroyCryptoKeyVersion(keyVersionName);
+// Return the result.
+return result;
+}
+}
+Go
+To run this code, first set up a Go development environment and
+install the Cloud KMS Go SDK.
+import (
+"context"
+"fmt"
+"io"
+kms "cloud.google.com/go/kms/apiv1"
+"cloud.google.com/go/kms/apiv1/kmspb"
+)
+// destroyKeyVersion marks a specified key version for deletion. The key can be
+// restored if requested within 24 hours.
+func destroyKeyVersion(w io.Writer, name string) error {
+// name := "projects/my-project/locations/us-east1/keyRings/my-key-ring/cryptoKeys/my-key/cryptoKeyVersions/123"
+// Create the client.
+ctx := context.Background()
+client, err := kms.NewKeyManagementClient(ctx)
+if err != nil {
+return fmt.Errorf("failed to create kms client: %w", err)
+}
+defer client.Close()
+// Build the request.
+req := &kmspb.DestroyCryptoKeyVersionRequest{
+Name: name,
+}
+// Call the API.
+result, err := client.DestroyCryptoKeyVersion(ctx, req)
+if err != nil {
+return fmt.Errorf("failed to destroy key version: %w", err)
+}
+fmt.Fprintf(w, "Destroyed key version: %s\n", result)
+return nil
+}
+Java
+To run this code, first set up a Java development environment and
+install the Cloud KMS Java SDK.
+import com.google.cloud.kms.v1.CryptoKeyVersion;
+import com.google.cloud.kms.v1.CryptoKeyVersionName;
+import com.google.cloud.kms.v1.KeyManagementServiceClient;
+import java.io.IOException;
+public class DestroyKeyVersion {
+public void destroyKeyVersion() throws IOException {
+// TODO(developer): Replace these variables before running the sample.
+String projectId = "your-project-id";
+String locationId = "us-east1";
+String keyRingId = "my-key-ring";
+String keyId = "my-key";
+String keyVersionId = "123";
+destroyKeyVersion(projectId, locationId, keyRingId, keyId, keyVersionId);
+}
+// Schedule destruction of the given key version.
+public void destroyKeyVersion(
+String projectId, String locationId, String keyRingId, String keyId, String keyVersionId)
+throws IOException {
+// Initialize client that will be used to send requests. This client only
+// needs to be created once, and can be reused for multiple requests. After
+// completing all of your requests, call the "close" method on the client to
+// safely clean up any remaining background resources.
+try (KeyManagementServiceClient client = KeyManagementServiceClient.create()) {
+// Build the key version name from the project, location, key ring, key,
+// and key version.
+CryptoKeyVersionName keyVersionName =
+CryptoKeyVersionName.of(projectId, locationId, keyRingId, keyId, keyVersionId);
+// Destroy the key version.
+CryptoKeyVersion response = client.destroyCryptoKeyVersion(keyVersionName);
+System.out.printf("Destroyed key version: %s%n", response.getName());
+}
+}
+}
+Node.js
+To run this code, first set up a Node.js development environment and
+install the Cloud KMS Node.js SDK.
+//
+// TODO(developer): Uncomment these variables before running the sample.
+//
+// const projectId = 'my-project';
+// const locationId = 'us-east1';
+// const keyRingId = 'my-key-ring';
+// const keyId = 'my-key';
+// const versionId = '123';
+// Imports the Cloud KMS library
+const {KeyManagementServiceClient} = require('@google-cloud/kms');
+// Instantiates a client
+const client = new KeyManagementServiceClient();
+// Build the key version name
+const versionName = client.cryptoKeyVersionPath(
+projectId,
+locationId,
+keyRingId,
+keyId,
+versionId
+);
+async function destroyKeyVersion() {
+const [version] = await client.destroyCryptoKeyVersion({
+name: versionName,
+});
+console.log(`Destroyed key version: ${version.name}`);
+return version;
+}
+return destroyKeyVersion();
+PHP
+To run this code, first learn about using PHP on Google Cloud and
+install the Cloud KMS PHP SDK.
+use Google\Cloud\Kms\V1\Client\KeyManagementServiceClient;
+use Google\Cloud\Kms\V1\DestroyCryptoKeyVersionRequest;
+function destroy_key_version(
+string $projectId = 'my-project',
+string $locationId = 'us-east1',
+string $keyRingId = 'my-key-ring',
+string $keyId = 'my-key',
+string $versionId = '123'
+) {
+// Create the Cloud KMS client.
+$client = new KeyManagementServiceClient();
+// Build the key version name.
+$keyVersionName = $client->cryptoKeyVersionName($projectId, $locationId, $keyRingId, $keyId, $versionId);
+// Call the API.
+$destroyCryptoKeyVersionRequest = (new DestroyCryptoKeyVersionRequest())
+->setName($keyVersionName);
+$destroyedVersion = $client->destroyCryptoKeyVersion($destroyCryptoKeyVersionRequest);
+printf('Destroyed key version: %s' . PHP_EOL, $destroyedVersion->getName());
+return $destroyedVersion;
+}
+Python
+To run this code, first set up a Python development environment and
+install the Cloud KMS Python SDK.
+from google.cloud import kms
+def destroy_key_version(
+project_id: str, location_id: str, key_ring_id: str, key_id: str, version_id: str
+) -> kms.CryptoKeyVersion:
+"""
+Schedule destruction of the given key version.
+Args:
+project_id (string): Google Cloud project ID (e.g. 'my-project').
+location_id (string): Cloud KMS location (e.g. 'us-east1').
+key_ring_id (string): ID of the Cloud KMS key ring (e.g. 'my-key-ring').
+key_id (string): ID of the key to use (e.g. 'my-key').
+version_id (string): ID of the key version to destroy (e.g. '1').
+Returns:
+CryptoKeyVersion: The version.
+"""
+# Create the client.
+client = kms.KeyManagementServiceClient()
+# Build the key version name.
+key_version_name = client.crypto_key_version_path(
+project_id, location_id, key_ring_id, key_id, version_id
+)
+# Call the API.
+destroyed_version = client.destroy_crypto_key_version(
+request={"name": key_version_name}
+)
+print(f"Destroyed key version: {destroyed_version.name}")
+return destroyed_version
+Ruby
+To run this code, first set up a Ruby development environment and
+install the Cloud KMS Ruby SDK.
+# TODO(developer): uncomment these values before running the sample.
+# project_id = "my-project"
+# location_id = "us-east1"
+# key_ring_id = "my-key-ring"
+# key_id = "my-key"
+# version_id = "123"
+# Require the library.
+require "google/cloud/kms"
+# Create the client.
+client = Google::Cloud::Kms.key_management_service
+# Build the key version name.
+key_version_name = client.crypto_key_version_path project: project_id,
+location: location_id,
+key_ring: key_ring_id,
+crypto_key: key_id,
+crypto_key_version: version_id
+# Call the API.
+destroyed_version = client.destroy_crypto_key_version name: key_version_name
+puts "Destroyed key version: #{destroyed_version.name}"
+API
+These examples use curl as an HTTP client
+to demonstrate using the API. For more information about access control, see
+Accessing the Cloud KMS API.
+Destroy a key version by calling the
+CryptoKeyVersions.destroy
+method.
+curl "https://cloudkms.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/keyRings/KEY_RING/cryptoKeys/KEY_NAME/cryptoKeyVersions/KEY_VERSION:destroy" \
+--request "POST" \
+--header "authorization: Bearer TOKEN"
+Replace the following:
+PROJECT_ID: the identifier of the project that contains the key
+version that you want to destroy.
+LOCATION: the location of the key ring that contains the key
+version that you want to destroy.
+KEY_RING: the name of the key ring that contains the key version
+that you want to destroy.
+KEY_NAME: the name of the key that contains the key version that
+you want to destroy.
+KEY_VERSION: the number of the key version that you want to
+destroy.
+If you're unable to destroy a key version, your organization might require that
+key versions be disabled before destruction. Try disabling the key version
+before destroying it.
+When you submit the destruction request, the state of the key version becomes
+scheduled for destruction. After the key's configured
+scheduled for destruction duration has
+passed, the state of the key version becomes destroyed, meaning
+logical deletion of the key material from active
+systems
+has started, and the key material can't be recovered by the customer. Key
+material can remain in Google systems for up to 45 days from the
+scheduled destruction time.
+To receive an alert when a key version is scheduled for destruction, see
+Using Cloud Monitoring with Cloud KMS.
+Destroyed key versions are not billed resources.
+Note: Destroying all active key versions doesn't change the key's rotation
+schedule if one is configured. If you want to discontinue the automatic creation
+of new key versions, then you must also disable automatic
+rotation on the key. If you don't disable automatic
+rotation, new key versions continue to be created on schedule.
+Destroying external keys
+To permanently remove the association between a Cloud EKM key and an
+external key, you can destroy the key version.
+After the Scheduled for destruction period has passed, the key is destroyed.
+After the key version is destroyed, you can no longer encrypt data or decrypt
+data that was encrypted with the Cloud EKM key version.
+Caution: You can't recreate a Cloud EKM key version that has been
+destroyed, even if you use the same external key URI or key path.
+Destroying a manually managed key version in Cloud KMS doesn't modify
+the key in the external key manager. We recommend first destroying the key or
+key version in Google Cloud. After the Cloud EKM key version is
+destroyed, you can destroy the key material in the external key manager.
+Destroying a coordinated external key version in Cloud KMS first
+destroys the key version in Google Cloud, and then sends a destruction
+request to the EKM to destroy the external key material.
+Restore a key version
+During the period when the state of a key version is scheduled for destruction,
+you can restore the key version by submitting a restoration request.
+Console
+In the Google Cloud console, go to the
+Key Management page.
+Go to Key Management
+Click the name of the key ring that contains the key version that you want
+to restore.
+Click the key that contains the key version that you want to restore.
+Check the box next to the key version that you want to restore.
+Click Restore in the header.
+In the confirmation prompt, click Restore.
+gcloud
+To use Cloud KMS on the command line, first
+Install or upgrade to the latest version of Google Cloud CLI.
+gcloud kms keys versions restore KEY_VERSION \
+--key KEY_NAME \
+--keyring KEY_RING \
+--location LOCATION
+Replace the following:
+KEY_VERSION: the number of the key version that you want to
+restore.
+KEY_NAME: the name of the key that contains the key version that
+you want to restore.
+KEY_RING: the name of the key ring that contains the key version
+that you want to restore.
+LOCATION: the location of the key ring that contains the key
+version that you want to restore.
+For information on all flags and possible values, run the command with the
+--help flag.
+C#
+To run this code, first set up a C# development environment and
+install the Cloud KMS C# SDK.
+using Google.Cloud.Kms.V1;
+public class RestoreKeyVersionSample
+{
+public CryptoKeyVersion RestoreKeyVersion(string projectId = "my-project", string locationId = "us-east1", string keyRingId = "my-key-ring", string keyId = "my-key", string keyVersionId = "123")
+{
+// Create the client.
+KeyManagementServiceClient client = KeyManagementServiceClient.Create();
+// Build the key version name.
+CryptoKeyVersionName cryptoKeyVersionName = new CryptoKeyVersionName(projectId, locationId, keyRingId, keyId, keyVersionId);
+// Call the API.
+CryptoKeyVersion result = client.RestoreCryptoKeyVersion(cryptoKeyVersionName);
+// Return the result.
+return result;
+}
+}
+Go
+To run this code, first set up a Go development environment and
+install the Cloud KMS Go SDK.
+import (
+"context"
+"fmt"
+"io"
+kms "cloud.google.com/go/kms/apiv1"
+"cloud.google.com/go/kms/apiv1/kmspb"
+)
+// restoreKeyVersion attempts to recover a key that has been marked for
+// destruction in the past 24h.
+func restoreKeyVersion(w io.Writer, name string) error {
+// name := "projects/my-project/locations/us-east1/keyRings/my-key-ring/cryptoKeys/my-key/cryptoKeyVersions/123"
+// Create the client.
+ctx := context.Background()
+client, err := kms.NewKeyManagementClient(ctx)
+if err != nil {
+return fmt.Errorf("failed to create kms client: %w", err)
+}
+defer client.Close()
+// Build the request.
+req := &kmspb.RestoreCryptoKeyVersionRequest{
+Name: name,
+}
+// Call the API.
+result, err := client.RestoreCryptoKeyVersion(ctx, req)
+if err != nil {
+return fmt.Errorf("failed to restore key version: %w", err)
+}
+fmt.Fprintf(w, "Restored key version: %s\n", result)
+return nil
+}
+Java
+To run this code, first set up a Java development environment and
+install the Cloud KMS Java SDK.
+import com.google.cloud.kms.v1.CryptoKeyVersion;
+import com.google.cloud.kms.v1.CryptoKeyVersionName;
+import com.google.cloud.kms.v1.KeyManagementServiceClient;
+import java.io.IOException;
+public class RestoreKeyVersion {
+public void restoreKeyVersion() throws IOException {
+// TODO(developer): Replace these variables before running the sample.
+String projectId = "your-project-id";
+String locationId = "us-east1";
+String keyRingId = "my-key-ring";
+String keyId = "my-key";
+String keyVersionId = "123";
+restoreKeyVersion(projectId, locationId, keyRingId, keyId, keyVersionId);
+}
+// Schedule destruction of the given key version.
+public void restoreKeyVersion(
+String projectId, String locationId, String keyRingId, String keyId, String keyVersionId)
+throws IOException {
+// Initialize client that will be used to send requests. This client only
+// needs to be created once, and can be reused for multiple requests. After
+// completing all of your requests, call the "close" method on the client to
+// safely clean up any remaining background resources.
+try (KeyManagementServiceClient client = KeyManagementServiceClient.create()) {
+// Build the key version name from the project, location, key ring, key,
+// and key version.
+CryptoKeyVersionName keyVersionName =
+CryptoKeyVersionName.of(projectId, locationId, keyRingId, keyId, keyVersionId);
+// Restore the key version.
+CryptoKeyVersion response = client.restoreCryptoKeyVersion(keyVersionName);
+System.out.printf("Restored key version: %s%n", response.getName());
+}
+}
+}
+Node.js
+To run this code, first set up a Node.js development environment and
+install the Cloud KMS Node.js SDK.
+//
+// TODO(developer): Uncomment these variables before running the sample.
+//
+// const projectId = 'my-project';
+// const locationId = 'us-east1';
+// const keyRingId = 'my-key-ring';
+// const keyId = 'my-key';
+// const versionId = '123';
+// Imports the Cloud KMS library
+const {KeyManagementServiceClient} = require('@google-cloud/kms');
+// Instantiates a client
+const client = new KeyManagementServiceClient();
+// Build the key version name
+const versionName = client.cryptoKeyVersionPath(
+projectId,
+locationId,
+keyRingId,
+keyId,
+versionId
+);
+async function restoreKeyVersion() {
+const [version] = await client.restoreCryptoKeyVersion({
+name: versionName,
+});
+console.log(`Restored key version: ${version.name}`);
+return version;
+}
+return restoreKeyVersion();
+PHP
+To run this code, first learn about using PHP on Google Cloud and
+install the Cloud KMS PHP SDK.
+use Google\Cloud\Kms\V1\Client\KeyManagementServiceClient;
+use Google\Cloud\Kms\V1\RestoreCryptoKeyVersionRequest;
+function restore_key_version(
+string $projectId = 'my-project',
+string $locationId = 'us-east1',
+string $keyRingId = 'my-key-ring',
+string $keyId = 'my-key',
+string $versionId = '123'
+) {
+// Create the Cloud KMS client.
+$client = new KeyManagementServiceClient();
+// Build the key version name.
+$keyVersionName = $client->cryptoKeyVersionName($projectId, $locationId, $keyRingId, $keyId, $versionId);
+// Call the API.
+$restoreCryptoKeyVersionRequest = (new RestoreCryptoKeyVersionRequest())
+->setName($keyVersionName);
+$restoredVersion = $client->restoreCryptoKeyVersion($restoreCryptoKeyVersionRequest);
+printf('Restored key version: %s' . PHP_EOL, $restoredVersion->getName());
+return $restoredVersion;
+}
+Python
+To run this code, first set up a Python development environment and
+install the Cloud KMS Python SDK.
+from google.cloud import kms
+def restore_key_version(
+project_id: str, location_id: str, key_ring_id: str, key_id: str, version_id: str
+) -> kms.CryptoKeyVersion:
+"""
+Restore a key version scheduled for destruction.
+Args:
+project_id (string): Google Cloud project ID (e.g. 'my-project').
+location_id (string): Cloud KMS location (e.g. 'us-east1').
+key_ring_id (string): ID of the Cloud KMS key ring (e.g. 'my-key-ring').
+key_id (string): ID of the key to use (e.g. 'my-key').
+version_id (string): ID of the version to use (e.g. '1').
+Returns:
+CryptoKeyVersion: Restored Cloud KMS key version.
+"""
+# Create the client.
+client = kms.KeyManagementServiceClient()
+# Build the key version name.
+key_version_name = client.crypto_key_version_path(
+project_id, location_id, key_ring_id, key_id, version_id
+)
+# Call the API.
+restored_version = client.restore_crypto_key_version(
+request={"name": key_version_name}
+)
+print(f"Restored key version: {restored_version.name}")
+return restored_version
+Ruby
+To run this code, first set up a Ruby development environment and
+install the Cloud KMS Ruby SDK.
+# TODO(developer): uncomment these values before running the sample.
+# project_id = "my-project"
+# location_id = "us-east1"
+# key_ring_id = "my-key-ring"
+# key_id = "my-key"
+# version_id = "123"
+# Require the library.
+require "google/cloud/kms"
+# Create the client.
+client = Google::Cloud::Kms.key_management_service
+# Build the key version name.
+key_version_name = client.crypto_key_version_path project: project_id,
+location: location_id,
+key_ring: key_ring_id,
+crypto_key: key_id,
+crypto_key_version: version_id
+# Call the API.
+restored_version = client.restore_crypto_key_version name: key_version_name
+puts "Restored key version: #{restored_version.name}"
+API
+These examples use curl as an HTTP client
+to demonstrate using the API. For more information about access control, see
+Accessing the Cloud KMS API.
+Restore a key version by calling the
+CryptoKeyVersions.restore
+method.
+curl "https://cloudkms.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/keyRings/KEY_RING/cryptoKeys/KEY_NAME/cryptoKeyVersions/KEY_VERSION:restore" \
+--request "POST" \
+--header "authorization: Bearer TOKEN"
+Replace the following:
+PROJECT_ID: the identifier of the project that contains the key
+version that you want to restore.
+LOCATION: the location of the key ring that contains the key
+version that you want to restore.
+KEY_RING: the name of the key ring that contains the key version
+that you want to restore.
+KEY_NAME: the name of the key that contains the key version that
+you want to restore.
+KEY_VERSION: the number of the key version that you want to
+restore.
+After the restoration request completes, the state of the key version becomes
+disabled. You must enable the key before it can be used.
+Required IAM permissions
+To destroy a key version, the caller needs the
+cloudkms.cryptoKeyVersions.destroy IAM permission on the key,
+the key ring, or the project, folder, or organization.
+To restore a key version, the caller needs the
+cloudkms.cryptoKeyVersions.restore permission.
+Both of these permissions are granted to the Cloud KMS Admin role
+(roles/cloudkms.admin).
+Deletion timeline
+Cloud KMS commits to deleting customer key material from all Google
+infrastructure within 45 days of the scheduled destruction time. This includes
+removal of data from both active systems and data center backups. Other customer
+data is subject to the standard
+Google Cloud deletion timeline
+of 180 days.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-06 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

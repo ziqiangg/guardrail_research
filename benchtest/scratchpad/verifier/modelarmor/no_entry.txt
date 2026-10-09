@@ -1,0 +1,2 @@
+MA9 R7: • Singapore (asia-southeast1) lists no malicious URL filter with data residency enforced, so URL tests there need the template's data residency enforcement turned off (feature availability page and release notes 2026-08-27, 2026-10-09) **[Documented]**
+MA9 R7: • Standalone use costs nothing up to 2 million tokens per month, then $0.10 per million tokens (Security Command Center pricing page, 2026-10-09) **[Documented]**

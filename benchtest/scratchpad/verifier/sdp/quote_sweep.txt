@@ -1,0 +1,10 @@
+quote fragments checked: 523 misses: 9
+   sdp_two_level.md:101 [SD1] Model Armor: Input-level sensitive data detection and de-identification (Sensitive Data Protection)
+   sdp_two_level.md:101 [SD1] Model Armor: Output-level sensitive data detection and de-identification (Sensitive Data Protection)
+   sdp_two_level.md:155 [SD1] per gibibyte up to 1 tebibyte, then
+   sdp_two_level.md:484 [SD3] the crypto hash reads
+   sdp_two_level.md:484 [SD3] date shift and time part read
+   sdp_two_level.md:495 [SD3] Model Armor: Input-level sensitive data detection and de-identification (Sensitive Data Protection)
+   sdp_two_level.md:495 [SD3] Model Armor: Output-level sensitive data detection and de-identification (Sensitive Data Protection)
+   sdp_two_level.md:526 [SD3] per gibibyte to 1 tebibyte, then
+   sdp_two_level.md:526 [SD3] `content.deidentify` can also incur inspection charges, and

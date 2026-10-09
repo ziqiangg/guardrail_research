@@ -1,0 +1,1534 @@
+# status 200  final_url https://docs.cloud.google.com/sensitive-data-protection/docs/deidentify-storage  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Sensitive Data Protection
+Start free
+Overview
+Guides
+Reference
+Samples
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Samples
+Resources
+Console
+Discover
+Product overview
+Plan your data risk management strategy
+Evaluate your data risk management needs
+Learn about your data through discovery and inspection
+Recommended strategies for mitigating data risk
+Release notes
+Pricing
+Locations
+Global and regional endpoints for Sensitive Data Protection
+Sensitive Data Protection locations
+Specify a processing location
+Service method types
+Supported file types and scanning modes
+Get started
+Quickstarts
+Inspect text using the command-line tool
+Inspect text using a JSON request
+Schedule an inspection scan
+Create an inspection template
+De-identify and re-identify sensitive text
+Google Cloud Skills Boost labs
+Detect sensitive data
+Discover and profile data resources
+Overview of sensitive data discovery
+Common discovery enablement scenarios
+Allow discovery within service perimeters
+Profile your data
+Profile a single data resource
+Profile BigQuery data
+Estimate BigQuery data profiling cost
+Estimate the cost of profiling BigQuery data in a project
+Estimate the cost of profiling BigQuery data in an organization or folder
+Profile BigQuery data in a project
+Profile BigQuery data in an organization or folder
+Profile Cloud SQL data
+Profile Cloud SQL data in a project
+Profile Cloud SQL data in an organization or folder
+Manage connections
+Profile Cloud Storage data
+Profile Cloud Storage data in a project
+Profile Cloud Storage data in an organization or folder
+Profile Vertex AI data
+Sensitive data discovery for Vertex AI data
+Profile Vertex AI data in a project
+Profile Vertex AI data in an organization or folder
+Profile Amazon S3 data
+Sensitive data discovery for Amazon S3 data
+Profile Amazon S3 data
+Profile Azure Blob Storage data
+Report secrets in environment variables to Security Command Center
+Grant data profiling access to a service agent
+Manage data profiles
+Control IAM access to resources based on data sensitivity
+Send discovery insights to other services
+Enable discovery actions
+Send data profiles to Security Command Center
+Receive and parse Pub/Sub messages about data profiles
+Tag tables in Data Catalog based on insights from data profiles
+Add Knowledge Catalog aspects based on insights from data profiles
+Analyze and visualize data profiles
+Visualize data profiles in the discovery dashboard
+Analyze data profiles
+Remediate findings from the data profiler
+Manage scan configurations
+Troubleshoot issues with the data profiler
+Metrics reference
+Data risk and sensitivity levels
+Inspect for sensitive data
+Inspect data stored in Google Cloud
+Inspect data from any source
+Inspect unstructured text synchronously
+Inspect structured text synchronously
+Inspect an image synchronously
+Asynchronous inspection overview
+Inspect data from any source asynchronously
+Quote the sensitive data in the results
+Work with inspection results
+Actions
+Send inspection results to Knowledge Catalog as aspects
+Send inspection results to Data Catalog
+Send inspection results to Security Command Center
+Analyze and report on inspection findings
+Query inspection findings in BigQuery
+Parse findings stored as Protobuf text
+Jobs and job triggers
+Overview of jobs and job triggers
+Create and manage jobs and job triggers
+Web-based inspection demonstration app
+Allow or block content based on sensitivity
+Overview of content policies
+Create and manage content policies
+Configure detection
+Templates
+Overview of templates
+Create inspection templates
+InfoTypes and infoType detectors
+Overview of infoTypes and infoType detectors
+Built-in infoType detectors
+List built-in infoType detectors
+InfoType detector reference
+Custom infoType detectors
+Overview of custom infoType detectors
+Create a regular custom dictionary detector
+Create a large custom dictionary detector
+Create a custom regex detector
+Create a custom metadata label detector
+Custom infoType examples
+Manage infoTypes through the Google Cloud console
+Modify infoType detectors to refine scan results
+Match likelihood
+Likelihood overview
+Customize match likelihood
+Mask and de-identify data
+Overview
+Transformation methods
+Transformation reference
+Text classification and redaction
+Date shifting
+Generalization and bucketing
+Pseudonymization
+De-identify sensitive data
+De-identify data stored in Google Cloud
+Overview
+Through the Cloud console
+Through the DLP API
+Transformation details reference
+De-identify data from any source
+De-identify text or tabular content
+Examples of text redaction
+Examples of tabular data de-identification
+Image inspection and redaction
+Redact sensitive data from images
+Create a de-identification template
+Create a wrapped key
+De-identify BigQuery data at query time
+De-identification and re-identification of PII in large-scale datasets
+Redact sensitive data from PDF files
+Analyze re-identification risk
+Overview of re-identification risk analysis
+Re-identification risk analysis techniques
+Compute k-anonymity for a dataset
+Compute l-diversity for a dataset
+Compute k-map for a dataset
+Compute δ-presence for a dataset
+Compute numerical and categorical statistics
+Visualize re-identification risk using Data Studio
+Connect to other services
+Use Sensitive Data Protection with BigQuery
+Use Sensitive Data Protection with Cloud Storage
+Use Sensitive Data Protection with Cloud Storage
+Automate the classification of data uploaded to Cloud Storage
+Send inspection results to Data Catalog
+Send inspection results to Security Command Center
+Monitor your usage with Cloud Monitoring
+Use Sensitive Data Protection with AWS S3
+Use Sensitive Data Protection with JDBC Databases
+Use Sensitive Data Protection with Apigee
+Use Sensitive Data Protection with Data Fusion
+Build a secure anomaly detection solution using Dataflow, BigQuery ML, and Sensitive Data Protection
+Troubleshoot
+Troubleshoot issues with the data profiler
+Control access
+Authentication
+IAM
+Access control with IAM
+Sensitive Data Protection roles and permissions
+Sensitive Data Protection service agents
+Control access with VPC Service Controls
+Monitor
+Audit logging
+Monitor your usage with Cloud Monitoring
+Develop
+All Sensitive Data Protection code samples
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Cloud Data Loss Prevention (Cloud DLP) is now a part of Sensitive Data Protection. The API name remains the same: Cloud Data Loss Prevention API (DLP API). For information about the services that make up Sensitive Data Protection, see Sensitive Data Protection overview.
+Home
+Documentation
+Security
+Sensitive Data Protection
+Guides
+Send feedback
+Create de-identified copies of data stored in Cloud Storage using the API
+Stay organized with collections
+Save and categorize content based on your preferences.
+This page describes how to inspect a Cloud Storage resource and create
+de-identified copies the data using the Cloud Data Loss Prevention API.
+This operation helps to ensure that the files that you use in your business
+processes don't contain sensitive data, such as personally identifiable
+information (PII). Sensitive Data Protection can inspect files in a
+Cloud Storage bucket for sensitive data, and create de-identified copies of
+those files in a separate bucket. You can then use the de-identified copies in
+your business processes.
+For more information about this feature, see De-identification of sensitive data in Cloud Storage.
+Before you begin
+This page assumes the following:
+You have enabled billing.
+Learn how to enable billing
+You have enabled Sensitive Data Protection.
+Enable Sensitive Data Protection
+You have a Cloud Storage bucket with data that you want to de-identify.
+You know how to send an HTTP request to the DLP API. For more
+information, see Inspect sensitive text by using the DLP API.
+Learn about the limitations and points of consideration for this
+operation.
+Storage inspection requires the following OAuth scope:
+https://www.googleapis.com/auth/cloud-platform. For more information, see
+Authenticating to the DLP API.
+Required IAM roles
+If all resources for this operation are in the same project, the
+DLP API Service Agent role (roles/dlp.serviceAgent) on the
+service agent is sufficient. With that role, you can do the following:
+Create the inspection job
+Read the files in the input directory
+Write the de-identified files in the output directory
+Write the transformation details in a BigQuery table
+The relevant resources include
+the inspection job, de-identification templates, input bucket, output bucket,
+and transformation details table.
+If you must have the resources in separate projects, make sure that the
+service agent of your project also has the following roles:
+The Storage Object Viewer role (roles/storage.objectViewer) on the input
+bucket or the project that contains it.
+The Storage Object Creator role
+(roles/storage.objectCreator) on the output bucket or the project that
+contains it.
+The BigQuery Data Editor role (roles/bigquery.dataEditor) on the
+transformation details table or the project that contains it.
+To grant a role to the service agent, see Grant a single role. You can
+also control access at the following levels:
+Cloud Storage bucket
+BigQuery dataset
+BigQuery table
+API overview
+To create de-identified copies of content stored in Cloud Storage,
+you configure an inspection job
+that looks for sensitive data
+according to the criteria that you specify. Then, within the inspection job, you
+provide de-identification instructions in the form of a Deidentify action.
+Note: In Sensitive Data Protection, an
+action is something that occurs after a Sensitive Data Protection job
+completes successfully. For more information about actions, see the following:
+Actions conceptual
+topic
+Action reference documentation
+Retrieving inspection results
+If you want to scan only a subset of the files in your bucket, you can
+limit the files that the job scans. The supported options for jobs with
+de-identification are file filtering by type (FileType) and regular
+expression (FileSet).
+When you enable the Deidentify action, by default, Sensitive Data Protection
+creates de-identified (transformed) copies of all supported file types
+included in the scan. However, you can configure the job to transform only a
+subset of the supported file types.
+Optional: Create de-identify templates
+If you want to control how the findings are transformed,
+create the following templates. These templates provide instructions
+about transforming findings in structured files, unstructured files, and
+images.
+Note: If you choose a cryptographic method, you
+must first create a wrapped key using Cloud Key Management Service, and provide that key
+in your de-identification template. Transient (raw) keys aren't supported.
+De-identify template: a default DeidentifyTemplate to be
+used for unstructured files, such as freeform text files. This type of
+DeidentifyTemplate can't contain a RecordTransformations object, which
+is only supported for structured content. If this template isn't present,
+Sensitive Data Protection uses the
+ReplaceWithInfoTypeConfig method to transform
+unstructured files.
+Structured de-identify template: a DeidentifyTemplate to be used for
+structured files, such as CSV files. This DeidentifyTemplate
+can contain RecordTransformations. If this template isn't present,
+Sensitive Data Protection uses the default de-identify template that you created.
+If that is also not present, Sensitive Data Protection uses
+the ReplaceWithInfoTypeConfig method to transform structured files.
+Image redaction template: a DeidentifyTemplate to be used for images. This
+template must contain an ImageTransformations object.
+If this template isn't present, Sensitive Data Protection redacts all findings in
+images with a black box.
+Learn more about creating a de-identify template.
+Create an inspection job that has a de-identification action
+The DlpJob object provides instructions on what to inspect, what types
+of data to flag as sensitive, and what to do with the findings.
+To de-identify sensitive data in a Cloud Storage directory, your
+DlpJob must define at least the following:
+A StorageConfig object, which specifies the Cloud Storage directory
+to inspect.
+An InspectConfig object, which contains the types of data to look for
+and additional inspection instructions for how to find the sensitive data.
+A Deidentify action that contains the following:
+A TransformationConfig object, which specifies any
+templates you created for
+de-identifying data in structured and unstructured files. You
+can also include configuration for redacting sensitive data from images.
+If you don't include a
+TransformationConfig object, Sensitive Data Protection
+replaces
+sensitive data in text with its infoType. On images, it covers sensitive
+data with a black box.
+A TransformationDetailsStorageConfig object, which specifies
+a BigQuery table where Sensitive Data Protection must
+store details about each transformation. For each transformation, details
+include a description, a success or error code, any error details, the
+number of bytes transformed, the location of the transformed content, and
+the name of the inspection job in which Sensitive Data Protection made the
+transformation. This table does not store the actual de-identified content.
+When data is written
+to a BigQuery table, the billing and quota usage are applied to
+the project that contains the destination table.
+After the copied content is de-identified, the de-identification job
+finishes. The job contains a summary of how many times the specified
+transformations have been applied, which you can retrieve using the
+projects.dlpJobs.get method on DlpJob. The returned DlpJob includes both
+a DeidentifyDataSourceDetails object and an InspectDataSourceDetails
+object. Those objects contain both the results of a Deidentify action and the
+inspection job, respectively.
+If you included a TransformationDetailsStorageConfig object
+in your DlpJob, a BigQuery
+table is created containing metadata about the transformation details. For each
+transformation that occurs, Sensitive Data Protection writes one row of metadata
+to the table. For more information about the contents of the table,
+see Transformation details reference.
+Code examples
+The following examples demonstrate how to use the DLP API to
+create de-identified copies of Cloud Storage files.
+Note: The following example requires an
+OAuth 2.0 access token.
+HTTP method and URL
+POST https://dlp.googleapis.com/v2/projects/PROJECT_ID/dlpJobs
+C#
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+using Google.Api.Gax.ResourceNames;
+using Google.Cloud.Dlp.V2;
+using System.Linq;
+public class DeidentifyDataStoredInCloudStorage
+{
+public static DlpJob Deidentify(
+string projectId,
+string gcsInputPath,
+string unstructuredDeidentifyTemplatePath,
+string structuredDeidentifyTemplatePath,
+string imageRedactionTemplatePath,
+string gcsOutputPath,
+string datasetId,
+string tableId)
+{
+// Instantiate the client.
+var dlp = DlpServiceClient.Create();
+//Construct the storage config by specifying the input directory.
+var storageConfig = new StorageConfig
+{
+CloudStorageOptions = new CloudStorageOptions
+{
+FileSet = new CloudStorageOptions.Types.FileSet
+{
+Url = gcsInputPath
+}
+}
+};
+// Construct the inspect config by specifying the type of info to be inspected.
+var inspectConfig = new InspectConfig
+{
+InfoTypes =
+{
+new InfoType[]
+{
+new InfoType { Name = "PERSON_NAME" },
+new InfoType { Name = "EMAIL_ADDRESS" }
+}
+},
+IncludeQuote = true
+};
+// Construct the actions to take after the inspection portion of the job is completed.
+// Specify how Cloud DLP must de-identify sensitive data in structured files, unstructured files and images
+// using Transformation config.
+// The de-identified files will be written to the the GCS bucket path specified in gcsOutputPath and the details of
+// transformations performed will be written to BigQuery table specified in datasetId and tableId.
+var actions = new Action[]
+{
+new Action
+{
+Deidentify = new Action.Types.Deidentify
+{
+CloudStorageOutput = gcsOutputPath,
+TransformationConfig = new TransformationConfig
+{
+DeidentifyTemplate = unstructuredDeidentifyTemplatePath,
+ImageRedactTemplate = imageRedactionTemplatePath,
+StructuredDeidentifyTemplate = structuredDeidentifyTemplatePath,
+},
+TransformationDetailsStorageConfig = new TransformationDetailsStorageConfig
+{
+Table = new BigQueryTable
+{
+ProjectId = projectId,
+DatasetId = datasetId,
+TableId = tableId
+}
+}
+}
+}
+};
+// Construct the inspect job config using created storage config, inspect config and actions.
+var inspectJob = new InspectJobConfig
+{
+StorageConfig = storageConfig,
+InspectConfig = inspectConfig,
+Actions = { actions }
+};
+// Create the dlp job and call the API.
+DlpJob response = dlp.CreateDlpJob(new CreateDlpJobRequest
+{
+ParentAsLocationName = new LocationName(projectId, "global"),
+InspectJob = inspectJob
+});
+return response;
+}
+}
+Go
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import (
+"context"
+"fmt"
+"io"
+dlp "cloud.google.com/go/dlp/apiv2"
+"cloud.google.com/go/dlp/apiv2/dlppb"
+)
+func deidentifyCloudStorage(w io.Writer, projectID, gcsUri, tableId, datasetId, outputDirectory, deidentifyTemplateId, structuredDeidentifyTemplateId, imageRedactTemplateId string) error {
+// projectId := "my-project-id"
+// gcsUri := "gs://" + "your-bucket-name" + "/path/to/your/file.txt"
+// tableId := "your-bigquery-table-id"
+// datasetId := "your-bigquery-dataset-id"
+// outputDirectory := "your-output-directory"
+// deidentifyTemplateId := "your-deidentify-template-id"
+// structuredDeidentifyTemplateId := "your-structured-deidentify-template-id"
+// imageRedactTemplateId := "your-image-redact-template-id"
+ctx := context.Background()
+// Initialize a client once and reuse it to send multiple requests. Clients
+// are safe to use across goroutines. When the client is no longer needed,
+// call the Close method to cleanup its resources.
+client, err := dlp.NewClient(ctx)
+if err != nil {
+return err
+}
+// Closing the client safely cleans up background resources.
+defer client.Close()
+// Set path in Cloud Storage.
+cloudStorageOptions := &dlppb.CloudStorageOptions{
+FileSet: &dlppb.CloudStorageOptions_FileSet{
+Url: gcsUri,
+},
+}
+// Define the storage config options for cloud storage options.
+storageConfig := &dlppb.StorageConfig{
+Type: &dlppb.StorageConfig_CloudStorageOptions{
+CloudStorageOptions: cloudStorageOptions,
+},
+}
+// Specify the type of info the inspection will look for.
+// See https://cloud.google.com/dlp/docs/infotypes-reference for complete list of info types
+infoTypes := []*dlppb.InfoType{
+{Name: "PERSON_NAME"},
+{Name: "EMAIL_ADDRESS"},
+}
+// inspectConfig holds the configuration settings for data inspection and analysis
+// within the context of the Google Cloud Data Loss Prevention (DLP) API.
+inspectConfig := &dlppb.InspectConfig{
+InfoTypes: infoTypes,
+IncludeQuote: true,
+}
+// Types of files to include for de-identification.
+fileTypesToTransform := []dlppb.FileType{
+dlppb.FileType_CSV,
+dlppb.FileType_IMAGE,
+dlppb.FileType_TEXT_FILE,
+}
+// Specify the BigQuery table to be inspected.
+table := &dlppb.BigQueryTable{
+ProjectId: projectID,
+DatasetId: datasetId,
+TableId: tableId,
+}
+// transformationDetailsStorageConfig holds configuration settings for storing transformation
+// details in the context of the Google Cloud Data Loss Prevention (DLP) API.
+transformationDetailsStorageConfig := &dlppb.TransformationDetailsStorageConfig{
+Type: &dlppb.TransformationDetailsStorageConfig_Table{
+Table: table,
+},
+}
+transformationConfig := &dlppb.TransformationConfig{
+DeidentifyTemplate: deidentifyTemplateId,
+ImageRedactTemplate: imageRedactTemplateId,
+StructuredDeidentifyTemplate: structuredDeidentifyTemplateId,
+}
+// Action to execute on the completion of a job.
+deidentify := &dlppb.Action_Deidentify{
+TransformationConfig: transformationConfig,
+TransformationDetailsStorageConfig: transformationDetailsStorageConfig,
+Output: &dlppb.Action_Deidentify_CloudStorageOutput{
+CloudStorageOutput: outputDirectory,
+},
+FileTypesToTransform: fileTypesToTransform,
+}
+action := &dlppb.Action{
+Action: &dlppb.Action_Deidentify_{
+Deidentify: deidentify,
+},
+}
+// Configure the inspection job we want the service to perform.
+inspectJobConfig := &dlppb.InspectJobConfig{
+StorageConfig: storageConfig,
+InspectConfig: inspectConfig,
+Actions: []*dlppb.Action{
+action,
+},
+}
+// Construct the job creation request to be sent by the client.
+req := &dlppb.CreateDlpJobRequest{
+Parent: fmt.Sprintf("projects/%s/locations/global", projectID),
+Job: &dlppb.CreateDlpJobRequest_InspectJob{
+InspectJob: inspectJobConfig,
+},
+}
+// Send the request.
+resp, err := client.CreateDlpJob(ctx, req)
+if err != nil {
+fmt.Fprintf(w, "error after resp: %v", err)
+return err
+}
+// Print the results.
+fmt.Fprint(w, "Job created successfully: ", resp.Name)
+return nil
+}
+Java
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import com.google.cloud.dlp.v2.DlpServiceClient;
+import com.google.privacy.dlp.v2.Action;
+import com.google.privacy.dlp.v2.BigQueryTable;
+import com.google.privacy.dlp.v2.CloudStorageOptions;
+import com.google.privacy.dlp.v2.CreateDlpJobRequest;
+import com.google.privacy.dlp.v2.DlpJob;
+import com.google.privacy.dlp.v2.FileType;
+import com.google.privacy.dlp.v2.InfoType;
+import com.google.privacy.dlp.v2.InfoTypeStats;
+import com.google.privacy.dlp.v2.InspectConfig;
+import com.google.privacy.dlp.v2.InspectDataSourceDetails;
+import com.google.privacy.dlp.v2.InspectJobConfig;
+import com.google.privacy.dlp.v2.LocationName;
+import com.google.privacy.dlp.v2.ProjectDeidentifyTemplateName;
+import com.google.privacy.dlp.v2.StorageConfig;
+import com.google.privacy.dlp.v2.TransformationConfig;
+import com.google.privacy.dlp.v2.TransformationDetailsStorageConfig;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+public class DeidentifyCloudStorage {
+// Set the timeout duration in minutes.
+private static final int TIMEOUT_MINUTES = 15;
+public static void main(String[] args) throws IOException, InterruptedException {
+// TODO(developer): Replace these variables before running the sample.
+// The Google Cloud project id to use as a parent resource.
+String projectId = "your-project-id";
+// Specify the cloud storage directory that you want to inspect.
+String gcsPath = "gs://" + "your-bucket-name" + "/path/to/your/file.txt";
+// Specify the big query dataset id to store the transformation details.
+String datasetId = "your-bigquery-dataset-id";
+// Specify the big query table id to store the transformation details.
+String tableId = "your-bigquery-table-id";
+// Specify the cloud storage directory to store the de-identified files.
+String outputDirectory = "your-output-directory";
+// Specify the de-identify template ID for unstructured files.
+String deidentifyTemplateId = "your-deidentify-template-id";
+// Specify the de-identify template ID for structured files.
+String structuredDeidentifyTemplateId = "your-structured-deidentify-template-id";
+// Specify the de-identify template ID for images.
+String imageRedactTemplateId = "your-image-redact-template-id";
+deidentifyCloudStorage(
+projectId,
+gcsPath,
+tableId,
+datasetId,
+outputDirectory,
+deidentifyTemplateId,
+structuredDeidentifyTemplateId,
+imageRedactTemplateId);
+}
+public static void deidentifyCloudStorage(
+String projectId,
+String gcsPath,
+String tableId,
+String datasetId,
+String outputDirectory,
+String deidentifyTemplateId,
+String structuredDeidentifyTemplateId,
+String imageRedactTemplateId)
+throws IOException, InterruptedException {
+try (DlpServiceClient dlp = DlpServiceClient.create()) {
+// Set path in Cloud Storage.
+CloudStorageOptions cloudStorageOptions =
+CloudStorageOptions.newBuilder()
+.setFileSet(CloudStorageOptions.FileSet.newBuilder().setUrl(gcsPath))
+.build();
+// Set storage config indicating the type of cloud storage.
+StorageConfig storageConfig =
+StorageConfig.newBuilder().setCloudStorageOptions(cloudStorageOptions).build();
+// Specify the type of info the inspection will look for.
+// See https://cloud.google.com/dlp/docs/infotypes-reference for complete list of info types
+List<InfoType> infoTypes = new ArrayList<>();
+for (String typeName : new String[] {"PERSON_NAME", "EMAIL_ADDRESS"}) {
+infoTypes.add(InfoType.newBuilder().setName(typeName).build());
+}
+InspectConfig inspectConfig =
+InspectConfig.newBuilder().addAllInfoTypes(infoTypes).setIncludeQuote(true).build();
+// Types of files to include for de-identification.
+List<FileType> fileTypesToTransform =
+Arrays.asList(
+FileType.valueOf("IMAGE"), FileType.valueOf("CSV"), FileType.valueOf("TEXT_FILE"));
+// Specify the big query table to store the transformation details.
+BigQueryTable table =
+BigQueryTable.newBuilder()
+.setProjectId(projectId)
+.setTableId(tableId)
+.setDatasetId(datasetId)
+.build();
+TransformationDetailsStorageConfig transformationDetailsStorageConfig =
+TransformationDetailsStorageConfig.newBuilder().setTable(table).build();
+// Specify the de-identify template used for the transformation.
+TransformationConfig transformationConfig =
+TransformationConfig.newBuilder()
+.setDeidentifyTemplate(
+ProjectDeidentifyTemplateName.of(projectId, deidentifyTemplateId).toString())
+.setImageRedactTemplate(
+ProjectDeidentifyTemplateName.of(projectId, imageRedactTemplateId).toString())
+.setStructuredDeidentifyTemplate(
+ProjectDeidentifyTemplateName.of(projectId, structuredDeidentifyTemplateId)
+.toString())
+.build();
+Action.Deidentify deidentify =
+Action.Deidentify.newBuilder()
+.setCloudStorageOutput(outputDirectory)
+.setTransformationConfig(transformationConfig)
+.setTransformationDetailsStorageConfig(transformationDetailsStorageConfig)
+.addAllFileTypesToTransform(fileTypesToTransform)
+.build();
+Action action = Action.newBuilder().setDeidentify(deidentify).build();
+// Configure the long-running job we want the service to perform.
+InspectJobConfig inspectJobConfig =
+InspectJobConfig.newBuilder()
+.setInspectConfig(inspectConfig)
+.setStorageConfig(storageConfig)
+.addActions(action)
+.build();
+// Construct the job creation request to be sent by the client.
+CreateDlpJobRequest createDlpJobRequest =
+CreateDlpJobRequest.newBuilder()
+.setParent(LocationName.of(projectId, "global").toString())
+.setInspectJob(inspectJobConfig)
+.build();
+// Send the job creation request.
+DlpJob response = dlp.createDlpJob(createDlpJobRequest);
+// Get the current time.
+long startTime = System.currentTimeMillis();
+// Check if the job state is DONE.
+while (response.getState() != DlpJob.JobState.DONE) {
+// Sleep for 30 second.
+Thread.sleep(30000);
+// Get the updated job status.
+response = dlp.getDlpJob(response.getName());
+// Check if the timeout duration has exceeded.
+long elapsedTime = System.currentTimeMillis() - startTime;
+if (TimeUnit.MILLISECONDS.toMinutes(elapsedTime) >= TIMEOUT_MINUTES) {
+System.out.printf("Job did not complete within %d minutes.%n", TIMEOUT_MINUTES);
+break;
+}
+}
+// Print the results.
+System.out.println("Job status: " + response.getState());
+System.out.println("Job name: " + response.getName());
+InspectDataSourceDetails.Result result = response.getInspectDetails().getResult();
+System.out.println("Findings: ");
+for (InfoTypeStats infoTypeStat : result.getInfoTypeStatsList()) {
+System.out.print("\tInfo type: " + infoTypeStat.getInfoType().getName());
+System.out.println("\tCount: " + infoTypeStat.getCount());
+}
+}
+}
+}
+Node.js
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+// Imports the Google Cloud client library
+const DLP = require('@google-cloud/dlp');
+// Instantiates a client
+const dlp = new DLP.DlpServiceClient();
+// The project ID to run the API call under
+// const projectId = 'my-project';
+// The Cloud Storage directory that needs to be inspected
+// const inputDirectory = 'your-google-cloud-storage-path';
+// The ID of the dataset to inspect, e.g. 'my_dataset'
+// const datasetId = 'my_dataset';
+// The ID of the table to inspect, e.g. 'my_table'
+// const tableId = 'my_table';
+// The Cloud Storage directory that will be used to store the de-identified files
+// const outputDirectory = 'your-output-directory';
+// The full resource name of the default de-identify template
+// const deidentifyTemplateId = 'your-deidentify-template-id';
+// The full resource name of the de-identify template for structured files
+// const structuredDeidentifyTemplateId = 'your-structured-deidentify-template-id';
+// The full resource name of the image redaction template for images
+// const imageRedactTemplateId = 'your-image-redact-template-id';
+async function deidentifyCloudStorage() {
+// Specify storage configuration that uses file set.
+const storageConfig = {
+cloudStorageOptions: {
+fileSet: {
+url: inputDirectory,
+},
+},
+};
+// Specify the type of info the inspection will look for.
+const infoTypes = [{name: 'PERSON_NAME'}, {name: 'EMAIL_ADDRESS'}];
+// Construct inspect configuration
+const inspectConfig = {
+infoTypes: infoTypes,
+includeQuote: true,
+};
+// Types of files to include for de-identification.
+const fileTypesToTransform = [
+{fileType: 'IMAGE'},
+{fileType: 'CSV'},
+{fileType: 'TEXT_FILE'},
+];
+// Specify the big query table to store the transformation details.
+const transformationDetailsStorageConfig = {
+table: {
+projectId: projectId,
+tableId: tableId,
+datasetId: datasetId,
+},
+};
+// Specify the de-identify template used for the transformation.
+const transformationConfig = {
+deidentifyTemplate: deidentifyTemplateId,
+structuredDeidentifyTemplate: structuredDeidentifyTemplateId,
+imageRedactTemplate: imageRedactTemplateId,
+};
+// Construct action to de-identify sensitive data.
+const action = {
+deidentify: {
+cloudStorageOutput: outputDirectory,
+transformationConfig: transformationConfig,
+transformationDetailsStorageConfig: transformationDetailsStorageConfig,
+fileTypes: fileTypesToTransform,
+},
+};
+// Construct the inspect job configuration.
+const inspectJobConfig = {
+inspectConfig: inspectConfig,
+storageConfig: storageConfig,
+actions: [action],
+};
+// Construct the job creation request to be sent by the client.
+const createDlpJobRequest = {
+parent: `projects/${projectId}/locations/global`,
+inspectJob: inspectJobConfig,
+};
+// Send the job creation request and process the response.
+const [response] = await dlp.createDlpJob(createDlpJobRequest);
+const jobName = response.name;
+// Waiting for a maximum of 15 minutes for the job to get complete.
+let job;
+let numOfAttempts = 30;
+while (numOfAttempts > 0) {
+// Fetch DLP Job status
+[job] = await dlp.getDlpJob({name: jobName});
+// Check if the job has completed.
+if (job.state === 'DONE') {
+break;
+}
+if (job.state === 'FAILED') {
+console.log('Job Failed, Please check the configuration.');
+return;
+}
+// Sleep for a short duration before checking the job status again.
+await new Promise(resolve => {
+setTimeout(() => resolve(), 30000);
+});
+numOfAttempts -= 1;
+}
+// Print out the results.
+const infoTypeStats = job.inspectDetails.result.infoTypeStats;
+if (infoTypeStats.length > 0) {
+infoTypeStats.forEach(infoTypeStat => {
+console.log(
+` Found ${infoTypeStat.count} instance(s) of infoType ${infoTypeStat.infoType.name}.`
+);
+});
+} else {
+console.log('No findings.');
+}
+}
+await deidentifyCloudStorage();
+PHP
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+use Google\Cloud\Dlp\V2\Action;
+use Google\Cloud\Dlp\V2\Action\Deidentify;
+use Google\Cloud\Dlp\V2\BigQueryTable;
+use Google\Cloud\Dlp\V2\Client\DlpServiceClient;
+use Google\Cloud\Dlp\V2\CloudStorageOptions;
+use Google\Cloud\Dlp\V2\CloudStorageOptions\FileSet;
+use Google\Cloud\Dlp\V2\CreateDlpJobRequest;
+use Google\Cloud\Dlp\V2\DlpJob\JobState;
+use Google\Cloud\Dlp\V2\FileType;
+use Google\Cloud\Dlp\V2\GetDlpJobRequest;
+use Google\Cloud\Dlp\V2\InfoType;
+use Google\Cloud\Dlp\V2\InspectConfig;
+use Google\Cloud\Dlp\V2\InspectJobConfig;
+use Google\Cloud\Dlp\V2\StorageConfig;
+use Google\Cloud\Dlp\V2\TransformationConfig;
+use Google\Cloud\Dlp\V2\TransformationDetailsStorageConfig;
+/**
+* De-identify sensitive data stored in Cloud Storage using the API.
+* Create an inspection job that has a de-identification action.
+*
+* @param string $callingProjectId The project ID to run the API call under.
+* @param string $inputgcsPath The Cloud Storage directory that you want to de-identify.
+* @param string $outgcsPath The Cloud Storage directory where you want to store the
+* de-identified files.
+* @param string $deidentifyTemplateName The full resource name of the default de-identify template — for
+* unstructured and structured files — if you created one. This value
+* must be in the format
+* `projects/projectName/(locations/locationId)/deidentifyTemplates/templateName`.
+* @param string $structuredDeidentifyTemplateName The full resource name of the de-identify template for structured
+* files if you created one. This value must be in the format
+* `projects/projectName/(locations/locationId)/deidentifyTemplates/templateName`.
+* @param string $imageRedactTemplateName The full resource name of the image redaction template for images if
+* you created one. This value must be in the format
+* `projects/projectName/(locations/locationId)/deidentifyTemplates/templateName`.
+* @param string $datasetId The ID of the BigQuery dataset where you want to store
+* the transformation details. If you don't provide a table ID, the
+* system automatically creates one.
+* @param string $tableId The ID of the BigQuery table where you want to store the
+* transformation details.
+*/
+function deidentify_cloud_storage(
+// TODO(developer): Replace sample parameters before running the code.
+string $callingProjectId,
+string $inputgcsPath = 'gs://YOUR_GOOGLE_STORAGE_BUCKET',
+string $outgcsPath = 'gs://YOUR_GOOGLE_STORAGE_BUCKET',
+string $deidentifyTemplateName = 'YOUR_DEIDENTIFY_TEMPLATE_NAME',
+string $structuredDeidentifyTemplateName = 'YOUR_STRUCTURED_DEIDENTIFY_TEMPLATE_NAME',
+string $imageRedactTemplateName = 'YOUR_IMAGE_REDACT_DEIDENTIFY_TEMPLATE_NAME',
+string $datasetId = 'YOUR_DATASET_ID',
+string $tableId = 'YOUR_TABLE_ID'
+): void {
+// Instantiate a client.
+$dlp = new DlpServiceClient();
+$parent = "projects/$callingProjectId/locations/global";
+// Specify the GCS Path to be de-identify.
+$cloudStorageOptions = (new CloudStorageOptions())
+->setFileSet((new FileSet())
+->setUrl($inputgcsPath));
+$storageConfig = (new StorageConfig())
+->setCloudStorageOptions(($cloudStorageOptions));
+// Specify the type of info the inspection will look for.
+$inspectConfig = (new InspectConfig())
+->setInfoTypes([
+(new InfoType())->setName('PERSON_NAME'),
+(new InfoType())->setName('EMAIL_ADDRESS')
+]);
+// Specify the big query table to store the transformation details.
+$transformationDetailsStorageConfig = (new TransformationDetailsStorageConfig())
+->setTable((new BigQueryTable())
+->setProjectId($callingProjectId)
+->setDatasetId($datasetId)
+->setTableId($tableId));
+// Specify the de-identify template used for the transformation.
+$transformationConfig = (new TransformationConfig())
+->setDeidentifyTemplate(
+DlpServiceClient::projectDeidentifyTemplateName($callingProjectId, $deidentifyTemplateName)
+)
+->setStructuredDeidentifyTemplate(
+DlpServiceClient::projectDeidentifyTemplateName($callingProjectId, $structuredDeidentifyTemplateName)
+)
+->setImageRedactTemplate(
+DlpServiceClient::projectDeidentifyTemplateName($callingProjectId, $imageRedactTemplateName)
+);
+$deidentify = (new Deidentify())
+->setCloudStorageOutput($outgcsPath)
+->setTransformationConfig($transformationConfig)
+->setTransformationDetailsStorageConfig($transformationDetailsStorageConfig)
+->setFileTypesToTransform([FileType::TEXT_FILE, FileType::IMAGE, FileType::CSV]);
+$action = (new Action())
+->setDeidentify($deidentify);
+// Configure the inspection job we want the service to perform.
+$inspectJobConfig = (new InspectJobConfig())
+->setInspectConfig($inspectConfig)
+->setStorageConfig($storageConfig)
+->setActions([$action]);
+// Send the job creation request and process the response.
+$createDlpJobRequest = (new CreateDlpJobRequest())
+->setParent($parent)
+->setInspectJob($inspectJobConfig);
+$job = $dlp->createDlpJob($createDlpJobRequest);
+$numOfAttempts = 10;
+do {
+printf('Waiting for job to complete' . PHP_EOL);
+sleep(30);
+$getDlpJobRequest = (new GetDlpJobRequest())
+->setName($job->getName());
+$job = $dlp->getDlpJob($getDlpJobRequest);
+if ($job->getState() == JobState::DONE) {
+break;
+}
+$numOfAttempts--;
+} while ($numOfAttempts > 0);
+// Print finding counts.
+printf('Job %s status: %s' . PHP_EOL, $job->getName(), JobState::name($job->getState()));
+switch ($job->getState()) {
+case JobState::DONE:
+$infoTypeStats = $job->getInspectDetails()->getResult()->getInfoTypeStats();
+if (count($infoTypeStats) === 0) {
+printf('No findings.' . PHP_EOL);
+} else {
+foreach ($infoTypeStats as $infoTypeStat) {
+printf(
+' Found %s instance(s) of infoType %s' . PHP_EOL,
+$infoTypeStat->getCount(),
+$infoTypeStat->getInfoType()->getName()
+);
+}
+}
+break;
+case JobState::FAILED:
+printf('Job %s had errors:' . PHP_EOL, $job->getName());
+$errors = $job->getErrors();
+foreach ($errors as $error) {
+var_dump($error->getDetails());
+}
+break;
+case JobState::PENDING:
+printf('Job has not completed. Consider a longer timeout or an asynchronous execution model' . PHP_EOL);
+break;
+default:
+printf('Unexpected job state. Most likely, the job is either running or has not yet started.');
+}
+}
+Python
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import time
+from typing import List
+import google.cloud.dlp
+def deidentify_cloud_storage(
+project: str,
+input_gcs_bucket: str,
+output_gcs_bucket: str,
+info_types: List[str],
+deid_template_id: str,
+structured_deid_template_id: str,
+image_redact_template_id: str,
+dataset_id: str,
+table_id: str,
+timeout: int = 300,
+) -> None:
+"""
+Uses the Data Loss Prevention API to de-identify files in a Google Cloud
+Storage directory.
+Args:
+project: The Google Cloud project id to use as a parent resource.
+input_gcs_bucket: The name of google cloud storage bucket to inspect.
+output_gcs_bucket: The name of google cloud storage bucket where
+de-identified files would be stored.
+info_types: A list of strings representing info types to look for.
+A full list of info type categories can be fetched from the API.
+deid_template_id: The name of the de-identify template for
+unstructured and structured files.
+structured_deid_template_id: The name of the de-identify template
+for structured files.
+image_redact_template_id: The name of the image redaction template
+for images.
+dataset_id: The identifier of the BigQuery dataset where transformation
+details would be stored.
+table_id: The identifier of the BigQuery table where transformation
+details would be stored.
+timeout: The number of seconds to wait for a response from the API.
+"""
+# Instantiate a client.
+dlp = google.cloud.dlp_v2.DlpServiceClient()
+# Construct the configuration dictionary.
+# Specify the type of info the inspection will look for.
+# See https://cloud.google.com/dlp/docs/infotypes-reference for complete list of info types.
+inspect_config = {"info_types": [{"name": info_type} for info_type in info_types]}
+# Construct cloud_storage_options dictionary with the bucket's URL.
+storage_config = {
+"cloud_storage_options": {"file_set": {"url": f"gs://{input_gcs_bucket}"}}
+}
+# Specify the big query table to store the transformation details.
+big_query_table = {
+"project_id": project,
+"dataset_id": dataset_id,
+"table_id": table_id,
+}
+# Convert the project id into a full resource id.
+parent = f"projects/{project}/locations/global"
+# Construct Transformation Configuration with de-identify Templates used
+# for transformation.
+transformation_config = {
+"deidentify_template": f"{parent}/deidentifyTemplates/{deid_template_id}",
+"structured_deidentify_template": f"{parent}/deidentifyTemplates/{structured_deid_template_id}",
+"image_redact_template": f"{parent}/deidentifyTemplates/{image_redact_template_id}",
+}
+# Tell the API where to send notification when the job is completed.
+actions = [
+{
+"deidentify": {
+"cloud_storage_output": f"gs://{output_gcs_bucket}",
+"transformation_config": transformation_config,
+"transformation_details_storage_config": {"table": big_query_table},
+"file_types_to_transform": ["IMAGE", "CSV", "TEXT_FILE"],
+}
+}
+]
+# Construct the job definition.
+inspect_job = {
+"inspect_config": inspect_config,
+"storage_config": storage_config,
+"actions": actions,
+}
+# Call the API.
+response = dlp.create_dlp_job(
+request={
+"parent": parent,
+"inspect_job": inspect_job,
+}
+)
+job_name = response.name
+print(f"Inspection Job started : {job_name}")
+# Waiting for the job to get completed.
+job = dlp.get_dlp_job(request={"name": job_name})
+# Since the sleep time is kept as 30s, number of calls would be timeout/30.
+no_of_attempts = timeout // 30
+while no_of_attempts != 0:
+# Check if the job has completed.
+if job.state == google.cloud.dlp_v2.DlpJob.JobState.DONE:
+break
+if job.state == google.cloud.dlp_v2.DlpJob.JobState.FAILED:
+print("Job Failed, Please check the configuration.")
+break
+# Sleep for a short duration before checking the job status again.
+time.sleep(30)
+no_of_attempts -= 1
+# Get DLP job status.
+job = dlp.get_dlp_job(request={"name": job_name})
+if job.state != google.cloud.dlp_v2.DlpJob.JobState.DONE:
+print(f"Job did not complete within {timeout} minutes.")
+return
+# Print out the results.
+print(f"Job name: {job.name}")
+result = job.inspect_details.result
+print(f"Processed Bytes: {result.processed_bytes}")
+if result.info_type_stats:
+for stats in result.info_type_stats:
+print(f"Info type: {stats.info_type.name}")
+print(f"Count: {stats.count}")
+else:
+print("No findings.")
+REST
+JSON input
+{
+"inspect_job": {
+"storage_config": {
+"cloud_storage_options": {
+"file_set": {
+"url": "INPUT_DIRECTORY"
+}
+}
+},
+"inspect_config": {
+"info_types": [
+{
+"name": "PERSON_NAME"
+}
+]
+},
+"actions": {
+"deidentify": {
+"cloud_storage_output": "OUTPUT_DIRECTORY",
+"transformation_config": {
+"deidentify_template": "DEIDENTIFY_TEMPLATE_NAME",
+"structured_deidentify_template": "STRUCTURED_DEIDENTIFY_TEMPLATE_NAME",
+"image_redact_template": "IMAGE_REDACTION_TEMPLATE_NAME"
+},
+"transformation_details_storage_config": {
+"table": {
+"project_id": "TRANSFORMATION_DETAILS_PROJECT_ID",
+"dataset_id": "TRANSFORMATION_DETAILS_DATASET_ID",
+"table_id": "TRANSFORMATION_DETAILS_TABLE_ID"
+}
+},
+"fileTypesToTransform": ["IMAGE","CSV", "TEXT_FILE"]
+}
+}
+}
+}
+Replace the following:
+PROJECT_ID: the ID of the project where you want
+to store the inspection job.
+INPUT_DIRECTORY: the Cloud Storage directory that
+you want to inspect—for example, gs://input-bucket/folder1/folder1a.
+If the URL ends in a trailing slash, any subdirectories inside
+INPUT_DIRECTORY aren't scanned.
+OUTPUT_DIRECTORY: the Cloud Storage directory
+where you want to store the de-identified files. This directory must not be in
+the same Cloud Storage bucket as INPUT_DIRECTORY.
+DEIDENTIFY_TEMPLATE_NAME: the full resource name of
+the default de-identify template—for unstructured and structured
+files—if you created one.
+This value must be in the format
+projects/projectName/(locations/locationId)/deidentifyTemplates/templateName.
+STRUCTURED_DEIDENTIFY_TEMPLATE_NAME: the full resource
+name of the de-identify template for structured files if you
+created one.
+This value must be in the format
+projects/projectName/(locations/locationId)/deidentifyTemplates/templateName.
+IMAGE_REDACTION_TEMPLATE_NAME: the full resource
+name of the image redaction template for images if you
+created one.
+This value must be in the format
+projects/projectName/(locations/locationId)/deidentifyTemplates/templateName.
+TRANSFORMATION_DETAILS_PROJECT_ID: the ID of the
+project where you want to store the transformation details.
+TRANSFORMATION_DETAILS_DATASET_ID: the ID of the
+BigQuery dataset where you want to store the transformation
+details. If you don't provide a table ID, the system automatically creates
+one.
+TRANSFORMATION_DETAILS_TABLE_ID: the ID of the
+BigQuery table where you want to store the transformation
+details.
+Note the following objects:
+inspectJob: The configuration object for the job
+(DlpJob). This object contains the
+configuration for both the inspection and de-identification stages.
+storageConfig: The location of the content to inspect
+(StorageConfig). This example specifies a Cloud Storage bucket
+CloudStorageOptions.
+inspectConfig: Information about the sensitive data you want to inspect
+for (InspectConfig). This example inspects
+for content matching the built-in infoType PERSON_NAME.
+actions: The actions to take after the inspection portion of the job is
+complete (Action).
+deidentify: Specifying this action tells Sensitive Data Protection to
+de-identify the matched sensitive data according to the configuration
+specified inside (Deidentify).
+cloud_storage_output: Specifies the URL of the Cloud Storage
+directory that you want to inspect.
+transformation_config: Specifies how Sensitive Data Protection must
+de-identify sensitive data in structured files, unstructured files, and
+images (TransformationConfig).
+If you don't include a
+TransformationConfig object, Sensitive Data Protection
+replaces
+sensitive data in text with its infoType. On images, it covers sensitive
+data with a black box.
+transformation_details_storage_config: Specifies that Sensitive Data Protection
+must store metadata about each transformation that it performs for this job.
+Also, it specifies the location and name of the table where
+Sensitive Data Protection must store that metadata
+(TransformationDetailsStorageConfig).
+fileTypesToTransform: Limits the de-identification operation to only the
+file types that you list. If you don't set this field, all supported
+file types included in the inspection operation are also included in the
+de-identification operation. In this example, Sensitive Data Protection
+de-identifies only image, CSV, and text files, even if
+you configured the DlpJob to inspect all supported file types.
+Create an inspection job through the REST API
+To create the inspection job (DlpJob), send a projects.dlpJobs.create
+request. To send the request using cURL, save the previous REST
+example as a JSON file and run the
+following command:
+curl -s \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "X-Goog-User-Project: PROJECT_ID" \
+https://dlp.googleapis.com/v2/projects/PROJECT_ID/dlpJobs \
+-d @PATH_TO_JSON_FILE
+Replace the following:
+PROJECT_ID: the ID of the project where you stored
+the DlpJob.
+PATH_TO_JSON_FILE: the path to the JSON
+file that contains the request body.
+Sensitive Data Protection returns the identifier of the newly created
+DlpJob, its status, and a snapshot of the inspection configuration that you
+set.
+{
+"name": "projects/PROJECT_ID/dlpJobs/JOB_ID",
+"type": "INSPECT_JOB",
+"state": "PENDING",
+...
+}
+Retrieve the results of the inspection job
+To retrieve the results of the DlpJob, send a projects.dlpJobs.get
+request:
+curl -s \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "X-Goog-User-Project: PROJECT_ID" \
+https://dlp.googleapis.com/v2/projects/PROJECT_ID/dlpJobs/JOB_ID
+Replace the following:
+PROJECT_ID: the ID of the project where you stored
+the DlpJob.
+JOB_ID: the ID of the job that was returned when
+you created the DlpJob.
+If the operation is complete, you get a response similar to the following:
+{
+"name": "projects/PROJECT_ID/dlpJobs/JOB_ID",
+"type": "INSPECT_JOB",
+"state": "DONE",
+"inspectDetails": {
+"requestedOptions": {
+"snapshotInspectTemplate": {},
+"jobConfig": {
+"storageConfig": {
+"cloudStorageOptions": {
+"fileSet": {
+"url": "INPUT_DIRECTORY"
+}
+}
+},
+"inspectConfig": {
+"infoTypes": [
+{
+"name": "PERSON_NAME"
+}
+],
+"limits": {}
+},
+"actions": [
+{
+"deidentify": {
+"transformationDetailsStorageConfig": {
+"table": {
+"projectId": "TRANSFORMATION_DETAILS_PROJECT_ID",
+"datasetId": "TRANSFORMATION_DETAILS_DATASET_ID",
+"tableId": "TRANSFORMATION_DETAILS_TABLE_ID"
+}
+},
+"transformationConfig": {
+"deidentifyTemplate": "DEIDENTIFY_TEMPLATE_NAME",
+"structuredDeidentifyTemplate": "STRUCTURED_DEIDENTIFY_TEMPLATE_NAME",
+"imageRedactTemplate": "IMAGE_REDACTION_TEMPLATE_NAME"
+},
+"fileTypesToTransform": [
+"IMAGE",
+"CSV",
+"TEXT_FILE"
+],
+"cloudStorageOutput": "OUTPUT_DIRECTORY"
+}
+}
+]
+}
+},
+"result": {
+"processedBytes": "25242",
+"totalEstimatedBytes": "25242",
+"infoTypeStats": [
+{
+"infoType": {
+"name": "PERSON_NAME"
+},
+"count": "114"
+}
+]
+}
+},
+"createTime": "2022-06-09T23:00:53.380Z",
+"startTime": "2022-06-09T23:01:27.986383Z",
+"endTime": "2022-06-09T23:02:00.443536Z",
+"actionDetails": [
+{
+"deidentifyDetails": {
+"requestedOptions": {
+"snapshotDeidentifyTemplate": {
+"name": "DEIDENTIFY_TEMPLATE_NAME",
+"createTime": "2022-06-09T17:46:34.208923Z",
+"updateTime": "2022-06-09T17:46:34.208923Z",
+"deidentifyConfig": {
+"infoTypeTransformations": {
+"transformations": [
+{
+"primitiveTransformation": {
+"characterMaskConfig": {
+"maskingCharacter": "*",
+"numberToMask": 25
+}
+}
+}
+]
+}
+},
+"locationId": "global"
+},
+"snapshotStructuredDeidentifyTemplate": {
+"name": "STRUCTURED_DEIDENTIFY_TEMPLATE_NAME",
+"createTime": "2022-06-09T20:51:12.411456Z",
+"updateTime": "2022-06-09T21:07:53.633149Z",
+"deidentifyConfig": {
+"recordTransformations": {
+"fieldTransformations": [
+{
+"fields": [
+{
+"name": "Name"
+}
+],
+"primitiveTransformation": {
+"replaceConfig": {
+"newValue": {
+"stringValue": "[redacted]"
+}
+}
+}
+}
+]
+}
+},
+"locationId": "global"
+},
+"snapshotImageRedactTemplate": {
+"name": "IMAGE_REDACTION_TEMPLATE_NAME",
+"createTime": "2022-06-09T20:52:25.453564Z",
+"updateTime": "2022-06-09T20:52:25.453564Z",
+"deidentifyConfig": {},
+"locationId": "global"
+}
+},
+"deidentifyStats": {
+"transformedBytes": "3972",
+"transformationCount": "110"
+}
+}
+}
+],
+"locationId": "global"
+}
+What's next
+Learn more about the process of de-identifying data in storage.
+Learn how to de-identify data in storage using the Google Cloud console.
+Work through the Creating a De-identified Copy of Data in
+Cloud Storage
+codelab.
+Learn more about de-identification transformations.
+Learn how to inspect storage for sensitive data.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-07 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

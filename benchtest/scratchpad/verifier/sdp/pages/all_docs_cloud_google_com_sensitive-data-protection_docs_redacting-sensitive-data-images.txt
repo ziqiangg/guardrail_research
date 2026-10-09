@@ -1,0 +1,2671 @@
+# status 200  final_url https://docs.cloud.google.com/sensitive-data-protection/docs/redacting-sensitive-data-images  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Sensitive Data Protection
+Start free
+Overview
+Guides
+Reference
+Samples
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Samples
+Resources
+Console
+Discover
+Product overview
+Plan your data risk management strategy
+Evaluate your data risk management needs
+Learn about your data through discovery and inspection
+Recommended strategies for mitigating data risk
+Release notes
+Pricing
+Locations
+Global and regional endpoints for Sensitive Data Protection
+Sensitive Data Protection locations
+Specify a processing location
+Service method types
+Supported file types and scanning modes
+Get started
+Quickstarts
+Inspect text using the command-line tool
+Inspect text using a JSON request
+Schedule an inspection scan
+Create an inspection template
+De-identify and re-identify sensitive text
+Google Cloud Skills Boost labs
+Detect sensitive data
+Discover and profile data resources
+Overview of sensitive data discovery
+Common discovery enablement scenarios
+Allow discovery within service perimeters
+Profile your data
+Profile a single data resource
+Profile BigQuery data
+Estimate BigQuery data profiling cost
+Estimate the cost of profiling BigQuery data in a project
+Estimate the cost of profiling BigQuery data in an organization or folder
+Profile BigQuery data in a project
+Profile BigQuery data in an organization or folder
+Profile Cloud SQL data
+Profile Cloud SQL data in a project
+Profile Cloud SQL data in an organization or folder
+Manage connections
+Profile Cloud Storage data
+Profile Cloud Storage data in a project
+Profile Cloud Storage data in an organization or folder
+Profile Vertex AI data
+Sensitive data discovery for Vertex AI data
+Profile Vertex AI data in a project
+Profile Vertex AI data in an organization or folder
+Profile Amazon S3 data
+Sensitive data discovery for Amazon S3 data
+Profile Amazon S3 data
+Profile Azure Blob Storage data
+Report secrets in environment variables to Security Command Center
+Grant data profiling access to a service agent
+Manage data profiles
+Control IAM access to resources based on data sensitivity
+Send discovery insights to other services
+Enable discovery actions
+Send data profiles to Security Command Center
+Receive and parse Pub/Sub messages about data profiles
+Tag tables in Data Catalog based on insights from data profiles
+Add Knowledge Catalog aspects based on insights from data profiles
+Analyze and visualize data profiles
+Visualize data profiles in the discovery dashboard
+Analyze data profiles
+Remediate findings from the data profiler
+Manage scan configurations
+Troubleshoot issues with the data profiler
+Metrics reference
+Data risk and sensitivity levels
+Inspect for sensitive data
+Inspect data stored in Google Cloud
+Inspect data from any source
+Inspect unstructured text synchronously
+Inspect structured text synchronously
+Inspect an image synchronously
+Asynchronous inspection overview
+Inspect data from any source asynchronously
+Quote the sensitive data in the results
+Work with inspection results
+Actions
+Send inspection results to Knowledge Catalog as aspects
+Send inspection results to Data Catalog
+Send inspection results to Security Command Center
+Analyze and report on inspection findings
+Query inspection findings in BigQuery
+Parse findings stored as Protobuf text
+Jobs and job triggers
+Overview of jobs and job triggers
+Create and manage jobs and job triggers
+Web-based inspection demonstration app
+Allow or block content based on sensitivity
+Overview of content policies
+Create and manage content policies
+Configure detection
+Templates
+Overview of templates
+Create inspection templates
+InfoTypes and infoType detectors
+Overview of infoTypes and infoType detectors
+Built-in infoType detectors
+List built-in infoType detectors
+InfoType detector reference
+Custom infoType detectors
+Overview of custom infoType detectors
+Create a regular custom dictionary detector
+Create a large custom dictionary detector
+Create a custom regex detector
+Create a custom metadata label detector
+Custom infoType examples
+Manage infoTypes through the Google Cloud console
+Modify infoType detectors to refine scan results
+Match likelihood
+Likelihood overview
+Customize match likelihood
+Mask and de-identify data
+Overview
+Transformation methods
+Transformation reference
+Text classification and redaction
+Date shifting
+Generalization and bucketing
+Pseudonymization
+De-identify sensitive data
+De-identify data stored in Google Cloud
+Overview
+Through the Cloud console
+Through the DLP API
+Transformation details reference
+De-identify data from any source
+De-identify text or tabular content
+Examples of text redaction
+Examples of tabular data de-identification
+Image inspection and redaction
+Redact sensitive data from images
+Create a de-identification template
+Create a wrapped key
+De-identify BigQuery data at query time
+De-identification and re-identification of PII in large-scale datasets
+Redact sensitive data from PDF files
+Analyze re-identification risk
+Overview of re-identification risk analysis
+Re-identification risk analysis techniques
+Compute k-anonymity for a dataset
+Compute l-diversity for a dataset
+Compute k-map for a dataset
+Compute δ-presence for a dataset
+Compute numerical and categorical statistics
+Visualize re-identification risk using Data Studio
+Connect to other services
+Use Sensitive Data Protection with BigQuery
+Use Sensitive Data Protection with Cloud Storage
+Use Sensitive Data Protection with Cloud Storage
+Automate the classification of data uploaded to Cloud Storage
+Send inspection results to Data Catalog
+Send inspection results to Security Command Center
+Monitor your usage with Cloud Monitoring
+Use Sensitive Data Protection with AWS S3
+Use Sensitive Data Protection with JDBC Databases
+Use Sensitive Data Protection with Apigee
+Use Sensitive Data Protection with Data Fusion
+Build a secure anomaly detection solution using Dataflow, BigQuery ML, and Sensitive Data Protection
+Troubleshoot
+Troubleshoot issues with the data profiler
+Control access
+Authentication
+IAM
+Access control with IAM
+Sensitive Data Protection roles and permissions
+Sensitive Data Protection service agents
+Control access with VPC Service Controls
+Monitor
+Audit logging
+Monitor your usage with Cloud Monitoring
+Develop
+All Sensitive Data Protection code samples
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Cloud Data Loss Prevention (Cloud DLP) is now a part of Sensitive Data Protection. The API name remains the same: Cloud Data Loss Prevention API (DLP API). For information about the services that make up Sensitive Data Protection, see Sensitive Data Protection overview.
+Home
+Documentation
+Security
+Sensitive Data Protection
+Guides
+Send feedback
+Redact sensitive data from images
+Stay organized with collections
+Save and categorize content based on your preferences.
+You can use the Cloud Data Loss Prevention API to detect sensitive text and objects within an
+image and then get a redacted version of that image. In the returned image,
+the detected sensitive data elements are obscured by an opaque rectangle. You
+use infoType detectors to specify the
+types of information that you want to detect and redact.
+By default, Sensitive Data Protection uses black rectangles to obscure the redacted
+content, but you can specify a color for each infoType in your image redaction
+configuration.
+Text redaction
+Sensitive Data Protection uses object character recognition (OCR)
+to detect text in images. You can redact the following in an image:
+Text that matches any of the default
+infoTypes
+Text that matches any of the infoTypes that you list in your image
+redaction configuration
+All detected text
+For example, consider the following images. The original image is a picture of a
+document that contains contact information. In this example,
+Sensitive Data Protection was configured to redact any text that matches the
+PERSON_NAME, EMAIL_ADDRESS, and PHONE_NUMBER infoTypes. The resulting
+image has black rectangles covering the detected sensitive text.
+Before and after redaction of text in an image (click to enlarge).
+Object redaction
+You can configure Sensitive Data Protection to redact objects that typically
+contain sensitive information.
+For example, consider the following images. The original image is an
+AI-generated picture that contains a barcode, a license plate, and a whiteboard.
+In this example, Sensitive Data Protection was configured to redact objects that
+match the OBJECT_TYPE/BARCODE, OBJECT_TYPE/LICENSE_PLATE, and
+OBJECT_TYPE/WHITEBOARD infoTypes. The resulting image has colored rectangles
+covering the detected sensitive objects. One color is assigned to each
+infoType.
+Before and after redaction of objects in an image (click to enlarge).
+For a complete list of object infoType detectors that are available, see
+Objects in images.
+Limitations and considerations
+Consider the following points when redacting content from images.
+Supported file types
+Sensitive Data Protection can redact sensitive data from many image types,
+including JPEG, BMP, and PNG. For more information, see Supported file
+types.
+Content redaction is not supported for SVG, PDF, XLSX, PPTX, or DOCX files.
+Inspection configuration limits
+When you redact data from images, you can't include
+limits in your inspection
+configuration. Limits can cause unexpected or potentially inconsistent
+results where only some data is redacted. If you set the limits field in
+your request, Sensitive Data Protection generates an error.
+Before you begin
+Before you begin the tasks on this page, set up authentication and obtain the
+required IAM permissions. You can use your Google Cloud
+user account or a service account. In either case, make sure the account you use
+has a role with the serviceusage.services.use
+permission, such as DLP Administrator (roles/dlp.admin), DLP
+User (roles/dlp.user), or a custom role.
+Select the tab for how you plan to use the samples on this page:
+C#
+To use the .NET samples on this page in a local development environment, install and
+initialize the gcloud CLI, and then set up Application Default Credentials with
+your user credentials.
+Install the Google Cloud CLI.
+If you're using an external identity provider (IdP), you must first
+sign in to the gcloud CLI with your federated identity.
+If you're using a local shell, then create local authentication credentials for your user
+account:
+gcloud auth application-default login
+You don't need to do this if you're using Cloud Shell.
+If an authentication error is returned, and you are using an external identity provider
+(IdP), confirm that you have
+signed in to the gcloud CLI with your federated identity.
+For more information, see
+Set up ADC for a local development environment
+in the Google Cloud authentication documentation.
+Go
+To use the Go samples on this page in a local development environment, install and
+initialize the gcloud CLI, and then set up Application Default Credentials with
+your user credentials.
+Install the Google Cloud CLI.
+If you're using an external identity provider (IdP), you must first
+sign in to the gcloud CLI with your federated identity.
+If you're using a local shell, then create local authentication credentials for your user
+account:
+gcloud auth application-default login
+You don't need to do this if you're using Cloud Shell.
+If an authentication error is returned, and you are using an external identity provider
+(IdP), confirm that you have
+signed in to the gcloud CLI with your federated identity.
+For more information, see
+Set up ADC for a local development environment
+in the Google Cloud authentication documentation.
+Java
+To use the Java samples on this page in a local development environment, install and
+initialize the gcloud CLI, and then set up Application Default Credentials with
+your user credentials.
+Install the Google Cloud CLI.
+If you're using an external identity provider (IdP), you must first
+sign in to the gcloud CLI with your federated identity.
+If you're using a local shell, then create local authentication credentials for your user
+account:
+gcloud auth application-default login
+You don't need to do this if you're using Cloud Shell.
+If an authentication error is returned, and you are using an external identity provider
+(IdP), confirm that you have
+signed in to the gcloud CLI with your federated identity.
+For more information, see
+Set up ADC for a local development environment
+in the Google Cloud authentication documentation.
+Node.js
+To use the Node.js samples on this page in a local development environment, install and
+initialize the gcloud CLI, and then set up Application Default Credentials with
+your user credentials.
+Install the Google Cloud CLI.
+If you're using an external identity provider (IdP), you must first
+sign in to the gcloud CLI with your federated identity.
+If you're using a local shell, then create local authentication credentials for your user
+account:
+gcloud auth application-default login
+You don't need to do this if you're using Cloud Shell.
+If an authentication error is returned, and you are using an external identity provider
+(IdP), confirm that you have
+signed in to the gcloud CLI with your federated identity.
+For more information, see
+Set up ADC for a local development environment
+in the Google Cloud authentication documentation.
+PHP
+To use the PHP samples on this page in a local development environment, install and
+initialize the gcloud CLI, and then set up Application Default Credentials with
+your user credentials.
+Install the Google Cloud CLI.
+If you're using an external identity provider (IdP), you must first
+sign in to the gcloud CLI with your federated identity.
+If you're using a local shell, then create local authentication credentials for your user
+account:
+gcloud auth application-default login
+You don't need to do this if you're using Cloud Shell.
+If an authentication error is returned, and you are using an external identity provider
+(IdP), confirm that you have
+signed in to the gcloud CLI with your federated identity.
+For more information, see
+Set up ADC for a local development environment
+in the Google Cloud authentication documentation.
+Python
+To use the Python samples on this page in a local development environment, install and
+initialize the gcloud CLI, and then set up Application Default Credentials with
+your user credentials.
+Install the Google Cloud CLI.
+If you're using an external identity provider (IdP), you must first
+sign in to the gcloud CLI with your federated identity.
+If you're using a local shell, then create local authentication credentials for your user
+account:
+gcloud auth application-default login
+You don't need to do this if you're using Cloud Shell.
+If an authentication error is returned, and you are using an external identity provider
+(IdP), confirm that you have
+signed in to the gcloud CLI with your federated identity.
+For more information, see
+Set up ADC for a local development environment
+in the Google Cloud authentication documentation.
+REST
+To use the REST API samples on this page in a local development environment, you use the
+credentials you provide to the gcloud CLI.
+Install the Google Cloud CLI.
+If you're using an external identity provider (IdP), you must first
+sign in to the gcloud CLI with your federated identity.
+For more information, see
+Authenticate for using REST
+in the Google Cloud authentication documentation.
+The image.redact method also supports API keys.
+If you want to use API keys for authentication, you do not need
+to set up a local Application Default Credentials file.
+For more information, see
+Create an API key
+in the Google Cloud authentication documentation.
+For information about setting up authentication for a production environment, see
+Set up Application Default Credentials for code running on Google Cloud
+in the Google Cloud authentication documentation.
+To get the permissions that
+you need to inspect, redact, and de-identify content,
+ask your administrator to grant you the
+DLP User (roles/dlp.user) IAM role on your project.
+For more information about granting roles, see Manage access to projects, folders, and organizations.
+You might also be able to get
+the required permissions through custom
+roles or other predefined
+roles.
+Redact all default infoTypes from an image
+To redact sensitive data from an image, submit the image to the
+DLP API's
+image.redact method.
+Unless you specify specific information types (infoTypes)
+to search for, Sensitive Data Protection searches for the most common infoTypes.
+Default infoTypes don't include objects in
+images.
+To redact default infoTypes from an image, do the following:
+Encode the image as a base64 string.
+If you plan to use one of the
+Sensitive Data Protection client libraries to
+perform this task, skip this step.
+Submit a request to the image.redact method.
+If you want to redact default infoTypes, the request requires only the
+base64-encoded image.
+For example, consider the following image of a document.
+Original unredacted image (click to enlarge).
+To redact the default infoTypes from this image, send the following request to
+the DLP API's
+image.redact method:
+Important:
+The code on this page requires that you first set up a Sensitive Data Protection client. For more
+information about installing and creating a Sensitive Data Protection client, see
+Sensitive Data Protection client libraries. (Sending JSON
+to Sensitive Data Protection REST endpoints does not require a client
+library.)
+C#
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+using Google.Api.Gax.ResourceNames;
+using Google.Cloud.Dlp.V2;
+using Google.Protobuf;
+using System;
+using System.IO;
+public class RedactSensitiveDataFromImageUsingDefaultInfoTypes
+{
+public static RedactImageResponse RedactImage(
+string projectId,
+string originalImagePath,
+string redactedImagePath)
+{
+// Instantiate the dlp client.
+var dlp = DlpServiceClient.Create();
+// Construct the content item.
+var byteContentItem = new ByteContentItem
+{
+Type = ByteContentItem.Types.BytesType.ImagePng,
+Data = ByteString.FromStream(new FileStream(originalImagePath, FileMode.Open))
+};
+// Construct the Redact request to be sent by the client. Do not specify the type of info to redact.
+var request = new RedactImageRequest
+{
+ParentAsLocationName = new LocationName(projectId, "global"),
+ByteItem = byteContentItem
+};
+// Call the API.
+var response = dlp.RedactImage(request);
+// Inspect the response.
+Console.WriteLine($"Redacted image written to: {redactedImagePath}");
+// Writes redacted image into file
+response.RedactedImage.WriteTo(new FileStream(redactedImagePath, FileMode.Create, FileAccess.Write));
+return response;
+}
+}
+Go
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import (
+"context"
+"fmt"
+"io"
+"os"
+dlp "cloud.google.com/go/dlp/apiv2"
+"cloud.google.com/go/dlp/apiv2/dlppb"
+)
+// redactImageFileAllInfoTypes redact sensitive data from an image using default infoTypes.
+func redactImageFileAllInfoTypes(w io.Writer, projectID, inputPath, outputPath string) error {
+// projectId := "my-project-id"
+// inputPath := "testdata/image.jpg"
+// outputPath := "testdata/test-output-image-file-all-infoType.jpeg"
+ctx := context.Background()
+// Initialize a client once and reuse it to send multiple requests. Clients
+// are safe to use across goroutines. When the client is no longer needed,
+// call the Close method to cleanup its resources.
+client, err := dlp.NewClient(ctx)
+if err != nil {
+return err
+}
+// Closing the client safely cleans up background resources.
+defer client.Close()
+// Read the image file.
+fileBytes, err := os.ReadFile(inputPath)
+if err != nil {
+fmt.Fprintf(w, "os.ReadFile: %v", err)
+return err
+}
+// Specify the content to be redacted.
+byteItem := &dlppb.ByteContentItem{
+Type: dlppb.ByteContentItem_IMAGE_JPEG,
+Data: fileBytes,
+}
+// Construct the Redact request to be sent by the client.
+// Do not specify the type of info to redact.
+req := &dlppb.RedactImageRequest{
+Parent: fmt.Sprintf("projects/%s/locations/global", projectID),
+ByteItem: byteItem,
+}
+// Send the request.
+resp, err := client.RedactImage(ctx, req)
+if err != nil {
+return err
+}
+// Write the output file.
+if err := os.WriteFile(outputPath, resp.GetRedactedImage(), 0644); err != nil {
+return err
+}
+fmt.Fprintf(w, "Wrote output to %s", outputPath)
+return nil
+}
+Java
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import com.google.cloud.dlp.v2.DlpServiceClient;
+import com.google.privacy.dlp.v2.ByteContentItem;
+import com.google.privacy.dlp.v2.ByteContentItem.BytesType;
+import com.google.privacy.dlp.v2.LocationName;
+import com.google.privacy.dlp.v2.RedactImageRequest;
+import com.google.privacy.dlp.v2.RedactImageResponse;
+import com.google.protobuf.ByteString;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+class RedactImageFileAllInfoTypes {
+public static void main(String[] args) throws IOException {
+// TODO(developer): Replace these variables before running the sample.
+String projectId = "my-project-id";
+String inputPath = "src/test/resources/sensitive-data-image.jpeg";
+String outputPath = "sensitive-data-image-redacted.jpeg";
+redactImageFileAllInfoTypes(projectId, inputPath, outputPath);
+}
+static void redactImageFileAllInfoTypes(String projectId, String inputPath, String outputPath)
+throws IOException {
+// Initialize client that will be used to send requests. This client only needs to be created
+// once, and can be reused for multiple requests. After completing all of your requests, call
+// the "close" method on the client to safely clean up any remaining background resources.
+try (DlpServiceClient dlp = DlpServiceClient.create()) {
+// Specify the content to be redacted.
+ByteString fileBytes = ByteString.readFrom(new FileInputStream(inputPath));
+ByteContentItem byteItem =
+ByteContentItem.newBuilder().setType(BytesType.IMAGE_JPEG).setData(fileBytes).build();
+// Construct the Redact request to be sent by the client.
+// Do not specify the type of info to redact.
+RedactImageRequest request =
+RedactImageRequest.newBuilder()
+.setParent(LocationName.of(projectId, "global").toString())
+.setByteItem(byteItem)
+.build();
+// Use the client to send the API request.
+RedactImageResponse response = dlp.redactImage(request);
+// Parse the response and process results.
+FileOutputStream redacted = new FileOutputStream(outputPath);
+redacted.write(response.getRedactedImage().toByteArray());
+redacted.close();
+System.out.println("Redacted image written to " + outputPath);
+}
+}
+}
+Node.js
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+// Imports the Google Cloud Data Loss Prevention library
+const DLP = require('@google-cloud/dlp');
+// Imports required Node.js libraries
+const mime = require('mime');
+const fs = require('fs');
+// Instantiates a client
+const dlp = new DLP.DlpServiceClient();
+// The project ID to run the API call under
+// const projectId = 'my-project';
+// The path to a local file to inspect. Can be a JPG or PNG image file.
+// const filepath = 'path/to/image.png';
+// The local path to save the resulting image to.
+// const outputPath = 'result.png';
+async function redactImage() {
+// Specify the content to be redacted.
+const fileTypeConstant =
+['image/jpeg', 'image/bmp', 'image/png', 'image/svg'].indexOf(
+mime.getType(filepath)
+) + 1;
+const fileBytes = Buffer.from(fs.readFileSync(filepath)).toString('base64');
+// Construct the Redact request to be sent by the client.
+// Do not specify the type of info to redact.
+const request = {
+parent: `projects/${projectId}/locations/global`,
+byteItem: {
+type: fileTypeConstant,
+data: fileBytes,
+},
+};
+// Use the client to send the API request.
+const [response] = await dlp.redactImage(request);
+// Parse the response and process results.
+const image = response.redactedImage;
+fs.writeFileSync(outputPath, image);
+console.log(`Saved image redaction results to path: ${outputPath}`);
+}
+redactImage();
+PHP
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+use Google\Cloud\Dlp\V2\ByteContentItem;
+use Google\Cloud\Dlp\V2\Client\DlpServiceClient;
+use Google\Cloud\Dlp\V2\RedactImageRequest;
+/**
+* Redact sensitive data from an image using default infoTypes.
+*
+* @param string $callingProjectId The project ID to run the API call under.
+* @param string $imagePath The local filepath of the image to inspect.
+* @param string $outputPath The local filepath to save the resulting image to.
+*/
+function redact_image_all_infotypes(
+// TODO(developer): Replace sample parameters before running the code.
+string $callingProjectId,
+string $imagePath = './test/data/test.png',
+string $outputPath = './test/data/redact_image_all_infotypes.png'
+): void {
+// Instantiate a client.
+$dlp = new DlpServiceClient();
+// Read image file into a buffer.
+$imageRef = fopen($imagePath, 'rb');
+$imageBytes = fread($imageRef, filesize($imagePath));
+fclose($imageRef);
+// Get the image's content type.
+$typeConstant = (int) array_search(
+mime_content_type($imagePath),
+[false, 'image/jpeg', 'image/bmp', 'image/png', 'image/svg']
+);
+// Create the byte-storing object.
+$byteContent = (new ByteContentItem())
+->setType($typeConstant)
+->setData($imageBytes);
+$parent = "projects/$callingProjectId/locations/global";
+// Run request.
+$redactImageRequest = (new RedactImageRequest())
+->setParent($parent)
+->setByteItem($byteContent);
+$response = $dlp->redactImage($redactImageRequest);
+// Save result to file.
+file_put_contents($outputPath, $response->getRedactedImage());
+// Print completion message.
+printf('Redacted image saved to %s ' . PHP_EOL, $outputPath);
+}
+Python
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import google.cloud.dlp
+def redact_image_all_info_types(
+project: str,
+filename: str,
+output_filename: str,
+) -> None:
+"""Uses the Data Loss Prevention API to redact protected data in an image.
+Args:
+project: The Google Cloud project id to use as a parent resource.
+filename: The path to the file to inspect.
+output_filename: The path to which the redacted image will be written.
+A full list of info type categories can be fetched from the API.
+Returns:
+None; the response from the API is printed to the terminal.
+"""
+# Instantiate a client.
+dlp = google.cloud.dlp_v2.DlpServiceClient()
+# Construct the byte_item, containing the file's byte data.
+with open(filename, mode="rb") as f:
+byte_item = {"type_": google.cloud.dlp_v2.FileType.IMAGE, "data": f.read()}
+# Convert the project id into a full resource id.
+parent = f"projects/{project}"
+# Call the API.
+response = dlp.redact_image(
+request={
+"parent": parent,
+"byte_item": byte_item,
+}
+)
+# Write out the results.
+with open(output_filename, mode="wb") as f:
+f.write(response.redacted_image)
+print(f"Wrote {len(response.redacted_image)} to {output_filename}")
+REST
+Important: Before sending this
+request to the REST API, use a base64 utility to encode the image into ASCII text data, and
+then replace the [BASE64-ENCODED-IMAGE] placeholder with the
+base64-encoded text. Most development environments contain a native
+base64 utility. To encode an image file:
+Linux: base64 input.jpg > output.txt
+macOS: base64 -i input.jpg -o output.txt
+Windows: C:> Base64.exe -e input.jpg > output.txt
+PowerShell: [Convert]::ToBase64String([IO.File]::ReadAllBytes("./input.jpg")) > output.txt
+{
+"byteItem": {
+"data": "[BASE64-ENCODED-IMAGE]",
+"type": "IMAGE_PNG"
+}
+}
+Sensitive Data Protection returns the following:
+{
+"redactedImage": "[BASE64-ENCODED-IMAGE]"
+}
+Decode the base64-encoded image.
+The resulting image appears as follows:
+Redacted image, all infoTypes (click to enlarge).
+Note that in addition to masking the handwritten Social Security number, the
+email address, and the phone number, Sensitive Data Protection also redacted
+the year. The
+next section
+demonstrates how to redact only certain infoTypes.
+Tip: Along with the resulting image, you can
+get a report of pixel coordinate and length values that indicate the areas the
+redaction boxes were drawn on. This is the same information that image inspection returns. To enable this
+functionality, set includeFindings
+to true in your request to image.redact.
+Redact specific infoTypes from an image
+If you want to redact only certain sensitive data from an image, specify their
+corresponding built-in infoTypes.
+Note: You can also redact data matching your custom infoType
+detectors.
+To redact specific infoTypes from an image, submit a request to the
+DLP API's image.redact method. The request must include the
+following:
+The image.
+One or more infoType detectors.
+Consider the original image from the previous section. To redact only
+US Social Security numbers, email addresses, and telephone numbers, send the
+following JSON to the DLP API's
+image.redact method:
+Important:
+The code on this page requires that you first set up a Sensitive Data Protection client. For more
+information about installing and creating a Sensitive Data Protection client, see
+Sensitive Data Protection client libraries. (Sending JSON
+to Sensitive Data Protection REST endpoints does not require a client
+library.)
+C#
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+using Google.Api.Gax.ResourceNames;
+using Google.Cloud.Dlp.V2;
+using Google.Protobuf;
+using System;
+using System.IO;
+public class RedactImageWithListedInfotypes
+{
+public static RedactImageResponse Redact(string projectId, string originalImagePath, string redactedImagePath)
+{
+var request = new RedactImageRequest
+{
+Parent = new LocationName(projectId, "global").ToString(),
+InspectConfig = new InspectConfig
+{
+MinLikelihood = Likelihood.Likely,
+Limits = new InspectConfig.Types.FindingLimits() { MaxFindingsPerItem = 5 },
+IncludeQuote = true,
+InfoTypes =
+{
+new InfoType { Name = "PHONE_NUMBER" },
+new InfoType { Name = "EMAIL_ADDRESS" }
+}
+},
+ByteItem = new ByteContentItem
+{
+Type = ByteContentItem.Types.BytesType.ImagePng,
+Data = ByteString.FromStream(new FileStream(originalImagePath, FileMode.Open))
+},
+};
+var client = DlpServiceClient.Create();
+var response = client.RedactImage(request);
+Console.WriteLine($"Extracted text: {response.ExtractedText}");
+// Writes redacted image into file
+response.RedactedImage.WriteTo(new FileStream(redactedImagePath, FileMode.Create, FileAccess.Write));
+return response;
+}
+}
+Go
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import (
+"context"
+"fmt"
+"io"
+"os"
+dlp "cloud.google.com/go/dlp/apiv2"
+"cloud.google.com/go/dlp/apiv2/dlppb"
+)
+// redactImageFileListedInfoTypes redacts only certain sensitive
+// data from an image using infoTypes
+func redactImageFileListedInfoTypes(w io.Writer, projectID, inputPath, outputPath string) error {
+// projectId := "my-project-id"
+// inputPath := "testdata/image.jpg"
+// outputPath := "testdata/test-output-image-file-listed-infoTypes-redacted.jpeg"
+ctx := context.Background()
+// Initialize a client once and reuse it to send multiple requests. Clients
+// are safe to use across goroutines. When the client is no longer needed,
+// call the Close method to cleanup its resources.
+client, err := dlp.NewClient(ctx)
+if err != nil {
+return err
+}
+// Closing the client safely cleans up background resources.
+defer client.Close()
+// read the image file
+fileBytes, err := os.ReadFile(inputPath)
+if err != nil {
+return err
+}
+// Specify the content to be redacted.
+byteItem := &dlppb.ByteContentItem{
+Type: dlppb.ByteContentItem_IMAGE_JPEG,
+Data: fileBytes,
+}
+// Specify the types of info necessary to redact.
+// See https://cloud.google.com/dlp/docs/infotypes-reference for complete list of info types
+infoTypes := []*dlppb.InfoType{
+{Name: "US_SOCIAL_SECURITY_NUMBER"},
+{Name: "EMAIL_ADDRESS"},
+{Name: "PHONE_NUMBER"},
+}
+inspectConfig := &dlppb.InspectConfig{
+InfoTypes: infoTypes,
+}
+// Prepare redaction configs.
+var x []*dlppb.RedactImageRequest_ImageRedactionConfig
+for _, v := range infoTypes {
+x = append(x, &dlppb.RedactImageRequest_ImageRedactionConfig{Target: &dlppb.RedactImageRequest_ImageRedactionConfig_InfoType{InfoType: v}})
+}
+// Construct the Inspect request to be sent by the client.
+req := &dlppb.RedactImageRequest{
+Parent: fmt.Sprintf("projects/%s/locations/global", projectID),
+ByteItem: byteItem,
+ImageRedactionConfigs: x,
+InspectConfig: inspectConfig,
+}
+// Send the request.
+resp, err := client.RedactImage(ctx, req)
+if err != nil {
+return err
+}
+// Write the output file.
+if err := os.WriteFile(outputPath, resp.GetRedactedImage(), 0644); err != nil {
+return err
+}
+fmt.Fprintf(w, "Wrote output to %s\n", outputPath)
+return nil
+}
+Java
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import com.google.cloud.dlp.v2.DlpServiceClient;
+import com.google.privacy.dlp.v2.ByteContentItem;
+import com.google.privacy.dlp.v2.ByteContentItem.BytesType;
+import com.google.privacy.dlp.v2.InfoType;
+import com.google.privacy.dlp.v2.InspectConfig;
+import com.google.privacy.dlp.v2.LocationName;
+import com.google.privacy.dlp.v2.RedactImageRequest;
+import com.google.privacy.dlp.v2.RedactImageRequest.ImageRedactionConfig;
+import com.google.privacy.dlp.v2.RedactImageResponse;
+import com.google.protobuf.ByteString;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+class RedactImageFileListedInfoTypes {
+public static void main(String[] args) throws IOException {
+// TODO(developer): Replace these variables before running the sample.
+String projectId = "my-project-id";
+String inputPath = "src/test/resources/sensitive-data-image.jpeg";
+String outputPath = "sensitive-data-image-redacted.jpeg";
+redactImageFileListedInfoTypes(projectId, inputPath, outputPath);
+}
+static void redactImageFileListedInfoTypes(String projectId, String inputPath, String outputPath)
+throws IOException {
+// Initialize client that will be used to send requests. This client only needs to be created
+// once, and can be reused for multiple requests. After completing all of your requests, call
+// the "close" method on the client to safely clean up any remaining background resources.
+try (DlpServiceClient dlp = DlpServiceClient.create()) {
+// Specify the content to be redacted.
+ByteString fileBytes = ByteString.readFrom(new FileInputStream(inputPath));
+ByteContentItem byteItem =
+ByteContentItem.newBuilder().setType(BytesType.IMAGE_JPEG).setData(fileBytes).build();
+// Specify the types of info necessary to redact.
+List<InfoType> infoTypes = new ArrayList<>();
+// See https://cloud.google.com/dlp/docs/infotypes-reference for complete list of info types
+for (String typeName :
+new String[] {"US_SOCIAL_SECURITY_NUMBER", "EMAIL_ADDRESS", "PHONE_NUMBER"}) {
+infoTypes.add(InfoType.newBuilder().setName(typeName).build());
+}
+InspectConfig inspectConfig = InspectConfig.newBuilder().addAllInfoTypes(infoTypes).build();
+// Prepare redaction configs.
+List<ImageRedactionConfig> imageRedactionConfigs =
+infoTypes.stream()
+.map(infoType -> ImageRedactionConfig.newBuilder().setInfoType(infoType).build())
+.collect(Collectors.toList());
+// Construct the Redact request to be sent by the client.
+RedactImageRequest request =
+RedactImageRequest.newBuilder()
+.setParent(LocationName.of(projectId, "global").toString())
+.setByteItem(byteItem)
+.addAllImageRedactionConfigs(imageRedactionConfigs)
+.setInspectConfig(inspectConfig)
+.build();
+// Use the client to send the API request.
+RedactImageResponse response = dlp.redactImage(request);
+// Parse the response and process results.
+FileOutputStream redacted = new FileOutputStream(outputPath);
+redacted.write(response.getRedactedImage().toByteArray());
+redacted.close();
+System.out.println("Redacted image written to " + outputPath);
+}
+}
+}
+Node.js
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+// Imports the Google Cloud Data Loss Prevention library
+const DLP = require('@google-cloud/dlp');
+// Imports required Node.js libraries
+const mime = require('mime');
+const fs = require('fs');
+// Instantiates a client
+const dlp = new DLP.DlpServiceClient();
+// The project ID to run the API call under
+// const projectId = 'my-project';
+// The path to a local file to inspect. Can be a JPG or PNG image file.
+// const filepath = 'path/to/image.png';
+// The infoTypes of information to redact
+// const infoTypes = [{ name: 'EMAIL_ADDRESS' }, { name: 'PHONE_NUMBER' }];
+// The local path to save the resulting image to.
+// const outputPath = 'result.png';
+async function redactImageWithInfoTypes() {
+// Load image
+const fileTypeConstant =
+['image/jpeg', 'image/bmp', 'image/png', 'image/svg'].indexOf(
+mime.getType(filepath)
+) + 1;
+const fileBytes = Buffer.from(fs.readFileSync(filepath)).toString('base64');
+// Construct image redaction request
+const request = {
+parent: `projects/${projectId}/locations/global`,
+byteItem: {
+type: fileTypeConstant,
+data: fileBytes,
+},
+inspectConfig: {
+infoTypes: infoTypes,
+},
+imageRedactionConfigs: infoTypes.map(infoType => ({infoType: infoType})),
+};
+// Run image redaction request
+const [response] = await dlp.redactImage(request);
+const image = response.redactedImage;
+fs.writeFileSync(outputPath, image);
+console.log(`Saved image redaction results to path: ${outputPath}`);
+}
+redactImageWithInfoTypes();
+PHP
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+use Google\Cloud\Dlp\V2\ByteContentItem;
+use Google\Cloud\Dlp\V2\Client\DlpServiceClient;
+use Google\Cloud\Dlp\V2\InfoType;
+use Google\Cloud\Dlp\V2\InspectConfig;
+use Google\Cloud\Dlp\V2\RedactImageRequest;
+use Google\Cloud\Dlp\V2\RedactImageRequest\ImageRedactionConfig;
+/**
+* Redact only certain sensitive data from an image using infoTypes.
+*
+* @param string $callingProjectId The project ID to run the API call under.
+* @param string $imagePath The local filepath of the image to redact.
+* @param string $outputPath The local filepath to save the resulting image to.
+*/
+function redact_image_listed_infotypes(
+// TODO(developer): Replace sample parameters before running the code.
+string $callingProjectId,
+string $imagePath = './test/data/test.png',
+string $outputPath = './test/data/redact_image_listed_infotypes.png'
+): void {
+// Instantiate a client.
+$dlp = new DlpServiceClient();
+// Specify the types of info necessary to redact.
+$infoTypes = [
+(new InfoType())
+->setName('US_SOCIAL_SECURITY_NUMBER'),
+(new InfoType())
+->setName('EMAIL_ADDRESS'),
+(new InfoType())
+->setName('PHONE_NUMBER'),
+];
+// Create the configuration object.
+$inspectConfig = (new InspectConfig())
+->setInfoTypes($infoTypes);
+// Read image file into a buffer.
+$imageRef = fopen($imagePath, 'rb');
+$imageBytes = fread($imageRef, filesize($imagePath));
+fclose($imageRef);
+// Get the image's content type.
+$typeConstant = (int) array_search(
+mime_content_type($imagePath),
+[false, 'image/jpeg', 'image/bmp', 'image/png', 'image/svg']
+);
+// Create the byte-storing object.
+$byteContent = (new ByteContentItem())
+->setType($typeConstant)
+->setData($imageBytes);
+// Create the image redaction config objects.
+$imageRedactionConfigs = [];
+foreach ($infoTypes as $infoType) {
+$config = (new ImageRedactionConfig())
+->setInfoType($infoType);
+$imageRedactionConfigs[] = $config;
+}
+$parent = "projects/$callingProjectId/locations/global";
+// Run request.
+$redactImageRequest = (new RedactImageRequest())
+->setParent($parent)
+->setInspectConfig($inspectConfig)
+->setByteItem($byteContent)
+->setImageRedactionConfigs($imageRedactionConfigs);
+$response = $dlp->redactImage($redactImageRequest);
+// Save result to file.
+file_put_contents($outputPath, $response->getRedactedImage());
+// Print completion message.
+printf('Redacted image saved to %s' . PHP_EOL, $outputPath);
+}
+Python
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import mimetypes
+from typing import List, Optional
+import google.cloud.dlp
+def redact_image_listed_info_types(
+project: str,
+filename: str,
+output_filename: str,
+info_types: List[str],
+min_likelihood: Optional[str] = None,
+mime_type: Optional[str] = None,
+) -> None:
+"""Uses the Data Loss Prevention API to redact protected data in an image.
+Args:
+project: The Google Cloud project id to use as a parent resource.
+filename: The path to the file to inspect.
+output_filename: The path to which the redacted image will be written.
+A full list of info type categories can be fetched from the API.
+info_types: A list of strings representing info types to look for.
+A full list of info type categories can be fetched from the API.
+min_likelihood: A string representing the minimum likelihood threshold
+that constitutes a match. One of: 'LIKELIHOOD_UNSPECIFIED',
+'VERY_UNLIKELY', 'UNLIKELY', 'POSSIBLE', 'LIKELY', 'VERY_LIKELY'.
+mime_type: The MIME type of the file. If not specified, the type is
+inferred via the Python standard library's mimetypes module.
+Returns:
+None; the response from the API is printed to the terminal.
+"""
+# Instantiate a client.
+dlp = google.cloud.dlp_v2.DlpServiceClient()
+# Prepare info_types by converting the list of strings into a list of
+# dictionaries (protos are also accepted).
+info_types = [{"name": info_type} for info_type in info_types]
+# Prepare image_redaction_configs, a list of dictionaries. Each dictionary
+# contains an info_type and optionally the color used for the replacement.
+# The color is omitted in this sample, so the default (black) will be used.
+image_redaction_configs = []
+if info_types is not None:
+for info_type in info_types:
+image_redaction_configs.append({"info_type": info_type})
+# Construct the configuration dictionary. Keys which are None may
+# optionally be omitted entirely.
+inspect_config = {"min_likelihood": min_likelihood, "info_types": info_types}
+# If mime_type is not specified, guess it from the filename.
+if mime_type is None:
+mime_guess = mimetypes.MimeTypes().guess_type(filename)
+mime_type = mime_guess[0] or "application/octet-stream"
+# Select the content type index from the list of supported types.
+# https://github.com/googleapis/googleapis/blob/master/google/privacy/dlp/v2/dlp.proto / message ByteContentItem
+supported_content_types = {
+None: 0, # "Unspecified" or BYTES_TYPE_UNSPECIFIED
+"image/jpeg": 1, # IMAGE_JPEG
+"image/bmp": 2, # IMAGE_BMP
+"image/png": 3, # IMAGE_PNG
+"image/svg": 4, # IMAGE_SVG - Adjusted to "image/svg+xml" for correct MIME type
+"text/plain": 5, # TEXT_UTF8
+# Note: No specific MIME type for general "image", mapping to IMAGE for any image type not specified
+"image": 6, # IMAGE - Any image type
+"application/msword": 7, # WORD_DOCUMENT
+"application/pdf": 8, # PDF
+"application/powerpoint": 9, # POWERPOINT_DOCUMENT
+"application/msexcel": 10, # EXCEL_DOCUMENT
+"application/avro": 11, # AVRO
+"text/csv": 12, # CSV
+"text/tsv": 13, # TSV
+}
+content_type_index = supported_content_types.get(mime_type, 0)
+# Construct the byte_item, containing the file's byte data.
+with open(filename, mode="rb") as f:
+byte_item = {"type_": content_type_index, "data": f.read()}
+# Convert the project id into a full resource id.
+parent = f"projects/{project}"
+# Call the API.
+response = dlp.redact_image(
+request={
+"parent": parent,
+"inspect_config": inspect_config,
+"image_redaction_configs": image_redaction_configs,
+"byte_item": byte_item,
+}
+)
+# Write out the results.
+with open(output_filename, mode="wb") as f:
+f.write(response.redacted_image)
+print(f"Wrote {len(response.redacted_image)} to {output_filename}")
+REST
+Important: Before sending this
+request, use a base64 utility to encode the image into ASCII text data, and
+then replace the [BASE64-ENCODED-IMAGE] placeholder with the
+base64-encoded text. Most development environments contain a native
+base64 utility. To encode an image file:
+Linux: base64 input.jpg > output.txt
+macOS: base64 -i input.jpg -o output.txt
+Windows: C:> Base64.exe -e input.jpg > output.txt
+PowerShell: [Convert]::ToBase64String([IO.File]::ReadAllBytes("./input.jpg")) > output.txt
+{
+"byteItem": {
+"data": "[BASE64-ENCODED-IMAGE]",
+"type": "IMAGE_PNG"
+},
+"imageRedactionConfigs": [
+{
+"infoType": {
+"name": "PERSON_NAME"
+}
+},
+{
+"infoType": {
+"name": "EMAIL_ADDRESS"
+}
+},
+{
+"infoType": {
+"name": "PHONE_NUMBER"
+}
+}
+]
+}
+Sensitive Data Protection returns the following:
+{
+"redactedImage": "[BASE64-ENCODED-IMAGE]"
+}
+Decode the base64-encoded image.
+The resulting image appears as follows:
+Redacted image, three infoTypes (click to enlarge).
+You can color code redacted information by infoType when you want to tell
+at a glance what's been redacted. See the following section for more
+information.
+Redact infoTypes from an image with color coding
+To color code redacted information by infoType, you pair infoType detectors with
+RGB color space values.
+To color-code infoTypes redacted from an image, submit a request to the
+DLP API's image.redact method. The request must include the
+following:
+The image.
+One or more infoType detectors, each of which is
+assigned a color using RGB color space
+values.
+Note: Color space values are expressed in the three chromaticities of red,
+green, and blue. Each value is between 0 and 1, inclusive. If you're used to
+expressing RGB chromaticity values between 0 and 255, inclusive, you'll need to
+divide each one by 255 before including it in the call to image.redact. For
+example, a purple RGB value of (77,26,153) would be approximately (0.3,0.1,0.6).
+Consider the original image from the first section. To redact
+US Social Security numbers with a purple box, email addresses with a green box,
+and telephone numbers with an orange box, send the following JSON to the
+DLP API's
+image.redact method:
+Important:
+The code on this page requires that you first set up a Sensitive Data Protection client. For more
+information about installing and creating a Sensitive Data Protection client, see
+Sensitive Data Protection client libraries. (Sending JSON
+to Sensitive Data Protection REST endpoints does not require a client
+library.)
+C#
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+using Google.Api.Gax.ResourceNames;
+using Google.Cloud.Dlp.V2;
+using Google.Protobuf;
+using System;
+using System.IO;
+public class RedactImageWithColorCodedInfoTypes
+{
+public static RedactImageResponse RedactImage(
+string projectId,
+string originalImagePath,
+string redactedImagePath)
+{
+// Instantiate the dlp client.
+var dlp = DlpServiceClient.Create();
+// Construct the content item by providing the image and its type.
+var byteContentItem = new ByteContentItem
+{
+Type = ByteContentItem.Types.BytesType.ImagePng,
+Data = ByteString.FromStream(new FileStream(originalImagePath, FileMode.Open))
+};
+// Define types of info and associate each one with a different color to redact config.
+var ssnRedactionConfig = new RedactImageRequest.Types.ImageRedactionConfig
+{
+InfoType = new InfoType { Name = "US_SOCIAL_SECURITY_NUMBER" },
+RedactionColor = new Color
+{
+Red = 0.3f,
+Green = 0.1f,
+Blue = 0.6f
+}
+};
+var emailRedactionConfig = new RedactImageRequest.Types.ImageRedactionConfig
+{
+InfoType = new InfoType { Name = "EMAIL_ADDRESS" },
+RedactionColor = new Color
+{
+Red = 0.5f,
+Green = 0.5f,
+Blue = 1f
+}
+};
+var phoneRedactionConfig = new RedactImageRequest.Types.ImageRedactionConfig
+{
+InfoType = new InfoType { Name = "PHONE_NUMBER" },
+RedactionColor = new Color
+{
+Red = 1f,
+Green = 0f,
+Blue = 0.6f
+}
+};
+// Construct the Redact request to be sent by the client. Do not specify the type of info to redact.
+var request = new RedactImageRequest
+{
+ParentAsLocationName = new LocationName(projectId, "global"),
+ImageRedactionConfigs = { ssnRedactionConfig, emailRedactionConfig, phoneRedactionConfig },
+ByteItem = byteContentItem
+};
+// Call the API.
+RedactImageResponse response = dlp.RedactImage(request);
+// Writes redacted image into file
+response.RedactedImage.WriteTo(new FileStream(redactedImagePath, FileMode.Create, FileAccess.Write));
+Console.WriteLine($"Redacted image written to: {redactedImagePath}");
+return response;
+}
+}
+Go
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import (
+"context"
+"fmt"
+"io"
+"os"
+dlp "cloud.google.com/go/dlp/apiv2"
+"cloud.google.com/go/dlp/apiv2/dlppb"
+)
+// redactImageFileColoredInfoTypes redacts data from an image with color-coded infoTypes.
+func redactImageFileColoredInfoTypes(w io.Writer, projectID, inputPath, outputPath string) error {
+// projectId := "my-project-id"
+// inputPath := "testdata/image.jpg"
+// outputPath := "testdata/test-output-image-file-colored-infoType.jpeg"
+ctx := context.Background()
+// Initialize a client once and reuse it to send multiple requests. Clients
+// are safe to use across goroutines. When the client is no longer needed,
+// call the Close method to cleanup its resources.
+client, err := dlp.NewClient(ctx)
+if err != nil {
+return err
+}
+// Closing the client safely cleans up background resources.
+defer client.Close()
+// read the image file
+fileBytes, err := os.ReadFile(inputPath)
+if err != nil {
+return err
+}
+// Specify the content to be redacted.
+byteItem := &dlppb.ByteContentItem{
+Type: dlppb.ByteContentItem_IMAGE_JPEG,
+Data: fileBytes,
+}
+// Define types of info to redact associate each one with a different color.
+// See https://cloud.google.com/dlp/docs/infotypes-reference for complete list of info types.
+ssnRedactionConfig := &dlppb.RedactImageRequest_ImageRedactionConfig{
+Target: &dlppb.RedactImageRequest_ImageRedactionConfig_InfoType{
+InfoType: &dlppb.InfoType{
+Name: "US_SOCIAL_SECURITY_NUMBER",
+},
+},
+RedactionColor: &dlppb.Color{
+Red: 0.3,
+Green: 0.1,
+Blue: 0.6,
+},
+}
+emailRedactionConfig := &dlppb.RedactImageRequest_ImageRedactionConfig{
+Target: &dlppb.RedactImageRequest_ImageRedactionConfig_InfoType{
+InfoType: &dlppb.InfoType{
+Name: "EMAIL_ADDRESS",
+},
+},
+RedactionColor: &dlppb.Color{
+Red: 0.5,
+Green: 0.5,
+Blue: 1,
+},
+}
+phoneRedactionConfig := &dlppb.RedactImageRequest_ImageRedactionConfig{
+Target: &dlppb.RedactImageRequest_ImageRedactionConfig_InfoType{
+InfoType: &dlppb.InfoType{
+Name: "PHONE_NUMBER",
+},
+},
+RedactionColor: &dlppb.Color{
+Red: 1,
+Green: 0,
+Blue: 0.6,
+},
+}
+// Construct the Inspect request to be sent by the client.
+req := &dlppb.RedactImageRequest{
+Parent: fmt.Sprintf("projects/%s/locations/global", projectID),
+ByteItem: byteItem,
+ImageRedactionConfigs: []*dlppb.RedactImageRequest_ImageRedactionConfig{
+emailRedactionConfig,
+phoneRedactionConfig,
+ssnRedactionConfig,
+},
+}
+// Send the request.
+resp, err := client.RedactImage(ctx, req)
+if err != nil {
+return err
+}
+// Write the output file.
+if err := os.WriteFile(outputPath, resp.GetRedactedImage(), 0644); err != nil {
+return err
+}
+fmt.Fprintf(w, "Wrote output to %s", outputPath)
+return nil
+}
+Java
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import com.google.cloud.dlp.v2.DlpServiceClient;
+import com.google.privacy.dlp.v2.ByteContentItem;
+import com.google.privacy.dlp.v2.ByteContentItem.BytesType;
+import com.google.privacy.dlp.v2.Color;
+import com.google.privacy.dlp.v2.InfoType;
+import com.google.privacy.dlp.v2.InspectConfig;
+import com.google.privacy.dlp.v2.LocationName;
+import com.google.privacy.dlp.v2.RedactImageRequest;
+import com.google.privacy.dlp.v2.RedactImageRequest.ImageRedactionConfig;
+import com.google.privacy.dlp.v2.RedactImageResponse;
+import com.google.protobuf.ByteString;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+class RedactImageFileColoredInfoTypes {
+public static void main(String[] args) throws IOException {
+// TODO(developer): Replace these variables before running the sample.
+String projectId = "my-project-id";
+String inputPath = "src/test/resources/test.png";
+String outputPath = "redacted.png";
+redactImageFileColoredInfoTypes(projectId, inputPath, outputPath);
+}
+static void redactImageFileColoredInfoTypes(String projectId, String inputPath, String outputPath)
+throws IOException {
+// Initialize client that will be used to send requests. This client only needs to be created
+// once, and can be reused for multiple requests. After completing all of your requests, call
+// the "close" method on the client to safely clean up any remaining background resources.
+try (DlpServiceClient dlp = DlpServiceClient.create()) {
+// Specify the content to be redacted.
+ByteString fileBytes = ByteString.readFrom(new FileInputStream(inputPath));
+ByteContentItem byteItem =
+ByteContentItem.newBuilder().setType(BytesType.IMAGE_JPEG).setData(fileBytes).build();
+// Define types of info to redact associate each one with a different color.
+// See https://cloud.google.com/dlp/docs/infotypes-reference for complete list of info types
+ImageRedactionConfig ssnRedactionConfig =
+ImageRedactionConfig.newBuilder()
+.setInfoType(InfoType.newBuilder().setName("US_SOCIAL_SECURITY_NUMBER").build())
+.setRedactionColor(Color.newBuilder().setRed(.3f).setGreen(.1f).setBlue(.6f).build())
+.build();
+ImageRedactionConfig emailRedactionConfig =
+ImageRedactionConfig.newBuilder()
+.setInfoType(InfoType.newBuilder().setName("EMAIL_ADDRESS").build())
+.setRedactionColor(Color.newBuilder().setRed(.5f).setGreen(.5f).setBlue(1).build())
+.build();
+ImageRedactionConfig phoneRedactionConfig =
+ImageRedactionConfig.newBuilder()
+.setInfoType(InfoType.newBuilder().setName("PHONE_NUMBER").build())
+.setRedactionColor(Color.newBuilder().setRed(1).setGreen(0).setBlue(.6f).build())
+.build();
+// Create collection of all redact configurations.
+List<ImageRedactionConfig> imageRedactionConfigs =
+Arrays.asList(ssnRedactionConfig, emailRedactionConfig, phoneRedactionConfig);
+// List types of info to search for.
+InspectConfig config =
+InspectConfig.newBuilder()
+.addAllInfoTypes(
+imageRedactionConfigs.stream()
+.map(ImageRedactionConfig::getInfoType)
+.collect(Collectors.toList()))
+.build();
+// Construct the Redact request to be sent by the client.
+RedactImageRequest request =
+RedactImageRequest.newBuilder()
+.setParent(LocationName.of(projectId, "global").toString())
+.setByteItem(byteItem)
+.addAllImageRedactionConfigs(imageRedactionConfigs)
+.setInspectConfig(config)
+.build();
+// Use the client to send the API request.
+RedactImageResponse response = dlp.redactImage(request);
+// Parse the response and process results.
+FileOutputStream redacted = new FileOutputStream(outputPath);
+redacted.write(response.getRedactedImage().toByteArray());
+redacted.close();
+System.out.println("Redacted image written to " + outputPath);
+}
+}
+}
+Node.js
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+// Imports the Google Cloud Data Loss Prevention library
+const DLP = require('@google-cloud/dlp');
+// Imports required Node.js libraries
+const mime = require('mime');
+const fs = require('fs');
+// Instantiates a client
+const dlp = new DLP.DlpServiceClient();
+// The project ID to run the API call under
+// const projectId = 'my-project';
+// The path to a local file to inspect. Can be a JPG or PNG image file.
+// const filepath = 'path/to/image.png';
+// The local path to save the resulting image to.
+// const outputPath = 'result.png';
+async function redactImageColoredInfoType() {
+// Define types of info to redact associate each one with a different color.
+const imageRedactionConfigs = [
+{
+infoType: {name: 'US_SOCIAL_SECURITY_NUMBER'},
+redactionColor: {red: 0.3, green: 0.1, blue: 0.6},
+},
+{
+infoType: {name: 'EMAIL_ADDRESS'},
+redactionColor: {red: 0.5, green: 0.5, blue: 1},
+},
+{
+infoType: {name: 'PHONE_NUMBER'},
+redactionColor: {red: 1, green: 0, blue: 0.6},
+},
+];
+// Load image
+const fileTypeConstant =
+['image/jpeg', 'image/bmp', 'image/png', 'image/svg'].indexOf(
+mime.getType(filepath)
+) + 1;
+const fileBytes = Buffer.from(fs.readFileSync(filepath)).toString('base64');
+// Construct the Redact request to be sent by the client.
+const request = {
+parent: `projects/${projectId}/locations/global`,
+byteItem: {
+type: fileTypeConstant,
+data: fileBytes,
+},
+imageRedactionConfigs: imageRedactionConfigs,
+};
+// Send the request and receive response from the service.
+const [response] = await dlp.redactImage(request);
+const image = response.redactedImage;
+fs.writeFileSync(outputPath, image);
+console.log(`Saved image redaction results to path: ${outputPath}`);
+}
+redactImageColoredInfoType();
+PHP
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+use Google\Cloud\Dlp\V2\ByteContentItem;
+use Google\Cloud\Dlp\V2\Client\DlpServiceClient;
+use Google\Cloud\Dlp\V2\Color;
+use Google\Cloud\Dlp\V2\InfoType;
+use Google\Cloud\Dlp\V2\InspectConfig;
+use Google\Cloud\Dlp\V2\RedactImageRequest;
+use Google\Cloud\Dlp\V2\RedactImageRequest\ImageRedactionConfig;
+/**
+* Redact data from an image with color-coded infoTypes.
+*
+* @param string $callingProjectId The project ID to run the API call under.
+* @param string $imagePath The local filepath of the image to inspect.
+* @param string $outputPath The local filepath to save the resulting image to.
+*/
+function redact_image_colored_infotypes(
+// TODO(developer): Replace sample parameters before running the code.
+string $callingProjectId,
+string $imagePath = './test/data/test.png',
+string $outputPath = './test/data/sensitive-data-image-redacted-color-coding.png'
+): void {
+// Instantiate a client.
+$dlp = new DlpServiceClient();
+// Read image file into a buffer.
+$imageRef = fopen($imagePath, 'rb');
+$imageBytes = fread($imageRef, filesize($imagePath));
+fclose($imageRef);
+// Get the image's content type.
+$typeConstant = (int) array_search(
+mime_content_type($imagePath),
+[false, 'image/jpeg', 'image/bmp', 'image/png', 'image/svg']
+);
+// Create the byte-storing object.
+$byteContent = (new ByteContentItem())
+->setType($typeConstant)
+->setData($imageBytes);
+// Define the types of information to redact and associate each one with a different color.
+$ssnInfotype = (new InfoType())
+->setName('US_SOCIAL_SECURITY_NUMBER');
+$emailInfotype = (new InfoType())
+->setName('EMAIL_ADDRESS');
+$phoneInfotype = (new InfoType())
+->setName('PHONE_NUMBER');
+$infotypes = [$ssnInfotype, $emailInfotype, $phoneInfotype];
+$ssnRedactionConfig = (new ImageRedactionConfig())
+->setInfoType($ssnInfotype)
+->setRedactionColor((new Color())
+->setRed(.3)
+->setGreen(.1)
+->setBlue(.6));
+$emailRedactionConfig = (new ImageRedactionConfig())
+->setInfoType($emailInfotype)
+->setRedactionColor((new Color())
+->setRed(.5)
+->setGreen(.5)
+->setBlue(1));
+$phoneRedactionConfig = (new ImageRedactionConfig())
+->setInfoType($phoneInfotype)
+->setRedactionColor((new Color())
+->setRed(1)
+->setGreen(0)
+->setBlue(.6));
+$imageRedactionConfigs = [$ssnRedactionConfig, $emailRedactionConfig, $phoneRedactionConfig];
+// Create the configuration object.
+$inspectConfig = (new InspectConfig())
+->setInfoTypes($infotypes);
+$parent = "projects/$callingProjectId/locations/global";
+// Run request.
+$redactImageRequest = (new RedactImageRequest())
+->setParent($parent)
+->setByteItem($byteContent)
+->setInspectConfig($inspectConfig)
+->setImageRedactionConfigs($imageRedactionConfigs);
+$response = $dlp->redactImage($redactImageRequest);
+// Save result to file.
+file_put_contents($outputPath, $response->getRedactedImage());
+// Print completion message.
+printf('Redacted image saved to %s ' . PHP_EOL, $outputPath);
+}
+Python
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import google.cloud.dlp
+def redact_image_with_colored_info_types(
+project: str,
+filename: str,
+output_filename: str,
+) -> None:
+"""Uses the Data Loss Prevention API to redact protected data in an image by
+color coding the infoTypes.
+Args:
+project: The Google Cloud project id to use as a parent resource.
+filename: The path of the image file to inspect.
+output_filename: The path to which the redacted image will be written.
+"""
+# Instantiate a client.
+dlp = google.cloud.dlp_v2.DlpServiceClient()
+# Prepare image_redaction_configs, a list of dictionaries. Each dictionary
+# contains an infoType and the color used for the replacement.
+ssn_redaction_config = {
+"info_type": {"name": "US_SOCIAL_SECURITY_NUMBER"},
+"redaction_color": {
+"red": 0.3,
+"green": 0.1,
+"blue": 0.6,
+},
+}
+email_redaction_config = {
+"info_type": {"name": "EMAIL_ADDRESS"},
+"redaction_color": {
+"red": 0.5,
+"green": 0.5,
+"blue": 1.0,
+},
+}
+phone_redaction_config = {
+"info_type": {"name": "PHONE_NUMBER"},
+"redaction_color": {
+"red": 1.0,
+"green": 0.0,
+"blue": 0.6,
+},
+}
+image_redaction_configs = [
+ssn_redaction_config,
+email_redaction_config,
+phone_redaction_config,
+]
+# Construct the configuration dictionary.
+inspect_config = {"info_types": [_i["info_type"] for _i in image_redaction_configs]}
+# Construct the byte_item, containing the file's byte data.
+with open(filename, mode="rb") as f:
+byte_item = {"type_": "IMAGE", "data": f.read()}
+# Convert the project id into a full resource id.
+parent = f"projects/{project}"
+# Call the API.
+response = dlp.redact_image(
+request={
+"parent": parent,
+"inspect_config": inspect_config,
+"image_redaction_configs": image_redaction_configs,
+"byte_item": byte_item,
+}
+)
+# Write out the results.
+with open(output_filename, mode="wb") as f:
+f.write(response.redacted_image)
+byte_count = len(response.redacted_image)
+print(f"Wrote {byte_count} to {output_filename}")
+REST
+Important: Before sending this
+request, use a base64 utility to encode the image into ASCII text data, and
+then replace the [BASE64-ENCODED-IMAGE] placeholder with the
+base64-encoded text. Most development environments contain a native
+base64 utility. To encode an image file:
+Linux: base64 input.jpg > output.txt
+macOS: base64 -i input.jpg -o output.txt
+Windows: C:> Base64.exe -e input.jpg > output.txt
+PowerShell: [Convert]::ToBase64String([IO.File]::ReadAllBytes("./input.jpg")) > output.txt
+{
+"byteItem": {
+"data": "[BASE64-ENCODED-IMAGE]",
+"type": "IMAGE_PNG"
+},
+"imageRedactionConfigs": [
+{
+"infoType": {
+"name": "PERSON_NAME"
+},
+"redactionColor": {
+"red": 0.3,
+"green": 0.1,
+"blue": 0.6
+}
+},
+{
+"infoType": {
+"name": "EMAIL_ADDRESS"
+},
+"redactionColor": {
+"red": 0.5,
+"blue": 0.5,
+"green": 1
+}
+},
+{
+"infoType": {
+"name": "PHONE_NUMBER"
+},
+"redactionColor": {
+"red": 1,
+"blue": 0,
+"green": 0.6
+}
+}
+]
+}
+Sensitive Data Protection returns the following:
+{
+"redactedImage": "[BASE64-ENCODED-IMAGE]"
+}
+Decode the base64-encoded image.
+The resulting image appears as follows:
+Redacted image, three infoTypes color-coded (click to enlarge).
+Redact all text from an image
+Sensitive Data Protection also contains an option to redact all detected text in
+an image.
+To redact all text from an image, submit a request to the DLP API's
+image.redact method. The request must include the following:
+The image.
+The redactAllText option set to true.
+Note: If you include infoTypes in the imageRedactionConfigs object,
+Sensitive Data Protection ignores them.
+Consider the original image from the first section. To redact all text, send the
+following JSON to the DLP API's
+image.redact method:
+Important:
+The code on this page requires that you first set up a Sensitive Data Protection client. For more
+information about installing and creating a Sensitive Data Protection client, see
+Sensitive Data Protection client libraries. (Sending JSON
+to Sensitive Data Protection REST endpoints does not require a client
+library.)
+C#
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+using Google.Api.Gax.ResourceNames;
+using Google.Cloud.Dlp.V2;
+using Google.Protobuf;
+using System;
+using System.IO;
+public class RedactDetectedTextInImage
+{
+public static RedactImageResponse RedactTextImage(
+string projectId,
+string originalImagePath,
+string redactedImagePath)
+{
+// Instantiate the dlp client.
+var dlp = DlpServiceClient.Create();
+// Construct the content item by specifying the content to be redacted.
+var byteContentItem = new ByteContentItem
+{
+Type = ByteContentItem.Types.BytesType.ImagePng,
+Data = ByteString.FromStream(new FileStream(originalImagePath, FileMode.Open))
+};
+// Enable redaction of all text.
+var imageRedactionConfig = new RedactImageRequest.Types.ImageRedactionConfig
+{
+RedactAllText = true
+};
+// Construct the Redact request to be sent by the client. Do not specify the type of info to redact.
+var request = new RedactImageRequest
+{
+ParentAsLocationName = new LocationName(projectId, "global"),
+ImageRedactionConfigs = { imageRedactionConfig },
+ByteItem = byteContentItem
+};
+// Call the API.
+var response = dlp.RedactImage(request);
+// Inspect the response.
+Console.WriteLine($"Redacted image written to: {redactedImagePath}");
+// Writes redacted image into file
+response.RedactedImage.WriteTo(new FileStream(redactedImagePath, FileMode.Create, FileAccess.Write));
+return response;
+}
+}
+Go
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import (
+"context"
+"fmt"
+"io"
+"os"
+dlp "cloud.google.com/go/dlp/apiv2"
+"cloud.google.com/go/dlp/apiv2/dlppb"
+)
+// redactImageFileAllText redacts all detected text in an image
+func redactImageFileAllText(w io.Writer, projectID, inputPath, outputPath string) error {
+// projectId := "my-project-id"
+// inputPath := "testdata/image.jpg"
+// outputPath := "testdata/test-output-image-file-all-text.jpeg"
+ctx := context.Background()
+// Initialize a client once and reuse it to send multiple requests. Clients
+// are safe to use across goroutines. When the client is no longer needed,
+// call the Close method to cleanup its resources.
+client, err := dlp.NewClient(ctx)
+if err != nil {
+return err
+}
+// Closing the client safely cleans up background resources.
+defer client.Close()
+// read the image file
+fileBytes, err := os.ReadFile(inputPath)
+if err != nil {
+return err
+}
+// Specify the content to be redacted.
+byteItem := &dlppb.ByteContentItem{
+Type: dlppb.ByteContentItem_IMAGE_JPEG,
+Data: fileBytes,
+}
+// Enable redaction of all text.
+imageRedactConfig := &dlppb.RedactImageRequest_ImageRedactionConfig{
+Target: &dlppb.RedactImageRequest_ImageRedactionConfig_RedactAllText{
+RedactAllText: true,
+},
+}
+// Construct the Redact request to be sent by the client.
+// Do not specify the type of info to redact.
+req := &dlppb.RedactImageRequest{
+Parent: fmt.Sprintf("projects/%s/locations/global", projectID),
+ByteItem: byteItem,
+ImageRedactionConfigs: []*dlppb.RedactImageRequest_ImageRedactionConfig{
+imageRedactConfig,
+},
+}
+// Send the request.
+resp, err := client.RedactImage(ctx, req)
+if err != nil {
+return err
+}
+// Write the output file.
+if err := os.WriteFile(outputPath, resp.GetRedactedImage(), 0644); err != nil {
+return err
+}
+fmt.Fprintf(w, "Wrote output to %s", outputPath)
+return nil
+}
+Java
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import com.google.cloud.dlp.v2.DlpServiceClient;
+import com.google.privacy.dlp.v2.ByteContentItem;
+import com.google.privacy.dlp.v2.ByteContentItem.BytesType;
+import com.google.privacy.dlp.v2.LocationName;
+import com.google.privacy.dlp.v2.RedactImageRequest;
+import com.google.privacy.dlp.v2.RedactImageRequest.ImageRedactionConfig;
+import com.google.privacy.dlp.v2.RedactImageResponse;
+import com.google.protobuf.ByteString;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+class RedactImageFileAllText {
+public static void main(String[] args) throws IOException {
+// TODO(developer): Replace these variables before running the sample.
+String projectId = "my-project-id";
+String inputPath = "src/test/resources/sensitive-data-image.jpeg";
+String outputPath = "sensitive-data-image-redacted.jpeg";
+redactImageFileAllText(projectId, inputPath, outputPath);
+}
+static void redactImageFileAllText(String projectId, String inputPath, String outputPath)
+throws IOException {
+// Initialize client that will be used to send requests. This client only needs to be created
+// once, and can be reused for multiple requests. After completing all of your requests, call
+// the "close" method on the client to safely clean up any remaining background resources.
+try (DlpServiceClient dlp = DlpServiceClient.create()) {
+// Specify the content to be redacted.
+ByteString fileBytes = ByteString.readFrom(new FileInputStream(inputPath));
+ByteContentItem byteItem =
+ByteContentItem.newBuilder().setType(BytesType.IMAGE_JPEG).setData(fileBytes).build();
+// Enable redaction of all text.
+ImageRedactionConfig imageRedactionConfig =
+ImageRedactionConfig.newBuilder().setRedactAllText(true).build();
+// Construct the Redact request to be sent by the client.
+// Do not specify the type of info to redact.
+RedactImageRequest request =
+RedactImageRequest.newBuilder()
+.setParent(LocationName.of(projectId, "global").toString())
+.setByteItem(byteItem)
+.addImageRedactionConfigs(imageRedactionConfig)
+.build();
+// Use the client to send the API request.
+RedactImageResponse response = dlp.redactImage(request);
+// Parse the response and process results.
+FileOutputStream redacted = new FileOutputStream(outputPath);
+redacted.write(response.getRedactedImage().toByteArray());
+redacted.close();
+System.out.println("Redacted image written to " + outputPath);
+}
+}
+}
+Node.js
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+// Imports the Google Cloud Data Loss Prevention library
+const DLP = require('@google-cloud/dlp');
+// Imports required Node.js libraries
+const mime = require('mime');
+const fs = require('fs');
+// Instantiates a client
+const dlp = new DLP.DlpServiceClient();
+// The project ID to run the API call under
+// const projectId = 'my-project';
+// The path to a local file to inspect. Can be a JPG or PNG image file.
+// const filepath = 'path/to/image.png';
+// The local path to save the resulting image to.
+// const outputPath = 'result.png';
+async function redactImageAllText() {
+// Enable redaction of all text.
+const imageRedactionConfigs = [{redactAllText: true}];
+// Load image
+const fileTypeConstant =
+['image/jpeg', 'image/bmp', 'image/png', 'image/svg'].indexOf(
+mime.getType(filepath)
+) + 1;
+const fileBytes = Buffer.from(fs.readFileSync(filepath)).toString('base64');
+// Construct the Redact request to be sent by the client.
+// Do not specify the type of info to redact.
+const request = {
+parent: `projects/${projectId}/locations/global`,
+byteItem: {
+type: fileTypeConstant,
+data: fileBytes,
+},
+imageRedactionConfigs: imageRedactionConfigs,
+};
+// Run image redaction request
+const [response] = await dlp.redactImage(request);
+// Parse the response and process results.
+const image = response.redactedImage;
+fs.writeFileSync(outputPath, image);
+console.log(`Saved image redaction results to path: ${outputPath}`);
+}
+redactImageAllText();
+PHP
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+use Google\Cloud\Dlp\V2\ByteContentItem;
+use Google\Cloud\Dlp\V2\Client\DlpServiceClient;
+use Google\Cloud\Dlp\V2\RedactImageRequest;
+use Google\Cloud\Dlp\V2\RedactImageRequest\ImageRedactionConfig;
+/**
+* Redact all detected text in an image.
+*
+* @param string $callingProjectId The project ID to run the API call under.
+* @param string $imagePath The local filepath of the image to redact.
+* @param string $outputPath The local filepath to save the resulting image to.
+*/
+function redact_image_all_text(
+// TODO(developer): Replace sample parameters before running the code.
+string $callingProjectId,
+string $imagePath = './test/data/test.png',
+string $outputPath = './test/data/redact_image_all_text.png'
+): void {
+// Instantiate a client.
+$dlp = new DlpServiceClient();
+// Read image file into a buffer.
+$imageRef = fopen($imagePath, 'rb');
+$imageBytes = fread($imageRef, filesize($imagePath));
+fclose($imageRef);
+// Get the image's content type.
+$typeConstant = (int) array_search(
+mime_content_type($imagePath),
+[false, 'image/jpeg', 'image/bmp', 'image/png', 'image/svg']
+);
+// Create the byte-storing object.
+$byteContent = (new ByteContentItem())
+->setType($typeConstant)
+->setData($imageBytes);
+// Enable redaction of all text.
+$imageRedactionConfig = (new ImageRedactionConfig())
+->setRedactAllText(true);
+$parent = "projects/$callingProjectId/locations/global";
+// Run request.
+$redactImageRequest = (new RedactImageRequest())
+->setParent($parent)
+->setByteItem($byteContent)
+->setImageRedactionConfigs([$imageRedactionConfig]);
+$response = $dlp->redactImage($redactImageRequest);
+// Save result to file.
+file_put_contents($outputPath, $response->getRedactedImage());
+// Print completion message.
+printf('Redacted image saved to %s' . PHP_EOL, $outputPath);
+}
+Python
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import google.cloud.dlp
+def redact_image_all_text(
+project: str,
+filename: str,
+output_filename: str,
+) -> None:
+"""Uses the Data Loss Prevention API to redact all text in an image.
+Args:
+project: The Google Cloud project id to use as a parent resource.
+filename: The path to the file to inspect.
+output_filename: The path to which the redacted image will be written.
+Returns:
+None; the response from the API is printed to the terminal.
+"""
+# Instantiate a client.
+dlp = google.cloud.dlp_v2.DlpServiceClient()
+# Construct the image_redaction_configs, indicating to DLP that all text in
+# the input image should be redacted.
+image_redaction_configs = [{"redact_all_text": True}]
+# Construct the byte_item, containing the file's byte data.
+with open(filename, mode="rb") as f:
+byte_item = {"type_": google.cloud.dlp_v2.FileType.IMAGE, "data": f.read()}
+# Convert the project id into a full resource id.
+parent = f"projects/{project}"
+# Call the API.
+response = dlp.redact_image(
+request={
+"parent": parent,
+"image_redaction_configs": image_redaction_configs,
+"byte_item": byte_item,
+}
+)
+# Write out the results.
+with open(output_filename, mode="wb") as f:
+f.write(response.redacted_image)
+print(
+"Wrote {byte_count} to {filename}".format(
+byte_count=len(response.redacted_image), filename=output_filename
+)
+)
+REST
+Important: Before sending this
+request, use a base64 utility to encode the image into ASCII text data, and
+then replace the [BASE64-ENCODED-IMAGE] placeholder with the
+base64-encoded text. Most development environments contain a native
+base64 utility. To encode an image file:
+Linux: base64 input.jpg > output.txt
+macOS: base64 -i input.jpg -o output.txt
+Windows: C:> Base64.exe -e input.jpg > output.txt
+PowerShell: [Convert]::ToBase64String([IO.File]::ReadAllBytes("./input.jpg")) > output.txt
+{
+"byteItem": {
+"data": "[BASE64-ENCODED-IMAGE]",
+"type": "IMAGE_PNG"
+},
+"imageRedactionConfigs": [
+{
+"redactAllText": true
+}
+]
+}
+Sensitive Data Protection returns the following:
+{
+"redactedImage": "[BASE64-ENCODED-IMAGE]"
+}
+Decode the base64-encoded image.
+The API returns the same image(s) you gave it, but any text identified as
+containing sensitive information according to your criteria has been redacted.
+The resulting image appears as follows:
+Redacted image, all text (click to enlarge).
+Code example with likelihood setting
+This example is similar to Redacting specific infoTypes from an
+image. It additionally demonstrates how to specify a
+minimum likelihood.
+Important:
+The code on this page requires that you first set up a Sensitive Data Protection client. For more
+information about installing and creating a Sensitive Data Protection client, see
+Sensitive Data Protection client libraries. (Sending JSON
+to Sensitive Data Protection REST endpoints does not require a client
+library.)
+C#
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+using Google.Api.Gax.ResourceNames;
+using Google.Cloud.Dlp.V2;
+using Google.Protobuf;
+using System;
+using System.IO;
+public class RedactImage
+{
+public static RedactImageResponse Redact(string projectId, string originalImagePath, string redactedImagePath)
+{
+var request = new RedactImageRequest
+{
+Parent = new LocationName(projectId, "global").ToString(),
+InspectConfig = new InspectConfig
+{
+MinLikelihood = Likelihood.Likely,
+IncludeQuote = true,
+InfoTypes =
+{
+new InfoType { Name = "PHONE_NUMBER" },
+new InfoType { Name = "EMAIL_ADDRESS" },
+new InfoType { Name = "CREDIT_CARD_NUMBER" }
+}
+},
+ByteItem = new ByteContentItem
+{
+Type = ByteContentItem.Types.BytesType.ImagePng,
+Data = ByteString.FromStream(new FileStream(originalImagePath, FileMode.Open))
+},
+};
+var client = DlpServiceClient.Create();
+var response = client.RedactImage(request);
+Console.WriteLine($"Extracted text: {response.ExtractedText}");
+// Writes redacted image into file
+response.RedactedImage.WriteTo(new FileStream(redactedImagePath, FileMode.Create, FileAccess.Write));
+return response;
+}
+}
+Go
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import (
+"context"
+"fmt"
+"io"
+"os"
+dlp "cloud.google.com/go/dlp/apiv2"
+"cloud.google.com/go/dlp/apiv2/dlppb"
+)
+// redactImage blacks out the identified portions of the input image (with type bytesType)
+// and stores the result in outputPath.
+func redactImage(w io.Writer, projectID string, infoTypeNames []string, bytesType dlppb.ByteContentItem_BytesType, inputPath, outputPath string) error {
+// projectID := "my-project-id"
+// infoTypeNames := []string{"US_SOCIAL_SECURITY_NUMBER"}
+// bytesType := dlppb.ByteContentItem_IMAGE_PNG
+// inputPath := /tmp/input
+// outputPath := /tmp/output
+ctx := context.Background()
+client, err := dlp.NewClient(ctx)
+if err != nil {
+return fmt.Errorf("dlp.NewClient: %w", err)
+}
+defer client.Close()
+// Convert the info type strings to a list of InfoTypes.
+var infoTypes []*dlppb.InfoType
+for _, it := range infoTypeNames {
+infoTypes = append(infoTypes, &dlppb.InfoType{Name: it})
+}
+// Convert the info type strings to a list of types to redact in the image.
+var redactInfoTypes []*dlppb.RedactImageRequest_ImageRedactionConfig
+for _, it := range infoTypeNames {
+redactInfoTypes = append(redactInfoTypes, &dlppb.RedactImageRequest_ImageRedactionConfig{
+Target: &dlppb.RedactImageRequest_ImageRedactionConfig_InfoType{
+InfoType: &dlppb.InfoType{Name: it},
+},
+})
+}
+// Read the input file.
+b, err := os.ReadFile(inputPath)
+if err != nil {
+return fmt.Errorf("os.ReadFile: %w", err)
+}
+// Create a configured request.
+req := &dlppb.RedactImageRequest{
+Parent: fmt.Sprintf("projects/%s/locations/global", projectID),
+InspectConfig: &dlppb.InspectConfig{
+InfoTypes: infoTypes,
+MinLikelihood: dlppb.Likelihood_POSSIBLE,
+},
+// The item to analyze.
+ByteItem: &dlppb.ByteContentItem{
+Type: bytesType,
+Data: b,
+},
+ImageRedactionConfigs: redactInfoTypes,
+}
+// Send the request.
+resp, err := client.RedactImage(ctx, req)
+if err != nil {
+return fmt.Errorf("RedactImage: %w", err)
+}
+// Write the output file.
+if err := os.WriteFile(outputPath, resp.GetRedactedImage(), 0644); err != nil {
+return fmt.Errorf("os.WriteFile: %w", err)
+}
+fmt.Fprintf(w, "Wrote output to %s", outputPath)
+return nil
+}
+Java
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import com.google.cloud.dlp.v2.DlpServiceClient;
+import com.google.privacy.dlp.v2.ByteContentItem;
+import com.google.privacy.dlp.v2.ByteContentItem.BytesType;
+import com.google.privacy.dlp.v2.InfoType;
+import com.google.privacy.dlp.v2.InspectConfig;
+import com.google.privacy.dlp.v2.Likelihood;
+import com.google.privacy.dlp.v2.LocationName;
+import com.google.privacy.dlp.v2.RedactImageRequest;
+import com.google.privacy.dlp.v2.RedactImageResponse;
+import com.google.protobuf.ByteString;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+class RedactImageFile {
+public static void main(String[] args) throws IOException {
+// TODO(developer): Replace these variables before running the sample.
+String projectId = "my-project-id";
+String inputPath = "src/test/resources/test.png";
+String outputPath = "redacted.png";
+redactImageFile(projectId, inputPath, outputPath);
+}
+static void redactImageFile(String projectId, String inputPath, String outputPath)
+throws IOException {
+// Initialize client that will be used to send requests. This client only needs to be created
+// once, and can be reused for multiple requests. After completing all of your requests, call
+// the "close" method on the client to safely clean up any remaining background resources.
+try (DlpServiceClient dlp = DlpServiceClient.create()) {
+// Specify the content to be inspected.
+ByteString fileBytes = ByteString.readFrom(new FileInputStream(inputPath));
+ByteContentItem byteItem =
+ByteContentItem.newBuilder().setType(BytesType.IMAGE).setData(fileBytes).build();
+// Specify the type of info and likelihood necessary to redact.
+List<InfoType> infoTypes = new ArrayList<>();
+// See https://cloud.google.com/dlp/docs/infotypes-reference for complete list of info types
+for (String typeName : new String[] {"PHONE_NUMBER", "EMAIL_ADDRESS", "CREDIT_CARD_NUMBER"}) {
+infoTypes.add(InfoType.newBuilder().setName(typeName).build());
+}
+InspectConfig config =
+InspectConfig.newBuilder()
+.addAllInfoTypes(infoTypes)
+.setMinLikelihood(Likelihood.LIKELY)
+.build();
+// Construct the Redact request to be sent by the client.
+RedactImageRequest request =
+RedactImageRequest.newBuilder()
+.setParent(LocationName.of(projectId, "global").toString())
+.setByteItem(byteItem)
+.setInspectConfig(config)
+.build();
+// Use the client to send the API request.
+RedactImageResponse response = dlp.redactImage(request);
+// Parse the response and process results.
+FileOutputStream redacted = new FileOutputStream(outputPath);
+redacted.write(response.getRedactedImage().toByteArray());
+redacted.close();
+System.out.println("Redacted image written to " + outputPath);
+}
+}
+}
+Node.js
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+// Imports the Google Cloud Data Loss Prevention library
+const DLP = require('@google-cloud/dlp');
+// Imports required Node.js libraries
+const mime = require('mime');
+const fs = require('fs');
+// Instantiates a client
+const dlp = new DLP.DlpServiceClient();
+// The project ID to run the API call under
+// const projectId = 'my-project';
+// The path to a local file to inspect. Can be a JPG or PNG image file.
+// const filepath = 'path/to/image.png';
+// The minimum likelihood required before redacting a match
+// const minLikelihood = 'LIKELIHOOD_UNSPECIFIED';
+// The infoTypes of information to redact
+// const infoTypes = [{ name: 'EMAIL_ADDRESS' }, { name: 'PHONE_NUMBER' }];
+// The local path to save the resulting image to.
+// const outputPath = 'result.png';
+async function redactImage() {
+const imageRedactionConfigs = infoTypes.map(infoType => {
+return {infoType: infoType};
+});
+// Load image
+const fileTypeConstant =
+['image/jpeg', 'image/bmp', 'image/png', 'image/svg'].indexOf(
+mime.getType(filepath)
+) + 1;
+const fileBytes = Buffer.from(fs.readFileSync(filepath)).toString('base64');
+// Construct image redaction request
+const request = {
+parent: `projects/${projectId}/locations/global`,
+byteItem: {
+type: fileTypeConstant,
+data: fileBytes,
+},
+inspectConfig: {
+minLikelihood: minLikelihood,
+infoTypes: infoTypes,
+},
+imageRedactionConfigs: imageRedactionConfigs,
+};
+// Run image redaction request
+const [response] = await dlp.redactImage(request);
+const image = response.redactedImage;
+fs.writeFileSync(outputPath, image);
+console.log(`Saved image redaction results to path: ${outputPath}`);
+}
+redactImage();
+PHP
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+use Google\Cloud\Dlp\V2\ByteContentItem;
+use Google\Cloud\Dlp\V2\Client\DlpServiceClient;
+use Google\Cloud\Dlp\V2\InfoType;
+use Google\Cloud\Dlp\V2\InspectConfig;
+use Google\Cloud\Dlp\V2\Likelihood;
+use Google\Cloud\Dlp\V2\RedactImageRequest;
+use Google\Cloud\Dlp\V2\RedactImageRequest\ImageRedactionConfig;
+/**
+* Redact sensitive data from an image.
+*
+* @param string $callingProjectId The project ID to run the API call under
+* @param string $imagePath The local filepath of the image to inspect
+* @param string $outputPath The local filepath to save the resulting image to
+*/
+function redact_image(
+string $callingProjectId,
+string $imagePath,
+string $outputPath
+): void {
+// Instantiate a client.
+$dlp = new DlpServiceClient();
+// The infoTypes of information to match
+$phoneNumberInfoType = (new InfoType())
+->setName('PHONE_NUMBER');
+$infoTypes = [$phoneNumberInfoType];
+// The minimum likelihood required before returning a match
+$minLikelihood = likelihood::LIKELIHOOD_UNSPECIFIED;
+// Whether to include the matching string in the response
+$includeQuote = true;
+// Create the configuration object
+$inspectConfig = (new InspectConfig())
+->setMinLikelihood($minLikelihood)
+->setInfoTypes($infoTypes);
+// Read image file into a buffer
+$imageRef = fopen($imagePath, 'rb');
+$imageBytes = fread($imageRef, filesize($imagePath));
+fclose($imageRef);
+// Get the image's content type
+$typeConstant = (int) array_search(
+mime_content_type($imagePath),
+[false, 'image/jpeg', 'image/bmp', 'image/png', 'image/svg']
+);
+// Create the byte-storing object
+$byteContent = (new ByteContentItem())
+->setType($typeConstant)
+->setData($imageBytes);
+// Create the image redaction config objects
+$imageRedactionConfigs = [];
+foreach ($infoTypes as $infoType) {
+$config = (new ImageRedactionConfig())
+->setInfoType($infoType);
+$imageRedactionConfigs[] = $config;
+}
+$parent = "projects/$callingProjectId/locations/global";
+// Run request
+$redactImageRequest = (new RedactImageRequest())
+->setParent($parent)
+->setInspectConfig($inspectConfig)
+->setByteItem($byteContent)
+->setImageRedactionConfigs($imageRedactionConfigs);
+$response = $dlp->redactImage($redactImageRequest);
+// Save result to file
+file_put_contents($outputPath, $response->getRedactedImage());
+// Print completion message
+print('Redacted image saved to ' . $outputPath . PHP_EOL);
+}
+Python
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import mimetypes
+from typing import List
+import google.cloud.dlp
+def redact_image(
+project: str,
+filename: str,
+output_filename: str,
+info_types: List[str],
+min_likelihood: str = None,
+mime_type: str = None,
+) -> None:
+"""Uses the Data Loss Prevention API to redact protected data in an image.
+Args:
+project: The Google Cloud project id to use as a parent resource.
+filename: The path to the file to inspect.
+output_filename: The path to which the redacted image will be written.
+info_types: A list of strings representing info types to look for.
+A full list of info type categories can be fetched from the API.
+min_likelihood: A string representing the minimum likelihood threshold
+that constitutes a match. One of: 'LIKELIHOOD_UNSPECIFIED',
+'VERY_UNLIKELY', 'UNLIKELY', 'POSSIBLE', 'LIKELY', 'VERY_LIKELY'.
+mime_type: The MIME type of the file. If not specified, the type is
+inferred via the Python standard library's mimetypes module.
+Returns:
+None; the response from the API is printed to the terminal.
+"""
+# Instantiate a client.
+dlp = google.cloud.dlp_v2.DlpServiceClient()
+# Prepare info_types by converting the list of strings into a list of
+# dictionaries (protos are also accepted).
+info_types = [{"name": info_type} for info_type in info_types]
+# Prepare image_redaction_configs, a list of dictionaries. Each dictionary
+# contains an info_type and optionally the color used for the replacement.
+# The color is omitted in this sample, so the default (black) will be used.
+image_redaction_configs = []
+if info_types is not None:
+for info_type in info_types:
+image_redaction_configs.append({"info_type": info_type})
+# Construct the configuration dictionary. Keys which are None may
+# optionally be omitted entirely.
+inspect_config = {
+"min_likelihood": min_likelihood,
+"info_types": info_types,
+}
+# If mime_type is not specified, guess it from the filename.
+if mime_type is None:
+mime_guess = mimetypes.MimeTypes().guess_type(filename)
+mime_type = mime_guess[0] or "application/octet-stream"
+# Select the content type index from the list of supported types.
+# https://github.com/googleapis/googleapis/blob/master/google/privacy/dlp/v2/dlp.proto / message ByteContentItem
+supported_content_types = {
+None: 0, # "Unspecified" or BYTES_TYPE_UNSPECIFIED
+"image/jpeg": 1, # IMAGE_JPEG
+"image/bmp": 2, # IMAGE_BMP
+"image/png": 3, # IMAGE_PNG
+"image/svg": 4, # IMAGE_SVG - Adjusted to "image/svg+xml" for correct MIME type
+"text/plain": 5, # TEXT_UTF8
+# Note: No specific MIME type for general "image", mapping to IMAGE for any image type not specified
+"image": 6, # IMAGE - Any image type
+"application/msword": 7, # WORD_DOCUMENT
+"application/pdf": 8, # PDF
+"application/powerpoint": 9, # POWERPOINT_DOCUMENT
+"application/msexcel": 10, # EXCEL_DOCUMENT
+"application/avro": 11, # AVRO
+"text/csv": 12, # CSV
+"text/tsv": 13, # TSV
+}
+content_type_index = supported_content_types.get(mime_type, 0)
+# Construct the byte_item, containing the file's byte data.
+with open(filename, mode="rb") as f:
+byte_item = {"type_": content_type_index, "data": f.read()}
+# Convert the project id into a full resource id.
+parent = f"projects/{project}"
+# Call the API.
+response = dlp.redact_image(
+request={
+"parent": parent,
+"inspect_config": inspect_config,
+"image_redaction_configs": image_redaction_configs,
+"byte_item": byte_item,
+}
+)
+# Write out the results.
+with open(output_filename, mode="wb") as f:
+f.write(response.redacted_image)
+print(
+"Wrote {byte_count} to {filename}".format(
+byte_count=len(response.redacted_image), filename=output_filename
+)
+)
+Try it out
+You can try out each of the examples on this page yourself—or experiment
+with your own images—in the APIs Explorer on the reference page for
+image.redact:
+Go to APIs Explorer
+Tip: For experiments with non-sensitive
+materials, it's sufficient to clear Google OAuth 2.0 and
+enter projects/testff in the parent
+field.
+What's next
+Learn more about image inspection and redaction.
+Work through the Redacting Sensitive Data with Sensitive Data Protection
+codelab.
+Learn how to inspect images for sensitive data.
+Learn more about creating a de-identified copy of data in
+storage.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-07 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
