@@ -1,0 +1,2071 @@
+# status 200  final_url https://docs.cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes-dictionary  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Sensitive Data Protection
+Start free
+Overview
+Guides
+Reference
+Samples
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Samples
+Resources
+Console
+Discover
+Product overview
+Plan your data risk management strategy
+Evaluate your data risk management needs
+Learn about your data through discovery and inspection
+Recommended strategies for mitigating data risk
+Release notes
+Pricing
+Locations
+Global and regional endpoints for Sensitive Data Protection
+Sensitive Data Protection locations
+Specify a processing location
+Service method types
+Supported file types and scanning modes
+Get started
+Quickstarts
+Inspect text using the command-line tool
+Inspect text using a JSON request
+Schedule an inspection scan
+Create an inspection template
+De-identify and re-identify sensitive text
+Google Cloud Skills Boost labs
+Detect sensitive data
+Discover and profile data resources
+Overview of sensitive data discovery
+Common discovery enablement scenarios
+Allow discovery within service perimeters
+Profile your data
+Profile a single data resource
+Profile BigQuery data
+Estimate BigQuery data profiling cost
+Estimate the cost of profiling BigQuery data in a project
+Estimate the cost of profiling BigQuery data in an organization or folder
+Profile BigQuery data in a project
+Profile BigQuery data in an organization or folder
+Profile Cloud SQL data
+Profile Cloud SQL data in a project
+Profile Cloud SQL data in an organization or folder
+Manage connections
+Profile Cloud Storage data
+Profile Cloud Storage data in a project
+Profile Cloud Storage data in an organization or folder
+Profile Vertex AI data
+Sensitive data discovery for Vertex AI data
+Profile Vertex AI data in a project
+Profile Vertex AI data in an organization or folder
+Profile Amazon S3 data
+Sensitive data discovery for Amazon S3 data
+Profile Amazon S3 data
+Profile Azure Blob Storage data
+Report secrets in environment variables to Security Command Center
+Grant data profiling access to a service agent
+Manage data profiles
+Control IAM access to resources based on data sensitivity
+Send discovery insights to other services
+Enable discovery actions
+Send data profiles to Security Command Center
+Receive and parse Pub/Sub messages about data profiles
+Tag tables in Data Catalog based on insights from data profiles
+Add Knowledge Catalog aspects based on insights from data profiles
+Analyze and visualize data profiles
+Visualize data profiles in the discovery dashboard
+Analyze data profiles
+Remediate findings from the data profiler
+Manage scan configurations
+Troubleshoot issues with the data profiler
+Metrics reference
+Data risk and sensitivity levels
+Inspect for sensitive data
+Inspect data stored in Google Cloud
+Inspect data from any source
+Inspect unstructured text synchronously
+Inspect structured text synchronously
+Inspect an image synchronously
+Asynchronous inspection overview
+Inspect data from any source asynchronously
+Quote the sensitive data in the results
+Work with inspection results
+Actions
+Send inspection results to Knowledge Catalog as aspects
+Send inspection results to Data Catalog
+Send inspection results to Security Command Center
+Analyze and report on inspection findings
+Query inspection findings in BigQuery
+Parse findings stored as Protobuf text
+Jobs and job triggers
+Overview of jobs and job triggers
+Create and manage jobs and job triggers
+Web-based inspection demonstration app
+Allow or block content based on sensitivity
+Overview of content policies
+Create and manage content policies
+Configure detection
+Templates
+Overview of templates
+Create inspection templates
+InfoTypes and infoType detectors
+Overview of infoTypes and infoType detectors
+Built-in infoType detectors
+List built-in infoType detectors
+InfoType detector reference
+Custom infoType detectors
+Overview of custom infoType detectors
+Create a regular custom dictionary detector
+Create a large custom dictionary detector
+Create a custom regex detector
+Create a custom metadata label detector
+Custom infoType examples
+Manage infoTypes through the Google Cloud console
+Modify infoType detectors to refine scan results
+Match likelihood
+Likelihood overview
+Customize match likelihood
+Mask and de-identify data
+Overview
+Transformation methods
+Transformation reference
+Text classification and redaction
+Date shifting
+Generalization and bucketing
+Pseudonymization
+De-identify sensitive data
+De-identify data stored in Google Cloud
+Overview
+Through the Cloud console
+Through the DLP API
+Transformation details reference
+De-identify data from any source
+De-identify text or tabular content
+Examples of text redaction
+Examples of tabular data de-identification
+Image inspection and redaction
+Redact sensitive data from images
+Create a de-identification template
+Create a wrapped key
+De-identify BigQuery data at query time
+De-identification and re-identification of PII in large-scale datasets
+Redact sensitive data from PDF files
+Analyze re-identification risk
+Overview of re-identification risk analysis
+Re-identification risk analysis techniques
+Compute k-anonymity for a dataset
+Compute l-diversity for a dataset
+Compute k-map for a dataset
+Compute δ-presence for a dataset
+Compute numerical and categorical statistics
+Visualize re-identification risk using Data Studio
+Connect to other services
+Use Sensitive Data Protection with BigQuery
+Use Sensitive Data Protection with Cloud Storage
+Use Sensitive Data Protection with Cloud Storage
+Automate the classification of data uploaded to Cloud Storage
+Send inspection results to Data Catalog
+Send inspection results to Security Command Center
+Monitor your usage with Cloud Monitoring
+Use Sensitive Data Protection with AWS S3
+Use Sensitive Data Protection with JDBC Databases
+Use Sensitive Data Protection with Apigee
+Use Sensitive Data Protection with Data Fusion
+Build a secure anomaly detection solution using Dataflow, BigQuery ML, and Sensitive Data Protection
+Troubleshoot
+Troubleshoot issues with the data profiler
+Control access
+Authentication
+IAM
+Access control with IAM
+Sensitive Data Protection roles and permissions
+Sensitive Data Protection service agents
+Control access with VPC Service Controls
+Monitor
+Audit logging
+Monitor your usage with Cloud Monitoring
+Develop
+All Sensitive Data Protection code samples
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Cloud Data Loss Prevention (Cloud DLP) is now a part of Sensitive Data Protection. The API name remains the same: Cloud Data Loss Prevention API (DLP API). For information about the services that make up Sensitive Data Protection, see Sensitive Data Protection overview.
+Home
+Documentation
+Security
+Sensitive Data Protection
+Guides
+Send feedback
+Creating a regular custom dictionary detector
+Stay organized with collections
+Save and categorize content based on your preferences.
+Custom dictionaries provide the simple but powerful ability to match a list of
+words or phrases. You can use a custom dictionary as a detector or as
+an exception list for built-in detectors. You can also use custom
+dictionaries to augment built-in infoType detectors to match additional
+findings.
+This section describes how to create a regular custom dictionary detector
+from a list of words.
+Note: If you have a list of anywhere from several hundred to tens of millions
+of words that you want to scan for, consider using a large custom dictionary
+detector instead of the regular custom dictionary detector described in this
+topic. For more information, see Create a large custom dictionary
+detector.
+Anatomy of a dictionary custom infoType detector
+As summarized in
+API overview, to create a
+dictionary custom infoType detector, you define a
+CustomInfoType
+object that contains the following:
+The name you want to give the custom infoType detector, within in an
+InfoType
+object.
+An optional
+Likelihood
+value. If you omit this field, matches to the dictionary items will return a
+default likelihood of VERY_LIKELY.
+Optional
+DetectionRule
+objects, or hotword rules. These rules adjust the likelihood of findings
+within a given proximity of specified hotwords. Learn more about hotword
+rules in Customizing match
+likelihood.
+An optional
+SensitivityScore
+value. If you omit this field, matches to the dictionary items will return a
+default sensitivity level of HIGH.
+Sensitivity scores are used in data profiles. When
+profiling your data, Sensitive Data Protection uses the sensitivity scores of the infoTypes to
+calculate the sensitivity level.
+A
+Dictionary,
+as either a
+WordList
+containing a list of words to scan for or a
+CloudStoragePath to a
+single text file containing a newline-delimited list of words to scan for.
+As a JSON object, a dictionary custom infoType detector that includes all
+optional components looks like the following. This JSON includes a path to a
+dictionary text file stored in Cloud Storage. To see an inline word list,
+see the Examples section, later in this topic.
+{
+"customInfoTypes":[
+{
+"infoType":{
+"name":"CUSTOM_INFOTYPE_NAME"
+},
+"likelihood":"LIKELIHOOD_LEVEL",
+"detectionRules":[
+{
+"hotwordRule":{
+HOTWORD_RULE
+}
+},
+...
+],
+"sensitivityScore":{
+"score": "SENSITIVITY_SCORE"
+},
+"dictionary":
+{
+"cloudStoragePath":
+{
+"path": "gs://PATH_TO_TXT_FILE"
+}
+}
+}
+],
+...
+}
+Note: You can also create a regular custom dictionary detector by
+referencing an existing
+StoredInfoType in the
+storedType
+field of the CustomInfoType object, instead of defining the
+dictionary
+field. However, this approach requires you to first create a
+StoredInfoType of type Dictionary. In most cases, it's simpler to
+define the Dictionary object directly in the dictionary field of the
+CustomInfoType object.
+Dictionary matching specifics
+Following is guidance about how Sensitive Data Protection matches dictionary words
+and phrases. These points apply to both regular and large custom dictionaries:
+Dictionary words are case-insensitive. If your dictionary includes
+Abby, it will match on abby, ABBY, Abby, and so on.
+All characters—in dictionaries or in content to be scanned—other
+than letters, digits, and other alphabetic characters contained within the Unicode
+Basic Multilingual Plane
+are considered as whitespace when scanning for matches. If your dictionary
+scans for Abby Abernathy, it will match on abby abernathy, Abby,
+Abernathy, Abby (ABERNATHY), and so on.
+The characters surrounding any match must be of a different type (letters
+or digits) than the adjacent characters within the word. If your dictionary
+scans for Abi, it will match the first three characters of Abi904, but
+not of Abigail.
+Dictionary words containing characters in the Supplementary
+Multilingual Plane of the Unicode standard can yield unexpected findings.
+Examples of such characters are emojis, scientific symbols, and historical scripts.
+Letters, digits, and other alphabetic characters are defined as follows:
+Letters: characters with general categories Lu, Ll, Lt, Lm, or Lo
+in the Unicode specification
+Digits: characters with general category Nd in the Unicode specification
+Other alphabetic characters: characters with general category Nl in the Unicode specification or with contributory property Other_Alphabetic as defined by the Unicode Standard
+Examples
+Simple word list
+Suppose you have data that includes what hospital room a patient was treated in
+during a visit. These locations may be considered sensitive in a particular data
+set, but they are not something that would be picked up by
+Sensitive Data Protection's built-in detectors.
+The rooms were listed as:
+"RM-Orange"
+"RM-Yellow"
+"RM-Green"
+C#
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+using System;
+using Google.Api.Gax.ResourceNames;
+using Google.Cloud.Dlp.V2;
+public class DeidentifyWithSimpleWordList
+{
+public static DeidentifyContentResponse Deidentify(string projectId, string text)
+{
+// Instantiate a client.
+var dlp = DlpServiceClient.Create();
+var contentItem = new ContentItem { Value = text };
+var wordList = new CustomInfoType.Types.Dictionary.Types.WordList
+{
+Words = { new string[] { "RM-GREEN", "RM-YELLOW", "RM-ORANGE" } }
+};
+var infoType = new InfoType
+{
+Name = "CUSTOM_ROOM_ID"
+};
+var customInfoType = new CustomInfoType
+{
+InfoType = infoType,
+Dictionary = new CustomInfoType.Types.Dictionary
+{
+WordList = wordList
+}
+};
+var inspectConfig = new InspectConfig
+{
+CustomInfoTypes =
+{
+customInfoType,
+}
+};
+var primitiveTransformation = new PrimitiveTransformation
+{
+ReplaceWithInfoTypeConfig = new ReplaceWithInfoTypeConfig { }
+};
+var transformation = new InfoTypeTransformations.Types.InfoTypeTransformation
+{
+InfoTypes = { infoType },
+PrimitiveTransformation = primitiveTransformation
+};
+var deidentifyConfig = new DeidentifyConfig
+{
+InfoTypeTransformations = new InfoTypeTransformations
+{
+Transformations = { transformation }
+}
+};
+var request = new DeidentifyContentRequest
+{
+Parent = new LocationName(projectId, "global").ToString(),
+InspectConfig = inspectConfig,
+DeidentifyConfig = deidentifyConfig,
+Item = contentItem
+};
+// Call the API.
+var response = dlp.DeidentifyContent(request);
+// Inspect the results.
+Console.WriteLine($"Deidentified content: {response.Item.Value}");
+return response;
+}
+}
+Go
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import (
+"context"
+"fmt"
+"io"
+dlp "cloud.google.com/go/dlp/apiv2"
+"cloud.google.com/go/dlp/apiv2/dlppb"
+)
+// deidentifyWithWordList matches against a custom simple word list to de-identify sensitive
+// data based on the input
+func deidentifyWithWordList(w io.Writer, projectID, input string, infoTypeName string, wordList []string) error {
+// projectID := "my-project-id"
+// input := "Patient was seen in RM-YELLOW then transferred to rm green."
+// wordList := []string{"RM-GREEN", "RM-YELLOW", "RM-ORANGE"}
+ctx := context.Background()
+// Initialize a client once and reuse it to send multiple requests. Clients
+// are safe to use across goroutines. When the client is no longer needed,
+// call the Close method to cleanup its resources.
+client, err := dlp.NewClient(ctx)
+if err != nil {
+return err
+}
+// Closing the client safely cleans up background resources.
+defer client.Close()
+// Specify what content you want the service to DeIdentify.
+item := &dlppb.ContentItem{
+DataItem: &dlppb.ContentItem_Value{
+Value: input,
+},
+}
+// Specify the word list custom info type the inspection will look for.
+infoType := &dlppb.InfoType{
+Name: infoTypeName,
+}
+var customInfoType = &dlppb.CustomInfoType{
+InfoType: infoType,
+Type: &dlppb.CustomInfoType_Dictionary_{
+Dictionary: &dlppb.CustomInfoType_Dictionary{
+Source: &dlppb.CustomInfoType_Dictionary_WordList_{
+// Construct the word list to be detected
+WordList: &dlppb.CustomInfoType_Dictionary_WordList{
+Words: wordList,
+},
+},
+},
+},
+}
+// Define type of de-identification as replacement.
+primitiveTransformation := &dlppb.PrimitiveTransformation{
+Transformation: &dlppb.PrimitiveTransformation_ReplaceWithInfoTypeConfig{
+ReplaceWithInfoTypeConfig: &dlppb.ReplaceWithInfoTypeConfig{},
+},
+}
+infoTypeTransformation := &dlppb.InfoTypeTransformations_InfoTypeTransformation{
+InfoTypes: []*dlppb.InfoType{infoType},
+PrimitiveTransformation: primitiveTransformation,
+}
+infoTypeTransformations := &dlppb.InfoTypeTransformations{
+// Associate de-identification type with info type.
+Transformations: []*dlppb.InfoTypeTransformations_InfoTypeTransformation{
+infoTypeTransformation,
+},
+}
+// Create a configured request.
+req := &dlppb.DeidentifyContentRequest{
+Parent: fmt.Sprintf("projects/%s/locations/global", projectID),
+InspectConfig: &dlppb.InspectConfig{
+CustomInfoTypes: []*dlppb.CustomInfoType{
+customInfoType,
+},
+},
+// Construct the configuration for the de-identify request and list all desired transformations.
+DeidentifyConfig: &dlppb.DeidentifyConfig{
+Transformation: &dlppb.DeidentifyConfig_InfoTypeTransformations{
+InfoTypeTransformations: infoTypeTransformations,
+},
+},
+// The item to analyze.
+Item: item,
+}
+// Send the request.
+resp, err := client.DeidentifyContent(ctx, req)
+if err != nil {
+return err
+}
+// Print the result.
+fmt.Fprintf(w, "output : %v", resp.GetItem().GetValue())
+return nil
+}
+Java
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import com.google.cloud.dlp.v2.DlpServiceClient;
+import com.google.privacy.dlp.v2.ContentItem;
+import com.google.privacy.dlp.v2.CustomInfoType;
+import com.google.privacy.dlp.v2.CustomInfoType.Dictionary;
+import com.google.privacy.dlp.v2.CustomInfoType.Dictionary.WordList;
+import com.google.privacy.dlp.v2.DeidentifyConfig;
+import com.google.privacy.dlp.v2.DeidentifyContentRequest;
+import com.google.privacy.dlp.v2.DeidentifyContentResponse;
+import com.google.privacy.dlp.v2.InfoType;
+import com.google.privacy.dlp.v2.InfoTypeTransformations;
+import com.google.privacy.dlp.v2.InfoTypeTransformations.InfoTypeTransformation;
+import com.google.privacy.dlp.v2.InspectConfig;
+import com.google.privacy.dlp.v2.LocationName;
+import com.google.privacy.dlp.v2.PrimitiveTransformation;
+import com.google.privacy.dlp.v2.ReplaceWithInfoTypeConfig;
+import java.io.IOException;
+public class DeIdentifyWithSimpleWordList {
+public static void main(String[] args) throws Exception {
+// TODO(developer): Replace these variables before running the sample.
+String projectId = "your-project-id";
+String textToDeIdentify = "Patient was seen in RM-YELLOW then transferred to rm green.";
+deidentifyWithSimpleWordList(projectId, textToDeIdentify);
+}
+public static void deidentifyWithSimpleWordList(String projectId, String textToDeIdentify)
+throws IOException {
+// Initialize client that will be used to send requests. This client only needs to be created
+// once, and can be reused for multiple requests. After completing all of your requests, call
+// the "close" method on the client to safely clean up any remaining background resources.
+try (DlpServiceClient dlp = DlpServiceClient.create()) {
+// Specify what content you want the service to DeIdentify.
+ContentItem contentItem = ContentItem.newBuilder().setValue(textToDeIdentify).build();
+// Construct the word list to be detected
+Dictionary wordList =
+Dictionary.newBuilder()
+.setWordList(
+WordList.newBuilder()
+.addWords("RM-GREEN")
+.addWords("RM-YELLOW")
+.addWords("RM-ORANGE")
+.build())
+.build();
+// Specify the word list custom info type the inspection will look for.
+InfoType infoType = InfoType.newBuilder().setName("CUSTOM_ROOM_ID").build();
+CustomInfoType customInfoType =
+CustomInfoType.newBuilder().setInfoType(infoType).setDictionary(wordList).build();
+InspectConfig inspectConfig =
+InspectConfig.newBuilder().addCustomInfoTypes(customInfoType).build();
+// Define type of deidentification as replacement.
+PrimitiveTransformation primitiveTransformation =
+PrimitiveTransformation.newBuilder()
+.setReplaceWithInfoTypeConfig(ReplaceWithInfoTypeConfig.getDefaultInstance())
+.build();
+// Associate deidentification type with info type.
+InfoTypeTransformation transformation =
+InfoTypeTransformation.newBuilder()
+.addInfoTypes(infoType)
+.setPrimitiveTransformation(primitiveTransformation)
+.build();
+// Construct the configuration for the Redact request and list all desired transformations.
+DeidentifyConfig deidentifyConfig =
+DeidentifyConfig.newBuilder()
+.setInfoTypeTransformations(
+InfoTypeTransformations.newBuilder().addTransformations(transformation))
+.build();
+// Combine configurations into a request for the service.
+DeidentifyContentRequest request =
+DeidentifyContentRequest.newBuilder()
+.setParent(LocationName.of(projectId, "global").toString())
+.setItem(contentItem)
+.setInspectConfig(inspectConfig)
+.setDeidentifyConfig(deidentifyConfig)
+.build();
+// Send the request and receive response from the service
+DeidentifyContentResponse response = dlp.deidentifyContent(request);
+// Print the results
+System.out.println(
+"Text after replace with infotype config: " + response.getItem().getValue());
+}
+}
+}
+Node.js
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+// Imports the Google Cloud Data Loss Prevention library
+const DLP = require('@google-cloud/dlp');
+// TODO(developer): Replace these variables before running the sample.
+// const projectId = "your-project-id";
+// The string to de-identify
+// const textToInspect = 'Patient was seen in RM-YELLOW then transferred to rm green.';
+// Words to look for during inspection
+// const words = ['RM-GREEN', 'RM-YELLOW', 'RM-ORANGE'];
+// Name of the custom info type
+// const customInfoTypeName = 'CUSTOM_ROOM_ID';
+async function deIdentifyWithSimpleWordList() {
+// Initialize client that will be used to send requests. This client only needs to be created
+// once, and can be reused for multiple requests. After completing all of your requests, call
+// the "close" method on the client to safely clean up any remaining background resources.
+const dlp = new DLP.DlpServiceClient();
+// Construct the word list to be detected
+const wordList = {
+words: words,
+};
+// Specify the word list custom info type the inspection will look for.
+const infoType = {
+name: customInfoTypeName,
+};
+const customInfoType = {
+infoType,
+dictionary: {
+wordList,
+},
+};
+// Construct de-identify configuration
+const deidentifyConfig = {
+infoTypeTransformations: {
+transformations: [
+{
+primitiveTransformation: {
+replaceWithInfoTypeConfig: {},
+},
+},
+],
+},
+};
+// Construct inspect configuration
+const inspectConfig = {
+customInfoTypes: [customInfoType],
+};
+// Construct Item
+const item = {
+value: textToInspect,
+};
+// Combine configurations into a request for the service.
+const request = {
+parent: `projects/${projectId}/locations/global`,
+item,
+deidentifyConfig,
+inspectConfig,
+};
+// Send the request and receive response from the service
+const [response] = await dlp.deidentifyContent(request);
+// Print the results
+console.log(
+`Text after replace with infotype config: ${response.item.value}`
+);
+}
+deIdentifyWithSimpleWordList();
+PHP
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+use Google\Cloud\Dlp\V2\Client\DlpServiceClient;
+use Google\Cloud\Dlp\V2\ContentItem;
+use Google\Cloud\Dlp\V2\CustomInfoType;
+use Google\Cloud\Dlp\V2\CustomInfoType\Dictionary;
+use Google\Cloud\Dlp\V2\CustomInfoType\Dictionary\WordList;
+use Google\Cloud\Dlp\V2\DeidentifyConfig;
+use Google\Cloud\Dlp\V2\DeidentifyContentRequest;
+use Google\Cloud\Dlp\V2\InfoType;
+use Google\Cloud\Dlp\V2\InfoTypeTransformations;
+use Google\Cloud\Dlp\V2\InfoTypeTransformations\InfoTypeTransformation;
+use Google\Cloud\Dlp\V2\InspectConfig;
+use Google\Cloud\Dlp\V2\PrimitiveTransformation;
+use Google\Cloud\Dlp\V2\ReplaceWithInfoTypeConfig;
+/**
+* De-identify sensitive data with a simple word list
+* Matches against a custom simple word list to de-identify sensitive data.
+*
+* @param string $callingProjectId The Google Cloud project id to use as a parent resource.
+* @param string $string The string to deidentify (will be treated as text).
+*/
+function deidentify_simple_word_list(
+// TODO(developer): Replace sample parameters before running the code.
+string $callingProjectId,
+string $string = 'Patient was seen in RM-YELLOW then transferred to rm green.'
+): void {
+// Instantiate a client.
+$dlp = new DlpServiceClient();
+$parent = "projects/$callingProjectId/locations/global";
+$content = (new ContentItem())
+->setValue($string);
+// Construct the word list to be detected
+$wordList = (new Dictionary())
+->setWordList((new WordList())
+->setWords(['RM-GREEN', 'RM-YELLOW', 'RM-ORANGE']));
+// The infoTypes of information to mask
+$custoMRoomIdinfoType = (new InfoType())
+->setName('CUSTOM_ROOM_ID');
+$customInfoType = (new CustomInfoType())
+->setInfoType($custoMRoomIdinfoType)
+->setDictionary($wordList);
+// Create the configuration object
+$inspectConfig = (new InspectConfig())
+->setCustomInfoTypes([$customInfoType]);
+// Create the information transform configuration objects
+$primitiveTransformation = (new PrimitiveTransformation())
+->setReplaceWithInfoTypeConfig(new ReplaceWithInfoTypeConfig());
+$infoTypeTransformation = (new InfoTypeTransformation())
+->setPrimitiveTransformation($primitiveTransformation)
+->setInfoTypes([$custoMRoomIdinfoType]);
+$infoTypeTransformations = (new InfoTypeTransformations())
+->setTransformations([$infoTypeTransformation]);
+// Create the deidentification configuration object
+$deidentifyConfig = (new DeidentifyConfig())
+->setInfoTypeTransformations($infoTypeTransformations);
+// Run request
+$deidentifyContentRequest = (new DeidentifyContentRequest())
+->setParent($parent)
+->setDeidentifyConfig($deidentifyConfig)
+->setItem($content)
+->setInspectConfig($inspectConfig);
+$response = $dlp->deidentifyContent($deidentifyContentRequest);
+// Print the results
+printf('Deidentified content: %s', $response->getItem()->getValue());
+}
+Python
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import google.cloud.dlp
+def deidentify_with_simple_word_list(
+project: str,
+input_str: str,
+custom_info_type_name: str,
+word_list: list[str],
+) -> None:
+"""Uses the Data Loss Prevention API to de-identify sensitive data in a
+string by matching against custom word list.
+Args:
+project: The Google Cloud project id to use as a parent resource.
+input_str: The string to deidentify (will be treated as text).
+custom_info_type_name: The name of the custom info type to use.
+word_list: The list of strings to match against.
+"""
+# Instantiate a client.
+dlp = google.cloud.dlp_v2.DlpServiceClient()
+# Prepare custom_info_types by parsing word lists
+word_list = {"words": word_list}
+custom_info_types = [
+{
+"info_type": {"name": custom_info_type_name},
+"dictionary": {"word_list": word_list},
+}
+]
+# Construct the configuration dictionary
+inspect_config = {
+"custom_info_types": custom_info_types,
+}
+# Construct deidentify configuration dictionary
+deidentify_config = {
+"info_type_transformations": {
+"transformations": [
+{"primitive_transformation": {"replace_with_info_type_config": {}}}
+]
+}
+}
+# Construct the `item`.
+item = {"value": input_str}
+# Convert the project id into a full resource id.
+parent = f"projects/{project}/locations/global"
+# Call the API
+response = dlp.deidentify_content(
+request={
+"parent": parent,
+"deidentify_config": deidentify_config,
+"inspect_config": inspect_config,
+"item": item,
+}
+)
+print(f"De-identified Content: {response.item.value}")
+REST
+The following example JSON defines a custom dictionary that you could use to
+de-identify custom room numbers.
+JSON input:
+POST https://dlp.googleapis.com/v2/projects/[PROJECT_ID]/content:deidentify?key={YOUR_API_KEY}
+{
+"item":{
+"value":"Patient was seen in RM-YELLOW then transferred to rm green."
+},
+"deidentifyConfig":{
+"infoTypeTransformations":{
+"transformations":[
+{
+"primitiveTransformation":{
+"replaceWithInfoTypeConfig":{
+}
+}
+}
+]
+}
+},
+"inspectConfig":{
+"customInfoTypes":[
+{
+"infoType":{
+"name":"CUSTOM_ROOM_ID"
+},
+"dictionary":{
+"wordList":{
+"words":[
+"RM-GREEN",
+"RM-YELLOW",
+"RM-ORANGE"
+]
+}
+}
+}
+]
+}
+}
+JSON output:
+When we POST the JSON input to
+content:deidentify,
+it returns the following JSON response:
+{
+"item":{
+"value":"Patient was seen in [CUSTOM_ROOM_ID] then transferred to [CUSTOM_ROOM_ID]."
+},
+"overview":{
+"transformedBytes":"17",
+"transformationSummaries":[
+{
+"infoType":{
+"name":"CUSTOM_ROOM_ID"
+},
+"transformation":{
+"replaceWithInfoTypeConfig":{
+}
+},
+"results":[
+{
+"count":"2",
+"code":"SUCCESS"
+}
+],
+"transformedBytes":"17"
+}
+]
+}
+}
+Sensitive Data Protection has correctly identified the room numbers
+specified in the custom dictionary's
+WordList
+message. Note that items are even matched when the case and the hyphen (-) are
+missing, as in the second example, "rm green."
+Exception list
+Suppose you have log data that includes customer identifiers such as email
+addresses, and you want to redact this information. However, these logs also
+include the email addresses of internal developers, and you don't want to redact
+those.
+C#
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+using System;
+using Google.Api.Gax.ResourceNames;
+using Google.Cloud.Dlp.V2;
+public class DeidentifyWithExceptionList
+{
+public static DeidentifyContentResponse Deidentify(string projectId, string text)
+{
+// Instantiate a client.
+var dlp = DlpServiceClient.Create();
+var contentItem = new ContentItem { Value = text };
+var wordList = new CustomInfoType.Types.Dictionary.Types.WordList
+{
+Words = { new string[] { "jack@example.org", "jill@example.org" } }
+};
+var exclusionRule = new ExclusionRule
+{
+MatchingType = MatchingType.FullMatch,
+Dictionary = new CustomInfoType.Types.Dictionary
+{
+WordList = wordList
+}
+};
+var infoType = new InfoType { Name = "EMAIL_ADDRESS" };
+var inspectionRuleSet = new InspectionRuleSet
+{
+InfoTypes = { infoType },
+Rules = { new InspectionRule { ExclusionRule = exclusionRule } }
+};
+var inspectConfig = new InspectConfig
+{
+InfoTypes = { infoType },
+RuleSet = { inspectionRuleSet }
+};
+var primitiveTransformation = new PrimitiveTransformation
+{
+ReplaceWithInfoTypeConfig = new ReplaceWithInfoTypeConfig { }
+};
+var transformation = new InfoTypeTransformations.Types.InfoTypeTransformation
+{
+InfoTypes = { infoType },
+PrimitiveTransformation = primitiveTransformation
+};
+var deidentifyConfig = new DeidentifyConfig
+{
+InfoTypeTransformations = new InfoTypeTransformations
+{
+Transformations = { transformation }
+}
+};
+var request = new DeidentifyContentRequest
+{
+Parent = new LocationName(projectId, "global").ToString(),
+InspectConfig = inspectConfig,
+DeidentifyConfig = deidentifyConfig,
+Item = contentItem
+};
+// Call the API.
+var response = dlp.DeidentifyContent(request);
+// Inspect the results.
+Console.WriteLine($"Deidentified content: {response.Item.Value}");
+return response;
+}
+}
+Go
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import (
+"context"
+"fmt"
+"io"
+dlp "cloud.google.com/go/dlp/apiv2"
+"cloud.google.com/go/dlp/apiv2/dlppb"
+)
+// deidentifyExceptionList creates an exception list for a regular custom dictionary detector.
+func deidentifyExceptionList(w io.Writer, projectID, input string) error {
+// projectID := "my-project-id"
+// input := "jack@example.org accessed customer record of user5@example.com"
+ctx := context.Background()
+// Initialize a client once and reuse it to send multiple requests. Clients
+// are safe to use across goroutines. When the client is no longer needed,
+// call the Close method to cleanup its resources.
+client, err := dlp.NewClient(ctx)
+if err != nil {
+return fmt.Errorf("dlp.NewClient: %w", err)
+}
+// Closing the client safely cleans up background resousrces.
+defer client.Close()
+// Specify what content you want the service to DeIdentify.
+item := &dlppb.ContentItem{
+DataItem: &dlppb.ContentItem_Value{
+Value: input,
+},
+}
+// Specify the word list custom info type and build-in info type the inspection will look for.
+infoTypes := []*dlppb.InfoType{
+{Name: "EMAIL_ADDRESS"},
+}
+dictionary := &dlppb.CustomInfoType_Dictionary{
+Source: &dlppb.CustomInfoType_Dictionary_WordList_{
+WordList: &dlppb.CustomInfoType_Dictionary_WordList{
+Words: []string{"jack@example.org", "jill@example.org"},
+},
+},
+}
+exclusionRule := &dlppb.ExclusionRule{
+MatchingType: dlppb.MatchingType_MATCHING_TYPE_FULL_MATCH,
+Type: &dlppb.ExclusionRule_Dictionary{
+Dictionary: dictionary,
+},
+}
+inspectRuleSet := &dlppb.InspectionRuleSet{
+InfoTypes: infoTypes,
+Rules: []*dlppb.InspectionRule{
+{
+Type: &dlppb.InspectionRule_ExclusionRule{
+ExclusionRule: exclusionRule,
+},
+},
+},
+}
+// Construct the configuration for the de-id request and list all desired transformations.
+primitiveTransformation := &dlppb.PrimitiveTransformation{
+Transformation: &dlppb.PrimitiveTransformation_ReplaceWithInfoTypeConfig{},
+}
+infoTypeTransformation := &dlppb.InfoTypeTransformations{
+Transformations: []*dlppb.InfoTypeTransformations_InfoTypeTransformation{
+{
+PrimitiveTransformation: primitiveTransformation,
+},
+},
+}
+deIdentifyConfig := &dlppb.DeidentifyConfig{
+Transformation: &dlppb.DeidentifyConfig_InfoTypeTransformations{
+InfoTypeTransformations: infoTypeTransformation,
+},
+}
+// Create a configured request.
+req := &dlppb.DeidentifyContentRequest{
+Parent: fmt.Sprintf("projects/%s/locations/global", projectID),
+DeidentifyConfig: deIdentifyConfig,
+InspectConfig: &dlppb.InspectConfig{
+InfoTypes: infoTypes,
+CustomInfoTypes: []*dlppb.CustomInfoType{},
+RuleSet: []*dlppb.InspectionRuleSet{inspectRuleSet},
+},
+// The item to analyze.
+Item: item,
+}
+// Send the request.
+resp, err := client.DeidentifyContent(ctx, req)
+if err != nil {
+return err
+}
+// Print the result.
+fmt.Fprintf(w, "output : %v", resp.GetItem().GetValue())
+return nil
+}
+Java
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import com.google.cloud.dlp.v2.DlpServiceClient;
+import com.google.privacy.dlp.v2.ContentItem;
+import com.google.privacy.dlp.v2.CustomInfoType;
+import com.google.privacy.dlp.v2.CustomInfoType.Dictionary;
+import com.google.privacy.dlp.v2.CustomInfoType.Dictionary.WordList;
+import com.google.privacy.dlp.v2.DeidentifyConfig;
+import com.google.privacy.dlp.v2.DeidentifyContentRequest;
+import com.google.privacy.dlp.v2.DeidentifyContentResponse;
+import com.google.privacy.dlp.v2.ExclusionRule;
+import com.google.privacy.dlp.v2.InfoType;
+import com.google.privacy.dlp.v2.InfoTypeTransformations;
+import com.google.privacy.dlp.v2.InfoTypeTransformations.InfoTypeTransformation;
+import com.google.privacy.dlp.v2.InspectConfig;
+import com.google.privacy.dlp.v2.InspectionRule;
+import com.google.privacy.dlp.v2.InspectionRuleSet;
+import com.google.privacy.dlp.v2.LocationName;
+import com.google.privacy.dlp.v2.MatchingType;
+import com.google.privacy.dlp.v2.PrimitiveTransformation;
+import com.google.privacy.dlp.v2.ReplaceWithInfoTypeConfig;
+import java.io.IOException;
+public class DeIdentifyWithExceptionList {
+public static void main(String[] args) throws Exception {
+// TODO(developer): Replace these variables before running the sample.
+String projectId = "your-project-id";
+String textToDeIdentify = "jack@example.org accessed customer record of user5@example.com";
+deIdentifyWithExceptionList(projectId, textToDeIdentify);
+}
+public static void deIdentifyWithExceptionList(String projectId, String textToDeIdentify)
+throws IOException {
+// Initialize client that will be used to send requests. This client only needs to be created
+// once, and can be reused for multiple requests. After completing all of your requests, call
+// the "close" method on the client to safely clean up any remaining background resources.
+try (DlpServiceClient dlp = DlpServiceClient.create()) {
+// Specify what content you want the service to DeIdentify.
+ContentItem contentItem = ContentItem.newBuilder().setValue(textToDeIdentify).build();
+// Construct the custom word list to be detected.
+Dictionary wordList =
+Dictionary.newBuilder()
+.setWordList(
+WordList.newBuilder()
+.addWords("jack@example.org")
+.addWords("jill@example.org")
+.build())
+.build();
+// Construct the custom dictionary detector associated with the word list.
+InfoType developerEmail = InfoType.newBuilder().setName("DEVELOPER_EMAIL").build();
+CustomInfoType customInfoType =
+CustomInfoType.newBuilder().setInfoType(developerEmail).setDictionary(wordList).build();
+ExclusionRule exclusionRule =
+ExclusionRule.newBuilder()
+.setDictionary(wordList)
+.setMatchingType(MatchingType.MATCHING_TYPE_FULL_MATCH)
+.build();
+InspectionRule inspectionRule =
+InspectionRule.newBuilder()
+.setExclusionRule(exclusionRule)
+.build();
+// Specify the word list custom info type and build-in info type the inspection will look for.
+InfoType emailAddress = InfoType.newBuilder().setName("EMAIL_ADDRESS").build();
+InspectionRuleSet inspectionRuleSet =
+InspectionRuleSet.newBuilder()
+.addInfoTypes(emailAddress)
+.addRules(inspectionRule)
+.build();
+InspectConfig inspectConfig =
+InspectConfig.newBuilder()
+.addInfoTypes(emailAddress)
+.addCustomInfoTypes(customInfoType)
+.addRuleSet(inspectionRuleSet)
+.build();
+// Define type of deidentification as replacement.
+PrimitiveTransformation primitiveTransformation =
+PrimitiveTransformation.newBuilder()
+.setReplaceWithInfoTypeConfig(ReplaceWithInfoTypeConfig.getDefaultInstance())
+.build();
+// Associate de-identification type with info type.
+InfoTypeTransformation transformation =
+InfoTypeTransformation.newBuilder()
+.addInfoTypes(emailAddress)
+.setPrimitiveTransformation(primitiveTransformation)
+.build();
+// Construct the configuration for the de-id request and list all desired transformations.
+DeidentifyConfig deidentifyConfig =
+DeidentifyConfig.newBuilder()
+.setInfoTypeTransformations(
+InfoTypeTransformations.newBuilder().addTransformations(transformation))
+.build();
+// Combine configurations into a request for the service.
+DeidentifyContentRequest request =
+DeidentifyContentRequest.newBuilder()
+.setParent(LocationName.of(projectId, "global").toString())
+.setItem(contentItem)
+.setInspectConfig(inspectConfig)
+.setDeidentifyConfig(deidentifyConfig)
+.build();
+// Send the request and receive response from the service
+DeidentifyContentResponse response = dlp.deidentifyContent(request);
+// Print the results
+System.out.println(
+"Text after replace with infotype config: " + response.getItem().getValue());
+}
+}
+}
+Node.js
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+// Imports the Google Cloud Data Loss Prevention library
+const DLP = require('@google-cloud/dlp');
+// Initialize client that will be used to send requests. This client only needs to be created
+// once, and can be reused for multiple requests. After completing all of your requests, call
+// the "close" method on the client to safely clean up any remaining background resources.
+const dlp = new DLP.DlpServiceClient();
+// TODO(developer): Replace these variables before running the sample.
+// const projectId = "your-project-id";
+// The string to deidentify
+// const textToInspect = 'jack@example.org accessed customer record of user5@example.com';
+// Words to exclude for during inspection
+// const words = ['jack@example.org', 'jill@example.org'];
+// The infoTypes of information to match
+// See https://cloud.google.com/dlp/docs/concepts-infotypes for more information
+// about supported infoTypes.
+// const infoTypes = [{ name: 'EMAIL_ADDRESS' }];
+async function deIdentifyWithExceptionList() {
+// Construct item to inspect
+const item = {value: textToInspect};
+// Construct the custom dictionary detector associated with the word list.
+const wordListDict = {
+wordList: {
+words: words,
+},
+};
+// Construct a rule set that will only match if the match text does not
+// contains tokens from the exclusion list.
+const ruleSet = [
+{
+infoTypes: infoTypes,
+rules: [
+{
+exclusionRule: {
+matchingType:
+DLP.protos.google.privacy.dlp.v2.MatchingType
+.MATCHING_TYPE_FULL_MATCH,
+dictionary: wordListDict,
+},
+},
+],
+},
+];
+// Combine configurations to construct inspect config.
+const inspectConfig = {
+infoTypes: infoTypes,
+ruleSet: ruleSet,
+};
+// Define type of de-identification as replacement & associate de-identification type with info type.
+const transformation = {
+infoTypes: [],
+primitiveTransformation: {
+replaceWithInfoTypeConfig: {},
+},
+};
+// Construct the configuration for the de-identification request and list all desired transformations.
+const deidentifyConfig = {
+infoTypeTransformations: {
+transformations: [transformation],
+},
+};
+// Combine configurations into a request for the service.
+const request = {
+parent: `projects/${projectId}/locations/global`,
+item: item,
+inspectConfig: inspectConfig,
+deidentifyConfig: deidentifyConfig,
+};
+// Send the request and receive response from the service.
+const [response] = await dlp.deidentifyContent(request);
+// Print the results
+console.log(
+`Text after replace with infotype config: ${response.item.value}`
+);
+}
+deIdentifyWithExceptionList();
+PHP
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+use Google\Cloud\Dlp\V2\Client\DlpServiceClient;
+use Google\Cloud\Dlp\V2\ContentItem;
+use Google\Cloud\Dlp\V2\CustomInfoType\Dictionary;
+use Google\Cloud\Dlp\V2\CustomInfoType\Dictionary\WordList;
+use Google\Cloud\Dlp\V2\DeidentifyConfig;
+use Google\Cloud\Dlp\V2\DeidentifyContentRequest;
+use Google\Cloud\Dlp\V2\ExclusionRule;
+use Google\Cloud\Dlp\V2\InfoType;
+use Google\Cloud\Dlp\V2\InfoTypeTransformations;
+use Google\Cloud\Dlp\V2\InfoTypeTransformations\InfoTypeTransformation;
+use Google\Cloud\Dlp\V2\InspectConfig;
+use Google\Cloud\Dlp\V2\InspectionRule;
+use Google\Cloud\Dlp\V2\InspectionRuleSet;
+use Google\Cloud\Dlp\V2\MatchingType;
+use Google\Cloud\Dlp\V2\PrimitiveTransformation;
+use Google\Cloud\Dlp\V2\ReplaceWithInfoTypeConfig;
+/**
+* Create an exception list for de-identification
+* Create an exception list for a regular custom dictionary detector.
+*
+* @param string $callingProjectId The project ID to run the API call under
+* @param string $textToDeIdentify The String you want the service to DeIdentify
+*/
+function deidentify_exception_list(
+// TODO(developer): Replace sample parameters before running the code.
+string $callingProjectId,
+string $textToDeIdentify = 'jack@example.org accessed customer record of user5@example.com'
+): void {
+// Instantiate a client.
+$dlp = new DlpServiceClient();
+// Specify what content you want the service to DeIdentify.
+$contentItem = (new ContentItem())
+->setValue($textToDeIdentify);
+// Construct the custom word list to be detected.
+$wordList = (new Dictionary())
+->setWordList((new WordList())
+->setWords(['jack@example.org', 'jill@example.org']));
+// Specify the exclusion rule and build-in info type the inspection will look for.
+$exclusionRule = (new ExclusionRule())
+->setMatchingType(MatchingType::MATCHING_TYPE_FULL_MATCH)
+->setDictionary($wordList);
+$emailAddress = (new InfoType())
+->setName('EMAIL_ADDRESS');
+$inspectionRuleSet = (new InspectionRuleSet())
+->setInfoTypes([$emailAddress])
+->setRules([
+(new InspectionRule())
+->setExclusionRule($exclusionRule)
+]);
+$inspectConfig = (new InspectConfig())
+->setInfoTypes([$emailAddress])
+->setRuleSet([$inspectionRuleSet]);
+// Define type of deidentification as replacement.
+$primitiveTransformation = (new PrimitiveTransformation())
+->setReplaceWithInfoTypeConfig(new ReplaceWithInfoTypeConfig());
+// Associate de-identification type with info type.
+$transformation = (new InfoTypeTransformation())
+->setInfoTypes([$emailAddress])
+->setPrimitiveTransformation($primitiveTransformation);
+// Construct the configuration for the de-id request and list all desired transformations.
+$deidentifyConfig = (new DeidentifyConfig())
+->setInfoTypeTransformations(
+(new InfoTypeTransformations())
+->setTransformations([$transformation])
+);
+// Send the request and receive response from the service
+$parent = "projects/$callingProjectId/locations/global";
+$deidentifyContentRequest = (new DeidentifyContentRequest())
+->setParent($parent)
+->setDeidentifyConfig($deidentifyConfig)
+->setInspectConfig($inspectConfig)
+->setItem($contentItem);
+$response = $dlp->deidentifyContent($deidentifyContentRequest);
+// Print the results
+printf('Text after replace with infotype config: %s', $response->getItem()->getValue());
+}
+Python
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+from typing import List
+import google.cloud.dlp
+def deidentify_with_exception_list(
+project: str, content_string: str, info_types: List[str], exception_list: List[str]
+) -> None:
+"""Uses the Data Loss Prevention API to de-identify sensitive data in a
+string but ignore matches against custom list.
+Args:
+project: The Google Cloud project id to use as a parent resource.
+content_string: The string to deidentify (will be treated as text).
+info_types: A list of strings representing info types to look for.
+A full list of info type categories can be fetched from the API.
+exception_list: The list of strings to ignore matches on.
+Returns:
+None; the response from the API is printed to the terminal.
+"""
+# Instantiate a client
+dlp = google.cloud.dlp_v2.DlpServiceClient()
+# Construct a list of infoTypes for DLP to locate in `content_string`. See
+# https://cloud.google.com/dlp/docs/concepts-infotypes for more information
+# about supported infoTypes.
+info_types = [{"name": info_type} for info_type in info_types]
+# Construct a rule set that will only match on info_type
+# if the matched text is not in the exception list.
+rule_set = [
+{
+"info_types": info_types,
+"rules": [
+{
+"exclusion_rule": {
+"dictionary": {"word_list": {"words": exception_list}},
+"matching_type": google.cloud.dlp_v2.MatchingType.MATCHING_TYPE_FULL_MATCH,
+}
+}
+],
+}
+]
+# Construct the configuration dictionary
+inspect_config = {
+"info_types": info_types,
+"rule_set": rule_set,
+}
+# Construct deidentify configuration dictionary
+deidentify_config = {
+"info_type_transformations": {
+"transformations": [
+{"primitive_transformation": {"replace_with_info_type_config": {}}}
+]
+}
+}
+# Construct the `item`.
+item = {"value": content_string}
+# Convert the project id into a full resource id.
+parent = f"projects/{project}/locations/global"
+# Call the API
+response = dlp.deidentify_content(
+request={
+"parent": parent,
+"deidentify_config": deidentify_config,
+"inspect_config": inspect_config,
+"item": item,
+}
+)
+# Print out the results.
+print(response.item.value)
+REST
+The following JSON example creates a custom dictionary that lists a subset of
+email addresses within the
+WordList
+message (jack@example.org and jill@example.org), and assigns them the custom
+infoType name DEVELOPER_EMAIL. This JSON instructs
+Sensitive Data Protection to ignore the specified email addresses, while
+replacing any other email addresses it detects with a string that corresponds
+to its infoType (in this case, EMAIL_ADDRESS):
+JSON input:
+POST https://dlp.googleapis.com/v2/projects/[PROJECT_ID]/content:deidentify?key={YOUR_API_KEY}
+{
+"item":{
+"value":"jack@example.org accessed customer record of user5@example.com"
+},
+"deidentifyConfig":{
+"infoTypeTransformations":{
+"transformations":[
+{
+"primitiveTransformation":{
+"replaceWithInfoTypeConfig":{
+}
+},
+"infoTypes":[
+{
+"name":"EMAIL_ADDRESS"
+}
+]
+}
+]
+}
+},
+"inspectConfig":{
+"customInfoTypes":[
+{
+"infoType":{
+"name":"DEVELOPER_EMAIL"
+},
+"dictionary":{
+"wordList":{
+"words":[
+"jack@example.org",
+"jill@example.org"
+]
+}
+}
+}
+],
+"infoTypes":[
+{
+"name":"EMAIL_ADDRESS"
+}
+]
+"ruleSet": [
+{
+"infoTypes": [
+{
+"name": "EMAIL_ADDRESS"
+}
+],
+"rules": [
+{
+"exclusionRule": {
+"excludeInfoTypes": {
+"infoTypes": [
+{
+"name": "DEVELOPER_EMAIL"
+}
+]
+},
+"matchingType": "MATCHING_TYPE_FULL_MATCH"
+}
+}
+]
+}
+]
+}
+}
+JSON output:
+When we POST this JSON to
+content:deidentify,
+it returns the following JSON response:
+{
+"item":{
+"value":"jack@example.org accessed customer record of [EMAIL_ADDRESS]"
+},
+"overview":{
+"transformedBytes":"17",
+"transformationSummaries":[
+{
+"infoType":{
+"name":"EMAIL_ADDRESS"
+},
+"transformation":{
+"replaceWithInfoTypeConfig":{
+}
+},
+"results":[
+{
+"count":"1",
+"code":"SUCCESS"
+}
+],
+"transformedBytes":"17"
+}
+]
+}
+}
+The output has correctly identified user1@example.com as matched by the
+EMAIL_ADDRESS infoType detector and jack@example.org as matched by the
+DEVELOPER_EMAIL custom infoType detector. Note that because we chose to only
+transform EMAIL_ADDRESS, jack@example.org was left intact.
+Augment a built-in infotype detector
+Consider a scenario in which a built-in infoType detector isn't returning the
+correct values. For example, you want to return matches on person names, but
+Sensitive Data Protection's built-in PERSON_NAME detector is failing to
+return matches on some person names that are common in your dataset.
+Sensitive Data Protection allows you to augment built-in infoType detectors
+by including a built-in detector in the declaration for a custom infoType
+detector, as shown in the following example. This snippet illustrates how to
+configure Sensitive Data Protection so that the PERSON_NAME built-in
+infoType detector will additionally match the name "Quasimodo:"
+C#
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+using Google.Api.Gax.ResourceNames;
+using Google.Cloud.Dlp.V2;
+using Google.Protobuf;
+using System;
+using System.Linq;
+using static Google.Cloud.Dlp.V2.CustomInfoType.Types;
+public class InspectDataUsingAugmentInfoTypes
+{
+public static InspectContentResponse InspectData(
+string projectId,
+string text,
+InfoType infoType = null)
+{
+// Instantiate the dlp client.
+var dlp = DlpServiceClient.Create();
+// Specify the type of info to be inspected and construct the infotype.
+var infotype = infoType ?? new InfoType { Name = "PERSON_NAME" };
+// Construct the custom infoTypes with dictionary.
+var customInfoTypes = new CustomInfoType
+{
+InfoType = infotype,
+Dictionary = new Dictionary
+{
+WordList = new Dictionary.Types.WordList
+{
+Words = { new string[] { "quasimodo" } }
+}
+}
+};
+// Construct the inspect config using custom infoTypes.
+var inspectConfig = new InspectConfig
+{
+CustomInfoTypes = { customInfoTypes },
+IncludeQuote = true,
+InfoTypes = { infotype }
+};
+// Construct the request.
+var request = new InspectContentRequest
+{
+ParentAsLocationName = new LocationName(projectId, "global"),
+InspectConfig = inspectConfig,
+Item = new ContentItem
+{
+ByteItem = new ByteContentItem
+{
+Data = ByteString.CopyFromUtf8(text),
+Type = ByteContentItem.Types.BytesType.TextUtf8
+}
+}
+};
+// Call the API.
+InspectContentResponse response = dlp.InspectContent(request);
+// Parse the response.
+var findings = response.Result.Findings;
+Console.WriteLine($"Finding: {findings.Count}");
+foreach (var f in findings)
+{
+Console.WriteLine("\tQuote: " + f.Quote);
+Console.WriteLine("\tInfo type: " + f.InfoType.Name);
+Console.WriteLine("\tLikelihood: " + f.Likelihood);
+}
+return response;
+}
+}
+Go
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import (
+"context"
+"fmt"
+"io"
+dlp "cloud.google.com/go/dlp/apiv2"
+"cloud.google.com/go/dlp/apiv2/dlppb"
+)
+// inspectAugmentInfoTypes performs info type augmentation using Google Cloud DLP.
+// It enhances data inspection by supplementing existing info types with custom-defined ones,
+// expanding the ability to identify sensitive information in different contexts.
+func inspectAugmentInfoTypes(w io.Writer, projectID, textToInspect string, wordList []string) error {
+// projectID := "your-project-id"
+// textToInspect := "The patient's name is quasimodo"
+// wordList := []string{"quasimodo"}
+ctx := context.Background()
+// Initialize a client once and reuse it to send multiple requests. Clients
+// are safe to use across goroutines. When the client is no longer needed,
+// call the Close method to cleanup its resources.
+client, err := dlp.NewClient(ctx)
+if err != nil {
+return err
+}
+// Closing the client safely cleans up background resources.
+defer client.Close()
+// Specify the content to be inspected.
+item := &dlppb.ContentItem{
+DataItem: &dlppb.ContentItem_Value{
+Value: textToInspect,
+},
+}
+// Construct the custom word list to be detected.
+dictionary := &dlppb.CustomInfoType_Dictionary{
+Source: &dlppb.CustomInfoType_Dictionary_WordList_{
+WordList: &dlppb.CustomInfoType_Dictionary_WordList{
+Words: wordList,
+},
+},
+}
+// Specify the type of info the inspection will look for.
+// See https://cloud.google.com/dlp/docs/infotypes-reference for complete list of info types.
+infoType := &dlppb.InfoType{
+Name: "PERSON_NAME",
+}
+// Construct a custom infoType detector by augmenting the PERSON_NAME detector with a word list.
+customInfoType := &dlppb.CustomInfoType{
+InfoType: infoType,
+Type: &dlppb.CustomInfoType_Dictionary_{
+Dictionary: dictionary,
+},
+}
+// Specify the inspect config for data inspection settings in DLP API, enabling rule
+// specification, custom info types, and actions on sensitive data. Crucial for tailored
+// data protection and privacy regulation compliance.
+inspectConfig := &dlppb.InspectConfig{
+CustomInfoTypes: []*dlppb.CustomInfoType{
+customInfoType,
+},
+IncludeQuote: true,
+}
+// Construct the Inspect request to be sent by the client.
+req := &dlppb.InspectContentRequest{
+Parent: fmt.Sprintf("projects/%s/locations/global", projectID),
+Item: item,
+InspectConfig: inspectConfig,
+}
+// Create the request for the job configured above.
+resp, err := client.InspectContent(ctx, req)
+if err != nil {
+return err
+}
+// Process the results.
+result := resp.Result
+fmt.Fprintf(w, "Findings: %d\n", len(result.Findings))
+for _, f := range result.Findings {
+fmt.Fprintf(w, "\tQuote: %s\n", f.Quote)
+fmt.Fprintf(w, "\tInfo type: %s\n", f.InfoType.Name)
+fmt.Fprintf(w, "\tLikelihood: %s\n", f.Likelihood)
+}
+return nil
+}
+Java
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import com.google.cloud.dlp.v2.DlpServiceClient;
+import com.google.privacy.dlp.v2.ByteContentItem;
+import com.google.privacy.dlp.v2.ContentItem;
+import com.google.privacy.dlp.v2.CustomInfoType;
+import com.google.privacy.dlp.v2.Finding;
+import com.google.privacy.dlp.v2.InfoType;
+import com.google.privacy.dlp.v2.InspectConfig;
+import com.google.privacy.dlp.v2.InspectContentRequest;
+import com.google.privacy.dlp.v2.InspectContentResponse;
+import com.google.privacy.dlp.v2.LocationName;
+import com.google.protobuf.ByteString;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+public class InspectStringAugmentInfoType {
+public static void main(String[] args) throws Exception {
+// TODO(developer): Replace these variables before running the sample.
+// The Google Cloud project id to use as a parent resource.
+String projectId = "your-project-id";
+// The string to de-identify.
+String textToInspect = "The patient's name is quasimodo";
+// The string to be additionally matched.
+List<String> wordList = Arrays.asList("quasimodo");
+inspectStringAugmentInfoType(projectId, textToInspect, wordList);
+}
+// Inspects the text using new custom words added to the dictionary.
+public static void inspectStringAugmentInfoType(
+String projectId, String textToInspect, List<String> wordList) throws IOException {
+// Initialize client that will be used to send requests. This client only needs to be created
+// once, and can be reused for multiple requests. After completing all of your requests, call
+// the "close" method on the client to safely clean up any remaining background resources.
+try (DlpServiceClient dlp = DlpServiceClient.create()) {
+// Specify the type and content to be inspected.
+ByteContentItem byteItem =
+ByteContentItem.newBuilder()
+.setType(ByteContentItem.BytesType.TEXT_UTF8)
+.setData(ByteString.copyFromUtf8(textToInspect))
+.build();
+ContentItem item = ContentItem.newBuilder().setByteItem(byteItem).build();
+// Construct the custom word list to be detected.
+CustomInfoType.Dictionary dictionary =
+CustomInfoType.Dictionary.newBuilder()
+.setWordList(
+CustomInfoType.Dictionary.WordList.newBuilder().addAllWords(wordList).build())
+.build();
+InfoType infoType = InfoType.newBuilder().setName("PERSON_NAME").build();
+// Construct a custom infotype detector by augmenting the PERSON_NAME detector with a word
+// list.
+CustomInfoType customInfoType =
+CustomInfoType.newBuilder().setInfoType(infoType).setDictionary(dictionary).build();
+InspectConfig inspectConfig =
+InspectConfig.newBuilder()
+.addCustomInfoTypes(customInfoType)
+.setIncludeQuote(true)
+.build();
+// Construct the Inspect request to be sent by the client.
+InspectContentRequest request =
+InspectContentRequest.newBuilder()
+.setParent(LocationName.of(projectId, "global").toString())
+.setItem(item)
+.setInspectConfig(inspectConfig)
+.build();
+// Use the client to send the API request.
+InspectContentResponse response = dlp.inspectContent(request);
+// Parse the response and process results
+System.out.println("Findings: " + response.getResult().getFindingsCount());
+for (Finding f : response.getResult().getFindingsList()) {
+System.out.println("\tQuote: " + f.getQuote());
+System.out.println("\tInfo type: " + f.getInfoType().getName());
+System.out.println("\tLikelihood: " + f.getLikelihood());
+}
+}
+}
+}
+Node.js
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+// Imports the Google Cloud client library
+const DLP = require('@google-cloud/dlp');
+// Instantiates a client
+const dlp = new DLP.DlpServiceClient();
+// The project ID to run the API call under
+// const projectId = 'my-project';
+// The string to inspect
+// const string = "The patient's name is quasimodo";
+// Word list
+// const words = ['quasimodo'];
+async function inspectStringAugmentInfoType() {
+// Specify the type and content to be inspected.
+const byteItem = {
+type: 'BYTES',
+data: Buffer.from(string),
+};
+const item = {byteItem: byteItem};
+// Construct the custom word list to be detected.
+const dictionary = {
+wordList: {
+words: words,
+},
+};
+// Construct a custom infotype detector by augmenting the PERSON_NAME detector with a word list.
+const customInfoType = {
+infoType: {name: 'PERSON_NAME'},
+dictionary: dictionary,
+};
+const inspectConfig = {
+customInfoTypes: [customInfoType],
+includeQuote: true,
+};
+// Construct the Inspect request to be sent by the client.
+const inspectRequest = {
+parent: `projects/${projectId}/locations/global`,
+inspectConfig: inspectConfig,
+item: item,
+};
+// Use the client to send the API request.
+const [response] = await dlp.inspectContent(inspectRequest);
+// Print Findings.
+const findings = response.result.findings;
+if (findings.length > 0) {
+console.log(`Findings: ${findings.length}\n`);
+findings.forEach(finding => {
+console.log(`InfoType: ${finding.infoType.name}`);
+console.log(`\tQuote: ${finding.quote}`);
+console.log(`\tLikelihood: ${finding.likelihood} \n`);
+});
+} else {
+console.log('No findings.');
+}
+}
+inspectStringAugmentInfoType();
+PHP
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+use Google\Cloud\Dlp\V2\Client\DlpServiceClient;
+use Google\Cloud\Dlp\V2\ContentItem;
+use Google\Cloud\Dlp\V2\CustomInfoType;
+use Google\Cloud\Dlp\V2\CustomInfoType\Dictionary;
+use Google\Cloud\Dlp\V2\CustomInfoType\Dictionary\WordList;
+use Google\Cloud\Dlp\V2\InfoType;
+use Google\Cloud\Dlp\V2\InspectConfig;
+use Google\Cloud\Dlp\V2\InspectContentRequest;
+use Google\Cloud\Dlp\V2\Likelihood;
+/**
+* Augment a built-in infotype detector.
+* Consider a scenario in which a built-in infoType detector isn’t returning the correct values.
+* For example, you want to return matches on person names, but Cloud DLP's built-in
+* PERSON_NAME detector is failing to return matches on some person names that are common in your dataset.
+* Cloud DLP allows you to augment built-in infoType detectors by including a built-in detector in the
+* declaration for a custom infoType detector, as shown in the following example. This snippet
+* illustrates how to configure Cloud DLP so that the PERSON_NAME built-in infoType detector will
+* additionally match the name “Quasimodo:”.
+*
+* @param string $projectId The Google Cloud project id to use as a parent resource.
+* @param string $textToInspect The string to inspect.
+* @param array $matchWordList Specify the set of words to match.
+*/
+function inspect_augment_infotypes(
+// TODO(developer): Replace sample parameters before running the code.
+string $projectId,
+string $textToInspect = 'Smith and Quasimodo are good cricketer',
+array $matchWordList = ['quasimodo']
+): void {
+// Instantiate a client.
+$dlp = new DlpServiceClient();
+$parent = "projects/$projectId/locations/global";
+// Specify what content you want the service to Inspect.
+$item = (new ContentItem())
+->setValue($textToInspect);
+// The infoTypes of information to match.
+$personNameInfoType = (new InfoType())
+->setName('PERSON_NAME');
+// Construct the word list to be detected.
+$wordList = (new Dictionary())
+->setWordList((new WordList())
+->setWords($matchWordList));
+// Construct the custom infotype detector.
+$customInfoType = (new CustomInfoType())
+->setInfoType($personNameInfoType)
+->setLikelihood(Likelihood::POSSIBLE)
+->setDictionary($wordList);
+// Construct the configuration for the Inspect request.
+$inspectConfig = (new InspectConfig())
+->setCustomInfoTypes([$customInfoType])
+->setIncludeQuote(true);
+// Run request.
+$inspectContentRequest = (new InspectContentRequest())
+->setParent($parent)
+->setInspectConfig($inspectConfig)
+->setItem($item);
+$response = $dlp->inspectContent($inspectContentRequest);
+// Print the results.
+$findings = $response->getResult()->getFindings();
+if (count($findings) == 0) {
+printf('No findings.' . PHP_EOL);
+} else {
+printf('Findings:' . PHP_EOL);
+foreach ($findings as $finding) {
+printf(' Quote: %s' . PHP_EOL, $finding->getQuote());
+printf(' Info type: %s' . PHP_EOL, $finding->getInfoType()->getName());
+printf(' Likelihood: %s' . PHP_EOL, Likelihood::name($finding->getLikelihood()));
+}
+}
+}
+Python
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+from typing import List
+import google.cloud.dlp
+def inspect_string_augment_infotype(
+project: str,
+input_str: str,
+info_type: str,
+word_list: List[str],
+) -> None:
+"""Uses the Data Loss Prevention API to augment built-in infoType
+detector and inspect the content string with augmented infoType.
+Args:
+project: The Google Cloud project id to use as a parent resource.
+input_str: The string to inspect using augmented infoType
+(will be treated as text).
+info_type: A string representing built-in infoType to augment.
+A full list of infoType categories can be fetched from the API.
+word_list: List of words or phrases to be added to extend the behaviour
+of built-in infoType.
+"""
+# Instantiate a client.
+dlp = google.cloud.dlp_v2.DlpServiceClient()
+# Construct the custom infoTypes dictionary with declaration of a built-in detector.
+custom_info_types = [
+{
+"info_type": {"name": info_type},
+"dictionary": {"word_list": {"words": word_list}},
+}
+]
+# Construct inspect configuration dictionary with the custom info type.
+inspect_config = {
+"custom_info_types": custom_info_types,
+"include_quote": True,
+}
+# Construct the `item` to be inspected.
+item = {"value": input_str}
+# Convert the project id into a full resource id.
+parent = f"projects/{project}"
+# Call the API.
+response = dlp.inspect_content(
+request={
+"parent": parent,
+"inspect_config": inspect_config,
+"item": item,
+}
+)
+# Print out the results.
+if response.result.findings:
+for finding in response.result.findings:
+print(f"Quote: {finding.quote}")
+print(f"Info type: {finding.info_type.name}")
+print(f"Likelihood: {finding.likelihood} \n")
+else:
+print("No findings.")
+REST
+...
+"inspectConfig":{
+"customInfoTypes":[
+{
+"infoType":{
+"name":"PERSON_NAME"
+},
+"dictionary":{
+"wordList":{
+"words":[
+"quasimodo"
+]
+}
+}
+}
+]
+}
+...
+What's next
+Learn about large custom dictionaries.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-07 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

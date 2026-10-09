@@ -1,0 +1,752 @@
+# status 200  final_url https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/ContentItem  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español – América Latina
+Français
+Português – Brasil
+中文 – 简体
+日本語
+한국어
+Sign in
+Sensitive Data Protection
+Start free
+Overview
+Guides
+Reference
+Samples
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Samples
+Resources
+Console
+Data Loss Prevention API
+All APIs & reference
+Client libraries
+REST reference
+Overview
+v2
+Overview
+REST Resources
+infoTypes
+Overview
+list
+locations.infoTypes
+Overview
+list
+organizations.locations.columnDataProfiles
+Overview
+get
+list
+organizations.locations.connections
+Overview
+create
+delete
+get
+list
+patch
+search
+organizations.locations.discoveryConfigs
+Overview
+create
+delete
+get
+list
+patch
+organizations.locations.fileStoreDataProfiles
+Overview
+delete
+get
+list
+organizations.locations.projectDataProfiles
+Overview
+get
+list
+organizations.locations.tableDataProfiles
+Overview
+delete
+get
+list
+projects.content
+Overview
+deidentify
+inspect
+reidentify
+projects.deidentifyTemplates
+Overview
+create
+delete
+get
+list
+patch
+projects.dlpJobs
+Overview
+cancel
+create
+delete
+get
+list
+projects.image
+Overview
+redact
+projects.inspectTemplates
+Overview
+create
+delete
+get
+list
+patch
+projects.jobTriggers
+Overview
+activate
+create
+delete
+get
+list
+patch
+projects.locations.columnDataProfiles
+Overview
+get
+list
+projects.locations.connections
+Overview
+create
+delete
+get
+list
+patch
+search
+projects.locations.content
+Overview
+deidentify
+inspect
+reidentify
+projects.locations.contentPolicies
+Overview
+create
+delete
+get
+list
+patch
+projects.locations.deidentifyTemplates
+Overview
+create
+delete
+get
+list
+patch
+projects.locations.discoveryConfigs
+Overview
+create
+delete
+get
+list
+patch
+projects.locations.dlpJobs
+Overview
+cancel
+create
+delete
+finish
+get
+hybridInspect
+list
+projects.locations.fileStoreDataProfiles
+Overview
+delete
+get
+list
+projects.locations.image
+Overview
+redact
+projects.locations.inspectTemplates
+Overview
+create
+delete
+get
+list
+patch
+projects.locations.jobTriggers
+Overview
+activate
+create
+delete
+get
+hybridInspect
+list
+patch
+projects.locations.projectDataProfiles
+Overview
+get
+list
+projects.locations.storedInfoTypes
+Overview
+create
+delete
+get
+list
+patch
+projects.locations.tableDataProfiles
+Overview
+delete
+get
+list
+projects.storedInfoTypes
+Overview
+create
+delete
+get
+list
+patch
+Types
+Action
+BigQueryTable
+ByteContentItem
+CloudStoragePath
+Code
+Container
+ContentItem
+ContentPolicyActionLog
+DataProfileAction
+DataProfileBigQueryRowSchema
+DataProfileConfigSnapshot
+DataProfileFinding
+DataProfilePubSubMessage
+DataRiskLevel
+DataSourceType
+DeidentifyContentResponse
+Dictionary
+Domain
+Error
+FallbackActionType
+FieldId
+FileType
+HybridContentItem
+HybridInspectResponse
+ImageRedactionConfig
+InfoType
+InfoTypeSummary
+InspectConfig
+InspectContentResponse
+InspectJobConfig
+InspectResult
+ListColumnDataProfilesResponse
+ListConnectionsResponse
+ListDeidentifyTemplatesResponse
+ListDiscoveryConfigsResponse
+ListDlpJobsResponse
+ListFileStoreDataProfilesResponse
+ListInfoTypesResponse
+ListInspectTemplatesResponse
+ListJobTriggersResponse
+ListProjectDataProfilesResponse
+ListStoredInfoTypesResponse
+ListTableDataProfilesResponse
+OtherCloudDiscoveryStartingLocation
+OtherInfoTypeSummary
+ProfileStatus
+RecordTransformation
+RedactImageResponse
+Regex
+ReidentifyContentResponse
+RelatedResource
+ResourceVisibility
+SaveToGcsFindingsOutput
+SearchConnectionsResponse
+SensitivityScore
+Status
+Tag
+TransformationContainerType
+TransformationDescription
+TransformationDetails
+TransformationOverview
+TransformationResultStatusType
+TransformationType
+Value
+WordList
+RPC reference
+Overview
+google.privacy.dlp.v2
+google.rpc
+google.type
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Cloud Data Loss Prevention (Cloud DLP) is now a part of Sensitive Data Protection. The API name remains the same: Cloud Data Loss Prevention API (DLP API). For information about the services that make up Sensitive Data Protection, see Sensitive Data Protection overview.
+Home
+Documentation
+Security
+Sensitive Data Protection
+Reference
+Send feedback
+ContentItem
+Stay organized with collections
+Save and categorize content based on your preferences.
+JSON representation
+Table
+JSON representation
+Row
+JSON representation
+Conversation
+JSON representation
+ConversationMessage
+JSON representation
+MessagePart
+JSON representation
+MessageType
+BatchContentItem
+JSON representation
+StringValueBatch
+JSON representation
+ContentMetadata
+JSON representation
+KeyValueMetadataProperty
+JSON representation
+FileLabel
+JSON representation
+SensitivityLabelMetadata
+JSON representation
+GoogleDriveLabelMetadata
+JSON representation
+LabelFieldMetadata
+JSON representation
+Type of content to inspect.
+| JSON representation
+|
+{
+"contentMetadata": {
+object (ContentMetadata)
+},
+// The following is a list of mutually exclusive fields. At most one of the
+// fields will be set in a response:
+"value": string,
+"table": {
+object (Table)
+},
+"byteItem": {
+object (ByteContentItem)
+},
+"conversation": {
+object (Conversation)
+},
+"batchContentItem": {
+object (BatchContentItem)
+}
+// End of mutually exclusive fields.
+}
+| Fields
+| contentMetadata
+|
+object (ContentMetadata)
+User provided metadata for the content.
+| Data of the item either in the byte array or UTF-8 string form, or table. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+| value
+|
+string
+String data to inspect or redact.
+| table
+|
+object (Table)
+Structured content for inspection. See https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-text#inspecting_a_table to learn more.
+| byteItem
+|
+object (ByteContentItem)
+Content data to inspect or redact. Replaces type and data.
+| conversation
+|
+object (Conversation)
+Represents a conversation (either complete or a slice). It is assumed that all included messages are contiguous and ordered in chronological order.
+| batchContentItem
+|
+object (BatchContentItem)
+Represents a batch of items to inspect.
+| End of mutually exclusive fields.
+Table
+Structured content to inspect. Up to 50,000 Values per request allowed. See https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-structured-text#inspecting_a_table to learn more.
+| JSON representation
+|
+{
+"headers": [
+{
+object (FieldId)
+}
+],
+"rows": [
+{
+object (Row)
+}
+]
+}
+| Fields
+| headers[]
+|
+object (FieldId)
+Headers of the table.
+| rows[]
+|
+object (Row)
+Rows of the table.
+Row
+Values of the row.
+| JSON representation
+|
+{
+"values": [
+{
+object (Value)
+}
+]
+}
+| Fields
+| values[]
+|
+object (Value)
+Individual cells.
+Conversation
+Complete conversation or slice of a conversation. It is assumed that all included messages are contiguous and ordered in chronological order.
+| JSON representation
+|
+{
+"messages": [
+{
+object (ConversationMessage)
+}
+]
+}
+| Fields
+| messages[]
+|
+object (ConversationMessage)
+Messages exchanged within this conversation. The maximum number of messages allowed is 50k. The order of the messages is assumed to be chronological and will be used to index findings in the response.
+ConversationMessage
+Single message in a conversation.
+| JSON representation
+|
+{
+"content": string,
+"messageParts": [
+{
+object (MessagePart)
+}
+],
+"messageType": enum (MessageType),
+"participantId": string
+}
+| Fields
+| content
+(deprecated)
+|
+string
+This item is deprecated!
+Deprecated: Use messageParts instead. The contents of this message. Only one of content and messageParts can be set.
+| messageParts[]
+|
+object (MessagePart)
+Optional. The parts of the message. Restricted to being at most a single text item. Only one of content and messageParts can be set.
+| messageType
+|
+enum (MessageType)
+The type of message.
+| participantId
+|
+string
+Optional. The identifier of the participant, for example 'test-user' or 'gemini'. The participant ID can contain lowercase letters, numbers, and hyphens; that is, it must match the regular expression: ^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$. The maximum length is 63 characters.
+MessagePart
+A part of a conversation message.
+| JSON representation
+|
+{
+// The following is a list of mutually exclusive fields. At most one of the
+// fields will be set in a response:
+"text": string
+// End of mutually exclusive fields.
+}
+| Fields
+| The content of the message part. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+| text
+|
+string
+String content for text-based messages.
+| End of mutually exclusive fields.
+MessageType
+The type of message. New values can be added in the future.
+| Enums
+| MESSAGE_TYPE_UNSPECIFIED
+| Unused.
+| CONTENT
+| Message contains content to be inspected.
+| CONTEXT
+| Message contains context only and will not have findings reported from it during inspection or redacted from it during de-identification.
+BatchContentItem
+Represents a batch of content to inspect or redact.
+| JSON representation
+|
+{
+// The following is a list of mutually exclusive fields. At most one of the
+// fields will be set in a response:
+"stringValueBatch": {
+object (StringValueBatch)
+}
+// End of mutually exclusive fields.
+}
+| Fields
+| Represents the batch to inspect or redact. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+| stringValueBatch
+|
+object (StringValueBatch)
+Optional. Represents a batch of string values to inspect or redact.
+| End of mutually exclusive fields.
+StringValueBatch
+Represents a batch of string values to inspect or redact.
+| JSON representation
+|
+{
+"values": [
+string
+]
+}
+| Fields
+| values[]
+|
+string
+Optional. Represents string data to inspect or redact.
+ContentMetadata
+Metadata on content to be scanned.
+| JSON representation
+|
+{
+"properties": [
+{
+object (KeyValueMetadataProperty)
+}
+],
+"fileLabels": [
+{
+object (FileLabel)
+}
+]
+}
+| Fields
+| properties[]
+|
+object (KeyValueMetadataProperty)
+User provided key-value pairs of content metadata.
+| fileLabels[]
+|
+object (FileLabel)
+Optional. The file labels associated with the content.
+KeyValueMetadataProperty
+A key-value pair in the Metadata.
+| JSON representation
+|
+{
+"key": string,
+"value": string
+}
+| Fields
+| key
+|
+string
+The key of the property.
+| value
+|
+string
+The value of the property.
+FileLabel
+Represents a file label.
+| JSON representation
+|
+{
+// The following is a list of mutually exclusive fields. At most one of the
+// fields will be set in a response:
+"sensitivityLabel": {
+object (SensitivityLabelMetadata)
+},
+"googleDriveLabel": {
+object (GoogleDriveLabelMetadata)
+}
+// End of mutually exclusive fields.
+}
+| Fields
+| The type of file label. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+| sensitivityLabel
+|
+object (SensitivityLabelMetadata)
+Sensitivity labels published by Microsoft.
+| googleDriveLabel
+|
+object (GoogleDriveLabelMetadata)
+Google Drive labels published by Google.
+| End of mutually exclusive fields.
+SensitivityLabelMetadata
+Sensitivity labels published by Microsoft.
+| JSON representation
+|
+{
+"guid": string
+}
+| Fields
+| guid
+|
+string
+Required. The GUID of the sensitivity label.
+GoogleDriveLabelMetadata
+Google Drive labels published by Google.
+| JSON representation
+|
+{
+"labelId": string,
+"labelFields": [
+{
+object (LabelFieldMetadata)
+}
+]
+}
+| Fields
+| labelId
+|
+string
+The label ID of the Google Drive label.
+| labelFields[]
+|
+object (LabelFieldMetadata)
+The field values of the Google Drive label
+LabelFieldMetadata
+The field values of the Google Drive label
+| JSON representation
+|
+{
+"id": string,
+"value": {
+object (Value)
+}
+}
+| Fields
+| id
+|
+string
+The identifier of the Label Field.
+| value
+|
+object (Value)
+The value of the Label Field.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-09-05 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español – América Latina
+Français
+Português – Brasil
+中文 – 简体
+日本語
+한국어

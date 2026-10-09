@@ -1,0 +1,561 @@
+# status 200  final_url https://docs.cloud.google.com/sensitive-data-protection/docs/access-control/access-control-iam  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Sensitive Data Protection
+Start free
+Overview
+Guides
+Reference
+Samples
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Samples
+Resources
+Console
+Discover
+Product overview
+Plan your data risk management strategy
+Evaluate your data risk management needs
+Learn about your data through discovery and inspection
+Recommended strategies for mitigating data risk
+Release notes
+Pricing
+Locations
+Global and regional endpoints for Sensitive Data Protection
+Sensitive Data Protection locations
+Specify a processing location
+Service method types
+Supported file types and scanning modes
+Get started
+Quickstarts
+Inspect text using the command-line tool
+Inspect text using a JSON request
+Schedule an inspection scan
+Create an inspection template
+De-identify and re-identify sensitive text
+Google Cloud Skills Boost labs
+Detect sensitive data
+Discover and profile data resources
+Overview of sensitive data discovery
+Common discovery enablement scenarios
+Allow discovery within service perimeters
+Profile your data
+Profile a single data resource
+Profile BigQuery data
+Estimate BigQuery data profiling cost
+Estimate the cost of profiling BigQuery data in a project
+Estimate the cost of profiling BigQuery data in an organization or folder
+Profile BigQuery data in a project
+Profile BigQuery data in an organization or folder
+Profile Cloud SQL data
+Profile Cloud SQL data in a project
+Profile Cloud SQL data in an organization or folder
+Manage connections
+Profile Cloud Storage data
+Profile Cloud Storage data in a project
+Profile Cloud Storage data in an organization or folder
+Profile Vertex AI data
+Sensitive data discovery for Vertex AI data
+Profile Vertex AI data in a project
+Profile Vertex AI data in an organization or folder
+Profile Amazon S3 data
+Sensitive data discovery for Amazon S3 data
+Profile Amazon S3 data
+Profile Azure Blob Storage data
+Report secrets in environment variables to Security Command Center
+Grant data profiling access to a service agent
+Manage data profiles
+Control IAM access to resources based on data sensitivity
+Send discovery insights to other services
+Enable discovery actions
+Send data profiles to Security Command Center
+Receive and parse Pub/Sub messages about data profiles
+Tag tables in Data Catalog based on insights from data profiles
+Add Knowledge Catalog aspects based on insights from data profiles
+Analyze and visualize data profiles
+Visualize data profiles in the discovery dashboard
+Analyze data profiles
+Remediate findings from the data profiler
+Manage scan configurations
+Troubleshoot issues with the data profiler
+Metrics reference
+Data risk and sensitivity levels
+Inspect for sensitive data
+Inspect data stored in Google Cloud
+Inspect data from any source
+Inspect unstructured text synchronously
+Inspect structured text synchronously
+Inspect an image synchronously
+Asynchronous inspection overview
+Inspect data from any source asynchronously
+Quote the sensitive data in the results
+Work with inspection results
+Actions
+Send inspection results to Knowledge Catalog as aspects
+Send inspection results to Data Catalog
+Send inspection results to Security Command Center
+Analyze and report on inspection findings
+Query inspection findings in BigQuery
+Parse findings stored as Protobuf text
+Jobs and job triggers
+Overview of jobs and job triggers
+Create and manage jobs and job triggers
+Web-based inspection demonstration app
+Allow or block content based on sensitivity
+Overview of content policies
+Create and manage content policies
+Configure detection
+Templates
+Overview of templates
+Create inspection templates
+InfoTypes and infoType detectors
+Overview of infoTypes and infoType detectors
+Built-in infoType detectors
+List built-in infoType detectors
+InfoType detector reference
+Custom infoType detectors
+Overview of custom infoType detectors
+Create a regular custom dictionary detector
+Create a large custom dictionary detector
+Create a custom regex detector
+Create a custom metadata label detector
+Custom infoType examples
+Manage infoTypes through the Google Cloud console
+Modify infoType detectors to refine scan results
+Match likelihood
+Likelihood overview
+Customize match likelihood
+Mask and de-identify data
+Overview
+Transformation methods
+Transformation reference
+Text classification and redaction
+Date shifting
+Generalization and bucketing
+Pseudonymization
+De-identify sensitive data
+De-identify data stored in Google Cloud
+Overview
+Through the Cloud console
+Through the DLP API
+Transformation details reference
+De-identify data from any source
+De-identify text or tabular content
+Examples of text redaction
+Examples of tabular data de-identification
+Image inspection and redaction
+Redact sensitive data from images
+Create a de-identification template
+Create a wrapped key
+De-identify BigQuery data at query time
+De-identification and re-identification of PII in large-scale datasets
+Redact sensitive data from PDF files
+Analyze re-identification risk
+Overview of re-identification risk analysis
+Re-identification risk analysis techniques
+Compute k-anonymity for a dataset
+Compute l-diversity for a dataset
+Compute k-map for a dataset
+Compute δ-presence for a dataset
+Compute numerical and categorical statistics
+Visualize re-identification risk using Data Studio
+Connect to other services
+Use Sensitive Data Protection with BigQuery
+Use Sensitive Data Protection with Cloud Storage
+Use Sensitive Data Protection with Cloud Storage
+Automate the classification of data uploaded to Cloud Storage
+Send inspection results to Data Catalog
+Send inspection results to Security Command Center
+Monitor your usage with Cloud Monitoring
+Use Sensitive Data Protection with AWS S3
+Use Sensitive Data Protection with JDBC Databases
+Use Sensitive Data Protection with Apigee
+Use Sensitive Data Protection with Data Fusion
+Build a secure anomaly detection solution using Dataflow, BigQuery ML, and Sensitive Data Protection
+Troubleshoot
+Troubleshoot issues with the data profiler
+Control access
+Authentication
+IAM
+Access control with IAM
+Sensitive Data Protection roles and permissions
+Sensitive Data Protection service agents
+Control access with VPC Service Controls
+Monitor
+Audit logging
+Monitor your usage with Cloud Monitoring
+Develop
+All Sensitive Data Protection code samples
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Cloud Data Loss Prevention (Cloud DLP) is now a part of Sensitive Data Protection. The API name remains the same: Cloud Data Loss Prevention API (DLP API). For information about the services that make up Sensitive Data Protection, see Sensitive Data Protection overview.
+Home
+Documentation
+Security
+Sensitive Data Protection
+Guides
+Send feedback
+Access control with IAM
+Stay organized with collections
+Save and categorize content based on your preferences.
+This page describes how you can control access to Sensitive Data Protection resources.
+Sensitive Data Protection uses Identity and Access Management (IAM) to
+control access to resources. IAM is a tool to manage fine-grained authorization
+for your Google Cloud resources. In other words, IAM lets you control who can do
+what on which resources.
+To give users access to a resource with IAM, you grant them specific roles.
+IAM roles give the principals permissions to perform tasks on your
+Sensitive Data Protection resources.
+For detailed information about IAM and its features, see the
+IAM documentation.
+Manage access to Sensitive Data Protection resources
+The most common way to manage access with IAM is to use allow policies. Allow policies
+list which principals have access to the resource and what actions they can perform on the
+resource.
+The following sections describe how to manage access with allow policies using the
+Google Cloud console and the Google Cloud CLI. This includes procedures for common tasks, such as how
+to grant and revoke a single role. You can also grant and revoke multiple roles at the same
+time. For more information, see Manage
+access to projects, folders, and organizations in the IAM documentation.
+You can also use allow policies that are attached to different Google Cloud resources to
+manage access at other levels of the resource hierarchy. To learn more, see Using resource hierarchy for access
+control in the IAM documentation.
+Not all resources support allow policies. To learn which resources you can attach allow policies
+to, see Resources that support
+allow policies in the IAM documentation.
+To learn about other policies you can use to control access with IAM, such as
+deny policies, see IAM
+policy types in the IAM documentation.
+Grant a single IAM role on a project, folder, or organization
+This section describes how to grant access at the project, folder, or
+organization level. This controls a user's access to the project, folder, or
+organization, and all resources within it.
+To grant a single role to a principal on a project, folder, or organization,
+do the following:
+Console
+In the Google Cloud console, go to the IAM page.
+Go
+to IAM
+Select a project, folder, or organization.
+Select a principal to grant a role to:
+To grant a principal an additional role on the
+resource, find a row containing the principal, click
+edit Edit principal in that
+row, and click add Add another
+role.
+To grant a role to a service agent,
+select the Include Google-provided role grants checkbox
+to see its email address.
+Note: You cannot edit inherited roles when managing access to a
+resource. To edit inherited roles, go to the resource where the
+role was granted.
+To grant a role to a principal who doesn't have any existing roles on the
+resource, click person_add Grant
+Access, then enter a
+principal identifier—for
+example,
+my-user@example.com
+or
+//iam.googleapis.com/locations/global/workforcePools/example-pool/group/example-group@example.com.
+Select a role to grant from the drop-down list. For best security
+practices, choose a role that includes only the permissions that your
+principal needs.
+Optional: Add a condition to the role.
+Click Save. The principal is granted the role on the resource.
+gcloud
+Note: To grant the Owner role (roles/owner) on a project to
+a user outside of your organization, you must use the Google Cloud console,
+not the gcloud CLI. If your project is not part of an organization,
+you must use the Google Cloud console to grant the Owner role.
+In the Google Cloud console, activate Cloud Shell.
+Activate Cloud Shell
+At the bottom of the Google Cloud console, a
+Cloud Shell
+session starts and displays a command-line prompt. Cloud Shell is a shell environment
+with the Google Cloud CLI
+already installed and with values already set for
+your current project. It can take a few seconds for the session to initialize.
+The
+add-iam-policy-binding
+command lets you quickly grant a role to a principal.
+Before using any of the command data below,
+make the following replacements:
+RESOURCE_TYPE: The resource type that you want to
+manage access to. Use projects, resource-manager folders, or
+organizations.
+RESOURCE_ID: Your Google Cloud project, folder,
+or organization ID. Project IDs are alphanumeric, like my-project.
+Folder and organization IDs are numeric, like 123456789012.
+PRINCIPAL: An identifier for the principal, or member,
+which usually has the following form:
+PRINCIPAL_TYPE:ID.
+For example, user:my-user@example.com or
+principalSet://iam.googleapis.com/locations/global/workforcePools/example-pool/group/example-group@example.com.
+For a full list of the values that PRINCIPAL can have, see Principal identifiers.
+For the principal type user, the domain name in the identifier must be
+a Google Workspace domain or a Cloud Identity domain. To learn how to set
+up a Cloud Identity domain, see the
+overview of Cloud Identity.
+ROLE_NAME: The name of the role that you want
+to grant. Use one of the following formats:
+Predefined roles: roles/SERVICE.IDENTIFIER
+Project-level custom roles: projects/PROJECT_ID/roles/IDENTIFIER
+Organization-level custom roles: organizations/ORG_ID/roles/IDENTIFIER
+For a list of predefined roles, see Understanding roles.
+CONDITION: The condition to add to the role
+binding. If you don't want to add a condition, use the value None. For
+more information about conditions, see the conditions overview.
+Execute the
+following
+command:
+Linux, macOS, or Cloud Shell
+gcloud RESOURCE_TYPE add-iam-policy-binding RESOURCE_ID \
+--member=PRINCIPAL --role=ROLE_NAME \
+--condition=CONDITION
+Windows (PowerShell)
+gcloud RESOURCE_TYPE add-iam-policy-binding RESOURCE_ID `
+--member=PRINCIPAL --role=ROLE_NAME `
+--condition=CONDITION
+Windows (cmd.exe)
+gcloud RESOURCE_TYPE add-iam-policy-binding RESOURCE_ID ^
+--member=PRINCIPAL --role=ROLE_NAME ^
+--condition=CONDITION
+The response contains the updated IAM allow policy.
+Note: If you grant access to a user's email alias or a secondary domain, then the values in
+your allow policy might not match the values that you initially entered. If you grant
+access to an email alias, then the allow policy displays the user's primary email address.
+If you grant access to a secondary domain, then the allow policy displays the primary
+domain.
+Revoke a single IAM role on a project, folder, or organization
+This section describes how to revoke access at the project, folder, or
+organization level. This controls a user's access to the project, folder, or
+organization, and all resources within it.
+To revoke a single role from a principal on a project, folder, or
+organization, do the following:
+Console
+In the Google Cloud console, go to the IAM page.
+Go to IAM
+Select a project, folder, or organization.
+Find the row containing the principal whose access you want to revoke. Then,
+click edit Edit principal in that
+row.
+Note: You cannot edit inherited roles when managing access to a
+resource. To edit inherited roles, go to the resource where the
+role was granted.
+Click the Delete delete button
+for the role that you want to revoke, and then click Save.
+gcloud
+In the Google Cloud console, activate Cloud Shell.
+Activate Cloud Shell
+At the bottom of the Google Cloud console, a
+Cloud Shell
+session starts and displays a command-line prompt. Cloud Shell is a shell environment
+with the Google Cloud CLI
+already installed and with values already set for
+your current project. It can take a few seconds for the session to initialize.
+To revoke a role from a user, run the remove-iam-policy-binding
+command:
+gcloud RESOURCE_TYPE remove-iam-policy-binding RESOURCE_ID \
+--member=PRINCIPAL --role=ROLE_NAME
+Provide the following values:
+RESOURCE_TYPE: The resource type that you want to
+manage access to. Use projects, resource-manager folders, or
+organizations.
+RESOURCE_ID: Your Google Cloud project, folder,
+or organization ID. Project IDs are alphanumeric, like my-project.
+Folder and organization IDs are numeric, like 123456789012.
+PRINCIPAL: An identifier for the principal, or
+member, which usually has the following form:
+PRINCIPAL_TYPE:ID.
+For example, user:my-user@example.com or
+principalSet://iam.googleapis.com/locations/global/workforcePools/example-pool/group/example-group@example.com.
+For the principal type user, the domain name in the identifier must be
+a Google Workspace domain or a Cloud Identity domain. To learn how to set
+up a Cloud Identity domain, see the
+overview of Cloud Identity.
+ROLE_NAME: The name of the role that you want
+to revoke. Use one of the following formats:
+Predefined roles: roles/SERVICE.IDENTIFIER
+Project-level custom roles: projects/PROJECT_ID/roles/IDENTIFIER
+Organization-level custom roles: organizations/ORG_ID/roles/IDENTIFIER
+For a list of predefined roles, see Understanding roles.
+For example, to revoke the Project Creator role from the service account
+example-service-account@example-project.iam.gserviceaccount.com for the project example-project:
+gcloud projects remove-iam-policy-binding example-project \
+--member=serviceAccount:example-service-account@example-project.iam.gserviceaccount.com \
+--role=roles/resourcemanager.projectCreator
+To help avoid revoking any necessary roles, you can
+enable change risk
+recommendations. Change risk recommendations generate warnings when you try
+to revoke project-level roles that Google Cloud has identified as
+important.
+Conditional access
+IAM Conditions let you make your policies more granular by granting
+access to principals only when certain specified conditions are met. Conditions are based on
+attributes relating to the principal, resource, and request. For example, you can grant a
+principal access only if they're accessing the resource from a specific location or at a
+specific time.
+Conditions in allow policies are based on the following types of attributes:
+Resource attributes: Includes the service, type, or name
+of the resource. These attributes are typically used to change the scope
+of an access granted by a role binding.
+Request attributes: Includes details of the request, like
+the time or access level of the principal who made the request. These
+attributes let you create conditions that evaluate details about the
+request, such as its access level, date and time, the destination IP
+address and port, or the expected URL path.
+For more information about the condition attributes supported by Sensitive Data Protection, see the
+Attribute reference for IAM
+Conditions in the IAM documentation.
+You can't grant conditional access directly on Sensitive Data Protection resources. However, you can
+grant conditional access to Sensitive Data Protection resource types by granting roles to principals
+on a container resource, such as a project, folder, or organization, and adding conditions
+to these role bindings. Conditions added to the allow policy of a container resource are
+inherited by the resources included in that container resource. For more
+information about inherited conditions, see Support for inherited
+conditions in the IAM documentation.
+To learn how to add conditions to role bindings, see Managing conditional role bindings
+in the IAM documentation.
+What's next
+To learn more about access control with IAM, see the
+IAM overview.
+To view the available roles and permissions for Sensitive Data Protection, see Sensitive Data Protection roles and permissions.
+Learn more about how the sensitive data discovery service uses service
+agent containers and service agents to profile your data resources.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-07 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

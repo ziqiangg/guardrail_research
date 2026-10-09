@@ -1,0 +1,668 @@
+# status 200  final_url https://docs.cloud.google.com/model-armor/access-control/roles-permissions  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Model Armor
+Start free
+Overview
+Guides
+Reference
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Resources
+Console
+Discover
+Product overview
+Data residency and endpoints
+Feature availability for templates by region
+Best practices for scaling and high traffic
+Retry strategy
+Configure Model Armor
+Create and manage templates
+Configure template-specific exclusion rules
+Set the filter version
+Filter version history
+Configure floor settings
+Sanitize prompts and responses
+Configure logging
+View the monitoring dashboard
+Control access
+Access control with IAM
+Roles and permissions
+Service accounts
+Integrate Model Armor with services or frameworks
+Overview
+Integrate with Agent Gateway
+Integrate with Apigee
+Integrate with Gemini Enterprise
+Integrate with Google and Google Cloud MCP servers
+Integrate with Google Cloud networking services
+Integrate with Agent Platform
+Integrate with LangChain
+Monitor
+Audit logging
+Troubleshoot
+Troubleshooting
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Home
+Documentation
+AI and ML
+Model Armor
+Guides
+Send feedback
+Model Armor roles and permissions
+Stay organized with collections
+Save and categorize content based on your preferences.
+This page lists all the IAM roles and
+permissions for Model Armor.
+Model Armor roles
+| Role
+| Permissions
+|
+Model Armor Admin
+(roles/modelarmor.admin)
+Grants full access to all modelarmor resources. Intended for administrators & owners.
+|
+modelarmor.locations.*
+modelarmor.locations.get
+modelarmor.locations.list
+modelarmor.templates.*
+modelarmor.templates.create
+modelarmor.templates.delete
+modelarmor.templates.get
+modelarmor.templates.list
+modelarmor.templates.update
+modelarmor.templates.useToSanitizeInput
+modelarmor.templates.useToSanitizeModelResponse
+modelarmor.templates.useToSanitizeOutput
+modelarmor.templates.useToSanitizeUserPrompt
+modelarmor.templates.useToStreamSanitizeModelResponse
+modelarmor.templates.useToStreamSanitizeUserPrompt
+modelarmor.topics.*
+modelarmor.topics.create
+modelarmor.topics.delete
+modelarmor.topics.get
+modelarmor.topics.list
+modelarmor.topics.test
+modelarmor.topics.update
+resourcemanager.projects.get
+resourcemanager.projects.list
+|
+Model Armor Editor
+(roles/modelarmor.editor)
+Grants access to create and update all model armor resources. Intended for editors.
+|
+modelarmor.callouts.invoke
+modelarmor.floorSettings.computeEffectiveFloorSetting
+modelarmor.floorSettings.get
+modelarmor.locations.*
+modelarmor.locations.get
+modelarmor.locations.list
+modelarmor.templates.*
+modelarmor.templates.create
+modelarmor.templates.delete
+modelarmor.templates.get
+modelarmor.templates.list
+modelarmor.templates.update
+modelarmor.templates.useToSanitizeInput
+modelarmor.templates.useToSanitizeModelResponse
+modelarmor.templates.useToSanitizeOutput
+modelarmor.templates.useToSanitizeUserPrompt
+modelarmor.templates.useToStreamSanitizeModelResponse
+modelarmor.templates.useToStreamSanitizeUserPrompt
+modelarmor.topics.*
+modelarmor.topics.create
+modelarmor.topics.delete
+modelarmor.topics.get
+modelarmor.topics.list
+modelarmor.topics.test
+modelarmor.topics.update
+resourcemanager.projects.get
+resourcemanager.projects.list
+|
+Model Armor Viewer
+(roles/modelarmor.viewer)
+Grants read access to all model armor resources. Intended for viewers.
+|
+modelarmor.locations.*
+modelarmor.locations.get
+modelarmor.locations.list
+modelarmor.templates.get
+modelarmor.templates.list
+modelarmor.topics.get
+modelarmor.topics.list
+resourcemanager.projects.get
+resourcemanager.projects.list
+|
+Model Armor Callout User
+Beta
+(roles/modelarmor.calloutUser)
+Grants access to use Model Armor Callout service. Intended for users & applications which plan to use Model Armor Callout service.
+|
+modelarmor.callouts.invoke
+modelarmor.locations.*
+modelarmor.locations.get
+modelarmor.locations.list
+resourcemanager.projects.get
+resourcemanager.projects.list
+|
+Model Armor Floor Setting Admin
+(roles/modelarmor.floorSettingsAdmin)
+Grants full access to all Model Armor Floor Setting resources. Intended for administrators & owners.
+|
+modelarmor.floorSettings.*
+modelarmor.floorSettings.computeEffectiveFloorSetting
+modelarmor.floorSettings.get
+modelarmor.floorSettings.update
+modelarmor.locations.*
+modelarmor.locations.get
+modelarmor.locations.list
+resourcemanager.folders.get
+resourcemanager.folders.list
+resourcemanager.organizations.get
+resourcemanager.projects.get
+resourcemanager.projects.list
+|
+Model Armor Floor Setting Viewer
+(roles/modelarmor.floorSettingsViewer)
+Grants read access to all Model Armor Floor Setting resources. Intended for viewers.
+|
+modelarmor.floorSettings.get
+modelarmor.locations.*
+modelarmor.locations.get
+modelarmor.locations.list
+resourcemanager.folders.get
+resourcemanager.folders.list
+resourcemanager.organizations.get
+resourcemanager.projects.get
+resourcemanager.projects.list
+|
+Model Armor User
+(roles/modelarmor.user)
+Grants access to sanitize APIs for templates and to use and test topics. Intended for users & applications which plan to use a template or topic for sanitization.
+|
+modelarmor.locations.*
+modelarmor.locations.get
+modelarmor.locations.list
+modelarmor.templates.useToSanitizeInput
+modelarmor.templates.useToSanitizeModelResponse
+modelarmor.templates.useToSanitizeOutput
+modelarmor.templates.useToSanitizeUserPrompt
+modelarmor.templates.useToStreamSanitizeModelResponse
+modelarmor.templates.useToStreamSanitizeUserPrompt
+modelarmor.topics.test
+resourcemanager.projects.get
+resourcemanager.projects.list
+Service agent roles
+Service agent roles should only be granted to service agents.
+| Role
+| Permissions
+|
+Model Armor Service Agent
+(roles/modelarmor.serviceAgent)
+Gives Model Armor Service Account permission to make DLP calls.
+Warning: Do not grant service agent roles to any principals except
+service agents.
+|
+dlp.analyzeRiskTemplates.get
+dlp.analyzeRiskTemplates.list
+dlp.deidentifyTemplates.get
+dlp.deidentifyTemplates.list
+dlp.inspectFindings.list
+dlp.inspectTemplates.get
+dlp.inspectTemplates.list
+dlp.jobTriggers.get
+dlp.jobTriggers.list
+dlp.jobs.get
+dlp.jobs.list
+dlp.kms.encrypt
+dlp.locations.*
+dlp.locations.get
+dlp.locations.list
+dlp.storedInfoTypes.get
+dlp.storedInfoTypes.list
+serviceusage.services.use
+Model Armor permissions
+| Permission
+| Included in roles
+|
+modelarmor.callouts.invoke
+|
+Admin (roles/admin)
+Owner (roles/owner)
+Writer (roles/writer)
+Editor (roles/editor)
+Model Armor Editor (roles/modelarmor.editor)
+Model Armor Callout User (roles/modelarmor.calloutUser)
+Service agent roles
+Warning: Don't grant service agent roles to any principals except service agents.
+Vertex AI Reasoning Engine Service Agent (roles/aiplatform.reasoningEngineServiceAgent)
+|
+modelarmor.floorSettings.computeEffectiveFloorSetting
+|
+Admin (roles/admin)
+Owner (roles/owner)
+Writer (roles/writer)
+Editor (roles/editor)
+Reader (roles/reader)
+Viewer (roles/viewer)
+Model Armor Editor (roles/modelarmor.editor)
+Security Center Admin (roles/securitycenter.admin)
+Support User (roles/iam.supportUser)
+Model Armor Floor Setting Admin (roles/modelarmor.floorSettingsAdmin)
+|
+modelarmor.floorSettings.get
+|
+Admin (roles/admin)
+Owner (roles/owner)
+Writer (roles/writer)
+Editor (roles/editor)
+Reader (roles/reader)
+Viewer (roles/viewer)
+Model Armor Editor (roles/modelarmor.editor)
+Security Center Admin (roles/securitycenter.admin)
+Support User (roles/iam.supportUser)
+Model Armor Floor Setting Admin (roles/modelarmor.floorSettingsAdmin)
+Model Armor Floor Setting Viewer (roles/modelarmor.floorSettingsViewer)
+|
+modelarmor.floorSettings.update
+|
+Admin (roles/admin)
+Owner (roles/owner)
+Security Center Admin (roles/securitycenter.admin)
+Model Armor Floor Setting Admin (roles/modelarmor.floorSettingsAdmin)
+|
+modelarmor.locations.get
+|
+Admin (roles/admin)
+Owner (roles/owner)
+Writer (roles/writer)
+Editor (roles/editor)
+Reader (roles/reader)
+Viewer (roles/viewer)
+Model Armor Admin (roles/modelarmor.admin)
+Model Armor Editor (roles/modelarmor.editor)
+Model Armor Viewer (roles/modelarmor.viewer)
+Security Center Admin (roles/securitycenter.admin)
+Support User (roles/iam.supportUser)
+Model Armor Callout User (roles/modelarmor.calloutUser)
+Model Armor Floor Setting Admin (roles/modelarmor.floorSettingsAdmin)
+Model Armor Floor Setting Viewer (roles/modelarmor.floorSettingsViewer)
+Model Armor User (roles/modelarmor.user)
+Service agent roles
+Warning: Don't grant service agent roles to any principals except service agents.
+Vertex AI Reasoning Engine Service Agent (roles/aiplatform.reasoningEngineServiceAgent)
+|
+modelarmor.locations.list
+|
+Admin (roles/admin)
+Owner (roles/owner)
+Writer (roles/writer)
+Editor (roles/editor)
+Reader (roles/reader)
+Viewer (roles/viewer)
+Security Admin (roles/iam.securityAdmin)
+Security Reviewer (roles/iam.securityReviewer)
+Model Armor Admin (roles/modelarmor.admin)
+Model Armor Editor (roles/modelarmor.editor)
+Model Armor Viewer (roles/modelarmor.viewer)
+Security Center Admin (roles/securitycenter.admin)
+Security Auditor (roles/iam.securityAuditor)
+Support User (roles/iam.supportUser)
+Model Armor Callout User (roles/modelarmor.calloutUser)
+Model Armor Floor Setting Admin (roles/modelarmor.floorSettingsAdmin)
+Model Armor Floor Setting Viewer (roles/modelarmor.floorSettingsViewer)
+Model Armor User (roles/modelarmor.user)
+Service agent roles
+Warning: Don't grant service agent roles to any principals except service agents.
+Vertex AI Reasoning Engine Service Agent (roles/aiplatform.reasoningEngineServiceAgent)
+|
+modelarmor.templates.create
+|
+Admin (roles/admin)
+Owner (roles/owner)
+Writer (roles/writer)
+Editor (roles/editor)
+Model Armor Admin (roles/modelarmor.admin)
+Model Armor Editor (roles/modelarmor.editor)
+Security Center Admin (roles/securitycenter.admin)
+|
+modelarmor.templates.delete
+|
+Admin (roles/admin)
+Owner (roles/owner)
+Writer (roles/writer)
+Editor (roles/editor)
+Model Armor Admin (roles/modelarmor.admin)
+Model Armor Editor (roles/modelarmor.editor)
+Security Center Admin (roles/securitycenter.admin)
+|
+modelarmor.templates.get
+|
+Admin (roles/admin)
+Owner (roles/owner)
+Writer (roles/writer)
+Editor (roles/editor)
+Reader (roles/reader)
+Viewer (roles/viewer)
+Model Armor Admin (roles/modelarmor.admin)
+Model Armor Editor (roles/modelarmor.editor)
+Model Armor Viewer (roles/modelarmor.viewer)
+Security Center Admin (roles/securitycenter.admin)
+Support User (roles/iam.supportUser)
+|
+modelarmor.templates.list
+|
+Admin (roles/admin)
+Owner (roles/owner)
+Writer (roles/writer)
+Editor (roles/editor)
+Reader (roles/reader)
+Viewer (roles/viewer)
+Security Admin (roles/iam.securityAdmin)
+Security Reviewer (roles/iam.securityReviewer)
+Model Armor Admin (roles/modelarmor.admin)
+Model Armor Editor (roles/modelarmor.editor)
+Model Armor Viewer (roles/modelarmor.viewer)
+Security Center Admin (roles/securitycenter.admin)
+Security Auditor (roles/iam.securityAuditor)
+Support User (roles/iam.supportUser)
+|
+modelarmor.templates.update
+|
+Admin (roles/admin)
+Owner (roles/owner)
+Writer (roles/writer)
+Editor (roles/editor)
+Model Armor Admin (roles/modelarmor.admin)
+Model Armor Editor (roles/modelarmor.editor)
+Security Center Admin (roles/securitycenter.admin)
+|
+modelarmor.templates.useToSanitizeInput
+|
+Admin (roles/admin)
+Owner (roles/owner)
+Writer (roles/writer)
+Editor (roles/editor)
+Model Armor Admin (roles/modelarmor.admin)
+Model Armor Editor (roles/modelarmor.editor)
+Security Center Admin (roles/securitycenter.admin)
+Model Armor User (roles/modelarmor.user)
+Service agent roles
+Warning: Don't grant service agent roles to any principals except service agents.
+Vertex AI Reasoning Engine Service Agent (roles/aiplatform.reasoningEngineServiceAgent)
+|
+modelarmor.templates.useToSanitizeModelResponse
+|
+Admin (roles/admin)
+Owner (roles/owner)
+Writer (roles/writer)
+Editor (roles/editor)
+Model Armor Admin (roles/modelarmor.admin)
+Model Armor Editor (roles/modelarmor.editor)
+Security Center Admin (roles/securitycenter.admin)
+Model Armor User (roles/modelarmor.user)
+Service agent roles
+Warning: Don't grant service agent roles to any principals except service agents.
+Vertex AI Reasoning Engine Service Agent (roles/aiplatform.reasoningEngineServiceAgent)
+Discovery Engine Service Agent (roles/discoveryengine.serviceAgent)
+|
+modelarmor.templates.useToSanitizeOutput
+|
+Admin (roles/admin)
+Owner (roles/owner)
+Writer (roles/writer)
+Editor (roles/editor)
+Model Armor Admin (roles/modelarmor.admin)
+Model Armor Editor (roles/modelarmor.editor)
+Security Center Admin (roles/securitycenter.admin)
+Model Armor User (roles/modelarmor.user)
+Service agent roles
+Warning: Don't grant service agent roles to any principals except service agents.
+Vertex AI Reasoning Engine Service Agent (roles/aiplatform.reasoningEngineServiceAgent)
+|
+modelarmor.templates.useToSanitizeUserPrompt
+|
+Admin (roles/admin)
+Owner (roles/owner)
+Writer (roles/writer)
+Editor (roles/editor)
+Model Armor Admin (roles/modelarmor.admin)
+Model Armor Editor (roles/modelarmor.editor)
+Security Center Admin (roles/securitycenter.admin)
+Model Armor User (roles/modelarmor.user)
+Service agent roles
+Warning: Don't grant service agent roles to any principals except service agents.
+Vertex AI Reasoning Engine Service Agent (roles/aiplatform.reasoningEngineServiceAgent)
+Discovery Engine Service Agent (roles/discoveryengine.serviceAgent)
+|
+modelarmor.templates.useToStreamSanitizeModelResponse
+|
+Admin (roles/admin)
+Owner (roles/owner)
+Writer (roles/writer)
+Editor (roles/editor)
+Model Armor Admin (roles/modelarmor.admin)
+Model Armor Editor (roles/modelarmor.editor)
+Security Center Admin (roles/securitycenter.admin)
+Model Armor User (roles/modelarmor.user)
+|
+modelarmor.templates.useToStreamSanitizeUserPrompt
+|
+Admin (roles/admin)
+Owner (roles/owner)
+Writer (roles/writer)
+Editor (roles/editor)
+Model Armor Admin (roles/modelarmor.admin)
+Model Armor Editor (roles/modelarmor.editor)
+Security Center Admin (roles/securitycenter.admin)
+Model Armor User (roles/modelarmor.user)
+|
+modelarmor.topics.create
+|
+Admin (roles/admin)
+Owner (roles/owner)
+Writer (roles/writer)
+Editor (roles/editor)
+Model Armor Admin (roles/modelarmor.admin)
+Model Armor Editor (roles/modelarmor.editor)
+Security Center Admin (roles/securitycenter.admin)
+|
+modelarmor.topics.delete
+|
+Admin (roles/admin)
+Owner (roles/owner)
+Writer (roles/writer)
+Editor (roles/editor)
+Model Armor Admin (roles/modelarmor.admin)
+Model Armor Editor (roles/modelarmor.editor)
+Security Center Admin (roles/securitycenter.admin)
+|
+modelarmor.topics.get
+|
+Admin (roles/admin)
+Owner (roles/owner)
+Writer (roles/writer)
+Editor (roles/editor)
+Reader (roles/reader)
+Viewer (roles/viewer)
+Model Armor Admin (roles/modelarmor.admin)
+Model Armor Editor (roles/modelarmor.editor)
+Model Armor Viewer (roles/modelarmor.viewer)
+Security Center Admin (roles/securitycenter.admin)
+Support User (roles/iam.supportUser)
+|
+modelarmor.topics.list
+|
+Admin (roles/admin)
+Owner (roles/owner)
+Writer (roles/writer)
+Editor (roles/editor)
+Reader (roles/reader)
+Viewer (roles/viewer)
+Security Admin (roles/iam.securityAdmin)
+Security Reviewer (roles/iam.securityReviewer)
+Model Armor Admin (roles/modelarmor.admin)
+Model Armor Editor (roles/modelarmor.editor)
+Model Armor Viewer (roles/modelarmor.viewer)
+Security Center Admin (roles/securitycenter.admin)
+Security Auditor (roles/iam.securityAuditor)
+Support User (roles/iam.supportUser)
+|
+modelarmor.topics.test
+|
+Admin (roles/admin)
+Owner (roles/owner)
+Writer (roles/writer)
+Editor (roles/editor)
+Model Armor Admin (roles/modelarmor.admin)
+Model Armor Editor (roles/modelarmor.editor)
+Security Center Admin (roles/securitycenter.admin)
+Model Armor User (roles/modelarmor.user)
+|
+modelarmor.topics.update
+|
+Admin (roles/admin)
+Owner (roles/owner)
+Writer (roles/writer)
+Editor (roles/editor)
+Model Armor Admin (roles/modelarmor.admin)
+Model Armor Editor (roles/modelarmor.editor)
+Security Center Admin (roles/securitycenter.admin)
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-08 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

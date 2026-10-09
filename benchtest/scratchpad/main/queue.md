@@ -23,3 +23,7 @@
 | modelarmor P0 Q04 / presidio P1 (vendor GitHub access) | R013 | main |
 | modelarmor P1 Q-D (inventory sheet letter) | rule: R003 — letter assigned at P8 in workbook order; brief's `3f` is provisional | main |
 | sdp P1 Q04 (sheet letter) / Q05 (seeds host) | R003 (letter at P8); seeds already on docs.cloud.google.com | main |
+| presidio P2 inventory Q1 (markers + `alpha` status) | main: config `markers` = legacy + inventory-only (R011); no status validator exists in inventory_sheet.py → vendor wording `alpha` stands (R007 vendor wording) | main |
+| presidio P2 inventory Q3 (2.2.364 release notes, presidio-research tag) | routed to presidio P5 resolver via triage | main |
+| presidio P2 inventory Q4 (NeMo row sourced from NVIDIA docs) | keep, attributed in plain text (R007 item 1 precedent: wrapper vendor's docs for its own semantics) | main |
+| presidio P2 inventory Q5 (14/31/10/14 vs targets) | accept; brief targets are not binding, P8 config asserts final counts | main |

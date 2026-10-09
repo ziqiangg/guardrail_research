@@ -1,0 +1,3872 @@
+# status 200  final_url https://docs.cloud.google.com/sensitive-data-protection/docs/creating-job-triggers  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Sensitive Data Protection
+Start free
+Overview
+Guides
+Reference
+Samples
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Samples
+Resources
+Console
+Discover
+Product overview
+Plan your data risk management strategy
+Evaluate your data risk management needs
+Learn about your data through discovery and inspection
+Recommended strategies for mitigating data risk
+Release notes
+Pricing
+Locations
+Global and regional endpoints for Sensitive Data Protection
+Sensitive Data Protection locations
+Specify a processing location
+Service method types
+Supported file types and scanning modes
+Get started
+Quickstarts
+Inspect text using the command-line tool
+Inspect text using a JSON request
+Schedule an inspection scan
+Create an inspection template
+De-identify and re-identify sensitive text
+Google Cloud Skills Boost labs
+Detect sensitive data
+Discover and profile data resources
+Overview of sensitive data discovery
+Common discovery enablement scenarios
+Allow discovery within service perimeters
+Profile your data
+Profile a single data resource
+Profile BigQuery data
+Estimate BigQuery data profiling cost
+Estimate the cost of profiling BigQuery data in a project
+Estimate the cost of profiling BigQuery data in an organization or folder
+Profile BigQuery data in a project
+Profile BigQuery data in an organization or folder
+Profile Cloud SQL data
+Profile Cloud SQL data in a project
+Profile Cloud SQL data in an organization or folder
+Manage connections
+Profile Cloud Storage data
+Profile Cloud Storage data in a project
+Profile Cloud Storage data in an organization or folder
+Profile Vertex AI data
+Sensitive data discovery for Vertex AI data
+Profile Vertex AI data in a project
+Profile Vertex AI data in an organization or folder
+Profile Amazon S3 data
+Sensitive data discovery for Amazon S3 data
+Profile Amazon S3 data
+Profile Azure Blob Storage data
+Report secrets in environment variables to Security Command Center
+Grant data profiling access to a service agent
+Manage data profiles
+Control IAM access to resources based on data sensitivity
+Send discovery insights to other services
+Enable discovery actions
+Send data profiles to Security Command Center
+Receive and parse Pub/Sub messages about data profiles
+Tag tables in Data Catalog based on insights from data profiles
+Add Knowledge Catalog aspects based on insights from data profiles
+Analyze and visualize data profiles
+Visualize data profiles in the discovery dashboard
+Analyze data profiles
+Remediate findings from the data profiler
+Manage scan configurations
+Troubleshoot issues with the data profiler
+Metrics reference
+Data risk and sensitivity levels
+Inspect for sensitive data
+Inspect data stored in Google Cloud
+Inspect data from any source
+Inspect unstructured text synchronously
+Inspect structured text synchronously
+Inspect an image synchronously
+Asynchronous inspection overview
+Inspect data from any source asynchronously
+Quote the sensitive data in the results
+Work with inspection results
+Actions
+Send inspection results to Knowledge Catalog as aspects
+Send inspection results to Data Catalog
+Send inspection results to Security Command Center
+Analyze and report on inspection findings
+Query inspection findings in BigQuery
+Parse findings stored as Protobuf text
+Jobs and job triggers
+Overview of jobs and job triggers
+Create and manage jobs and job triggers
+Web-based inspection demonstration app
+Allow or block content based on sensitivity
+Overview of content policies
+Create and manage content policies
+Configure detection
+Templates
+Overview of templates
+Create inspection templates
+InfoTypes and infoType detectors
+Overview of infoTypes and infoType detectors
+Built-in infoType detectors
+List built-in infoType detectors
+InfoType detector reference
+Custom infoType detectors
+Overview of custom infoType detectors
+Create a regular custom dictionary detector
+Create a large custom dictionary detector
+Create a custom regex detector
+Create a custom metadata label detector
+Custom infoType examples
+Manage infoTypes through the Google Cloud console
+Modify infoType detectors to refine scan results
+Match likelihood
+Likelihood overview
+Customize match likelihood
+Mask and de-identify data
+Overview
+Transformation methods
+Transformation reference
+Text classification and redaction
+Date shifting
+Generalization and bucketing
+Pseudonymization
+De-identify sensitive data
+De-identify data stored in Google Cloud
+Overview
+Through the Cloud console
+Through the DLP API
+Transformation details reference
+De-identify data from any source
+De-identify text or tabular content
+Examples of text redaction
+Examples of tabular data de-identification
+Image inspection and redaction
+Redact sensitive data from images
+Create a de-identification template
+Create a wrapped key
+De-identify BigQuery data at query time
+De-identification and re-identification of PII in large-scale datasets
+Redact sensitive data from PDF files
+Analyze re-identification risk
+Overview of re-identification risk analysis
+Re-identification risk analysis techniques
+Compute k-anonymity for a dataset
+Compute l-diversity for a dataset
+Compute k-map for a dataset
+Compute δ-presence for a dataset
+Compute numerical and categorical statistics
+Visualize re-identification risk using Data Studio
+Connect to other services
+Use Sensitive Data Protection with BigQuery
+Use Sensitive Data Protection with Cloud Storage
+Use Sensitive Data Protection with Cloud Storage
+Automate the classification of data uploaded to Cloud Storage
+Send inspection results to Data Catalog
+Send inspection results to Security Command Center
+Monitor your usage with Cloud Monitoring
+Use Sensitive Data Protection with AWS S3
+Use Sensitive Data Protection with JDBC Databases
+Use Sensitive Data Protection with Apigee
+Use Sensitive Data Protection with Data Fusion
+Build a secure anomaly detection solution using Dataflow, BigQuery ML, and Sensitive Data Protection
+Troubleshoot
+Troubleshoot issues with the data profiler
+Control access
+Authentication
+IAM
+Access control with IAM
+Sensitive Data Protection roles and permissions
+Sensitive Data Protection service agents
+Control access with VPC Service Controls
+Monitor
+Audit logging
+Monitor your usage with Cloud Monitoring
+Develop
+All Sensitive Data Protection code samples
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Cloud Data Loss Prevention (Cloud DLP) is now a part of Sensitive Data Protection. The API name remains the same: Cloud Data Loss Prevention API (DLP API). For information about the services that make up Sensitive Data Protection, see Sensitive Data Protection overview.
+Home
+Documentation
+Security
+Sensitive Data Protection
+Guides
+Send feedback
+Creating and scheduling Sensitive Data Protection inspection jobs
+Stay organized with collections
+Save and categorize content based on your preferences.
+This topic describes in detail how to create a Sensitive Data Protection inspection job,
+and how to schedule recurring inspection jobs by creating a job trigger. For a
+quick walkthrough of how to create a new job trigger using the
+Sensitive Data Protection UI, see Quickstart: Creating a Sensitive Data Protection
+job trigger.
+About inspection jobs and job triggers
+When Sensitive Data Protection performs an inspection scan to identify sensitive
+data, each scan runs as a job. Sensitive Data Protection creates and runs a job
+resource whenever you tell it to inspect your Google Cloud storage repositories,
+including Cloud Storage buckets, BigQuery tables,
+Datastore kinds, and external data.
+You schedule Sensitive Data Protection inspection scan jobs by creating job
+triggers. A job trigger automates the creation of Sensitive Data Protection jobs
+on a periodic basis, and can also be run on demand.
+To learn more about jobs and job triggers in Sensitive Data Protection, see the
+Jobs and job triggers conceptual page.
+Note: Prematurely
+canceling an operation midway through a job still incurs costs for the portion of
+the job that was completed. For more information about billing, see Sensitive Data Protection pricing.
+Create a new inspection job
+To create a new Sensitive Data Protection inspection job:
+Console
+In the Sensitive Data Protection section of the Google Cloud console, go to
+the Create job or job trigger page.
+Go to Create job or job trigger
+The Create job or job trigger page contains the following sections:
+Choose input data
+Configure detection
+Add actions
+Review
+Choose input data
+Name
+Enter a name for the job. You can use letters, numbers, and hyphens. Naming
+your job is optional. If you don't enter a name, Sensitive Data Protection will
+give the job a unique number identifier.
+Location
+From the Storage type menu, choose the kind of repository that stores the
+data you want to scan:
+Cloud Storage: Either enter the URL of the bucket you want to scan,
+or choose Include/exclude from the Location type
+menu, and then click Browse to navigate to the bucket or subfolder
+you want to scan. Select the Scan folder recursively checkbox to
+scan the specified directory and all contained directories. Leave it
+unselected to scan only the specified directory and no deeper.
+BigQuery: Enter the identifiers for the project, dataset,
+and table that you want to scan.
+Datastore: Enter the identifiers for the project,
+namespace (optional), and kind that you want to scan.
+Hybrid: You can add required labels, optional labels, and options for
+handling tabular data. For more information, see
+Types of metadata you can provide.
+Sampling
+Sampling is an optional way to save resources if you have a very large amount of
+data.
+Note: Sampling isn't supported on jobs and job triggers that are configured
+to de-identify findings.
+Under Sampling, you can choose whether to scan all the selected data or to
+sample the data by scanning a certain percentage. Sampling works differently
+depending on the type of storage repository you're scanning:
+For BigQuery, you can sample a subset of the total selected
+rows, corresponding to the percentage of files you specify to include in the
+scan.
+For Cloud Storage, if any file exceeds the size specified in the Max
+byte size to scan per file, Sensitive Data Protection scans it up to that
+maximum file size and then moves on to the next file.
+To turn on sampling, choose one of the following options from the first menu:
+Start sampling from top: Sensitive Data Protection starts the partial scan
+at the beginning of the data. For BigQuery, this starts the
+scan at the first row. For Cloud Storage, this starts the scan at the
+beginning of each file, and stops scanning once Sensitive Data Protection has
+scanned up to any specified maximum file size.
+Start sampling from random start: Sensitive Data Protection starts the
+partial scan at a random location within the data. For
+BigQuery, this starts the scan at a random row. For
+Cloud Storage, this setting only applies to files that exceed any
+specified maximum size. Sensitive Data Protection scans files under the maximum
+file size in their entirety, and scans files above the maximum file size up
+to the maximum.
+To perform a partial scan, you must also choose what percentage of the data you
+want to scan. Use the slider to set the percentage.
+You can also narrow the files or records to scan by date. To learn how,
+see Schedule, later in this topic.
+Note: Clicking Create here creates a job that runs once, immediately. If you
+want to create a job trigger that will run on a periodic schedule, click
+Continue. You must set a schedule to create a job trigger.
+Advanced configuration
+When you create a job for a scan of Cloud Storage buckets or
+BigQuery tables, you can narrow your search by specifying an
+advanced configuration. Specifically, you can configure:
+Files (Cloud Storage only): The file types to scan for, which
+include text, binary, and image files.
+Identifying fields (BigQuery only):
+Unique row identifiers within the table.
+For Cloud Storage, if any file exceeds the size specified in the Max
+byte size to scan per file, Sensitive Data Protection scans it up to that
+maximum file size and then moves on to the next file.
+To turn on sampling, choose what percentage of the data you want to scan. Use
+the slider to set the percentage. Then, choose one of the following options
+from the first menu:
+Start sampling from top: Sensitive Data Protection starts the partial scan
+at the beginning of the data. For BigQuery, this starts the
+scan at the first row. For Cloud Storage, this starts the scan at the
+beginning of each file, and stops scanning once Sensitive Data Protection has
+scanned up to any specified maximum file size (see above).
+Start sampling from random start: Sensitive Data Protection starts the
+partial scan at a random location within the data. For
+BigQuery, this starts the scan at a random row. For
+Cloud Storage, this setting only applies to files that exceed any
+specified maximum size. Sensitive Data Protection scans files under the maximum
+file size in their entirety, and scans files above the maximum file size up
+to the maximum.
+Files
+For files stored in Cloud Storage, you can specify the types to include in
+your scan under Files.
+You can choose from binary, text, image, CSV, TSV, Microsoft Word, Microsoft Excel,
+Microsoft Powerpoint, PDF, and Apache Avro files. For an exhaustive list of file
+extensions that Sensitive Data Protection can scan in Cloud Storage buckets,
+see FileType.
+Choosing Binary causes Sensitive Data Protection to scan files of
+types that are unrecognized.
+Identifying fields
+For tables in BigQuery, in the Identifying fields field, you
+can direct Sensitive Data Protection to include the values of the table's primary
+key columns in the results. Doing so lets you link the findings back to the
+table rows that contain them.
+Enter the names of the columns that uniquely identify each row within the
+table. If necessary, use dot notation to specify nested fields. You can
+add as many fields as you want.
+You must also turn on the Save to BigQuery action to export the findings to
+BigQuery. When the findings are exported to BigQuery, each finding
+contains the respective values of the identifying fields. For more information, see
+identifyingFields.
+Configure detection
+The Configure detection section is where you specify the types of sensitive
+data you want to scan for. Completing this section is optional. If you skip
+this section, Sensitive Data Protection will scan your data for a default set of
+infoTypes.
+Template
+You can optionally use a Sensitive Data Protection template to reuse configuration
+information you've specified previously.
+If you have already created a template that you want to use, click in the
+Template name field to see a list of existing inspection templates. Choose
+or type the name of the template you want to use.
+For more information about creating templates, see Creating
+Sensitive Data Protection inspection templates.
+InfoTypes
+InfoType detectors find sensitive data of a certain type. For example, the
+Sensitive Data Protection US_SOCIAL_SECURITY_NUMBER built-in infoType detector
+finds US Social Security numbers. In addition to the built-in infoType
+detectors, you can create your own custom infoType detectors.
+Under InfoTypes, choose the infoType detector that corresponds to a data
+type you want to scan for. We don't recommend leaving this section blank. Doing
+so causes Sensitive Data Protection to scan your data with a default
+set of infoTypes, which might include infoTypes that you don't need. For more
+information about each detector, see InfoType detector
+reference.
+For more information about how to manage built-in and custom infoTypes in
+this section, see Manage infoTypes through the Google Cloud console.
+Inspection rulesets
+Inspection rulesets let you customize both built-in and custom infoType detectors using
+context rules. The types of inspection rules are:
+Exclusion
+rules, which help exclude false or unwanted findings.
+Hotword rules,
+which help detect additional findings.
+Adjustment
+rules, which adjust the likelihood of findings based on the context in which they
+appear.
+To add a new ruleset, first specify one or more built-in or custom infoType detectors in the
+InfoTypes section. Select all infoType detectors that your rulesets modify
+(the target infoTypes) or use for assessment (the context infoTypes). Then, do
+the following:
+Click Add a ruleset.
+In the Choose target infoTypes field, select the infoTypes that the ruleset
+modifies if the rules are met.
+Click Add a rule to open a menu with options, including Hotword rule,
+Exclusion rule, and Adjustment rule.
+To create a hotword rule, select Hotword rule. Then, do the following:
+In the Hotword field, enter a regular expression that Sensitive Data Protection
+looks for.
+From the Hotword proximity menu, select whether the hotword you entered is
+found before or after the chosen infoType.
+In Hotword distance from infoType, enter the approximate number of characters
+between the hotword and the chosen infoType.
+In Confidence level adjustment, select whether to assign matches a fixed
+likelihood level, or to increase or
+decrease the default
+likelihood level by a certain amount.
+To create an exclusion rule, select Exclusion rule and the type of exclusion rule to
+create, for example, Regular expression. Then, do the following:
+Depending on the exclusion rule type that you selected, enter the regular expression, phrase,
+hotword, or context infoType that must be found for the rule to apply.
+Depending on the exclusion rule type that you selected, set the matching type or image
+containment type:
+If you selected a text-based exclusion rule, select one of the following matching
+types:
+Full match: The finding must completely match the text or context infoType that you
+provided.
+Partial match: A substring of the finding must match the text or context infoType
+that you provided.
+Inverse match: The finding must not match the text or context infoType that you
+provided.
+If you selected an image-based exclusion rule, select the required spatial relationship
+between the target and context infoTypes. For example, if you select Encloses, the
+context finding must enclose the target finding for the rule to apply.
+To create an adjustment rule, select Adjustment rule and the type of adjustment rule, for
+example, Adjust by image findings. Then, do the following:
+In the Context infoTypes field, select the infoType detectors that provide
+context for the target finding. Sensitive Data Protection uses context infoTypes to assess
+whether it must adjust the target infoType.
+In the Minimum likelihood field, select the lowest likelihood level that the
+context infoTypes can have and still trigger the adjustment rule. If the likelihood value of any
+detected context finding is lower than this value, Sensitive Data Protection doesn't adjust the
+likelihood of the target finding.
+For image findings, in the Image containment type field, select the required
+spatial relationship between the target and context infoTypes. For example, if you select
+Encloses, the context finding must enclose the target finding for the rule to apply.
+In the Likelihood field, select the new likelihood level to assign to the
+target finding.
+You can add more rulesets to further refine your scan results.
+Confidence threshold
+Every time Sensitive Data Protection detects a potential match for sensitive data,
+it assigns it a likelihood value on a scale from "Very unlikely"
+to "Very likely." When you set a likelihood value here, you are instructing
+Sensitive Data Protection to only match on data that corresponds to that likelihood
+value or higher.
+The default value of "Possible" is sufficient for most purposes. If you
+routinely get matches that are too broad, move the slider up. If you get
+too few matches, move the slider down.
+When you're done, click Continue.
+Add actions
+For Add actions, select one or more actions for
+Sensitive Data Protection to take after the job completes. For more information,
+see Enable inspection or risk analysis
+actions.
+After you select actions, click Continue.
+Review
+The Review section contains a JSON-formatted summary of the job settings
+you just specified.
+Click Create to create the job (if you didn't specify a schedule) and to
+run the job once. The job'sinformation page appears, which contains status and
+other information. If the job is currently running, you can click the
+Cancel button to stop it. You can also delete the job by clicking
+Delete.
+To return to the main Sensitive Data Protection page, click the Back arrow in
+the Google Cloud console.
+C#
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+using System;
+using System.Linq;
+using Google.Api.Gax.ResourceNames;
+using Google.Cloud.Dlp.V2;
+using static Google.Cloud.Dlp.V2.StorageConfig.Types;
+public class JobsCreate
+{
+public static DlpJob CreateJob(string projectId, string gcsPath)
+{
+var dlp = DlpServiceClient.Create();
+var storageConfig = new StorageConfig
+{
+CloudStorageOptions = new CloudStorageOptions
+{
+FileSet = new CloudStorageOptions.Types.FileSet()
+{
+Url = gcsPath
+}
+},
+TimespanConfig = new TimespanConfig
+{
+EnableAutoPopulationOfTimespanConfig = true
+}
+};
+var inspectConfig = new InspectConfig
+{
+InfoTypes = { new[] { "EMAIL_ADDRESS", "CREDIT_CARD_NUMBER" }.Select(it => new InfoType() { Name = it }) },
+IncludeQuote = true,
+MinLikelihood = Likelihood.Unlikely,
+Limits = new InspectConfig.Types.FindingLimits() { MaxFindingsPerItem = 100 }
+};
+var response = dlp.CreateDlpJob(new CreateDlpJobRequest
+{
+Parent = new LocationName(projectId, "global").ToString(),
+InspectJob = new InspectJobConfig
+{
+InspectConfig = inspectConfig,
+StorageConfig = storageConfig,
+}
+});
+Console.WriteLine($"Job: {response.Name} status: {response.State}");
+return response;
+}
+}
+Go
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import (
+"context"
+"fmt"
+"io"
+dlp "cloud.google.com/go/dlp/apiv2"
+"cloud.google.com/go/dlp/apiv2/dlppb"
+)
+// createJob creates an inspection job
+func createJob(w io.Writer, projectID, gcsPath string, infoTypeNames []string) error {
+// projectID := "my-project-id"
+// gcsPath := "gs://" + "your-bucket-name" + "path/to/file.txt";
+// infoTypeNames := []string{"EMAIL_ADDRESS", "PERSON_NAME", "LOCATION", "PHONE_NUMBER"}
+ctx := context.Background()
+// Initialize a client once and reuse it to send multiple requests. Clients
+// are safe to use across goroutines. When the client is no longer needed,
+// call the Close method to cleanup its resources.
+client, err := dlp.NewClient(ctx)
+if err != nil {
+return err
+}
+// Closing the client safely cleans up background resources.
+defer client.Close()
+// Specify the GCS file to be inspected.
+storageConfig := &dlppb.StorageConfig{
+Type: &dlppb.StorageConfig_CloudStorageOptions{
+CloudStorageOptions: &dlppb.CloudStorageOptions{
+FileSet: &dlppb.CloudStorageOptions_FileSet{
+Url: gcsPath,
+},
+},
+},
+// Set autoPopulateTimespan to true to scan only new content.
+TimespanConfig: &dlppb.StorageConfig_TimespanConfig{
+EnableAutoPopulationOfTimespanConfig: true,
+},
+}
+// Specify the type of info the inspection will look for.
+// See https://cloud.google.com/dlp/docs/infotypes-reference for complete list of info types.
+var infoTypes []*dlppb.InfoType
+for _, c := range infoTypeNames {
+infoTypes = append(infoTypes, &dlppb.InfoType{Name: c})
+}
+inspectConfig := &dlppb.InspectConfig{
+InfoTypes: infoTypes,
+IncludeQuote: true,
+// The minimum likelihood required before returning a match:
+// See: https://cloud.google.com/dlp/docs/likelihood
+MinLikelihood: dlppb.Likelihood_UNLIKELY,
+// The maximum number of findings to report (0 = server maximum)
+Limits: &dlppb.InspectConfig_FindingLimits{
+MaxFindingsPerItem: 100,
+},
+}
+// Create and send the request.
+req := dlppb.CreateDlpJobRequest{
+Parent: fmt.Sprintf("projects/%s/locations/global", projectID),
+Job: &dlppb.CreateDlpJobRequest_InspectJob{
+InspectJob: &dlppb.InspectJobConfig{
+InspectConfig: inspectConfig,
+StorageConfig: storageConfig,
+},
+},
+}
+// Send the request.
+response, err := client.CreateDlpJob(ctx, &req)
+if err != nil {
+return err
+}
+// Print the results.
+fmt.Fprintf(w, "Created a Dlp Job %v and Status is: %v", response.Name, response.State)
+return nil
+}
+Java
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import com.google.cloud.dlp.v2.DlpServiceClient;
+import com.google.privacy.dlp.v2.Action;
+import com.google.privacy.dlp.v2.CloudStorageOptions;
+import com.google.privacy.dlp.v2.CreateDlpJobRequest;
+import com.google.privacy.dlp.v2.DlpJob;
+import com.google.privacy.dlp.v2.InfoType;
+import com.google.privacy.dlp.v2.InspectConfig;
+import com.google.privacy.dlp.v2.InspectJobConfig;
+import com.google.privacy.dlp.v2.Likelihood;
+import com.google.privacy.dlp.v2.LocationName;
+import com.google.privacy.dlp.v2.StorageConfig;
+import com.google.privacy.dlp.v2.StorageConfig.TimespanConfig;
+import java.io.IOException;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+public class JobsCreate {
+public static void main(String[] args) throws Exception {
+// TODO(developer): Replace these variables before running the sample.
+String projectId = "your-project-id";
+String gcsPath = "gs://" + "your-bucket-name" + "path/to/file.txt";
+createJobs(projectId, gcsPath);
+}
+// Creates a DLP Job
+public static void createJobs(String projectId, String gcsPath) throws IOException {
+// Initialize client that will be used to send requests. This client only needs to be created
+// once, and can be reused for multiple requests. After completing all of your requests, call
+// the "close" method on the client to safely clean up any remaining background resources.
+try (DlpServiceClient dlpServiceClient = DlpServiceClient.create()) {
+// Set autoPopulateTimespan to true to scan only new content
+boolean autoPopulateTimespan = true;
+TimespanConfig timespanConfig =
+TimespanConfig.newBuilder()
+.setEnableAutoPopulationOfTimespanConfig(autoPopulateTimespan)
+.build();
+// Specify the GCS file to be inspected.
+CloudStorageOptions cloudStorageOptions =
+CloudStorageOptions.newBuilder()
+.setFileSet(CloudStorageOptions.FileSet.newBuilder().setUrl(gcsPath))
+.build();
+StorageConfig storageConfig =
+StorageConfig.newBuilder()
+.setCloudStorageOptions(cloudStorageOptions)
+.setTimespanConfig(timespanConfig)
+.build();
+// Specify the type of info the inspection will look for.
+// See https://cloud.google.com/dlp/docs/infotypes-reference for complete list of info types
+List<InfoType> infoTypes =
+Stream.of("EMAIL_ADDRESS", "PERSON_NAME", "LOCATION", "PHONE_NUMBER")
+.map(it -> InfoType.newBuilder().setName(it).build())
+.collect(Collectors.toList());
+// The minimum likelihood required before returning a match:
+// See: https://cloud.google.com/dlp/docs/likelihood
+Likelihood minLikelihood = Likelihood.UNLIKELY;
+// The maximum number of findings to report (0 = server maximum)
+InspectConfig.FindingLimits findingLimits =
+InspectConfig.FindingLimits.newBuilder().setMaxFindingsPerItem(100).build();
+InspectConfig inspectConfig =
+InspectConfig.newBuilder()
+.addAllInfoTypes(infoTypes)
+.setIncludeQuote(true)
+.setMinLikelihood(minLikelihood)
+.setLimits(findingLimits)
+.build();
+// Specify the action that is triggered when the job completes.
+Action.PublishSummaryToCscc publishSummaryToCscc =
+Action.PublishSummaryToCscc.getDefaultInstance();
+Action action = Action.newBuilder().setPublishSummaryToCscc(publishSummaryToCscc).build();
+// Configure the inspection job we want the service to perform.
+InspectJobConfig inspectJobConfig =
+InspectJobConfig.newBuilder()
+.setInspectConfig(inspectConfig)
+.setStorageConfig(storageConfig)
+.addActions(action)
+.build();
+// Construct the job creation request to be sent by the client.
+CreateDlpJobRequest createDlpJobRequest =
+CreateDlpJobRequest.newBuilder()
+.setParent(LocationName.of(projectId, "global").toString())
+.setInspectJob(inspectJobConfig)
+.build();
+// Send the job creation request and process the response.
+DlpJob createdDlpJob = dlpServiceClient.createDlpJob(createDlpJobRequest);
+System.out.println("Job created successfully: " + createdDlpJob.getName());
+}
+}
+}
+Node.js
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+// Imports the Google Cloud Data Loss Prevention library
+const DLP = require('@google-cloud/dlp');
+// Initialize google DLP Client
+const dlp = new DLP.DlpServiceClient();
+async function jobsCreate() {
+// Construct cloud storage configuration
+const cloudStorageConfig = {
+cloudStorageOptions: {
+fileSet: {
+url: cloudFileUrl,
+},
+},
+timespanConfig: {
+enableAutoPopulationOfTimespanConfig: true,
+},
+};
+// Construct inspect job configuration
+const inspectJob = {
+storageConfig: cloudStorageConfig,
+};
+// Construct inspect configuration
+const inspectConfig = {
+infoTypes: [
+{name: 'EMAIL_ADDRESS'},
+{name: 'PERSON_NAME'},
+{name: 'LOCATION'},
+{name: 'PHONE_NUMBER'},
+],
+includeQuote: true,
+minLikelihood: DLP.protos.google.privacy.dlp.v2.Likelihood.LIKELY,
+excludeInfoTypes: false,
+};
+// Combine configurations into a request for the service.
+const request = {
+parent: `projects/${projectId}/locations/global`,
+inspectJob: inspectJob,
+inspectConfig: inspectConfig,
+};
+// Send the request and receive response from the service
+const [response] = await dlp.createDlpJob(request);
+// Print the results
+console.log(`Job created successfully: ${response.name}`);
+}
+jobsCreate();
+PHP
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+use Google\Cloud\Dlp\V2\Action;
+use Google\Cloud\Dlp\V2\Action\PublishSummaryToCscc;
+use Google\Cloud\Dlp\V2\Client\DlpServiceClient;
+use Google\Cloud\Dlp\V2\CloudStorageOptions;
+use Google\Cloud\Dlp\V2\CloudStorageOptions\FileSet;
+use Google\Cloud\Dlp\V2\CreateDlpJobRequest;
+use Google\Cloud\Dlp\V2\InfoType;
+use Google\Cloud\Dlp\V2\InspectConfig;
+use Google\Cloud\Dlp\V2\InspectConfig\FindingLimits;
+use Google\Cloud\Dlp\V2\InspectJobConfig;
+use Google\Cloud\Dlp\V2\Likelihood;
+use Google\Cloud\Dlp\V2\StorageConfig;
+use Google\Cloud\Dlp\V2\StorageConfig\TimespanConfig;
+/**
+* Creates an inspection job with the Cloud Data Loss Prevention API.
+*
+* @param string $callingProjectId The project ID to run the API call under.
+* @param string $gcsPath GCS file to be inspected. Example : gs://GOOGLE_STORAGE_BUCKET_NAME/dlp_sample.csv
+*/
+function create_job(
+string $callingProjectId,
+string $gcsPath
+): void {
+// Instantiate a client.
+$dlp = new DlpServiceClient();
+// Set autoPopulateTimespan to true to scan only new content.
+$timespanConfig = (new TimespanConfig())
+->setEnableAutoPopulationOfTimespanConfig(true);
+// Specify the GCS file to be inspected.
+$cloudStorageOptions = (new CloudStorageOptions())
+->setFileSet((new FileSet())
+->setUrl($gcsPath));
+$storageConfig = (new StorageConfig())
+->setCloudStorageOptions(($cloudStorageOptions))
+->setTimespanConfig($timespanConfig);
+// ----- Construct inspection config -----
+$emailAddressInfoType = (new InfoType())
+->setName('EMAIL_ADDRESS');
+$personNameInfoType = (new InfoType())
+->setName('PERSON_NAME');
+$locationInfoType = (new InfoType())
+->setName('LOCATION');
+$phoneNumberInfoType = (new InfoType())
+->setName('PHONE_NUMBER');
+$infoTypes = [$emailAddressInfoType, $personNameInfoType, $locationInfoType, $phoneNumberInfoType];
+// Whether to include the matching string in the response.
+$includeQuote = true;
+// The minimum likelihood required before returning a match.
+$minLikelihood = likelihood::LIKELIHOOD_UNSPECIFIED;
+// The maximum number of findings to report (0 = server maximum).
+$limits = (new FindingLimits())
+->setMaxFindingsPerRequest(100);
+// Create the Inspect configuration object.
+$inspectConfig = (new InspectConfig())
+->setMinLikelihood($minLikelihood)
+->setLimits($limits)
+->setInfoTypes($infoTypes)
+->setIncludeQuote($includeQuote);
+// Specify the action that is triggered when the job completes.
+$action = (new Action())
+->setPublishSummaryToCscc(new PublishSummaryToCscc());
+// Configure the inspection job we want the service to perform.
+$inspectJobConfig = (new InspectJobConfig())
+->setInspectConfig($inspectConfig)
+->setStorageConfig($storageConfig)
+->setActions([$action]);
+// Send the job creation request and process the response.
+$parent = "projects/$callingProjectId/locations/global";
+$createDlpJobRequest = (new CreateDlpJobRequest())
+->setParent($parent)
+->setInspectJob($inspectJobConfig);
+$job = $dlp->createDlpJob($createDlpJobRequest);
+// Print results.
+printf($job->getName());
+}
+Python
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import google.cloud.dlp
+def create_dlp_job(
+project: str,
+bucket: str,
+info_types: list[str],
+job_id: str = None,
+max_findings: int = 100,
+auto_populate_timespan: bool = True,
+) -> None:
+"""Uses the Data Loss Prevention API to create a DLP job.
+Args:
+project: The project id to use as a parent resource.
+bucket: The name of the GCS bucket to scan. This sample scans all
+files in the bucket.
+info_types: A list of strings representing info types to look for.
+A full list of info type categories can be fetched from the API.
+job_id: The id of the job. If omitted, an id will be randomly generated.
+max_findings: The maximum number of findings to report; 0 = no maximum.
+auto_populate_timespan: Automatically populates time span config start
+and end times in order to scan new content only.
+"""
+# Instantiate a client.
+dlp = google.cloud.dlp_v2.DlpServiceClient()
+# Convert the project id into a full resource id.
+parent = f"projects/{project}"
+# Prepare info_types by converting the list of strings into a list of
+# dictionaries (protos are also accepted).
+info_types = [{"name": info_type} for info_type in info_types]
+# Construct the configuration dictionary. Keys which are None may
+# optionally be omitted entirely.
+inspect_config = {
+"info_types": info_types,
+"min_likelihood": google.cloud.dlp_v2.Likelihood.UNLIKELY,
+"limits": {"max_findings_per_request": max_findings},
+"include_quote": True,
+}
+# Construct a cloud_storage_options dictionary with the bucket's URL.
+url = f"gs://{bucket}/*"
+storage_config = {
+"cloud_storage_options": {"file_set": {"url": url}},
+# Time-based configuration for each storage object.
+"timespan_config": {
+# Auto-populate start and end times in order to scan new objects
+# only.
+"enable_auto_population_of_timespan_config": auto_populate_timespan
+},
+}
+# Construct the job definition.
+job = {"inspect_config": inspect_config, "storage_config": storage_config}
+# Call the API.
+response = dlp.create_dlp_job(
+request={"parent": parent, "inspect_job": job, "job_id": job_id}
+)
+# Print out the result.
+print(f"Job : {response.name} status: {response.state}")
+REST
+A job is represented in the DLP API by the
+DlpJobs
+resource. You can create a new job by using the DlpJob resource's
+projects.dlpJobs.create
+method.
+This sample JSON can be sent in a POST request to the specified
+Sensitive Data Protection REST endpoint. This example JSON demonstrates how to
+create a job in Sensitive Data Protection. The job is a Datastore
+inspection scan.
+To quickly try this out, you can use the API Explorer that's embedded below.
+Keep in mind that a successful request, even one created in API Explorer,
+will create a job. For general information about using JSON to send requests to
+the DLP API, see the JSON quickstart.
+JSON input:
+{
+"inspectJob": {
+"storageConfig": {
+"bigQueryOptions": {
+"tableReference": {
+"projectId": "bigquery-public-data",
+"datasetId": "san_francisco_sfpd_incidents",
+"tableId": "sfpd_incidents"
+}
+},
+"timespanConfig": {
+"startTime": "2020-01-01T00:00:01Z",
+"endTime": "2020-01-31T23:59:59Z",
+"timestampField": {
+"name": "timestamp"
+}
+}
+},
+"inspectConfig": {
+"infoTypes": [
+{
+"name": "PERSON_NAME"
+},
+{
+"name": "STREET_ADDRESS"
+}
+],
+"excludeInfoTypes": false,
+"includeQuote": true,
+"minLikelihood": "LIKELY"
+},
+"actions": [
+{
+"saveFindings": {
+"outputConfig": {
+"table": {
+"projectId": "[PROJECT-ID]",
+"datasetId": "[DATASET-ID]"
+}
+}
+}
+}
+]
+}
+}
+JSON output:
+The following output indicates that the job was successfully created.
+{
+"name": "projects/[PROJECT-ID]/dlpJobs/[JOB-ID]",
+"type": "INSPECT_JOB",
+"state": "PENDING",
+"inspectDetails": {
+"requestedOptions": {
+"snapshotInspectTemplate": {},
+"jobConfig": {
+"storageConfig": {
+"bigQueryOptions": {
+"tableReference": {
+"projectId": "bigquery-public-data",
+"datasetId": "san_francisco_sfpd_incidents",
+"tableId": "sfpd_incidents"
+}
+},
+"timespanConfig": {
+"startTime": "2020-01-01T00:00:01Z",
+"endTime": "2020-01-31T23:59:59Z",
+"timestampField": {
+"name": "timestamp"
+}
+}
+},
+"inspectConfig": {
+"infoTypes": [
+{
+"name": "PERSON_NAME"
+},
+{
+"name": "STREET_ADDRESS"
+}
+],
+"minLikelihood": "LIKELY",
+"limits": {},
+"includeQuote": true
+},
+"actions": [
+{
+"saveFindings": {
+"outputConfig": {
+"table": {
+"projectId": "[PROJECT-ID]",
+"datasetId": "[DATASET-ID]",
+"tableId": "[TABLE-ID]"
+}
+}
+}
+}
+]
+}
+},
+"result": {}
+},
+"createTime": "2020-07-10T07:26:33.643Z"
+}
+Create a new job trigger
+To create a new Sensitive Data Protection job trigger:
+Console
+In the Sensitive Data Protection section of the Google Cloud console, go to
+the Create job or job trigger page.
+Go to Create job or job trigger
+The Create job or job trigger page contains the following sections:
+Choose input data
+Configure detection
+Add actions
+Schedule
+Review
+Choose input data
+Name
+Enter a name for the job trigger. You can use letters, numbers, and hyphens.
+Naming your job trigger is optional. If you don't enter a name
+Sensitive Data Protection will give the job trigger a unique number identifier.
+Location
+From the Storage type menu, choose the kind of repository that stores the
+data you want to scan:
+Cloud Storage: Either enter the URL of the bucket you want to scan,
+or choose Include/exclude from the Location type
+menu, and then click Browse to navigate to the bucket or subfolder
+you want to scan. Select the Scan folder recursively checkbox to
+scan the specified directory and all contained directories. Leave it
+unselected to scan only the specified directory and no deeper.
+BigQuery: Enter the identifiers for the project, dataset,
+and table that you want to scan.
+Datastore: Enter the identifiers for the project,
+namespace (optional), and kind that you want to scan.
+Sampling
+Sampling is an optional way to save resources if you have a very large amount of
+data.
+Under Sampling, you can choose whether to scan all the selected data or to
+sample the data by scanning a certain percentage. Sampling works differently
+depending on the type of storage repository you're scanning:
+For BigQuery, you can sample a subset of the total selected
+rows, corresponding to the percentage of files you specify to include in the
+scan.
+For Cloud Storage, if any file exceeds the size specified in the Max
+byte size to scan per file, Sensitive Data Protection scans it up to that
+maximum file size and then moves on to the next file.
+To turn on sampling, choose one of the following options from the first menu:
+Start sampling from top: Sensitive Data Protection starts the partial scan
+at the beginning of the data. For BigQuery, this starts the
+scan at the first row. For Cloud Storage, this starts the scan at the
+beginning of each file, and stops scanning once Sensitive Data Protection has
+scanned up to any specified maximum file size (see above).
+Start sampling from random start: Sensitive Data Protection starts the
+partial scan at a random location within the data. For
+BigQuery, this starts the scan at a random row. For
+Cloud Storage, this setting only applies to files that exceed any
+specified maximum size. Sensitive Data Protection scans files under the maximum
+file size in their entirety, and scans files above the maximum file size up
+to the maximum.
+To perform a partial scan, you must also choose what percentage of the data you
+want to scan. Use the slider to set the percentage.
+Note: You can also narrow the files or records to scan by date. To learn how,
+see Schedule, later in this topic.Note: Clicking Create here creates a job that runs once, immediately. If you
+want to create a job trigger that will run on a periodic schedule, click
+Continue. You must set a schedule to create a job trigger.
+Advanced configuration
+When you create a job trigger for a scan of Cloud Storage buckets
+or BigQuery tables, you can narrow your search by specifying an
+advanced configuration. Specifically, you can configure:
+Files (Cloud Storage only): The file types to scan for, which
+include text, binary, and image files.
+Identifying fields (BigQuery only):
+Unique row identifiers within the table.
+For Cloud Storage, if any file exceeds the size specified in the Max
+byte size to scan per file, Sensitive Data Protection scans it up to that
+maximum file size and then moves on to the next file.
+To turn on sampling, choose what percentage of the data you want to scan. Use
+the slider to set the percentage. Then, choose one of the following options
+from the first menu:
+Start sampling from top: Sensitive Data Protection starts the partial scan
+at the beginning of the data. For BigQuery, this starts the
+scan at the first row. For Cloud Storage, this starts the scan at the
+beginning of each file, and stops scanning once Sensitive Data Protection has
+scanned up to any specified maximum file size (see above).
+Start sampling from random start: Sensitive Data Protection starts the
+partial scan at a random location within the data. For
+BigQuery, this starts the scan at a random row. For
+Cloud Storage, this setting only applies to files that exceed any
+specified maximum size. Sensitive Data Protection scans files under the maximum
+file size in their entirety, and scans files above the maximum file size up
+to the maximum.
+Note: You can also narrow the files or records to scan by date. To learn how,
+see Schedule, below.
+Files
+For files stored in Cloud Storage, you can specify the types to include in
+your scan under Files.
+You can choose from binary, text, image, Microsoft Word, Microsoft Excel,
+Microsoft Powerpoint, PDF, and Apache Avro
+files. For an exhaustive list of file extensions that Sensitive Data Protection can
+scan in Cloud Storage buckets, see
+FileType.
+Choosing Binary causes Sensitive Data Protection to scan files of
+types that are unrecognized.
+Identifying fields
+For tables in BigQuery, in the Identifying fields field, you
+can direct Sensitive Data Protection to include the values of the table's primary
+key columns in the results. Doing so lets you link the findings back to the
+table rows that contain them.
+Enter the names of the columns that uniquely identify each row within the
+table. If necessary, use dot notation to specify nested fields. You can
+add as many fields as you want.
+You must also turn on the Save to BigQuery action to export the findings to
+BigQuery. When the findings are exported to BigQuery, each finding
+contains the respective values of the identifying fields. For more information, see
+identifyingFields.
+Configure detection
+The Configure detection section is where you specify the types of sensitive
+data you want to scan for. Completing this section is optional. If you skip
+this section, Sensitive Data Protection will scan your data for a default set of
+infoTypes.
+Template
+You can optionally use a Sensitive Data Protection template to reuse configuration
+information you've specified previously.
+If you have already created a template that you want to use, click in the
+Template name field to see a list of existing inspection templates. Choose
+or type the name of the template you want to use.
+For more information about creating templates, see Creating
+Sensitive Data Protection inspection templates.
+InfoTypes
+InfoType detectors find sensitive data of a certain type. For example, the
+Sensitive Data Protection US_SOCIAL_SECURITY_NUMBER built-in infoType detector
+finds US Social Security numbers. In addition to the built-in infoType
+detectors, you can create your own custom infoType
+detectors.
+Under InfoTypes, choose the infoType detector that corresponds to a data
+type you want to scan for. You can also leave this field blank to scan for all
+default infoTypes. More information about each detector is provided in
+InfoType detector reference.
+You can also add custom infoType detectors in the Custom infoTypes section,
+and customize both built-in and custom infoType detectors in the Inspection
+rulesets section.
+Custom infoTypes
+To add custom infoTypes, see Add custom
+infoTypes.
+Inspection rulesets
+Inspection rulesets let you customize both built-in and custom infoType detectors using
+context rules. The types of inspection rules are:
+Exclusion
+rules, which help exclude false or unwanted findings.
+Hotword rules,
+which help detect additional findings.
+Adjustment
+rules, which adjust the likelihood of findings based on the context in which they
+appear.
+To add a new ruleset, first specify one or more built-in or custom infoType detectors in the
+InfoTypes section. Select all infoType detectors that your rulesets modify
+(the target infoTypes) or use for assessment (the context infoTypes). Then, do
+the following:
+Click Add a ruleset.
+In the Choose target infoTypes field, select the infoTypes that the ruleset
+modifies if the rules are met.
+Click Add a rule to open a menu with options, including Hotword rule,
+Exclusion rule, and Adjustment rule.
+To create a hotword rule, select Hotword rule. Then, do the following:
+In the Hotword field, enter a regular expression that Sensitive Data Protection
+looks for.
+From the Hotword proximity menu, select whether the hotword you entered is
+found before or after the chosen infoType.
+In Hotword distance from infoType, enter the approximate number of characters
+between the hotword and the chosen infoType.
+In Confidence level adjustment, select whether to assign matches a fixed
+likelihood level, or to increase or
+decrease the default
+likelihood level by a certain amount.
+To create an exclusion rule, select Exclusion rule and the type of exclusion rule to
+create, for example, Regular expression. Then, do the following:
+Depending on the exclusion rule type that you selected, enter the regular expression, phrase,
+hotword, or context infoType that must be found for the rule to apply.
+Depending on the exclusion rule type that you selected, set the matching type or image
+containment type:
+If you selected a text-based exclusion rule, select one of the following matching
+types:
+Full match: The finding must completely match the text or context infoType that you
+provided.
+Partial match: A substring of the finding must match the text or context infoType
+that you provided.
+Inverse match: The finding must not match the text or context infoType that you
+provided.
+If you selected an image-based exclusion rule, select the required spatial relationship
+between the target and context infoTypes. For example, if you select Encloses, the
+context finding must enclose the target finding for the rule to apply.
+To create an adjustment rule, select Adjustment rule and the type of adjustment rule, for
+example, Adjust by image findings. Then, do the following:
+In the Context infoTypes field, select the infoType detectors that provide
+context for the target finding. Sensitive Data Protection uses context infoTypes to assess
+whether it must adjust the target infoType.
+In the Minimum likelihood field, select the lowest likelihood level that the
+context infoTypes can have and still trigger the adjustment rule. If the likelihood value of any
+detected context finding is lower than this value, Sensitive Data Protection doesn't adjust the
+likelihood of the target finding.
+For image findings, in the Image containment type field, select the required
+spatial relationship between the target and context infoTypes. For example, if you select
+Encloses, the context finding must enclose the target finding for the rule to apply.
+In the Likelihood field, select the new likelihood level to assign to the
+target finding.
+You can add more rulesets to further refine your scan results.
+Confidence threshold
+Every time Sensitive Data Protection detects a potential match for sensitive data,
+it assigns it a likelihood value on a scale from "Very unlikely"
+to "Very likely." When you set a likelihood value here, you are instructing
+Sensitive Data Protection to only match on data that corresponds to that likelihood
+value or higher.
+The default value of "Possible" is sufficient for most purposes. If you
+routinely get matches that are too broad, move the slider up. If you get
+too few matches, move the slider down.
+When you're done, click Continue.
+Add actions
+For Add actions, select one or more actions for
+Sensitive Data Protection to take after the job completes. For more information,
+see Enable inspection or risk analysis
+actions.
+After you select actions, click Continue.
+Schedule
+In the Schedule section, you can do two things:
+Specify time span: This option limits the files or rows to scan by date.
+Click Start time to specify the earliest file timestamp to include.
+Leave this value blank to specify all files. Click End time to specify
+the latest file timestamp to include. Leave this value blank to specify
+no upper timestamp limit.
+Create a trigger to run the job on a periodic schedule: This option
+turns the job into a job trigger that runs on a periodic schedule. If you
+don't specify a schedule, you effectively create a single job that starts
+immediately and runs once. To create a job trigger that runs regularly, you
+must set this option.
+The default value is also the minimum value: 24 hours. The maximum value is
+60 days.
+If you want Sensitive Data Protection to scan only new files or rows, select
+Limit scans only to new content. For BigQuery inspection, only
+rows that are at least three hours old are included in the scan. See the
+known issue
+related to this operation.
+Review
+The Review section contains a JSON-formatted summary of the job settings
+you just specified.
+Click Create to create the job trigger (if you specified a schedule). The
+job trigger's information page appears, which contains status and other
+information. If the job is currently running, you can click the Cancel
+button to stop it. You can also delete the job trigger by clicking Delete.
+To return to the main Sensitive Data Protection page, click the Back arrow in
+the Google Cloud console.
+C#
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+using Google.Api.Gax.ResourceNames;
+using Google.Cloud.Dlp.V2;
+using System;
+using System.Collections.Generic;
+using static Google.Cloud.Dlp.V2.CloudStorageOptions.Types;
+using static Google.Cloud.Dlp.V2.InspectConfig.Types;
+using static Google.Cloud.Dlp.V2.JobTrigger.Types;
+using static Google.Cloud.Dlp.V2.StorageConfig.Types;
+public class TriggersCreate
+{
+public static JobTrigger Create(
+string projectId,
+string bucketName,
+Likelihood minLikelihood,
+int maxFindings,
+bool autoPopulateTimespan,
+int scanPeriod,
+IEnumerable<InfoType> infoTypes,
+string triggerId,
+string displayName,
+string description)
+{
+var dlp = DlpServiceClient.Create();
+var jobConfig = new InspectJobConfig
+{
+InspectConfig = new InspectConfig
+{
+MinLikelihood = minLikelihood,
+Limits = new FindingLimits
+{
+MaxFindingsPerRequest = maxFindings
+},
+InfoTypes = { infoTypes }
+},
+StorageConfig = new StorageConfig
+{
+CloudStorageOptions = new CloudStorageOptions
+{
+FileSet = new FileSet
+{
+Url = $"gs://{bucketName}/*"
+}
+},
+TimespanConfig = new TimespanConfig
+{
+EnableAutoPopulationOfTimespanConfig = autoPopulateTimespan
+}
+}
+};
+var jobTrigger = new JobTrigger
+{
+Triggers =
+{
+new Trigger
+{
+Schedule = new Schedule
+{
+RecurrencePeriodDuration = new Google.Protobuf.WellKnownTypes.Duration
+{
+Seconds = scanPeriod * 60 * 60 * 24
+}
+}
+}
+},
+InspectJob = jobConfig,
+Status = Status.Healthy,
+DisplayName = displayName,
+Description = description
+};
+var response = dlp.CreateJobTrigger(
+new CreateJobTriggerRequest
+{
+Parent = new LocationName(projectId, "global").ToString(),
+JobTrigger = jobTrigger,
+TriggerId = triggerId
+});
+Console.WriteLine($"Successfully created trigger {response.Name}");
+return response;
+}
+}
+Go
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import (
+"context"
+"fmt"
+"io"
+dlp "cloud.google.com/go/dlp/apiv2"
+"cloud.google.com/go/dlp/apiv2/dlppb"
+"github.com/golang/protobuf/ptypes/duration"
+)
+// createTrigger creates a trigger with the given configuration.
+func createTrigger(w io.Writer, projectID string, triggerID, displayName, description, bucketName string, infoTypeNames []string) error {
+// projectID := "my-project-id"
+// triggerID := "my-trigger"
+// displayName := "My Trigger"
+// description := "My trigger description"
+// bucketName := "my-bucket"
+// infoTypeNames := []string{"US_SOCIAL_SECURITY_NUMBER"}
+ctx := context.Background()
+client, err := dlp.NewClient(ctx)
+if err != nil {
+return fmt.Errorf("dlp.NewClient: %w", err)
+}
+defer client.Close()
+// Convert the info type strings to a list of InfoTypes.
+var infoTypes []*dlppb.InfoType
+for _, it := range infoTypeNames {
+infoTypes = append(infoTypes, &dlppb.InfoType{Name: it})
+}
+// Create a configured request.
+req := &dlppb.CreateJobTriggerRequest{
+Parent: fmt.Sprintf("projects/%s/locations/global", projectID),
+TriggerId: triggerID,
+JobTrigger: &dlppb.JobTrigger{
+DisplayName: displayName,
+Description: description,
+Status: dlppb.JobTrigger_HEALTHY,
+// Triggers control when the job will start.
+Triggers: []*dlppb.JobTrigger_Trigger{
+{
+Trigger: &dlppb.JobTrigger_Trigger_Schedule{
+Schedule: &dlppb.Schedule{
+Option: &dlppb.Schedule_RecurrencePeriodDuration{
+RecurrencePeriodDuration: &duration.Duration{
+Seconds: 10 * 60 * 60 * 24, // 10 days in seconds.
+},
+},
+},
+},
+},
+},
+// Job configures the job to run when the trigger runs.
+Job: &dlppb.JobTrigger_InspectJob{
+InspectJob: &dlppb.InspectJobConfig{
+InspectConfig: &dlppb.InspectConfig{
+InfoTypes: infoTypes,
+MinLikelihood: dlppb.Likelihood_POSSIBLE,
+Limits: &dlppb.InspectConfig_FindingLimits{
+MaxFindingsPerRequest: 10,
+},
+},
+StorageConfig: &dlppb.StorageConfig{
+Type: &dlppb.StorageConfig_CloudStorageOptions{
+CloudStorageOptions: &dlppb.CloudStorageOptions{
+FileSet: &dlppb.CloudStorageOptions_FileSet{
+Url: "gs://" + bucketName + "/*",
+},
+},
+},
+// Time-based configuration for each storage object. See more at
+// https://cloud.google.com/dlp/docs/reference/rest/v2/InspectJobConfig#TimespanConfig
+TimespanConfig: &dlppb.StorageConfig_TimespanConfig{
+// Auto-populate start and end times in order to scan new objects only.
+EnableAutoPopulationOfTimespanConfig: true,
+},
+},
+},
+},
+},
+}
+// Send the request.
+resp, err := client.CreateJobTrigger(ctx, req)
+if err != nil {
+return fmt.Errorf("CreateJobTrigger: %w", err)
+}
+fmt.Fprintf(w, "Successfully created trigger: %v", resp.GetName())
+return nil
+}
+Java
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import com.google.cloud.dlp.v2.DlpServiceClient;
+import com.google.privacy.dlp.v2.CloudStorageOptions;
+import com.google.privacy.dlp.v2.CreateJobTriggerRequest;
+import com.google.privacy.dlp.v2.InfoType;
+import com.google.privacy.dlp.v2.InspectConfig;
+import com.google.privacy.dlp.v2.InspectJobConfig;
+import com.google.privacy.dlp.v2.JobTrigger;
+import com.google.privacy.dlp.v2.LocationName;
+import com.google.privacy.dlp.v2.Schedule;
+import com.google.privacy.dlp.v2.StorageConfig;
+import com.google.privacy.dlp.v2.StorageConfig.TimespanConfig;
+import com.google.protobuf.Duration;
+import java.io.IOException;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+public class TriggersCreate {
+public static void main(String[] args) throws Exception {
+// TODO(developer): Replace these variables before running the sample.
+String projectId = "your-project-id";
+String gcsPath = "gs://" + "your-bucket-name" + "path/to/file.txt";
+createTrigger(projectId, gcsPath);
+}
+public static void createTrigger(String projectId, String gcsPath) throws IOException {
+// Initialize client that will be used to send requests. This client only needs to be created
+// once, and can be reused for multiple requests. After completing all of your requests, call
+// the "close" method on the client to safely clean up any remaining background resources.
+try (DlpServiceClient dlpServiceClient = DlpServiceClient.create()) {
+// Set autoPopulateTimespan to true to scan only new content
+boolean autoPopulateTimespan = true;
+TimespanConfig timespanConfig =
+TimespanConfig.newBuilder()
+.setEnableAutoPopulationOfTimespanConfig(autoPopulateTimespan)
+.build();
+// Specify the GCS file to be inspected.
+CloudStorageOptions cloudStorageOptions =
+CloudStorageOptions.newBuilder()
+.setFileSet(CloudStorageOptions.FileSet.newBuilder().setUrl(gcsPath))
+.build();
+StorageConfig storageConfig =
+StorageConfig.newBuilder()
+.setCloudStorageOptions(cloudStorageOptions)
+.setTimespanConfig(timespanConfig)
+.build();
+// Specify the type of info the inspection will look for.
+// See https://cloud.google.com/dlp/docs/infotypes-reference for complete list of info types
+List<InfoType> infoTypes =
+Stream.of("PHONE_NUMBER", "EMAIL_ADDRESS", "CREDIT_CARD_NUMBER")
+.map(it -> InfoType.newBuilder().setName(it).build())
+.collect(Collectors.toList());
+InspectConfig inspectConfig = InspectConfig.newBuilder().addAllInfoTypes(infoTypes).build();
+// Configure the inspection job we want the service to perform.
+InspectJobConfig inspectJobConfig =
+InspectJobConfig.newBuilder()
+.setInspectConfig(inspectConfig)
+.setStorageConfig(storageConfig)
+.build();
+// Set scanPeriod to the number of days between scans (minimum: 1 day)
+int scanPeriod = 1;
+// Optionally set a display name of max 100 chars and a description of max 250 chars
+String displayName = "Daily Scan";
+String description = "A daily inspection for personally identifiable information.";
+// Schedule scan of GCS bucket every scanPeriod number of days (minimum = 1 day)
+Duration duration = Duration.newBuilder().setSeconds(scanPeriod * 24 * 3600).build();
+Schedule schedule = Schedule.newBuilder().setRecurrencePeriodDuration(duration).build();
+JobTrigger.Trigger trigger = JobTrigger.Trigger.newBuilder().setSchedule(schedule).build();
+JobTrigger jobTrigger =
+JobTrigger.newBuilder()
+.setInspectJob(inspectJobConfig)
+.setDisplayName(displayName)
+.setDescription(description)
+.setStatus(JobTrigger.Status.HEALTHY)
+.addTriggers(trigger)
+.build();
+// Create scan request to be sent by client
+CreateJobTriggerRequest createJobTriggerRequest =
+CreateJobTriggerRequest.newBuilder()
+.setParent(LocationName.of(projectId, "global").toString())
+.setJobTrigger(jobTrigger)
+.build();
+// Send the scan request and process the response
+JobTrigger createdJobTrigger = dlpServiceClient.createJobTrigger(createJobTriggerRequest);
+System.out.println("Created Trigger: " + createdJobTrigger.getName());
+System.out.println("Display Name: " + createdJobTrigger.getDisplayName());
+System.out.println("Description: " + createdJobTrigger.getDescription());
+}
+}
+}
+Node.js
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+// Imports the Google Cloud Data Loss Prevention library
+const DLP = require('@google-cloud/dlp');
+// Instantiates a client
+const dlp = new DLP.DlpServiceClient();
+// The project ID to run the API call under
+// const projectId = 'my-project';
+// (Optional) The name of the trigger to be created.
+// const triggerId = 'my-trigger';
+// (Optional) A display name for the trigger to be created
+// const displayName = 'My Trigger';
+// (Optional) A description for the trigger to be created
+// const description = "This is a sample trigger.";
+// The name of the bucket to scan.
+// const bucketName = 'YOUR-BUCKET';
+// Limit scan to new content only.
+// const autoPopulateTimespan = true;
+// How often to wait between scans, in days (minimum = 1 day)
+// const scanPeriod = 1;
+// The infoTypes of information to match
+// const infoTypes = [{ name: 'PHONE_NUMBER' }, { name: 'EMAIL_ADDRESS' }, { name: 'CREDIT_CARD_NUMBER' }];
+// The minimum likelihood required before returning a match
+// const minLikelihood = 'LIKELIHOOD_UNSPECIFIED';
+// The maximum number of findings to report per request (0 = server maximum)
+// const maxFindings = 0;
+async function createTrigger() {
+// Get reference to the bucket to be inspected
+const storageItem = {
+cloudStorageOptions: {
+fileSet: {url: `gs://${bucketName}/*`},
+},
+timeSpanConfig: {
+enableAutoPopulationOfTimespanConfig: autoPopulateTimespan,
+},
+};
+// Construct job to be triggered
+const job = {
+inspectConfig: {
+infoTypes: infoTypes,
+minLikelihood: minLikelihood,
+limits: {
+maxFindingsPerRequest: maxFindings,
+},
+},
+storageConfig: storageItem,
+};
+// Construct trigger creation request
+const request = {
+parent: `projects/${projectId}/locations/global`,
+jobTrigger: {
+inspectJob: job,
+displayName: displayName,
+description: description,
+triggers: [
+{
+schedule: {
+recurrencePeriodDuration: {
+seconds: scanPeriod * 60 * 60 * 24, // Trigger the scan daily
+},
+},
+},
+],
+status: 'HEALTHY',
+},
+triggerId: triggerId,
+};
+// Run trigger creation request
+const [trigger] = await dlp.createJobTrigger(request);
+console.log(`Successfully created trigger ${trigger.name}.`);
+}
+createTrigger();
+PHP
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+use Google\Cloud\Dlp\V2\Client\DlpServiceClient;
+use Google\Cloud\Dlp\V2\CloudStorageOptions;
+use Google\Cloud\Dlp\V2\CloudStorageOptions\FileSet;
+use Google\Cloud\Dlp\V2\CreateJobTriggerRequest;
+use Google\Cloud\Dlp\V2\InfoType;
+use Google\Cloud\Dlp\V2\InspectConfig;
+use Google\Cloud\Dlp\V2\InspectConfig\FindingLimits;
+use Google\Cloud\Dlp\V2\InspectJobConfig;
+use Google\Cloud\Dlp\V2\JobTrigger;
+use Google\Cloud\Dlp\V2\JobTrigger\Status;
+use Google\Cloud\Dlp\V2\JobTrigger\Trigger;
+use Google\Cloud\Dlp\V2\Likelihood;
+use Google\Cloud\Dlp\V2\Schedule;
+use Google\Cloud\Dlp\V2\StorageConfig;
+use Google\Cloud\Dlp\V2\StorageConfig\TimespanConfig;
+use Google\Protobuf\Duration;
+/**
+* Create a Data Loss Prevention API job trigger.
+*
+* @param string $callingProjectId The project ID to run the API call under
+* @param string $bucketName The name of the bucket to scan
+* @param string $triggerId (Optional) The name of the trigger to be created
+* @param string $displayName (Optional) The human-readable name to give the trigger
+* @param string $description (Optional) A description for the trigger to be created
+* @param int $scanPeriod (Optional) How often to wait between scans, in days (minimum = 1 day)
+* @param bool $autoPopulateTimespan (Optional) Automatically limit scan to new content only
+* @param int $maxFindings (Optional) The maximum number of findings to report per request (0 = server maximum)
+*/
+function create_trigger(
+string $callingProjectId,
+string $bucketName,
+string $triggerId,
+string $displayName,
+string $description,
+int $scanPeriod,
+bool $autoPopulateTimespan,
+int $maxFindings
+): void {
+// Instantiate a client.
+$dlp = new DlpServiceClient();
+// ----- Construct job config -----
+// The infoTypes of information to match
+$personNameInfoType = (new InfoType())
+->setName('PERSON_NAME');
+$phoneNumberInfoType = (new InfoType())
+->setName('PHONE_NUMBER');
+$infoTypes = [$personNameInfoType, $phoneNumberInfoType];
+// The minimum likelihood required before returning a match
+$minLikelihood = likelihood::LIKELIHOOD_UNSPECIFIED;
+// Specify finding limits
+$limits = (new FindingLimits())
+->setMaxFindingsPerRequest($maxFindings);
+// Create the inspectConfig object
+$inspectConfig = (new InspectConfig())
+->setMinLikelihood($minLikelihood)
+->setLimits($limits)
+->setInfoTypes($infoTypes);
+// Create triggers
+$duration = (new Duration())
+->setSeconds($scanPeriod * 60 * 60 * 24);
+$schedule = (new Schedule())
+->setRecurrencePeriodDuration($duration);
+$triggerObject = (new Trigger())
+->setSchedule($schedule);
+// Create the storageConfig object
+$fileSet = (new FileSet())
+->setUrl('gs://' . $bucketName . '/*');
+$storageOptions = (new CloudStorageOptions())
+->setFileSet($fileSet);
+// Auto-populate start and end times in order to scan new objects only.
+$timespanConfig = (new TimespanConfig())
+->setEnableAutoPopulationOfTimespanConfig($autoPopulateTimespan);
+$storageConfig = (new StorageConfig())
+->setCloudStorageOptions($storageOptions)
+->setTimespanConfig($timespanConfig);
+// Construct the jobConfig object
+$jobConfig = (new InspectJobConfig())
+->setInspectConfig($inspectConfig)
+->setStorageConfig($storageConfig);
+// ----- Construct trigger object -----
+$jobTriggerObject = (new JobTrigger())
+->setTriggers([$triggerObject])
+->setInspectJob($jobConfig)
+->setStatus(Status::HEALTHY)
+->setDisplayName($displayName)
+->setDescription($description);
+// Run trigger creation request
+$parent = $dlp->locationName($callingProjectId, 'global');
+$createJobTriggerRequest = (new CreateJobTriggerRequest())
+->setParent($parent)
+->setJobTrigger($jobTriggerObject)
+->setTriggerId($triggerId);
+$trigger = $dlp->createJobTrigger($createJobTriggerRequest);
+// Print results
+printf('Successfully created trigger %s' . PHP_EOL, $trigger->getName());
+}
+Python
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+from typing import Optional
+import google.cloud.dlp
+def create_trigger(
+project: str,
+bucket: str,
+scan_period_days: int,
+info_types: List[str],
+trigger_id: Optional[str] = None,
+display_name: Optional[str] = None,
+description: Optional[str] = None,
+min_likelihood: Optional[int] = None,
+max_findings: Optional[int] = None,
+auto_populate_timespan: Optional[bool] = False,
+) -> None:
+"""Creates a scheduled Data Loss Prevention API inspect_content trigger.
+Args:
+project: The Google Cloud project id to use as a parent resource.
+bucket: The name of the GCS bucket to scan. This sample scans all
+files in the bucket using a wildcard.
+scan_period_days: How often to repeat the scan, in days.
+The minimum is 1 day.
+info_types: A list of strings representing info types to look for.
+A full list of info type categories can be fetched from the API.
+trigger_id: The id of the trigger. If omitted, an id will be randomly
+generated.
+display_name: The optional display name of the trigger.
+description: The optional description of the trigger.
+min_likelihood: A string representing the minimum likelihood threshold
+that constitutes a match. One of: 'LIKELIHOOD_UNSPECIFIED',
+'VERY_UNLIKELY', 'UNLIKELY', 'POSSIBLE', 'LIKELY', 'VERY_LIKELY'.
+max_findings: The maximum number of findings to report; 0 = no maximum.
+auto_populate_timespan: Automatically populates time span config start
+and end times in order to scan new content only.
+Returns:
+None; the response from the API is printed to the terminal.
+"""
+# Instantiate a client.
+dlp = google.cloud.dlp_v2.DlpServiceClient()
+# Prepare info_types by converting the list of strings into a list of
+# dictionaries (protos are also accepted).
+info_types = [{"name": info_type} for info_type in info_types]
+# Construct the configuration dictionary. Keys which are None may
+# optionally be omitted entirely.
+inspect_config = {
+"info_types": info_types,
+"min_likelihood": min_likelihood,
+"limits": {"max_findings_per_request": max_findings},
+}
+# Construct a cloud_storage_options dictionary with the bucket's URL.
+url = f"gs://{bucket}/*"
+storage_config = {
+"cloud_storage_options": {"file_set": {"url": url}},
+# Time-based configuration for each storage object.
+"timespan_config": {
+# Auto-populate start and end times in order to scan new objects
+# only.
+"enable_auto_population_of_timespan_config": auto_populate_timespan
+},
+}
+# Construct the job definition.
+job = {"inspect_config": inspect_config, "storage_config": storage_config}
+# Construct the schedule definition:
+schedule = {
+"recurrence_period_duration": {"seconds": scan_period_days * 60 * 60 * 24}
+}
+# Construct the trigger definition.
+job_trigger = {
+"inspect_job": job,
+"display_name": display_name,
+"description": description,
+"triggers": [{"schedule": schedule}],
+"status": google.cloud.dlp_v2.JobTrigger.Status.HEALTHY,
+}
+# Convert the project id into a full resource id.
+parent = f"projects/{project}"
+# Call the API.
+response = dlp.create_job_trigger(
+request={"parent": parent, "job_trigger": job_trigger, "trigger_id": trigger_id}
+)
+print(f"Successfully created trigger {response.name}")
+REST
+A job trigger is represented in the DLP API by the
+JobTrigger
+resource. You can create a new job trigger by using the JobTrigger resource's
+projects.jobTriggers.create
+method.
+This sample JSON can be sent in a POST request to the specified
+Sensitive Data Protection REST endpoint. This example JSON demonstrates how to
+create a job trigger in Sensitive Data Protection. The job that this trigger
+will kick off is a Datastore inspection scan. The job trigger
+that is created runs every 86,400 seconds (or 24 hours).
+To quickly try this out, you can use the API Explorer that's embedded below.
+Keep in mind that a successful request, even one created in API Explorer,
+will create a new scheduled job trigger. For general information about using
+JSON to send requests to the DLP API, see the JSON
+quickstart.
+JSON input:
+{
+"jobTrigger":{
+"displayName":"JobTrigger1",
+"description":"Starts an inspection of a Datastore kind",
+"triggers":[
+{
+"schedule":{
+"recurrencePeriodDuration":"86400s"
+}
+}
+],
+"status":"HEALTHY",
+"inspectJob":{
+"storageConfig":{
+"datastoreOptions":{
+"kind":{
+"name":"Example-Kind"
+},
+"partitionId":{
+"projectId":"[PROJECT_ID]",
+"namespaceId":"[NAMESPACE_ID]"
+}
+}
+},
+"inspectConfig":{
+"infoTypes":[
+{
+"name":"PHONE_NUMBER"
+}
+],
+"excludeInfoTypes":false,
+"includeQuote":true,
+"minLikelihood":"LIKELY"
+},
+"actions":[
+{
+"saveFindings":{
+"outputConfig":{
+"table":{
+"projectId":"[PROJECT_ID]",
+"datasetId":"[BIGQUERY_DATASET_NAME]",
+"tableId":"[BIGQUERY_TABLE_NAME]"
+}
+}
+}
+}
+]
+}
+}
+}
+JSON output:
+The following output indicates that the job trigger was successfully created.
+{
+"name":"projects/[PROJECT_ID]/jobTriggers/[JOB_TRIGGER_NAME]",
+"displayName":"JobTrigger1",
+"description":"Starts an inspection of a Datastore kind",
+"inspectJob":{
+"storageConfig":{
+"datastoreOptions":{
+"partitionId":{
+"projectId":"[PROJECT_ID]",
+"namespaceId":"[NAMESPACE_ID]"
+},
+"kind":{
+"name":"Example-Kind"
+}
+}
+},
+"inspectConfig":{
+"infoTypes":[
+{
+"name":"PHONE_NUMBER"
+}
+],
+"minLikelihood":"LIKELY",
+"limits":{
+},
+"includeQuote":true
+},
+"actions":[
+{
+"saveFindings":{
+"outputConfig":{
+"table":{
+"projectId":"[PROJECT_ID]",
+"datasetId":"[BIGQUERY_DATASET_NAME]",
+"tableId":"[BIGQUERY_TABLE_NAME]"
+}
+}
+}
+}
+]
+},
+"triggers":[
+{
+"schedule":{
+"recurrencePeriodDuration":"86400s"
+}
+}
+],
+"createTime":"2018-11-30T01:52:41.171857Z",
+"updateTime":"2018-11-30T01:52:41.171857Z",
+"status":"HEALTHY"
+}
+List all jobs
+To list all jobs for the current project:
+Console
+In the Google Cloud console, go to the Sensitive Data Protection page.
+Go to Sensitive Data Protection
+Click the Inspection tab, and then click the Inspect jobs subtab.
+The console displays a list of all jobs for the current project, including their
+job identifiers, state, creation time, and end time. You can get more
+information about any job—including a summary of its results— by
+clicking its identifier.
+C#
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+using Google.Api.Gax;
+using Google.Api.Gax.ResourceNames;
+using Google.Cloud.Dlp.V2;
+public class JobsList
+{
+public static PagedEnumerable<ListDlpJobsResponse, DlpJob> ListDlpJobs(string projectId, string filter, DlpJobType jobType)
+{
+var dlp = DlpServiceClient.Create();
+var response = dlp.ListDlpJobs(new ListDlpJobsRequest
+{
+Parent = new LocationName(projectId, "global").ToString(),
+Filter = filter,
+Type = jobType
+});
+// Uncomment to print jobs
+// foreach (var job in response)
+// {
+// Console.WriteLine($"Job: {job.Name} status: {job.State}");
+// }
+return response;
+}
+}
+Go
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import (
+"context"
+"fmt"
+"io"
+dlp "cloud.google.com/go/dlp/apiv2"
+"cloud.google.com/go/dlp/apiv2/dlppb"
+"google.golang.org/api/iterator"
+)
+// listJobs lists jobs matching the given optional filter and optional jobType.
+func listJobs(w io.Writer, projectID, filter, jobType string) error {
+// projectID := "my-project-id"
+// filter := "`state` = FINISHED"
+// jobType := "RISK_ANALYSIS_JOB"
+ctx := context.Background()
+client, err := dlp.NewClient(ctx)
+if err != nil {
+return fmt.Errorf("dlp.NewClient: %w", err)
+}
+defer client.Close()
+// Create a configured request.
+req := &dlppb.ListDlpJobsRequest{
+Parent: fmt.Sprintf("projects/%s/locations/global", projectID),
+Filter: filter,
+Type: dlppb.DlpJobType(dlppb.DlpJobType_value[jobType]),
+}
+// Send the request and iterate over the results.
+it := client.ListDlpJobs(ctx, req)
+for {
+j, err := it.Next()
+if err == iterator.Done {
+break
+}
+if err != nil {
+return fmt.Errorf("Next: %w", err)
+}
+fmt.Fprintf(w, "Job %v status: %v\n", j.GetName(), j.GetState())
+}
+return nil
+}
+Java
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import com.google.cloud.dlp.v2.DlpServiceClient;
+import com.google.privacy.dlp.v2.DlpJob;
+import com.google.privacy.dlp.v2.DlpJobType;
+import com.google.privacy.dlp.v2.ListDlpJobsRequest;
+import com.google.privacy.dlp.v2.LocationName;
+import java.io.IOException;
+public class JobsList {
+public static void main(String[] args) throws Exception {
+// TODO(developer): Replace these variables before running the sample.
+String projectId = "your-project-id";
+listJobs(projectId);
+}
+// Lists DLP jobs
+public static void listJobs(String projectId) throws IOException {
+// Initialize client that will be used to send requests. This client only needs to be created
+// once, and can be reused for multiple requests. After completing all of your requests, call
+// the "close" method on the client to safely clean up any remaining background resources.
+try (DlpServiceClient dlpServiceClient = DlpServiceClient.create()) {
+// Construct the request to be sent by the client.
+// For more info on filters and job types,
+// see https://cloud.google.com/dlp/docs/reference/rest/v2/projects.dlpJobs/list
+ListDlpJobsRequest listDlpJobsRequest =
+ListDlpJobsRequest.newBuilder()
+.setParent(LocationName.of(projectId, "global").toString())
+.setFilter("state=DONE")
+.setType(DlpJobType.valueOf("INSPECT_JOB"))
+.build();
+// Send the request to list jobs and process the response
+DlpServiceClient.ListDlpJobsPagedResponse response =
+dlpServiceClient.listDlpJobs(listDlpJobsRequest);
+System.out.println("DLP jobs found:");
+for (DlpJob dlpJob : response.getPage().getValues()) {
+System.out.println(dlpJob.getName() + " -- " + dlpJob.getState());
+}
+}
+}
+}
+Node.js
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+// Imports the Google Cloud Data Loss Prevention library
+const DLP = require('@google-cloud/dlp');
+// Instantiates a client
+const dlp = new DLP.DlpServiceClient();
+// The project ID to run the API call under
+// const projectId = 'my-project';
+// The filter expression to use
+// For more information and filter syntax, see https://cloud.google.com/dlp/docs/reference/rest/v2/projects.dlpJobs/list
+// const filter = `state=DONE`;
+// The type of job to list (either 'INSPECT_JOB' or 'RISK_ANALYSIS_JOB')
+// const jobType = 'INSPECT_JOB';
+async function listJobs() {
+// Construct request for listing DLP scan jobs
+const request = {
+parent: `projects/${projectId}/locations/global`,
+filter: filter,
+type: jobType,
+};
+// Run job-listing request
+const [jobs] = await dlp.listDlpJobs(request);
+jobs.forEach(job => {
+console.log(`Job ${job.name} status: ${job.state}`);
+});
+}
+listJobs();
+PHP
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+use Google\Cloud\Dlp\V2\Client\DlpServiceClient;
+use Google\Cloud\Dlp\V2\DlpJob\JobState;
+use Google\Cloud\Dlp\V2\DlpJobType;
+use Google\Cloud\Dlp\V2\ListDlpJobsRequest;
+/**
+* List Data Loss Prevention API jobs corresponding to a given filter.
+*
+* @param string $callingProjectId The project ID to run the API call under
+* @param string $filter The filter expression to use
+*/
+function list_jobs(string $callingProjectId, string $filter): void
+{
+// Instantiate a client.
+$dlp = new DlpServiceClient();
+// The type of job to list (either 'INSPECT_JOB' or 'REDACT_JOB')
+$jobType = DlpJobType::INSPECT_JOB;
+// Run job-listing request
+// For more information and filter syntax,
+// @see https://cloud.google.com/dlp/docs/reference/rest/v2/projects.dlpJobs/list
+$parent = "projects/$callingProjectId/locations/global";
+$listDlpJobsRequest = (new ListDlpJobsRequest())
+->setParent($parent)
+->setFilter($filter)
+->setType($jobType);
+$response = $dlp->listDlpJobs($listDlpJobsRequest);
+// Print job list
+$jobs = $response->iterateAllElements();
+foreach ($jobs as $job) {
+printf('Job %s status: %s' . PHP_EOL, $job->getName(), $job->getState());
+$infoTypeStats = $job->getInspectDetails()->getResult()->getInfoTypeStats();
+if ($job->getState() == JobState::DONE) {
+if (count($infoTypeStats) > 0) {
+foreach ($infoTypeStats as $infoTypeStat) {
+printf(
+' Found %s instance(s) of type %s' . PHP_EOL,
+$infoTypeStat->getCount(),
+$infoTypeStat->getInfoType()->getName()
+);
+}
+} else {
+print(' No findings.' . PHP_EOL);
+}
+}
+}
+}
+Python
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+from typing import Optional
+import google.cloud.dlp
+def list_dlp_jobs(
+project: str, filter_string: Optional[str] = None, job_type: Optional[str] = None
+) -> None:
+"""Uses the Data Loss Prevention API to lists DLP jobs that match the
+specified filter in the request.
+Args:
+project: The project id to use as a parent resource.
+filter: (Optional) Allows filtering.
+Supported syntax:
+* Filter expressions are made up of one or more restrictions.
+* Restrictions can be combined by 'AND' or 'OR' logical operators.
+A sequence of restrictions implicitly uses 'AND'.
+* A restriction has the form of '<field> <operator> <value>'.
+* Supported fields/values for inspect jobs:
+- `state` - PENDING|RUNNING|CANCELED|FINISHED|FAILED
+- `inspected_storage` - DATASTORE|CLOUD_STORAGE|BIGQUERY
+- `trigger_name` - The resource name of the trigger that
+created job.
+* Supported fields for risk analysis jobs:
+- `state` - RUNNING|CANCELED|FINISHED|FAILED
+* The operator must be '=' or '!='.
+Examples:
+* inspected_storage = cloud_storage AND state = done
+* inspected_storage = cloud_storage OR inspected_storage = bigquery
+* inspected_storage = cloud_storage AND
+(state = done OR state = canceled)
+type: (Optional) The type of job. Defaults to 'INSPECT'.
+Choices:
+DLP_JOB_TYPE_UNSPECIFIED
+INSPECT_JOB: The job inspected content for sensitive data.
+RISK_ANALYSIS_JOB: The job executed a Risk Analysis computation.
+Returns:
+None; the response from the API is printed to the terminal.
+"""
+# Instantiate a client.
+dlp = google.cloud.dlp_v2.DlpServiceClient()
+# Convert the project id into a full resource id.
+parent = f"projects/{project}"
+# Job type dictionary
+job_type_to_int = {
+"DLP_JOB_TYPE_UNSPECIFIED": google.cloud.dlp.DlpJobType.DLP_JOB_TYPE_UNSPECIFIED,
+"INSPECT_JOB": google.cloud.dlp.DlpJobType.INSPECT_JOB,
+"RISK_ANALYSIS_JOB": google.cloud.dlp.DlpJobType.RISK_ANALYSIS_JOB,
+}
+# If job type is specified, convert job type to number through enums.
+if job_type:
+job_type = job_type_to_int[job_type]
+# Call the API to get a list of jobs.
+response = dlp.list_dlp_jobs(
+request={"parent": parent, "filter": filter_string, "type_": job_type}
+)
+# Iterate over results.
+for job in response:
+print(f"Job: {job.name}; status: {job.state.name}")
+REST
+The DlpJob resource has a
+projects.dlpJobs.list
+method, with which you can list all jobs.
+To list all jobs currently defined in your project, send a GET request
+to the
+dlpJobs endpoint, as shown
+here:
+URL:
+GET https://dlp.googleapis.com/v2/projects/[PROJECT-ID]/dlpJobs?key={YOUR_API_KEY}
+The following JSON output lists one of the jobs returned. Note that the
+structure of the job mirrors that of the
+DlpJob resource.
+JSON output:
+{
+"jobs":[
+{
+"name":"projects/[PROJECT-ID]/dlpJobs/i-5270277269264714623",
+"type":"INSPECT_JOB",
+"state":"DONE",
+"inspectDetails":{
+"requestedOptions":{
+"snapshotInspectTemplate":{
+},
+"jobConfig":{
+"storageConfig":{
+"cloudStorageOptions":{
+"fileSet":{
+"url":"[CLOUD-STORAGE-URL]"
+},
+"fileTypes":[
+"FILE_TYPE_UNSPECIFIED"
+],
+"filesLimitPercent":100
+},
+"timespanConfig":{
+"startTime":"2019-09-08T22:43:16.623Z",
+"enableAutoPopulationOfTimespanConfig":true
+}
+},
+"inspectConfig":{
+"infoTypes":[
+{
+"name":"US_SOCIAL_SECURITY_NUMBER"
+},
+{
+"name":"CANADA_SOCIAL_INSURANCE_NUMBER"
+}
+],
+"minLikelihood":"LIKELY",
+"limits":{
+},
+"includeQuote":true
+},
+"actions":[
+{
+"saveFindings":{
+"outputConfig":{
+"table":{
+"projectId":"[PROJECT-ID]",
+"datasetId":"[DATASET-ID]",
+"tableId":"[TABLE-ID]"
+}
+}
+}
+}
+]
+}
+},
+"result":{
+...
+}
+},
+"createTime":"2019-09-09T22:43:16.918Z",
+"startTime":"2019-09-09T22:43:16.918Z",
+"endTime":"2019-09-09T22:43:53.091Z",
+"jobTriggerName":"projects/[PROJECT-ID]/jobTriggers/sample-trigger2"
+},
+...
+To quickly try this out, you can use the API Explorer that's embedded below.
+For general information about using JSON to send requests to the
+DLP API, see the JSON quickstart.
+List all job triggers
+To list all job triggers for the current project:
+Console
+In the Google Cloud console, go to the Sensitive Data Protection page.
+Go to Sensitive Data Protection
+On the Inspection tab, on the Job triggers subtab, the console displays
+a list of all job triggers for the current project.
+C#
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+using Google.Api.Gax;
+using Google.Api.Gax.ResourceNames;
+using Google.Cloud.Dlp.V2;
+using System;
+public class TriggersList
+{
+public static PagedEnumerable<ListJobTriggersResponse, JobTrigger> List(string projectId)
+{
+var dlp = DlpServiceClient.Create();
+var response = dlp.ListJobTriggers(
+new ListJobTriggersRequest
+{
+Parent = new LocationName(projectId, "global").ToString(),
+});
+foreach (var trigger in response)
+{
+Console.WriteLine($"Name: {trigger.Name}");
+Console.WriteLine($" Created: {trigger.CreateTime}");
+Console.WriteLine($" Updated: {trigger.UpdateTime}");
+Console.WriteLine($" Display Name: {trigger.DisplayName}");
+Console.WriteLine($" Description: {trigger.Description}");
+Console.WriteLine($" Status: {trigger.Status}");
+Console.WriteLine($" Error count: {trigger.Errors.Count}");
+}
+return response;
+}
+}
+Go
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import (
+"context"
+"fmt"
+"io"
+"time"
+dlp "cloud.google.com/go/dlp/apiv2"
+"cloud.google.com/go/dlp/apiv2/dlppb"
+"github.com/golang/protobuf/ptypes"
+"google.golang.org/api/iterator"
+)
+// listTriggers lists the triggers for the given project.
+func listTriggers(w io.Writer, projectID string) error {
+// projectID := "my-project-id"
+ctx := context.Background()
+client, err := dlp.NewClient(ctx)
+if err != nil {
+return fmt.Errorf("dlp.NewClient: %w", err)
+}
+defer client.Close()
+// Create a configured request.
+req := &dlppb.ListJobTriggersRequest{
+Parent: fmt.Sprintf("projects/%s/locations/global", projectID),
+}
+// Send the request and iterate over the results.
+it := client.ListJobTriggers(ctx, req)
+for {
+t, err := it.Next()
+if err == iterator.Done {
+break
+}
+if err != nil {
+return fmt.Errorf("Next: %w", err)
+}
+fmt.Fprintf(w, "Trigger %v\n", t.GetName())
+c, err := ptypes.Timestamp(t.GetCreateTime())
+if err != nil {
+return fmt.Errorf("CreateTime Timestamp: %w", err)
+}
+fmt.Fprintf(w, " Created: %v\n", c.Format(time.RFC1123))
+u, err := ptypes.Timestamp(t.GetUpdateTime())
+if err != nil {
+return fmt.Errorf("UpdateTime Timestamp: %w", err)
+}
+fmt.Fprintf(w, " Updated: %v\n", u.Format(time.RFC1123))
+fmt.Fprintf(w, " Display Name: %q\n", t.GetDisplayName())
+fmt.Fprintf(w, " Description: %q\n", t.GetDescription())
+fmt.Fprintf(w, " Status: %v\n", t.GetStatus())
+fmt.Fprintf(w, " Error Count: %v\n", len(t.GetErrors()))
+}
+return nil
+}
+Java
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import com.google.cloud.dlp.v2.DlpServiceClient;
+import com.google.privacy.dlp.v2.JobTrigger;
+import com.google.privacy.dlp.v2.ListJobTriggersRequest;
+import com.google.privacy.dlp.v2.LocationName;
+import java.io.IOException;
+class TriggersList {
+public static void main(String[] args) throws Exception {
+// TODO(developer): Replace these variables before running the sample.
+String projectId = "your-project-id";
+listTriggers(projectId);
+}
+public static void listTriggers(String projectId) throws IOException {
+// Initialize client that will be used to send requests. This client only needs to be created
+// once, and can be reused for multiple requests. After completing all of your requests, call
+// the "close" method on the client to safely clean up any remaining background resources.
+try (DlpServiceClient dlpServiceClient = DlpServiceClient.create()) {
+// Build the request to be sent by the client
+ListJobTriggersRequest listJobTriggersRequest =
+ListJobTriggersRequest.newBuilder()
+.setParent(LocationName.of(projectId, "global").toString())
+.build();
+// Use the client to send the API request.
+DlpServiceClient.ListJobTriggersPagedResponse response =
+dlpServiceClient.listJobTriggers(listJobTriggersRequest);
+// Parse the response and process the results
+System.out.println("DLP triggers found:");
+for (JobTrigger trigger : response.getPage().getValues()) {
+System.out.println("Trigger: " + trigger.getName());
+System.out.println("\tCreated: " + trigger.getCreateTime());
+System.out.println("\tUpdated: " + trigger.getUpdateTime());
+if (trigger.getDisplayName() != null) {
+System.out.println("\tDisplay name: " + trigger.getDisplayName());
+}
+if (trigger.getDescription() != null) {
+System.out.println("\tDescription: " + trigger.getDescription());
+}
+System.out.println("\tStatus: " + trigger.getStatus());
+System.out.println("\tError count: " + trigger.getErrorsCount());
+}
+;
+}
+}
+}
+Node.js
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+// Imports the Google Cloud Data Loss Prevention library
+const DLP = require('@google-cloud/dlp');
+// Instantiates a client
+const dlp = new DLP.DlpServiceClient();
+// The project ID to run the API call under
+// const projectId = 'my-project'
+async function listTriggers() {
+// Construct trigger listing request
+const request = {
+parent: `projects/${projectId}/locations/global`,
+};
+// Helper function to pretty-print dates
+const formatDate = date => {
+const msSinceEpoch = parseInt(date.seconds, 10) * 1000;
+return new Date(msSinceEpoch).toLocaleString('en-US');
+};
+// Run trigger listing request
+const [triggers] = await dlp.listJobTriggers(request);
+triggers.forEach(trigger => {
+// Log trigger details
+console.log(`Trigger ${trigger.name}:`);
+console.log(` Created: ${formatDate(trigger.createTime)}`);
+console.log(` Updated: ${formatDate(trigger.updateTime)}`);
+if (trigger.displayName) {
+console.log(` Display Name: ${trigger.displayName}`);
+}
+if (trigger.description) {
+console.log(` Description: ${trigger.description}`);
+}
+console.log(` Status: ${trigger.status}`);
+console.log(` Error count: ${trigger.errors.length}`);
+});
+}
+listTriggers();
+PHP
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+use Google\Cloud\Dlp\V2\Client\DlpServiceClient;
+use Google\Cloud\Dlp\V2\ListJobTriggersRequest;
+/**
+* List Data Loss Prevention API job triggers.
+*
+* @param string $callingProjectId The project ID to run the API call under
+*/
+function list_triggers(string $callingProjectId): void
+{
+// Instantiate a client.
+$dlp = new DlpServiceClient();
+$parent = "projects/$callingProjectId/locations/global";
+// Run request
+$listJobTriggersRequest = (new ListJobTriggersRequest())
+->setParent($parent);
+$response = $dlp->listJobTriggers($listJobTriggersRequest);
+// Print results
+$triggers = $response->iterateAllElements();
+foreach ($triggers as $trigger) {
+printf('Trigger %s' . PHP_EOL, $trigger->getName());
+printf(' Created: %s' . PHP_EOL, $trigger->getCreateTime()->getSeconds());
+printf(' Updated: %s' . PHP_EOL, $trigger->getUpdateTime()->getSeconds());
+printf(' Display Name: %s' . PHP_EOL, $trigger->getDisplayName());
+printf(' Description: %s' . PHP_EOL, $trigger->getDescription());
+printf(' Status: %s' . PHP_EOL, $trigger->getStatus());
+printf(' Error count: %s' . PHP_EOL, count($trigger->getErrors()));
+$timespanConfig = $trigger->getInspectJob()->getStorageConfig()->getTimespanConfig();
+printf(' Auto-populates timespan config: %s' . PHP_EOL,
+($timespanConfig && $timespanConfig->getEnableAutoPopulationOfTimespanConfig() ? 'yes' : 'no'));
+}
+}
+Python
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import google.cloud.dlp
+def list_triggers(project: str) -> None:
+"""Lists all Data Loss Prevention API triggers.
+Args:
+project: The Google Cloud project id to use as a parent resource.
+Returns:
+None; the response from the API is printed to the terminal.
+"""
+# Instantiate a client.
+dlp = google.cloud.dlp_v2.DlpServiceClient()
+# Convert the project id into a full resource id.
+parent = f"projects/{project}"
+# Call the API.
+response = dlp.list_job_triggers(request={"parent": parent})
+for trigger in response:
+print(f"Trigger {trigger.name}:")
+print(f" Created: {trigger.create_time}")
+print(f" Updated: {trigger.update_time}")
+if trigger.display_name:
+print(f" Display Name: {trigger.display_name}")
+if trigger.description:
+print(f" Description: {trigger.description}")
+print(f" Status: {trigger.status}")
+print(f" Error count: {len(trigger.errors)}")
+REST
+The JobTrigger resource has a
+projects.jobTriggers.list
+method, with which you can list all job triggers.
+To list all job triggers currently defined in your project, send a GET request
+to the
+jobTriggers
+endpoint, as shown here:
+URL:
+GET https://dlp.googleapis.com/v2/projects/[PROJECT-ID]/jobTriggers?key={YOUR_API_KEY}
+The following JSON output lists the job trigger we created in the previous
+section. Note that the structure of the job trigger mirrors that of the
+JobTrigger
+resource.
+JSON output:
+{
+"jobTriggers":[
+{
+"name":"projects/[PROJECT_ID]/jobTriggers/[JOB_TRIGGER_NAME]",
+"displayName":"JobTrigger1",
+"description":"Starts an inspection of a Datastore kind",
+"inspectJob":{
+"storageConfig":{
+"datastoreOptions":{
+"partitionId":{
+"projectId":"[PROJECT_ID]",
+"namespaceId":"[NAMESPACE_ID]"
+},
+"kind":{
+"name":"Example-Kind"
+}
+}
+},
+"inspectConfig":{
+"infoTypes":[
+{
+"name":"PHONE_NUMBER"
+}
+],
+"minLikelihood":"LIKELY",
+"limits":{
+},
+"includeQuote":true
+},
+"actions":[
+{
+"saveFindings":{
+"outputConfig":{
+"table":{
+"projectId":"[PROJECT_ID]",
+"datasetId":"[BIGQUERY_DATASET_NAME]",
+"tableId":"[BIGQUERY_TABLE_NAME]"
+}
+}
+}
+}
+]
+},
+"triggers":[
+{
+"schedule":{
+"recurrencePeriodDuration":"86400s"
+}
+}
+],
+"createTime":"2018-11-30T01:52:41.171857Z",
+"updateTime":"2018-11-30T01:52:41.171857Z",
+"status":"HEALTHY"
+},
+...
+],
+"nextPageToken":"KkwKCQjivJ2UpPreAgo_Kj1wcm9qZWN0cy92ZWx2ZXR5LXN0dWR5LTE5NjEwMS9qb2JUcmlnZ2Vycy8xNTA5NzEyOTczMDI0MDc1NzY0"
+}
+To quickly try this out, you can use the API Explorer that's embedded below.
+For general information about using JSON to send requests to the
+DLP API, see the JSON quickstart.
+Delete a job
+To delete a job from your project, which includes its results, do the following.
+Any results saved externally (such as to BigQuery) are untouched by
+this operation.
+Console
+In the Google Cloud console, go to the Sensitive Data Protection page.
+Go to Sensitive Data Protection
+Click the Inspection tab, and then click the Inspect jobs subtab.
+The Google Cloud console displays a list of all jobs for the current project.
+In the Actions column for the job trigger you want to delete, click the
+more actions menu (displayed as three dots arranged vertically)
+more_vert, and then click Delete.
+Alternatively, from the list of jobs, click the identifier of the job you want
+to delete. On the job's detail page, click Delete.
+C#
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+using System;
+using Google.Cloud.Dlp.V2;
+public class JobsDelete
+{
+public static void DeleteJob(string jobName)
+{
+var dlp = DlpServiceClient.Create();
+dlp.DeleteDlpJob(new DeleteDlpJobRequest
+{
+Name = jobName
+});
+Console.WriteLine($"Successfully deleted job {jobName}.");
+}
+}
+Go
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import (
+"context"
+"fmt"
+"io"
+dlp "cloud.google.com/go/dlp/apiv2"
+"cloud.google.com/go/dlp/apiv2/dlppb"
+)
+// deleteJob deletes the job with the given name.
+func deleteJob(w io.Writer, jobName string) error {
+// jobName := "job-example"
+ctx := context.Background()
+client, err := dlp.NewClient(ctx)
+if err != nil {
+return fmt.Errorf("dlp.NewClient: %w", err)
+}
+defer client.Close()
+req := &dlppb.DeleteDlpJobRequest{
+Name: jobName,
+}
+if err = client.DeleteDlpJob(ctx, req); err != nil {
+return fmt.Errorf("DeleteDlpJob: %w", err)
+}
+fmt.Fprintf(w, "Successfully deleted job")
+return nil
+}
+Java
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import com.google.cloud.dlp.v2.DlpServiceClient;
+import com.google.privacy.dlp.v2.DeleteDlpJobRequest;
+import com.google.privacy.dlp.v2.DlpJobName;
+import java.io.IOException;
+public class JobsDelete {
+public static void main(String[] args) throws Exception {
+// TODO(developer): Replace these variables before running the sample.
+String projectId = "your-project-id";
+String jobId = "your-job-id";
+deleteJobs(projectId, jobId);
+}
+// Deletes a DLP Job with the given jobId
+public static void deleteJobs(String projectId, String jobId) throws IOException {
+// Initialize client that will be used to send requests. This client only needs to be created
+// once, and can be reused for multiple requests. After completing all of your requests, call
+// the "close" method on the client to safely clean up any remaining background resources.
+try (DlpServiceClient dlpServiceClient = DlpServiceClient.create()) {
+// Construct the complete job name from the projectId and jobId
+DlpJobName jobName = DlpJobName.of(projectId, jobId);
+// Construct the job deletion request to be sent by the client.
+DeleteDlpJobRequest deleteDlpJobRequest =
+DeleteDlpJobRequest.newBuilder().setName(jobName.toString()).build();
+// Send the job deletion request
+dlpServiceClient.deleteDlpJob(deleteDlpJobRequest);
+System.out.println("Job deleted successfully.");
+}
+}
+}
+Node.js
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+// Imports the Google Cloud Data Loss Prevention library
+const DLP = require('@google-cloud/dlp');
+// Instantiates a client
+const dlp = new DLP.DlpServiceClient();
+// The project ID to run the API call under
+// const projectId = 'my-project';
+// The name of the job whose results should be deleted
+// Parent project ID is automatically extracted from this parameter
+// const jobName = 'projects/my-project/dlpJobs/X-#####'
+function deleteJob() {
+// Construct job deletion request
+const request = {
+name: jobName,
+};
+// Run job deletion request
+dlp
+.deleteDlpJob(request)
+.then(() => {
+console.log(`Successfully deleted job ${jobName}.`);
+})
+.catch(err => {
+console.log(`Error in deleteJob: ${err.message || err}`);
+});
+}
+deleteJob();
+PHP
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+use Google\Cloud\Dlp\V2\Client\DlpServiceClient;
+use Google\Cloud\Dlp\V2\DeleteDlpJobRequest;
+/**
+* Delete results of a Data Loss Prevention API job
+*
+* @param string $jobId The name of the job whose results should be deleted
+*/
+function delete_job(string $jobId): void
+{
+// Instantiate a client.
+$dlp = new DlpServiceClient();
+// Run job-deletion request
+// The Parent project ID is automatically extracted from this parameter
+$deleteDlpJobRequest = (new DeleteDlpJobRequest())
+->setName($jobId);
+$dlp->deleteDlpJob($deleteDlpJobRequest);
+// Print status
+printf('Successfully deleted job %s' . PHP_EOL, $jobId);
+}
+Python
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import google.cloud.dlp
+def delete_dlp_job(project: str, job_name: str) -> None:
+"""Uses the Data Loss Prevention API to delete a long-running DLP job.
+Args:
+project: The project id to use as a parent resource.
+job_name: The name of the DlpJob resource to be deleted.
+Returns:
+None; the response from the API is printed to the terminal.
+"""
+# Instantiate a client.
+dlp = google.cloud.dlp_v2.DlpServiceClient()
+# Convert the project id and job name into a full resource id.
+name = f"projects/{project}/dlpJobs/{job_name}"
+# Call the API to delete job.
+dlp.delete_dlp_job(request={"name": name})
+print(f"Successfully deleted {job_name}")
+REST
+To delete a job from the current project, send a
+DELETE
+request to the
+dlpJobs
+endpoint, as shown here. Replace the [JOB-IDENTIFIER] field with the
+identifier of the job, which starts with i-.
+URL:
+DELETE https://dlp.googleapis.com/v2/projects/[PROJECT-ID]/dlpJobs/[JOB-IDENTIFIER]?key={YOUR_API_KEY}
+If the request was successful, the DLP API will return a
+success response. To verify the job was successfully deleted, list
+all jobs.
+To quickly try this out, you can use the API Explorer that's embedded below.
+For general information about using JSON to send requests to the
+DLP API, see the JSON quickstart.
+Delete a job trigger
+Console
+In the Google Cloud console, go to the Sensitive Data Protection page.
+Go to Sensitive Data Protection
+On the Inspection tab, on the Job triggers subtab, the
+console displays a list of all job triggers for the current project.
+In the Actions column for the job trigger you want to delete, click the
+more actions menu (displayed as three dots arranged vertically)
+more_vert, and then click Delete.
+Alternatively, from the list of job triggers, click the name of the job trigger
+you want to delete. On the job trigger's detail page, click Delete.
+C#
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+using Google.Cloud.Dlp.V2;
+using System;
+public class TriggersDelete
+{
+public static void Delete(string triggerName)
+{
+var dlp = DlpServiceClient.Create();
+dlp.DeleteJobTrigger(
+new DeleteJobTriggerRequest
+{
+Name = triggerName
+});
+Console.WriteLine($"Successfully deleted trigger {triggerName}.");
+}
+}
+Go
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import (
+"context"
+"fmt"
+"io"
+dlp "cloud.google.com/go/dlp/apiv2"
+"cloud.google.com/go/dlp/apiv2/dlppb"
+)
+// deleteTrigger deletes the given trigger.
+func deleteTrigger(w io.Writer, triggerID string) error {
+// triggerID := "my-trigger"
+ctx := context.Background()
+client, err := dlp.NewClient(ctx)
+if err != nil {
+return fmt.Errorf("dlp.NewClient: %w", err)
+}
+defer client.Close()
+req := &dlppb.DeleteJobTriggerRequest{
+Name: triggerID,
+}
+if err := client.DeleteJobTrigger(ctx, req); err != nil {
+return fmt.Errorf("DeleteJobTrigger: %w", err)
+}
+fmt.Fprintf(w, "Successfully deleted trigger %v", triggerID)
+return nil
+}
+Java
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import com.google.cloud.dlp.v2.DlpServiceClient;
+import com.google.privacy.dlp.v2.DeleteJobTriggerRequest;
+import com.google.privacy.dlp.v2.ProjectJobTriggerName;
+import java.io.IOException;
+class TriggersDelete {
+public static void main(String[] args) throws Exception {
+// TODO(developer): Replace these variables before running the sample.
+String projectId = "your-project-id";
+String triggerId = "your-trigger-id";
+deleteTrigger(projectId, triggerId);
+}
+public static void deleteTrigger(String projectId, String triggerId) throws IOException {
+// Initialize client that will be used to send requests. This client only needs to be created
+// once, and can be reused for multiple requests. After completing all of your requests, call
+// the "close" method on the client to safely clean up any remaining background resources.
+try (DlpServiceClient dlpServiceClient = DlpServiceClient.create()) {
+// Get the full trigger name from the given triggerId and ProjectId
+ProjectJobTriggerName triggerName = ProjectJobTriggerName.of(projectId, triggerId);
+// Construct the trigger deletion request to be sent by the client
+DeleteJobTriggerRequest deleteJobTriggerRequest =
+DeleteJobTriggerRequest.newBuilder().setName(triggerName.toString()).build();
+// Send the trigger deletion request
+dlpServiceClient.deleteJobTrigger(deleteJobTriggerRequest);
+System.out.println("Trigger deleted: " + triggerName.toString());
+}
+}
+}
+Node.js
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+// Imports the Google Cloud Data Loss Prevention library
+const DLP = require('@google-cloud/dlp');
+// Instantiates a client
+const dlp = new DLP.DlpServiceClient();
+// The project ID to run the API call under
+// const projectId = 'my-project'
+// The name of the trigger to be deleted
+// Parent project ID is automatically extracted from this parameter
+// const triggerId = 'projects/my-project/triggers/my-trigger';
+async function deleteTrigger() {
+// Construct trigger deletion request
+const request = {
+name: triggerId,
+};
+// Run trigger deletion request
+await dlp.deleteJobTrigger(request);
+console.log(`Successfully deleted trigger ${triggerId}.`);
+}
+deleteTrigger();
+PHP
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+use Google\Cloud\Dlp\V2\Client\DlpServiceClient;
+use Google\Cloud\Dlp\V2\DeleteJobTriggerRequest;
+/**
+* Delete a Data Loss Prevention API job trigger.
+*
+* @param string $callingProjectId The project ID to run the API call under
+* @param string $triggerId The name of the trigger to be deleted.
+*/
+function delete_trigger(string $callingProjectId, string $triggerId): void
+{
+// Instantiate a client.
+$dlp = new DlpServiceClient();
+// Run request
+// The Parent project ID is automatically extracted from this parameter
+$triggerName = "projects/$callingProjectId/locations/global/jobTriggers/$triggerId";
+$deleteJobTriggerRequest = (new DeleteJobTriggerRequest())
+->setName($triggerName);
+$dlp->deleteJobTrigger($deleteJobTriggerRequest);
+// Print the results
+printf('Successfully deleted trigger %s' . PHP_EOL, $triggerName);
+}
+Python
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import google.cloud.dlp
+def delete_trigger(project: str, trigger_id: str) -> None:
+"""Deletes a Data Loss Prevention API trigger.
+Args:
+project: The id of the Google Cloud project which owns the trigger.
+trigger_id: The id of the trigger to delete.
+Returns:
+None; the response from the API is printed to the terminal.
+"""
+# Instantiate a client.
+dlp = google.cloud.dlp_v2.DlpServiceClient()
+# Convert the project id into a full resource id.
+parent = f"projects/{project}"
+# Combine the trigger id with the parent id.
+trigger_resource = f"{parent}/jobTriggers/{trigger_id}"
+# Call the API.
+dlp.delete_job_trigger(request={"name": trigger_resource})
+print(f"Trigger {trigger_resource} successfully deleted.")
+REST
+To delete a job trigger from the current project, send a
+DELETE
+request to the
+jobTriggers
+endpoint, as shown here. Replace the [JOB-TRIGGER-NAME] field with the name
+of the job trigger.
+URL:
+DELETE https://dlp.googleapis.com/v2/projects/[PROJECT-ID]/jobTriggers/[JOB-TRIGGER-NAME]?key={YOUR_API_KEY}
+If the request was successful, the DLP API will return a
+success response. To verify the job trigger was successfully deleted, list
+all job triggers.
+To quickly try this out, you can use the API Explorer that's embedded below.
+For general information about using JSON to send requests to the
+DLP API, see the JSON quickstart.
+Get a job
+To get a job from your project, which includes its results, do the following.
+Any results saved externally (such as to BigQuery) are untouched by
+this operation.
+C#
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+using Google.Cloud.Dlp.V2;
+using System;
+public class JobsGet
+{
+public static DlpJob GetDlpJob(string jobName)
+{
+var dlp = DlpServiceClient.Create();
+var response = dlp.GetDlpJob(jobName);
+Console.WriteLine($"Job: {response.Name} status: {response.State}");
+return response;
+}
+}
+Go
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import (
+"context"
+"fmt"
+"io"
+dlp "cloud.google.com/go/dlp/apiv2"
+"cloud.google.com/go/dlp/apiv2/dlppb"
+)
+// jobsGet gets an inspection job using jobName
+func jobsGet(w io.Writer, projectID string, jobName string) error {
+// projectId := "my-project-id"
+// jobName := "your-job-id"
+ctx := context.Background()
+// Initialize a client once and reuse it to send multiple requests. Clients
+// are safe to use across goroutines. When the client is no longer needed,
+// call the Close method to cleanup its resources.
+client, err := dlp.NewClient(ctx)
+if err != nil {
+return err
+}
+// Closing the client safely cleans up background resources.
+defer client.Close()
+// Construct the request to be sent by the client.
+req := &dlppb.GetDlpJobRequest{
+Name: jobName,
+}
+// Send the request.
+resp, err := client.GetDlpJob(ctx, req)
+if err != nil {
+return err
+}
+// Print the results.
+fmt.Fprintf(w, "Job Name: %v Job Status: %v", resp.Name, resp.State)
+return nil
+}
+Java
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import com.google.cloud.dlp.v2.DlpServiceClient;
+import com.google.privacy.dlp.v2.DlpJobName;
+import com.google.privacy.dlp.v2.GetDlpJobRequest;
+import java.io.IOException;
+public class JobsGet {
+public static void main(String[] args) throws Exception {
+// TODO(developer): Replace these variables before running the sample.
+String projectId = "your-project-id";
+String jobId = "your-job-id";
+getJobs(projectId, jobId);
+}
+// Gets a DLP Job with the given jobId
+public static void getJobs(String projectId, String jobId) throws IOException {
+// Initialize client that will be used to send requests. This client only needs to be created
+// once, and can be reused for multiple requests. After completing all of your requests, call
+// the "close" method on the client to safely clean up any remaining background resources.
+try (DlpServiceClient dlpServiceClient = DlpServiceClient.create()) {
+// Construct the complete job name from the projectId and jobId
+DlpJobName jobName = DlpJobName.of(projectId, jobId);
+// Construct the get job request to be sent by the client.
+GetDlpJobRequest getDlpJobRequest =
+GetDlpJobRequest.newBuilder().setName(jobName.toString()).build();
+// Send the get job request
+dlpServiceClient.getDlpJob(getDlpJobRequest);
+System.out.println("Job got successfully.");
+}
+}
+}
+Node.js
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+// Imports the Google Cloud Data Loss Prevention library
+const DLP = require('@google-cloud/dlp');
+// Instantiates a client
+const dlp = new DLP.DlpServiceClient();
+// Job name to look for
+// const jobName = 'your-job-name';
+async function getJob() {
+// Construct request for finding job using job name.
+const request = {
+name: jobName,
+};
+// Send the request and receive response from the service
+const [job] = await dlp.getDlpJob(request);
+// Print results.
+console.log(`Job ${job.name} status: ${job.state}`);
+}
+getJob();
+PHP
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+use Google\Cloud\Dlp\V2\Client\DlpServiceClient;
+use Google\Cloud\Dlp\V2\GetDlpJobRequest;
+/**
+* Get DLP inspection job.
+* @param string $jobName Dlp job name
+*/
+function get_job(
+string $jobName
+): void {
+// Instantiate a client.
+$dlp = new DlpServiceClient();
+try {
+// Send the get job request
+$getDlpJobRequest = (new GetDlpJobRequest())
+->setName($jobName);
+$response = $dlp->getDlpJob($getDlpJobRequest);
+printf('Job %s status: %s' . PHP_EOL, $response->getName(), $response->getState());
+} finally {
+$dlp->close();
+}
+}
+Python
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import google.cloud.dlp
+def get_dlp_job(project: str, job_name: str) -> None:
+"""Uses the Data Loss Prevention API to retrieve a DLP job.
+Args:
+project: The project id to use as a parent resource.
+job_name: The name of the DlpJob resource to be retrieved.
+"""
+# Instantiate a client.
+dlp = google.cloud.dlp_v2.DlpServiceClient()
+# Convert the project id and job name into a full resource id.
+job_name = f"projects/{project}/locations/global/dlpJobs/{job_name}"
+# Call the API
+response = dlp.get_dlp_job(request={"name": job_name})
+print(f"Job: {response.name} Status: {response.state}")
+REST
+To get a job from the current project, send a
+GET
+request to the
+dlpJobs
+endpoint, as shown here. Replace the [JOB-IDENTIFIER] field with the
+identifier of the job, which starts with i-.
+URL:
+GET https://dlp.googleapis.com/v2/projects/[PROJECT-ID]/dlpJobs/[JOB-IDENTIFIER]?key={YOUR_API_KEY}
+If the request was successful, the DLP API will return a
+success response.
+To quickly try this out, you can use the API Explorer that's embedded below.
+For general information about using JSON to send requests to the
+DLP API, see the JSON quickstart.
+Force an immediate run of a job trigger
+After a job trigger is created, you can force an immediate execution
+of the trigger for testing by activating it. To do so, run the following
+command:
+curl --request POST \
+-H "Content-Type: application/json" \
+-H "Accept: application/json" \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "X-Goog-User-Project: PROJECT_ID" \
+'https://dlp.googleapis.com/v2/JOB_TRIGGER_NAME:activate'
+Replace the following:
+PROJECT_ID: the ID of the Google Cloud
+project to bill for access charges associated with
+the request.
+JOB_TRIGGER_NAME: the full resource name of the job
+trigger—for example, projects/my-project/locations/global/jobTriggers/123456789.
+Update an existing job trigger
+In addition to creating, listing, and deleting job triggers, you can also
+update an existing job trigger. To change the configuration for an existing job
+trigger:
+Console
+In the Google Cloud console, go to the Sensitive Data Protection page.
+Go to Sensitive Data Protection
+Click the Inspection tab, and then click the Job triggers subtab.
+The console displays a list of all job triggers for the current project.
+In the Actions column for the job trigger you want to delete, click
+More more_vert,
+then click View details.
+On the job trigger detail page, click Edit.
+On the Edit trigger page, you can change the location of the input data;
+detection details such as templates, infoTypes, or likelihood; any
+post-scan actions, and the job trigger's schedule. When you're done making
+changes, click Save.
+C#
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+using Google.Cloud.Dlp.V2;
+using Google.Protobuf.WellKnownTypes;
+using System;
+using System.Collections.Generic;
+public class TriggersUpdate
+{
+public static JobTrigger UpdateJob(
+string projectId,
+string triggerId,
+IEnumerable<InfoType> infoTypes = null,
+Likelihood minLikelihood = Likelihood.Likely)
+{
+// Instantiate the client.
+var dlp = DlpServiceClient.Create();
+// Construct the update job trigger request object by providing the trigger name,
+// job trigger object which will specify the type of info to be inspected and
+// update mask object which specifies the field to be updated.
+// Refer to https://cloud.google.com/dlp/docs/reference/rest/v2/Container for specifying the paths in container object.
+var request = new UpdateJobTriggerRequest
+{
+JobTriggerName = new JobTriggerName(projectId, triggerId),
+JobTrigger = new JobTrigger
+{
+InspectJob = new InspectJobConfig
+{
+InspectConfig = new InspectConfig
+{
+InfoTypes =
+{
+infoTypes ?? new InfoType[]
+{
+new InfoType { Name = "US_INDIVIDUAL_TAXPAYER_IDENTIFICATION_NUMBER" }
+}
+},
+MinLikelihood = minLikelihood
+}
+}
+},
+// Specify fields of the jobTrigger resource to be updated when the job trigger is modified.
+// Refer https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask for constructing the field mask paths.
+UpdateMask = new FieldMask
+{
+Paths =
+{
+"inspect_job.inspect_config.info_types",
+"inspect_job.inspect_config.min_likelihood"
+}
+}
+};
+// Call the API.
+JobTrigger response = dlp.UpdateJobTrigger(request);
+// Inspect the result.
+Console.WriteLine($"Job Trigger Name: {response.Name}");
+Console.WriteLine($"InfoType updated: {response.InspectJob.InspectConfig.InfoTypes[0]}");
+Console.WriteLine($"Likelihood updated: {response.InspectJob.InspectConfig.MinLikelihood}");
+return response;
+}
+}
+Go
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import (
+"context"
+"fmt"
+"io"
+dlp "cloud.google.com/go/dlp/apiv2"
+"cloud.google.com/go/dlp/apiv2/dlppb"
+"google.golang.org/protobuf/types/known/fieldmaskpb"
+)
+// updateTrigger updates an existing job trigger in Google Cloud Data Loss Prevention (DLP).
+// It modifies the configuration of the specified job trigger with the provided updated settings.
+func updateTrigger(w io.Writer, jobTriggerName string) error {
+// jobTriggerName := "your-job-trigger-name" (projects/<projectID>/locations/global/jobTriggers/my-trigger)
+ctx := context.Background()
+// Initialize a client once and reuse it to send multiple requests. Clients
+// are safe to use across goroutines. When the client is no longer needed,
+// call the Close method to cleanup its resources.
+client, err := dlp.NewClient(ctx)
+if err != nil {
+return err
+}
+// Closing the client safely cleans up background resources.
+defer client.Close()
+// Specify the type of info the inspection will look for.
+// See https://cloud.google.com/dlp/docs/infotypes-reference for complete list of info types
+infoType := &dlppb.InfoType{
+Name: "PERSON_NAME",
+}
+// Specify the inspectConfig that represents the configuration settings for inspecting sensitive data in
+// DLP API. It includes detection types, custom info types, inspection methods, and actions
+// to be taken on detection.
+inspectConfig := &dlppb.InspectConfig{
+InfoTypes: []*dlppb.InfoType{
+infoType,
+},
+MinLikelihood: dlppb.Likelihood_LIKELY,
+}
+// Configure the inspection job we want the service to perform.
+inspectJobConfig := &dlppb.InspectJobConfig{
+InspectConfig: inspectConfig,
+}
+// Specify the jobTrigger that represents a DLP job trigger configuration.
+// It defines the conditions, actions, and schedule for executing inspections
+// on sensitive data in the specified data storage.
+jobTrigger := &dlppb.JobTrigger{
+Job: &dlppb.JobTrigger_InspectJob{
+InspectJob: inspectJobConfig,
+},
+}
+// fieldMask represents a set of fields to be included in an update operation.
+// It is used to specify which fields of a resource should be updated.
+updateMask := &fieldmaskpb.FieldMask{
+Paths: []string{"inspect_job.inspect_config.info_types", "inspect_job.inspect_config.min_likelihood"},
+}
+// Combine configurations into a request for the service.
+req := &dlppb.UpdateJobTriggerRequest{
+Name: jobTriggerName,
+JobTrigger: jobTrigger,
+UpdateMask: updateMask,
+}
+// Send the scan request and process the response
+resp, err := client.UpdateJobTrigger(ctx, req)
+if err != nil {
+return err
+}
+// Print the result.
+fmt.Fprintf(w, "Successfully Updated trigger: %v", resp)
+return nil
+}
+Java
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import com.google.cloud.dlp.v2.DlpServiceClient;
+import com.google.privacy.dlp.v2.InfoType;
+import com.google.privacy.dlp.v2.InspectConfig;
+import com.google.privacy.dlp.v2.InspectJobConfig;
+import com.google.privacy.dlp.v2.JobTrigger;
+import com.google.privacy.dlp.v2.JobTriggerName;
+import com.google.privacy.dlp.v2.Likelihood;
+import com.google.privacy.dlp.v2.UpdateJobTriggerRequest;
+import com.google.protobuf.FieldMask;
+import java.io.IOException;
+public class TriggersPatch {
+public static void main(String[] args) throws Exception {
+// TODO(developer): Replace these variables before running the sample.
+// The Google Cloud project id to use as a parent resource.
+String projectId = "your-project-id";
+// The name of the job trigger to be updated.
+String jobTriggerName = "your-job-trigger-name";
+patchTrigger(projectId, jobTriggerName);
+}
+// Uses the Data Loss Prevention API to update an existing job trigger.
+public static void patchTrigger(String projectId, String jobTriggerName) throws IOException {
+// Initialize client that will be used to send requests. This client only needs to be created
+// once, and can be reused for multiple requests. After completing all of your requests, call
+// the "close" method on the client to safely clean up any remaining background resources.
+try (DlpServiceClient dlpServiceClient = DlpServiceClient.create()) {
+// Specify the type of info the inspection will look for.
+// See https://cloud.google.com/dlp/docs/infotypes-reference for complete list of info types
+InfoType infoType = InfoType.newBuilder().setName("PERSON_NAME").build();
+InspectConfig inspectConfig = InspectConfig.newBuilder()
+.addInfoTypes(infoType)
+.setMinLikelihood(Likelihood.LIKELY)
+.build();
+InspectJobConfig inspectJobConfig = InspectJobConfig.newBuilder()
+.setInspectConfig(inspectConfig)
+.build();
+JobTrigger jobTrigger = JobTrigger.newBuilder()
+.setInspectJob(inspectJobConfig)
+.build();
+// Specify fields of the jobTrigger resource to be updated when the job trigger is modified.
+// Refer https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask for constructing the field mask paths.
+FieldMask fieldMask = FieldMask.newBuilder()
+.addPaths("inspect_job.inspect_config.info_types")
+.addPaths("inspect_job.inspect_config.min_likelihood")
+.build();
+// Update the job trigger with the new configuration.
+UpdateJobTriggerRequest updateJobTriggerRequest = UpdateJobTriggerRequest.newBuilder()
+.setName(JobTriggerName.of(projectId, jobTriggerName).toString())
+.setJobTrigger(jobTrigger)
+.setUpdateMask(fieldMask)
+.build();
+// Call the API to update the job trigger.
+JobTrigger updatedJobTrigger = dlpServiceClient.updateJobTrigger(updateJobTriggerRequest);
+System.out.println("Job Trigger Name: " + updatedJobTrigger.getName());
+System.out.println(
+"InfoType updated: "
++ updatedJobTrigger.getInspectJob().getInspectConfig().getInfoTypes(0).getName());
+System.out.println(
+"Likelihood updated: "
++ updatedJobTrigger.getInspectJob().getInspectConfig().getMinLikelihood());
+}
+}
+}
+Node.js
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+// Imports the Google Cloud Data Loss Prevention library
+const DLP = require('@google-cloud/dlp');
+// Instantiates a client
+const dlpClient = new DLP.DlpServiceClient();
+// The project ID to run the API call under
+// const projectId = 'my-project';
+// The job trigger ID to run the API call under
+// const jobTriggerName = 'your-job-trigger-name';
+async function updateTrigger() {
+// Construct inspect configuration to match PERSON_NAME infotype
+const inspectConfig = {
+infoTypes: [{name: 'PERSON_NAME'}],
+minLikelihood: 'LIKELY',
+};
+// Configure the job trigger we want to update.
+const jobTrigger = {inspectJob: {inspectConfig}};
+const updateMask = {
+paths: [
+'inspect_job.inspect_config.info_types',
+'inspect_job.inspect_config.min_likelihood',
+],
+};
+// Combine configurations into a request for the service.
+const request = {
+name: `projects/${projectId}/jobTriggers/${jobTriggerName}`,
+jobTrigger,
+updateMask,
+};
+// Send the request and receive response from the service
+const [updatedJobTrigger] = await dlpClient.updateJobTrigger(request);
+// Print the results
+console.log(`Updated Trigger: ${JSON.stringify(updatedJobTrigger)}`);
+}
+updateTrigger(projectId, jobTriggerName);
+PHP
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+use Google\Cloud\Dlp\V2\Client\DlpServiceClient;
+use Google\Cloud\Dlp\V2\InfoType;
+use Google\Cloud\Dlp\V2\InspectConfig;
+use Google\Cloud\Dlp\V2\InspectJobConfig;
+use Google\Cloud\Dlp\V2\JobTrigger;
+use Google\Cloud\Dlp\V2\Likelihood;
+use Google\Cloud\Dlp\V2\UpdateJobTriggerRequest;
+use Google\Protobuf\FieldMask;
+/**
+* Update an existing job trigger.
+*
+* @param string $callingProjectId The Google Cloud Project ID to run the API call under.
+* @param string $jobTriggerName The job trigger name to update.
+*
+*/
+function update_trigger(
+string $callingProjectId,
+string $jobTriggerName
+): void {
+// Instantiate a client.
+$dlp = new DlpServiceClient();
+// Configure the inspectConfig.
+$inspectConfig = (new InspectConfig())
+->setInfoTypes([
+(new InfoType())
+->setName('US_INDIVIDUAL_TAXPAYER_IDENTIFICATION_NUMBER')
+])
+->setMinLikelihood(Likelihood::LIKELY);
+// Configure the Job Trigger we want the service to perform.
+$jobTrigger = (new JobTrigger())
+->setInspectJob((new InspectJobConfig())
+->setInspectConfig($inspectConfig));
+// Specify fields of the jobTrigger resource to be updated when the job trigger is modified.
+// Refer https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask for constructing the field mask paths.
+$fieldMask = (new FieldMask())
+->setPaths([
+'inspect_job.inspect_config.info_types',
+'inspect_job.inspect_config.min_likelihood'
+]);
+// Send the update job trigger request and process the response.
+$name = "projects/$callingProjectId/locations/global/jobTriggers/" . $jobTriggerName;
+$updateJobTriggerRequest = (new UpdateJobTriggerRequest())
+->setName($name)
+->setJobTrigger($jobTrigger)
+->setUpdateMask($fieldMask);
+$response = $dlp->updateJobTrigger($updateJobTriggerRequest);
+// Print results.
+printf('Successfully update trigger %s' . PHP_EOL, $response->getName());
+}
+Python
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+from typing import List
+import google.cloud.dlp
+def update_trigger(
+project: str,
+info_types: List[str],
+trigger_id: str,
+) -> None:
+"""Uses the Data Loss Prevention API to update an existing job trigger.
+Args:
+project: The Google Cloud project id to use as a parent resource
+info_types: A list of strings representing infoTypes to update trigger with.
+A full list of infoType categories can be fetched from the API.
+trigger_id: The id of job trigger which needs to be updated.
+"""
+# Instantiate a client.
+dlp = google.cloud.dlp_v2.DlpServiceClient()
+# Prepare info_types by converting the list of strings into a list of
+# dictionaries.
+info_types = [{"name": info_type} for info_type in info_types]
+# Specify fields of the jobTrigger resource to be updated when the
+# job trigger is modified.
+job_trigger = {
+"inspect_job": {
+"inspect_config": {
+"info_types": info_types,
+"min_likelihood": google.cloud.dlp_v2.Likelihood.LIKELY,
+}
+}
+}
+# Convert the project id into a full resource id.
+trigger_name = f"projects/{project}/jobTriggers/{trigger_id}"
+# Call the API.
+# Refer https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask
+# for constructing the field mask paths.
+response = dlp.update_job_trigger(
+request={
+"name": trigger_name,
+"job_trigger": job_trigger,
+"update_mask": {
+"paths": [
+"inspect_job.inspect_config.info_types",
+"inspect_job.inspect_config.min_likelihood",
+]
+},
+}
+)
+# Print out the result.
+print(f"Successfully updated trigger: {response.name}")
+print(
+f"Updated InfoType: {response.inspect_job.inspect_config.info_types[0].name}"
+f" \nUpdates Likelihood: {response.inspect_job.inspect_config.min_likelihood}\n",
+)
+REST
+Use the
+projects.jobTriggers.patch
+method to send new JobTrigger values to the DLP API
+to update those values within a specified job trigger.
+Note: Patching a job trigger with a specific value replaces the value that was
+there before. It does not append the value. For instance, consider a job
+trigger that scans using the US_SOCIAL_SECURITY_NUMBER infoType detector. If
+you patch the job trigger and specify the
+US_INDIVIDUAL_TAXPAYER_IDENTIFICATION_NUMBER infoType detector, the patched
+job trigger will only contain the US_INDIVIDUAL_TAXPAYER_IDENTIFICATION_NUMBER
+detector. To keep the original infoType detector in the job trigger, specify
+both in the patch request.
+For example, consider the following simple job trigger. This JSON represents
+the job trigger, and was returned after sending a GET request to the current
+project's job trigger endpoint.
+JSON output:
+{
+"name":"projects/[PROJECT_ID]/jobTriggers/[JOB_TRIGGER_NAME]",
+"inspectJob":{
+"storageConfig":{
+"cloudStorageOptions":{
+"fileSet":{
+"url":"gs://dlptesting/*"
+},
+"fileTypes":[
+"FILE_TYPE_UNSPECIFIED"
+],
+"filesLimitPercent":100
+},
+"timespanConfig":{
+"enableAutoPopulationOfTimespanConfig":true
+}
+},
+"inspectConfig":{
+"infoTypes":[
+{
+"name":"US_SOCIAL_SECURITY_NUMBER"
+}
+],
+"minLikelihood":"POSSIBLE",
+"limits":{
+}
+},
+"actions":[
+{
+"jobNotificationEmails":{
+}
+}
+]
+},
+"triggers":[
+{
+"schedule":{
+"recurrencePeriodDuration":"86400s"
+}
+}
+],
+"createTime":"2019-03-06T21:19:45.774841Z",
+"updateTime":"2019-03-06T21:19:45.774841Z",
+"status":"HEALTHY"
+}
+The following JSON, when sent with a PATCH request to the specified endpoint,
+updates the given job trigger with a new infoType to scan for, as well as a new
+minimum likelihood. Note that you must also specify the updateMask attribute,
+and that its value is in
+FieldMask
+format.
+JSON input:
+PATCH https://dlp.googleapis.com/v2/projects/[PROJECT_ID]/jobTriggers/[JOB_TRIGGER_NAME]?key={YOUR_API_KEY}
+{
+"jobTrigger":{
+"inspectJob":{
+"inspectConfig":{
+"infoTypes":[
+{
+"name":"US_INDIVIDUAL_TAXPAYER_IDENTIFICATION_NUMBER"
+}
+],
+"minLikelihood":"LIKELY"
+}
+}
+},
+"updateMask":"inspectJob(inspectConfig(infoTypes,minLikelihood))"
+}
+After you send this JSON to the specified URL, it returns the following, which
+represents the updated job trigger. Note that the original infoType and
+likelihood values have been replaced by the new values.
+JSON output:
+{
+"name":"projects/[PROJECT_ID]/jobTriggers/[JOB_TRIGGER_NAME]",
+"inspectJob":{
+"storageConfig":{
+"cloudStorageOptions":{
+"fileSet":{
+"url":"gs://dlptesting/*"
+},
+"fileTypes":[
+"FILE_TYPE_UNSPECIFIED"
+],
+"filesLimitPercent":100
+},
+"timespanConfig":{
+"enableAutoPopulationOfTimespanConfig":true
+}
+},
+"inspectConfig":{
+"infoTypes":[
+{
+"name":"US_INDIVIDUAL_TAXPAYER_IDENTIFICATION_NUMBER"
+}
+],
+"minLikelihood":"LIKELY",
+"limits":{
+}
+},
+"actions":[
+{
+"jobNotificationEmails":{
+}
+}
+]
+},
+"triggers":[
+{
+"schedule":{
+"recurrencePeriodDuration":"86400s"
+}
+}
+],
+"createTime":"2019-03-06T21:19:45.774841Z",
+"updateTime":"2019-03-06T21:27:01.650183Z",
+"lastRunTime":"1970-01-01T00:00:00Z",
+"status":"HEALTHY"
+}
+To quickly try this out, you can use the API Explorer that's embedded below.
+For general information about using JSON to send requests to the
+DLP API, see the JSON quickstart.
+Job latency
+There are no service level objectives (SLO) guaranteed for jobs and job
+triggers. Latency is affected by several factors, including the amount of data
+to scan, the storage repository being scanned, the type and number of infoTypes
+you are scanning for, the region where the job is processed, and the computing
+resources available in that region. Therefore, the latency of inspection jobs
+can't be determined in advance.
+To help reduce job latency, you can try the following:
+If sampling is available
+for your job or job trigger, enable it.
+Avoid enabling infoTypes that you don't need. Although the following are
+useful in certain scenarios, these infoTypes can make requests run much more
+slowly than requests that don't include them:
+PERSON_NAME
+FEMALE_NAME
+MALE_NAME
+FIRST_NAME
+LAST_NAME
+DATE_OF_BIRTH
+LOCATION
+STREET_ADDRESS
+ORGANIZATION_NAME
+Always specify infoTypes explicitly. Do not use an empty infoTypes list.
+If possible, use a different processing region.
+If you're still having latency issues with jobs after trying these techniques,
+consider using
+content.inspect or
+content.deidentify
+requests instead of jobs. These methods are covered under the Service Level
+Agreement. For more information, see Sensitive Data Protection Service Level
+Agreement.
+Limit scans to only new content
+You can configure your job trigger to automatically set the timespan date for
+files stored in Cloud Storage or
+BigQuery. When you set the
+TimespanConfig
+object to auto-populate, Sensitive Data Protection only scans data that was
+added or modified since the trigger last ran:
+...
+timespan_config {
+enable_auto_population_of_timespan_config: true
+}
+...
+For BigQuery inspection, only rows that are at least three hours old
+are included in the scan. See the known
+issue related to this
+operation.
+Trigger jobs at file upload
+In addition to the support for job triggers—which is built into
+Sensitive Data Protection—Google Cloud also has a variety of other
+components that you can use to integrate or trigger Sensitive Data Protection
+jobs. For example, you can use Cloud Run functions to
+trigger a Sensitive Data Protection scan every time a file is uploaded to
+Cloud Storage.
+For information about how to set up this operation, see Automating the
+classification of data uploaded to
+Cloud Storage.
+Successful jobs with no data inspected
+A job can complete successfully even if no data was scanned. The following
+example scenarios can cause this to happen:
+The job is configured to inspect a specific data asset, such as a file, that
+exists but is empty.
+The job is configured to inspect a data asset that doesn't exist or that no
+longer exists.
+The job is configured to inspect a Cloud Storage bucket that is empty.
+The job is configured to inspect a bucket, and recursive scanning is disabled.
+At the top level, the bucket contains only folders that, in turn, contain the
+files.
+The job is configured to inspect only a specific file type in a bucket, but
+the bucket doesn't have any files of that type.
+The job is configured to inspect only new
+content, but there were no updates after
+the last time the job was run.
+In the Google Cloud console, on the Job details page, the Bytes scanned
+field specifies how much data was inspected by the job. In the
+DLP API, the
+processedBytes field
+specifies how much data was inspected.
+What's next
+Learn more about creating a de-identified copy of data in
+storage.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-07 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

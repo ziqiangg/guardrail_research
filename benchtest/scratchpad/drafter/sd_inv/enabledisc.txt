@@ -1,0 +1,702 @@
+# status 200  final_url https://docs.cloud.google.com/sensitive-data-protection/docs/enable-discovery-actions  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Sensitive Data Protection
+Start free
+Overview
+Guides
+Reference
+Samples
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Samples
+Resources
+Console
+Discover
+Product overview
+Plan your data risk management strategy
+Evaluate your data risk management needs
+Learn about your data through discovery and inspection
+Recommended strategies for mitigating data risk
+Release notes
+Pricing
+Locations
+Global and regional endpoints for Sensitive Data Protection
+Sensitive Data Protection locations
+Specify a processing location
+Service method types
+Supported file types and scanning modes
+Get started
+Quickstarts
+Inspect text using the command-line tool
+Inspect text using a JSON request
+Schedule an inspection scan
+Create an inspection template
+De-identify and re-identify sensitive text
+Google Cloud Skills Boost labs
+Detect sensitive data
+Discover and profile data resources
+Overview of sensitive data discovery
+Common discovery enablement scenarios
+Allow discovery within service perimeters
+Profile your data
+Profile a single data resource
+Profile BigQuery data
+Estimate BigQuery data profiling cost
+Estimate the cost of profiling BigQuery data in a project
+Estimate the cost of profiling BigQuery data in an organization or folder
+Profile BigQuery data in a project
+Profile BigQuery data in an organization or folder
+Profile Cloud SQL data
+Profile Cloud SQL data in a project
+Profile Cloud SQL data in an organization or folder
+Manage connections
+Profile Cloud Storage data
+Profile Cloud Storage data in a project
+Profile Cloud Storage data in an organization or folder
+Profile Vertex AI data
+Sensitive data discovery for Vertex AI data
+Profile Vertex AI data in a project
+Profile Vertex AI data in an organization or folder
+Profile Amazon S3 data
+Sensitive data discovery for Amazon S3 data
+Profile Amazon S3 data
+Profile Azure Blob Storage data
+Report secrets in environment variables to Security Command Center
+Grant data profiling access to a service agent
+Manage data profiles
+Control IAM access to resources based on data sensitivity
+Send discovery insights to other services
+Enable discovery actions
+Send data profiles to Security Command Center
+Receive and parse Pub/Sub messages about data profiles
+Tag tables in Data Catalog based on insights from data profiles
+Add Knowledge Catalog aspects based on insights from data profiles
+Analyze and visualize data profiles
+Visualize data profiles in the discovery dashboard
+Analyze data profiles
+Remediate findings from the data profiler
+Manage scan configurations
+Troubleshoot issues with the data profiler
+Metrics reference
+Data risk and sensitivity levels
+Inspect for sensitive data
+Inspect data stored in Google Cloud
+Inspect data from any source
+Inspect unstructured text synchronously
+Inspect structured text synchronously
+Inspect an image synchronously
+Asynchronous inspection overview
+Inspect data from any source asynchronously
+Quote the sensitive data in the results
+Work with inspection results
+Actions
+Send inspection results to Knowledge Catalog as aspects
+Send inspection results to Data Catalog
+Send inspection results to Security Command Center
+Analyze and report on inspection findings
+Query inspection findings in BigQuery
+Parse findings stored as Protobuf text
+Jobs and job triggers
+Overview of jobs and job triggers
+Create and manage jobs and job triggers
+Web-based inspection demonstration app
+Allow or block content based on sensitivity
+Overview of content policies
+Create and manage content policies
+Configure detection
+Templates
+Overview of templates
+Create inspection templates
+InfoTypes and infoType detectors
+Overview of infoTypes and infoType detectors
+Built-in infoType detectors
+List built-in infoType detectors
+InfoType detector reference
+Custom infoType detectors
+Overview of custom infoType detectors
+Create a regular custom dictionary detector
+Create a large custom dictionary detector
+Create a custom regex detector
+Create a custom metadata label detector
+Custom infoType examples
+Manage infoTypes through the Google Cloud console
+Modify infoType detectors to refine scan results
+Match likelihood
+Likelihood overview
+Customize match likelihood
+Mask and de-identify data
+Overview
+Transformation methods
+Transformation reference
+Text classification and redaction
+Date shifting
+Generalization and bucketing
+Pseudonymization
+De-identify sensitive data
+De-identify data stored in Google Cloud
+Overview
+Through the Cloud console
+Through the DLP API
+Transformation details reference
+De-identify data from any source
+De-identify text or tabular content
+Examples of text redaction
+Examples of tabular data de-identification
+Image inspection and redaction
+Redact sensitive data from images
+Create a de-identification template
+Create a wrapped key
+De-identify BigQuery data at query time
+De-identification and re-identification of PII in large-scale datasets
+Redact sensitive data from PDF files
+Analyze re-identification risk
+Overview of re-identification risk analysis
+Re-identification risk analysis techniques
+Compute k-anonymity for a dataset
+Compute l-diversity for a dataset
+Compute k-map for a dataset
+Compute δ-presence for a dataset
+Compute numerical and categorical statistics
+Visualize re-identification risk using Data Studio
+Connect to other services
+Use Sensitive Data Protection with BigQuery
+Use Sensitive Data Protection with Cloud Storage
+Use Sensitive Data Protection with Cloud Storage
+Automate the classification of data uploaded to Cloud Storage
+Send inspection results to Data Catalog
+Send inspection results to Security Command Center
+Monitor your usage with Cloud Monitoring
+Use Sensitive Data Protection with AWS S3
+Use Sensitive Data Protection with JDBC Databases
+Use Sensitive Data Protection with Apigee
+Use Sensitive Data Protection with Data Fusion
+Build a secure anomaly detection solution using Dataflow, BigQuery ML, and Sensitive Data Protection
+Troubleshoot
+Troubleshoot issues with the data profiler
+Control access
+Authentication
+IAM
+Access control with IAM
+Sensitive Data Protection roles and permissions
+Sensitive Data Protection service agents
+Control access with VPC Service Controls
+Monitor
+Audit logging
+Monitor your usage with Cloud Monitoring
+Develop
+All Sensitive Data Protection code samples
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Cloud Data Loss Prevention (Cloud DLP) is now a part of Sensitive Data Protection. The API name remains the same: Cloud Data Loss Prevention API (DLP API). For information about the services that make up Sensitive Data Protection, see Sensitive Data Protection overview.
+Home
+Documentation
+Security
+Sensitive Data Protection
+Guides
+Send feedback
+Enable discovery actions
+Stay organized with collections
+Save and categorize content based on your preferences.
+This section describes how to specify actions that you want
+Sensitive Data Protection to take after profiling a resource. These actions
+are useful if you want to send insights gathered from data profiles to other
+Google Cloud services.
+Note: For information about how other Google Cloud services may charge you
+for configuring actions, see Pricing for exporting data
+profiles.
+To enable discovery actions,
+create or
+edit a discovery
+scan configuration. The following sections describe the different actions that
+you can enable in the Add actions section of the scan configuration.
+Not all actions on this page are available for each discovery
+type. For example, you can't
+attach tags to resources if you are configuring discovery for
+resources from another cloud provider. For more information, see Supported
+actions on this page.
+For more information about sensitive data discovery, see Data
+profiles.
+Inspection and risk analysis operations have a different set of actions. For
+more information, see Enable inspection or risk analysis
+actions.
+Publish to Google Security Operations
+Metrics gathered from data
+profiles can add context to your Google Security Operations findings. The added
+context can help you determine the most important security issues to address.
+For example, if you're investigating a particular service agent,
+Google Security Operations can determine what resources the service agent accessed
+and whether any of those resources have high-sensitivity data.
+To send your data profiles to your Google Security Operations instance, turn on
+Publish to Google Security Operations.
+If you don't have a Google Security Operations instance enabled for your
+organization—through the standalone
+product or
+through Security Command Center
+Enterprise—turning on this option has no
+effect.
+Publish to Security Command Center
+Findings from data profiles provide context when you triage and develop response
+plans for your vulnerability and threat findings in
+Security Command Center.
+Note: You can also configure Security Command Center to
+automatically prioritize resources for the attack path simulation
+feature according to
+the calculated sensitivity of the data that the resources contain. For more
+information, see Set resource priority values automatically by data
+sensitivity.
+Before you can use this action, Security Command Center must be activated at the
+organization level. Turning on Security Command Center at the organization level
+enables the flow of findings from integrated services like
+Sensitive Data Protection. Sensitive Data Protection works with
+Security Command Center in all service tiers.
+If Security Command Center isn't activated at the organization level,
+Sensitive Data Protection findings won't appear in
+Security Command Center. For more information, see Check the activation level of
+Security Command Center.
+To send the results of your data profiles to Security Command Center, make sure the
+Publish to Security Command Center option is turned on.
+For more information, see Publish data profiles to
+Security Command Center.
+Save data profile copies to BigQuery
+Sensitive Data Protection saves a copy of each generated data profile
+in a BigQuery table. If you don't provide the details of your
+preferred table, Sensitive Data Protection creates a dataset and table in the
+service agent container.
+By default, the dataset is named sensitive_data_protection_discovery and
+the table is named discovery_profiles.
+Important: The output table uses
+DataProfileBigQueryRowSchema
+as its schema. This schema can change as Sensitive Data Protection adds
+features. Make sure that your workflows can handle schema changes, for example,
+by ignoring unknown fields.
+This action lets you keep a history of all of your generated profiles. This
+history can be useful for creating audit reports and visualizing data
+profiles. You can also
+load this information into other systems.
+Also, this option lets you see all of your data profiles in a single view,
+regardless of which region your data resides in. Although you can also view the
+data profiles through the
+Google Cloud console, the
+console displays the profiles in only one region at a time.
+When Sensitive Data Protection fails to profile a resource, it periodically
+retries. To minimize noise in the exported data, Sensitive Data Protection
+exports only the successfully generated profiles to BigQuery.
+Sensitive Data Protection starts exporting profiles from the time you turn on
+this option. Profiles that were generated before you turned on exporting aren't
+saved to BigQuery.
+Note: Your service agent must
+have write access on the table where the profile copies will be saved. If you
+don't have a service agent yet, Sensitive Data Protection lets you create one
+later in the Create scan configuration page.
+For example queries that you can use when analyzing data profiles,
+see Analyze data profiles.
+Save sample discovery findings to BigQuery
+Sensitive Data Protection can add sample findings to a
+BigQuery table of your choice. Sample findings represent a subset
+of all findings and might not represent all infoTypes that were discovered.
+Normally, the system generates around 10 sample findings per resource, but
+this number can vary for each discovery run.
+Each finding includes the actual string (also called quote) that was detected
+and its exact location.
+This action is useful if you want to evaluate whether your inspection
+configuration is correctly
+matching the type of information that you want to flag as sensitive. Using the
+exported data profiles and the exported sample findings, you can run
+queries to get more information about the specific items that were flagged, the
+infoTypes they matched, their exact locations, their calculated sensitivity
+levels, and other details.
+Important: The output table uses
+DataProfileFinding
+as its schema. This schema can change as Sensitive Data Protection adds
+features. Make sure that your workflows can handle schema changes, for example,
+by ignoring unknown fields.
+Example query: Show sample findings related
+to file store data profiles
+This example requires both Save data profile copies to BigQuery and
+Save sample discovery findings to BigQuery to be enabled.
+The following query uses an INNER JOIN operation on both
+the table of exported data profiles and the table of exported sample findings. In the resulting
+table, each record shows the finding's quote, the infoType that it matched, the resource that
+contains the finding, and the calculated sensitivity level of the resource.
+SELECT
+findings_table.quote,
+findings_table.infotype.name,
+findings_table.location.container_name,
+profiles_table.file_store_profile.file_store_path as bucket_name,
+profiles_table.file_store_profile.sensitivity_score as bucket_sensitivity_score
+FROM
+`FINDINGS_TABLE_PROJECT_ID.FINDINGS_TABLE_DATASET_ID.FINDINGS_TABLE_ID_latest_v1` AS findings_table
+INNER JOIN
+`PROFILES_TABLE_PROJECT_ID.PROFILES_TABLE_DATASET_ID.PROFILES_TABLE_ID_latest_v1` AS profiles_table
+ON
+findings_table.data_profile_resource_name=profiles_table.file_store_profile.name
+AND findings_table.timestamp.timestamp=profiles_table.file_store_profile.profile_last_generated.timestamp
+Example query: Show sample findings related
+to table data profiles
+This example requires both Save data profile copies to BigQuery and
+Save sample discovery findings to BigQuery to be enabled.
+The following query uses an INNER JOIN operation on both
+the table of exported data profiles and the table of exported sample findings. In the resulting
+table, each record shows the finding's quote, the infoType that it matched, the resource that
+contains the finding, and the calculated sensitivity level of the resource.
+SELECT
+findings_table.quote,
+findings_table.infotype.name,
+findings_table.location.container_name,
+findings_table.location.data_profile_finding_record_location.field.name AS field_name,
+profiles_table.table_profile.dataset_project_id AS project_id,
+profiles_table.table_profile.dataset_id AS dataset_id,
+profiles_table.table_profile.table_id AS table_id,
+profiles_table.table_profile.sensitivity_score AS table_sensitivity_score
+FROM
+`FINDINGS_TABLE_PROJECT_ID.FINDINGS_TABLE_DATASET_ID.FINDINGS_TABLE_ID_latest_v1` AS findings_table
+INNER JOIN
+`PROFILES_TABLE_PROJECT_ID.PROFILES_TABLE_DATASET_ID.PROFILES_TABLE_ID_latest_v1` AS profiles_table
+ON
+findings_table.data_profile_resource_name=profiles_table.table_profile.name
+AND findings_table.timestamp.timestamp=profiles_table.table_profile.profile_last_generated.timestamp
+To save sample findings to a BigQuery table, follow these
+steps:
+Turn on Save sample discovery findings to BigQuery.
+Enter the details of the BigQuery
+table where you want to save the sample findings.
+The table that you specify for this action must be different from the
+table used for the Save data profile copies to BigQuery action.
+For Project ID, enter the ID of an existing project where you want
+to export the findings to.
+For Dataset ID, enter the name of an existing dataset in the project.
+For Table ID, enter the name of the BigQuery table where
+want to save the findings to. If this table doesn't exist,
+Sensitive Data Protection automatically creates it for you using the name
+that you provide.
+Note: Your service agent must
+have write access on the table. If you don't have a
+service agent yet, Sensitive Data Protection lets you create one later in the
+Create scan configuration page.
+For information about the contents of each finding that is saved in the
+BigQuery table, see
+DataProfileFinding.
+Attach tags to resources
+Turning on Attach tags to resources instructs
+Sensitive Data Protection to automatically tag your data according to its
+calculated sensitivity level. This section requires you to first complete the
+tasks in Control IAM access to resources based on data
+sensitivity.
+To automatically tag a resource according to its calculated sensitivity level,
+follow these steps:
+Turn on the Tag resources option.
+For each sensitivity level (high, moderate, low, and unknown), enter the
+path of the tag value that you created for the given sensitivity level.
+If you skip a sensitivity level, no tag is attached for it.
+To automatically lower the data risk level of a
+resource when the sensitivity level tag is present, select When a tag is
+applied to a resource, lower the data risk of its profile to LOW. This
+option helps you measure the improvement in your data security and privacy
+posture.
+Important: This option overrides the calculated data risk
+level
+of the profiled resource.
+Select one or both of the following options:
+Tag a resource when it is profiled for the first time.
+Tag a resource when its profile is updated. Select
+this option if you want Sensitive Data Protection to overwrite the
+sensitivity level tag value on succeeding discovery runs. Consequently, a
+principal's access to a resource changes automatically as the calculated
+data sensitivity level for that resource increases or decreases.
+Don't select this option if you plan to manually update the sensitivity
+level tag values that the discovery service attached to your resources.
+If you select this option, Sensitive Data Protection can overwrite
+your manual updates.
+Publish to Pub/Sub
+Turning on Publish to Pub/Sub lets you take programmatic
+actions based on profiling results. You can use Pub/Sub
+notifications to develop a workflow for catching and remediating findings
+with significant data risk or sensitivity.
+To send notifications to a Pub/Sub topic, follow these steps:
+Turn on Publish to Pub/Sub.
+A list of options appears. Each option describes an event that causes
+Sensitive Data Protection to send a notification to Pub/Sub.
+Select the events that should trigger a Pub/Sub notification.
+If you select Send a Pub/Sub notification each time a profile is updated,
+Sensitive Data Protection sends a notification when there's a change in the
+sensitivity level, data risk level, detected infoTypes, public access, and
+other important metrics in the
+profile.
+For each event you select, follow these steps:
+Enter the name of the topic. The name must be in the following format:
+projects/PROJECT_ID/topics/TOPIC_ID
+Replace the following:
+PROJECT_ID: the ID of the project associated with the
+Pub/Sub topic.
+TOPIC_ID: the ID of the Pub/Sub topic.
+Specify whether to include the full resource profile in the
+notification, or just the full resource name of the resource that
+was profiled.
+Set the minimum data risk and sensitivity levels that must be met for
+Sensitive Data Protection to send a notification.
+Specify whether only one or both of the data risk and sensitivity
+conditions must be met. For example, if you choose AND, then
+both the data risk and the sensitivity conditions must be
+met before Sensitive Data Protection sends a notification.
+Note: Your service agent must have
+publishing access on the Pub/Sub topic. An example of a role
+that has publishing access is the Pub/Sub Publisher role
+(roles/pubsub.publisher). If you don't have a service agent yet,
+Sensitive Data Protection lets you create one later in the Create scan
+configuration page.
+If there are configuration or permission issues with the Pub/Sub topic,
+Sensitive Data Protection retries sending the Pub/Sub notification for up to
+two weeks. After two weeks, the notification is discarded.
+Send to Data Catalog as tags
+This feature is deprecated.
+This action lets you create Data Catalog tags in Knowledge Catalog based on insights
+from data profiles. This action is only applied to new and updated profiles.
+Existing profiles that aren't updated aren't sent to Knowledge Catalog.
+Data Catalog is a fully managed, scalable metadata
+management service. When you enable this action, tables that you profile are automatically
+tagged in Data Catalog according to insights gathered from the data
+profiles. You can then use Knowledge Catalog to search your organization
+and projects for tables with specific tag values.
+To send the data profiles to Knowledge Catalog as
+Data Catalog tags, make sure that the
+Send to Dataplex as tags option is turned on.
+For more information, see Tag tables in Data Catalog based on insights
+from data profiles.
+Send to Knowledge Catalog as aspects
+This action lets you add
+Knowledge Catalog aspects
+to profiled resources based on insights from data profiles.
+This action is only applied to new and updated profiles.
+Existing profiles that aren't updated aren't sent to Knowledge Catalog.
+When you enable this action, Sensitive Data Protection attaches the
+Sensitive Data Protection profile aspect to the Knowledge Catalog
+entry for each new or updated
+resource that you profile. The generated aspects contain insights gathered
+from the data profiles. You can then search your organization and projects for
+entries with specific Sensitive Data Protection profile aspect values.
+To send the data profiles to Knowledge Catalog, make sure that the
+Send to Dataplex Catalog as aspects option is turned on.
+For more information, see Add Knowledge Catalog aspects based
+on insights from data profiles.
+Supported actions
+The following table shows which actions are supported for each discovery
+type.
+|
+| Publish to Google Security Operations
+| Publish to Security Command Center
+| Save data profile copies to BigQuery
+| Save sample discovery findings to BigQuery
+| Attach tags to resources
+| Publish to Pub/Sub
+| Send to Knowledge Catalog as Data Catalog tags
+(Deprecated)
+| Send to Knowledge Catalog as aspects
+| Amazon S3
+| ✓
+| ✓
+| ✓
+| ✓
+|
+| ✓
+|
+|
+| Azure Blob Storage
+| ✓
+| ✓
+| ✓
+| ✓
+|
+| ✓
+|
+|
+| BigQuery
+| ✓
+| ✓
+| ✓
+| ✓
+| ✓
+| ✓
+| ✓
+| ✓
+| Cloud SQL
+| ✓
+| ✓
+| ✓
+| ✓
+| ✓
+| ✓
+|
+| ✓
+| Cloud Storage
+| ✓
+| ✓
+| ✓
+| ✓
+| ✓
+| ✓
+|
+|
+| Vertex AI
+| ✓
+| ✓
+| ✓
+| ✓
+|
+| ✓
+|
+| ✓
+What's next
+Learn how to use context data from data profiles in
+Google Security Operations.
+Learn about the findings that Sensitive Data Protection can generate in
+Security Command Center.
+Learn how to analyze data profiles
+in BigQuery and Data Studio.
+Learn how to control IAM access to resources based on data
+sensitivity.
+Learn how to receive and parse Pub/Sub messages about data
+profiles.
+Learn how to add Knowledge Catalog aspects based on insights
+from data profiles.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-07 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

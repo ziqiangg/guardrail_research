@@ -1,0 +1,6 @@
+## Column PD1: Presidio: PII detection in text (Analyzer)
+## Column PD2: Presidio: PII anonymisation and masking in text (Anonymizer)
+## Column PD3: Presidio: Reversible anonymisation and deanonymisation (encrypt and decrypt)
+## Column PD4: Presidio: PII detection and redaction in images (Image Redactor)
+## Column PD5: Presidio: PII detection and anonymisation in structured data (tables and JSON)
+## Column PD6: Presidio: Custom-recognizer detection (regex patterns, deny lists, ad-hoc recognizers)

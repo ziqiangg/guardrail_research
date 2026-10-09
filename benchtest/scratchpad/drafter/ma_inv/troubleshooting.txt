@@ -1,0 +1,254 @@
+# status 200  final_url https://docs.cloud.google.com/model-armor/troubleshooting  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Model Armor
+Start free
+Overview
+Guides
+Reference
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Resources
+Console
+Discover
+Product overview
+Data residency and endpoints
+Feature availability for templates by region
+Best practices for scaling and high traffic
+Retry strategy
+Configure Model Armor
+Create and manage templates
+Configure template-specific exclusion rules
+Set the filter version
+Filter version history
+Configure floor settings
+Sanitize prompts and responses
+Configure logging
+View the monitoring dashboard
+Control access
+Access control with IAM
+Roles and permissions
+Service accounts
+Integrate Model Armor with services or frameworks
+Overview
+Integrate with Agent Gateway
+Integrate with Apigee
+Integrate with Gemini Enterprise
+Integrate with Google and Google Cloud MCP servers
+Integrate with Google Cloud networking services
+Integrate with Agent Platform
+Integrate with LangChain
+Monitor
+Audit logging
+Troubleshoot
+Troubleshooting
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Home
+Documentation
+AI and ML
+Model Armor
+Guides
+Send feedback
+Troubleshoot
+Stay organized with collections
+Save and categorize content based on your preferences.
+This page shows you how to resolve issues with Model Armor.
+This section contains troubleshooting steps that you might find helpful if you
+have problems using Model Armor.
+All API calls to Model Armor return a 404 Not Found error
+Establish a Private Service Connect to the
+Model Armor APIs. This error typically occurs when Model Armor
+regional endpoints (REPs) are accessed using Private Google Access or without
+a Private Service Connect. For more information, see
+About accessing regional endpoints through Private Service Connect endpoints.
+Sensitive Data Protection filter gives an error or is skipped
+Verify the following:
+The Sensitive Data Protection template is in the same region as the
+Model Armor endpoint being called.
+The service agent making the Model Armor request has the dlp.User
+and dlp.Reader roles in the project containing the Sensitive Data Protection
+template.
+This error occurs due to client errors in the SanitizeUserPrompt or SanitizeModelResponse
+requests or issues with the Sensitive Data Protection template.
+Model Armor global endpoint errors
+Ensure that you are making the API requests to the appropriate
+regional endpoint instead of the global endpoint.
+Model Armor supports the following operations only
+on its regional endpoints:
+Create, read, update, delete, and list operations on templates.
+SanitizeUserPrompt and SanitizeModelResponse API requests.
+If you make the API requests for those operations to the global endpoint, you
+will see the following error.
+{
+"error": {
+"code": 403,
+"message": "Write access to project '<PROJECT_ID>' was denied",
+"status": "PERMISSION_DENIED"
+}
+}
+Certificate errors when accessing Model Armor regional endpoints
+This error typically occurs when Model Armor regional endpoints
+are accessed from within a VPC network using Private Google Access or
+VPC Service Controls, and the certificate verification fails.
+For example, you might see an error message similar to the following:
+curl: (60) SSL: no alternative certificate subject name matches target host name 'modelarmor.europe-west4.rep.googleapis.com'
+To resolve this issue, create a Private Service Connect endpoint to the
+Model Armor APIs. For more information, see
+About accessing regional endpoints through Private Service Connect endpoints.
+Region doesn't support the requested capabilities
+You might see an error message similar to the following:
+Region '<var>REGION</var>' does not support the requested capabilities: '<var>CAPABILITIES</var>'
+This error occurs when you attempt to create or update a template in a region
+with feature restrictions, and the request enables features that aren't
+supported in that region.
+The template configuration includes detectors like malicious URL and CSAM,
+which are not available in some regions with unsupported features.
+To resolve this issue:
+Identify the unsupported capabilities listed in the error message.
+Review the feature availability by region
+to confirm which features are not available for your target region.
+Remove the unsupported features from the template that you're creating or updating.
+Alternatively, use a different Model Armor region that supports
+the features, if your data residency requirements allow.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-06 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

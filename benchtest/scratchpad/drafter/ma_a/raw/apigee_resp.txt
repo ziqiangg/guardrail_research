@@ -1,0 +1,1616 @@
+# status 200  final_url https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Apigee
+Start free
+Overview
+Guides
+Reference
+Support
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Support
+Resources
+Console
+APIGEE API
+Overview
+v1
+REST Resources
+organizations
+Overview
+create
+delete
+get
+getControlPlaneAccess
+getProjectMapping
+getSecuritySettings
+getSyncAuthorization
+list
+setAddons
+setSyncAuthorization
+update
+updateControlPlaneAccess
+updateSecuritySettings
+organizations.analytics.datastores
+Overview
+create
+delete
+get
+list
+test
+update
+organizations.apimServiceExtensions
+Overview
+create
+delete
+get
+list
+patch
+organizations.apiproducts
+Overview
+attributes
+create
+delete
+get
+list
+move
+update
+organizations.apiproducts.attributes
+Overview
+delete
+get
+list
+updateApiProductAttribute
+organizations.apiproducts.rateplans
+Overview
+create
+delete
+get
+list
+update
+organizations.apis
+Overview
+create
+delete
+get
+list
+move
+patch
+organizations.apis.debugsessions
+Overview
+list
+organizations.apis.deployments
+Overview
+list
+organizations.apis.keyvaluemaps
+Overview
+create
+delete
+get
+list
+update
+organizations.apis.keyvaluemaps.entries
+Overview
+create
+delete
+get
+list
+update
+organizations.apis.revisions
+Overview
+delete
+get
+list
+updateApiProxyRevision
+organizations.apis.revisions.deployments
+Overview
+list
+organizations.appgroups
+Overview
+create
+delete
+get
+getBalance
+getMonetizationConfig
+list
+update
+updateMonetizationConfig
+organizations.appgroups.apps
+Overview
+create
+delete
+get
+list
+update
+organizations.appgroups.apps.keys
+Overview
+create
+delete
+get
+updateAppGroupAppKey
+organizations.appgroups.apps.keys.apiproducts
+Overview
+delete
+updateAppGroupAppKeyApiProduct
+organizations.appgroups.balance
+Overview
+adjust
+credit
+organizations.appgroups.subscriptions
+Overview
+create
+expire
+get
+list
+organizations.apps
+Overview
+get
+list
+organizations.datacollectors
+Overview
+create
+delete
+get
+list
+patch
+organizations.deployments
+Overview
+list
+organizations.developers
+Overview
+attributes
+create
+delete
+get
+getBalance
+getMonetizationConfig
+list
+setDeveloperStatus
+update
+updateMonetizationConfig
+organizations.developers.apps
+Overview
+attributes
+create
+delete
+generateKeyPairOrUpdateDeveloperAppStatus
+get
+list
+update
+organizations.developers.apps.attributes
+Overview
+delete
+get
+list
+updateDeveloperAppAttribute
+organizations.developers.apps.keys
+Overview
+create
+delete
+get
+replaceDeveloperAppKey
+updateDeveloperAppKey
+organizations.developers.apps.keys.apiproducts
+Overview
+delete
+updateDeveloperAppKeyApiProduct
+organizations.developers.apps.keys.create
+Overview
+create
+organizations.developers.attributes
+Overview
+delete
+get
+list
+updateDeveloperAttribute
+organizations.developers.balance
+Overview
+adjust
+credit
+organizations.developers.subscriptions
+Overview
+create
+expire
+get
+list
+organizations.dnsZones
+Overview
+create
+delete
+get
+list
+organizations.endpointAttachments
+Overview
+create
+delete
+get
+list
+organizations.envgroups
+Overview
+create
+delete
+get
+list
+patch
+organizations.envgroups.attachments
+Overview
+create
+delete
+get
+list
+organizations.environments
+Overview
+create
+delete
+get
+getAddonsConfig
+getApiSecurityRuntimeConfig
+getDebugmask
+getIamPolicy
+getSecurityActionsConfig
+getTraceConfig
+list
+modifyEnvironment
+setIamPolicy
+testIamPermissions
+update
+updateDebugmask
+updateEnvironment
+updateSecurityActionsConfig
+updateTraceConfig
+organizations.environments.addonsConfig
+Overview
+setAddonEnablement
+organizations.environments.analytics.admin
+Overview
+getSchemav2
+organizations.environments.analytics.exports
+Overview
+create
+get
+list
+organizations.environments.apis.deployments
+Overview
+list
+organizations.environments.apis.revisions.debugsessions
+Overview
+create
+deleteData
+get
+list
+organizations.environments.apis.revisions.debugsessions.data
+Overview
+get
+list
+organizations.environments.apis.revisions.deployments
+Overview
+deploy
+generateDeployChangeReport
+generateUndeployChangeReport
+get
+undeploy
+organizations.environments.archiveDeployments
+Overview
+create
+delete
+generateDownloadUrl
+generateUploadUrl
+get
+list
+patch
+organizations.environments.caches
+Overview
+delete
+list
+organizations.environments.deployments
+Overview
+get
+getIamPolicy
+list
+setIamPolicy
+testIamPermissions
+organizations.environments.flowhooks
+Overview
+attachSharedFlowToFlowHook
+detachSharedFlowFromFlowHook
+get
+list
+organizations.environments.keystores
+Overview
+create
+delete
+get
+list
+organizations.environments.keystores.aliases
+Overview
+create
+csr
+delete
+get
+getCertificate
+list
+update
+organizations.environments.keyvaluemaps
+Overview
+create
+delete
+get
+list
+update
+organizations.environments.keyvaluemaps.entries
+Overview
+create
+delete
+get
+list
+update
+organizations.environments.optimizedStats
+Overview
+get
+organizations.environments.queries
+Overview
+create
+get
+getResult
+getResulturl
+list
+organizations.environments.references
+Overview
+create
+delete
+get
+list
+update
+organizations.environments.resourcefiles
+Overview
+create
+delete
+get
+list
+listEnvironmentResources
+update
+organizations.environments.securityActions
+Overview
+create
+delete
+disable
+enable
+get
+list
+patch
+organizations.environments.securityIncidents
+Overview
+batchUpdate
+get
+list
+patch
+organizations.environments.securityReports
+Overview
+create
+get
+getResult
+getResultView
+list
+organizations.environments.securityStats
+Overview
+queryTabularStats
+queryTimeSeriesStats
+organizations.environments.sharedflows.deployments
+Overview
+list
+organizations.environments.sharedflows.revisions.deployments
+Overview
+deploy
+get
+undeploy
+organizations.environments.stats
+Overview
+get
+organizations.environments.targetservers
+Overview
+create
+delete
+get
+list
+update
+organizations.environments.traceConfig.overrides
+Overview
+create
+delete
+get
+list
+patch
+organizations.hostQueries
+Overview
+create
+get
+getResult
+getResultView
+list
+organizations.hostSecurityReports
+Overview
+create
+get
+getResult
+getResultView
+list
+organizations.hostStats
+Overview
+get
+organizations.instances
+Overview
+create
+delete
+get
+list
+patch
+organizations.instances.attachments
+Overview
+create
+delete
+get
+list
+organizations.instances.natAddresses
+Overview
+activate
+create
+delete
+get
+list
+organizations.keyvaluemaps
+Overview
+create
+delete
+get
+list
+update
+organizations.keyvaluemaps.entries
+Overview
+create
+delete
+get
+list
+update
+organizations.operations
+Overview
+get
+list
+organizations.optimizedHostStats
+Overview
+get
+organizations.reports
+Overview
+create
+delete
+get
+list
+update
+organizations.securityAssessmentResults
+Overview
+batchCompute
+organizations.securityFeedback
+Overview
+create
+delete
+get
+list
+patch
+organizations.securityMonitoringConditions
+Overview
+create
+delete
+get
+list
+patch
+organizations.securityProfiles
+Overview
+create
+delete
+get
+list
+listRevisions
+patch
+organizations.securityProfiles.environments
+Overview
+computeEnvironmentScores
+create
+delete
+organizations.securityProfilesV2
+Overview
+create
+delete
+get
+list
+patch
+organizations.sharedflows
+Overview
+create
+delete
+get
+list
+move
+organizations.sharedflows.deployments
+Overview
+list
+organizations.sharedflows.revisions
+Overview
+delete
+get
+list
+updateSharedFlowRevision
+organizations.sharedflows.revisions.deployments
+Overview
+list
+organizations.sites.apicategories
+Overview
+create
+delete
+get
+list
+patch
+organizations.sites.apidocs
+Overview
+create
+delete
+get
+getDocumentation
+list
+update
+updateDocumentation
+organizations.spaces
+Overview
+create
+delete
+get
+getIamPolicy
+list
+patch
+setIamPolicy
+testIamPermissions
+projects
+Overview
+provisionOrganization
+Types
+Alias
+ApiCategoryResponse
+ApiDocDocumentation
+ApiDocDocumentationResponse
+ApiDocResponse
+ApiProductRef
+ApiProxyType
+AppGroupBalance
+AppGroupMonetizationConfig
+AsyncQuery
+Attributes
+BadBundle
+ConfigVersion
+ControlPlaneAccess
+Credential
+DebugMask
+DeleteResponse
+DeploymentChangeReport
+DeveloperBalance
+DeveloperMonetizationConfig
+EntityMetadata
+Export
+GetPolicyOptions
+Interval
+InvalidResourceStatusErrorDetails
+ListAsyncQueriesResponse
+ListDeploymentsResponse
+ListEnvironmentResourcesResponse
+ListKeyValueEntriesResponse
+ListSecurityReportsResponse
+Metadata
+MetricAggregation
+MissingSpecErrorDetails
+OperationMetadata
+OperationType
+Order
+OrganizationProjectMapping
+Policy
+Properties
+Property
+Query
+QueryMetadata
+ResourceFiles
+RiskAssessmentType
+SecurityActionsConfig
+SecurityReport
+SecurityReportMetadata
+SecurityReportQuery
+SecurityReportResultView
+SecuritySettings
+State
+Status
+SyncAuthorization
+TestIamPermissionsResponse
+TraceConfig
+WaitOperationRequest
+API OBSERVATION
+REST Reference
+v1alpha
+Overview
+Resources
+REST Resources
+projects.locations
+Overview
+get
+list
+listApiObservationTags
+projects.locations.observationJobs
+Overview
+create
+delete
+disable
+enable
+get
+list
+projects.locations.observationJobs.apiObservations
+Overview
+batchEditTags
+get
+list
+projects.locations.observationJobs.apiObservations.apiOperations
+Overview
+get
+list
+projects.locations.observationSources
+Overview
+create
+delete
+get
+list
+projects.locations.operations
+Overview
+cancel
+delete
+get
+list
+Types
+ApiDiscoveryOperationMetadata
+OperationMetadata
+WaitOperationRequest
+RPC Reference
+Overview
+google.cloud.apim.v1alpha
+google.cloud.apim.v1main
+google.cloud.common
+google.cloud.location
+google.longrunning
+google.rpc
+APPLICATION INTEGRATIONS API
+All APIs and references
+CONNECTORS API
+Overview
+APIGEE API HUB
+REST Reference
+v1
+Overview
+Resources
+REST Resources
+projects.locations
+Overview
+collectApiData
+get
+list
+lookupRuntimeProjectAttachment
+retrieveApiViews
+searchResources
+projects.locations.addons
+Overview
+get
+list
+manageConfig
+projects.locations.apiHubInstances
+Overview
+create
+delete
+get
+lookup
+patch
+projects.locations.apis
+Overview
+create
+delete
+get
+list
+patch
+projects.locations.apis.versions
+Overview
+create
+delete
+get
+list
+patch
+projects.locations.apis.versions.definitions
+Overview
+get
+projects.locations.apis.versions.operations
+Overview
+create
+delete
+get
+list
+patch
+projects.locations.apis.versions.specs
+Overview
+create
+delete
+fetchAdditionalSpecContent
+get
+getContents
+lint
+list
+patch
+projects.locations.attributes
+Overview
+create
+delete
+get
+list
+patch
+projects.locations.curations
+Overview
+create
+delete
+get
+list
+patch
+projects.locations.dependencies
+Overview
+create
+delete
+get
+list
+patch
+projects.locations.deployments
+Overview
+create
+delete
+get
+list
+patch
+projects.locations.discoveredApiObservations
+Overview
+get
+list
+projects.locations.discoveredApiObservations.discoveredApiOperations
+Overview
+get
+list
+projects.locations.externalApis
+Overview
+create
+delete
+get
+list
+patch
+projects.locations.hostProjectRegistrations
+Overview
+create
+get
+list
+projects.locations.operations
+Overview
+cancel
+delete
+get
+list
+projects.locations.plugins
+Overview
+create
+delete
+disable
+enable
+get
+getStyleGuide
+list
+updateStyleGuide
+projects.locations.plugins.instances
+Overview
+create
+delete
+disableAction
+enableAction
+executeAction
+get
+list
+manageSourceData
+patch
+projects.locations.plugins.styleGuide
+Overview
+getContents
+projects.locations.runtimeProjectAttachments
+Overview
+create
+delete
+get
+list
+projects.locations.servers
+Overview
+configureAndDeployServer
+Types
+AggregationFunction
+AllowedValue
+AttributeValues
+AuthType
+CollectApiDataResponse
+ConfigValueOption
+ConfigureAndDeployServerResponse
+DisablePluginInstanceActionResponse
+Documentation
+EnablePluginInstanceActionResponse
+EnumerateExtendedApisRequest
+EnumerateExtendedApisResponse
+ExecutePluginInstanceActionResponse
+GoogleServiceAccountConfig
+HttpOperation
+InitializeSystemOwnedPluginRequest
+InitializeSystemOwnedPluginResponse
+InsightsMetric
+OperationMetadata
+Owner
+QueryApiMetricsRequest
+QueryApiMetricsResponse
+QueryDependencyMetricsRequest
+QueryDependencyMetricsResponse
+RemoveSystemOwnedPluginRequest
+RemoveSystemOwnedPluginResponse
+SourceMetadata
+StyleGuide
+StyleGuideContents
+WaitOperationRequest
+RPC Reference
+Overview
+google.cloud.apihub.v1
+google.cloud.apihub.v1main
+google.cloud.common
+google.cloud.location
+google.longrunning
+google.rpc
+MCP Reference
+Overview
+Use API hub MCP server
+Tools
+create_api
+get_api
+list_apis
+update_api
+delete_api
+create_version
+get_version
+list_versions
+update_version
+delete_version
+create_spec
+get_spec
+get_spec_contents
+fetch_additional_spec_content
+list_specs
+update_spec
+delete_spec
+create_api_operation
+get_api_operation
+list_api_operations
+update_api_operation
+delete_api_operation
+get_definition
+create_deployment
+get_deployment
+list_deployments
+update_deployment
+delete_deployment
+create_attribute
+get_attribute
+update_attribute
+delete_attribute
+list_attributes
+search_resources
+create_external_api
+get_external_api
+update_external_api
+delete_external_api
+list_external_apis
+retrieve_api_views
+create_dependency
+get_dependency
+update_dependency
+delete_dependency
+list_dependencies
+API PROXIES
+API proxy configuration reference
+API proxy YAML configuration reference
+Endpoint properties reference
+Shared flow bundle configuration reference
+FLOWS
+Flow configuration
+Flow variables
+Conditions
+POLICIES
+Policies overview
+Policies
+Standard policies
+AccessControl
+AssertCondition
+CORS
+DecodeJWT
+ExternalCallout
+GraphQL
+HMAC
+HTTPModifier
+JSONtoXML
+OASValidation
+PublishMessage
+RaiseFault
+ReadPropertySet
+SOAPMessageValidation
+SpikeArrest
+VerifyIAM
+VerifyJWT
+XMLtoJSON
+Extensible policies
+AccessEntity
+AI Policies
+LLMTokenQuota
+PromptTokenLimit
+SanitizeUserPrompt
+SanitizeModelResponse
+SemanticCacheLookup
+SemanticCachePopulate
+Application Integration policies
+IntegrationCallout policy
+SetIntegrationRequest policy
+AssignMessage
+BasicAuthentication
+Cache Policies
+InvalidateCache
+LookupCache
+PopulateCache
+ResponseCache
+Working with cache keys
+DataCapture
+ExtractVariables
+ParsePayload
+FlowCallout
+JavaCallout
+JavaScript
+JSONThreatProtection
+JWS and JWT policies
+JWS and JWT policies overview
+JWS policies
+DecodeJWS
+GenerateJWS
+VerifyJWS
+JWT policies
+GenerateJWT
+KeyValueMapOperations
+MessageLogging
+MonetizationLimitsCheck
+OAuth v2 Policies
+OAuthV2
+SetOAuthV2Info
+GetOAuthV2Info
+DeleteOAuthV2Info
+RevokeOAuthV2
+OAuth HTTP error responses
+ParseDialogflowRequest
+PythonScript
+Quota
+RegularExpressionProtection
+ResetQuota
+SAML assertion policies
+SAML assertion policies overview
+GenerateSAMLAssertion
+ValidateSAMLAssertion
+ServiceCallout
+SetDialogflowResponse
+TraceCapture
+VerifyAPIKey
+XMLThreatProtection
+XSLTransform
+Policy errors
+JavaScript object model
+Java permission reference
+OTHER REFERENCES
+Message template functions reference
+Glossary
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Home
+Documentation
+Application development
+Apigee
+Reference
+Send feedback
+SanitizeModelResponse policy
+Stay organized with collections
+Save and categorize content based on your preferences.
+Extensible policy
+This page
+applies to Apigee and Apigee hybrid.
+View
+Apigee Edge documentation.
+The SanitizeModelResponse policy protects AI clients from harmful or offensive content by sanitizing responses from
+generative AI models. The policy uses Model Armor
+to evaluate model responses for harmful or offensive content, enabling native protection for AI clients and workloads using Apigee.
+Model Armor is a Google Cloud service offering AI security and safety measures
+to mitigate the risks associated with large language models (LLMs).
+This policy is used in conjunction with the SanitizeUserPrompt policy.
+This policy is an Extensible policy and use of this policy might have cost or
+utilization implications, depending on your Apigee license. For information on policy types
+and usage implications, see
+Policy types.
+Note: If you have configured a forward proxy for your environment, the outbound calls this policy makes to Model Armor are routed through the proxy. No policy-level configuration is required. This is applicable for Apigee and Apigee Hybrid 1.16.10 and later, and 1.17.0 and later. For more information, see Configure forward proxying (Apigee) or Configure forward proxying for API proxies (Apigee Hybrid).
+Before you begin
+Before you use the SanitizeModelResponse policy, you must complete the following tasks:
+Create a Model Armor template. This step must be completed before you create a SanitizeModelResponse policy.
+Set the API endpoint for the Model Armor service.
+Required roles
+To get the permissions that
+you need to apply and use the SanitizeModelResponse policy,
+ask your administrator to grant you the
+following IAM roles on the service account you use to deploy Apigee proxies:
+Model Armor User (roles/modelarmor.user)
+Model Armor Viewer (roles/modelarmor.viewer)
+For more information about granting roles, see Manage access to projects, folders, and organizations.
+You might also be able to get
+the required permissions through custom
+roles or other predefined
+roles.
+Enable APIs
+Enable the Model Armor APIs, if any are not already enabled.
+Roles required to enable APIs
+To enable APIs, you need the serviceusage.services.enable permission. If you
+created the project, then you likely already have this permission through the
+Owner role (roles/owner). Otherwise, you can get this permission through the
+Service Usage Admin role (roles/serviceusage.serviceUsageAdmin).
+Learn how to grant roles.
+Enable the APIs
+<SanitizeModelResponse> element
+Defines a SanitizeModelResponse policy.
+| Default Value
+| See Default Policy tab, below
+| Required?
+| Required
+| Type
+| Complex object
+| Parent Element
+|
+N/A
+| Child Elements
+|
+<DisplayName>
+<IgnoreUnresolvedVariables>
+<TemplateName>
+<UserPromptSource>
+<LLMResponseSource>
+The <SanitizeModelResponse> element uses the following syntax:
+Syntax
+<SanitizeModelResponse async="false" continueOnError="false" enabled="true" name="sanitize-response">
+<IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+<DisplayName>sanitize-response-sample</DisplayName>
+<ModelArmor>
+<TemplateName>projects/{project}/locations/{location}/templates/{template-name}</TemplateName>
+</ModelArmor>
+<UserPromptSource>{jsonPath('$.contents[-1].parts[-1].text',request.content,true)}</UserPromptSource>
+<LLMResponseSource>{jsonPath('$.candidates[-1].content.parts',response.content,true)}</LLMResponseSource>
+<FunctionCallSource>{jsonPath('$.candidates[-1].content.parts[-1].functionCall.args',response.content,true)}</FunctionCallSource>
+</SanitizeModelResponse>
+Default Policy
+The following example shows the default settings when you add a SanitizeModelResponse policy
+to your request flow in the Apigee UI:
+<SanitizeModelResponse async="false" continueOnError="false" enabled="true" name="sanitize-response">
+<IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+<DisplayName>sanitize-response-sample</DisplayName>
+<ModelArmor>
+<TemplateName>projects/{project}/locations/{location}/templates/{template-name}</TemplateName>
+</ModelArmor>
+<UserPromptSource>{jsonPath('$.contents[-1].parts[-1].text',request.content,true)}</UserPromptSource>
+<LLMResponseSource>{jsonPath('$.candidates[-1].content.parts',response.content,true)}</LLMResponseSource>
+<FunctionCallSource>{jsonPath('$.candidates[-1].content.parts[-1].functionCall.args',response.content,true)}</FunctionCallSource>
+</SanitizeModelResponse>
+When you insert a new SanitizeModelResponse policy using the Apigee UI, the template contains stubs for all
+possible operations. See below for information on required elements.
+This element has the following attributes that are common to all policies:
+| Attribute
+| Default
+| Required?
+| Description
+| name
+| N/A
+| Required
+|
+The internal name of the policy. The value of the name attribute can
+contain letters, numbers, spaces, hyphens, underscores, and periods. This value cannot
+exceed 255 characters.
+Optionally, use the <DisplayName> element to label the policy in
+the management UI proxy editor with a different, natural-language name.
+| continueOnError
+| false
+| Optional
+| Set to false to return an error when a policy fails. This is expected behavior for
+most policies. Set to true to have flow execution continue even after a policy
+fails. See also:
+Fault rules are triggered ONLY in an error state (about continueOnError)
+Handling faults within the current flow
+| enabled
+| true
+| Optional
+| Set to true to enforce the policy. Set to false to turn off the
+policy. The policy will not be enforced even if it remains attached to a flow.
+| async not_interested
+| false
+| Deprecated
+| This attribute is deprecated.
+The following table provides a high level description of the child elements of
+<SanitizeModelResponse>:
+| Child Element
+| Required?
+| Description
+| <DisplayName>
+| Optional
+| The name of the policy.
+| <IgnoreUnresolvedVariables>
+| Optional
+| Specifies whether processing stops if the variable used for the template name or Model Armor payload is unresolved.
+| <TemplateName>
+| Required
+| The Model Armor template used to sanitize the LLM response.
+This value can be templated using the following Apigee flow variables:
+projects/{organization.name}/locations/{system.region.name}/templates/{id}
+| <UserPromptSource>
+| Required
+| The location of the payload for the user prompt text to be extracted. Only string text values are supported.
+This field supports Apigee message template syntax, including the use of
+variables or JSON Path functions.
+For example:
+{jsonpath('$.contents[-1].parts[-1].text',request.content,false)}
+| <LLMResponseSource>
+| Required
+| The location of the payload for the LLM response text to be extracted. Only string text values are supported.
+This field supports Apigee message template syntax, including the use of
+variables or JSON Path functions.
+For example:
+{jsonpath('$.input.prompt.text',request.content,false)}
+| <FunctionCallSource>
+| Optional
+| The location of the function call arguments to extract from model responses. Used as a fallback when <LLMResponseSource> returns empty on function calling turns.
+Default: {jsonPath('$.candidates[-1].content.parts[-1].functionCall.args',response.content,true)}
+Child element reference
+This section describes the child elements of <SanitizeModelResponse>.
+<DisplayName>
+Use in addition to the name attribute to label the policy in the
+management UI proxy editor with a different, more natural-sounding name.
+The <DisplayName> element is common to all policies.
+| Default Value
+| N/A
+| Required?
+| Optional. If you omit <DisplayName>, the value of the
+policy's name attribute is used.
+| Type
+| String
+| Parent Element
+|
+<PolicyElement>
+| Child Elements
+|
+None
+The <DisplayName> element uses the following syntax:
+Syntax
+<PolicyElement>
+<DisplayName>POLICY_DISPLAY_NAME</DisplayName>
+...
+</PolicyElement>
+Example
+<PolicyElement>
+<DisplayName>My Validation Policy</DisplayName>
+</PolicyElement>
+The <DisplayName> element has no attributes or child elements.
+<IgnoreUnresolvedVariables>
+Determines whether processing stops when a variable is unresolved. Set to
+true to ignore unresolved variables and continue processing.
+| Default Value
+| False
+| Required?
+| Optional
+| Type
+| Boolean
+| Parent Element
+|
+<SanitizeModelResponse>
+| Child Elements
+|
+None
+<TemplateName>
+The Model Armor template.
+| Default Value
+| N/A
+| Required?
+| Required
+| Type
+| String
+| Parent Element
+|
+<SanitizeModelResponse>
+| Child Elements
+|
+None
+The <TemplateName> element uses the following syntax:
+Syntax
+<ModelArmor>
+<TemplateName>projects/{project}/locations/{location}/templates/{template-name}</TemplateName>
+</ModelArmor>
+Example
+This example uses Apigee flow variables to populate the required information.
+<ModelArmor>
+<TemplateName>projects/{organization.name}/locations/{system.region.name}/templates/{id}</TemplateName>
+</ModelArmor>
+<UserPromptSource>
+The location of the payload for the user prompt text to be extracted. Only string text values are supported.
+This field supports Apigee message template syntax, including the use of
+variables or JSON Path functions.
+For example:
+{jsonpath('$.input.prompt.text',request.content,false)}
+| Default Value
+| {jsonPath('$.contents[-1].parts[-1].text',request.content,true)}
+| Required?
+| Required
+| Type
+| String
+| Parent Element
+|
+<SanitizeModelResponse>
+| Child Elements
+|
+None
+<LLMResponseSource>
+The location of the payload for the LLM response to be extracted. Only string text values are supported.
+This field supports Apigee message template syntax, including the use of
+variables or JSON Path functions.
+For example:
+{jsonpath('$.input.prompt.text',request.content,false)}
+| Default Value
+| {jsonPath($.candidates[-1].content.parts,response.content,true)}
+| Required?
+| Required
+| Type
+| String
+| Parent Element
+|
+<SanitizeModelResponse>
+| Child Elements
+|
+None
+<FunctionCallSource>
+The location of the function call arguments to extract from the model response. This element is used as a fallback
+when <LLMResponseSource> returns empty, which occurs when the model returns a function call
+invocation instead of text content.
+This field supports message template syntax, including JSON Path functions.
+| Default Value
+| {jsonPath('$.candidates[-1].content.parts[-1].functionCall.args',response.content,true)}
+| Required?
+| Optional
+| Type
+| String
+| Parent Element
+|
+<SanitizeModelResponse>
+| Child Elements
+|
+None
+Flow variables
+Flow variables can be used to configure dynamic runtime behavior for policies and flows, based
+on HTTP headers or message content, or the context available in the Flow. For more information
+about flow variables, see Flow variables reference.
+This policy provides the following set of read-only flow variables during execution.
+You can use these flow variables with the DataCapture policy
+to create custom analytics reports. For more information, see Collecting customer data with the Data Capture policy.
+| Variable name
+| Description
+| SanitizeModelResponse.POLICY_NAME.templateUsed
+| Specifies which model armor template is used. For example:
+projects/myproject/locations/us-west1/templates/mytemplate
+| SanitizeModelResponse.POLICY_NAME.userPrompt
+| Specifies the prompt content used for the call to Model Armor to sanitize the content.
+| SanitizeModelResponse.POLICY_NAME.modelResponse
+| Specifies the LLM response content used for the call to Model Armor to sanitize the content.
+| SanitizeModelResponse.POLICY_NAME.responseFromModelArmor
+| Specifies the json response from Model Armor. Model Armor.
+| SanitizeModelResponse.POLICY_NAME.filterMatchState
+| Specifies whether the filter was matched. Valid values include MATCH_FOUND and NO_MATCH_FOUND.
+| SanitizeModelResponse.POLICY_NAME.invocationResult
+| A field indicating the outcome of the invocation, irrespective of match status. It can have
+the following:
+SUCCESS: All filters executed successfully.
+PARTIAL: Some filters were skipped or failed execution.
+FAILURE: All filters were skipped or failed execution.
+| SanitizeModelResponse.POLICY_NAME.raiFilterResult.executionState
+| Rai filter execution result. Valid values include EXECUTION_SUCCESS and EXECUTION_SKIPPED.
+| SanitizeModelResponse.POLICY_NAME.raiFilterResult.matchState
+| Rai filter match state. Valid values include MATCH_FOUND and NO_MATCH_FOUND.
+| SanitizeModelResponse.POLICY_NAME.sdpFilterResult.inspectResult.executionState
+| Sdp filter inspect result execution state. Valid values include EXECUTION_SUCCESS and EXECUTION_SKIPPED.
+| SanitizeModelResponse.POLICY_NAME.sdpFilterResult.inspectResult.matchState
+| Sdp filter inspect result match state. Valid values include MATCH_FOUND and NO_MATCH_FOUND.
+| SanitizeModelResponse.POLICY_NAME.sdpFilterResult.deidentifyResult.executionState
+| Sdp filter de identify result execution state. Valid values include EXECUTION_SUCCESS and EXECUTION_SKIPPED.
+| SanitizeModelResponse.POLICY_NAME.sdpFilterResult.deidentifyResult.matchState
+| Sdp filter de identify result match state. Valid values include MATCH_FOUND and NO_MATCH_FOUND.
+| SanitizeModelResponse.POLICY_NAME.piAndJailbreakFilterResult.executionState
+| Prompt injection and Jailbreak filter results execution state. Valid values include EXECUTION_SUCCESS and EXECUTION_SKIPPED.
+| SanitizeModelResponse.POLICY_NAME.piAndJailbreakFilterResult.matchState
+| Prompt injection and Jailbreak filter results match state. Valid values include MATCH_FOUND and NO_MATCH_FOUND.
+| SanitizeModelResponse.POLICY_NAME.csamFilterFilterResult.executionState
+| CSAM filter execution state. Valid values include EXECUTION_SUCCESS and EXECUTION_SKIPPED.
+| SanitizeModelResponse.POLICY_NAME.csamFilterFilterResult.matchState
+| CSAM filter match state. Valid values include MATCH_FOUND and NO_MATCH_FOUND.
+| SanitizeModelResponse.POLICY_NAME.maliciousUriFilterResult.executionState
+| Malicious URI filter execution state. Valid values include EXECUTION_SUCCESS and EXECUTION_SKIPPED.
+| SanitizeModelResponse.POLICY_NAME.maliciousUriFilterResult.matchState
+| Malicious URI filter match state. Valid values include MATCH_FOUND and NO_MATCH_FOUND.
+| SanitizeModelResponse.POLICY_NAME.sanitizationMetadata.errorCode
+| Custom overridden Error code if present in Model Armor response.
+| SanitizeModelResponse.POLICY_NAME.sanitizationMetadata.errorMessage
+| Custom overridden Error code if present in Model Armor response.
+| SanitizeModelResponse.POLICY_NAME.csamFilterMatched
+| Boolean value indicating whether the CSAM filter matched.
+| SanitizeModelResponse.POLICY_NAME.maliciousURIs
+| Appended list of malicious URIs detected by the malicious URI filter.
+| SanitizeModelResponse.POLICY_NAME.maliciousURIsDetected
+| Boolean value indicating whether the malicious URI filter matched.
+| SanitizeModelResponse.POLICY_NAME.matchesFound
+| Boolean value indicating whether any of the filters matched.
+| SanitizeModelResponse.POLICY_NAME.promptInjectionDetected
+| Boolean value indicating whether the prompt injection filter matched.
+| SanitizeModelResponse.POLICY_NAME.promptInjectionConfidence
+| Confidence level of prompt injection detection.
+| SanitizeModelResponse.POLICY_NAME.raiMatchesFound
+| Boolean value indicating whether the RAI filter matched.
+| SanitizeModelResponse.POLICY_NAME.requestSentToModelArmor
+| Boolean value indicating whether a request was sent to Model Armor.
+| SanitizeModelResponse.POLICY_NAME.sanitizeOperation
+| Specifies the operation performed by the policy. Valid values include SANITIZE_USER_PROMPT
+and SANITIZE_MODEL_RESPONSE.
+Error reference
+This section describes the fault codes and error messages that are returned and fault
+variables that are set by Apigee specific to the <SanitizeModelResponse> policy.
+This information is important to know if you are developing fault rules to
+handle faults. To learn more, see What you need to know
+about policy errors and Handling
+faults.
+Runtime errors
+| Fault code
+| HTTP status
+| Cause
+| steps.sanitize.model.response.FilterMatched
+| 400
+| This error occurs if the user prompt does not pass the Model Armor template check.
+| steps.sanitize.model.response.SanitizationResponseParsingFailed
+| 500
+| This error occurs if the Model Armor response cannot be parsed.
+| steps.sanitize.model.response.FailedToExtractUserPrompt
+| 500
+| This error occurs if the automatic user prompt extraction for the default value failed.
+| steps.sanitize.model.response.FailedToExtractLLMResponse
+| 500
+| This error occurs if the automatic model response extraction for the default value failed.
+| steps.sanitize.model.response.InternalError
+| 500
+| This error occurs if there is an internal server error.
+| steps.sanitize.model.response.ModelArmorTemplateNameExtractionFailed
+| 500
+| This error occurs if the template name cannot be resolved.
+| steps.sanitize.model.response.AuthenticationFailure
+| 500
+| This error occurs if the service account does not have permission to call the Model Armor API.
+| steps.sanitize.model.response.ModelArmorAPIFailed
+| 500
+| This error occurs if the Model Armor API throws an error.
+| steps.sanitize.model.response.ModelArmorCalloutError
+| 500
+| This error occurs if the Model Armor API call fails.
+| steps.sanitize.modelarmor.ServiceUnavailable
+| 500
+| This error occurs if the Model Armor service is unavailable.
+Deployment errors
+These errors can occur when you deploy a proxy containing this policy.
+| Error name
+| Cause
+| The ModelArmor/TemplateName element is required.
+| Occurs if the <TemplateName> element in <ModelArmor> is not present.
+| The TemplateName element value is required.
+| Occurs if the <TemplateName> value is empty.
+Fault variables
+These variables are set when this policy triggers an error at runtime. For more information,
+see What you
+need to know about policy errors.
+| Variables
+| Where
+| Example
+| fault.name="FAULT_NAME"
+| FAULT_NAME is the name of the fault, as listed in the Runtime errors table above. The fault name is the last part of the fault code.
+| fault.name Matches "UnresolvedVariable"
+| SanitizeModelResponse.POLICY_NAME.failed
+| POLICY_NAME is the user-specified name of the policy that threw the fault.
+| SanitizeModelResponse.sanitize-response.failed = true
+Example error response
+Note: For error handling, the best practice is to trap the
+errorcode part of the error response. Do not rely on the text in the
+faultstring, because it could change.
+{
+"fault": {
+"faultstring": "SanitizeModelResponse[sanitize-response]: unable to resolve variable [variable_name]",
+"detail": {
+"errorcode": "steps.sanitizemodelresponse.UnresolvedVariable"
+}
+}
+}
+Example fault rule
+<FaultRule name="SanitizeModelResponse Faults">
+<Step>
+<Name>SMR-CustomSetVariableErrorResponse</Name>
+<Condition>(fault.name = "SetVariableFailed")</Condition>
+</Step>
+<Condition>(sanitizemodelresponse.failed = true)</Condition>
+</FaultRule>
+Model Armor template error code and error messages
+The Model Armor template supports overriding error codes and error messages thrown by the SanitizeModelResponse
+policy's API requests. If the user sets the overrides, then the Model Armor error codes and error messages
+will populate the flow variables.
+For example, a response with Model Armor error codes and messages could look like the following:
+{
+"sanitizationResult": {
+"filterMatchState": "MATCH_FOUND",
+"filterResults": {...},
+"sanitizationMetadata": {
+"errorCode": "890",
+"errorMessage": "get out"
+},
+"invocationResult": "SUCCESS"
+}
+}
+Schemas
+Each policy type is defined by an XML schema (.xsd). For reference, policy schemas
+are available on GitHub.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-07 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

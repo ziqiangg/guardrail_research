@@ -1,0 +1,497 @@
+# status 200  final_url https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-deidentify-storage  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Sensitive Data Protection
+Start free
+Overview
+Guides
+Reference
+Samples
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Samples
+Resources
+Console
+Discover
+Product overview
+Plan your data risk management strategy
+Evaluate your data risk management needs
+Learn about your data through discovery and inspection
+Recommended strategies for mitigating data risk
+Release notes
+Pricing
+Locations
+Global and regional endpoints for Sensitive Data Protection
+Sensitive Data Protection locations
+Specify a processing location
+Service method types
+Supported file types and scanning modes
+Get started
+Quickstarts
+Inspect text using the command-line tool
+Inspect text using a JSON request
+Schedule an inspection scan
+Create an inspection template
+De-identify and re-identify sensitive text
+Google Cloud Skills Boost labs
+Detect sensitive data
+Discover and profile data resources
+Overview of sensitive data discovery
+Common discovery enablement scenarios
+Allow discovery within service perimeters
+Profile your data
+Profile a single data resource
+Profile BigQuery data
+Estimate BigQuery data profiling cost
+Estimate the cost of profiling BigQuery data in a project
+Estimate the cost of profiling BigQuery data in an organization or folder
+Profile BigQuery data in a project
+Profile BigQuery data in an organization or folder
+Profile Cloud SQL data
+Profile Cloud SQL data in a project
+Profile Cloud SQL data in an organization or folder
+Manage connections
+Profile Cloud Storage data
+Profile Cloud Storage data in a project
+Profile Cloud Storage data in an organization or folder
+Profile Vertex AI data
+Sensitive data discovery for Vertex AI data
+Profile Vertex AI data in a project
+Profile Vertex AI data in an organization or folder
+Profile Amazon S3 data
+Sensitive data discovery for Amazon S3 data
+Profile Amazon S3 data
+Profile Azure Blob Storage data
+Report secrets in environment variables to Security Command Center
+Grant data profiling access to a service agent
+Manage data profiles
+Control IAM access to resources based on data sensitivity
+Send discovery insights to other services
+Enable discovery actions
+Send data profiles to Security Command Center
+Receive and parse Pub/Sub messages about data profiles
+Tag tables in Data Catalog based on insights from data profiles
+Add Knowledge Catalog aspects based on insights from data profiles
+Analyze and visualize data profiles
+Visualize data profiles in the discovery dashboard
+Analyze data profiles
+Remediate findings from the data profiler
+Manage scan configurations
+Troubleshoot issues with the data profiler
+Metrics reference
+Data risk and sensitivity levels
+Inspect for sensitive data
+Inspect data stored in Google Cloud
+Inspect data from any source
+Inspect unstructured text synchronously
+Inspect structured text synchronously
+Inspect an image synchronously
+Asynchronous inspection overview
+Inspect data from any source asynchronously
+Quote the sensitive data in the results
+Work with inspection results
+Actions
+Send inspection results to Knowledge Catalog as aspects
+Send inspection results to Data Catalog
+Send inspection results to Security Command Center
+Analyze and report on inspection findings
+Query inspection findings in BigQuery
+Parse findings stored as Protobuf text
+Jobs and job triggers
+Overview of jobs and job triggers
+Create and manage jobs and job triggers
+Web-based inspection demonstration app
+Allow or block content based on sensitivity
+Overview of content policies
+Create and manage content policies
+Configure detection
+Templates
+Overview of templates
+Create inspection templates
+InfoTypes and infoType detectors
+Overview of infoTypes and infoType detectors
+Built-in infoType detectors
+List built-in infoType detectors
+InfoType detector reference
+Custom infoType detectors
+Overview of custom infoType detectors
+Create a regular custom dictionary detector
+Create a large custom dictionary detector
+Create a custom regex detector
+Create a custom metadata label detector
+Custom infoType examples
+Manage infoTypes through the Google Cloud console
+Modify infoType detectors to refine scan results
+Match likelihood
+Likelihood overview
+Customize match likelihood
+Mask and de-identify data
+Overview
+Transformation methods
+Transformation reference
+Text classification and redaction
+Date shifting
+Generalization and bucketing
+Pseudonymization
+De-identify sensitive data
+De-identify data stored in Google Cloud
+Overview
+Through the Cloud console
+Through the DLP API
+Transformation details reference
+De-identify data from any source
+De-identify text or tabular content
+Examples of text redaction
+Examples of tabular data de-identification
+Image inspection and redaction
+Redact sensitive data from images
+Create a de-identification template
+Create a wrapped key
+De-identify BigQuery data at query time
+De-identification and re-identification of PII in large-scale datasets
+Redact sensitive data from PDF files
+Analyze re-identification risk
+Overview of re-identification risk analysis
+Re-identification risk analysis techniques
+Compute k-anonymity for a dataset
+Compute l-diversity for a dataset
+Compute k-map for a dataset
+Compute δ-presence for a dataset
+Compute numerical and categorical statistics
+Visualize re-identification risk using Data Studio
+Connect to other services
+Use Sensitive Data Protection with BigQuery
+Use Sensitive Data Protection with Cloud Storage
+Use Sensitive Data Protection with Cloud Storage
+Automate the classification of data uploaded to Cloud Storage
+Send inspection results to Data Catalog
+Send inspection results to Security Command Center
+Monitor your usage with Cloud Monitoring
+Use Sensitive Data Protection with AWS S3
+Use Sensitive Data Protection with JDBC Databases
+Use Sensitive Data Protection with Apigee
+Use Sensitive Data Protection with Data Fusion
+Build a secure anomaly detection solution using Dataflow, BigQuery ML, and Sensitive Data Protection
+Troubleshoot
+Troubleshoot issues with the data profiler
+Control access
+Authentication
+IAM
+Access control with IAM
+Sensitive Data Protection roles and permissions
+Sensitive Data Protection service agents
+Control access with VPC Service Controls
+Monitor
+Audit logging
+Monitor your usage with Cloud Monitoring
+Develop
+All Sensitive Data Protection code samples
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Cloud Data Loss Prevention (Cloud DLP) is now a part of Sensitive Data Protection. The API name remains the same: Cloud Data Loss Prevention API (DLP API). For information about the services that make up Sensitive Data Protection, see Sensitive Data Protection overview.
+Home
+Documentation
+Security
+Sensitive Data Protection
+Guides
+Send feedback
+De-identification of sensitive Cloud Storage data
+Stay organized with collections
+Save and categorize content based on your preferences.
+This page describes how Sensitive Data Protection can create de-identified
+copies of data stored in Cloud Storage. It also lists the limitations of
+this operation and the points that you should consider before you start.
+For information about how to use Sensitive Data Protection to create
+de-identified copies of your Cloud Storage data, see the following:
+Create de-identified copies of data stored in Cloud Storage using
+the Google Cloud console
+Create de-identified copies of data stored in Cloud Storage using
+the API
+About de-identification
+De-identification is the process of removing identifying information from
+data. Its goal is to enable the use and sharing of personal
+information—such as health, financial, or demographic
+information—while meeting privacy requirements. For more
+information about de-identification, see De-identifying sensitive data.
+For more in-depth information about de-identification transformations in
+Sensitive Data Protection, see Transformation reference. For more information
+about how Sensitive Data Protection redacts sensitive data from images, see
+Image inspection and redaction.
+When to use storage de-identification
+The following are some common use cases:
+Generate anonymized datasets for non-production environments: Create
+de-identified copies of production files stored in Cloud Storage before
+staging data into development, testing, or training environments.
+Share sanitized file repositories with third parties: Obfuscate
+sensitive fields in bulk documents and unstructured files while preserving
+the original folder hierarchy for external business partners or auditors.
+Automate privacy pipelines for ingested documents: Transform sensitive
+data across newly uploaded files into a designated output bucket without
+altering source files or disrupting upstream pipelines.
+Enforce data residency and compartmentalization: Store de-identified
+mirror copies of sensitive assets in separate Cloud Storage buckets
+with distinct Identity and Access Management access controls.
+De-identification process
+This section describes the de-identification process in Sensitive Data Protection
+for content in Cloud Storage.
+To use this feature, you create an
+inspection job (DlpJob) that's configured to make de-identified
+copies of the Cloud Storage files.
+Sensitive Data Protection scans the files in the specified location, inspecting
+them according to your configuration. As it inspects each file,
+Sensitive Data Protection de-identifies any data that matches your criteria for
+sensitive data, and then writes the content to a new file. The new file always has
+the same filename as the original file.
+It stores this new file in an output directory that you specify. If a file is
+included in your scan, but no data matches your de-identification criteria, and
+there are no errors in its processing, then the file is copied, unaltered, to
+the output directory.
+The output directory that you set must be in a Cloud Storage bucket that's
+different from the bucket containing your input files. In your output directory,
+Sensitive Data Protection creates a file structure that mirrors the file structure
+of the input directory.
+For example, suppose you set the following input and output directories:
+Input directory: gs://input-bucket/folder1/folder1a
+Output directory: gs://output-bucket/output-directory
+During de-identification, Sensitive Data Protection stores the de-identified files
+in gs://output-bucket/output-directory/folder1/folder1a.
+If a file exists in the output directory with the same filename as a
+de-identified file, that file is overwritten. If you don't want existing files
+to be overwritten, change the output directory before running this operation.
+Alternatively, consider
+enabling object versioning on the output bucket.
+File-level access control lists (ACLs) for the original files are copied to the
+new files, regardless of whether sensitive data was found and de-identified.
+However, if the output bucket is configured only for uniform bucket-level
+permissions, and not fine-grained (object-level) permissions, then the ACLs
+aren't copied to the de-identified files.
+The following diagram shows the de-identification process for four files
+stored in a Cloud Storage bucket. Each file is copied
+regardless of whether Sensitive Data Protection detects any sensitive data. Each
+copied file is named the same as the original.
+De-identification of files stored in Cloud Storage (click to enlarge).
+Pricing
+For pricing information, see
+Inspection and transformation of data in storage.
+Supported file types
+Sensitive Data Protection can de-identify the following file type groups:
+CSV
+Image
+Text
+TSV
+Default de-identification behavior
+If you want to define how Sensitive Data Protection transforms the findings,
+you can provide de-identify templates for the following types of files:
+Unstructured files, like text files with freeform text
+Structured files, like CSV files
+Images
+If you don't provide any de-identify template, Sensitive Data Protection
+transforms the findings as follows:
+In unstructured and structured files, Sensitive Data Protection replaces all
+findings with their corresponding infoType, as described in
+InfoType replacement.
+In images, Sensitive Data Protection covers all findings with a black
+box.
+Limitations and considerations
+Consider the following points before creating de-identified copies of
+Cloud Storage data.
+Disk space
+This operation only supports content stored in Cloud Storage.
+This operation makes a copy of each file as Sensitive Data Protection inspects it.
+It does not modify or remove the original content. The copied data will take up
+roughly the same amount of additional disk space as the original data.
+Write access to the storage
+Because Sensitive Data Protection creates a copy of the original files,
+the service agent of your project must have write access on the
+Cloud Storage output bucket.
+Sampling and setting finding limits
+This operation doesn't support sampling. Specifically, you can't limit how much
+of each file Sensitive Data Protection scans and de-identifies. That is, if you're
+using the Cloud Data Loss Prevention API, you
+can't use bytesLimitPerFile and bytesLimitPerFilePercent in the
+CloudStorageOptions object of your DlpJob.
+Also, you can't control the maximum number of findings to be returned.
+If you're using the DLP API, you can't set a FindingLimits object
+in your DlpJob.
+Requirement to inspect data
+When running your inspection job, Sensitive Data Protection first inspects the
+data, according to your inspection configuration, before it performs
+de-identification. It can't skip the inspection process.
+Requirement to use file extensions
+Sensitive Data Protection relies on file extensions to identify the file types
+of the files in your input directory. It might not de-identify files that don't
+have file extensions, even if those files are of supported types.
+Skipped files
+When de-identifying files in storage, Sensitive Data Protection skips the following
+files:
+Files that exceed 60,000 KB. If you
+have large files that exceed this limit, consider breaking them into smaller
+chunks.
+File types that aren't listed in
+Supported file types on this page.
+File types that you purposely excluded from the de-identification
+configuration. If you're using the DLP API, the file
+types that you excluded from the file_types_to_transform
+field of the Deidentify action of your DlpJob are skipped.
+Files that encountered transformation errors.
+Order of output rows in de-identified tables
+There is no guarantee that the order of rows in a de-identified table matches
+the order of rows in the original table. If you want to compare the
+original table to the de-identified table, you can't rely on the row number to
+identify the corresponding rows. If you intend to compare rows of the tables, you
+must use a unique identifier to identify each record.
+Note: The inspection findings summary shows the row number of
+each finding. The referenced rows belong to the original table, not the
+de-identified table.
+Transient keys
+If you choose a cryptographic method as your transformation method, you must
+first create a wrapped key using Cloud Key Management Service. Then, provide that key in
+your de-identification template. Transient (raw) keys aren't supported.
+What's next
+Learn how to de-identify sensitive data stored in Cloud Storage using the DLP API.
+Learn how to de-identify sensitive data stored in Cloud Storage using the Google Cloud console.
+Work through the Creating a De-identified Copy of Data in
+Cloud Storage
+codelab.
+Learn how to inspect storage for sensitive data.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-07 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

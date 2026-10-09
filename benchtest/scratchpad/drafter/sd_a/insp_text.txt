@@ -1,0 +1,1314 @@
+# status 200  final_url https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-text  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Sensitive Data Protection
+Start free
+Overview
+Guides
+Reference
+Samples
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Samples
+Resources
+Console
+Discover
+Product overview
+Plan your data risk management strategy
+Evaluate your data risk management needs
+Learn about your data through discovery and inspection
+Recommended strategies for mitigating data risk
+Release notes
+Pricing
+Locations
+Global and regional endpoints for Sensitive Data Protection
+Sensitive Data Protection locations
+Specify a processing location
+Service method types
+Supported file types and scanning modes
+Get started
+Quickstarts
+Inspect text using the command-line tool
+Inspect text using a JSON request
+Schedule an inspection scan
+Create an inspection template
+De-identify and re-identify sensitive text
+Google Cloud Skills Boost labs
+Detect sensitive data
+Discover and profile data resources
+Overview of sensitive data discovery
+Common discovery enablement scenarios
+Allow discovery within service perimeters
+Profile your data
+Profile a single data resource
+Profile BigQuery data
+Estimate BigQuery data profiling cost
+Estimate the cost of profiling BigQuery data in a project
+Estimate the cost of profiling BigQuery data in an organization or folder
+Profile BigQuery data in a project
+Profile BigQuery data in an organization or folder
+Profile Cloud SQL data
+Profile Cloud SQL data in a project
+Profile Cloud SQL data in an organization or folder
+Manage connections
+Profile Cloud Storage data
+Profile Cloud Storage data in a project
+Profile Cloud Storage data in an organization or folder
+Profile Vertex AI data
+Sensitive data discovery for Vertex AI data
+Profile Vertex AI data in a project
+Profile Vertex AI data in an organization or folder
+Profile Amazon S3 data
+Sensitive data discovery for Amazon S3 data
+Profile Amazon S3 data
+Profile Azure Blob Storage data
+Report secrets in environment variables to Security Command Center
+Grant data profiling access to a service agent
+Manage data profiles
+Control IAM access to resources based on data sensitivity
+Send discovery insights to other services
+Enable discovery actions
+Send data profiles to Security Command Center
+Receive and parse Pub/Sub messages about data profiles
+Tag tables in Data Catalog based on insights from data profiles
+Add Knowledge Catalog aspects based on insights from data profiles
+Analyze and visualize data profiles
+Visualize data profiles in the discovery dashboard
+Analyze data profiles
+Remediate findings from the data profiler
+Manage scan configurations
+Troubleshoot issues with the data profiler
+Metrics reference
+Data risk and sensitivity levels
+Inspect for sensitive data
+Inspect data stored in Google Cloud
+Inspect data from any source
+Inspect unstructured text synchronously
+Inspect structured text synchronously
+Inspect an image synchronously
+Asynchronous inspection overview
+Inspect data from any source asynchronously
+Quote the sensitive data in the results
+Work with inspection results
+Actions
+Send inspection results to Knowledge Catalog as aspects
+Send inspection results to Data Catalog
+Send inspection results to Security Command Center
+Analyze and report on inspection findings
+Query inspection findings in BigQuery
+Parse findings stored as Protobuf text
+Jobs and job triggers
+Overview of jobs and job triggers
+Create and manage jobs and job triggers
+Web-based inspection demonstration app
+Allow or block content based on sensitivity
+Overview of content policies
+Create and manage content policies
+Configure detection
+Templates
+Overview of templates
+Create inspection templates
+InfoTypes and infoType detectors
+Overview of infoTypes and infoType detectors
+Built-in infoType detectors
+List built-in infoType detectors
+InfoType detector reference
+Custom infoType detectors
+Overview of custom infoType detectors
+Create a regular custom dictionary detector
+Create a large custom dictionary detector
+Create a custom regex detector
+Create a custom metadata label detector
+Custom infoType examples
+Manage infoTypes through the Google Cloud console
+Modify infoType detectors to refine scan results
+Match likelihood
+Likelihood overview
+Customize match likelihood
+Mask and de-identify data
+Overview
+Transformation methods
+Transformation reference
+Text classification and redaction
+Date shifting
+Generalization and bucketing
+Pseudonymization
+De-identify sensitive data
+De-identify data stored in Google Cloud
+Overview
+Through the Cloud console
+Through the DLP API
+Transformation details reference
+De-identify data from any source
+De-identify text or tabular content
+Examples of text redaction
+Examples of tabular data de-identification
+Image inspection and redaction
+Redact sensitive data from images
+Create a de-identification template
+Create a wrapped key
+De-identify BigQuery data at query time
+De-identification and re-identification of PII in large-scale datasets
+Redact sensitive data from PDF files
+Analyze re-identification risk
+Overview of re-identification risk analysis
+Re-identification risk analysis techniques
+Compute k-anonymity for a dataset
+Compute l-diversity for a dataset
+Compute k-map for a dataset
+Compute δ-presence for a dataset
+Compute numerical and categorical statistics
+Visualize re-identification risk using Data Studio
+Connect to other services
+Use Sensitive Data Protection with BigQuery
+Use Sensitive Data Protection with Cloud Storage
+Use Sensitive Data Protection with Cloud Storage
+Automate the classification of data uploaded to Cloud Storage
+Send inspection results to Data Catalog
+Send inspection results to Security Command Center
+Monitor your usage with Cloud Monitoring
+Use Sensitive Data Protection with AWS S3
+Use Sensitive Data Protection with JDBC Databases
+Use Sensitive Data Protection with Apigee
+Use Sensitive Data Protection with Data Fusion
+Build a secure anomaly detection solution using Dataflow, BigQuery ML, and Sensitive Data Protection
+Troubleshoot
+Troubleshoot issues with the data profiler
+Control access
+Authentication
+IAM
+Access control with IAM
+Sensitive Data Protection roles and permissions
+Sensitive Data Protection service agents
+Control access with VPC Service Controls
+Monitor
+Audit logging
+Monitor your usage with Cloud Monitoring
+Develop
+All Sensitive Data Protection code samples
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Cloud Data Loss Prevention (Cloud DLP) is now a part of Sensitive Data Protection. The API name remains the same: Cloud Data Loss Prevention API (DLP API). For information about the services that make up Sensitive Data Protection, see Sensitive Data Protection overview.
+Home
+Documentation
+Security
+Sensitive Data Protection
+Guides
+Send feedback
+Inspecting text for sensitive data
+Stay organized with collections
+Save and categorize content based on your preferences.
+Sensitive Data Protection can detect and classify sensitive data within text
+content. Given text input, DLP API returns details about any
+infoTypes found in the text, a
+likelihood value, and offset
+information.
+Best Practices
+Identify and prioritize scanning
+It's important to identify your resources and specify which have the highest
+priority for scanning. When just getting started you may have a large backlog of
+data that needs classification, and it'll be impossible to scan it all
+immediately. Choose data initially that poses the highest risk—for
+example, data that is frequently accessed, widely accessible, or unknown.
+Reduce latency
+Latency is affected by several factors: the amount of data to scan, the storage
+repository being scanned, and the type and number of infoTypes that are enabled.
+To help reduce job latency, you can try the following:
+Enable sampling.
+Avoid enabling infoTypes you don't need. While useful in
+certain scenarios, some infoTypes—including PERSON_NAME,
+FEMALE_NAME, MALE_NAME, FIRST_NAME, LAST_NAME,
+DATE_OF_BIRTH, LOCATION, STREET_ADDRESS,
+ORGANIZATION_NAME—can make requests run much more slowly
+than requests that do not include them.
+Always specify infoTypes explicitly. Do not use an empty infoTypes list.
+Consider organizing the data to be inspected into a
+table with
+rows and columns, if possible, to reduce network roundtrips.
+Limit the scope of your first scans
+For best results, limit the scope of your first scans instead of scanning all of
+your data. Start with a few requests. Your findings will be more meaningful
+when you fine-tune what detectors to enable and what
+exclusion rules
+might be needed to reduce false positives. Avoid turning on all infoTypes if you
+don't need them all, as false positives or unusable findings may make it harder
+to assess your risk. While useful in certain scenarios, some infoTypes such as
+DATE, TIME, DOMAIN_NAME, and URL detect a broad range of findings and
+may not be useful to turn on.
+On-premises, hybrid, and multi-cloud scans
+If the data to be scanned resides on-premises or outside of Google Cloud,
+use the API methods
+content.inspect
+and
+content.deidentify
+to scan the content to classify findings and pseudonymize content without
+persisting the content outside of your local storage.
+Inspecting a text string
+Following is sample JSON and code in several languages that demonstrate how to
+use the DLP API to inspect strings of text for sensitive data.
+Important:
+The code on this page requires that you first set up a Sensitive Data Protection client. For more
+information about installing and creating a Sensitive Data Protection client, see
+Sensitive Data Protection client libraries. (Sending JSON
+to Sensitive Data Protection REST endpoints does not require a client
+library.)
+C#
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Google.Api.Gax.ResourceNames;
+using Google.Cloud.Dlp.V2;
+using static Google.Cloud.Dlp.V2.InspectConfig.Types;
+public class InspectString
+{
+public static InspectContentResponse Inspect(
+string projectId,
+string dataValue,
+string minLikelihood,
+int maxFindings,
+bool includeQuote,
+IEnumerable<InfoType> infoTypes,
+IEnumerable<CustomInfoType> customInfoTypes)
+{
+var inspectConfig = new InspectConfig
+{
+MinLikelihood = (Likelihood)Enum.Parse(typeof(Likelihood), minLikelihood, true),
+Limits = new FindingLimits
+{
+MaxFindingsPerRequest = maxFindings
+},
+IncludeQuote = includeQuote,
+InfoTypes = { infoTypes },
+CustomInfoTypes = { customInfoTypes }
+};
+var request = new InspectContentRequest
+{
+Parent = new LocationName(projectId, "global").ToString(),
+Item = new ContentItem
+{
+Value = dataValue
+},
+InspectConfig = inspectConfig
+};
+var dlp = DlpServiceClient.Create();
+var response = dlp.InspectContent(request);
+PrintResponse(includeQuote, response);
+return response;
+}
+private static void PrintResponse(bool includeQuote, InspectContentResponse response)
+{
+var findings = response.Result.Findings;
+if (findings.Any())
+{
+Console.WriteLine("Findings:");
+foreach (var finding in findings)
+{
+if (includeQuote)
+{
+Console.WriteLine($" Quote: {finding.Quote}");
+}
+Console.WriteLine($" InfoType: {finding.InfoType}");
+Console.WriteLine($" Likelihood: {finding.Likelihood}");
+}
+}
+else
+{
+Console.WriteLine("No findings.");
+}
+}
+}
+Go
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import (
+"context"
+"fmt"
+"io"
+dlp "cloud.google.com/go/dlp/apiv2"
+"cloud.google.com/go/dlp/apiv2/dlppb"
+)
+// inspectString inspects the a given string, and prints results.
+func inspectString(w io.Writer, projectID, textToInspect string) error {
+// projectID := "my-project-id"
+// textToInspect := "My name is Gary and my email is gary@example.com"
+ctx := context.Background()
+// Initialize client.
+client, err := dlp.NewClient(ctx)
+if err != nil {
+return err
+}
+defer client.Close() // Closing the client safely cleans up background resources.
+// Create and send the request.
+req := &dlppb.InspectContentRequest{
+Parent: fmt.Sprintf("projects/%s/locations/global", projectID),
+Item: &dlppb.ContentItem{
+DataItem: &dlppb.ContentItem_Value{
+Value: textToInspect,
+},
+},
+InspectConfig: &dlppb.InspectConfig{
+InfoTypes: []*dlppb.InfoType{
+{Name: "PHONE_NUMBER"},
+{Name: "EMAIL_ADDRESS"},
+{Name: "CREDIT_CARD_NUMBER"},
+},
+IncludeQuote: true,
+},
+}
+resp, err := client.InspectContent(ctx, req)
+if err != nil {
+return err
+}
+// Process the results.
+result := resp.Result
+fmt.Fprintf(w, "Findings: %d\n", len(result.Findings))
+for _, f := range result.Findings {
+fmt.Fprintf(w, "\tQuote: %s\n", f.Quote)
+fmt.Fprintf(w, "\tInfo type: %s\n", f.InfoType.Name)
+fmt.Fprintf(w, "\tLikelihood: %s\n", f.Likelihood)
+}
+return nil
+}
+Java
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import com.google.cloud.dlp.v2.DlpServiceClient;
+import com.google.privacy.dlp.v2.ByteContentItem;
+import com.google.privacy.dlp.v2.ByteContentItem.BytesType;
+import com.google.privacy.dlp.v2.ContentItem;
+import com.google.privacy.dlp.v2.Finding;
+import com.google.privacy.dlp.v2.InfoType;
+import com.google.privacy.dlp.v2.InspectConfig;
+import com.google.privacy.dlp.v2.InspectContentRequest;
+import com.google.privacy.dlp.v2.InspectContentResponse;
+import com.google.privacy.dlp.v2.LocationName;
+import com.google.protobuf.ByteString;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+public class InspectString {
+public static void main(String[] args) throws Exception {
+// TODO(developer): Replace these variables before running the sample.
+String projectId = "your-project-id";
+String textToInspect = "My name is Gary and my email is gary@example.com";
+inspectString(projectId, textToInspect);
+}
+// Inspects the provided text.
+public static void inspectString(String projectId, String textToInspect) throws IOException {
+// Initialize client that will be used to send requests. This client only needs to be created
+// once, and can be reused for multiple requests. After completing all of your requests, call
+// the "close" method on the client to safely clean up any remaining background resources.
+try (DlpServiceClient dlp = DlpServiceClient.create()) {
+// Specify the type and content to be inspected.
+ByteContentItem byteItem =
+ByteContentItem.newBuilder()
+.setType(BytesType.TEXT_UTF8)
+.setData(ByteString.copyFromUtf8(textToInspect))
+.build();
+ContentItem item = ContentItem.newBuilder().setByteItem(byteItem).build();
+// Specify the type of info the inspection will look for.
+List<InfoType> infoTypes = new ArrayList<>();
+// See https://cloud.google.com/dlp/docs/infotypes-reference for complete list of info types
+for (String typeName : new String[] {"PHONE_NUMBER", "EMAIL_ADDRESS", "CREDIT_CARD_NUMBER"}) {
+infoTypes.add(InfoType.newBuilder().setName(typeName).build());
+}
+// Construct the configuration for the Inspect request.
+InspectConfig config =
+InspectConfig.newBuilder().addAllInfoTypes(infoTypes).setIncludeQuote(true).build();
+// Construct the Inspect request to be sent by the client.
+InspectContentRequest request =
+InspectContentRequest.newBuilder()
+.setParent(LocationName.of(projectId, "global").toString())
+.setItem(item)
+.setInspectConfig(config)
+.build();
+// Use the client to send the API request.
+InspectContentResponse response = dlp.inspectContent(request);
+// Parse the response and process results
+System.out.println("Findings: " + response.getResult().getFindingsCount());
+for (Finding f : response.getResult().getFindingsList()) {
+System.out.println("\tQuote: " + f.getQuote());
+System.out.println("\tInfo type: " + f.getInfoType().getName());
+System.out.println("\tLikelihood: " + f.getLikelihood());
+}
+}
+}
+}
+Node.js
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+// Imports the Google Cloud Data Loss Prevention library
+const DLP = require('@google-cloud/dlp');
+// Instantiates a client
+const dlp = new DLP.DlpServiceClient();
+// The project ID to run the API call under
+// const projectId = 'my-project';
+// The string to inspect
+// const string = 'My name is Gary and my email is gary@example.com';
+// The minimum likelihood required before returning a match
+// const minLikelihood = 'LIKELIHOOD_UNSPECIFIED';
+// The maximum number of findings to report per request (0 = server maximum)
+// const maxFindings = 0;
+// The infoTypes of information to match
+// const infoTypes = [{ name: 'PHONE_NUMBER' }, { name: 'EMAIL_ADDRESS' }, { name: 'CREDIT_CARD_NUMBER' }];
+// The customInfoTypes of information to match
+// const customInfoTypes = [{ infoType: { name: 'DICT_TYPE' }, dictionary: { wordList: { words: ['foo', 'bar', 'baz']}}},
+// { infoType: { name: 'REGEX_TYPE' }, regex: {pattern: '\\(\\d{3}\\) \\d{3}-\\d{4}'}}];
+// Whether to include the matching string
+// const includeQuote = true;
+async function inspectString() {
+// Construct item to inspect
+const item = {value: string};
+// Construct request
+const request = {
+parent: `projects/${projectId}/locations/global`,
+inspectConfig: {
+infoTypes: infoTypes,
+customInfoTypes: customInfoTypes,
+minLikelihood: minLikelihood,
+includeQuote: includeQuote,
+limits: {
+maxFindingsPerRequest: maxFindings,
+},
+},
+item: item,
+};
+// Run request
+const [response] = await dlp.inspectContent(request);
+const findings = response.result.findings;
+if (findings.length > 0) {
+console.log('Findings:');
+findings.forEach(finding => {
+if (includeQuote) {
+console.log(`\tQuote: ${finding.quote}`);
+}
+console.log(`\tInfo type: ${finding.infoType.name}`);
+console.log(`\tLikelihood: ${finding.likelihood}`);
+});
+} else {
+console.log('No findings.');
+}
+}
+inspectString();
+PHP
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+use Google\Cloud\Dlp\V2\Client\DlpServiceClient;
+use Google\Cloud\Dlp\V2\ContentItem;
+use Google\Cloud\Dlp\V2\InfoType;
+use Google\Cloud\Dlp\V2\InspectConfig;
+use Google\Cloud\Dlp\V2\InspectContentRequest;
+use Google\Cloud\Dlp\V2\Likelihood;
+/**
+* @param string $projectId
+* @param string $textToInspect
+*/
+function inspect_string(string $projectId, string $textToInspect): void
+{
+// Instantiate a client.
+$dlp = new DlpServiceClient();
+// Construct request
+$parent = "projects/$projectId/locations/global";
+$item = (new ContentItem())
+->setValue($textToInspect);
+$inspectConfig = (new InspectConfig())
+// The infoTypes of information to match
+->setInfoTypes([
+(new InfoType())->setName('PHONE_NUMBER'),
+(new InfoType())->setName('EMAIL_ADDRESS'),
+(new InfoType())->setName('CREDIT_CARD_NUMBER')
+])
+// Whether to include the matching string
+->setIncludeQuote(true);
+// Run request
+$inspectContentRequest = (new InspectContentRequest())
+->setParent($parent)
+->setInspectConfig($inspectConfig)
+->setItem($item);
+$response = $dlp->inspectContent($inspectContentRequest);
+// Print the results
+$findings = $response->getResult()->getFindings();
+if (count($findings) == 0) {
+print('No findings.' . PHP_EOL);
+} else {
+print('Findings:' . PHP_EOL);
+foreach ($findings as $finding) {
+print(' Quote: ' . $finding->getQuote() . PHP_EOL);
+print(' Info type: ' . $finding->getInfoType()->getName() . PHP_EOL);
+$likelihoodString = Likelihood::name($finding->getLikelihood());
+print(' Likelihood: ' . $likelihoodString . PHP_EOL);
+}
+}
+}
+Python
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+from typing import List
+import google.cloud.dlp
+def inspect_string(
+project: str,
+content_string: str,
+info_types: List[str],
+custom_dictionaries: List[str] = None,
+custom_regexes: List[str] = None,
+min_likelihood: str = None,
+max_findings: str = None,
+include_quote: bool = True,
+) -> None:
+"""Uses the Data Loss Prevention API to analyze strings for protected data.
+Args:
+project: The Google Cloud project id to use as a parent resource.
+content_string: The string to inspect.
+info_types: A list of strings representing info types to look for.
+A full list of info type categories can be fetched from the API.
+min_likelihood: A string representing the minimum likelihood threshold
+that constitutes a match. One of: 'LIKELIHOOD_UNSPECIFIED',
+'VERY_UNLIKELY', 'UNLIKELY', 'POSSIBLE', 'LIKELY', 'VERY_LIKELY'.
+max_findings: The maximum number of findings to report; 0 = no maximum.
+include_quote: Boolean for whether to display a quote of the detected
+information in the results.
+Returns:
+None; the response from the API is printed to the terminal.
+"""
+# Instantiate a client.
+dlp = google.cloud.dlp_v2.DlpServiceClient()
+# Prepare info_types by converting the list of strings into a list of
+# dictionaries (protos are also accepted).
+info_types = [{"name": info_type} for info_type in info_types]
+# Prepare custom_info_types by parsing the dictionary word lists and
+# regex patterns.
+if custom_dictionaries is None:
+custom_dictionaries = []
+dictionaries = [
+{
+"info_type": {"name": f"CUSTOM_DICTIONARY_{i}"},
+"dictionary": {"word_list": {"words": custom_dict.split(",")}},
+}
+for i, custom_dict in enumerate(custom_dictionaries)
+]
+if custom_regexes is None:
+custom_regexes = []
+regexes = [
+{
+"info_type": {"name": f"CUSTOM_REGEX_{i}"},
+"regex": {"pattern": custom_regex},
+}
+for i, custom_regex in enumerate(custom_regexes)
+]
+custom_info_types = dictionaries + regexes
+# Construct the configuration dictionary. Keys which are None may
+# optionally be omitted entirely.
+inspect_config = {
+"info_types": info_types,
+"custom_info_types": custom_info_types,
+"min_likelihood": min_likelihood,
+"include_quote": include_quote,
+"limits": {"max_findings_per_request": max_findings},
+}
+# Construct the `item`.
+item = {"value": content_string}
+# Convert the project id into a full resource id.
+parent = f"projects/{project}"
+# Call the API.
+response = dlp.inspect_content(
+request={"parent": parent, "inspect_config": inspect_config, "item": item}
+)
+# Print out the results.
+if response.result.findings:
+for finding in response.result.findings:
+try:
+if finding.quote:
+print(f"Quote: {finding.quote}")
+except AttributeError:
+pass
+print(f"Info type: {finding.info_type.name}")
+print(f"Likelihood: {finding.likelihood}")
+else:
+print("No findings.")
+Ruby
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+# project_id = "Your Google Cloud project ID"
+# content = "The text to inspect"
+# max_findings = "Maximum number of findings to report per request (0 = server maximum)"
+require "google/cloud/dlp"
+dlp = Google::Cloud::Dlp.dlp_service
+inspect_config = {
+# The types of information to match
+info_types: [{ name: "PERSON_NAME" }, { name: "US_STATE" }],
+# Only return results above a likelihood threshold (0 for all)
+min_likelihood: :POSSIBLE,
+# Limit the number of findings (0 for no limit)
+limits: { max_findings_per_request: max_findings },
+# Whether to include the matching string in the response
+include_quote: true
+}
+# The item to inspect
+item_to_inspect = { value: content }
+# Run request
+parent = "projects/#{project_id}/locations/global"
+response = dlp.inspect_content parent: parent,
+inspect_config: inspect_config,
+item: item_to_inspect
+# Print the results
+if response.result.findings.empty?
+puts "No findings"
+else
+response.result.findings.each do |finding|
+puts "Quote: #{finding.quote}"
+puts "Info type: #{finding.info_type.name}"
+puts "Likelihood: #{finding.likelihood}"
+end
+end
+REST
+See the JSON quickstart for more information about
+using the DLP API with JSON.
+JSON Input:
+POST https://dlp.googleapis.com/v2/projects/[PROJECT_ID]/content:inspect?key={YOUR_API_KEY}
+{
+"item":{
+"value":"My phone number is (415) 555-0890"
+},
+"inspectConfig":{
+"includeQuote":true,
+"minLikelihood":"POSSIBLE",
+"infoTypes":{
+"name":"PHONE_NUMBER"
+}
+}
+}
+JSON Output:
+{
+"result":{
+"findings":[
+{
+"quote":"(415) 555-0890",
+"infoType":{
+"name":"PHONE_NUMBER"
+},
+"likelihood":"VERY_LIKELY",
+"location":{
+"byteRange":{
+"start":"19",
+"end":"33"
+},
+"codepointRange":{
+"start":"19",
+"end":"33"
+}
+},
+"createTime":"2018-11-13T19:29:15.412Z"
+}
+]
+}
+}
+Inspecting a text file
+The code samples below demonstrate how to check a text file for sensitive
+content.
+C#
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using Google.Api.Gax.ResourceNames;
+using Google.Cloud.Dlp.V2;
+using Google.Protobuf;
+using static Google.Cloud.Dlp.V2.ByteContentItem.Types;
+public class DlpInspectFile
+{
+public static IEnumerable<Finding> InspectFile(string projectId, string filePath, BytesType fileType)
+{
+// Instantiate a client.
+var dlp = DlpServiceClient.Create();
+// Get the bytes from the file.
+ByteString fileBytes;
+using (Stream f = new FileStream(filePath, FileMode.Open))
+{
+fileBytes = ByteString.FromStream(f);
+}
+// Construct a request.
+var request = new InspectContentRequest
+{
+Parent = new LocationName(projectId, "global").ToString(),
+Item = new ContentItem
+{
+ByteItem = new ByteContentItem()
+{
+Data = fileBytes,
+Type = fileType
+}
+},
+InspectConfig = new InspectConfig
+{
+// The info types of information to match
+InfoTypes =
+{
+new InfoType { Name = "PHONE_NUMBER" },
+new InfoType { Name = "EMAIL_ADDRESS" },
+new InfoType { Name = "CREDIT_CARD_NUMBER" }
+},
+// The minimum likelihood before returning a match
+MinLikelihood = Likelihood.Unspecified,
+// Whether to include the matching string
+IncludeQuote = true,
+Limits = new InspectConfig.Types.FindingLimits
+{
+// The maximum number of findings to report per request
+// (0 = server maximum)
+MaxFindingsPerRequest = 0
+}
+}
+};
+// Execute request
+var response = dlp.InspectContent(request);
+// Inspect response
+var findings = response.Result.Findings;
+if (findings.Any())
+{
+Console.WriteLine("Findings:");
+foreach (var finding in findings)
+{
+Console.WriteLine($"Quote: {finding.Quote}");
+Console.WriteLine($"InfoType: {finding.InfoType}");
+Console.WriteLine($"Likelihood: {finding.Likelihood}");
+}
+}
+else
+{
+Console.WriteLine("No findings.");
+}
+return findings;
+}
+}
+Go
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import (
+"context"
+"fmt"
+"io"
+"os"
+dlp "cloud.google.com/go/dlp/apiv2"
+"cloud.google.com/go/dlp/apiv2/dlppb"
+)
+// inspectTextFile inspects a text file at a given filePath, and prints results.
+func inspectTextFile(w io.Writer, projectID, filePath string) error {
+// projectID := "my-project-id"
+// filePath := "path/to/image.png"
+ctx := context.Background()
+// Initialize client.
+client, err := dlp.NewClient(ctx)
+if err != nil {
+return err
+}
+defer client.Close() // Closing the client safely cleans up background resources.
+// Gather the resources for the request.
+data, err := os.ReadFile(filePath)
+if err != nil {
+return err
+}
+// Create and send the request.
+req := &dlppb.InspectContentRequest{
+Parent: fmt.Sprintf("projects/%s/locations/global", projectID),
+Item: &dlppb.ContentItem{
+DataItem: &dlppb.ContentItem_ByteItem{
+ByteItem: &dlppb.ByteContentItem{
+Type: dlppb.ByteContentItem_TEXT_UTF8,
+Data: data,
+},
+},
+},
+InspectConfig: &dlppb.InspectConfig{
+InfoTypes: []*dlppb.InfoType{
+{Name: "PHONE_NUMBER"},
+{Name: "EMAIL_ADDRESS"},
+{Name: "CREDIT_CARD_NUMBER"},
+},
+IncludeQuote: true,
+},
+}
+resp, err := client.InspectContent(ctx, req)
+if err != nil {
+return fmt.Errorf("InspectContent: %w", err)
+}
+// Process the results.
+fmt.Fprintf(w, "Findings: %d\n", len(resp.Result.Findings))
+for _, f := range resp.Result.Findings {
+fmt.Fprintf(w, "\tQuote: %s\n", f.Quote)
+fmt.Fprintf(w, "\tInfo type: %s\n", f.InfoType.Name)
+fmt.Fprintf(w, "\tLikelihood: %s\n", f.Likelihood)
+}
+return nil
+}
+Java
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import com.google.cloud.dlp.v2.DlpServiceClient;
+import com.google.privacy.dlp.v2.ByteContentItem;
+import com.google.privacy.dlp.v2.ByteContentItem.BytesType;
+import com.google.privacy.dlp.v2.ContentItem;
+import com.google.privacy.dlp.v2.Finding;
+import com.google.privacy.dlp.v2.InfoType;
+import com.google.privacy.dlp.v2.InspectConfig;
+import com.google.privacy.dlp.v2.InspectContentRequest;
+import com.google.privacy.dlp.v2.InspectContentResponse;
+import com.google.privacy.dlp.v2.LocationName;
+import com.google.protobuf.ByteString;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+public class InspectTextFile {
+public static void main(String[] args) throws Exception {
+// TODO(developer): Replace these variables before running the sample.
+String projectId = "your-project-id";
+String filePath = "path/to/file.txt";
+inspectTextFile(projectId, filePath);
+}
+// Inspects the specified text file.
+public static void inspectTextFile(String projectId, String filePath) throws IOException {
+// Initialize client that will be used to send requests. This client only needs to be created
+// once, and can be reused for multiple requests. After completing all of your requests, call
+// the "close" method on the client to safely clean up any remaining background resources.
+try (DlpServiceClient dlp = DlpServiceClient.create()) {
+// Specify the type and content to be inspected.
+ByteString fileBytes = ByteString.readFrom(new FileInputStream(filePath));
+ByteContentItem byteItem =
+ByteContentItem.newBuilder().setType(BytesType.TEXT_UTF8).setData(fileBytes).build();
+ContentItem item = ContentItem.newBuilder().setByteItem(byteItem).build();
+// Specify the type of info the inspection will look for.
+List<InfoType> infoTypes = new ArrayList<>();
+// See https://cloud.google.com/dlp/docs/infotypes-reference for complete list of info types
+for (String typeName : new String[] {"PHONE_NUMBER", "EMAIL_ADDRESS", "CREDIT_CARD_NUMBER"}) {
+infoTypes.add(InfoType.newBuilder().setName(typeName).build());
+}
+// Construct the configuration for the Inspect request.
+InspectConfig config =
+InspectConfig.newBuilder().addAllInfoTypes(infoTypes).setIncludeQuote(true).build();
+// Construct the Inspect request to be sent by the client.
+InspectContentRequest request =
+InspectContentRequest.newBuilder()
+.setParent(LocationName.of(projectId, "global").toString())
+.setItem(item)
+.setInspectConfig(config)
+.build();
+// Use the client to send the API request.
+InspectContentResponse response = dlp.inspectContent(request);
+// Parse the response and process results
+System.out.println("Findings: " + response.getResult().getFindingsCount());
+for (Finding f : response.getResult().getFindingsList()) {
+System.out.println("\tQuote: " + f.getQuote());
+System.out.println("\tInfo type: " + f.getInfoType().getName());
+System.out.println("\tLikelihood: " + f.getLikelihood());
+}
+}
+}
+}
+Node.js
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+// Imports the Google Cloud Data Loss Prevention library
+const DLP = require('@google-cloud/dlp');
+// Import other required libraries
+const fs = require('fs');
+const mime = require('mime');
+// Instantiates a client
+const dlp = new DLP.DlpServiceClient();
+// The project ID to run the API call under
+// const projectId = 'my-project';
+// The path to a local file to inspect. Can be a text, JPG, or PNG file.
+// const filepath = 'path/to/image.png';
+// The minimum likelihood required before returning a match
+// const minLikelihood = 'LIKELIHOOD_UNSPECIFIED';
+// The maximum number of findings to report per request (0 = server maximum)
+// const maxFindings = 0;
+// The infoTypes of information to match
+// const infoTypes = [{ name: 'PHONE_NUMBER' }, { name: 'EMAIL_ADDRESS' }, { name: 'CREDIT_CARD_NUMBER' }];
+// The customInfoTypes of information to match
+// const customInfoTypes = [{ infoType: { name: 'DICT_TYPE' }, dictionary: { wordList: { words: ['foo', 'bar', 'baz']}}},
+// { infoType: { name: 'REGEX_TYPE' }, regex: {pattern: '\\(\\d{3}\\) \\d{3}-\\d{4}'}}];
+// Whether to include the matching string
+// const includeQuote = true;
+async function inspectFile() {
+// Construct file data to inspect
+const fileTypeConstant =
+['image/jpeg', 'image/bmp', 'image/png', 'image/svg'].indexOf(
+mime.getType(filepath)
+) + 1;
+const fileBytes = Buffer.from(fs.readFileSync(filepath)).toString('base64');
+const item = {
+byteItem: {
+type: fileTypeConstant,
+data: fileBytes,
+},
+};
+// Construct request
+const request = {
+parent: `projects/${projectId}/locations/global`,
+inspectConfig: {
+infoTypes: infoTypes,
+customInfoTypes: customInfoTypes,
+minLikelihood: minLikelihood,
+includeQuote: includeQuote,
+limits: {
+maxFindingsPerRequest: maxFindings,
+},
+},
+item: item,
+};
+// Run request
+const [response] = await dlp.inspectContent(request);
+const findings = response.result.findings;
+if (findings.length > 0) {
+console.log('Findings:');
+findings.forEach(finding => {
+if (includeQuote) {
+console.log(`\tQuote: ${finding.quote}`);
+}
+console.log(`\tInfo type: ${finding.infoType.name}`);
+console.log(`\tLikelihood: ${finding.likelihood}`);
+});
+} else {
+console.log('No findings.');
+}
+}
+Python
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import mimetypes
+from typing import List
+from typing import Optional
+import google.cloud.dlp
+def inspect_file(
+project: str,
+filename: str,
+info_types: List[str],
+min_likelihood: str = None,
+custom_dictionaries: List[str] = None,
+custom_regexes: List[str] = None,
+max_findings: Optional[int] = None,
+include_quote: bool = True,
+mime_type: str = None,
+) -> None:
+"""Uses the Data Loss Prevention API to analyze a file for protected data.
+Args:
+project: The Google Cloud project id to use as a parent resource.
+filename: The path to the file to inspect.
+info_types: A list of strings representing info types to look for.
+A full list of info type categories can be fetched from the API.
+min_likelihood: A string representing the minimum likelihood threshold
+that constitutes a match. One of: 'LIKELIHOOD_UNSPECIFIED',
+'VERY_UNLIKELY', 'UNLIKELY', 'POSSIBLE', 'LIKELY', 'VERY_LIKELY'.
+max_findings: The maximum number of findings to report; 0 = no maximum.
+include_quote: Boolean for whether to display a quote of the detected
+information in the results.
+mime_type: The MIME type of the file. If not specified, the type is
+inferred via the Python standard library's mimetypes module.
+Returns:
+None; the response from the API is printed to the terminal.
+"""
+# Instantiate a client.
+dlp = google.cloud.dlp_v2.DlpServiceClient()
+# Prepare info_types by converting the list of strings into a list of
+# dictionaries (protos are also accepted).
+if not info_types:
+info_types = ["FIRST_NAME", "LAST_NAME", "EMAIL_ADDRESS"]
+info_types = [{"name": info_type} for info_type in info_types]
+# Prepare custom_info_types by parsing the dictionary word lists and
+# regex patterns.
+if custom_dictionaries is None:
+custom_dictionaries = []
+dictionaries = [
+{
+"info_type": {"name": f"CUSTOM_DICTIONARY_{i}"},
+"dictionary": {"word_list": {"words": custom_dict.split(",")}},
+}
+for i, custom_dict in enumerate(custom_dictionaries)
+]
+if custom_regexes is None:
+custom_regexes = []
+regexes = [
+{
+"info_type": {"name": f"CUSTOM_REGEX_{i}"},
+"regex": {"pattern": custom_regex},
+}
+for i, custom_regex in enumerate(custom_regexes)
+]
+custom_info_types = dictionaries + regexes
+# Construct the configuration dictionary. Keys which are None may
+# optionally be omitted entirely.
+inspect_config = {
+"info_types": info_types,
+"custom_info_types": custom_info_types,
+"min_likelihood": min_likelihood,
+"include_quote": include_quote,
+"limits": {"max_findings_per_request": max_findings},
+}
+# If mime_type is not specified, guess it from the filename.
+if mime_type is None:
+mime_guess = mimetypes.MimeTypes().guess_type(filename)
+mime_type = mime_guess[0]
+# Select the content type index from the list of supported types.
+# https://github.com/googleapis/googleapis/blob/master/google/privacy/dlp/v2/dlp.proto / message ByteContentItem
+supported_content_types = {
+None: 0, # "Unspecified" or BYTES_TYPE_UNSPECIFIED
+"image/jpeg": 1, # IMAGE_JPEG
+"image/bmp": 2, # IMAGE_BMP
+"image/png": 3, # IMAGE_PNG
+"image/svg": 4, # IMAGE_SVG - Adjusted to "image/svg+xml" for correct MIME type
+"text/plain": 5, # TEXT_UTF8
+# Note: No specific MIME type for general "image", mapping to IMAGE for any image type not specified
+"image": 6, # IMAGE - Any image type
+"application/msword": 7, # WORD_DOCUMENT
+"application/pdf": 8, # PDF
+"application/powerpoint": 9, # POWERPOINT_DOCUMENT
+"application/msexcel": 10, # EXCEL_DOCUMENT
+"application/avro": 11, # AVRO
+"text/csv": 12, # CSV
+"text/tsv": 13, # TSV
+}
+content_type_index = supported_content_types.get(mime_type, 0)
+# Construct the item, containing the file's byte data.
+with open(filename, mode="rb") as f:
+item = {"byte_item": {"type_": content_type_index, "data": f.read()}}
+# Convert the project id into a full resource id.
+parent = f"projects/{project}"
+# Call the API.
+response = dlp.inspect_content(
+request={"parent": parent, "inspect_config": inspect_config, "item": item}
+)
+# Print out the results.
+if response.result.findings:
+for finding in response.result.findings:
+try:
+print(f"Quote: {finding.quote}")
+except AttributeError:
+pass
+print(f"Info type: {finding.info_type.name}")
+print(f"Likelihood: {finding.likelihood}")
+else:
+print("No findings.")
+Ruby
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+# project_id = "Your Google Cloud project ID"
+# filename = "The file path to the file to inspect"
+# max_findings = "Maximum number of findings to report per request (0 = server maximum)"
+require "google/cloud/dlp"
+dlp = Google::Cloud::Dlp.dlp_service
+inspect_config = {
+# The types of information to match
+info_types: [{ name: "PERSON_NAME" }, { name: "PHONE_NUMBER" }],
+# Only return results above a likelihood threshold (0 for all)
+min_likelihood: :POSSIBLE,
+# Limit the number of findings (0 for no limit)
+limits: { max_findings_per_request: max_findings },
+# Whether to include the matching string in the response
+include_quote: true
+}
+# The item to inspect
+file = File.open filename, "rb"
+item_to_inspect = { byte_item: { type: :BYTES_TYPE_UNSPECIFIED, data: file.read } }
+# Run request
+parent = "projects/#{project_id}/locations/global"
+response = dlp.inspect_content parent: parent,
+inspect_config: inspect_config,
+item: item_to_inspect
+# Print the results
+if response.result.findings.empty?
+puts "No findings"
+else
+response.result.findings.each do |finding|
+puts "Quote: #{finding.quote}"
+puts "Info type: #{finding.info_type.name}"
+puts "Likelihood: #{finding.likelihood}"
+end
+end
+What's next
+Work through the Redacting Sensitive Data with Sensitive Data Protection
+codelab.
+Learn how to inspect images for sensitive data.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-07 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

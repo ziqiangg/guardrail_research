@@ -1,0 +1,1440 @@
+# status 200  final_url https://docs.cloud.google.com/sensitive-data-protection/docs/creating-templates-inspect  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Sensitive Data Protection
+Start free
+Overview
+Guides
+Reference
+Samples
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Samples
+Resources
+Console
+Discover
+Product overview
+Plan your data risk management strategy
+Evaluate your data risk management needs
+Learn about your data through discovery and inspection
+Recommended strategies for mitigating data risk
+Release notes
+Pricing
+Locations
+Global and regional endpoints for Sensitive Data Protection
+Sensitive Data Protection locations
+Specify a processing location
+Service method types
+Supported file types and scanning modes
+Get started
+Quickstarts
+Inspect text using the command-line tool
+Inspect text using a JSON request
+Schedule an inspection scan
+Create an inspection template
+De-identify and re-identify sensitive text
+Google Cloud Skills Boost labs
+Detect sensitive data
+Discover and profile data resources
+Overview of sensitive data discovery
+Common discovery enablement scenarios
+Allow discovery within service perimeters
+Profile your data
+Profile a single data resource
+Profile BigQuery data
+Estimate BigQuery data profiling cost
+Estimate the cost of profiling BigQuery data in a project
+Estimate the cost of profiling BigQuery data in an organization or folder
+Profile BigQuery data in a project
+Profile BigQuery data in an organization or folder
+Profile Cloud SQL data
+Profile Cloud SQL data in a project
+Profile Cloud SQL data in an organization or folder
+Manage connections
+Profile Cloud Storage data
+Profile Cloud Storage data in a project
+Profile Cloud Storage data in an organization or folder
+Profile Vertex AI data
+Sensitive data discovery for Vertex AI data
+Profile Vertex AI data in a project
+Profile Vertex AI data in an organization or folder
+Profile Amazon S3 data
+Sensitive data discovery for Amazon S3 data
+Profile Amazon S3 data
+Profile Azure Blob Storage data
+Report secrets in environment variables to Security Command Center
+Grant data profiling access to a service agent
+Manage data profiles
+Control IAM access to resources based on data sensitivity
+Send discovery insights to other services
+Enable discovery actions
+Send data profiles to Security Command Center
+Receive and parse Pub/Sub messages about data profiles
+Tag tables in Data Catalog based on insights from data profiles
+Add Knowledge Catalog aspects based on insights from data profiles
+Analyze and visualize data profiles
+Visualize data profiles in the discovery dashboard
+Analyze data profiles
+Remediate findings from the data profiler
+Manage scan configurations
+Troubleshoot issues with the data profiler
+Metrics reference
+Data risk and sensitivity levels
+Inspect for sensitive data
+Inspect data stored in Google Cloud
+Inspect data from any source
+Inspect unstructured text synchronously
+Inspect structured text synchronously
+Inspect an image synchronously
+Asynchronous inspection overview
+Inspect data from any source asynchronously
+Quote the sensitive data in the results
+Work with inspection results
+Actions
+Send inspection results to Knowledge Catalog as aspects
+Send inspection results to Data Catalog
+Send inspection results to Security Command Center
+Analyze and report on inspection findings
+Query inspection findings in BigQuery
+Parse findings stored as Protobuf text
+Jobs and job triggers
+Overview of jobs and job triggers
+Create and manage jobs and job triggers
+Web-based inspection demonstration app
+Allow or block content based on sensitivity
+Overview of content policies
+Create and manage content policies
+Configure detection
+Templates
+Overview of templates
+Create inspection templates
+InfoTypes and infoType detectors
+Overview of infoTypes and infoType detectors
+Built-in infoType detectors
+List built-in infoType detectors
+InfoType detector reference
+Custom infoType detectors
+Overview of custom infoType detectors
+Create a regular custom dictionary detector
+Create a large custom dictionary detector
+Create a custom regex detector
+Create a custom metadata label detector
+Custom infoType examples
+Manage infoTypes through the Google Cloud console
+Modify infoType detectors to refine scan results
+Match likelihood
+Likelihood overview
+Customize match likelihood
+Mask and de-identify data
+Overview
+Transformation methods
+Transformation reference
+Text classification and redaction
+Date shifting
+Generalization and bucketing
+Pseudonymization
+De-identify sensitive data
+De-identify data stored in Google Cloud
+Overview
+Through the Cloud console
+Through the DLP API
+Transformation details reference
+De-identify data from any source
+De-identify text or tabular content
+Examples of text redaction
+Examples of tabular data de-identification
+Image inspection and redaction
+Redact sensitive data from images
+Create a de-identification template
+Create a wrapped key
+De-identify BigQuery data at query time
+De-identification and re-identification of PII in large-scale datasets
+Redact sensitive data from PDF files
+Analyze re-identification risk
+Overview of re-identification risk analysis
+Re-identification risk analysis techniques
+Compute k-anonymity for a dataset
+Compute l-diversity for a dataset
+Compute k-map for a dataset
+Compute δ-presence for a dataset
+Compute numerical and categorical statistics
+Visualize re-identification risk using Data Studio
+Connect to other services
+Use Sensitive Data Protection with BigQuery
+Use Sensitive Data Protection with Cloud Storage
+Use Sensitive Data Protection with Cloud Storage
+Automate the classification of data uploaded to Cloud Storage
+Send inspection results to Data Catalog
+Send inspection results to Security Command Center
+Monitor your usage with Cloud Monitoring
+Use Sensitive Data Protection with AWS S3
+Use Sensitive Data Protection with JDBC Databases
+Use Sensitive Data Protection with Apigee
+Use Sensitive Data Protection with Data Fusion
+Build a secure anomaly detection solution using Dataflow, BigQuery ML, and Sensitive Data Protection
+Troubleshoot
+Troubleshoot issues with the data profiler
+Control access
+Authentication
+IAM
+Access control with IAM
+Sensitive Data Protection roles and permissions
+Sensitive Data Protection service agents
+Control access with VPC Service Controls
+Monitor
+Audit logging
+Monitor your usage with Cloud Monitoring
+Develop
+All Sensitive Data Protection code samples
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Cloud Data Loss Prevention (Cloud DLP) is now a part of Sensitive Data Protection. The API name remains the same: Cloud Data Loss Prevention API (DLP API). For information about the services that make up Sensitive Data Protection, see Sensitive Data Protection overview.
+Home
+Documentation
+Security
+Sensitive Data Protection
+Guides
+Send feedback
+Creating Sensitive Data Protection inspection templates
+Stay organized with collections
+Save and categorize content based on your preferences.
+This topic describes in detail how to create a new inspection template. For a
+quick walkthrough of how to create a new inspection template using the
+Google Cloud console, see Quickstart: Creating a Sensitive Data Protection
+inspection template.
+About templates
+You can use templates to create and persist configuration information to use
+with Sensitive Data Protection. Templates are useful for decoupling configuration
+information—such as what you inspect for and how you de-identify
+it—from the implementation of your requests. Templates provide a way to
+re-use configuration and enable consistency across users and datasets. In
+addition, whenever you update a template, it's updated for any job trigger
+that uses it.
+Sensitive Data Protection supports inspection templates, which are discussed in
+this topic, and de-identification templates, which are discussed in
+Creating Sensitive Data Protection de-identification
+templates.
+For conceptual information about templates in Sensitive Data Protection, see
+Templates.
+For more details about the information types (infoTypes) that you can specify
+in your inspection templates, see InfoType detector
+reference.
+Create a new inspection template
+Important:
+The code on this page requires that you first set up a Sensitive Data Protection client. For more
+information about installing and creating a Sensitive Data Protection client, see
+Sensitive Data Protection client libraries. (Sending JSON
+to Sensitive Data Protection REST endpoints does not require a client
+library.)
+Console
+In the Google Cloud console, go to the Create template page.
+Go to Create template
+The Create template page contains the following sections:
+Define template
+Configure detection
+Define template
+Under Define template, enter an identifier for the inspection template. This
+is how you'll refer to the template when you run a job, create a job trigger,
+and so on. You can use letters, numbers, and hyphens. If you want, you can also
+enter a more human-friendly display name, as well as a description to better
+remember what the template does.
+In the Resource location field, select the region where the data to be
+inspected is stored. The inspection template you create is also stored in
+this region. If you want to be able to use the new inspection template in any
+region, select Global (any region).
+Configure detection
+Next, you configure what Sensitive Data Protection detects in your content by
+choosing an infoType and other options.
+InfoType detectors find sensitive data of a certain type. For example, the
+Sensitive Data Protection US_SOCIAL_SECURITY_NUMBER infoType detector finds
+US Social Security numbers. In addition to the built-in infoType detectors, you
+can create your own custom infoType detectors.
+In the InfoTypes section, choose the infoType detector that corresponds to a data
+type you want to scan for. We don't recommend leaving this section blank. Doing
+so causes Sensitive Data Protection to scan your data with a default set of
+infoTypes, which might include infoTypes that you don't need.
+More information about each detector is provided in
+InfoType detector reference.
+For more information about how to manage built-in and custom infoTypes in
+this section, see Manage infoTypes through the Google Cloud console.
+Inspection rulesets
+Inspection rulesets let you customize both built-in and custom infoType detectors using
+context rules. The types of inspection rules are:
+Exclusion
+rules, which help exclude false or unwanted findings.
+Hotword rules,
+which help detect additional findings.
+Adjustment
+rules, which adjust the likelihood of findings based on the context in which they
+appear.
+To add a new ruleset, first specify one or more built-in or custom infoType detectors in the
+InfoTypes section. Select all infoType detectors that your rulesets modify
+(the target infoTypes) or use for assessment (the context infoTypes). Then, do
+the following:
+Click Add a ruleset.
+In the Choose target infoTypes field, select the infoTypes that the ruleset
+modifies if the rules are met.
+Click Add a rule to open a menu with options, including Hotword rule,
+Exclusion rule, and Adjustment rule.
+To create a hotword rule, select Hotword rule. Then, do the following:
+In the Hotword field, enter a regular expression that Sensitive Data Protection
+looks for.
+From the Hotword proximity menu, select whether the hotword you entered is
+found before or after the chosen infoType.
+In Hotword distance from infoType, enter the approximate number of characters
+between the hotword and the chosen infoType.
+In Confidence level adjustment, select whether to assign matches a fixed
+likelihood level, or to increase or
+decrease the default
+likelihood level by a certain amount.
+To create an exclusion rule, select Exclusion rule and the type of exclusion rule to
+create, for example, Regular expression. Then, do the following:
+Depending on the exclusion rule type that you selected, enter the regular expression, phrase,
+hotword, or context infoType that must be found for the rule to apply.
+Depending on the exclusion rule type that you selected, set the matching type or image
+containment type:
+If you selected a text-based exclusion rule, select one of the following matching
+types:
+Full match: The finding must completely match the text or context infoType that you
+provided.
+Partial match: A substring of the finding must match the text or context infoType
+that you provided.
+Inverse match: The finding must not match the text or context infoType that you
+provided.
+If you selected an image-based exclusion rule, select the required spatial relationship
+between the target and context infoTypes. For example, if you select Encloses, the
+context finding must enclose the target finding for the rule to apply.
+To create an adjustment rule, select Adjustment rule and the type of adjustment rule, for
+example, Adjust by image findings. Then, do the following:
+In the Context infoTypes field, select the infoType detectors that provide
+context for the target finding. Sensitive Data Protection uses context infoTypes to assess
+whether it must adjust the target infoType.
+In the Minimum likelihood field, select the lowest likelihood level that the
+context infoTypes can have and still trigger the adjustment rule. If the likelihood value of any
+detected context finding is lower than this value, Sensitive Data Protection doesn't adjust the
+likelihood of the target finding.
+For image findings, in the Image containment type field, select the required
+spatial relationship between the target and context infoTypes. For example, if you select
+Encloses, the context finding must enclose the target finding for the rule to apply.
+In the Likelihood field, select the new likelihood level to assign to the
+target finding.
+You can add more rulesets to further refine your scan results.
+Confidence threshold
+Every time Sensitive Data Protection detects a potential match for sensitive data,
+it assigns it a likelihood value on a scale from "Very unlikely"
+to "Very likely." When you set a likelihood value here, you are instructing
+Sensitive Data Protection to only match on data that corresponds to that likelihood
+value or higher.
+The default value of "Possible" is sufficient for most purposes. If you
+routinely get matches that are too broad, move the slider up. If you get
+too few matches, move the slider down.
+When you're done, click Create to create the template. The template's
+summary information page appears.
+To return to the main Sensitive Data Protection page, click the Back arrow in
+the Google Cloud console.
+C#
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+using Google.Api.Gax.ResourceNames;
+using Google.Cloud.Dlp.V2;
+using System;
+public class InspectTemplateCreate
+{
+public static InspectTemplate Create(
+string projectId,
+string templateId,
+string displayName,
+string description,
+Likelihood likelihood,
+int maxFindings,
+bool includeQuote)
+{
+var client = DlpServiceClient.Create();
+var request = new CreateInspectTemplateRequest
+{
+Parent = new LocationName(projectId, "global").ToString(),
+InspectTemplate = new InspectTemplate
+{
+DisplayName = displayName,
+Description = description,
+InspectConfig = new InspectConfig
+{
+MinLikelihood = likelihood,
+Limits = new InspectConfig.Types.FindingLimits
+{
+MaxFindingsPerRequest = maxFindings
+},
+IncludeQuote = includeQuote
+},
+},
+TemplateId = templateId
+};
+var response = client.CreateInspectTemplate(request);
+Console.WriteLine($"Successfully created template {response.Name}.");
+return response;
+}
+}
+Go
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import (
+"context"
+"fmt"
+"io"
+dlp "cloud.google.com/go/dlp/apiv2"
+"cloud.google.com/go/dlp/apiv2/dlppb"
+)
+// createInspectTemplate creates a template with the given configuration.
+func createInspectTemplate(w io.Writer, projectID string, templateID, displayName, description string, infoTypeNames []string) error {
+// projectID := "my-project-id"
+// templateID := "my-template"
+// displayName := "My Template"
+// description := "My template description"
+// infoTypeNames := []string{"US_SOCIAL_SECURITY_NUMBER"}
+ctx := context.Background()
+client, err := dlp.NewClient(ctx)
+if err != nil {
+return fmt.Errorf("dlp.NewClient: %w", err)
+}
+defer client.Close()
+// Convert the info type strings to a list of InfoTypes.
+var infoTypes []*dlppb.InfoType
+for _, it := range infoTypeNames {
+infoTypes = append(infoTypes, &dlppb.InfoType{Name: it})
+}
+// Create a configured request.
+req := &dlppb.CreateInspectTemplateRequest{
+Parent: fmt.Sprintf("projects/%s/locations/global", projectID),
+TemplateId: templateID,
+InspectTemplate: &dlppb.InspectTemplate{
+DisplayName: displayName,
+Description: description,
+InspectConfig: &dlppb.InspectConfig{
+InfoTypes: infoTypes,
+MinLikelihood: dlppb.Likelihood_POSSIBLE,
+Limits: &dlppb.InspectConfig_FindingLimits{
+MaxFindingsPerRequest: 10,
+},
+},
+},
+}
+// Send the request.
+resp, err := client.CreateInspectTemplate(ctx, req)
+if err != nil {
+return fmt.Errorf("CreateInspectTemplate: %w", err)
+}
+// Print the result.
+fmt.Fprintf(w, "Successfully created inspect template: %v", resp.GetName())
+return nil
+}
+Java
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import com.google.cloud.dlp.v2.DlpServiceClient;
+import com.google.privacy.dlp.v2.CreateInspectTemplateRequest;
+import com.google.privacy.dlp.v2.InfoType;
+import com.google.privacy.dlp.v2.InspectConfig;
+import com.google.privacy.dlp.v2.InspectTemplate;
+import com.google.privacy.dlp.v2.LocationName;
+import java.io.IOException;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+class TemplatesCreate {
+public static void main(String[] args) throws Exception {
+// TODO(developer): Replace these variables before running the sample.
+String projectId = "your-project-id";
+createInspectTemplate(projectId);
+}
+// Creates a template to persist configuration information
+public static void createInspectTemplate(String projectId) throws IOException {
+// Initialize client that will be used to send requests. This client only needs to be created
+// once, and can be reused for multiple requests. After completing all of your requests, call
+// the "close" method on the client to safely clean up any remaining background resources.
+try (DlpServiceClient dlpServiceClient = DlpServiceClient.create()) {
+// Specify the type of info the inspection will look for.
+// See https://cloud.google.com/dlp/docs/infotypes-reference for complete list of info types
+List<InfoType> infoTypes =
+Stream.of("PHONE_NUMBER", "EMAIL_ADDRESS", "CREDIT_CARD_NUMBER")
+.map(it -> InfoType.newBuilder().setName(it).build())
+.collect(Collectors.toList());
+// Construct the inspection configuration for the template
+InspectConfig inspectConfig = InspectConfig.newBuilder().addAllInfoTypes(infoTypes).build();
+// Optionally set a display name and a description for the template
+String displayName = "Inspection Config Template";
+String description = "Save configuration for future inspection jobs";
+// Build the template
+InspectTemplate inspectTemplate =
+InspectTemplate.newBuilder()
+.setInspectConfig(inspectConfig)
+.setDisplayName(displayName)
+.setDescription(description)
+.build();
+// Create the request to be sent by the client
+CreateInspectTemplateRequest createInspectTemplateRequest =
+CreateInspectTemplateRequest.newBuilder()
+.setParent(LocationName.of(projectId, "global").toString())
+.setInspectTemplate(inspectTemplate)
+.build();
+// Send the request to the API and process the response
+InspectTemplate response =
+dlpServiceClient.createInspectTemplate(createInspectTemplateRequest);
+System.out.printf("Template created: %s", response.getName());
+}
+}
+}
+Node.js
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+// Imports the Google Cloud Data Loss Prevention library
+const DLP = require('@google-cloud/dlp');
+// Instantiates a client
+const dlp = new DLP.DlpServiceClient();
+// The project ID to run the API call under
+// const projectId = 'my-project';
+// The minimum likelihood required before returning a match
+// const minLikelihood = 'LIKELIHOOD_UNSPECIFIED';
+// The maximum number of findings to report per request (0 = server maximum)
+// const maxFindings = 0;
+// The infoTypes of information to match
+// const infoTypes = [{ name: 'PHONE_NUMBER' }, { name: 'EMAIL_ADDRESS' }, { name: 'CREDIT_CARD_NUMBER' }];
+// Whether to include the matching string
+// const includeQuote = true;
+// (Optional) The name of the template to be created.
+// const templateId = 'my-template';
+// (Optional) The human-readable name to give the template
+// const displayName = 'My template';
+async function createInspectTemplate() {
+// Construct the inspection configuration for the template
+const inspectConfig = {
+infoTypes: infoTypes,
+minLikelihood: minLikelihood,
+includeQuote: includeQuote,
+limits: {
+maxFindingsPerRequest: maxFindings,
+},
+};
+// Construct template-creation request
+const request = {
+parent: `projects/${projectId}/locations/global`,
+inspectTemplate: {
+inspectConfig: inspectConfig,
+displayName: displayName,
+},
+templateId: templateId,
+};
+const [response] = await dlp.createInspectTemplate(request);
+const templateName = response.name;
+console.log(`Successfully created template ${templateName}.`);
+}
+createInspectTemplate();
+PHP
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+use Google\Cloud\Dlp\V2\Client\DlpServiceClient;
+use Google\Cloud\Dlp\V2\CreateInspectTemplateRequest;
+use Google\Cloud\Dlp\V2\InfoType;
+use Google\Cloud\Dlp\V2\InspectConfig;
+use Google\Cloud\Dlp\V2\InspectConfig\FindingLimits;
+use Google\Cloud\Dlp\V2\InspectTemplate;
+use Google\Cloud\Dlp\V2\Likelihood;
+/**
+* Create a new DLP inspection configuration template.
+*
+* @param string $callingProjectId project ID to run the API call under
+* @param string $templateId name of the template to be created
+* @param string $displayName (Optional) The human-readable name to give the template
+* @param string $description (Optional) A description for the trigger to be created
+* @param int $maxFindings (Optional) The maximum number of findings to report per request (0 = server maximum)
+*/
+function create_inspect_template(
+string $callingProjectId,
+string $templateId,
+string $displayName = '',
+string $description = '',
+int $maxFindings = 0
+): void {
+// Instantiate a client.
+$dlp = new DlpServiceClient();
+// ----- Construct inspection config -----
+// The infoTypes of information to match
+$personNameInfoType = (new InfoType())
+->setName('PERSON_NAME');
+$phoneNumberInfoType = (new InfoType())
+->setName('PHONE_NUMBER');
+$infoTypes = [$personNameInfoType, $phoneNumberInfoType];
+// Whether to include the matching string in the response
+$includeQuote = true;
+// The minimum likelihood required before returning a match
+$minLikelihood = likelihood::LIKELIHOOD_UNSPECIFIED;
+// Specify finding limits
+$limits = (new FindingLimits())
+->setMaxFindingsPerRequest($maxFindings);
+// Create the configuration object
+$inspectConfig = (new InspectConfig())
+->setMinLikelihood($minLikelihood)
+->setLimits($limits)
+->setInfoTypes($infoTypes)
+->setIncludeQuote($includeQuote);
+// Construct inspection template
+$inspectTemplate = (new InspectTemplate())
+->setInspectConfig($inspectConfig)
+->setDisplayName($displayName)
+->setDescription($description);
+// Run request
+$parent = "projects/$callingProjectId/locations/global";
+$createInspectTemplateRequest = (new CreateInspectTemplateRequest())
+->setParent($parent)
+->setInspectTemplate($inspectTemplate)
+->setTemplateId($templateId);
+$template = $dlp->createInspectTemplate($createInspectTemplateRequest);
+// Print results
+printf('Successfully created template %s' . PHP_EOL, $template->getName());
+}
+Python
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+from typing import List
+from typing import Optional
+import google.cloud.dlp
+def create_inspect_template(
+project: str,
+info_types: List[str],
+template_id: Optional[str] = None,
+display_name: Optional[str] = None,
+min_likelihood: Optional[int] = None,
+max_findings: Optional[int] = None,
+include_quote: Optional[bool] = None,
+) -> None:
+"""Creates a Data Loss Prevention API inspect template.
+Args:
+project: The Google Cloud project id to use as a parent resource.
+info_types: A list of strings representing info types to look for.
+A full list of info type categories can be fetched from the API.
+template_id: The id of the template. If omitted, an id will be randomly
+generated.
+display_name: The optional display name of the template.
+min_likelihood: A string representing the minimum likelihood threshold
+that constitutes a match. One of: 'LIKELIHOOD_UNSPECIFIED',
+'VERY_UNLIKELY', 'UNLIKELY', 'POSSIBLE', 'LIKELY', 'VERY_LIKELY'.
+max_findings: The maximum number of findings to report; 0 = no maximum.
+include_quote: Boolean for whether to display a quote of the detected
+information in the results.
+Returns:
+None; the response from the API is printed to the terminal.
+"""
+# Instantiate a client.
+dlp = google.cloud.dlp_v2.DlpServiceClient()
+# Prepare info_types by converting the list of strings into a list of
+# dictionaries (protos are also accepted).
+info_types = [{"name": info_type} for info_type in info_types]
+# Construct the configuration dictionary. Keys which are None may
+# optionally be omitted entirely.
+inspect_config = {
+"info_types": info_types,
+"min_likelihood": min_likelihood,
+"include_quote": include_quote,
+"limits": {"max_findings_per_request": max_findings},
+}
+inspect_template = {
+"inspect_config": inspect_config,
+"display_name": display_name,
+}
+# Convert the project id into a full resource id.
+parent = f"projects/{project}"
+# Call the API.
+response = dlp.create_inspect_template(
+request={
+"parent": parent,
+"inspect_template": inspect_template,
+"template_id": template_id,
+}
+)
+print(f"Successfully created template {response.name}")
+REST
+An inspection template is a reusable inspection configuration plus some
+metadata. In API terms, the
+InspectTemplate
+object is effectively an
+InspectConfig
+object that includes a few more fields of metadata, such as a display name and
+a description. Therefore, to create a new inspection template, the basic steps
+are:
+Start with an
+InspectConfig
+object.
+Call or POST the create method of either the
+projects.inspectTemplates
+or
+organizations.inspectTemplates
+resource, including in your request an
+InspectTemplate
+object that contains a display name, a description, and that
+InspectConfig object.
+The returned InspectTemplate will be ready for use immediately. You can
+reference it in other calls or jobs by its name. You can list the existing
+templates by calling the *.inspectTemplates.list method. To view a specific
+template, call the *.inspectTemplates.get method. Note that the limit for the
+number of templates you can create is 1000.
+If you've already had some experience inspecting text, images, or structured
+content for sensitive content using Sensitive Data Protection, you've already
+created an
+InspectConfig
+object. One additional step turns it into an
+InspectTemplate
+object.
+The following JSON is an example of what you can send to the
+projects.inspectTemplates.create
+method. This JSON creates a new template with the given display name and
+description, and scans for matches on the infoTypes PHONE_NUMBER and
+US_TOLLFREE_PHONE_NUMBER. It includes in its findings up to 100 matches whose
+likelihoods are at least POSSIBLE, and includes a snippet of context for each.
+For more details about the information types (infoTypes) that you can specify
+in your inspection templates, see
+InfoType detector reference.
+JSON input:
+POST https://dlp.googleapis.com/v2/projects/[PROJECT_ID]/inspectTemplates?key={YOUR_API_KEY}
+{
+"inspectTemplate":{
+"displayName":"Phone number inspection",
+"description":"Scans for phone numbers",
+"inspectConfig":{
+"infoTypes":[
+{
+"name":"PHONE_NUMBER"
+},
+{
+"name":"US_TOLLFREE_PHONE_NUMBER"
+}
+],
+"minLikelihood":"POSSIBLE",
+"limits":{
+"maxFindingsPerRequest":100
+},
+"includeQuote":true
+}
+}
+}
+JSON output:
+The response JSON looks like the following:
+{
+"name":"projects/[PROJECT_ID]/inspectTemplates/[JOB_ID]",
+"displayName":"Phone number inspection",
+"description":"Scans for phone numbers",
+"createTime":"2018-11-30T07:26:28.164136Z",
+"updateTime":"2018-11-30T07:26:28.164136Z",
+"inspectConfig":{
+"infoTypes":[
+{
+"name":"PHONE_NUMBER"
+},
+{
+"name":"US_TOLLFREE_PHONE_NUMBER"
+}
+],
+"minLikelihood":"POSSIBLE",
+"limits":{
+"maxFindingsPerRequest":100
+},
+"includeQuote":true
+}
+}
+Note: This template was created at the project level, but you could also create
+it at the organization level using the
+organizations.inspectTemplates.create
+method.
+To quickly try this out, you can use the APIs Explorer that's embedded below.
+For general information about using JSON to send requests to the
+DLP API, see the JSON quickstart.
+Use inspection templates
+After you create a new inspection template, you can use it when creating a new
+inspection job or job trigger. Whenever you update that template, it's
+updated in any job trigger that uses it. For more information, including code
+samples, see:
+Inspecting storage and databases for sensitive data
+Creating and scheduling Sensitive Data Protection inspection
+jobs
+Console
+To get started quickly using your new template, follow the instructions
+provided in Quickstart creating a Sensitive Data Protection inspection
+template with the following change:
+In the Configure detection > Templates section, click in the
+Template name field and select the template you just created.
+For a more in-depth walkthrough of how to scan your content, see Creating and
+scheduling Sensitive Data Protection inspection jobs,
+paying particular attention to the "Configure
+detection" section.
+REST
+You can use the template identifier you specified when creating the template
+anywhere inspectTemplateName is accepted, such as:
+projects.content.inspect:
+Finds potentially sensitive data in content using the template as its
+configuration.
+projects.content.deidentify:
+Finds and de-identifies potentially sensitive data in content using the
+template as its configuration. Be aware that this method uses both an
+inspection template and a de-identification template.
+projects.dlpJobs.create,
+in the
+InspectJobConfig
+object: Creates an inspection job that includes the template as its
+configuration.
+List inspection templates
+To list all inspection templates that have been created in the current project
+or organization:
+Console
+Note: There is currently no way to view organization-level templates in the
+console.
+In the Google Cloud console, go to the Configuration page of
+Sensitive Data Protection.
+Go to Configuration
+Select the project that contains the inspection templates.
+Click the Templates tab.
+The console displays a list of all inspection templates for the current project.
+C#
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+using Google.Api.Gax.ResourceNames;
+using Google.Cloud.Dlp.V2;
+using System;
+using Google.Api.Gax;
+public class InspectTemplateList
+{
+public static PagedEnumerable<ListInspectTemplatesResponse, InspectTemplate> List(string projectId)
+{
+var client = DlpServiceClient.Create();
+var response = client.ListInspectTemplates(
+new ListInspectTemplatesRequest
+{
+Parent = new LocationName(projectId, "global").ToString(),
+}
+);
+// Uncomment to list templates
+//PrintTemplates(response);
+return response;
+}
+public static void PrintTemplates(PagedEnumerable<ListInspectTemplatesResponse, InspectTemplate> response)
+{
+foreach (var template in response)
+{
+Console.WriteLine($"Template {template.Name}:");
+Console.WriteLine($"\tDisplay Name: {template.DisplayName}");
+Console.WriteLine($"\tDescription: {template.Description}");
+Console.WriteLine($"\tCreated: {template.CreateTime}");
+Console.WriteLine($"\tUpdated: {template.UpdateTime}");
+Console.WriteLine("Configuration:");
+Console.WriteLine($"\tMin Likelihood: {template.InspectConfig?.MinLikelihood}");
+Console.WriteLine($"\tInclude quotes: {template.InspectConfig?.IncludeQuote}");
+Console.WriteLine($"\tMax findings per request: {template.InspectConfig?.Limits.MaxFindingsPerRequest}");
+}
+}
+}
+Go
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import (
+"context"
+"fmt"
+"io"
+"time"
+dlp "cloud.google.com/go/dlp/apiv2"
+"cloud.google.com/go/dlp/apiv2/dlppb"
+"github.com/golang/protobuf/ptypes"
+"google.golang.org/api/iterator"
+)
+// listInspectTemplates lists the inspect templates in the project.
+func listInspectTemplates(w io.Writer, projectID string) error {
+// projectID := "my-project-id"
+ctx := context.Background()
+client, err := dlp.NewClient(ctx)
+if err != nil {
+return fmt.Errorf("dlp.NewClient: %w", err)
+}
+defer client.Close()
+// Create a configured request.
+req := &dlppb.ListInspectTemplatesRequest{
+Parent: fmt.Sprintf("projects/%s/locations/global", projectID),
+}
+// Send the request and iterate over the results.
+it := client.ListInspectTemplates(ctx, req)
+for {
+t, err := it.Next()
+if err == iterator.Done {
+break
+}
+if err != nil {
+return fmt.Errorf("Next: %w", err)
+}
+fmt.Fprintf(w, "Inspect template %v\n", t.GetName())
+c, err := ptypes.Timestamp(t.GetCreateTime())
+if err != nil {
+return fmt.Errorf("CreateTime Timestamp: %w", err)
+}
+fmt.Fprintf(w, " Created: %v\n", c.Format(time.RFC1123))
+u, err := ptypes.Timestamp(t.GetUpdateTime())
+if err != nil {
+return fmt.Errorf("UpdateTime Timestamp: %w", err)
+}
+fmt.Fprintf(w, " Updated: %v\n", u.Format(time.RFC1123))
+fmt.Fprintf(w, " Display Name: %q\n", t.GetDisplayName())
+fmt.Fprintf(w, " Description: %q\n", t.GetDescription())
+}
+return nil
+}
+Java
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import com.google.cloud.dlp.v2.DlpServiceClient;
+import com.google.cloud.dlp.v2.DlpServiceClient.ListInspectTemplatesPagedResponse;
+import com.google.privacy.dlp.v2.InfoType;
+import com.google.privacy.dlp.v2.InspectConfig;
+import com.google.privacy.dlp.v2.InspectTemplate;
+import com.google.privacy.dlp.v2.ListInspectTemplatesRequest;
+import com.google.privacy.dlp.v2.LocationName;
+import java.io.IOException;
+class TemplatesList {
+public static void main(String[] args) throws Exception {
+// TODO(developer): Replace these variables before running the sample.
+String projectId = "your-project-id";
+listInspectTemplates(projectId);
+}
+// Lists all templates associated with a given project
+public static void listInspectTemplates(String projectId) throws IOException {
+// Initialize client that will be used to send requests. This client only needs to be created
+// once, and can be reused for multiple requests. After completing all of your requests, call
+// the "close" method on the client to safely clean up any remaining background resources.
+try (DlpServiceClient dlpServiceClient = DlpServiceClient.create()) {
+// Create the request to be sent by the client
+ListInspectTemplatesRequest request =
+ListInspectTemplatesRequest.newBuilder()
+.setParent(LocationName.of(projectId, "global").toString())
+.setPageSize(1)
+.build();
+// Send the request
+ListInspectTemplatesPagedResponse response = dlpServiceClient.listInspectTemplates(request);
+// Parse through and process the response
+System.out.println("Templates found:");
+for (InspectTemplate template : response.getPage().getResponse().getInspectTemplatesList()) {
+System.out.printf("Template name: %s\n", template.getName());
+if (template.getDisplayName() != null) {
+System.out.printf("\tDisplay name: %s \n", template.getDisplayName());
+System.out.printf("\tCreate time: %s \n", template.getCreateTime());
+System.out.printf("\tUpdate time: %s \n", template.getUpdateTime());
+// print inspection config
+InspectConfig inspectConfig = template.getInspectConfig();
+for (InfoType infoType : inspectConfig.getInfoTypesList()) {
+System.out.printf("\tInfoType: %s\n", infoType.getName());
+}
+System.out.printf("\tMin likelihood: %s\n", inspectConfig.getMinLikelihood());
+System.out.printf("\tLimits: %s\n", inspectConfig.getLimits().getMaxFindingsPerRequest());
+}
+}
+}
+}
+}
+Node.js
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+// Imports the Google Cloud Data Loss Prevention library
+const DLP = require('@google-cloud/dlp');
+// Instantiates a client
+const dlp = new DLP.DlpServiceClient();
+// The project ID to run the API call under
+// const projectId = 'my-project';
+// Helper function to pretty-print dates
+const formatDate = date => {
+const msSinceEpoch = parseInt(date.seconds, 10) * 1000;
+return new Date(msSinceEpoch).toLocaleString('en-US');
+};
+async function listInspectTemplates() {
+// Construct template-listing request
+const request = {
+parent: `projects/${projectId}/locations/global`,
+};
+// Run template-deletion request
+const [templates] = await dlp.listInspectTemplates(request);
+templates.forEach(template => {
+console.log(`Template ${template.name}`);
+if (template.displayName) {
+console.log(` Display name: ${template.displayName}`);
+}
+console.log(` Created: ${formatDate(template.createTime)}`);
+console.log(` Updated: ${formatDate(template.updateTime)}`);
+const inspectConfig = template.inspectConfig;
+const infoTypes = inspectConfig.infoTypes.map(x => x.name);
+console.log(' InfoTypes:', infoTypes.join(' '));
+console.log(' Minimum likelihood:', inspectConfig.minLikelihood);
+console.log(' Include quotes:', inspectConfig.includeQuote);
+const limits = inspectConfig.limits;
+console.log(' Max findings per request:', limits.maxFindingsPerRequest);
+});
+}
+listInspectTemplates();
+PHP
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+use Google\Cloud\Dlp\V2\Client\DlpServiceClient;
+use Google\Cloud\Dlp\V2\ListInspectTemplatesRequest;
+/**
+* List DLP inspection configuration templates.
+*
+* @param string $callingProjectId The project ID to run the API call under
+*/
+function list_inspect_templates(string $callingProjectId): void
+{
+// Instantiate a client.
+$dlp = new DlpServiceClient();
+$parent = "projects/$callingProjectId/locations/global";
+// Run request
+$listInspectTemplatesRequest = (new ListInspectTemplatesRequest())
+->setParent($parent);
+$response = $dlp->listInspectTemplates($listInspectTemplatesRequest);
+// Print results
+$templates = $response->iterateAllElements();
+foreach ($templates as $template) {
+printf('Template %s' . PHP_EOL, $template->getName());
+printf(' Created: %s' . PHP_EOL, $template->getCreateTime()->getSeconds());
+printf(' Updated: %s' . PHP_EOL, $template->getUpdateTime()->getSeconds());
+printf(' Display Name: %s' . PHP_EOL, $template->getDisplayName());
+printf(' Description: %s' . PHP_EOL, $template->getDescription());
+$inspectConfig = $template->getInspectConfig();
+if ($inspectConfig === null) {
+print(' No inspect config.' . PHP_EOL);
+} else {
+printf(' Minimum likelihood: %s' . PHP_EOL, $inspectConfig->getMinLikelihood());
+printf(' Include quotes: %s' . PHP_EOL, $inspectConfig->getIncludeQuote());
+$limits = $inspectConfig->getLimits();
+printf(' Max findings per request: %s' . PHP_EOL, $limits->getMaxFindingsPerRequest());
+}
+}
+}
+Python
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import google.cloud.dlp
+def list_inspect_templates(project: str) -> None:
+"""Lists all Data Loss Prevention API inspect templates.
+Args:
+project: The Google Cloud project id to use as a parent resource.
+Returns:
+None; the response from the API is printed to the terminal.
+"""
+# Instantiate a client.
+dlp = google.cloud.dlp_v2.DlpServiceClient()
+# Convert the project id into a full resource id.
+parent = f"projects/{project}"
+# Call the API.
+response = dlp.list_inspect_templates(request={"parent": parent})
+for template in response:
+print(f"Template {template.name}:")
+if template.display_name:
+print(f" Display Name: {template.display_name}")
+print(f" Created: {template.create_time}")
+print(f" Updated: {template.update_time}")
+config = template.inspect_config
+print(
+" InfoTypes: {}".format(", ".join([it.name for it in config.info_types]))
+)
+print(f" Minimum likelihood: {config.min_likelihood}")
+print(f" Include quotes: {config.include_quote}")
+print(
+" Max findings per request: {}".format(
+config.limits.max_findings_per_request
+)
+)
+REST
+Use one of the *.*.list methods:
+organizations.inspectTemplates.list
+projects.inspectTemplates.list
+Copy an inspection template to the global region
+In the Google Cloud console, go to the Sensitive Data Protection
+Configuration page.
+Go to Configuration
+On the toolbar, click the project selector and select the project that
+contains the inspection template that you want to use.
+Click the Templates tab, and then click the Inspect subtab.
+Click the ID of the template that you want to use.
+On the Inspection template details page, click Copy.
+On the Create template page, in the Resource location list, select
+Global (any region).
+Click Create.
+The template is copied to the global region.
+Copy an inspection template to another project
+In the Google Cloud console, go to the Sensitive Data Protection
+Configuration page.
+Go to Configuration
+On the toolbar, click the project selector and select the project that
+contains the inspection template that you want to use.
+Click the Templates tab, and then click the Inspect subtab.
+Click the ID of the template that you want to use.
+On the Inspection template details page, click Copy.
+Select the project that you
+want to copy the inspection template to.
+The Create template page reloads in the project that you selected.
+Click Create.
+The template is created in the project that you selected.
+Delete inspection templates
+To delete an inspection template:
+Console
+In the Google Cloud console, go to the Configuration page of
+Sensitive Data Protection.
+Go to Configuration
+Select the project that contains the inspection template that you want to
+delete.
+Click the Templates tab. The
+console displays a list of all templates for the current project.
+In the Actions column for the template you want to delete, click the
+more actions menu (displayed as three dots arranged vertically)
+more_vert, and then click Delete.
+Alternatively, from the list of templates, click the name of the template you
+want to delete. On the template's detail page, click Delete.
+C#
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+using Google.Cloud.Dlp.V2;
+using System;
+public class InspectTemplateDelete
+{
+public static object Delete(string projectId, string templateName)
+{
+var client = DlpServiceClient.Create();
+var request = new DeleteInspectTemplateRequest
+{
+Name = templateName
+};
+client.DeleteInspectTemplate(request);
+Console.WriteLine($"Successfully deleted template {templateName}.");
+return templateName;
+}
+}
+Go
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import (
+"context"
+"fmt"
+"io"
+dlp "cloud.google.com/go/dlp/apiv2"
+"cloud.google.com/go/dlp/apiv2/dlppb"
+)
+// deleteInspectTemplate deletes the given template.
+func deleteInspectTemplate(w io.Writer, templateID string) error {
+// projectID := "my-project-id"
+// templateID := "my-template"
+ctx := context.Background()
+client, err := dlp.NewClient(ctx)
+if err != nil {
+return fmt.Errorf("dlp.NewClient: %w", err)
+}
+defer client.Close()
+req := &dlppb.DeleteInspectTemplateRequest{
+Name: templateID,
+}
+if err := client.DeleteInspectTemplate(ctx, req); err != nil {
+return fmt.Errorf("DeleteInspectTemplate: %w", err)
+}
+fmt.Fprintf(w, "Successfully deleted inspect template %v", templateID)
+return nil
+}
+Java
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import com.google.cloud.dlp.v2.DlpServiceClient;
+import com.google.privacy.dlp.v2.DeleteInspectTemplateRequest;
+import java.io.IOException;
+class TemplatesDelete {
+public static void main(String[] args) throws Exception {
+// TODO(developer): Replace these variables before running the sample.
+String projectId = "your-project-id";
+String templateId = "your-template-id";
+deleteInspectTemplate(projectId, templateId);
+}
+// Delete an existing template
+public static void deleteInspectTemplate(String projectId, String templateId) throws IOException {
+// Construct the template name to be deleted
+String templateName = String.format("projects/%s/inspectTemplates/%s", projectId, templateId);
+// Initialize client that will be used to send requests. This client only needs to be created
+// once, and can be reused for multiple requests. After completing all of your requests, call
+// the "close" method on the client to safely clean up any remaining background resources.
+try (DlpServiceClient dlpServiceClient = DlpServiceClient.create()) {
+// Create delete template request to be sent by the client
+DeleteInspectTemplateRequest request =
+DeleteInspectTemplateRequest.newBuilder().setName(templateName).build();
+// Send the request with the client
+dlpServiceClient.deleteInspectTemplate(request);
+System.out.printf("Deleted template: %s\n", templateName);
+}
+}
+}
+Node.js
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+// Imports the Google Cloud Data Loss Prevention library
+const DLP = require('@google-cloud/dlp');
+// Instantiates a client
+const dlp = new DLP.DlpServiceClient();
+// The project ID to run the API call under
+// const projectId = 'my-project';
+// The name of the template to delete
+// Parent project ID is automatically extracted from this parameter
+// const templateName = 'projects/YOUR_PROJECT_ID/inspectTemplates/#####'
+async function deleteInspectTemplate() {
+// Construct template-deletion request
+const request = {
+name: templateName,
+};
+// Run template-deletion request
+await dlp.deleteInspectTemplate(request);
+console.log(`Successfully deleted template ${templateName}.`);
+}
+deleteInspectTemplate();
+PHP
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+use Google\Cloud\Dlp\V2\Client\DlpServiceClient;
+use Google\Cloud\Dlp\V2\DeleteInspectTemplateRequest;
+/**
+* Delete a DLP inspection configuration template.
+*
+* @param string $callingProjectId The project ID to run the API call under
+* @param string $templateId The name of the template to delete
+*/
+function delete_inspect_template(
+string $callingProjectId,
+string $templateId
+): void {
+// Instantiate a client.
+$dlp = new DlpServiceClient();
+// Run template deletion request
+$templateName = "projects/$callingProjectId/locations/global/inspectTemplates/$templateId";
+$deleteInspectTemplateRequest = (new DeleteInspectTemplateRequest())
+->setName($templateName);
+$dlp->deleteInspectTemplate($deleteInspectTemplateRequest);
+// Print results
+printf('Successfully deleted template %s' . PHP_EOL, $templateName);
+}
+Python
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import google.cloud.dlp
+def delete_inspect_template(project: str, template_id: str) -> None:
+"""Deletes a Data Loss Prevention API template.
+Args:
+project: The id of the Google Cloud project which owns the template.
+template_id: The id of the template to delete.
+Returns:
+None; the response from the API is printed to the terminal.
+"""
+# Instantiate a client.
+dlp = google.cloud.dlp_v2.DlpServiceClient()
+# Convert the project id into a full resource id.
+parent = f"projects/{project}"
+# Combine the template id with the parent id.
+template_resource = f"{parent}/inspectTemplates/{template_id}"
+# Call the API.
+dlp.delete_inspect_template(request={"name": template_resource})
+print(f"Template {template_resource} successfully deleted.")
+REST
+Use one of the *.*.delete methods:
+organizations.inspectTemplates.delete
+projects.inspectTemplates.delete
+With each *.*.delete method, you include the resource name of the template to
+be deleted.
+What's next
+Look through the InfoType detector
+reference.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-07 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

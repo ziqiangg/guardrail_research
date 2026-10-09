@@ -1,0 +1,455 @@
+# status 200  final_url https://docs.cloud.google.com/sensitive-data-protection/docs/api-endpoints  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Sensitive Data Protection
+Start free
+Overview
+Guides
+Reference
+Samples
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Samples
+Resources
+Console
+Discover
+Product overview
+Plan your data risk management strategy
+Evaluate your data risk management needs
+Learn about your data through discovery and inspection
+Recommended strategies for mitigating data risk
+Release notes
+Pricing
+Locations
+Global and regional endpoints for Sensitive Data Protection
+Sensitive Data Protection locations
+Specify a processing location
+Service method types
+Supported file types and scanning modes
+Get started
+Quickstarts
+Inspect text using the command-line tool
+Inspect text using a JSON request
+Schedule an inspection scan
+Create an inspection template
+De-identify and re-identify sensitive text
+Google Cloud Skills Boost labs
+Detect sensitive data
+Discover and profile data resources
+Overview of sensitive data discovery
+Common discovery enablement scenarios
+Allow discovery within service perimeters
+Profile your data
+Profile a single data resource
+Profile BigQuery data
+Estimate BigQuery data profiling cost
+Estimate the cost of profiling BigQuery data in a project
+Estimate the cost of profiling BigQuery data in an organization or folder
+Profile BigQuery data in a project
+Profile BigQuery data in an organization or folder
+Profile Cloud SQL data
+Profile Cloud SQL data in a project
+Profile Cloud SQL data in an organization or folder
+Manage connections
+Profile Cloud Storage data
+Profile Cloud Storage data in a project
+Profile Cloud Storage data in an organization or folder
+Profile Vertex AI data
+Sensitive data discovery for Vertex AI data
+Profile Vertex AI data in a project
+Profile Vertex AI data in an organization or folder
+Profile Amazon S3 data
+Sensitive data discovery for Amazon S3 data
+Profile Amazon S3 data
+Profile Azure Blob Storage data
+Report secrets in environment variables to Security Command Center
+Grant data profiling access to a service agent
+Manage data profiles
+Control IAM access to resources based on data sensitivity
+Send discovery insights to other services
+Enable discovery actions
+Send data profiles to Security Command Center
+Receive and parse Pub/Sub messages about data profiles
+Tag tables in Data Catalog based on insights from data profiles
+Add Knowledge Catalog aspects based on insights from data profiles
+Analyze and visualize data profiles
+Visualize data profiles in the discovery dashboard
+Analyze data profiles
+Remediate findings from the data profiler
+Manage scan configurations
+Troubleshoot issues with the data profiler
+Metrics reference
+Data risk and sensitivity levels
+Inspect for sensitive data
+Inspect data stored in Google Cloud
+Inspect data from any source
+Inspect unstructured text synchronously
+Inspect structured text synchronously
+Inspect an image synchronously
+Asynchronous inspection overview
+Inspect data from any source asynchronously
+Quote the sensitive data in the results
+Work with inspection results
+Actions
+Send inspection results to Knowledge Catalog as aspects
+Send inspection results to Data Catalog
+Send inspection results to Security Command Center
+Analyze and report on inspection findings
+Query inspection findings in BigQuery
+Parse findings stored as Protobuf text
+Jobs and job triggers
+Overview of jobs and job triggers
+Create and manage jobs and job triggers
+Web-based inspection demonstration app
+Allow or block content based on sensitivity
+Overview of content policies
+Create and manage content policies
+Configure detection
+Templates
+Overview of templates
+Create inspection templates
+InfoTypes and infoType detectors
+Overview of infoTypes and infoType detectors
+Built-in infoType detectors
+List built-in infoType detectors
+InfoType detector reference
+Custom infoType detectors
+Overview of custom infoType detectors
+Create a regular custom dictionary detector
+Create a large custom dictionary detector
+Create a custom regex detector
+Create a custom metadata label detector
+Custom infoType examples
+Manage infoTypes through the Google Cloud console
+Modify infoType detectors to refine scan results
+Match likelihood
+Likelihood overview
+Customize match likelihood
+Mask and de-identify data
+Overview
+Transformation methods
+Transformation reference
+Text classification and redaction
+Date shifting
+Generalization and bucketing
+Pseudonymization
+De-identify sensitive data
+De-identify data stored in Google Cloud
+Overview
+Through the Cloud console
+Through the DLP API
+Transformation details reference
+De-identify data from any source
+De-identify text or tabular content
+Examples of text redaction
+Examples of tabular data de-identification
+Image inspection and redaction
+Redact sensitive data from images
+Create a de-identification template
+Create a wrapped key
+De-identify BigQuery data at query time
+De-identification and re-identification of PII in large-scale datasets
+Redact sensitive data from PDF files
+Analyze re-identification risk
+Overview of re-identification risk analysis
+Re-identification risk analysis techniques
+Compute k-anonymity for a dataset
+Compute l-diversity for a dataset
+Compute k-map for a dataset
+Compute δ-presence for a dataset
+Compute numerical and categorical statistics
+Visualize re-identification risk using Data Studio
+Connect to other services
+Use Sensitive Data Protection with BigQuery
+Use Sensitive Data Protection with Cloud Storage
+Use Sensitive Data Protection with Cloud Storage
+Automate the classification of data uploaded to Cloud Storage
+Send inspection results to Data Catalog
+Send inspection results to Security Command Center
+Monitor your usage with Cloud Monitoring
+Use Sensitive Data Protection with AWS S3
+Use Sensitive Data Protection with JDBC Databases
+Use Sensitive Data Protection with Apigee
+Use Sensitive Data Protection with Data Fusion
+Build a secure anomaly detection solution using Dataflow, BigQuery ML, and Sensitive Data Protection
+Troubleshoot
+Troubleshoot issues with the data profiler
+Control access
+Authentication
+IAM
+Access control with IAM
+Sensitive Data Protection roles and permissions
+Sensitive Data Protection service agents
+Control access with VPC Service Controls
+Monitor
+Audit logging
+Monitor your usage with Cloud Monitoring
+Develop
+All Sensitive Data Protection code samples
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Cloud Data Loss Prevention (Cloud DLP) is now a part of Sensitive Data Protection. The API name remains the same: Cloud Data Loss Prevention API (DLP API). For information about the services that make up Sensitive Data Protection, see Sensitive Data Protection overview.
+Home
+Documentation
+Security
+Sensitive Data Protection
+Guides
+Send feedback
+Global and regional endpoints for Sensitive Data Protection
+Stay organized with collections
+Save and categorize content based on your preferences.
+This document describes the different types of API endpoints available with
+Sensitive Data Protection. This document also provides points to consider
+when deciding which
+endpoint type to use in your Sensitive Data Protection requests. For general
+information about the different types of API endpoints, see
+Google Cloud API endpoint overview.
+An API endpoint (or service endpoint) is a base URL that specifies the network
+address of a Google Cloud API service like Sensitive Data Protection.
+Sensitive Data Protection has global and regional endpoints.
+Global API endpoint
+The global endpoint of Sensitive Data Protection is dlp.googleapis.com.
+Globally scoped endpoints provide highly available service endpoints
+that terminate the TLS session as close to the client as possible, which
+minimizes latency when serving API calls from a dispersed client population
+over the internet.
+When you send a request to a global endpoint, you can specify the location where
+you want to process the request.
+Requests to a global endpoint with no location specified
+If you don't specify a location in your request—or if you specify the
+global region—then the request is processed in the global region. For
+example, if you send a POST request to the following URL, the request is sent
+to the global endpoint and processed in the global region.
+https://dlp.googleapis.com/v2/projects/example-project/content:inspect
+Requests to a global endpoint with a location specified
+If you specify a location in your request to a global endpoint, the request
+is sent to the global endpoint and processed in the region or multi-region that
+you specified.
+For example, if you send a POST request to the following
+URL, the request is sent to the global endpoint and processed in the us-west1
+region.
+https://dlp.googleapis.com/v2/projects/example-project/locations/us-west1/content:inspect
+There is no guarantee that the data in transit remains in the processing region
+that you specified. If you aren't required to keep in-transit data within a
+specific region, then calling the global endpoint in this manner is sufficient.
+Regional API endpoints
+Regional endpoints let you keep in-transit data within a specific
+region. A regional endpoint specifies the location as a subdomain—for
+example, dlp.us-west1.rep.googleapis.com.
+A regional endpoint for Sensitive Data Protection follows this format:
+dlp.REGION.rep.googleapis.com
+Replace REGION with a regional endpoint available
+for Sensitive Data Protection.
+Regional endpoints terminate TLS sessions in the location specified by the
+endpoint for requests received from the public internet or from private
+connectivity.
+Regional endpoints guarantee data
+residency by ensuring that your data at
+rest, in use, and in transit isn't moved out of the location specified by the
+endpoint. This guarantee excludes Service Data. For more information, see
+Note on Customer Data and Service
+Data.
+Choose between the global and regional endpoints
+If your organization is required to keep data at rest, in use, and in transit
+within a specific region, then you must use regional endpoints. If you aren't
+required to keep in-transit data within a specific region, then you can use
+global endpoints.
+Regional endpoints are supported by a limited number of locations. For a full
+list of regions and multi-regions where Sensitive Data Protection is
+available, see Sensitive Data Protection
+locations.
+The following sections describe common use cases for each type of endpoint.
+When to use regional endpoints
+The following are some common use cases:
+Enforce strict geographical data residency: Ensure that customer data at
+rest, in use, and in transit never leaves a specific region to satisfy local
+data sovereignty laws and regulations.
+Comply with regulated industry frameworks: Fulfill compliance
+requirements (such as FedRAMP, HIPAA, or financial regulations) when
+working with Assured Workloads and organizational endpoint
+restrictions.
+Co-locate API processing with cloud resources: Route inspection traffic
+to local endpoint infrastructure within the same region where your
+Cloud Storage buckets or Compute Engine instances reside.
+When to use the global endpoint
+The following are some common use cases:
+Minimize latency for geographically dispersed clients: Allow Google's
+global edge infrastructure to terminate TLS connections as close to the
+client as possible for globally distributed workloads.
+Handle high-throughput API workloads: Use higher default request quotas
+allocated to the global endpoint when traffic exceeds regional endpoint
+limits.
+Process multi-region or global datasets: Inspect payloads that don't
+have single-region data residency constraints.
+Architectural considerations
+Consider the following factors when configuring endpoints:
+Regional endpoints are supported by a limited number of locations. For a full
+list of regions and multi-regions where Sensitive Data Protection is
+available, see Sensitive Data Protection
+locations.
+Sensitive Data Protection has separate sets of
+quotas for the following:
+Requests to the global endpoint with no location specified (processed in
+the global region)
+Requests to the global endpoint where a processing location is specified
+(processed in the specified region)
+Requests to regional endpoints
+The quotas for regional endpoints are lower than the quotas for the other two.
+If your client application is configured to use global endpoints and you want
+to start using regional endpoints, you need to configure your client
+application to specify the region or multi-region in the
+subdomain and the path of each hostname that you use in your requests. For
+more information, see Specify a region in a request to a regional
+endpoint.
+Restrict global API endpoint usage
+To help enforce the use of regional endpoints, use the
+constraints/gcp.restrictEndpointUsage organization policy constraint to block
+requests to the global API endpoint. For more information, see
+Restrict endpoint usage in
+the Assured Workloads documentation.
+What's next
+Refer to a list of locations where Sensitive Data Protection is
+available.
+Learn how to specify a location in your
+request.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-07 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

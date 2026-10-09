@@ -12,3 +12,4 @@
 - 2026-10-09 sdp P0 done: SD1–SD6 + conditional SD7 (content policy); 14 gaps, 5 conflicts; q01–q03 → CP1 (q03 not blocking: brief records default + alternative, as for presidio Q02); P1 started
 - 2026-10-09 modelarmor P1 done: brief MA1–MA10 (MA9/MA10 headers reworded, Preview dropped), inventory (a)–(e) 72 rows, 89 quotes re-matched; new conflicts C10–C13; P2 started (cols_a MA1–4,7,8; cols_b MA5,6,9,10; inventory)
 - 2026-10-09 sdp P1 done: brief SD1–SD6 (SD4/SD6 headers reworded), SD7 reserved (inventory-only default), inventory (a)–(f) 87 rows target; P2 started (cols_a SD1–SD3, cols_b SD4–SD6, inventory)
+- 2026-10-09 presidio P2 inventory done: (a)14 (b)31 (c)10 (d)14 rows; check_drafts 0 errors; YAML 74/50 confirmed; Q1/Q4/Q5 ruled by main, Q3 → P5, Q2 → CP1

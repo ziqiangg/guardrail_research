@@ -1,0 +1,480 @@
+# status 200  final_url https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-job-triggers  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Sensitive Data Protection
+Start free
+Overview
+Guides
+Reference
+Samples
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Samples
+Resources
+Console
+Discover
+Product overview
+Plan your data risk management strategy
+Evaluate your data risk management needs
+Learn about your data through discovery and inspection
+Recommended strategies for mitigating data risk
+Release notes
+Pricing
+Locations
+Global and regional endpoints for Sensitive Data Protection
+Sensitive Data Protection locations
+Specify a processing location
+Service method types
+Supported file types and scanning modes
+Get started
+Quickstarts
+Inspect text using the command-line tool
+Inspect text using a JSON request
+Schedule an inspection scan
+Create an inspection template
+De-identify and re-identify sensitive text
+Google Cloud Skills Boost labs
+Detect sensitive data
+Discover and profile data resources
+Overview of sensitive data discovery
+Common discovery enablement scenarios
+Allow discovery within service perimeters
+Profile your data
+Profile a single data resource
+Profile BigQuery data
+Estimate BigQuery data profiling cost
+Estimate the cost of profiling BigQuery data in a project
+Estimate the cost of profiling BigQuery data in an organization or folder
+Profile BigQuery data in a project
+Profile BigQuery data in an organization or folder
+Profile Cloud SQL data
+Profile Cloud SQL data in a project
+Profile Cloud SQL data in an organization or folder
+Manage connections
+Profile Cloud Storage data
+Profile Cloud Storage data in a project
+Profile Cloud Storage data in an organization or folder
+Profile Vertex AI data
+Sensitive data discovery for Vertex AI data
+Profile Vertex AI data in a project
+Profile Vertex AI data in an organization or folder
+Profile Amazon S3 data
+Sensitive data discovery for Amazon S3 data
+Profile Amazon S3 data
+Profile Azure Blob Storage data
+Report secrets in environment variables to Security Command Center
+Grant data profiling access to a service agent
+Manage data profiles
+Control IAM access to resources based on data sensitivity
+Send discovery insights to other services
+Enable discovery actions
+Send data profiles to Security Command Center
+Receive and parse Pub/Sub messages about data profiles
+Tag tables in Data Catalog based on insights from data profiles
+Add Knowledge Catalog aspects based on insights from data profiles
+Analyze and visualize data profiles
+Visualize data profiles in the discovery dashboard
+Analyze data profiles
+Remediate findings from the data profiler
+Manage scan configurations
+Troubleshoot issues with the data profiler
+Metrics reference
+Data risk and sensitivity levels
+Inspect for sensitive data
+Inspect data stored in Google Cloud
+Inspect data from any source
+Inspect unstructured text synchronously
+Inspect structured text synchronously
+Inspect an image synchronously
+Asynchronous inspection overview
+Inspect data from any source asynchronously
+Quote the sensitive data in the results
+Work with inspection results
+Actions
+Send inspection results to Knowledge Catalog as aspects
+Send inspection results to Data Catalog
+Send inspection results to Security Command Center
+Analyze and report on inspection findings
+Query inspection findings in BigQuery
+Parse findings stored as Protobuf text
+Jobs and job triggers
+Overview of jobs and job triggers
+Create and manage jobs and job triggers
+Web-based inspection demonstration app
+Allow or block content based on sensitivity
+Overview of content policies
+Create and manage content policies
+Configure detection
+Templates
+Overview of templates
+Create inspection templates
+InfoTypes and infoType detectors
+Overview of infoTypes and infoType detectors
+Built-in infoType detectors
+List built-in infoType detectors
+InfoType detector reference
+Custom infoType detectors
+Overview of custom infoType detectors
+Create a regular custom dictionary detector
+Create a large custom dictionary detector
+Create a custom regex detector
+Create a custom metadata label detector
+Custom infoType examples
+Manage infoTypes through the Google Cloud console
+Modify infoType detectors to refine scan results
+Match likelihood
+Likelihood overview
+Customize match likelihood
+Mask and de-identify data
+Overview
+Transformation methods
+Transformation reference
+Text classification and redaction
+Date shifting
+Generalization and bucketing
+Pseudonymization
+De-identify sensitive data
+De-identify data stored in Google Cloud
+Overview
+Through the Cloud console
+Through the DLP API
+Transformation details reference
+De-identify data from any source
+De-identify text or tabular content
+Examples of text redaction
+Examples of tabular data de-identification
+Image inspection and redaction
+Redact sensitive data from images
+Create a de-identification template
+Create a wrapped key
+De-identify BigQuery data at query time
+De-identification and re-identification of PII in large-scale datasets
+Redact sensitive data from PDF files
+Analyze re-identification risk
+Overview of re-identification risk analysis
+Re-identification risk analysis techniques
+Compute k-anonymity for a dataset
+Compute l-diversity for a dataset
+Compute k-map for a dataset
+Compute δ-presence for a dataset
+Compute numerical and categorical statistics
+Visualize re-identification risk using Data Studio
+Connect to other services
+Use Sensitive Data Protection with BigQuery
+Use Sensitive Data Protection with Cloud Storage
+Use Sensitive Data Protection with Cloud Storage
+Automate the classification of data uploaded to Cloud Storage
+Send inspection results to Data Catalog
+Send inspection results to Security Command Center
+Monitor your usage with Cloud Monitoring
+Use Sensitive Data Protection with AWS S3
+Use Sensitive Data Protection with JDBC Databases
+Use Sensitive Data Protection with Apigee
+Use Sensitive Data Protection with Data Fusion
+Build a secure anomaly detection solution using Dataflow, BigQuery ML, and Sensitive Data Protection
+Troubleshoot
+Troubleshoot issues with the data profiler
+Control access
+Authentication
+IAM
+Access control with IAM
+Sensitive Data Protection roles and permissions
+Sensitive Data Protection service agents
+Control access with VPC Service Controls
+Monitor
+Audit logging
+Monitor your usage with Cloud Monitoring
+Develop
+All Sensitive Data Protection code samples
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Cloud Data Loss Prevention (Cloud DLP) is now a part of Sensitive Data Protection. The API name remains the same: Cloud Data Loss Prevention API (DLP API). For information about the services that make up Sensitive Data Protection, see Sensitive Data Protection overview.
+Home
+Documentation
+Security
+Sensitive Data Protection
+Guides
+Send feedback
+Jobs and job triggers
+Stay organized with collections
+Save and categorize content based on your preferences.
+A job is an action that Sensitive Data Protection runs to either scan content for
+sensitive data or calculate the risk of re-identification.
+Sensitive Data Protection creates and runs a job resource whenever you tell it to
+inspect your data.
+There are currently two types of Sensitive Data Protection jobs:
+Inspection jobs inspect your content for sensitive data according to your
+criteria and generate summary reports of where and what type of sensitive
+data exists.
+Risk analysis jobs analyze de-identified data and return metrics about the
+likelihood that the data can be re-identified.
+You can schedule when Sensitive Data Protection runs jobs by creating job
+triggers. A job trigger is an event that automates the creation of
+Sensitive Data Protection jobs to scan Google Cloud storage repositories,
+including Cloud Storage buckets, BigQuery tables, and
+Datastore kinds.
+Job triggers enable you to schedule scan jobs by setting intervals at which
+each trigger goes off. They can be configured to look for new findings since
+the last scan run to help monitor changes or additions to content, or to
+generate up-to-date findings reports. Scheduled triggers run on an interval
+that you set, from 1 day to 60 days.
+Note: Prematurely
+canceling an operation midway through a job still incurs costs for the portion of
+the job that was completed. For more information about billing, see Sensitive Data Protection pricing.
+When to use job triggers
+The following are some common use cases:
+Automate recurring compliance scans: Schedule regular inspection scans
+across Cloud Storage buckets and BigQuery tables to maintain
+continuous visibility into newly stored sensitive data.
+Optimize inspection costs on dynamic storage: Configure timespan rules
+on job triggers to scan only content that was added or modified since the
+previous scan cycle.
+Monitor ongoing data drift in production databases: Track shifts in
+sensitive data exposure over time by generating periodic finding summaries
+for risk posture reviews.
+Coordinate with event-driven data pipelines: Trigger inspection jobs
+in response to Cloud Storage upload events or automated ETL pipeline
+milestones.
+Next steps
+Find more information about how to create, edit, and run jobs and job triggers in
+the following topics:
+Creating Sensitive Data Protection inspection jobs and job
+triggers
+Measuring re-identification and disclosure risk
+(Covers risk analysis jobs.)
+In addition, the following quickstart is available:
+Quickstart creating a Sensitive Data Protection job
+trigger
+The JobTrigger object
+A job trigger is represented in the DLP API by the
+JobTrigger
+object.
+Job trigger configuration fields
+Each JobTrigger contains several configuration fields, including:
+The trigger's name and display name, and a description.
+A collection of
+Trigger
+objects, each of which contains a
+Schedule
+object, which defines the scan recurrence in seconds.
+An
+InspectJobConfig
+object, which contains the configuration information for the triggered job.
+A
+Status
+enumeration, which indicates whether the trigger is currently active.
+Timestamp fields representing creation, update, and last run times.
+A collection of
+Error objects, if any
+were encountered when the trigger was activated.
+Job trigger methods
+Each JobTrigger object also includes several built-in methods. Using these
+methods, you can do the following:
+Create a new job trigger:
+projects.jobTriggers.create
+Update an existing job trigger:
+projects.jobTriggers.patch
+Delete an existing job trigger:
+projects.jobTriggers.delete
+Retrieve an existing job trigger, including its configuration and status:
+projects.jobTriggers.get
+List all existing job triggers:
+projects.jobTriggers.list
+Job latency
+There are no service level objectives (SLO) guaranteed for jobs and job
+triggers. Latency is affected by several factors, including the amount of data
+to scan, the storage repository being scanned, the type and number of infoTypes
+you are scanning for, the region where the job is processed, and the computing
+resources available in that region. Therefore, the latency of inspection jobs
+can't be determined in advance.
+To help reduce job latency, you can try the following:
+If sampling is available
+for your job or job trigger, enable it.
+Avoid enabling infoTypes that you don't need. Although the following are
+useful in certain scenarios, these infoTypes can make requests run much more
+slowly than requests that don't include them:
+PERSON_NAME
+FEMALE_NAME
+MALE_NAME
+FIRST_NAME
+LAST_NAME
+DATE_OF_BIRTH
+LOCATION
+STREET_ADDRESS
+ORGANIZATION_NAME
+Always specify infoTypes explicitly. Do not use an empty infoTypes list.
+If possible, use a different processing region.
+If you're still having latency issues with jobs after trying these techniques,
+consider using
+content.inspect or
+content.deidentify
+requests instead of jobs. These methods are covered under the Service Level
+Agreement. For more information, see Sensitive Data Protection Service Level
+Agreement.
+Limit scans to only new content
+You can configure your job trigger to automatically set the timespan date for
+files stored in Cloud Storage or
+BigQuery. When you set the
+TimespanConfig
+object to auto-populate, Sensitive Data Protection only scans data that was
+added or modified since the trigger last ran:
+...
+timespan_config {
+enable_auto_population_of_timespan_config: true
+}
+...
+For BigQuery inspection, only rows that are at least three hours old
+are included in the scan. See the known
+issue related to this
+operation.
+Trigger jobs at file upload
+In addition to the support for job triggers—which is built into
+Sensitive Data Protection—Google Cloud also has a variety of other
+components that you can use to integrate or trigger Sensitive Data Protection
+jobs. For example, you can use Cloud Run functions to
+trigger a Sensitive Data Protection scan every time a file is uploaded to
+Cloud Storage.
+For information about how to set up this operation, see Automating the
+classification of data uploaded to
+Cloud Storage.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-07 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

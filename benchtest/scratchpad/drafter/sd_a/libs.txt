@@ -1,0 +1,961 @@
+# status 200  final_url https://docs.cloud.google.com/sensitive-data-protection/docs/libraries  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Sensitive Data Protection
+Start free
+Overview
+Guides
+Reference
+Samples
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Samples
+Resources
+Console
+Data Loss Prevention API
+All APIs & reference
+Client libraries
+REST reference
+Overview
+v2
+Overview
+REST Resources
+infoTypes
+Overview
+list
+locations.infoTypes
+Overview
+list
+organizations.locations.columnDataProfiles
+Overview
+get
+list
+organizations.locations.connections
+Overview
+create
+delete
+get
+list
+patch
+search
+organizations.locations.discoveryConfigs
+Overview
+create
+delete
+get
+list
+patch
+organizations.locations.fileStoreDataProfiles
+Overview
+delete
+get
+list
+organizations.locations.projectDataProfiles
+Overview
+get
+list
+organizations.locations.tableDataProfiles
+Overview
+delete
+get
+list
+projects.content
+Overview
+deidentify
+inspect
+reidentify
+projects.deidentifyTemplates
+Overview
+create
+delete
+get
+list
+patch
+projects.dlpJobs
+Overview
+cancel
+create
+delete
+get
+list
+projects.image
+Overview
+redact
+projects.inspectTemplates
+Overview
+create
+delete
+get
+list
+patch
+projects.jobTriggers
+Overview
+activate
+create
+delete
+get
+list
+patch
+projects.locations.columnDataProfiles
+Overview
+get
+list
+projects.locations.connections
+Overview
+create
+delete
+get
+list
+patch
+search
+projects.locations.content
+Overview
+deidentify
+inspect
+reidentify
+projects.locations.contentPolicies
+Overview
+create
+delete
+get
+list
+patch
+projects.locations.deidentifyTemplates
+Overview
+create
+delete
+get
+list
+patch
+projects.locations.discoveryConfigs
+Overview
+create
+delete
+get
+list
+patch
+projects.locations.dlpJobs
+Overview
+cancel
+create
+delete
+finish
+get
+hybridInspect
+list
+projects.locations.fileStoreDataProfiles
+Overview
+delete
+get
+list
+projects.locations.image
+Overview
+redact
+projects.locations.inspectTemplates
+Overview
+create
+delete
+get
+list
+patch
+projects.locations.jobTriggers
+Overview
+activate
+create
+delete
+get
+hybridInspect
+list
+patch
+projects.locations.projectDataProfiles
+Overview
+get
+list
+projects.locations.storedInfoTypes
+Overview
+create
+delete
+get
+list
+patch
+projects.locations.tableDataProfiles
+Overview
+delete
+get
+list
+projects.storedInfoTypes
+Overview
+create
+delete
+get
+list
+patch
+Types
+Action
+BigQueryTable
+ByteContentItem
+CloudStoragePath
+Code
+Container
+ContentItem
+ContentPolicyActionLog
+DataProfileAction
+DataProfileBigQueryRowSchema
+DataProfileConfigSnapshot
+DataProfileFinding
+DataProfilePubSubMessage
+DataRiskLevel
+DataSourceType
+DeidentifyContentResponse
+Dictionary
+Domain
+Error
+FallbackActionType
+FieldId
+FileType
+HybridContentItem
+HybridInspectResponse
+ImageRedactionConfig
+InfoType
+InfoTypeSummary
+InspectConfig
+InspectContentResponse
+InspectJobConfig
+InspectResult
+ListColumnDataProfilesResponse
+ListConnectionsResponse
+ListDeidentifyTemplatesResponse
+ListDiscoveryConfigsResponse
+ListDlpJobsResponse
+ListFileStoreDataProfilesResponse
+ListInfoTypesResponse
+ListInspectTemplatesResponse
+ListJobTriggersResponse
+ListProjectDataProfilesResponse
+ListStoredInfoTypesResponse
+ListTableDataProfilesResponse
+OtherCloudDiscoveryStartingLocation
+OtherInfoTypeSummary
+ProfileStatus
+RecordTransformation
+RedactImageResponse
+Regex
+ReidentifyContentResponse
+RelatedResource
+ResourceVisibility
+SaveToGcsFindingsOutput
+SearchConnectionsResponse
+SensitivityScore
+Status
+Tag
+TransformationContainerType
+TransformationDescription
+TransformationDetails
+TransformationOverview
+TransformationResultStatusType
+TransformationType
+Value
+WordList
+RPC reference
+Overview
+google.privacy.dlp.v2
+google.rpc
+google.type
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Cloud Data Loss Prevention (Cloud DLP) is now a part of Sensitive Data Protection. The API name remains the same: Cloud Data Loss Prevention API (DLP API). For information about the services that make up Sensitive Data Protection, see Sensitive Data Protection overview.
+Home
+Documentation
+Security
+Sensitive Data Protection
+Reference
+Send feedback
+Sensitive Data Protection client libraries
+Stay organized with collections
+Save and categorize content based on your preferences.
+This page shows how to get started with the Cloud Client Libraries for the
+Cloud Data Loss Prevention API. Client libraries make it easier to access
+Google Cloud APIs from a supported language. Although you can use
+Google Cloud APIs directly by making raw requests to the server, client
+libraries provide simplifications that significantly reduce the amount of code
+you need to write.
+Read more about the Cloud Client Libraries
+and the older Google API Client Libraries in
+Client libraries explained.
+The Cloud Data Loss Prevention API (DLP API) is part of
+Sensitive Data Protection.
+Sensitive Data Protection client libraries mentioned on this page are supported
+on Compute Engine, App Engine - Flexible Environment, Google Kubernetes Engine,
+and Cloud Run functions. Sensitive Data Protection client library for Java is
+supported on Java 8 on App Engine standard environment.
+If you are using Java 7 on App Engine standard environment, or
+App Engine - Standard environment with Go, PHP, or Python, use
+the REST Interface to access
+Sensitive Data Protection.
+Install the client library
+C#
+To build and run a sample, open the solution file (Dlp.sln) with Visual Studio 2015 or later and build it.
+For more information, see the README.
+For more information, see Setting Up a C# Development Environment.
+Go
+go get cloud.google.com/go/dlp
+For more information, see Setting Up a Go Development Environment.
+Java
+If you are using Maven, add
+the following to your pom.xml file. For more information about
+BOMs, see The Google Cloud Platform Libraries BOM.
+<dependencyManagement>
+<dependencies>
+<dependency>
+<groupId>com.google.cloud</groupId>
+<artifactId>libraries-bom</artifactId>
+<version>26.90.0</version>
+<type>pom</type>
+<scope>import</scope>
+</dependency>
+</dependencies>
+</dependencyManagement>
+<dependencies>
+<dependency>
+<groupId>com.google.cloud</groupId>
+<artifactId>google-cloud-dlp</artifactId>
+</dependency>
+</dependencies>
+If you are using Gradle,
+add the following to your dependencies:
+implementation platform('com.google.cloud:libraries-bom:26.90.0')
+implementation 'com.google.cloud:google-cloud-dlp'
+If you are using sbt, add
+the following to your dependencies:
+libraryDependencies += "com.google.cloud" % "google-cloud-dlp" % "3.103.0"
+If you're using Visual Studio Code or IntelliJ, you can add client libraries to your
+project using the following IDE plugins:
+Cloud Code for VS Code
+Cloud Code for IntelliJ
+The plugins provide additional functionality, such as key management for service accounts. Refer
+to each plugin's documentation for details.
+For more information, see Setting Up a Java Development Environment.
+Node.js
+npm install @google-cloud/dlp
+For more information, see Setting Up a Node.js Development Environment.
+PHP
+composer require google/cloud-dlp
+Note: Sensitive Data Protection client library requires you install and enable the
+gRPC Extension for PHP.
+For more information, see Using PHP on Google Cloud.
+Python
+Install pip and virtualenv
+if you do not already have them. You may want to refer to the Python
+Development Environment Setup Guide for Google Cloud
+for instructions.
+Clone or download the
+Google Cloud Python Docs Samples
+on GitHub.
+Create a virtualenv. Samples are compatible with Python 2.7.x and 3.4 and higher.
+$ python -m venv dlp
+$ source dlp/bin/activate
+From the dlp directory within the cloned or unzipped
+Google Cloud Python Docs Samples directory, install the dependencies needed to run the samples.
+$ pip install -r requirements.txt
+Important: You must cd into the Google Cloud Python Docs Samples' dlp
+directory before running the previous command.
+For more information, see Setting Up a Python Development Environment.
+Ruby
+gem install google-api-client
+For more information, see Setting Up a Ruby Development Environment.
+Set up authentication
+To authenticate calls to Google Cloud APIs, client libraries support
+Application Default Credentials (ADC);
+the libraries look for credentials in a set of defined locations and use those credentials
+to authenticate requests to the API. With ADC, you can make
+credentials available to your application in a variety of environments, such as local
+development or production, without needing to modify your application code.
+For production environments, the way you set up ADC depends on the service
+and context. For more information, see Set up Application Default Credentials.
+For a local development environment, you can set up ADC with the credentials
+that are associated with your Google Account:
+Install the Google Cloud CLI.
+After installation,
+initialize the Google Cloud CLI by running the following command:
+gcloud init
+If you're using an external identity provider (IdP), you must first
+sign in to the gcloud CLI with your federated identity.
+If you're using a local shell, then create local authentication credentials for your user
+account:
+gcloud auth application-default login
+You don't need to do this if you're using Cloud Shell.
+If an authentication error is returned, and you are using an external identity provider
+(IdP), confirm that you have
+signed in to the gcloud CLI with your federated identity.
+A sign-in screen appears. After you sign in, your credentials are stored in the
+local credential file used by ADC.
+Use the client library
+The following example shows how to use the client library.
+C#
+using System;
+using System.Collections.Generic;
+using Google.Api.Gax.ResourceNames;
+using Google.Cloud.Dlp.V2;
+public class ClientLibraryQuickStart
+{
+public static InspectContentResponse QuickStart(
+string projectId,
+string text,
+IEnumerable<InfoType> infoTypes = null)
+{
+// Instantiate a client.
+var dlp = DlpServiceClient.Create();
+// Construct the byte content item by specifying the type of data to be inspected
+// and data to be inspected.
+var byteContentItem = new ByteContentItem
+{
+Type = ByteContentItem.Types.BytesType.TextUtf8,
+Data = Google.Protobuf.ByteString.CopyFromUtf8(text)
+};
+// Construct content item by setting byte item.
+var contentItem = new ContentItem { ByteItem = byteContentItem };
+// Set minimum likelihood and limits.
+var minLikelihood = Likelihood.Possible;
+var limits = new InspectConfig.Types.FindingLimits
+{
+// Specifying 0 means use the maximum allowed findings.
+MaxFindingsPerRequest = 0
+};
+// Construct a inspect config by specifying the type of info to be inspected.
+var inspectConfig = new InspectConfig
+{
+InfoTypes =
+{
+infoTypes ?? new InfoType[]
+{
+new InfoType { Name = "PERSON_NAME" },
+new InfoType { Name = "US_STATE" }
+}
+},
+MinLikelihood = minLikelihood,
+Limits = limits,
+IncludeQuote = true,
+};
+// Construct a request config.
+var request = new InspectContentRequest
+{
+ParentAsLocationName = new LocationName(projectId, "global"),
+Item = contentItem,
+InspectConfig = inspectConfig
+};
+// Call the API.
+InspectContentResponse response = dlp.InspectContent(request);
+// Inspect the response.
+var resultFindings = response.Result.Findings;
+Console.WriteLine($"Findings: {resultFindings.Count}");
+foreach (var f in resultFindings)
+{
+Console.WriteLine("\tQuote: " + f.Quote);
+Console.WriteLine("\tInfo type: " + f.InfoType.Name);
+Console.WriteLine("\tLikelihood: " + f.Likelihood);
+}
+return response;
+}
+}
+Go
+// The quickstart program is an example of using the Data Loss Prevention API.
+package main
+import (
+"context"
+"fmt"
+"log"
+dlp "cloud.google.com/go/dlp/apiv2"
+"cloud.google.com/go/dlp/apiv2/dlppb"
+)
+func main() {
+ctx := context.Background()
+projectID := "PROJECT_ID"
+// Creates a DLP client.
+client, err := dlp.NewClient(ctx)
+if err != nil {
+log.Fatalf("error creating DLP client: %v", err)
+}
+defer client.Close()
+// The string to inspect.
+input := "Robert Frost"
+// The minimum likelihood required before returning a match.
+minLikelihood := dlppb.Likelihood_POSSIBLE
+// The maximum number of findings to report (0 = server maximum).
+maxFindings := int32(0)
+// Whether to include the matching string.
+includeQuote := true
+// The infoTypes of information to match.
+infoTypes := []*dlppb.InfoType{
+{
+Name: "PERSON_NAME",
+},
+{
+Name: "US_STATE",
+},
+}
+// Construct item to inspect.
+item := &dlppb.ContentItem{
+DataItem: &dlppb.ContentItem_Value{
+Value: input,
+},
+}
+// Construct request.
+req := &dlppb.InspectContentRequest{
+Parent: fmt.Sprintf("projects/%s/locations/global", projectID),
+InspectConfig: &dlppb.InspectConfig{
+InfoTypes: infoTypes,
+MinLikelihood: minLikelihood,
+Limits: &dlppb.InspectConfig_FindingLimits{
+MaxFindingsPerRequest: maxFindings,
+},
+IncludeQuote: includeQuote,
+},
+Item: item,
+}
+// Run request.
+resp, err := client.InspectContent(ctx, req)
+if err != nil {
+log.Fatal(err)
+}
+findings := resp.GetResult().GetFindings()
+if len(findings) == 0 {
+fmt.Println("No findings.")
+}
+fmt.Println("Findings:")
+for _, f := range findings {
+if includeQuote {
+fmt.Println("\tQuote: ", f.GetQuote())
+}
+fmt.Println("\tInfo type: ", f.GetInfoType().GetName())
+fmt.Println("\tLikelihood: ", f.GetLikelihood())
+}
+}
+Java
+import com.google.cloud.dlp.v2.DlpServiceClient;
+import com.google.privacy.dlp.v2.ByteContentItem;
+import com.google.privacy.dlp.v2.ContentItem;
+import com.google.privacy.dlp.v2.Finding;
+import com.google.privacy.dlp.v2.InfoType;
+import com.google.privacy.dlp.v2.InspectConfig;
+import com.google.privacy.dlp.v2.InspectContentRequest;
+import com.google.privacy.dlp.v2.InspectContentResponse;
+import com.google.privacy.dlp.v2.InspectResult;
+import com.google.privacy.dlp.v2.Likelihood;
+import com.google.privacy.dlp.v2.LocationName;
+import com.google.protobuf.ByteString;
+import java.io.IOException;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+public class QuickStart {
+public static void main(String[] args) throws IOException {
+// TODO(developer): Replace these variables before running the sample.
+String projectId = "your-project-id";
+quickstart(projectId);
+}
+public static void quickstart(String projectId) throws IOException {
+// Initialize client that will be used to send requests. This client only needs to be created
+// once, and can be reused for multiple requests. After completing all of your requests, call
+// the "close" method on the client to safely clean up any remaining background resources.
+try (DlpServiceClient dlpServiceClient = DlpServiceClient.create()) {
+// Configure that content that will be inspected
+String text = "His name was Robert Frost";
+ByteContentItem byteContentItem =
+ByteContentItem.newBuilder()
+.setType(ByteContentItem.BytesType.TEXT_UTF8)
+.setData(ByteString.copyFromUtf8(text))
+.build();
+ContentItem contentItem = ContentItem.newBuilder().setByteItem(byteContentItem).build();
+// The types of information to match:
+// See: https://cloud.google.com/dlp/docs/infotypes-reference
+List<InfoType> infoTypes =
+Stream.of("PERSON_NAME", "US_STATE")
+.map(it -> InfoType.newBuilder().setName(it).build())
+.collect(Collectors.toList());
+// The minimum likelihood required before returning a match:
+// See: https://cloud.google.com/dlp/docs/likelihood
+Likelihood minLikelihood = Likelihood.POSSIBLE;
+// The maximum number of findings to report (0 = server maximum)
+InspectConfig.FindingLimits findingLimits =
+InspectConfig.FindingLimits.newBuilder().setMaxFindingsPerItem(0).build();
+// Specify the inspection configuration
+InspectConfig inspectConfig =
+InspectConfig.newBuilder()
+.addAllInfoTypes(infoTypes)
+.setMinLikelihood(minLikelihood)
+.setLimits(findingLimits)
+.setIncludeQuote(true)
+.build();
+// Create the request from previous configs
+InspectContentRequest request =
+InspectContentRequest.newBuilder()
+.setParent(LocationName.of(projectId, "global").toString())
+.setInspectConfig(inspectConfig)
+.setItem(contentItem)
+.build();
+// Send the request to the service and receive the results
+InspectContentResponse response = dlpServiceClient.inspectContent(request);
+// Process the results
+System.out.println("Inspect of text complete: ");
+InspectResult result = response.getResult();
+if (result.getFindingsCount() < 0) {
+System.out.println("No findings.");
+return;
+}
+System.out.println("Findings: ");
+for (Finding finding : result.getFindingsList()) {
+System.out.println("\tQuote: " + finding.getQuote());
+System.out.println("\tInfo type: " + finding.getInfoType().getName());
+System.out.println("\tLikelihood: " + finding.getLikelihood());
+}
+}
+}
+}
+Node.js
+// Instantiates a client
+const dlp = new DLP.DlpServiceClient();
+// The string to inspect
+const string = 'Robert Frost';
+// The project ID to run the API call under
+// const projectId = 'my-project';
+async function quickStart() {
+// The minimum likelihood required before returning a match
+const minLikelihood = 'LIKELIHOOD_UNSPECIFIED';
+// The maximum number of findings to report (0 = server maximum)
+const maxFindings = 0;
+// The infoTypes of information to match
+const infoTypes = [{name: 'PERSON_NAME'}, {name: 'US_STATE'}];
+// Whether to include the matching string
+const includeQuote = true;
+// Construct item to inspect
+const item = {value: string};
+// Construct request
+const request = {
+parent: `projects/${projectId}/locations/global`,
+inspectConfig: {
+infoTypes: infoTypes,
+minLikelihood: minLikelihood,
+limits: {
+maxFindingsPerRequest: maxFindings,
+},
+includeQuote: includeQuote,
+},
+item: item,
+};
+// Run request
+const [response] = await dlp.inspectContent(request);
+const findings = response.result.findings;
+if (findings.length > 0) {
+console.log('Findings:');
+findings.forEach(finding => {
+if (includeQuote) {
+console.log(`\tQuote: ${finding.quote}`);
+}
+console.log(`\tInfo type: ${finding.infoType.name}`);
+console.log(`\tLikelihood: ${finding.likelihood}`);
+});
+} else {
+console.log('No findings.');
+}
+}
+quickStart();
+PHP
+use Google\Cloud\Dlp\V2\Client\DlpServiceClient;
+use Google\Cloud\Dlp\V2\ContentItem;
+use Google\Cloud\Dlp\V2\InfoType;
+use Google\Cloud\Dlp\V2\InspectConfig;
+use Google\Cloud\Dlp\V2\InspectConfig\FindingLimits;
+use Google\Cloud\Dlp\V2\InspectContentRequest;
+use Google\Cloud\Dlp\V2\Likelihood;
+// Instantiate a client.
+$dlp = new DlpServiceClient();
+// The infoTypes of information to match
+$usNameInfoType = (new InfoType())
+->setName('PERSON_NAME');
+$phoneNumberInfoType = (new InfoType())
+->setName('PHONE_NUMBER');
+$infoTypes = [$usNameInfoType, $phoneNumberInfoType];
+// Set the string to inspect
+$stringToInspect = 'Robert Frost';
+// Only return results above a likelihood threshold, 0 for all
+$minLikelihood = likelihood::LIKELIHOOD_UNSPECIFIED;
+// Limit the number of findings, 0 for no limit
+$maxFindings = 0;
+// Whether to include the matching string in the response
+$includeQuote = true;
+// Specify finding limits
+$limits = (new FindingLimits())
+->setMaxFindingsPerRequest($maxFindings);
+// Create the configuration object
+$inspectConfig = (new InspectConfig())
+->setMinLikelihood($minLikelihood)
+->setLimits($limits)
+->setInfoTypes($infoTypes)
+->setIncludeQuote($includeQuote);
+$content = (new ContentItem())
+->setValue($stringToInspect);
+$projectId = getenv('GCLOUD_PROJECT');
+$parent = $dlp->projectName($projectId);
+// Run request
+$inspectContentRequest = (new InspectContentRequest())
+->setParent($parent)
+->setInspectConfig($inspectConfig)
+->setItem($content);
+$response = $dlp->inspectContent($inspectContentRequest);
+// Print the results
+$findings = $response->getResult()->getFindings();
+if (count($findings) == 0) {
+print('No findings.' . PHP_EOL);
+} else {
+print('Findings:' . PHP_EOL);
+foreach ($findings as $finding) {
+if ($includeQuote) {
+print(' Quote: ' . $finding->getQuote() . PHP_EOL);
+}
+print(' Info type: ' . $finding->getInfoType()->getName() . PHP_EOL);
+$likelihoodString = Likelihood::name($finding->getLikelihood());
+print(' Likelihood: ' . $likelihoodString . PHP_EOL);
+}
+}
+Python
+# Import the client library
+import google.cloud.dlp
+# Instantiate a client.
+dlp_client = google.cloud.dlp_v2.DlpServiceClient()
+# The string to inspect
+content = "Robert Frost"
+# Construct the item to inspect.
+item = {"value": content}
+# The info types to search for in the content. Required.
+info_types = [{"name": "FIRST_NAME"}, {"name": "LAST_NAME"}]
+# The minimum likelihood to constitute a match. Optional.
+min_likelihood = google.cloud.dlp_v2.Likelihood.LIKELIHOOD_UNSPECIFIED
+# The maximum number of findings to report (0 = server maximum). Optional.
+max_findings = 0
+# Whether to include the matching string in the results. Optional.
+include_quote = True
+# Construct the configuration dictionary. Keys which are None may
+# optionally be omitted entirely.
+inspect_config = {
+"info_types": info_types,
+"min_likelihood": min_likelihood,
+"include_quote": include_quote,
+"limits": {"max_findings_per_request": max_findings},
+}
+# Convert the project id into a full resource id.
+parent = f"projects/{project_id}"
+# Call the API.
+response = dlp_client.inspect_content(
+request={"parent": parent, "inspect_config": inspect_config, "item": item}
+)
+# Print out the results.
+if response.result.findings:
+for finding in response.result.findings:
+try:
+print(f"Quote: {finding.quote}")
+except AttributeError:
+pass
+print(f"Info type: {finding.info_type.name}")
+# Convert likelihood value to string respresentation.
+likelihood = finding.likelihood.name
+print(f"Likelihood: {likelihood}")
+else:
+print("No findings.")
+Additional resources
+C#
+The following list contains links to more resources related to the
+client library for C#:
+API reference
+Client libraries best practices
+Issue tracker
+cloud-dlp on Stack Overflow
+Source code
+Go
+The following list contains links to more resources related to the
+client library for Go:
+API reference
+Client libraries best practices
+Issue tracker
+cloud-dlp on Stack Overflow
+Source code
+Java
+The following list contains links to more resources related to the
+client library for Java:
+API reference
+Client libraries best practices
+Issue tracker
+cloud-dlp on Stack Overflow
+Source code
+Node.js
+The following list contains links to more resources related to the
+client library for Node.js:
+API reference
+Client libraries best practices
+Issue tracker
+cloud-dlp on Stack Overflow
+Source code
+PHP
+The following list contains links to more resources related to the
+client library for PHP:
+API reference
+Client libraries best practices
+Issue tracker
+cloud-dlp on Stack Overflow
+Source code
+Python
+The following list contains links to more resources related to the
+client library for Python:
+API reference
+Client libraries best practices
+Issue tracker
+cloud-dlp on Stack Overflow
+Source code
+Ruby
+The following list contains links to more resources related to the
+client library for Ruby:
+API reference
+Client libraries best practices
+Issue tracker
+cloud-dlp on Stack Overflow
+Source code
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-07 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

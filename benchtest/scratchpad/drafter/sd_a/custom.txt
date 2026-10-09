@@ -1,0 +1,484 @@
+# status 200  final_url https://docs.cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Sensitive Data Protection
+Start free
+Overview
+Guides
+Reference
+Samples
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Samples
+Resources
+Console
+Discover
+Product overview
+Plan your data risk management strategy
+Evaluate your data risk management needs
+Learn about your data through discovery and inspection
+Recommended strategies for mitigating data risk
+Release notes
+Pricing
+Locations
+Global and regional endpoints for Sensitive Data Protection
+Sensitive Data Protection locations
+Specify a processing location
+Service method types
+Supported file types and scanning modes
+Get started
+Quickstarts
+Inspect text using the command-line tool
+Inspect text using a JSON request
+Schedule an inspection scan
+Create an inspection template
+De-identify and re-identify sensitive text
+Google Cloud Skills Boost labs
+Detect sensitive data
+Discover and profile data resources
+Overview of sensitive data discovery
+Common discovery enablement scenarios
+Allow discovery within service perimeters
+Profile your data
+Profile a single data resource
+Profile BigQuery data
+Estimate BigQuery data profiling cost
+Estimate the cost of profiling BigQuery data in a project
+Estimate the cost of profiling BigQuery data in an organization or folder
+Profile BigQuery data in a project
+Profile BigQuery data in an organization or folder
+Profile Cloud SQL data
+Profile Cloud SQL data in a project
+Profile Cloud SQL data in an organization or folder
+Manage connections
+Profile Cloud Storage data
+Profile Cloud Storage data in a project
+Profile Cloud Storage data in an organization or folder
+Profile Vertex AI data
+Sensitive data discovery for Vertex AI data
+Profile Vertex AI data in a project
+Profile Vertex AI data in an organization or folder
+Profile Amazon S3 data
+Sensitive data discovery for Amazon S3 data
+Profile Amazon S3 data
+Profile Azure Blob Storage data
+Report secrets in environment variables to Security Command Center
+Grant data profiling access to a service agent
+Manage data profiles
+Control IAM access to resources based on data sensitivity
+Send discovery insights to other services
+Enable discovery actions
+Send data profiles to Security Command Center
+Receive and parse Pub/Sub messages about data profiles
+Tag tables in Data Catalog based on insights from data profiles
+Add Knowledge Catalog aspects based on insights from data profiles
+Analyze and visualize data profiles
+Visualize data profiles in the discovery dashboard
+Analyze data profiles
+Remediate findings from the data profiler
+Manage scan configurations
+Troubleshoot issues with the data profiler
+Metrics reference
+Data risk and sensitivity levels
+Inspect for sensitive data
+Inspect data stored in Google Cloud
+Inspect data from any source
+Inspect unstructured text synchronously
+Inspect structured text synchronously
+Inspect an image synchronously
+Asynchronous inspection overview
+Inspect data from any source asynchronously
+Quote the sensitive data in the results
+Work with inspection results
+Actions
+Send inspection results to Knowledge Catalog as aspects
+Send inspection results to Data Catalog
+Send inspection results to Security Command Center
+Analyze and report on inspection findings
+Query inspection findings in BigQuery
+Parse findings stored as Protobuf text
+Jobs and job triggers
+Overview of jobs and job triggers
+Create and manage jobs and job triggers
+Web-based inspection demonstration app
+Allow or block content based on sensitivity
+Overview of content policies
+Create and manage content policies
+Configure detection
+Templates
+Overview of templates
+Create inspection templates
+InfoTypes and infoType detectors
+Overview of infoTypes and infoType detectors
+Built-in infoType detectors
+List built-in infoType detectors
+InfoType detector reference
+Custom infoType detectors
+Overview of custom infoType detectors
+Create a regular custom dictionary detector
+Create a large custom dictionary detector
+Create a custom regex detector
+Create a custom metadata label detector
+Custom infoType examples
+Manage infoTypes through the Google Cloud console
+Modify infoType detectors to refine scan results
+Match likelihood
+Likelihood overview
+Customize match likelihood
+Mask and de-identify data
+Overview
+Transformation methods
+Transformation reference
+Text classification and redaction
+Date shifting
+Generalization and bucketing
+Pseudonymization
+De-identify sensitive data
+De-identify data stored in Google Cloud
+Overview
+Through the Cloud console
+Through the DLP API
+Transformation details reference
+De-identify data from any source
+De-identify text or tabular content
+Examples of text redaction
+Examples of tabular data de-identification
+Image inspection and redaction
+Redact sensitive data from images
+Create a de-identification template
+Create a wrapped key
+De-identify BigQuery data at query time
+De-identification and re-identification of PII in large-scale datasets
+Redact sensitive data from PDF files
+Analyze re-identification risk
+Overview of re-identification risk analysis
+Re-identification risk analysis techniques
+Compute k-anonymity for a dataset
+Compute l-diversity for a dataset
+Compute k-map for a dataset
+Compute δ-presence for a dataset
+Compute numerical and categorical statistics
+Visualize re-identification risk using Data Studio
+Connect to other services
+Use Sensitive Data Protection with BigQuery
+Use Sensitive Data Protection with Cloud Storage
+Use Sensitive Data Protection with Cloud Storage
+Automate the classification of data uploaded to Cloud Storage
+Send inspection results to Data Catalog
+Send inspection results to Security Command Center
+Monitor your usage with Cloud Monitoring
+Use Sensitive Data Protection with AWS S3
+Use Sensitive Data Protection with JDBC Databases
+Use Sensitive Data Protection with Apigee
+Use Sensitive Data Protection with Data Fusion
+Build a secure anomaly detection solution using Dataflow, BigQuery ML, and Sensitive Data Protection
+Troubleshoot
+Troubleshoot issues with the data profiler
+Control access
+Authentication
+IAM
+Access control with IAM
+Sensitive Data Protection roles and permissions
+Sensitive Data Protection service agents
+Control access with VPC Service Controls
+Monitor
+Audit logging
+Monitor your usage with Cloud Monitoring
+Develop
+All Sensitive Data Protection code samples
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Cloud Data Loss Prevention (Cloud DLP) is now a part of Sensitive Data Protection. The API name remains the same: Cloud Data Loss Prevention API (DLP API). For information about the services that make up Sensitive Data Protection, see Sensitive Data Protection overview.
+Home
+Documentation
+Security
+Sensitive Data Protection
+Guides
+Send feedback
+Custom infoType detectors
+Stay organized with collections
+Save and categorize content based on your preferences.
+Sensitive Data Protection contains many built-in infoType
+detectors, but you can also create your own. You can
+customize detection behavior by defining your own custom infoType detectors,
+so that Sensitive Data Protection will inspect or de-identify sensitive data that
+matches patterns that you specify. The following are the types of custom
+infoType detectors:
+Regular custom dictionary detectors are simple word and phrase lists that
+Sensitive Data Protection matches on. Use regular custom dictionary detectors
+when you have at most several hundred thousand words.
+Large custom dictionary detectors are generated by Sensitive Data Protection
+using large lists of words or phrases stored in either Cloud Storage or
+BigQuery. Use large custom dictionary detectors when you
+have a large list of words or phrases—up to tens of millions.
+Regular expression (regex) detectors let Sensitive Data Protection
+detect matches based on a regular expression pattern.
+Metadata label detectors let Sensitive Data Protection detect matches based
+on the presence of specific metadata. There are two types of metadata
+label detectors:
+Metadata key-value expression detectors match on specific key-value
+pairs in content metadata.
+File label detectors match on specific file labels, which can represent
+Google Drive labels or Microsoft sensitivity labels.
+Surrogate infoType detectors detect output from Sensitive Data Protection
+de-identification transformation
+CryptoReplaceFfxFpeConfig.
+This custom infoType detector is only used with the
+content:reidentify
+method to reverse de-identification using format-preserving encryption (FPE)
+in FFX mode. For this reason, surrogates are not extensively described in
+these topics. For more information about how and when to use surrogate
+custom infoType detectors, see Pseudonymization.
+To refine scan results, you can create inspection
+rules.
+To learn more about custom infoType detectors, see the InfoTypes and infoType
+detectors concept page. For several examples that
+you can use or alter as you see fit, see Examples of custom infoType
+detectors. The rest of this topic describes how to
+use Sensitive Data Protection to create your own custom infoType detectors.
+Where to use custom infoType detectors
+Custom infoType detectors are defined in the
+CustomInfoType
+object. You specify a CustomInfoType in the
+InspectConfig
+object when configuring the following:
+Inspection using
+projects.content.inspect.
+Inspection jobs inside
+InspectJobConfig.
+Inspection templates inside
+InspectTemplate.
+De-identification using
+projects.content.deidentify.
+De-identification templates inside
+DeidentifyTemplate.
+Re-identification of content that has been de-identified with FPE in FFX
+mode using
+projects.content.reidentify.
+This scenario is specific to surrogate custom infoType detectors.
+API overview
+The
+CustomInfoType
+object allows you to create a custom infoType detector for new content or to
+fine-tune the results returned by pre-defined infoType detectors.
+The CustomInfoType object is comprised of the following fields, which are set
+as described:
+"infotype": The name of the custom infoType detector, contained in an
+InfoType
+object.
+"likelihood": The default
+Likelihood
+value to return for this custom infoType detector. You can specify alternate
+Likelihood values in "detectionRules" that will supersede this base
+Likelihood if the finding meets the criteria specified by the rule. If
+you don't include the "likelihood" field, the custom infoType detector
+defaults to VERY_LIKELY. For more information about likelihood, see the
+Likelihood concept page.
+"detectionRules": A set of
+DetectionRule
+objects to additionally apply to all findings of this custom infoType
+detector. This is where you specify hotword rules, as
+HotwordRule
+objects. Rules are applied in the order in which they are specified. This
+field does not apply to SurrogateType objects.
+"sensitivityScore": The
+SensitivityScore
+value to return for this custom infoType detector. If you don't include the
+"sensitivityScore" field, the custom infoType detector defaults to
+VERY_LIKELY.
+Sensitivity scores are used in data profiles. When
+profiling your data, Sensitive Data Protection uses the sensitivity scores of the infoTypes to
+calculate the sensitivity level.
+One of the following fields, depending on the kind of custom infoType
+detector you're creating:
+"dictionary": A
+Dictionary
+object, which contains a list of words or phrases to search for.
+"regex": A
+Regex
+object, which contains a single pattern defining the regular expression.
+"surrogateType": A
+SurrogateType
+object, if present, indicates that the custom infoType detector is a
+surrogate. For more information about how to use surrogate custom
+infoType detectors, see Pseudonymization.
+"storedType": A reference to an existing
+StoredInfoType
+object. This field is required when creating a large custom dictionary
+detector. Although you can create regular dictionary detectors or
+regular expression detectors by defining this field, it's simpler to
+create those by defining the dictionary field or regex field
+respectively.
+"metadataKeyValueExpression": A MetadataKeyValueExpression
+object that defines regular expressions for the key and value to search
+for in content metadata.
+"fileLabelInfoType": A FileLabelInfoType
+object that defines a Google Drive file label or Microsoft
+sensitivity label to search for.
+Next steps
+Learn more about creating custom infoTypes from the following topics:
+Create a regular custom dictionary detector:
+Learn how to create a custom infoType detector to match findings on a list
+of words and phrases.
+Create a large custom dictionary detector:
+Learn how to match findings on a very large list of words and phrases.
+Stored custom infoType detectors can match on up to tens of millions of
+words.
+Create a custom regex detector:
+Learn how to create a custom infoType detector to match findings on a
+regular expression.
+Create a custom metadata label
+detector:
+Learn how to create a custom infoType detector to match findings in
+content metadata.
+Modifying infoType detectors to refine scan
+results:
+Learn how to create modifiers for both built-in and custom infoType
+detectors that can fine-tune scan results.
+Customizing match likelihood:
+Learn how to use detection rules and hotwords to customize the likelihood
+values that are assigned to custom detector matches.
+Examples of custom infoType detectors: Several
+example JSON custom infoType detector definitions that you can use or alter
+as you see fit.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-07 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
