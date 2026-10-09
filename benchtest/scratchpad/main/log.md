@@ -46,3 +46,4 @@
 - 2026-10-09 sdp P8 done: AN–AS (SD1–SD6) + sheet '3g. SDP Inventory' (15/24/12/13/16/7; 15 inventory-only + 1 legacy markers); verify_sdp_apply 43/43; uncapped compare vs HEAD: 681 diffs, all in AN–AS + sheet order + sheet-3 dims/col dims; recalc skipped; 95 URLs → P9. Sheet name ruled by main (lessons 15).
 - 2026-10-09 sdp P9 done: 95/95 URLs 200 (2 github 429 → 200 on retry; local network: github blob 200 directly, raw also 200); 0 broken
 - 2026-10-09 sdp P10 diagram written (12 SVGs, checklist all ticked except phone-width overflow = pre-existing base CSS, same on sentinel page → user); Q2–Q4 ruled by main; diagram verifier started
+- 2026-10-09 presidio P10 diagram written (12 SVGs; checklist all ticked; local min-width fix in Additions block; general-knowledge glosses UEN/NRIC/NINO flagged for verifier); Q2–Q4 ruled by main; scratch PNGs untracked + gitignored (sdp crops had been committed in 3930aea)

@@ -12,3 +12,5 @@ Thumbs.db
 benchtest/scratchpad/**/gcgo/
 benchtest/scratchpad/**/apsamples/
 benchtest/scratchpad/**/repo/
+# agent screenshots in scratch folders (keep local only)
+benchtest/scratchpad/**/*.png

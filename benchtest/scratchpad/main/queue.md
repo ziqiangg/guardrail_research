@@ -22,6 +22,10 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| presidio P10 Q2 (screenshots in scratch) | scratch PNGs are gitignored (`benchtest/scratchpad/**/*.png`); scripts committed | main |
+| presidio P10 Q3 (three-way NeMo/Llama Guard/Sentinel table) | not required: positioning compares only what the presidio drafts state (CLAUDE.md facts-from-drafts; README); verifier may flag | main |
+| presidio P10 Q4 (eyebrow "Data Privacy Stack Presidio · release 2.2.364, created at Microsoft") | accepted (R016 dual ownership) | main |
+| presidio P10 Q1 (local min-width:0 fix in Additions block) | kept for now; merged into the shared-CSS question to the user (sdp P10 Q1) | main |
 | sdp P10 Q2 (add R025 AUP testing clause to sdp drafts/page) | no: R025 ruling 1 "no draft change"; SD6 R7/R8 AUP wording stands; page mirrors drafts | main |
 | sdp P10 Q3/Q4 (scorecard Partly/No/Yes calls; "our count" detector sums) | accepted provisionally; fresh diagram verifier challenges them | main |
 | sdp P8 Q1/Q2 (sheet name "3g. Sensitive Data Protection Inventory" is 39 chars > Excel 31) | accept "3g. SDP Inventory" (auto-default: naming); full name stays in A1 title; diagrams/docs cite the tab name; future inventory sheet names must be ≤31 chars | main |
