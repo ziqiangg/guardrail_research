@@ -18,6 +18,10 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| sdp P7 Q1 (Apigee row, path deprecated) | marker `— (legacy, not in Table 3)`; P8 config markers include legacy | main |
+| sdp P7 Q2 (SD6 R7 AUP bullet) | policy wording [Documented] + applicability [Inferred] (CLAUDE.md rule 2) | main |
+| sdp P7 Q3 (who records fix 7) | merger, in Verifier fixes | main |
+| sdp P6 Q4 (cross-product headers) | closed: verifier confirmed exact match with modelarmor/presidio/sentinel | main |
 | presidio P7 Q1 (surrogate_ahds Covered-by) | add PD5 (consistent test) | main |
 | presidio P7 Q2 (/tree/ URLs → 400 not 403) | merger updates changes.md 5b; url-checker told at P9 | main |
 | presidio P6 Q1 (2523c7b placement: labelled fact in PD2 R2, plain R8 question) | confirmed (README: no labels in R8) | main |

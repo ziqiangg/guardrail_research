@@ -34,3 +34,4 @@
 - 2026-10-09 presidio P6 done: 262 edits, 25/54 Summaries changed; checks 0/0; inventory 14/31/10/14; P7 started
 - 2026-10-09 presidio P7: PASS WITH FIXES, 4 required (2523c7b bullet split; PD1 R1 and PD4 R6 support bullets; surrogate_ahds PD5), 27/27 spot-checks MATCH, 0 real URL failures; fix loop sent to same merger
 - 2026-10-09 presidio P7 fix loop done: 4 required fixes + tag 0.22 + R9 summaries; checks 0/0; ready for CP2
+- 2026-10-09 sdp P7: PASS WITH FIXES, 7 required (incl. false SD3 table-only claim from T12 merge), 31/33 MATCH, 96 URLs 200; fix loop sent to same merger

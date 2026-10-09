@@ -15,7 +15,7 @@ Results:
 
 ## 2. Sourcing and label strength (Check 2)
 
-**Changed [Documented] facts.** Every new or changed [Documented] fact traces either to a resolution entry with a verbatim quote or to the original draft. I re-read the main ones at source (section 4).
+**Changed [Documented] facts.** Every new or changed [Documented] fact traces either to a resolution entry with a verbatim quote or to the original draft, with one exception. The SD3 R1 and R4 bullet "The date-shift, time-extraction and bucketing code samples ... use record (table) transformations" was part of a [To be verified] bullet in sdp_cols_a.md (T12). The merger split it out as [Documented] without a quote; the T12 resolution quotes the discovery schema, not the samples. At source it is wrong (fix 7). I re-read the other main facts at source (section 4).
 
 **Merger edits beyond the resolver's exact text** (main asked for these, queue row "sdp P6 Q2/Q3/Q6"):
 - **T21, INV(e) row 6 "Maximum transformations per request".** The resolver asked for "Applies to" = "content.inspect, content.deidentify" on rows 1 and 6. The merger used "content.deidentify" for row 6, reason "only content.deidentify applies transformations". Accepted: content.inspect applies no transformations. The Value cell carries the [Documented] table-heading fact and the [Inferred] reidentify point exactly as the resolver wrote them.
@@ -37,7 +37,7 @@ Results:
 - **Ruling ids removed from cells** (`ruling R012 ...` became "those internals are not repeated here"). Same meaning, accepted by main.
 
 **Inferences or absences labelled [Documented]:**
-- Required fixes 1 and 5.
+- Required fixes 1 and 5, plus the label upgrade in fix 7.
 - Optional: the SD6 R7 AUP bullet and the SD2 R6 "still apply" bullet.
 - Grep of all [Documented] bullets for "therefore / so / probably / appears / belongs / needs a test" found nothing else of substance; the remaining hits are verbatim quotes containing those words.
 
