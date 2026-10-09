@@ -16,6 +16,10 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| presidio P4 Q5 (vendor release notes/tags) | R015 (ls-remote + clone at tag; CHANGELOG at tag) | main |
+| presidio P4 Q6 / T57 ("out of purpose" label) | R015 ([Inferred] everywhere, premise named) | main |
+| presidio P4 Q7 (0.0.60 = image-redactor, structured = 0.0.8; NeMo `<ENTITY_TYPE>` note) | merger records in presidio_changes.md; seeds note added; NeMo sheets frozen (R001) | main |
+| presidio P4 Q1–Q4 (T1 ownership/prefix, T2–T4 column split + PD5 + inventory granularity, T6 component licences, local-run consent) | user at presidio CP1 | user |
 | explorer/20261009_presidio_q03.md (presidio-research placement) | R010 | main |
 | explorer/20261009_presidio_q04.md (column ID prefix) | R009 | main |
 | presidio P1 report: Covered-by marker for current non-column rows | R011 | main |

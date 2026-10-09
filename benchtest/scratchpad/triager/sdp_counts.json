@@ -1,0 +1,359 @@
+{
+ "keys": {
+  "prefix": "T1",
+  "sd7": "T2",
+  "fold": "T3",
+  "imgsplit": "T4",
+  "mamarker": "T5",
+  "xrefhdr": "T6",
+  "extsrc": "T7",
+  "blog": "T8",
+  "applyop": "T9",
+  "cptest": "T10",
+  "cpmeta": "T11",
+  "sd3sum": "T12",
+  "sd3test": "T13",
+  "sd4sum": "T14",
+  "sd4len": "T15",
+  "sd6sum": "T16",
+  "noverdict": "T17",
+  "faceprev": "T18",
+  "oop": "T19",
+  "limsum": "T20",
+  "reidlim": "T21",
+  "slalabel": "T22",
+  "price": "T23",
+  "invlimcov": "T24",
+  "quotagap": "T25",
+  "acc_text": "T26",
+  "acc_deid": "T27",
+  "acc_tok": "T28",
+  "acc_img": "T29",
+  "acc_safe": "T30",
+  "latency": "T31",
+  "models": "T32",
+  "lang_text": "T33",
+  "lang_cust": "T34",
+  "lang_ocr": "T35",
+  "ctxlen": "T36",
+  "emul": "T37",
+  "fin": "T38",
+  "plus65": "T39",
+  "sgimg": "T40",
+  "doctype": "T41",
+  "defa": "T42",
+  "defb": "T43",
+  "pnamea": "T44",
+  "pnameb": "T45",
+  "counts": "T46",
+  "regex": "T47",
+  "dictcap": "T48",
+  "ruleorder_a": "T49",
+  "ruleorder_b": "T50",
+  "storedperm": "T51",
+  "cmeta": "T52",
+  "convctx": "T53",
+  "overlap": "T54",
+  "cap3000": "T55",
+  "hashfmt": "T56",
+  "lvuntr": "T57",
+  "llmq": "T58",
+  "altered": "T59",
+  "reidcv": "T60",
+  "reidcap": "T61",
+  "keyrot": "T62",
+  "kmsid": "T63",
+  "audit": "T64",
+  "hashcov": "T65",
+  "fmt_a": "T66",
+  "fmt_b": "T67",
+  "bbox": "T68",
+  "nosupreg": "T69",
+  "sizebase64": "T70",
+  "overlapred": "T71",
+  "exif": "T72",
+  "stage": "T73",
+  "imgfind": "T74",
+  "textinimg": "T75",
+  "localnorms": "T76",
+  "imgsize": "T77",
+  "fileon": "T78",
+  "unreadguides": "T79",
+  "otherlibs": "T80",
+  "pydlp": "T81",
+  "gcloud": "T82",
+  "regionlist": "T83",
+  "pylibdoc": "T84",
+  "domain": "T85",
+  "urls": "T86",
+  "rowcounts": "T87",
+  "emptycell": "T88",
+  "procfmt": "T89",
+  "brackets": "T90",
+  "absdoc": "T91",
+  "custdata": "T92",
+  "benchterms": "T93",
+  "demodata": "T94",
+  "geedition": "T95",
+  "rnmissing": "T96",
+  "citefmt": "T97",
+  "premise": "T98"
+ },
+ "cls": {
+  "D": 7,
+  "a": 46,
+  "b": 41,
+  "c": 4
+ },
+ "prio": {
+  "H": 46,
+  "M": 33,
+  "L": 19
+ },
+ "cp": {
+  "DH": 3,
+  "DM": 3,
+  "aM": 18,
+  "DL": 1,
+  "aH": 16,
+  "bH": 27,
+  "aL": 12,
+  "bL": 4,
+  "bM": 10,
+  "cM": 2,
+  "cL": 2
+ },
+ "total": 98,
+ "H": [
+  [
+   "T1",
+   "prefix",
+   "D"
+  ],
+  [
+   "T2",
+   "sd7",
+   "D"
+  ],
+  [
+   "T3",
+   "fold",
+   "D"
+  ],
+  [
+   "T9",
+   "applyop",
+   "a"
+  ],
+  [
+   "T10",
+   "cptest",
+   "b"
+  ],
+  [
+   "T12",
+   "sd3sum",
+   "a"
+  ],
+  [
+   "T13",
+   "sd3test",
+   "b"
+  ],
+  [
+   "T14",
+   "sd4sum",
+   "a"
+  ],
+  [
+   "T15",
+   "sd4len",
+   "b"
+  ],
+  [
+   "T16",
+   "sd6sum",
+   "a"
+  ],
+  [
+   "T17",
+   "noverdict",
+   "a"
+  ],
+  [
+   "T18",
+   "faceprev",
+   "a"
+  ],
+  [
+   "T20",
+   "limsum",
+   "a"
+  ],
+  [
+   "T26",
+   "acc_text",
+   "b"
+  ],
+  [
+   "T27",
+   "acc_deid",
+   "b"
+  ],
+  [
+   "T29",
+   "acc_img",
+   "b"
+  ],
+  [
+   "T30",
+   "acc_safe",
+   "b"
+  ],
+  [
+   "T31",
+   "latency",
+   "b"
+  ],
+  [
+   "T32",
+   "models",
+   "b"
+  ],
+  [
+   "T33",
+   "lang_text",
+   "b"
+  ],
+  [
+   "T34",
+   "lang_cust",
+   "b"
+  ],
+  [
+   "T35",
+   "lang_ocr",
+   "b"
+  ],
+  [
+   "T38",
+   "fin",
+   "b"
+  ],
+  [
+   "T39",
+   "plus65",
+   "b"
+  ],
+  [
+   "T40",
+   "sgimg",
+   "b"
+  ],
+  [
+   "T42",
+   "defa",
+   "a"
+  ],
+  [
+   "T43",
+   "defb",
+   "b"
+  ],
+  [
+   "T44",
+   "pnamea",
+   "a"
+  ],
+  [
+   "T45",
+   "pnameb",
+   "b"
+  ],
+  [
+   "T47",
+   "regex",
+   "a"
+  ],
+  [
+   "T48",
+   "dictcap",
+   "b"
+  ],
+  [
+   "T49",
+   "ruleorder_a",
+   "a"
+  ],
+  [
+   "T51",
+   "storedperm",
+   "a"
+  ],
+  [
+   "T54",
+   "overlap",
+   "a"
+  ],
+  [
+   "T55",
+   "cap3000",
+   "b"
+  ],
+  [
+   "T56",
+   "hashfmt",
+   "b"
+  ],
+  [
+   "T59",
+   "altered",
+   "b"
+  ],
+  [
+   "T60",
+   "reidcv",
+   "a"
+  ],
+  [
+   "T62",
+   "keyrot",
+   "a"
+  ],
+  [
+   "T66",
+   "fmt_a",
+   "a"
+  ],
+  [
+   "T67",
+   "fmt_b",
+   "b"
+  ],
+  [
+   "T68",
+   "bbox",
+   "b"
+  ],
+  [
+   "T69",
+   "nosupreg",
+   "b"
+  ],
+  [
+   "T74",
+   "imgfind",
+   "b"
+  ],
+  [
+   "T75",
+   "textinimg",
+   "b"
+  ],
+  [
+   "T76",
+   "localnorms",
+   "b"
+  ]
+ ]
+}

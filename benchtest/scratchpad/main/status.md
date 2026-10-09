@@ -7,7 +7,7 @@ Phases: P0 explore · P1 brief · P2 drafts · P3 mechanical · P4 triage · CP1
 | nemo | — | done | F–U (16) | 3b | 3c | nemo-rails-explained.html | baseline-2026-10-09 | F16 summary 66 words (known) |
 | llamaguard | — | done | V–Z (5) | 3d | — | llama-guard-explained.html | baseline-2026-10-09 | |
 | sentinel | — | done | AA–AG (7) | 3e | — | sentinel-explained.html | baseline-2026-10-09 | |
-| presidio | B1 | P3 pass → P4 triage (re-run after session loss, 2026-10-09) | PD1–PD6 proposed | | presidio-research → inventory (R010) | | | Q01/Q02 for CP1; project moved to data-privacy-stack |
+| presidio | B1 | P4 done (70 items: a40 b27 c3; H13) → CP1 pending | PD1–PD6 proposed | | presidio-research → inventory (R010) | | | Q01/Q02 for CP1; project moved to data-privacy-stack |
 | modelarmor | B1 | P3 pass → P4 triage (re-run after session loss, 2026-10-09) | MA1–MA10 (provisional) | | | | | |
 | sdp | B1 | P3 pass → P4 triage running (2026-10-09) | SD1–SD6 (provisional; SD7 reserved) | | | | | |
 | purplellama | B2 | not started | | | CyberSecEval | | | R004 |

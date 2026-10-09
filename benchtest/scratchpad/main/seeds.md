@@ -53,3 +53,4 @@ Each entry gives the explorer a starting point. **UNVERIFIED** marks a starting 
 ## litmus (B3) — UNVERIFIED (R003: eval sheet only)
 - **Owner:** GovTech, described in Sentinel's docs as the "WOG AI Testing product" paired with Sentinel. Start from aiguardian.gov.sg (the Litmus pages next to the Sentinel docs; the Sentinel getting-started page mentions the "Litmus and Sentinel interest form") and developer.tech.gov.sg.
 - **Expected outcome:** sparse public docs; honest gaps. Sheet format follows `drafts/eval_tooling.md`.
+- presidio note (P4 T10): image-redactor = 0.0.60, presidio-structured = 0.0.8 at 2.2.364 (code); P0 note reading 0.0.60 as structured is wrong.
