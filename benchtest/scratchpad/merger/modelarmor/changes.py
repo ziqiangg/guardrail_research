@@ -130,7 +130,7 @@ STATE = {
     "T18": ("PARTLY RESOLVED", "applied: MA3, MA4 R4 (Go and Java labelled, lag Inferred), R9; INV(b), INV(c)"),
     "T19": ("PARTLY RESOLVED", "applied: MA3, MA4 R5 (four bullets), INV(c); live acceptance To be verified (R8 MA3, MA4)"),
     "T20": ("RESOLVED", "applied: A R4 x6, MA5, MA6 R4, INV(b); MA6 R8 bullet deleted"),
-    "T21": ("OPEN (To be verified, main ruling)", "A R4 x6 and INV(b) Service Extensions: GA date for other load balancers and Secure Web Proxy; Service Extensions page unread (verbatim retry is a P7 option)"),
+    "T21": ("OPEN (Not disclosed after P7 read, R021)", "A R4 x6 and INV(b) Service Extensions: GA date for other load balancers and Secure Web Proxy; both Service Extensions guides read, no stage label"),
     "T22": ("RESOLVED", "applied: A R4 x6 (pair), INV(b) MCP, INV(c) floor inline"),
     "T23": ("PARTLY RESOLVED", "applied: INV scope paragraph (rule S premise, banner-free rule); 21 GA [Inferred] cells kept; Terraform, gcloud, console, SCC findings stay Not disclosed"),
     "T24": ("PARTLY RESOLVED", "applied: INV(b) Terraform row (names Documented, stage Not disclosed, arguments To be verified)"),
@@ -290,7 +290,7 @@ def main():
     A("| Scope | Before | After | Reason |")
     A("|---|---|---|---|")
     G = [
-        ("Every google-cloud-go citation (R1 to R7 labels, line references, R9 URLs, inventory cells)", "`[Documented: repo googleapis/google-cloud-go@37f936ac]`, `service.pb.go@37f936ac:NNN`, blob URLs with the full sha 37f936ac9d69e173da0ba4123e382c52b2dd741f (HEAD of 2026-10-08)", "`[Documented: repo googleapis/google-cloud-go@modelarmor/v1.3.0]`, `service.pb.go@modelarmor/v1.3.0:NNN`, blob URLs `.../blob/modelarmor/v1.3.0/...`. Line numbers were kept for service.pb.go because resolver 1 recorded `git diff` between the tag (8a17bee208939e0166936a59675414439c47e341) and 37f936ac as touching only apiv1/model_armor_client.go, apiv1beta/model_armor_client.go, go.mod and go.sum; CHANGES.md, version.go, LICENSE and both service.pb.go files are therefore identical. The merger confirmed the tag sha with `git ls-remote --tags` (8a17bee2…) but could not re-read the files at the tag: a sparse clone was refused by the permission layer and was not worked around. The INV scope paragraph names both refs.", "main ruling (modelarmor P5 r1 Q1); README section 3 rule 8"),
+        ("Every google-cloud-go citation (R1 to R7 labels, line references, R9 URLs, inventory cells)", "`[Documented: repo googleapis/google-cloud-go@37f936ac]`, `service.pb.go@37f936ac:NNN`, blob URLs with the full sha 37f936ac9d69e173da0ba4123e382c52b2dd741f (HEAD of 2026-10-08)", "`[Documented: repo googleapis/google-cloud-go@modelarmor/v1.3.0]`, `service.pb.go@modelarmor/v1.3.0:NNN`, blob URLs `.../blob/modelarmor/v1.3.0/...`. Line numbers were kept for service.pb.go because resolver 1 recorded `git diff` between the tag (8a17bee208939e0166936a59675414439c47e341) and 37f936ac as touching only apiv1/model_armor_client.go, apiv1beta/model_armor_client.go, go.mod and go.sum; CHANGES.md, version.go, LICENSE and both service.pb.go files are therefore identical. The merger confirmed the tag sha with `git ls-remote --tags` (8a17bee2…); a sparse clone was refused by the permission layer and was not worked around. The P7 verifier then read every cited file at tag modelarmor/v1.3.0 through raw.githubusercontent.com (R020 ruling 2; review check 4), which closes the caveat. The INV scope paragraph names both refs.", "main ruling (modelarmor P5 r1 Q1); README section 3 rule 8"),
         ("Hint style in cols_b (MA5, MA6, MA9, MA10)", f"(overview, read 2026-10-09) ({nread} occurrences of 'read 2026-10-09')", "(overview, 2026-10-09), the form used in cols_a", "triage Label hygiene 'Hint style differs'"),
         ("R7 first Detail bullet in MA1 to MA4, MA7, MA8", "full stop before the label ('... entry. **[Inferred]**')", "no full stop before the label (MA5, MA6, MA9, MA10 already complied)", "style 10"),
         ("Reviewer notes in cols_a, cols_b and the inventory (22 + 29 + 24 lines)", "present in the drafts", "removed from all finals; kept verbatim in section 6", "README section 4 (finals carry no Reviewer notes)"),
@@ -307,7 +307,7 @@ def main():
         ("Pre-GA Offerings Terms (T85)", "no mention", "Inventory: the scope paragraph only (GST short name and one sentence); Status cells keep 'Preview'. Columns: three Documented clauses in MA10 R4, one Inferred bullet in MA10 R7, one Documented bullet in MA3 and MA4 R5 (exclusion rules), GST and products URLs in R9.", "T85; main ruling on modelarmor P5 r2 Q6; R017 item 5"),
         ("Acceptable Use Policy and terms (T86)", "a CSAM caution in MA1 R7 and a Singapore bullet in MA10 R7 only", "AUP clause [Documented] and 'expressly permitted' [Not disclosed] in R7; R8 question; AUP and GST URLs in R9; for MA1, MA2, MA3, MA4, MA7, MA8, MA10. The resolution names MA1, MA3, MA4, MA7, MA8 (R7) and MA1, MA7, MA8, MA10 (R8); the merger extended it to MA2 (all three rows) and to MA3 and MA4 R8 because the test content is the same (jailbreak, injection, harmful text). The CSAM-AUP bullet went to MA1 and MA2 R7. The user question stays open for CP2 (section 5).", "T86; R019; queue 'modelarmor P5 r2 Q1/Q2'"),
         ("T25 client versions (main ruling)", "A R4: 'the C# install line is a pre-release package'", "one short R4 bullet (Java 0.40.0 in the sbt line, C# pre-release) in the six A columns; Python, Node.js, PHP, C# tags and the Java pom in INV(b) only, one repo label per fact", "T25; main ruling on modelarmor P5 r1 Q2"),
-        ("T21 Service Extensions (main ruling)", "resolver label [Not disclosed] for the GA date of other load balancers and Secure Web Proxy", "[To be verified]: the Service Extensions configuration page returned no text through fetch_text.py and was read only through a summarising fetch, which cannot carry a label (CLAUDE.md hard rule 4). The release notes, networking and integrations pages were read raw and are named as checked.", "main ruling on modelarmor P5 r1 Q4"),
+        ("T21 Service Extensions (main ruling, then P7)", "resolver label [Not disclosed]; at P6 main ruled [To be verified] because the Service Extensions page was unread (fetch_text.py returned no text)", "P6 text: [To be verified]. P7: the verifier read the page verbatim (plain curl plus stdlib HTML parse, ruling R021) and a second page (traffic extensions); neither carries a launch-stage label, so the GA date for other load balancers and Secure Web Proxy is [Not disclosed] naming what was checked; process language removed from the finals.", "main ruling on modelarmor P5 r1 Q4; R021; P7 fix 4"),
         ("Inventory title and sheet letter", "'(draft for sheet 3x)'", "'(final, sheet 3x; the sheet letter is assigned at P8)'", "R003"),
         ("Inventory row count", "(a) 10, (b) 15, (c) 16, (d) 18, (e) 16", "(d) 20: rows us-east7 and global added (FAR-only values, other cells Not disclosed)", "T77, T83; main ruling on modelarmor P2 cols_a Q1"),
     ]
@@ -341,6 +341,7 @@ def main():
         ("Label hygiene: cells in the inventory mixing two label types (INV(a) 11, (b) 8, (c) 1, (d) 2, (e) 1)", "only where a resolution touched the cell (the touched cells now keep one label per fact)", "a global rewrite was not asked for and would change cells no resolver re-read."),
         ("Settled items table (Apigee flow-variable bullets, Terraform registry, sheet letter, block (d) union, retirement date, token-limit history, v3 date, SKIP_DETECTION history, docs host move)", "applied as settled", "queue rulings and R003."),
         ("T76 optional INV(c) 'modalities' append", "not applied", "the resolution says 'only if the merger wants the premise'; the premise is in MA9 and MA10 R6."),
+        ("Style 4 pairs made identical at merge (P7 log): MA1 R5 = MA2 R5 and MA2 R9 = MA8 R9", "kept", "verifier judgement: acceptable; each Summary is entailed by its own Detail (MA2 R5 carries the three default statements), the facts are the same for both directions, and R002 asks for separate columns, not different wording. All identical pairs in the final: R3 MA1 = MA3; R4 MA1 = MA2, MA3 = MA4, MA7 = MA8; R5 MA1 = MA2, MA7 = MA8; R9 MA2 = MA8, MA3 = MA4."),
         ("T85 status-cell suffix 'Pre-GA Offerings Terms apply' on INV Preview rows", "not applied", "main ruling: Pre-GA terms in the INV intro sentence only; Preview rows keep Status 'Preview'."),
     ]
     for r in NA:
@@ -371,7 +372,7 @@ def main():
         ("Excel type spelling XLYM (REST, Go comment) against XLTM (overview, release note)", "Both spellings [Documented]; 'XLYM is probably a typo' [Inferred] (premise: overview and release note say XLTM; REST text and Go comment share a source comment).", "T67"),
         ("Embedded images in files: overview 'not screened', integrations page 'not screened' (Gemini Enterprise), Gemini Enterprise page 'screened'", "Three [Documented] bullets (MA10 R2 renumbered to match MA9 R2) and 'no page reconciles' [Not disclosed]; the Go container-name comment adds a schema fact in MA9. INV(a) OCR Limit carries all three. Test stays T59.", "T58, T59"),
         ("Gemini Enterprise modalities: integrations table 'Text, documents' against the Gemini Enterprise page (images)", "Two [Documented] bullets and 'no page reconciles' [Not disclosed] in MA10 R3 and INV(b).", "T60"),
-        ("MCP integration status: release note 2026-04-22 GA against the floor-settings link '(Preview)'", "Both [Documented]. The dated release note is used because the page label is undated; that preference is [Inferred] in the inventory and stated in the six A R4 bullets. MA6 R4 already held the pair.", "T22; queue rule (dated release note beats undated label)"),
+        ("MCP integration status: release note 2026-04-22 GA against the floor-settings link '(Preview)'", "Both [Documented]. The dated release note is used because the page label is undated; that preference is [Inferred] in the inventory and, after P7 fix 6, in its own [Inferred] bullet in the six A R4 sections. MA6 R4 already held the pair.", "T22; queue rule (dated release note beats undated label)"),
         ("Agent Gateway 'block and redact' against 'allows or blocks'; networking page 'allow, block, or modify'", "Quotes [Documented]; whether de-identified text is forwarded [Not disclosed] in MA5, MA6 R4 and INV(b) (ingress, egress, Service Extensions). Only Apigee documents extracting redacted data.", "T26"),
         ("Apigee policies GA or Preview (no label on the Model Armor pages)", "Apigee release notes: Public Preview 2025-05-22, GA 2025-09-04 [Documented] (Apigee docs, not Model Armor docs); open question removed from R8 of MA6 and from INV(b).", "T20"),
         ("Docs describe fields the Go v1 client lacks", "Go (labelled with the tag) and Java v1 (labelled v1.93.0) absences stated as repo facts, not as Not disclosed; 'the clients lag the documented API' is [Inferred]. Exclusion rules: usage on two pages, REST list without the field and its footer date [Documented]; REST page lag [Inferred]; live acceptance [To be verified].", "T18, T19"),
@@ -391,6 +392,8 @@ def main():
     A("Class: a = answerable from official docs or code; b = needs testing or vendor access (stays open in R8, as instructed); c = licensing or terms. 'honest gap' = closed vendor internals that no public document is expected to answer. Status: RESOLVED / CORRECTION applied = the final text carries the answer; PARTLY RESOLVED = some half is closed and the rest is labelled in the text; OPEN = unchanged from the draft or only re-labelled.")
     A("")
     A(s5)
+    A("")
+    A("Block counts after P7: unchanged, (a) 10, (b) 15, (c) 16, (d) 20, (e) 16; the Service Extensions route limits (Q3) were added to an existing row, no new row was needed.")
     A("")
     A("**Open items that need a user decision (CP2):**")
     A("")
@@ -477,6 +480,35 @@ def main():
     A("")
     A("- Class (b) items stayed in R8; the only R8 bullets removed are the answered Apigee status bullet in MA6 (T20) and none other. Class (b) items whose wording followed a changed documentation half (T1 default level, T3 template default, T16/T17 userPrompt, T47 shape, T70 box shape, T71 include_findings, T44/T45 response-side SDP, T50 floor-setting location, T53 token limits, T77 locations) were reworded in R8, not closed.")
     A("- The pending user question (AUP, T86) is recorded in section 5 and in the final report; no label was upgraded without a quote in the resolutions.")
+    A("")
+    A("## Verifier fixes")
+    A("")
+    A("Source: modelarmor_review.md (verdict PASS WITH FIXES, 7 required fixes), plus main's rulings on the verifier's questions: R021 (a plain curl GET parsed with the stdlib HTML parser counts as a verbatim read), Q2 (the approx. 250 ms latency figure may be cited, attributed in plain text as 'Service Extensions docs, not Model Armor docs'), Q3 (add the load-balancer route limits to INV(b) as attributed [Documented] facts) and the request to log two missed identical Summary pairs (done in section 2c). All edits are in benchtest/scratchpad/merger/modelarmor/edits_p7.py and appear in section 2a/3 with reason 'P7 fix n'.")
+    A("")
+    A("| Fix | Locations | Change |")
+    A("|---|---|---|")
+    VF = [
+        ("1", "MA1 R1, MA2 R1", "inserted after the CSAM bullet the [Documented] feature-table bullet ('No' in the seven limited-support locations) so the Summary caveat is entailed by R1 Detail; Summaries unchanged (45 words)"),
+        ("2", "MA5 R6, MA6 R6", "inserted after the Token limit bullet the [Documented] over-limit bullet (match still returns MATCH_FOUND; otherwise EXECUTION_SKIPPED) so the Summary clause is entailed by R6 Detail"),
+        ("3", "MA9 R4, MA10 R4", "inserted as the first two R4 bullets: MA9 the overview document-screening sentence and the REST text-modality quote; MA10 the OCR method sentence and the Preview label bullet; Summaries unchanged"),
+        ("4 (T21, R021)", "MA1, MA2, MA3, MA4, MA7, MA8 R4; INV(b) Service Extensions Status and Source URL; INV scope paragraph; R9 of the six columns", "bullet replaced by the verifier's [Not disclosed] text naming the two Service Extensions guides; process language ('returned no text through the raw fetch, so it is unread') removed from finals; inventory Status cell replaced; both guide URLs appended to Source URL; short names SEGS and SETE added; both URLs added to R9. Main's P6 ruling [To be verified] is superseded by R021 and recorded here."),
+        ("5 (latency, Q2)", "R4 and R8 of MA1, MA2, MA3, MA4, MA7, MA8; R9; R9 Summary lines", "R4: [Documented] bullet quoting 'approximately 250 milliseconds' attributed 'Service Extensions docs, not Model Armor docs'; R8 latency bullet replaced (the 'no figure published' claim was contradicted); two R9 URLs added; six R9 Summaries now name the Service Extensions guides. MA7/MA8 R5 'latency ... [Not disclosed]' stays (figure is not per filter)."),
+        ("6", "R4 of MA1, MA2, MA3, MA4, MA7, MA8", "the MCP bullet split into the floor-settings '(Preview)' label [Documented] and the preference for the dated release note [Inferred]"),
+        ("7", "MA9 R3, MA10 R3, MA4 R2", "MA9 R3: the To be verified bullet replaced by an absence bullet [Not disclosed] naming what was checked and an [Inferred] reading of the overview PDF example; MA10 R3: label To be verified -> Not disclosed; MA4 R2: the 'does not say whether this applies to responses' clause moved out of the Documented bullet into its own [Not disclosed] bullet. The test half stays in R8 (T61)."),
+        ("Q3 (main)", "INV(b) Service Extensions Limitations", "added as [Documented] (SEGS; Service Extensions docs, not Model Armor docs): streaming API responses are ignored; any unsupported operation is allowed without sanitization; only the first item in the list of choices is sanitized; Fail open is not selected by default (an error stops processing); plus the approx. 250 ms latency note. Quotes copied from the verifier's page copy benchtest/scratchpad/verifier/modelarmor/pages/se_google_services_parsed.txt. No new row: block counts unchanged."),
+    ]
+    for r in VF:
+        A("| " + " | ".join(cell(x) for x in r) + " |")
+    A("")
+    A("Optional suggestions not applied: MA3 R5 'high-stakes' wording, GKE Inference Gateway naming, splitting consequence clauses in 7 Documented bullets, INV client-library 'not read' label, Secure Web Proxy R8 note, MA6 R3/R2 wording. They are quality tweaks, not required, and are left for main to accept or decline.")
+    A("")
+    A("Re-checks after the fixes (benchtest/drafts paths):")
+    A("")
+    for r in res1:
+        A(f"- columns --final --expect 10: {r}")
+    for r in res2:
+        A(f"- inventory --headers: {r}")
+    A("- Block counts unchanged: (a) 10, (b) 15, (c) 16, (d) 20, (e) 16 (see the table counts in 7c).")
     open(DR + "modelarmor_changes.md", "w", encoding="utf-8").write("\n".join(L) + "\n")
     print("changes written;", rc1, rc2, res1, res2)
 

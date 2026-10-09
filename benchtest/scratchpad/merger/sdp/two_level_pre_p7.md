@@ -158,8 +158,7 @@ Detail:
 Summary: **Minimum setup:** a Google Cloud project with billing and the DLP API enabled, the DLP User role, Application Default Credentials and the Python client or plain REST. Test on text with labelled character spans per information type, sweep the minimum likelihood, and re-run when detector versions change. **[Inferred]**
 Detail:
 • **Minimum setup:** one Google Cloud project with billing and the DLP API enabled, `roles/dlp.user` for the caller, Application Default Credentials, and either `pip install google-cloud-dlp` or plain REST calls to `content:inspect` in a chosen location, such as `asia-southeast1` (premise: the quickstart, roles, endpoint and library pages above) **[Inferred]**
-• The first gibibyte of content inspected each month per account is free, and billing information is still required: "Sensitive Data Protection requires billing information for all accounts before you can start using the service." (SDP pricing page, read 2026-10-09) **[Documented]**
-• A small labelled test set therefore stays within the free tier (premise: the free first gibibyte per month on the pricing page) **[Inferred]**
+• The first gibibyte of content inspected each month per account is free, so a small labelled test set costs nothing; billing information is still required: "Sensitive Data Protection requires billing information for all accounts before you can start using the service." (SDP pricing page, read 2026-10-09) **[Documented]**
 • A cost warning is on the pricing page: "It is possible for costs to become very high, depending on the quantity of information that you instruct Sensitive Data Protection to scan." (SDP pricing page, read 2026-10-09) **[Documented]**
 • The JSON quickstart gives the steps: create a project, enable billing, run `gcloud services enable dlp.googleapis.com` and grant `roles/dlp.user` (SDP docs, JSON quickstart page, read 2026-10-09) **[Documented]**
 • No client library is required: "Sending JSON to Sensitive Data Protection REST endpoints does not require a client library." (SDP docs, inspecting text page, read 2026-10-09) **[Documented]**
@@ -420,7 +419,7 @@ Detail:
 • https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/ReidentifyContentResponse
 ## Column SD3: Sensitive Data Protection: Sensitive-data masking and de-identification in text
 ### R1
-Summary: **Masks or replaces sensitive text and returns the cleaned item.** The de-identify method redacts, replaces, masks or hashes detected values; one sample also date-shifts a plain string. Bucketing and time extraction are not shown on free text. It returns the item and a change summary. **[Documented]**
+Summary: **Masks or replaces sensitive text and returns the cleaned item.** The de-identify method finds sensitive values, then redacts, replaces, masks or hashes them. Bucketing and date shifting are offered but shown only on table fields. It returns the item and a summary of changes. **[Documented]**
 Detail:
 • Scope: "Sensitive Data Protection can de-identify sensitive data in text content, including text stored in container structures such as tables." (SDP docs, de-identifying page, read 2026-10-09) **[Documented]**
 • Definition: "De-identification is the process of removing identifying information from data. The API detects sensitive data such as personally identifiable information (PII), and then uses a de-identification transformation to mask, delete, or otherwise obscure the data." (SDP docs, de-identifying page, read 2026-10-09) **[Documented]**
@@ -432,8 +431,7 @@ Detail:
   – "Date shifting: Shifts sensitive date values by a random amount of time."
   – "Time extraction: Extracts or preserves specified portions of date and time values."
 • The docs table lists 12 transformation objects: `RedactConfig`, `ReplaceValueConfig`, `ReplaceDictionaryConfig`, `ReplaceWithInfoTypeConfig`, `CharacterMaskConfig`, `CryptoHashConfig`, `CryptoReplaceFfxFpeConfig`, `CryptoDeterministicConfig`, `FixedSizeBucketingConfig`, `BucketingConfig`, `DateShiftConfig` and `TimePartConfig` (SDP docs, transformation reference page, read 2026-10-09) **[Documented]**
-• On the transformation reference page, the time-extraction samples and five of the six date-shift samples use record (table) transformations, and the bucketing section gives only a JSON configuration fragment with no code sample (SDP docs, transformation reference page, read 2026-10-09) **[Documented]**
-• The Go date-shift sample applies `dateShiftConfig` inside an infoType transformation to a plain string item with `DATE` inspection; its comments read `input := "2016-01-10"` and `Will print "2016-01-09"` (SDP docs, transformation reference page, read 2026-10-09) **[Documented]**
+• The date-shift, time-extraction and bucketing code samples on the transformation reference page use record (table) transformations (SDP docs, transformation reference page, read 2026-10-09) **[Documented]**
 • The two reversible crypto transformations (`CryptoReplaceFfxFpeConfig`, `CryptoDeterministicConfig`) are covered in the reversible tokenisation and re-identification column, not here (premise: the footnote "Reversible transformations can be reversed to re-identify the sensitive data using the content.reidentify method." in the transformation table) **[Inferred]**
 • LLM use is named: "Mask sensitive text before external processing: De-identify or redact sensitive tokens from text strings synchronously before passing content to third-party APIs or large language models (LLMs)." (SDP docs, method types page, read 2026-10-09) **[Documented]**
 • Prompt use is named: "Mask confidential data in generative AI prompts: Redact proprietary or regulated information from user prompts before sending content to public or third-party LLMs." (SDP docs, text classification and redaction page, read 2026-10-09) **[Documented]**
@@ -464,7 +462,7 @@ Detail:
 • For text outside Google Cloud the docs say to use `content.inspect` and `content.deidentify` "to classify findings and pseudonymize content without persisting the content outside of your local storage" (SDP docs, inspecting text page, read 2026-10-09) **[Documented]**
 • Record transformations act on tables and can suppress whole records: "you can also instruct Sensitive Data Protection to de-identify data by simply suppressing records when certain suppression conditions evaluate to true." (SDP docs, de-identifying page, read 2026-10-09) **[Documented]**
 ### R4
-Summary: **Detect first, then transform each finding.** The call has three parts: the data, the detection settings and the transformation settings. Detected values are redacted, replaced, masked or hashed, and one sample date-shifts a plain string; bucketing and time extraction are not shown on free text. **[Documented]**
+Summary: **Detect first, then transform each finding.** The call has three parts: the data, the detection settings and the transformation settings. Each detected value is then redacted, replaced, masked or hashed; bucketing and date shifting are shown only on table fields. **[Documented]**
 Detail:
 • Three parts: "The data to inspect", "What to inspect for" and "What to do with the inspection findings", the last being the `DeidentifyConfig` (SDP docs, de-identifying page, read 2026-10-09) **[Documented]**
 • Detection is required: "An InspectConfig object is required in your request, with one exception." The exception is record transformations (SDP docs, de-identifying page, read 2026-10-09) **[Documented]**
@@ -485,9 +483,8 @@ Detail:
 • Hash scope: "Currently, only string and integer values can be hashed." (SDP docs, transformation reference page, read 2026-10-09) **[Documented]**
 • Input-type cells: redact, replace, mask and both bucketing objects read "Any"; the crypto hash reads "Strings or integers"; date shift and time part read "Dates/Times" (SDP docs, transformation reference page, read 2026-10-09) **[Documented]**
 • The API accepts `fixedSizeBucketingConfig`, `bucketingConfig`, `dateShiftConfig` and `timePartConfig` inside an infoType transformation, and describes them for numeric, timestamp and date values; `dateShiftConfig.cryptoKey` "Can only be applied to table items." (API discovery document revision 20261006, schemas PrimitiveTransformation, DateShiftConfig and TimePartConfig) **[Documented]**
-• On the transformation reference page, the time-extraction samples and five of the six date-shift samples use record (table) transformations, and the bucketing section gives only a JSON configuration fragment with no code sample (SDP docs, transformation reference page, read 2026-10-09) **[Documented]**
-• The Go date-shift sample applies `dateShiftConfig` inside an infoType transformation to a plain string item with `DATE` inspection; its comments read `input := "2016-01-10"` and `Will print "2016-01-09"` (SDP docs, transformation reference page, read 2026-10-09) **[Documented]**
-• Whether the bucketing and time-extraction transformations work on infoType findings in free text is not stated (checked the transformation reference; the docs table says Any or Dates/Times) **[To be verified]**
+• The date-shift, time-extraction and bucketing code samples use record (table) transformations and a context field (SDP docs, transformation reference page, read 2026-10-09) **[Documented]**
+• Whether the bucketing, date-shift and time-extraction transformations work on infoType findings in free text is not stated (checked the transformation reference; the docs table says Any or Dates/Times) **[To be verified]**
 • Transformation errors: the client `DeidentifyConfig` has `transformation_error_handling`, "Mode for handling transformation errors. If left" unspecified the default is `ThrowError`; the alternative is `LeaveUntransformed` (`google/cloud/dlp_v2/types/dlp.py@google-cloud-dlp-v3.40.0:5449` "Mode for handling transformation errors. If left") **[Documented: repo googleapis/google-cloud-python@google-cloud-dlp-v3.40.0]**
 • The REST reference documents the same field on `DeidentifyConfig`: "Mode for handling transformation errors. If left unspecified, the default mode is TransformationErrorHandling.ThrowError."; `LeaveUntransformed` "Skips the data without modifying it if the requested transformation would cause an error." (SDP docs, REST deidentifyTemplates page, read 2026-10-09) **[Documented]**
 • The client has all 12 transformation classes and the `DeidentifyConfig` choice of `info_type_transformations`, `record_transformations` or `image_transformations` (`google/cloud/dlp_v2/types/dlp.py@google-cloud-dlp-v3.40.0:5433` "Treat the dataset as free-form text and apply") **[Documented: repo googleapis/google-cloud-python@google-cloud-dlp-v3.40.0]**
@@ -548,7 +545,7 @@ Summary: **Key open questions.** No published residual-leak or accuracy figures,
 Detail:
 • Residual leakage after de-identification across infoTypes and languages, including Singapore NRIC (checked the de-identifying, transformation reference and concepts pages; none published; needs testing)
 • Hash output format: the table says 32-byte hexadecimal and the text says base64 for `CryptoHashConfig` (needs a test)
-• Whether `FixedSizeBucketingConfig`, `BucketingConfig` and `TimePartConfig` apply to infoType findings in free text, and whether date shifting on free text behaves as the Go sample shows (checked the transformation reference; needs testing)
+• Whether `FixedSizeBucketingConfig`, `BucketingConfig`, `DateShiftConfig` and `TimePartConfig` apply to infoType findings in free text, or only to table fields (checked the transformation reference; samples use records; needs testing)
 • How overlapping findings of different infoTypes are transformed when both have a transformation (checked the de-identifying and transformation reference pages; not stated; needs testing)
 • Whether the 3,000-finding cap counts across all messages of a conversation or all strings of a batch, and whether a partial result is returned or only the error message (needs testing)
 • Whether `LeaveUntransformed` behaves as documented on a plain `content.deidentify` request, for example for a date shift applied to an IP address (the REST reference documents the field; needs testing)
@@ -601,8 +598,7 @@ Detail:
 • The content-methods page lists the use case "Re-identify tokenized data on demand: De-tokenize previously pseudonymized tokens in authorized server-side workflows when an authenticated business user requires access to the original plaintext." (SDP docs, concepts-method-types page, read 2026-10-09) **[Documented]**
 • The same page lists "De-identify or redact sensitive tokens from text strings synchronously before passing content to third-party APIs or large language models (LLMs)." as a use of content methods generally (SDP docs, concepts-method-types page, read 2026-10-09) **[Documented]**
 • Tokenising a prompt before the model and re-identifying the reply afterwards is one way to apply this to an LLM flow; no LLM round trip is described on the pages cited for this column, and it needs the model to return the tokens unchanged (premise: content methods accept any string, per the item types in R3) **[Inferred]**
-• Cryptographic hashing is the one-way contrast: "Unlike other types of crypto-based transformations, this type of transformation isn't reversible." (SDP docs, transformations-reference page, read 2026-10-09) **[Documented]**
-• The hash row is covered by the masking and de-identification in text column, not here (premise: a pointer to the owning column, not a source fact) **[Inferred]**
+• Cryptographic hashing is the one-way contrast: "Unlike other types of crypto-based transformations, this type of transformation isn't reversible." (SDP docs, transformations-reference page, read 2026-10-09); its row belongs to the masking and de-identification in text column **[Documented]**
 • The Python client at v3.40.0 exposes `reidentify_content` and `deidentify_content` (google/cloud/dlp_v2/services/dlp_service/client.py@google-cloud-dlp-v3.40.0:1151 and google/cloud/dlp_v2/services/dlp_service/client.py@google-cloud-dlp-v3.40.0:1060) **[Documented: repo googleapis/google-cloud-python@google-cloud-dlp-v3.40.0]**
 ### R2
 Summary: **Keeps raw values away from downstream systems.** Tokens replace detected personal or secret values, repeat consistently for the same key, and can be reversed only with that key. Which values are tokenised depends on the detectors in the request. **[Documented]**
@@ -642,7 +638,7 @@ Detail:
 • For plain strings with no record, the client docstring says the context is ignored: "plaintext would be used as is for encryption." (google/cloud/dlp_v2/types/dlp.py@google-cloud-dlp-v3.40.0:5905) **[Documented: repo googleapis/google-cloud-python@google-cloud-dlp-v3.40.0]**
 • Nothing in the request carries a system prompt or conversation roles, so no prompt context is needed to tokenise or restore a string (premise: the request fields listed above) **[Inferred]**
 ### R4
-Summary: **Standard keyed encryption.** AES-SIV gives base64 tokens, and the docs disagree on whether the length is kept; format-preserving encryption keeps length and a chosen alphabet, though the docs steer users to AES-SIV. Keys can be wrapped by Cloud KMS. **[Documented]**
+Summary: **Standard keyed encryption, not a model.** AES-SIV gives base64 tokens, and the docs disagree on whether the length is kept; format-preserving encryption keeps length and a chosen alphabet, though the docs steer users to AES-SIV. Keys can be wrapped by Cloud KMS. **[Documented]**
 Detail:
 • "Sensitive Data Protection supports three pseudonymization techniques, all of which use cryptographic keys." (SDP docs, pseudonymization page, read 2026-10-09) **[Documented]**
 • AES-SIV: the value is "encrypted using the AES-SIV encryption algorithm with a cryptographic key, encoded using base64, and then prepended with a surrogate annotation, if specified" (SDP docs, pseudonymization page, read 2026-10-09) **[Documented]**
@@ -702,7 +698,7 @@ Detail:
 • The likelihood page describes the trade-off at each level (for example VERY_LIKELY gives "the highest precision at the expense of recall") but names no recommended value for tokenisation (SDP docs, likelihood page, read 2026-10-09) **[Not disclosed]**
 • No published measure of round-trip correctness, token collision rate or throughput (checked the pseudonymization, transformation-reference, quickstart, pricing, limits, SLA and release-note pages) **[Not disclosed]**
 ### R6
-Summary: **Needs a key, a surrogate name and a supported input.** The documented setup uses a Cloud KMS wrapped key in a matching region, a surrogate annotation for free text, and values within AES-SIV or FPE limits. API keys cannot be used with wrapped keys. **[Documented]**
+Summary: **Needs a key, a surrogate name and a supported input.** Requests need a Cloud KMS wrapped key in a matching region, a surrogate annotation for free text, and values within AES-SIV or FPE limits. API keys cannot be used with wrapped keys. **[Documented]**
 Detail:
 • Parent resource: `projects/{projectId}` or `projects/{projectId}/locations/{locationId}`; "Authorization requires the following IAM permission on the specified resource parent: serviceusage.services.use" (SDP docs, REST projects.content.reidentify page, read 2026-10-09) **[Documented]**
 • DLP User (`roles/dlp.user`) is described as "Inspect, Redact, and De-identify Content" and holds `dlp.kms.encrypt` and `serviceusage.services.use` (SDP docs, roles and permissions page, read 2026-10-09) **[Documented]**
@@ -807,8 +803,7 @@ Detail:
 Summary: **Finds and blanks sensitive text and objects in images.** The service reads text in an image with OCR and also detects objects such as passports, photo ID cards, licence plates and faces (Preview). It returns boxes, or the image with opaque rectangles over matches. **[Documented]**
 Detail:
 • "Using infoType detectors, Sensitive Data Protection inspects a base64-encoded image and detects sensitive data within the image." (SDP docs, concepts-image-redaction page, read 2026-10-09) **[Documented]**
-• "Inspection and redaction are two distinct operations:" and the page defines each (SDP docs, concepts-image-redaction page, read 2026-10-09) **[Documented]**
-• One image can therefore be inspected without being changed (premise: inspection is defined separately from redaction and returns only infoTypes and pixel coordinates) **[Inferred]**
+• "Inspection and redaction are two distinct operations:" and the page defines both, so one image can be inspected without being changed (SDP docs, concepts-image-redaction page, read 2026-10-09) **[Documented]**
 • Inspection "returns the detected InfoTypes, along with one or more set of pixel coordinates and dimensions." (SDP docs, concepts-image-redaction page, read 2026-10-09) **[Documented]**
 • Redaction "returns the redacted base64-encoded image in the same image format as the original image." (SDP docs, concepts-image-redaction page, read 2026-10-09) **[Documented]**
 • "In the returned image, the detected sensitive data elements are obscured by an opaque rectangle." (SDP docs, redacting-sensitive-data-images page, read 2026-10-09) **[Documented]**
@@ -835,8 +830,7 @@ Detail:
 • The face detector is not generally available: "This infoType detector is in Preview." (SDP docs, infotypes-reference page, read 2026-10-09) **[Documented]**
 • Preview features fall under the Pre-GA Offerings Terms, which exclude them from any SLA: "Pre-GA Offerings (i) may be changed, suspended or discontinued at any time without prior notice to Customer and (ii) are not covered by any SLA or Google indemnity." (Google Cloud Service Specific Terms, General Service Terms section 5, read 2026-10-09) **[Documented]**
 • The face detector's use therefore carries no SLA (premise: the detector is a Pre-GA Offering because the docs call it Preview) **[Inferred]**
-• "Default infoTypes don't include objects in images." (SDP docs, redacting-sensitive-data-images page, read 2026-10-09) **[Documented]**
-• Object detectors must therefore be requested by name (premise: the sentence above) **[Inferred]**
+• "Default infoTypes don't include objects in images." so object detectors must be requested by name (SDP docs, redacting-sensitive-data-images page, read 2026-10-09) **[Documented]**
 • Documented use case: "Sanitize customer support uploads: Automatically redact account numbers and personal contact details in user-submitted screenshots before tickets are routed to support agents." (SDP docs, concepts-image-redaction page, read 2026-10-09) **[Documented]**
 • Documented use case: "Obfuscate sensitive data in scanned documents: Mask driver's licenses, national identity cards, and credit card numbers from uploaded PDF or image attachments before processing in downstream workflows." (SDP docs, concepts-image-redaction page, read 2026-10-09) **[Documented]**
 • The redaction walkthrough uses an image with a handwritten Social Security number and notes "Sensitive Data Protection also redacted the year." (a match the author did not ask for) (SDP docs, redacting-sensitive-data-images page, read 2026-10-09) **[Documented]**
@@ -878,7 +872,7 @@ Detail:
 • "Note: If you include infoTypes in the imageRedactionConfigs object, Sensitive Data Protection ignores them." when `redactAllText` is set (SDP docs, redacting-sensitive-data-images page, read 2026-10-09) **[Documented]**
 • Colours are RGB values from 0 to 1: "Each value is between 0 and 1, inclusive." (SDP docs, redacting-sensitive-data-images page, read 2026-10-09) **[Documented]**
 • Templates can drive redaction: `deidentifyTemplate` "The request fails if the type of the template's deidentifyConfig is not imageTransformations." (SDP docs, REST projects.image.redact page, read 2026-10-09) **[Documented]**
-• An image transformation holds a colour and one of selected infoTypes, all infoTypes or all text: `selectedInfoTypes`, `allInfoTypes`, `allText` (SDP docs, REST projects.deidentifyTemplates page, read 2026-10-09) **[Documented]**
+• An image transformation holds a colour and one of selected infoTypes, all infoTypes or all text: `selectedInfoTypes`, `allInfoTypes`, `allText` (SDP docs, REST organizations.deidentifyTemplates page, read 2026-10-09) **[Documented]**
 • Image-based rules refine results by position: "Image-based exclusion rules, which let you refine your image inspection results by excluding findings based on their spatial relationships with other findings." (general availability 2026-02-23) (SDP docs, release-notes page, read 2026-10-09) **[Documented]**
 • Such a rule "is silently ignored if the content being inspected is not an image" (docstring) (google/cloud/dlp_v2/types/dlp.py@google-cloud-dlp-v3.40.0:986) **[Documented: repo googleapis/google-cloud-python@google-cloud-dlp-v3.40.0]**
 • Access: `POST https://dlp.googleapis.com/v2/{parent=projects/*}/image:redact` and the location form `{parent=projects/*/locations/*}/image:redact`; regional endpoint form `dlp.REGION.rep.googleapis.com` (SDP docs, REST projects.locations.image.redact page, read 2026-10-09) and (SDP docs, api-endpoints page, read 2026-10-09) **[Documented]**
@@ -988,7 +982,7 @@ Detail:
 • https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.locations.image/redact
 • https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/RedactImageResponse
 • https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/InspectResult
-• https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.deidentifyTemplates
+• https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/organizations.deidentifyTemplates
 • https://docs.cloud.google.com/sensitive-data-protection/limits
 • https://cloud.google.com/sensitive-data-protection/pricing
 • https://cloud.google.com/sensitive-data-protection/sla
@@ -1015,9 +1009,8 @@ Detail:
 • Release notes of 2026-06-23: "Image safety classification infoTypes are now supported in ExcludeByImageFindings and AdjustByImageFindings detection rules." (SDP docs, release-notes page, read 2026-10-09) **[Documented]**
 • The calls are the image inspection and redaction methods of the image detection and redaction column (`inspect_content` and `redact_image` in the Python client) (google/cloud/dlp_v2/services/dlp_service/client.py@google-cloud-dlp-v3.40.0:965) **[Documented: repo googleapis/google-cloud-python@google-cloud-dlp-v3.40.0]**
 ### R2
-Summary: **Three image categories are listed.** They are sexually explicit, sexually suggestive and violent content, each with a short two-sentence description, and the docs describe the use as content moderation. **[Documented]**
+Summary: **Three image categories are listed.** They are sexually explicit, sexually suggestive and violent content, each with a one-sentence definition, and the docs describe the use as content moderation. **[Documented]**
 Detail:
-• Stated use: "You can use this feature to support content moderation and enforce acceptable use policies." (SDP docs, concepts-image-redaction page, read 2026-10-09) **[Documented]**
 • `IMAGE_TYPE/CONTEXT/SEXUALLY_EXPLICIT`: "A finding of this type indicates that an image contains adult content of a sexual nature." (SDP docs, infotypes-reference page, read 2026-10-09) **[Documented]**
 • Same entry: "Adult content might include elements such as nudity, specific contours or shapes of reproductive body parts, sexual activities, or pornographic images including photo-realistic or cartoon in nature." (SDP docs, infotypes-reference page, read 2026-10-09) **[Documented]**
 • `IMAGE_TYPE/CONTEXT/SEXUALLY_SUGGESTIVE`: "A finding of this type indicates that an image contains racy or sexually suggestive content. Racy content might include elements like revealing clothing, lewd or provocative poses or themes, or other sexually suggestive material." (SDP docs, infotypes-reference page, read 2026-10-09) **[Documented]**
@@ -1074,7 +1067,7 @@ Detail:
 • Threshold: findings below `minLikelihood` are dropped, with POSSIBLE as the default; five levels, no numeric score (SDP docs, likelihood page, read 2026-10-09) **[Documented]**
 • A recommended minimum likelihood for image safety, or a calibrated threshold per category (checked the likelihood, image concepts and infoType reference pages) **[Not disclosed]**
 • Worked request or response samples for `IMAGE_TYPE/CONTEXT/*` (checked the inspect guide, redact guide, image concepts page, supported-file-types page and REST references; the infoType names appear only in the reference and release notes) **[Not disclosed]**
-• Precision, recall, false-positive rate or latency for image safety classification, on real-world or AI-generated images (checked the image concepts, supported-file-types, infoType reference and likelihood pages and the release notes) **[Not disclosed]**
+• Precision, recall, false-positive rate or latency for image safety classification, on real-world or AI-generated images **[Not disclosed]**
 ### R6
 Summary: **Image bytes in a supported location; categories must be named.** Image context detectors have to be requested in the configuration, and image scanning runs only in listed locations, including Singapore. Format and size rules are those of other image calls, whose format statements conflict. **[Inferred]**
 Detail:
@@ -1096,8 +1089,7 @@ Summary: **Minimum setup:** a Google Cloud project with billing and the DLP API 
 Detail:
 • **Minimum setup:** a Google Cloud project with billing and the DLP API enabled; Application Default Credentials with DLP User; `pip install google-cloud-dlp`; calls to `inspect_content` with the three `IMAGE_TYPE/CONTEXT/*` infoTypes in `asia-southeast1` or global **[Inferred]**
 • Terms for the bench: the Service Specific Terms let the customer run benchmark tests itself and publish results only with all information needed to replicate them and a reciprocal right for Google (Google Cloud Service Specific Terms, General Service Terms section 7, read 2026-10-09) **[Documented]**
-• The Acceptable Use Policy bars using the services for illegal activity, including child sexual exploitation, and for unlawful purposes including Non-consensual Explicit Imagery (Google Cloud Acceptable Use Policy, read 2026-10-09) **[Documented]**
-• The bench's test images should stay within those limits (premise: the bench is a customer using the service under the Acceptable Use Policy; which explicit or violent test images are acceptable is decided in the bench design) **[Inferred]**
+• Test images must not be illegal content or non-consensual explicit imagery under the Acceptable Use Policy (Google Cloud Acceptable Use Policy, read 2026-10-09) **[Documented]**
 • Labelled set: images that a reviewer marks as sexually explicit, sexually suggestive, violent or gory, or none of these; with ground truth at image level, since the classifier assigns a whole-image category **[Inferred]**
 • Borderline and look-alike images: medical and anatomical drawings, classical art, swimwear and sport, news and war photography, film stills, cartoons and game screenshots, to measure false positives **[Inferred]**
 • Real versus AI-generated images in equal numbers, because the docs warn that results on generated images can differ **[Inferred]**
@@ -1110,7 +1102,7 @@ Detail:
 Summary: **Key open questions.** Accuracy and thresholds per category, what a whole-image finding looks like, how generated images and local norms affect results, and whether text in an image or a missing infoType list changes the outcome.
 Detail:
 • Accuracy, precision and recall of each category on real and AI-generated images (checked the image concepts, infoType reference and release-note pages; none published)
-• How strictly "racy" and "sexually suggestive" are defined, and whether the labels reflect Singapore community norms (the reference gives a two-sentence description only)
+• How strictly "racy" and "sexually suggestive" are defined, and whether the labels reflect Singapore community norms (the reference gives a one-sentence definition only)
 • What a whole-image finding returns for location: a box covering the image, no box, or another value (needs testing)
 • A recommended `minLikelihood` for moderation use, and whether several categories can fire on one image (needs testing)
 • Whether text printed in an image (offensive words, captions) affects the classifier (the docs say it uses pixels and features rather than extracted text; needs testing)

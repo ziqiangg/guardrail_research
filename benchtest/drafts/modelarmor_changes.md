@@ -8,8 +8,8 @@ Reason codes: Tn = triage id; "style n" = Style issues in columns (modelarmor_tr
 
 - Columns: 10 (MA1 to MA10), prefix `Model Armor:`, headers exactly as in the brief. Antivirus scanning and tool-call screening (MCP, Agent Gateway ingress and egress) are inventory only (R017 items 1 and 2); no MA11.
 - Inventory BLOCKS for the P8 config module: (a) 10, (b) 15, (c) 16, (d) 20, (e) 16 data rows (columns 10, 9, 7, 12, 6). The `markers` tuple must include `— (legacy, not in Table 3)`, `— (planned, not in Table 3)` and `— (inventory only, not in Table 3)` (R011). Eight rows carry the inventory-only marker: Antivirus scanning in (a); gcloud, Terraform, Agent Gateway egress, MCP servers, Security Command Center findings, console, monitoring dashboard in (b). The sheet letter is assigned at P8 (R003); the brief's 3f is provisional.
-- Column edits: 247 operations (89 insertions adding 131 bullets, 99 replacements turning 99 bullets into 252, 2 deletions, 21 in-line edits, 36 Summary changes). In the section 2 table identical changes across columns are merged into one row (151 rows).
-- Inventory edits: 64 operations (27 in-cell edits, 35 appends, 2 new rows), including the scope paragraph.
+- Column edits: 293 operations (108 insertions adding 158 bullets, 118 replacements turning 118 bullets into 278, 2 deletions, 23 in-line edits, 42 Summary changes). In the section 2 table identical changes across columns are merged into one row (168 rows).
+- Inventory edits: 69 operations (29 in-cell edits, 38 appends, 2 new rows), including the scope paragraph.
 - Summaries changed: 26 in R1 to R8 and 10 R9 lines (full list in section 2b).
 - Pin: all google-cloud-go code facts now cite tag `modelarmor/v1.3.0` (commit 8a17bee2); see section 1.
 
@@ -17,7 +17,7 @@ Reason codes: Tn = triage id; "style n" = Style issues in columns (modelarmor_tr
 
 | Scope | Before | After | Reason |
 |---|---|---|---|
-| Every google-cloud-go citation (R1 to R7 labels, line references, R9 URLs, inventory cells) | `[Documented: repo googleapis/google-cloud-go@37f936ac]`, `service.pb.go@37f936ac:NNN`, blob URLs with the full sha 37f936ac9d69e173da0ba4123e382c52b2dd741f (HEAD of 2026-10-08) | `[Documented: repo googleapis/google-cloud-go@modelarmor/v1.3.0]`, `service.pb.go@modelarmor/v1.3.0:NNN`, blob URLs `.../blob/modelarmor/v1.3.0/...`. Line numbers were kept for service.pb.go because resolver 1 recorded `git diff` between the tag (8a17bee208939e0166936a59675414439c47e341) and 37f936ac as touching only apiv1/model_armor_client.go, apiv1beta/model_armor_client.go, go.mod and go.sum; CHANGES.md, version.go, LICENSE and both service.pb.go files are therefore identical. The merger confirmed the tag sha with `git ls-remote --tags` (8a17bee2…) but could not re-read the files at the tag: a sparse clone was refused by the permission layer and was not worked around. The INV scope paragraph names both refs. | main ruling (modelarmor P5 r1 Q1); README section 3 rule 8 |
+| Every google-cloud-go citation (R1 to R7 labels, line references, R9 URLs, inventory cells) | `[Documented: repo googleapis/google-cloud-go@37f936ac]`, `service.pb.go@37f936ac:NNN`, blob URLs with the full sha 37f936ac9d69e173da0ba4123e382c52b2dd741f (HEAD of 2026-10-08) | `[Documented: repo googleapis/google-cloud-go@modelarmor/v1.3.0]`, `service.pb.go@modelarmor/v1.3.0:NNN`, blob URLs `.../blob/modelarmor/v1.3.0/...`. Line numbers were kept for service.pb.go because resolver 1 recorded `git diff` between the tag (8a17bee208939e0166936a59675414439c47e341) and 37f936ac as touching only apiv1/model_armor_client.go, apiv1beta/model_armor_client.go, go.mod and go.sum; CHANGES.md, version.go, LICENSE and both service.pb.go files are therefore identical. The merger confirmed the tag sha with `git ls-remote --tags` (8a17bee2…); a sparse clone was refused by the permission layer and was not worked around. The P7 verifier then read every cited file at tag modelarmor/v1.3.0 through raw.githubusercontent.com (R020 ruling 2; review check 4), which closes the caveat. The INV scope paragraph names both refs. | main ruling (modelarmor P5 r1 Q1); README section 3 rule 8 |
 | Hint style in cols_b (MA5, MA6, MA9, MA10) | (overview, read 2026-10-09) (261 occurrences of 'read 2026-10-09') | (overview, 2026-10-09), the form used in cols_a | triage Label hygiene 'Hint style differs' |
 | R7 first Detail bullet in MA1 to MA4, MA7, MA8 | full stop before the label ('... entry. **[Inferred]**') | no full stop before the label (MA5, MA6, MA9, MA10 already complied) | style 10 |
 | Reviewer notes in cols_a, cols_b and the inventory (22 + 29 + 24 lines) | present in the drafts | removed from all finals; kept verbatim in section 6 | README section 4 (finals carry no Reviewer notes) |
@@ -34,7 +34,7 @@ Reason codes: Tn = triage id; "style n" = Style issues in columns (modelarmor_tr
 | Pre-GA Offerings Terms (T85) | no mention | Inventory: the scope paragraph only (GST short name and one sentence); Status cells keep 'Preview'. Columns: three Documented clauses in MA10 R4, one Inferred bullet in MA10 R7, one Documented bullet in MA3 and MA4 R5 (exclusion rules), GST and products URLs in R9. | T85; main ruling on modelarmor P5 r2 Q6; R017 item 5 |
 | Acceptable Use Policy and terms (T86) | a CSAM caution in MA1 R7 and a Singapore bullet in MA10 R7 only | AUP clause [Documented] and 'expressly permitted' [Not disclosed] in R7; R8 question; AUP and GST URLs in R9; for MA1, MA2, MA3, MA4, MA7, MA8, MA10. The resolution names MA1, MA3, MA4, MA7, MA8 (R7) and MA1, MA7, MA8, MA10 (R8); the merger extended it to MA2 (all three rows) and to MA3 and MA4 R8 because the test content is the same (jailbreak, injection, harmful text). The CSAM-AUP bullet went to MA1 and MA2 R7. The user question stays open for CP2 (section 5). | T86; R019; queue 'modelarmor P5 r2 Q1/Q2' |
 | T25 client versions (main ruling) | A R4: 'the C# install line is a pre-release package' | one short R4 bullet (Java 0.40.0 in the sbt line, C# pre-release) in the six A columns; Python, Node.js, PHP, C# tags and the Java pom in INV(b) only, one repo label per fact | T25; main ruling on modelarmor P5 r1 Q2 |
-| T21 Service Extensions (main ruling) | resolver label [Not disclosed] for the GA date of other load balancers and Secure Web Proxy | [To be verified]: the Service Extensions configuration page returned no text through fetch_text.py and was read only through a summarising fetch, which cannot carry a label (CLAUDE.md hard rule 4). The release notes, networking and integrations pages were read raw and are named as checked. | main ruling on modelarmor P5 r1 Q4 |
+| T21 Service Extensions (main ruling, then P7) | resolver label [Not disclosed]; at P6 main ruled [To be verified] because the Service Extensions page was unread (fetch_text.py returned no text) | P6 text: [To be verified]. P7: the verifier read the page verbatim (plain curl plus stdlib HTML parse, ruling R021) and a second page (traffic extensions); neither carries a launch-stage label, so the GA date for other load balancers and Secure Web Proxy is [Not disclosed] naming what was checked; process language removed from the finals. | main ruling on modelarmor P5 r1 Q4; R021; P7 fix 4 |
 | Inventory title and sheet letter | '(draft for sheet 3x)' | '(final, sheet 3x; the sheet letter is assigned at P8)' | R003 |
 | Inventory row count | (a) 10, (b) 15, (c) 16, (d) 18, (e) 16 | (d) 20: rows us-east7 and global added (FAR-only values, other cells Not disclosed) | T77, T83; main ruling on modelarmor P2 cols_a Q1 |
 
@@ -47,6 +47,7 @@ Rows with several columns in the first cell mean the same change was made in eac
 | Location | Kind | Before (shortened) | After (shortened) | Reason |
 |---|---|---|---|---|
 | MA1 R1 Summary | summary | Input-level responsible AI safety filtering. Model Armor screens a user prompt for hate speech, harassment, sexually explicit and dangerous content at a confidence level set per category. A CSAM check also runs and cannot be turned off. The calling service enforces any block. [Documented] | Input-level responsible AI safety filtering. Model Armor screens a user prompt for hate speech, harassment, sexually explicit and dangerous content at a per-category confidence level. A CSAM check is on by default but unavailable in limited-support locations with residency enforced. The caller enforces any block. [Documented] | T9 (CSAM caveat in Summary) |
+| MA1, MA2 R1 | insert | (none) | • With data residency enforcement on, the feature availability table lists CSAM support as "No" in all seven … | P7 fix 1 (Summary entailment) |
 | MA1, MA2 R2 | replace | • Docs state the CSAM filter "cannot be turned off" (overview) but the feature table for templates with data … | • Overview: the CSAM filter "is applied by default and cannot be turned off" (overview, 2026-10-09) [Document… (+3 more) | T9 + hygiene (two sources on opposite sides -> separate bullets) |
 | MA1, MA2, MA3, MA4 R2 | insert | (none) | • The feature table shows multi-language detection as "No" in all seven limited-support locations when data r… (+1 more) | T33 |
 | MA1, MA2 R2 | insert | (none) | • The overview and the blog place "topicality" inside the sensitive data protection filter ("sensitive data p… (+1 more) | T35 |
@@ -57,6 +58,9 @@ Rows with several columns in the first cell mean the same change was made in eac
 | MA1, MA2, MA3, MA4, MA7, MA8 R4 | replace | • Client libraries exist for C#, Go, Java, Node.js, PHP and Python; the C# install line is a pre-release pack… | • Client libraries exist for C#, Go, Java, Node.js, PHP and Python; the page shows Java 0.40.0 in its sbt lin… | T25 (main ruling: versions of the other libraries in the inventory only; one short R4 bullet) |
 | MA1, MA2, MA3, MA4, MA7, MA8 R4 | replace | • Release status of routes: Agent Platform GA (release note 2025-12-03), Agent Gateway GA (2026-06-24), Gemin… | • Release status of routes (release notes unless stated, 2026-10-09) [Documented] (+8 more) | hygiene (one bullet, seven facts -> parent with sub-bullets) + T22 (MCP pair) |
 | MA1, MA2, MA3, MA4, MA7, MA8 R4 | replace | • Apigee policies `SanitizeUserPrompt` and `SanitizeModelResponse` and load-balancer Service Extensions other… | • Apigee policies `SanitizeUserPrompt` and `SanitizeModelResponse`: Public Preview on 2025-05-22 and Generall… (+2 more) | T20 + T21 (T21 label To be verified per main: summarising fetch cannot carry a label) |
+| MA1, MA2, MA3, MA4, MA7, MA8 R4 | replace | • A GA date for other load balancers and for Secure Web Proxy (checked the release notes, the networking page… | • A GA date for load balancers other than GKE and for Secure Web Proxy (checked the release notes, the networ… | P7 fix 4 (T21: page read verbatim by curl + stdlib HTML parse, R021; process language removed; label To be verified -> Not disclosed) |
+| MA1, MA2, MA3, MA4, MA7, MA8 R4 | insert | (none) | • The Service Extensions guide for a Model Armor traffic extension says "Consider that Model Armor has a late… | P7 fix 5 (latency figure; main ruling Q2) |
+| MA1, MA2, MA3, MA4, MA7, MA8 R4 | replace | • The floor settings page still labels the Google Cloud MCP servers integration "(Preview)" (floor settings p… | • The floor settings page still labels the Google Cloud MCP servers integration "(Preview)" (floor settings p… (+1 more) | P7 fix 6 (judgement labelled Documented -> split) |
 | MA1, MA2 R5 | insert | (none) | • Default level, floor settings console: "If you don't specify a confidence level, it defaults to Medium and … | T2 |
 | MA1, MA2 R5 | replace | • The two default statements differ and no page says which applies to an API call that omits the level [To be… | • The three default statements differ (High on the templates page; unspecified equals LOW_AND_ABOVE or "a rea… | T2 / T1 (documentation half; effective default stays open) |
 | MA1, MA2 R5 | replace | • The false-positive risk ratings in the overview table (very low, moderate, high) are qualitative; no measur… | • The overview table rates the false-positive risk per level in words (very low, moderate, high) (overview, 2… | hygiene ([Inferred] used for an absence; the absence is already the next [Not disclosed] bullet) |
@@ -68,10 +72,13 @@ Rows with several columns in the first cell mean the same change was made in eac
 | MA1, MA2 R7 | insert | (none) | • The Acceptable Use Policy lists "child sexual exploitation, child abuse" among illegal activity (Google Clo… | T86 (CSAM caution; MA2 added for consistency with MA1) |
 | MA1, MA2 R8 | edit | High (templates page console note) or the same as Low and above (REST reference); needs testing | High (templates page console note), Medium and above (floor settings page) or the same as Low and above (REST… | T1 / T2 (R8 wording follows the three documented statements) |
 | MA1, MA2, MA3, MA4, MA7, MA8, MA10 R8 | insert | (none) | • Whether the Acceptable Use Policy testing clause covers detection benchmarks (checked the Acceptable Use Po… | T86 (class c; user question open at CP2) |
+| MA1, MA2, MA3, MA4, MA7, MA8 R8 | replace | • Latency per call: no figure published; the best practices page says "Enabling unnecessary detectors can inc… | • Latency per call: the only figure found is "approximately 250 milliseconds" in the Service Extensions guide… | P7 fix 5 (R8 latency claim contradicted by an official page) |
 | MA1, MA2, MA3, MA4, MA7, MA8 R9 | insert | (none) | • https://docs.cloud.google.com/apigee/docs/release-notes | T20 (Apigee release notes) |
 | MA1, MA2, MA7, MA8 R9 | insert | (none) | • https://cloud.google.com/terms/aup (+1 more) | T86 (terms URLs) |
 | MA1, MA2, MA3, MA4 R9 | insert | (none) | • https://cloud.google.com/blog/products/identity-security/how-model-armor-can-help-protect-your-ai-apps | hygiene (R9 omits the blog URL that the absence bullets cite) |
 | MA1 R9 Summary | summary | Model Armor documentation pages on docs.cloud.google.com, the Model Armor product page, the Security Command Center pricing page and the Apigee policy reference. | Model Armor documentation pages on docs.cloud.google.com, the product page, the Security Command Center pricing page, the Google Cloud blog, the Apigee policy reference and release notes, and Google's terms pages. | R9 Summary updated for added URLs |
+| MA1, MA2, MA3, MA4, MA7, MA8 R9 | insert | (none) | • https://docs.cloud.google.com/service-extensions/docs/configure-extensions-to-google-services (+1 more) | P7 fix 4 / 5 (Service Extensions guides) |
+| MA1 R9 Summary | summary | Model Armor documentation pages on docs.cloud.google.com, the product page, the Security Command Center pricing page, the Google Cloud blog, the Apigee policy reference and release notes, and Google's terms pages. | Model Armor documentation pages on docs.cloud.google.com, the product page, the Security Command Center pricing page, the Google Cloud blog, the Apigee policy reference and release notes, Service Extensions guides, and Google's terms pages. | P7 fix 5 (R9 Summary mentions the Service Extensions guides) |
 | MA2 R1 Summary | summary | Output-level responsible AI safety filtering. Model Armor screens a model response for hate speech, harassment, sexually explicit and dangerous content at a confidence level set per category. A CSAM check also runs and cannot be turned off. The calling service enforces any block. [Documented] | Output-level responsible AI safety filtering. Model Armor screens a model response for hate speech, harassment, sexually explicit and dangerous content at a per-category confidence level. A CSAM check is on by default but unavailable in limited-support locations with residency enforced. The caller enforces any block. [Documented] | T9 (CSAM caveat in Summary) |
 | MA2 R2 | replace | • Hallucination, grounding or factuality checks on responses: none described (checked the overview filter sec… | • Hallucination, grounding or factuality filter or setting: none described (checked the overview filter secti… | T36 |
 | MA2 R2 | insert | (none) | • The product page lists "providing incorrect policy information" and "generating inaccurate, offensive, or o… (+1 more) | T36 |
@@ -84,6 +91,7 @@ Rows with several columns in the first cell mean the same change was made in eac
 | MA2 R8 | replace | • Whether any filter uses the optional `userPrompt` field of the response request (the Go client documents it… | • Whether any filter uses the optional `userPrompt` field of the response request (the REST method reference … | T16 / T17 (R8 wording; the Go-client-only claim is wrong) |
 | MA2, MA4, MA8 R9 | insert | (none) | • https://docs.cloud.google.com/model-armor/reference/rest/v1/projects.locations.templates/sanitizeModelRespo… | T16 (method page URL) |
 | MA2 R9 Summary | summary | Model Armor documentation pages on docs.cloud.google.com, the Model Armor product page, the Security Command Center pricing page and the Apigee policy reference. | Model Armor documentation pages on docs.cloud.google.com, the product page, the pricing page, the blog, the Apigee policy reference and release notes, the Go client source and Google's terms pages. | R9 Summary updated for added URLs |
+| MA2, MA8 R9 Summary | summary | Model Armor documentation pages on docs.cloud.google.com, the product page, the pricing page, the blog, the Apigee policy reference and release notes, the Go client source and Google's terms pages. | Model Armor documentation pages on docs.cloud.google.com, the product page, the pricing page, the blog, the Apigee policy reference and release notes, the Go client source and Service Extensions guides and Google's terms pages. | P7 fix 5 (R9 Summary mentions the Service Extensions guides) |
 | MA3 R2 | replace | • Release note 2026-10-10 (entry dated 2026-10-10 present on 2026-10-09): enhanced prompt injection and jailb… | • Release note dated 2026-10-09: "Model Armor includes enhanced prompt injection and jailbreak protection for… (+1 more) | T78 (CORRECTION: entry is dated 2026-10-09 on the live page) |
 | MA3 R3 | replace | • Whether the filter runs on text read out of images by OCR: the image examples show only `csam` and `sdp` re… | • The REST modality reference says the text content of an image is sanitized "depending on the filter configu… (+1 more) | T11 |
 | MA3, MA4 R4 | replace | • The Go client at v1.3.0 has no field for filter versions or exclusion-rule settings (grep of modelarmor/api… | • The Go v1 `FilterConfig` has four fields (`RaiSettings`, `SdpSettings`, `PiAndJailbreakFilterSettings`, `Ma… (+2 more) | T18 + pin change (tag modelarmor/v1.3.0, main ruling) + hygiene (absence from a code grep cited with both packages) |
@@ -98,11 +106,14 @@ Rows with several columns in the first cell mean the same change was made in eac
 | MA3, MA4 R9 | insert | (none) | • https://cloud.google.com/terms/service-terms | T85 / T86 (General Service Terms) |
 | MA3, MA4 R9 | insert | (none) | • https://cloud.google.com/terms/aup | T86 (terms URLs) |
 | MA3, MA4 R9 Summary | summary | Model Armor documentation pages on docs.cloud.google.com, the Model Armor product page, the Security Command Center pricing page, the Apigee policy reference and the Google Cloud Go client source. | Model Armor documentation pages on docs.cloud.google.com, the product page, the pricing page, the blog, the Apigee policy reference and release notes, Go and Java client sources and Google's terms pages. | R9 Summary updated for added URLs |
+| MA3, MA4 R9 Summary | summary | Model Armor documentation pages on docs.cloud.google.com, the product page, the pricing page, the blog, the Apigee policy reference and release notes, Go and Java client sources and Google's terms pages. | Model Armor documentation pages on docs.cloud.google.com, the product page, the pricing page, the blog, the Apigee policy reference and release notes, Go and Java client sources and Service Extensions guides and Google's terms pages. | P7 fix 5 (R9 Summary mentions the Service Extensions guides) |
 | MA4 R1 Summary | summary | Output-level prompt injection and jailbreak detection. The overview, a sample response output and the Apigee response policy all show the filter running on model responses. The templates page describes it for prompts only. The calling service enforces any block. [Documented] | Output-level prompt injection and jailbreak detection. The overview says the filter scans prompts and responses, and a sample response result shows it running. The templates page describes it for prompts only. The calling service enforces any block. [Documented] | T13 (Summary label stays Documented: it rests on the overview sentence and the sample result) |
 | MA4 R1 | replace | • Taken together, the overview, the sample output and the Apigee variables show the filter runs on responses;… | • The overview sentence is a direct statement; the templates page wording "in a prompt" is narrower and the d… | T13 |
 | MA4 R2 | replace | • Release note 2026-10-10 (entry dated 2026-10-10 present on 2026-10-09): enhanced prompt injection and jailb… | • Release note dated 2026-10-09: "Model Armor includes enhanced prompt injection and jailbreak protection for… (+1 more) | T78 (CORRECTION) |
 | MA4 R2 Summary | summary | The docs name MCP tool results as a target for injection by malicious tool authors | The docs name MCP tool execution errors as a target for injection by malicious tool authors | style 3a (Summary not entailed: Detail quotes tool execution errors) |
 | MA4 R2 | edit | templates page detection list, REST `FilterConfig`, product page features and blog capabilities) | templates page detection list, REST `FilterConfig`, product page features, best practices and blog capabiliti… | T36 (best practices added to the checked list) |
+| MA4 R2 | edit | ; the note does not say whether this applies to responses |  | P7 fix 7 (absence split out of a Documented bullet) |
+| MA4 R2 | insert | (none) | • Whether the 2025-09-23 detection improvements apply to responses is not stated (checked the release note) [… | P7 fix 7 |
 | MA4 R5 Summary | summary | Match flag plus a confidence level. The result gives an execution state, a match state and a confidence level. Google advises Medium in one place and High in another as the setting. [Documented] | Match flag plus a confidence level field. The result type has an execution state, a match state and a confidence level, though the docs' response example shows no level. Google's pages advise Medium or High as the setting. [Documented] | T4 (Summary; MA4 response example shows no confidence field) |
 | MA4 R8 | replace | • Whether the optional `userPrompt` field of the response request changes any result (the Go client documents… | • Whether the optional `userPrompt` field of the response request changes any result (the REST method referen… | T16 / T17 (R8 wording; the Go-client-only claim is wrong) |
 | MA5 R1 | replace | • Sensitive Data Protection is a separate Google Cloud service that Model Armor calls; the infoType catalogue… | • The overview links to the Sensitive Data Protection infoTypes reference, match likelihood and overview page… (+1 more) | T56 |
@@ -123,6 +134,7 @@ Rows with several columns in the first cell mean the same change was made in eac
 | MA5, MA6 R6 | insert | (none) | • Apigee route: "Model Armor has token limits for processing prompts and responses, which vary by filter. Con… (+1 more) | T53 |
 | MA5 R6 | replace | • Real-time streaming mode "supports unlimited tokens", but streaming does not de-identify (quotas page and s… | • In real-time streaming mode Model Armor "supports unlimited tokens"; buffered streaming mode keeps the toke… (+2 more) | T54 |
 | MA5 R6 | insert | (none) | • A floor setting's `filterConfig` is the same `FilterConfig` type as a template's, which includes `sdpSettin… (+3 more) | T50 |
+| MA5, MA6 R6 | insert | (none) | • Over the 130,000-token limit a filter that finds a match returns MATCH_FOUND; otherwise it returns EXECUTIO… | P7 fix 2 (Summary entailment) |
 | MA5 R7 | replace | • Singapore (asia-southeast1) lists Sensitive Data Protection as supported, but basic mode names only US nati… | • Singapore (asia-southeast1) lists Sensitive Data Protection as supported, but basic mode names only US nati… (+2 more) | T55 (CORRECTION: built-in infoType exists; no custom detector needed) |
 | MA5 R8 | edit | (needs testing; checked the overview and templates page, not stated) | (needs testing; checked the overview, templates page, REST references, sanitize page and the Agent Platform a… | T49 |
 | MA5 R8 | replace | • Whether floor settings accept an advanced inspect template given the same-location rule and the global floo… | • Which location an advanced inspect template must have when it is used from a floor setting at locations/glo… | T50 |
@@ -157,6 +169,7 @@ Rows with several columns in the first cell mean the same change was made in eac
 | MA7, MA8 R8 | replace | • Whether `us-east7` and `global` rows in the feature availability table are real locations for templates, gi… | • Whether us-east7 and global in the feature availability table are locations where a template can be created… | T77 |
 | MA7 R8 | replace | • Whether input-side use is intended, given the overview frames the filter around returned URLs | • Whether input-side use is intended (the overview gives both a URL inside a PDF and a returned link as examp… | T37 (R8 wording) |
 | MA7 R9 Summary | summary | Model Armor documentation pages on docs.cloud.google.com, the Model Armor product page, the Security Command Center pricing page, the Google Cloud blog and the Apigee policy reference. | Model Armor documentation pages on docs.cloud.google.com, the product page, the pricing page, the Google Cloud blog, the Apigee policy reference and release notes, and Google's terms pages. | R9 Summary updated for added URLs |
+| MA7 R9 Summary | summary | Model Armor documentation pages on docs.cloud.google.com, the product page, the pricing page, the Google Cloud blog, the Apigee policy reference and release notes, and Google's terms pages. | Model Armor documentation pages on docs.cloud.google.com, the product page, the pricing page, the Google Cloud blog, the Apigee policy reference and release notes, Service Extensions guides, and Google's terms pages. | P7 fix 5 (R9 Summary mentions the Service Extensions guides) |
 | MA8 R2 | replace | • Whether URLs inside generated images are extracted and checked (response-side image examples are not shown;… | • The REST modality reference says the text content of an image is sanitized "depending on the filter configu… (+1 more) | T11 |
 | MA8 R2 | replace | • Malicious files and malware are a separate antivirus capability: the product page and the region tables men… | • The product page says Model Armor "Detects malicious files, malware, and unsafe URLs within AI prompts and … (+1 more) | T57 + hygiene |
 | MA8 R8 | replace | • Whether the Go client's optional `userPrompt` field changes the result for this filter (the docs pages do n… | • Whether the optional `userPrompt` field of the response request changes the result for this filter (the RES… | T16 / T17 (R8 wording; the Go-client-only claim is wrong) |
@@ -167,7 +180,9 @@ Rows with several columns in the first cell mean the same change was made in eac
 | MA9 R2 | insert | (none) | • No page reconciles the three statements on embedded images (checked the overview, integrations page, Gemini… (+1 more) | T58 |
 | MA9 R3 Summary | summary | A base64 file in the prompt field. The file goes in a byte item with its type set by hand. The schema lets a response carry a file too, but the docs show no response-side example. The template modality must include text. [Documented] | A base64 file in the prompt field. The file goes in a data item with its file type set by hand. The schema lets a response carry a file too, but the docs show no response-side example. The template modality must include text. [Not disclosed] | style 2 + 5 (absence in a [Documented] Summary; code term 'byte item' removed) |
 | MA9 R3 | insert | (none) | • Naming: the docs call the Vertex AI route "Gemini Enterprise Agent Platform" (short form Agent Platform bel… | T84 |
+| MA9 R3 | replace | • Whether a document in a model response is accepted, and how an LLM would produce one, is not stated; the ov… | • Whether a document can be sent in a model response is not stated (checked the overview, sanitize page, temp… (+1 more) | P7 fix 7 (absence claim labelled To be verified; test half stays in R8, T61) |
 | MA9 R4 Summary | summary | Text extraction, then the ordinary filters. Extraction runs inside the managed service on the direct API and Gemini Enterprise routes, and Gemini Enterprise discards a violating file whole. The extractor and its handling of scans and layout are not described. [Documented] | Text extraction, then the ordinary filters. Gemini Enterprise discards a violating file whole. The extractor and its handling of scans and layout are not described. [Not disclosed] | style 1 + 2 + 3g (Summary stated 'Extraction runs inside the managed service' with no Detail bullet; absence in a [Documented] Summary) |
+| MA9 R4 | insert | (none) | • Overview: "Model Armor can screen the following types of documents for safety, prompt injection and jailbre… (+1 more) | P7 fix 3 (Summary entailment) |
 | MA9, MA10 R5 Summary | summary | No score or accuracy figure is published. |  | style 2 (absence in a [Documented] Summary) |
 | MA9 R5 | replace | • Which response field returns the file label is not shown (checked the SanitizationResult reference and sani… | • The file label is probably returned as that container name. Premise: both fields are described as identifyi… (+1 more) | T68 (the container-name quote is already the 'Finding containers' bullet above, so it is not repeated) |
 | MA9 R5 | replace | • Token overflow in extracted text: the filter returns EXECUTION_SKIPPED with "Detection skipped as token lim… | • Token overflow in extracted text: a filter that finds a match returns MATCH_FOUND; otherwise it returns EXE… | T52 (CORRECTION) |
@@ -185,8 +200,10 @@ Rows with several columns in the first cell mean the same change was made in eac
 | MA10 R3 Summary | summary | One base64 image in the prompt field. The image goes in a byte item typed IMAGE, in a template with image modality, at a us or eu endpoint. Docs say responses are screened too but show no response example. Text-plus-image requests are unsupported. [Documented] | One base64 image in the prompt field. The image goes in a data item of image type, in a template with image modality, at a us or eu endpoint. Docs say responses are screened too but show no response example. Text-plus-image requests are unsupported. [Not disclosed] | style 2 + 5 (absence in a [Documented] Summary; enum value 'IMAGE' removed) |
 | MA10 R3 | insert | (none) | • No page reconciles the two lists (checked the integrations page, the Gemini Enterprise page and release not… | T60 |
 | MA10 R3 | insert | (none) | • Naming: the docs call the Vertex AI route "Gemini Enterprise Agent Platform" (short form Agent Platform bel… | T84 (first mention of the route in this column is R3) |
+| MA10 R3 | edit | [To be verified] | [Not disclosed] | P7 fix 7 (absence claim) |
 | MA10 R4 Summary | summary | [Documented] | [Not disclosed] | style 1 + 2 (Summary states 'The OCR engine is not disclosed') |
 | MA10 R4 | insert | (none) | • Preview features are Pre-GA Offerings: "PRE-GA OFFERINGS ARE PROVIDED “AS IS” WITHOUT ANY EXPRESS OR IMPLIE… (+2 more) | T85 |
+| MA10 R4 | insert | (none) | • Method 2: "Optical character recognition (OCR): Screens the text within images." (overview, 2026-10-09) [Do… (+1 more) | P7 fix 3 (Summary entailment) |
 | MA10 R5 | insert | (none) | • In the Sensitive Data Protection API, `includeFindings` is a field of the image redact request ("Whether th… (+1 more) | T71 |
 | MA10 R5 | replace | • Source conflict on box shape (2): the sanitize page example shows a single `boundingBox` object with top 16… | • The pinned Go library types `BoundingBoxes` as a list of boxes with `Top`, `Left`, `Width` and `Height` (mo… (+2 more) | T70 |
 | MA10 R6 Summary | summary | The type must be IMAGE and the format | The data type must be image and the format | style 5 (code term in Summary) |
@@ -216,6 +233,7 @@ Of these, the following changed in substance (not only a label or a deleted clau
 | Label hygiene: cells in the inventory mixing two label types (INV(a) 11, (b) 8, (c) 1, (d) 2, (e) 1) | only where a resolution touched the cell (the touched cells now keep one label per fact) | a global rewrite was not asked for and would change cells no resolver re-read. |
 | Settled items table (Apigee flow-variable bullets, Terraform registry, sheet letter, block (d) union, retirement date, token-limit history, v3 date, SKIP_DETECTION history, docs host move) | applied as settled | queue rulings and R003. |
 | T76 optional INV(c) 'modalities' append | not applied | the resolution says 'only if the merger wants the premise'; the premise is in MA9 and MA10 R6. |
+| Style 4 pairs made identical at merge (P7 log): MA1 R5 = MA2 R5 and MA2 R9 = MA8 R9 | kept | verifier judgement: acceptable; each Summary is entailed by its own Detail (MA2 R5 carries the three default statements), the facts are the same for both directions, and R002 asks for separate columns, not different wording. All identical pairs in the final: R3 MA1 = MA3; R4 MA1 = MA2, MA3 = MA4, MA7 = MA8; R5 MA1 = MA2, MA7 = MA8; R9 MA2 = MA8, MA3 = MA4. |
 | T85 status-cell suffix 'Pre-GA Offerings Terms apply' on INV Preview rows | not applied | main ruling: Pre-GA terms in the INV intro sentence only; Preview rows keep Status 'Preview'. |
 
 ## 3. Inventory changes (modelarmor_inventory.md to modelarmor_inventory_final.md)
@@ -228,6 +246,7 @@ Of these, the following changed in substance (not only a label or a deleted clau
 | Scope paragraph (not parsed) | edit | Google Cloud client library facts are pinned to googleapis/google-cloud-go at modelarmor/v1.3.0 (shallow clon… | Google Cloud client library facts are pinned to googleapis/google-cloud-go at tag modelarmor/v1.3.0 (commit 8a17bee2, module 1.3.0; the spa… | pin change to the release tag (main ruling on modelarmor P5 r1 Q1; README section 3 rule 8) |
 | Scope paragraph (not parsed) | edit | Status rule S: where a docs page or release note states GA or Preview, the cell says so [Documented]; where n… | Status rule S: where a docs page or release note states GA or Preview, the cell says so [Documented]; where no page states GA and the page … | T23 + main ruling (banner-free rule) |
 | Scope paragraph (not parsed) | edit | APSAMP = apigee-samples llm-security-v2 README. | APSAMP = apigee-samples llm-security-v2 README; SCCTF = https://docs.cloud.google.com/security-command-center/docs/terraform (SCC docs, not… | T24 (SCCTF short name) + T85 (Pre-GA terms in the intro only, main ruling) |
+| Scope paragraph (not parsed) | edit | GST = https://cloud.google.com/terms/service-terms. | GST ...; SEGS ...; SETE ... | P7 fix 4 (short names) |
 
 ### (a) Filters and detectors
 
@@ -284,6 +303,10 @@ Of these, the following changed in substance (not only a label or a deleted clau
 | (b) Service Extensions on Cloud Load Balancing / Limitations | append | (none) | NET says Model Armor instructs the networking service to 'allow, block, or modify the traffic' [Documented] (NET). Whether Service Extensio… | T26 + T53 |
 | (b) Security Command Center findings from Model A / Limitations | append | (none) | AGW says violations detected through Agent Gateway are 'also surfaced in Security Command Center' [Documented] (AGW). SCCF lists no per-pro… | T81 |
 | (b) Security Command Center findings from Model A / Source URL | append | (none) | https://docs.cloud.google.com/model-armor/model-armor-agent-gateway-integration | T81 |
+| (b) Service Extensions on Cloud Load Balancing / Status (GA/Preview) | edit | GA date for other load balancers and Secure Web Proxy [To be verified] (checked RN, NET and INT; the Service … | GA date for other load balancers and Secure Web Proxy [Not disclosed] (checked RN, NET, INT, SEGS and SETE; neither Service Extensions page… | P7 fix 4 (T21, R021) |
+| (b) Service Extensions on Cloud Load Balancing / Source URL | append | (none) | https://docs.cloud.google.com/service-extensions/docs/configure-extensions-to-google-services | P7 fix 4 |
+| (b) Service Extensions on Cloud Load Balancing / Source URL | append | (none) | https://docs.cloud.google.com/service-extensions/docs/configure-traffic-extensions | P7 fix 4 |
+| (b) Service Extensions on Cloud Load Balancing / Limitations | append | (none) | SEGS, for GKE and OpenAI API endpoints: 'Streaming API responses aren't supported for any API. Model Armor sanitizes the non-streaming resp… | main ruling Q3 (route limits) + Q2 (latency), P7 |
 
 ### (c) Template and floor-setting parameters
 
@@ -335,7 +358,7 @@ Both sources are kept with their own label; the chosen text is what the finals s
 | Excel type spelling XLYM (REST, Go comment) against XLTM (overview, release note) | Both spellings [Documented]; 'XLYM is probably a typo' [Inferred] (premise: overview and release note say XLTM; REST text and Go comment share a source comment). | T67 |
 | Embedded images in files: overview 'not screened', integrations page 'not screened' (Gemini Enterprise), Gemini Enterprise page 'screened' | Three [Documented] bullets (MA10 R2 renumbered to match MA9 R2) and 'no page reconciles' [Not disclosed]; the Go container-name comment adds a schema fact in MA9. INV(a) OCR Limit carries all three. Test stays T59. | T58, T59 |
 | Gemini Enterprise modalities: integrations table 'Text, documents' against the Gemini Enterprise page (images) | Two [Documented] bullets and 'no page reconciles' [Not disclosed] in MA10 R3 and INV(b). | T60 |
-| MCP integration status: release note 2026-04-22 GA against the floor-settings link '(Preview)' | Both [Documented]. The dated release note is used because the page label is undated; that preference is [Inferred] in the inventory and stated in the six A R4 bullets. MA6 R4 already held the pair. | T22; queue rule (dated release note beats undated label) |
+| MCP integration status: release note 2026-04-22 GA against the floor-settings link '(Preview)' | Both [Documented]. The dated release note is used because the page label is undated; that preference is [Inferred] in the inventory and, after P7 fix 6, in its own [Inferred] bullet in the six A R4 sections. MA6 R4 already held the pair. | T22; queue rule (dated release note beats undated label) |
 | Agent Gateway 'block and redact' against 'allows or blocks'; networking page 'allow, block, or modify' | Quotes [Documented]; whether de-identified text is forwarded [Not disclosed] in MA5, MA6 R4 and INV(b) (ingress, egress, Service Extensions). Only Apigee documents extracting redacted data. | T26 |
 | Apigee policies GA or Preview (no label on the Model Armor pages) | Apigee release notes: Public Preview 2025-05-22, GA 2025-09-04 [Documented] (Apigee docs, not Model Armor docs); open question removed from R8 of MA6 and from INV(b). | T20 |
 | Docs describe fields the Go v1 client lacks | Go (labelled with the tag) and Java v1 (labelled v1.93.0) absences stated as repo facts, not as Not disclosed; 'the clients lag the documented API' is [Inferred]. Exclusion rules: usage on two pages, REST list without the field and its footer date [Documented]; REST page lag [Inferred]; live acceptance [To be verified]. | T18, T19 |
@@ -370,7 +393,7 @@ Class: a = answerable from official docs or code; b = needs testing or vendor ac
 | T18 | Docs describe filterVersionSelector, filterRuleSettings, dataResidencyCompliant and the GOOGLE_MCP_… | a | M | PARTLY RESOLVED | applied: MA3, MA4 R4 (Go and Java labelled, lag Inferred), R9; INV(b), INV(c) |
 | T19 | Exclusion rules schema gap (C11): the exclusion-rules page shows filterConfig.filterRuleSettings (r… | a | M | PARTLY RESOLVED | applied: MA3, MA4 R5 (four bullets), INV(c); live acceptance To be verified (R8 MA3, MA4) |
 | T20 | Apigee SanitizeUserPrompt and SanitizeModelResponse policies: GA or Preview. No label on the Apigee… | a | M | RESOLVED | applied: A R4 x6, MA5, MA6 R4, INV(b); MA6 R8 bullet deleted |
-| T21 | GA date for Service Extensions on load balancers other than GKE and for Secure Web Proxy | a | L | OPEN (To be verified, main ruling) | A R4 x6 and INV(b) Service Extensions: GA date for other load balancers and Secure Web Proxy; Service Extensions page unread (verbatim retry is a P7 option) |
+| T21 | GA date for Service Extensions on load balancers other than GKE and for Secure Web Proxy | a | L | OPEN (Not disclosed after P7 read, R021) | A R4 x6 and INV(b) Service Extensions: GA date for other load balancers and Secure Web Proxy; both Service Extensions guides read, no stage label |
 | T22 | MCP integration status: release note 2026-04-22 says GA; the floor-settings page links it as '(Prev… | a | M | RESOLVED | applied: A R4 x6 (pair), INV(b) MCP, INV(c) floor inline |
 | T23 | Inventory status rule S: 21 cells carry 'GA [Inferred] (status rule S)' (INV(a) 7 rows, INV(b) dire… | a | M | PARTLY RESOLVED | applied: INV scope paragraph (rule S premise, banner-free rule); 21 GA [Inferred] cells kept; Terraform, gcloud, console, SCC findings stay Not disclosed |
 | T24 | Terraform resource page for Model Armor templates and floor settings not read; only release note 20… | a | M | PARTLY RESOLVED | applied: INV(b) Terraform row (names Documented, stage Not disclosed, arguments To be verified) |
@@ -437,6 +460,8 @@ Class: a = answerable from official docs or code; b = needs testing or vendor ac
 | T85 | Pre-GA Offerings Terms for Preview features (image screening, modalities, exclusion rules, LangChai… | c | M | RESOLVED (R017 item 5) | applied: MA10 R4, R7; MA3, MA4 R5; INV scope paragraph only (main ruling) |
 | T86 | Terms for live testing: Google Cloud project with billing, acceptable-use rules for sending harmful… | c | M | PARTLY RESOLVED; USER QUESTION OPEN at CP2 | applied: R7, R8, R9 of MA1, MA2, MA3, MA4, MA7, MA8, MA10: AUP clause Documented, express permission Not disclosed |
 | T87 | (suggested, not in drafts) Licence of google-cloud-go (client library cited at 37f936ac) and of api… | c | L | RESOLVED | applied: INV(b) client libraries and Apigee rows |
+
+Block counts after P7: unchanged, (a) 10, (b) 15, (c) 16, (d) 20, (e) 16; the Service Extensions route limits (Q3) were added to an existing row, no new row was needed.
 
 **Open items that need a user decision (CP2):**
 
@@ -539,14 +564,14 @@ Status at merge: note 1 conflicts handled as in section 4 (1.2 T41; 1.3 T1 to T3
 
 | Column | R1 | R2 | R3 | R4 | R5 | R6 | R7 | R8 | R9 |
 |---|---|---|---|---|---|---|---|---|---|
-| MA1 | 45 | 36 | 34 | 34 | 34 | 38 | 51 | 32 | 30 |
-| MA2 | 45 | 39 | 42 | 34 | 34 | 38 | 52 | 39 | 29 |
-| MA3 | 42 | 35 | 34 | 37 | 35 | 42 | 56 | 31 | 30 |
-| MA4 | 37 | 34 | 44 | 37 | 38 | 36 | 52 | 33 | 30 |
+| MA1 | 45 | 36 | 34 | 34 | 34 | 38 | 51 | 32 | 33 |
+| MA2 | 45 | 39 | 42 | 34 | 34 | 38 | 52 | 39 | 33 |
+| MA3 | 42 | 35 | 34 | 37 | 35 | 42 | 56 | 31 | 34 |
+| MA4 | 37 | 34 | 44 | 37 | 38 | 36 | 52 | 33 | 34 |
 | MA5 | 40 | 40 | 32 | 43 | 32 | 44 | 55 | 39 | 39 |
 | MA6 | 40 | 38 | 32 | 43 | 35 | 45 | 52 | 37 | 37 |
-| MA7 | 43 | 35 | 42 | 37 | 35 | 43 | 51 | 38 | 27 |
-| MA8 | 39 | 38 | 44 | 37 | 35 | 43 | 52 | 42 | 29 |
+| MA7 | 43 | 35 | 42 | 37 | 35 | 43 | 51 | 38 | 30 |
+| MA8 | 39 | 38 | 44 | 37 | 35 | 43 | 52 | 42 | 33 |
 | MA9 | 41 | 44 | 43 | 25 | 32 | 41 | 53 | 36 | 35 |
 | MA10 | 43 | 39 | 44 | 43 | 37 | 44 | 47 | 37 | 32 |
 
@@ -556,18 +581,18 @@ Status at merge: note 1 conflicts handled as in section 4 (1.2 T41; 1.3 T1 to T3
 
 | Label | Count |
 |---|---|
-| [Documented] | 821 |
-| [Not disclosed] | 144 |
-| [Inferred] | 124 |
+| [Documented] | 835 |
+| [Not disclosed] | 153 |
+| [Inferred] | 131 |
 | [Documented: repo googleapis/google-cloud-go@modelarmor/v1.3.0] | 21 |
-| [To be verified] | 14 |
+| [To be verified] | 6 |
 | [Documented: repo googleapis/google-cloud-java@v1.93.0] | 2 |
 | [Documented: repo GoogleCloudPlatform/apigee-samples@2b1a9f00] | 1 |
-| Total | 1127 |
+| Total | 1149 |
 
 Labels on the 70 Summaries R1 to R7: [Documented] 47; [Not disclosed] 13; [Inferred] 10. R8 and R9 Summaries carry no label; R8 and R9 Detail bullets carry no labels.
 
-Detail bullets in total: 1458 top-level bullets and 101 sub-bullets (R8 and R9 included).
+Detail bullets in total: 1492 top-level bullets and 101 sub-bullets (R8 and R9 included).
 
 ### 7c. Inventory row counts (modelarmor_inventory_final.md)
 
@@ -605,3 +630,26 @@ Extra checks (merger script `benchtest/scratchpad/merger/modelarmor/verify.py` a
 
 - Class (b) items stayed in R8; the only R8 bullets removed are the answered Apigee status bullet in MA6 (T20) and none other. Class (b) items whose wording followed a changed documentation half (T1 default level, T3 template default, T16/T17 userPrompt, T47 shape, T70 box shape, T71 include_findings, T44/T45 response-side SDP, T50 floor-setting location, T53 token limits, T77 locations) were reworded in R8, not closed.
 - The pending user question (AUP, T86) is recorded in section 5 and in the final report; no label was upgraded without a quote in the resolutions.
+
+## Verifier fixes
+
+Source: modelarmor_review.md (verdict PASS WITH FIXES, 7 required fixes), plus main's rulings on the verifier's questions: R021 (a plain curl GET parsed with the stdlib HTML parser counts as a verbatim read), Q2 (the approx. 250 ms latency figure may be cited, attributed in plain text as 'Service Extensions docs, not Model Armor docs'), Q3 (add the load-balancer route limits to INV(b) as attributed [Documented] facts) and the request to log two missed identical Summary pairs (done in section 2c). All edits are in benchtest/scratchpad/merger/modelarmor/edits_p7.py and appear in section 2a/3 with reason 'P7 fix n'.
+
+| Fix | Locations | Change |
+|---|---|---|
+| 1 | MA1 R1, MA2 R1 | inserted after the CSAM bullet the [Documented] feature-table bullet ('No' in the seven limited-support locations) so the Summary caveat is entailed by R1 Detail; Summaries unchanged (45 words) |
+| 2 | MA5 R6, MA6 R6 | inserted after the Token limit bullet the [Documented] over-limit bullet (match still returns MATCH_FOUND; otherwise EXECUTION_SKIPPED) so the Summary clause is entailed by R6 Detail |
+| 3 | MA9 R4, MA10 R4 | inserted as the first two R4 bullets: MA9 the overview document-screening sentence and the REST text-modality quote; MA10 the OCR method sentence and the Preview label bullet; Summaries unchanged |
+| 4 (T21, R021) | MA1, MA2, MA3, MA4, MA7, MA8 R4; INV(b) Service Extensions Status and Source URL; INV scope paragraph; R9 of the six columns | bullet replaced by the verifier's [Not disclosed] text naming the two Service Extensions guides; process language ('returned no text through the raw fetch, so it is unread') removed from finals; inventory Status cell replaced; both guide URLs appended to Source URL; short names SEGS and SETE added; both URLs added to R9. Main's P6 ruling [To be verified] is superseded by R021 and recorded here. |
+| 5 (latency, Q2) | R4 and R8 of MA1, MA2, MA3, MA4, MA7, MA8; R9; R9 Summary lines | R4: [Documented] bullet quoting 'approximately 250 milliseconds' attributed 'Service Extensions docs, not Model Armor docs'; R8 latency bullet replaced (the 'no figure published' claim was contradicted); two R9 URLs added; six R9 Summaries now name the Service Extensions guides. MA7/MA8 R5 'latency ... [Not disclosed]' stays (figure is not per filter). |
+| 6 | R4 of MA1, MA2, MA3, MA4, MA7, MA8 | the MCP bullet split into the floor-settings '(Preview)' label [Documented] and the preference for the dated release note [Inferred] |
+| 7 | MA9 R3, MA10 R3, MA4 R2 | MA9 R3: the To be verified bullet replaced by an absence bullet [Not disclosed] naming what was checked and an [Inferred] reading of the overview PDF example; MA10 R3: label To be verified -> Not disclosed; MA4 R2: the 'does not say whether this applies to responses' clause moved out of the Documented bullet into its own [Not disclosed] bullet. The test half stays in R8 (T61). |
+| Q3 (main) | INV(b) Service Extensions Limitations | added as [Documented] (SEGS; Service Extensions docs, not Model Armor docs): streaming API responses are ignored; any unsupported operation is allowed without sanitization; only the first item in the list of choices is sanitized; Fail open is not selected by default (an error stops processing); plus the approx. 250 ms latency note. Quotes copied from the verifier's page copy benchtest/scratchpad/verifier/modelarmor/pages/se_google_services_parsed.txt. No new row: block counts unchanged. |
+
+Optional suggestions not applied: MA3 R5 'high-stakes' wording, GKE Inference Gateway naming, splitting consequence clauses in 7 Documented bullets, INV client-library 'not read' label, Secure Web Proxy R8 note, MA6 R3/R2 wording. They are quality tweaks, not required, and are left for main to accept or decline.
+
+Re-checks after the fixes (benchtest/drafts paths):
+
+- columns --final --expect 10: RESULT: 0 errors, 0 warnings
+- inventory --headers: RESULT: 0 errors, 0 warnings
+- Block counts unchanged: (a) 10, (b) 15, (c) 16, (d) 20, (e) 16 (see the table counts in 7c).

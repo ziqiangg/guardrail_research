@@ -2417,6 +2417,435 @@
     "Model Armor docs (overview, sanitize, templates, quotas, integrations, release notes, REST references, feature availability), the pricing page, Google's Sensitive Data Protection, terms and products pages, and the pinned Google Go client library."
    ],
    "reason": "R9 Summary updated for added URLs"
+  },
+  {
+   "loc": "MA1 R1",
+   "kind": "insert",
+   "before": "(none)",
+   "after": [
+    "• With data residency enforcement on, the feature availability table lists CSAM support as \"No\" in all seven limited-support locations (asia-northeast1, asia-northeast3, asia-south1, asia-southeast1, australia-southeast2, europe-west2, northamerica-northeast2) (feature availability page, 2026-10-09) **[Documented]**"
+   ],
+   "reason": "P7 fix 1 (Summary entailment)"
+  },
+  {
+   "loc": "MA2 R1",
+   "kind": "insert",
+   "before": "(none)",
+   "after": [
+    "• With data residency enforcement on, the feature availability table lists CSAM support as \"No\" in all seven limited-support locations (asia-northeast1, asia-northeast3, asia-south1, asia-southeast1, australia-southeast2, europe-west2, northamerica-northeast2) (feature availability page, 2026-10-09) **[Documented]**"
+   ],
+   "reason": "P7 fix 1 (Summary entailment)"
+  },
+  {
+   "loc": "MA5 R6",
+   "kind": "insert",
+   "before": "(none)",
+   "after": [
+    "• Over the 130,000-token limit a filter that finds a match returns MATCH_FOUND; otherwise it returns EXECUTION_SKIPPED with \"Detection skipped as token limit exceeded.\" (quotas page, 2026-10-09) **[Documented]**"
+   ],
+   "reason": "P7 fix 2 (Summary entailment)"
+  },
+  {
+   "loc": "MA6 R6",
+   "kind": "insert",
+   "before": "(none)",
+   "after": [
+    "• Over the 130,000-token limit a filter that finds a match returns MATCH_FOUND; otherwise it returns EXECUTION_SKIPPED with \"Detection skipped as token limit exceeded.\" (quotas page, 2026-10-09) **[Documented]**"
+   ],
+   "reason": "P7 fix 2 (Summary entailment)"
+  },
+  {
+   "loc": "MA9 R4",
+   "kind": "insert",
+   "before": "(none)",
+   "after": [
+    "• Overview: \"Model Armor can screen the following types of documents for safety, prompt injection and jailbreak attempts, sensitive data, and malicious URLs\" (overview, 2026-10-09) **[Documented]**",
+    "• The REST modality reference says the text modality will \"sanitize text fields, and text extracted from rich text files (like PDFs, DOCs) and plain text files (like TXT)\" (templates reference, 2026-10-09) **[Documented]**"
+   ],
+   "reason": "P7 fix 3 (Summary entailment)"
+  },
+  {
+   "loc": "MA10 R4",
+   "kind": "insert",
+   "before": "(none)",
+   "after": [
+    "• Method 2: \"Optical character recognition (OCR): Screens the text within images.\" (overview, 2026-10-09) **[Documented]**",
+    "• The overview and templates pages label the feature Preview, subject to the Pre-GA terms (overview and templates page, 2026-10-09) **[Documented]**"
+   ],
+   "reason": "P7 fix 3 (Summary entailment)"
+  },
+  {
+   "loc": "MA1 R4",
+   "kind": "replace",
+   "before": "• A GA date for other load balancers and for Secure Web Proxy (checked the release notes, the networking page and the integrations page; the Service Extensions configuration page returned no text through the raw fetch, so it is unread) **[To be verified]**",
+   "after": [
+    "• A GA date for load balancers other than GKE and for Secure Web Proxy (checked the release notes, the networking and integrations pages, and the Service Extensions guides \"Configure an extension to call a Google service\" and \"Configure a traffic extension\", neither of which carries a launch-stage label) **[Not disclosed]**"
+   ],
+   "reason": "P7 fix 4 (T21: page read verbatim by curl + stdlib HTML parse, R021; process language removed; label To be verified -> Not disclosed)"
+  },
+  {
+   "loc": "MA1 R4",
+   "kind": "insert",
+   "before": "(none)",
+   "after": [
+    "• The Service Extensions guide for a Model Armor traffic extension says \"Consider that Model Armor has a latency of approximately 250 milliseconds\" when setting the callout timeout of 10 to 1000 milliseconds; no measurement conditions are given (Service Extensions docs, not Model Armor docs, 2026-10-09) **[Documented]**"
+   ],
+   "reason": "P7 fix 5 (latency figure; main ruling Q2)"
+  },
+  {
+   "loc": "MA1 R8",
+   "kind": "replace",
+   "before": "• Latency per call: no figure published; the best practices page says \"Enabling unnecessary detectors can increase latency\" (needs testing)",
+   "after": [
+    "• Latency per call: the only figure found is \"approximately 250 milliseconds\" in the Service Extensions guide for load-balancer callouts, with no conditions or per-filter breakdown; the best practices page says \"Enabling unnecessary detectors can increase latency\" (needs testing)"
+   ],
+   "reason": "P7 fix 5 (R8 latency claim contradicted by an official page)"
+  },
+  {
+   "loc": "MA1 R9",
+   "kind": "insert",
+   "before": "(none)",
+   "after": [
+    "• https://docs.cloud.google.com/service-extensions/docs/configure-extensions-to-google-services",
+    "• https://docs.cloud.google.com/service-extensions/docs/configure-traffic-extensions"
+   ],
+   "reason": "P7 fix 4 / 5 (Service Extensions guides)"
+  },
+  {
+   "loc": "MA1 R9 Summary",
+   "kind": "summary",
+   "before": "Model Armor documentation pages on docs.cloud.google.com, the product page, the Security Command Center pricing page, the Google Cloud blog, the Apigee policy reference and release notes, and Google's terms pages.",
+   "after": [
+    "Model Armor documentation pages on docs.cloud.google.com, the product page, the Security Command Center pricing page, the Google Cloud blog, the Apigee policy reference and release notes, Service Extensions guides, and Google's terms pages."
+   ],
+   "reason": "P7 fix 5 (R9 Summary mentions the Service Extensions guides)"
+  },
+  {
+   "loc": "MA2 R4",
+   "kind": "replace",
+   "before": "• A GA date for other load balancers and for Secure Web Proxy (checked the release notes, the networking page and the integrations page; the Service Extensions configuration page returned no text through the raw fetch, so it is unread) **[To be verified]**",
+   "after": [
+    "• A GA date for load balancers other than GKE and for Secure Web Proxy (checked the release notes, the networking and integrations pages, and the Service Extensions guides \"Configure an extension to call a Google service\" and \"Configure a traffic extension\", neither of which carries a launch-stage label) **[Not disclosed]**"
+   ],
+   "reason": "P7 fix 4 (T21: page read verbatim by curl + stdlib HTML parse, R021; process language removed; label To be verified -> Not disclosed)"
+  },
+  {
+   "loc": "MA2 R4",
+   "kind": "insert",
+   "before": "(none)",
+   "after": [
+    "• The Service Extensions guide for a Model Armor traffic extension says \"Consider that Model Armor has a latency of approximately 250 milliseconds\" when setting the callout timeout of 10 to 1000 milliseconds; no measurement conditions are given (Service Extensions docs, not Model Armor docs, 2026-10-09) **[Documented]**"
+   ],
+   "reason": "P7 fix 5 (latency figure; main ruling Q2)"
+  },
+  {
+   "loc": "MA2 R8",
+   "kind": "replace",
+   "before": "• Latency per call: no figure published; the best practices page says \"Enabling unnecessary detectors can increase latency\" (needs testing)",
+   "after": [
+    "• Latency per call: the only figure found is \"approximately 250 milliseconds\" in the Service Extensions guide for load-balancer callouts, with no conditions or per-filter breakdown; the best practices page says \"Enabling unnecessary detectors can increase latency\" (needs testing)"
+   ],
+   "reason": "P7 fix 5 (R8 latency claim contradicted by an official page)"
+  },
+  {
+   "loc": "MA2 R9",
+   "kind": "insert",
+   "before": "(none)",
+   "after": [
+    "• https://docs.cloud.google.com/service-extensions/docs/configure-extensions-to-google-services",
+    "• https://docs.cloud.google.com/service-extensions/docs/configure-traffic-extensions"
+   ],
+   "reason": "P7 fix 4 / 5 (Service Extensions guides)"
+  },
+  {
+   "loc": "MA2 R9 Summary",
+   "kind": "summary",
+   "before": "Model Armor documentation pages on docs.cloud.google.com, the product page, the pricing page, the blog, the Apigee policy reference and release notes, the Go client source and Google's terms pages.",
+   "after": [
+    "Model Armor documentation pages on docs.cloud.google.com, the product page, the pricing page, the blog, the Apigee policy reference and release notes, the Go client source and Service Extensions guides and Google's terms pages."
+   ],
+   "reason": "P7 fix 5 (R9 Summary mentions the Service Extensions guides)"
+  },
+  {
+   "loc": "MA3 R4",
+   "kind": "replace",
+   "before": "• A GA date for other load balancers and for Secure Web Proxy (checked the release notes, the networking page and the integrations page; the Service Extensions configuration page returned no text through the raw fetch, so it is unread) **[To be verified]**",
+   "after": [
+    "• A GA date for load balancers other than GKE and for Secure Web Proxy (checked the release notes, the networking and integrations pages, and the Service Extensions guides \"Configure an extension to call a Google service\" and \"Configure a traffic extension\", neither of which carries a launch-stage label) **[Not disclosed]**"
+   ],
+   "reason": "P7 fix 4 (T21: page read verbatim by curl + stdlib HTML parse, R021; process language removed; label To be verified -> Not disclosed)"
+  },
+  {
+   "loc": "MA3 R4",
+   "kind": "insert",
+   "before": "(none)",
+   "after": [
+    "• The Service Extensions guide for a Model Armor traffic extension says \"Consider that Model Armor has a latency of approximately 250 milliseconds\" when setting the callout timeout of 10 to 1000 milliseconds; no measurement conditions are given (Service Extensions docs, not Model Armor docs, 2026-10-09) **[Documented]**"
+   ],
+   "reason": "P7 fix 5 (latency figure; main ruling Q2)"
+  },
+  {
+   "loc": "MA3 R8",
+   "kind": "replace",
+   "before": "• Latency per call: no figure published; the best practices page says \"Enabling unnecessary detectors can increase latency\" (needs testing)",
+   "after": [
+    "• Latency per call: the only figure found is \"approximately 250 milliseconds\" in the Service Extensions guide for load-balancer callouts, with no conditions or per-filter breakdown; the best practices page says \"Enabling unnecessary detectors can increase latency\" (needs testing)"
+   ],
+   "reason": "P7 fix 5 (R8 latency claim contradicted by an official page)"
+  },
+  {
+   "loc": "MA3 R9",
+   "kind": "insert",
+   "before": "(none)",
+   "after": [
+    "• https://docs.cloud.google.com/service-extensions/docs/configure-extensions-to-google-services",
+    "• https://docs.cloud.google.com/service-extensions/docs/configure-traffic-extensions"
+   ],
+   "reason": "P7 fix 4 / 5 (Service Extensions guides)"
+  },
+  {
+   "loc": "MA3 R9 Summary",
+   "kind": "summary",
+   "before": "Model Armor documentation pages on docs.cloud.google.com, the product page, the pricing page, the blog, the Apigee policy reference and release notes, Go and Java client sources and Google's terms pages.",
+   "after": [
+    "Model Armor documentation pages on docs.cloud.google.com, the product page, the pricing page, the blog, the Apigee policy reference and release notes, Go and Java client sources and Service Extensions guides and Google's terms pages."
+   ],
+   "reason": "P7 fix 5 (R9 Summary mentions the Service Extensions guides)"
+  },
+  {
+   "loc": "MA4 R4",
+   "kind": "replace",
+   "before": "• A GA date for other load balancers and for Secure Web Proxy (checked the release notes, the networking page and the integrations page; the Service Extensions configuration page returned no text through the raw fetch, so it is unread) **[To be verified]**",
+   "after": [
+    "• A GA date for load balancers other than GKE and for Secure Web Proxy (checked the release notes, the networking and integrations pages, and the Service Extensions guides \"Configure an extension to call a Google service\" and \"Configure a traffic extension\", neither of which carries a launch-stage label) **[Not disclosed]**"
+   ],
+   "reason": "P7 fix 4 (T21: page read verbatim by curl + stdlib HTML parse, R021; process language removed; label To be verified -> Not disclosed)"
+  },
+  {
+   "loc": "MA4 R4",
+   "kind": "insert",
+   "before": "(none)",
+   "after": [
+    "• The Service Extensions guide for a Model Armor traffic extension says \"Consider that Model Armor has a latency of approximately 250 milliseconds\" when setting the callout timeout of 10 to 1000 milliseconds; no measurement conditions are given (Service Extensions docs, not Model Armor docs, 2026-10-09) **[Documented]**"
+   ],
+   "reason": "P7 fix 5 (latency figure; main ruling Q2)"
+  },
+  {
+   "loc": "MA4 R8",
+   "kind": "replace",
+   "before": "• Latency per call: no figure published; the best practices page says \"Enabling unnecessary detectors can increase latency\" (needs testing)",
+   "after": [
+    "• Latency per call: the only figure found is \"approximately 250 milliseconds\" in the Service Extensions guide for load-balancer callouts, with no conditions or per-filter breakdown; the best practices page says \"Enabling unnecessary detectors can increase latency\" (needs testing)"
+   ],
+   "reason": "P7 fix 5 (R8 latency claim contradicted by an official page)"
+  },
+  {
+   "loc": "MA4 R9",
+   "kind": "insert",
+   "before": "(none)",
+   "after": [
+    "• https://docs.cloud.google.com/service-extensions/docs/configure-extensions-to-google-services",
+    "• https://docs.cloud.google.com/service-extensions/docs/configure-traffic-extensions"
+   ],
+   "reason": "P7 fix 4 / 5 (Service Extensions guides)"
+  },
+  {
+   "loc": "MA4 R9 Summary",
+   "kind": "summary",
+   "before": "Model Armor documentation pages on docs.cloud.google.com, the product page, the pricing page, the blog, the Apigee policy reference and release notes, Go and Java client sources and Google's terms pages.",
+   "after": [
+    "Model Armor documentation pages on docs.cloud.google.com, the product page, the pricing page, the blog, the Apigee policy reference and release notes, Go and Java client sources and Service Extensions guides and Google's terms pages."
+   ],
+   "reason": "P7 fix 5 (R9 Summary mentions the Service Extensions guides)"
+  },
+  {
+   "loc": "MA7 R4",
+   "kind": "replace",
+   "before": "• A GA date for other load balancers and for Secure Web Proxy (checked the release notes, the networking page and the integrations page; the Service Extensions configuration page returned no text through the raw fetch, so it is unread) **[To be verified]**",
+   "after": [
+    "• A GA date for load balancers other than GKE and for Secure Web Proxy (checked the release notes, the networking and integrations pages, and the Service Extensions guides \"Configure an extension to call a Google service\" and \"Configure a traffic extension\", neither of which carries a launch-stage label) **[Not disclosed]**"
+   ],
+   "reason": "P7 fix 4 (T21: page read verbatim by curl + stdlib HTML parse, R021; process language removed; label To be verified -> Not disclosed)"
+  },
+  {
+   "loc": "MA7 R4",
+   "kind": "insert",
+   "before": "(none)",
+   "after": [
+    "• The Service Extensions guide for a Model Armor traffic extension says \"Consider that Model Armor has a latency of approximately 250 milliseconds\" when setting the callout timeout of 10 to 1000 milliseconds; no measurement conditions are given (Service Extensions docs, not Model Armor docs, 2026-10-09) **[Documented]**"
+   ],
+   "reason": "P7 fix 5 (latency figure; main ruling Q2)"
+  },
+  {
+   "loc": "MA7 R8",
+   "kind": "replace",
+   "before": "• Latency per call: no figure published; the best practices page says \"Enabling unnecessary detectors can increase latency\" (needs testing)",
+   "after": [
+    "• Latency per call: the only figure found is \"approximately 250 milliseconds\" in the Service Extensions guide for load-balancer callouts, with no conditions or per-filter breakdown; the best practices page says \"Enabling unnecessary detectors can increase latency\" (needs testing)"
+   ],
+   "reason": "P7 fix 5 (R8 latency claim contradicted by an official page)"
+  },
+  {
+   "loc": "MA7 R9",
+   "kind": "insert",
+   "before": "(none)",
+   "after": [
+    "• https://docs.cloud.google.com/service-extensions/docs/configure-extensions-to-google-services",
+    "• https://docs.cloud.google.com/service-extensions/docs/configure-traffic-extensions"
+   ],
+   "reason": "P7 fix 4 / 5 (Service Extensions guides)"
+  },
+  {
+   "loc": "MA7 R9 Summary",
+   "kind": "summary",
+   "before": "Model Armor documentation pages on docs.cloud.google.com, the product page, the pricing page, the Google Cloud blog, the Apigee policy reference and release notes, and Google's terms pages.",
+   "after": [
+    "Model Armor documentation pages on docs.cloud.google.com, the product page, the pricing page, the Google Cloud blog, the Apigee policy reference and release notes, Service Extensions guides, and Google's terms pages."
+   ],
+   "reason": "P7 fix 5 (R9 Summary mentions the Service Extensions guides)"
+  },
+  {
+   "loc": "MA8 R4",
+   "kind": "replace",
+   "before": "• A GA date for other load balancers and for Secure Web Proxy (checked the release notes, the networking page and the integrations page; the Service Extensions configuration page returned no text through the raw fetch, so it is unread) **[To be verified]**",
+   "after": [
+    "• A GA date for load balancers other than GKE and for Secure Web Proxy (checked the release notes, the networking and integrations pages, and the Service Extensions guides \"Configure an extension to call a Google service\" and \"Configure a traffic extension\", neither of which carries a launch-stage label) **[Not disclosed]**"
+   ],
+   "reason": "P7 fix 4 (T21: page read verbatim by curl + stdlib HTML parse, R021; process language removed; label To be verified -> Not disclosed)"
+  },
+  {
+   "loc": "MA8 R4",
+   "kind": "insert",
+   "before": "(none)",
+   "after": [
+    "• The Service Extensions guide for a Model Armor traffic extension says \"Consider that Model Armor has a latency of approximately 250 milliseconds\" when setting the callout timeout of 10 to 1000 milliseconds; no measurement conditions are given (Service Extensions docs, not Model Armor docs, 2026-10-09) **[Documented]**"
+   ],
+   "reason": "P7 fix 5 (latency figure; main ruling Q2)"
+  },
+  {
+   "loc": "MA8 R8",
+   "kind": "replace",
+   "before": "• Latency per call: no figure published; the best practices page says \"Enabling unnecessary detectors can increase latency\" (needs testing)",
+   "after": [
+    "• Latency per call: the only figure found is \"approximately 250 milliseconds\" in the Service Extensions guide for load-balancer callouts, with no conditions or per-filter breakdown; the best practices page says \"Enabling unnecessary detectors can increase latency\" (needs testing)"
+   ],
+   "reason": "P7 fix 5 (R8 latency claim contradicted by an official page)"
+  },
+  {
+   "loc": "MA8 R9",
+   "kind": "insert",
+   "before": "(none)",
+   "after": [
+    "• https://docs.cloud.google.com/service-extensions/docs/configure-extensions-to-google-services",
+    "• https://docs.cloud.google.com/service-extensions/docs/configure-traffic-extensions"
+   ],
+   "reason": "P7 fix 4 / 5 (Service Extensions guides)"
+  },
+  {
+   "loc": "MA8 R9 Summary",
+   "kind": "summary",
+   "before": "Model Armor documentation pages on docs.cloud.google.com, the product page, the pricing page, the blog, the Apigee policy reference and release notes, the Go client source and Google's terms pages.",
+   "after": [
+    "Model Armor documentation pages on docs.cloud.google.com, the product page, the pricing page, the blog, the Apigee policy reference and release notes, the Go client source and Service Extensions guides and Google's terms pages."
+   ],
+   "reason": "P7 fix 5 (R9 Summary mentions the Service Extensions guides)"
+  },
+  {
+   "loc": "MA1 R4",
+   "kind": "replace",
+   "before": "• The floor settings page still labels the Google Cloud MCP servers integration \"(Preview)\" (floor settings page, 2026-10-09); the dated release note 2026-04-22 says General Availability and is preferred, because the page label is undated **[Documented]**",
+   "after": [
+    "• The floor settings page still labels the Google Cloud MCP servers integration \"(Preview)\" (floor settings page, 2026-10-09) **[Documented]**",
+    "• The dated release note 2026-04-22 (General Availability, sub-bullet above) is taken as current because the page label is undated **[Inferred]**"
+   ],
+   "reason": "P7 fix 6 (judgement labelled Documented -> split)"
+  },
+  {
+   "loc": "MA2 R4",
+   "kind": "replace",
+   "before": "• The floor settings page still labels the Google Cloud MCP servers integration \"(Preview)\" (floor settings page, 2026-10-09); the dated release note 2026-04-22 says General Availability and is preferred, because the page label is undated **[Documented]**",
+   "after": [
+    "• The floor settings page still labels the Google Cloud MCP servers integration \"(Preview)\" (floor settings page, 2026-10-09) **[Documented]**",
+    "• The dated release note 2026-04-22 (General Availability, sub-bullet above) is taken as current because the page label is undated **[Inferred]**"
+   ],
+   "reason": "P7 fix 6 (judgement labelled Documented -> split)"
+  },
+  {
+   "loc": "MA3 R4",
+   "kind": "replace",
+   "before": "• The floor settings page still labels the Google Cloud MCP servers integration \"(Preview)\" (floor settings page, 2026-10-09); the dated release note 2026-04-22 says General Availability and is preferred, because the page label is undated **[Documented]**",
+   "after": [
+    "• The floor settings page still labels the Google Cloud MCP servers integration \"(Preview)\" (floor settings page, 2026-10-09) **[Documented]**",
+    "• The dated release note 2026-04-22 (General Availability, sub-bullet above) is taken as current because the page label is undated **[Inferred]**"
+   ],
+   "reason": "P7 fix 6 (judgement labelled Documented -> split)"
+  },
+  {
+   "loc": "MA4 R4",
+   "kind": "replace",
+   "before": "• The floor settings page still labels the Google Cloud MCP servers integration \"(Preview)\" (floor settings page, 2026-10-09); the dated release note 2026-04-22 says General Availability and is preferred, because the page label is undated **[Documented]**",
+   "after": [
+    "• The floor settings page still labels the Google Cloud MCP servers integration \"(Preview)\" (floor settings page, 2026-10-09) **[Documented]**",
+    "• The dated release note 2026-04-22 (General Availability, sub-bullet above) is taken as current because the page label is undated **[Inferred]**"
+   ],
+   "reason": "P7 fix 6 (judgement labelled Documented -> split)"
+  },
+  {
+   "loc": "MA7 R4",
+   "kind": "replace",
+   "before": "• The floor settings page still labels the Google Cloud MCP servers integration \"(Preview)\" (floor settings page, 2026-10-09); the dated release note 2026-04-22 says General Availability and is preferred, because the page label is undated **[Documented]**",
+   "after": [
+    "• The floor settings page still labels the Google Cloud MCP servers integration \"(Preview)\" (floor settings page, 2026-10-09) **[Documented]**",
+    "• The dated release note 2026-04-22 (General Availability, sub-bullet above) is taken as current because the page label is undated **[Inferred]**"
+   ],
+   "reason": "P7 fix 6 (judgement labelled Documented -> split)"
+  },
+  {
+   "loc": "MA8 R4",
+   "kind": "replace",
+   "before": "• The floor settings page still labels the Google Cloud MCP servers integration \"(Preview)\" (floor settings page, 2026-10-09); the dated release note 2026-04-22 says General Availability and is preferred, because the page label is undated **[Documented]**",
+   "after": [
+    "• The floor settings page still labels the Google Cloud MCP servers integration \"(Preview)\" (floor settings page, 2026-10-09) **[Documented]**",
+    "• The dated release note 2026-04-22 (General Availability, sub-bullet above) is taken as current because the page label is undated **[Inferred]**"
+   ],
+   "reason": "P7 fix 6 (judgement labelled Documented -> split)"
+  },
+  {
+   "loc": "MA9 R3",
+   "kind": "replace",
+   "before": "• Whether a document in a model response is accepted, and how an LLM would produce one, is not stated; the overview example of a PDF \"processing LLM outputs\" is about downstream systems (overview, 2026-10-09) **[To be verified]**",
+   "after": [
+    "• Whether a document can be sent in a model response is not stated (checked the overview, sanitize page, templates reference and release notes) **[Not disclosed]**",
+    "• The overview's PDF example (\"it can be used to compromise any downstream systems processing LLM outputs\") concerns systems after the model, not a document sent to the response method **[Inferred]**"
+   ],
+   "reason": "P7 fix 7 (absence claim labelled To be verified; test half stays in R8, T61)"
+  },
+  {
+   "loc": "MA10 R3",
+   "kind": "edit",
+   "before": "**[To be verified]**",
+   "after": [
+    "**[Not disclosed]**"
+   ],
+   "reason": "P7 fix 7 (absence claim)"
+  },
+  {
+   "loc": "MA4 R2",
+   "kind": "edit",
+   "before": "; the note does not say whether this applies to responses",
+   "after": [
+    ""
+   ],
+   "reason": "P7 fix 7 (absence split out of a Documented bullet)"
+  },
+  {
+   "loc": "MA4 R2",
+   "kind": "insert",
+   "before": "(none)",
+   "after": [
+    "• Whether the 2025-09-23 detection improvements apply to responses is not stated (checked the release note) **[Not disclosed]**"
+   ],
+   "reason": "P7 fix 7"
   }
  ],
  "iops": [
@@ -2867,6 +3296,41 @@
    "before": "EXECUTION_SKIPPED with the token-limit message when no match was found within the limit [Documented] (QUO)",
    "after": "A filter that finds a match returns MATCH_FOUND; EXECUTION_SKIPPED with the token-limit message when the filter finds no match and the text exceeds the limit [Documented] (QUO)",
    "reason": "T52 (CORRECTION)"
+  },
+  {
+   "loc": "Scope paragraph (not parsed)",
+   "kind": "edit",
+   "before": "GST = https://cloud.google.com/terms/service-terms.",
+   "after": "GST ...; SEGS ...; SETE ...",
+   "reason": "P7 fix 4 (short names)"
+  },
+  {
+   "loc": "(b) Service Extensions on Cloud Load Balancing / Status (GA/Preview)",
+   "kind": "edit",
+   "before": "GA date for other load balancers and Secure Web Proxy [To be verified] (checked RN, NET and INT; the Service Extensions configuration page returned no text through the raw fetch, so it is unread)",
+   "after": "GA date for other load balancers and Secure Web Proxy [Not disclosed] (checked RN, NET, INT, SEGS and SETE; neither Service Extensions page carries a launch-stage label)",
+   "reason": "P7 fix 4 (T21, R021)"
+  },
+  {
+   "loc": "(b) Service Extensions on Cloud Load Balancing / Source URL",
+   "kind": "append",
+   "before": "(none)",
+   "after": "https://docs.cloud.google.com/service-extensions/docs/configure-extensions-to-google-services",
+   "reason": "P7 fix 4"
+  },
+  {
+   "loc": "(b) Service Extensions on Cloud Load Balancing / Source URL",
+   "kind": "append",
+   "before": "(none)",
+   "after": "https://docs.cloud.google.com/service-extensions/docs/configure-traffic-extensions",
+   "reason": "P7 fix 4"
+  },
+  {
+   "loc": "(b) Service Extensions on Cloud Load Balancing / Limitations",
+   "kind": "append",
+   "before": "(none)",
+   "after": "SEGS, for GKE and OpenAI API endpoints: 'Streaming API responses aren't supported for any API. Model Armor sanitizes the non-streaming responses and ignores the streaming responses.' [Documented] (SEGS; Service Extensions docs, not Model Armor docs). 'any other operation is ignored and allowed to proceed without sanitization' [Documented] (SEGS). 'only the first item in the list of choices is sanitized' [Documented] (SEGS). 'By default, the Fail open option isn't selected', so an error stops request or response processing [Documented] (SEGS). SEGS says 'Consider that Model Armor has a latency of approximately 250 milliseconds' when setting the callout timeout of 10 to 1000 milliseconds, with no measurement conditions [Documented] (SEGS).",
+   "reason": "main ruling Q3 (route limits) + Q2 (latency), P7"
   }
  ],
  "notes_a": [

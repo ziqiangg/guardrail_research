@@ -18,12 +18,18 @@ def short(s, n=190):
 
 # ------------------------------------------------------------------ summaries preview
 out = ["# Sensitive Data Protection: Summary preview (CP2)", "",
-       "Generated from `sdp_two_level.md` on 2026-10-09. Each line gives the word count (excluding the trailing bold label; limit 45, R7 60) and the number of top-level Detail bullets (sub-bullets are not counted). Summaries changed at merge are marked `[changed at merge: T-ids]`.", ""]
+       "Generated from `sdp_two_level.md` on 2026-10-09. Each line gives the word count (excluding the trailing bold label; limit 45, R7 60) and the number of top-level Detail bullets (sub-bullets are not counted). Summaries changed at merge are marked `[changed at merge: T-ids]` and those changed again in the P7 fix loop `[changed at P7: fix ids]`.", ""]
 changed = collections.defaultdict(list)
 for e in LOG:
     if e["full"]:
         m = re.match(r"(SD\d) (R\d)", e["loc"])
         changed[(m.group(1), m.group(2))].append(re.sub(r" \(.*\)", "", e["tid"]))
+VLOG = json.load(open(SP + "vfix_log.json"))
+vchanged = collections.defaultdict(list)
+for e in VLOG:
+    if e["full"]:
+        m = re.match(r"(SD\d) (R\d)", e["loc"])
+        vchanged[(m.group(1), m.group(2))].append(e["tid"])
 for c in cols:
     out.append(f"## {c['header']}")
     out.append("")
@@ -33,6 +39,8 @@ for c in cols:
         tag = ""
         if (c["id"], f"R{n}") in changed:
             tag = f" `[changed at merge: {', '.join(changed[(c['id'], f'R{n}')])}]`"
+        if (c["id"], f"R{n}") in vchanged:
+            tag += f" `[changed at P7: {', '.join(vchanged[(c['id'], f'R{n}')])}]`"
         out.append(f"- **R{n}** ({words(s)}w, {nb} bullets): {s}{tag}")
     out.append("")
 open(ROOT + "sdp_summaries_preview.md", "w", encoding="utf-8").write("\n".join(out))
@@ -201,6 +209,12 @@ pats = [
     ("the detection column", "style 4: column pointers use header words"),
     ("SD1 column", "style 4"), ("SD2 column", "style 4"), ("SD3 column", "style 4"), ("SD5 column", "style 4"), ("SD6 column", "style 4"),
     ("packages/google-cloud-dlp/google", "T97: citation form (the R9 blob URLs keep the full repo path)"),
+    ("shown only on table fields", "V7: false reading of the T12 samples (the Go date-shift sample works on a plain string)"),
+    ("use record (table) transformations and a context field", "V7: old SD3 R4 sample bullet"),
+    ("one-sentence definition", "V2: SD6 R2 Summary and R8 (the reference has two sentences)"),
+    ("Standard keyed encryption, not a model", "V3: SD4 R4 lead"),
+    ("Requests need a Cloud KMS wrapped key", "V4: SD4 R6 Summary"),
+    ("have no section for it [Documented]", "V1: INV(f) absence claim"),
     ("[grpc]", "T90 (INV): bracket pair that is not a label"),
 ]
 gr = []

@@ -10,6 +10,7 @@ Detail:
 • The service returns a verdict and the caller acts on it: "The calling service or integration point or Policy Enforcement Point (PEP) is responsible for blocking the further processing." (overview, Inspect and block row, 2026-10-09) **[Documented]**
 • Through the REST API, "Model Armor functions only as a detector using templates"; the application decides whether to block or allow (integrations page, 2026-10-09) **[Documented]**
 • CSAM: "This filter is applied by default and cannot be turned off." (overview, 2026-10-09) **[Documented]**
+• With data residency enforcement on, the feature availability table lists CSAM support as "No" in all seven limited-support locations (asia-northeast1, asia-northeast3, asia-south1, asia-southeast1, australia-southeast2, europe-west2, northamerica-northeast2) (feature availability page, 2026-10-09) **[Documented]**
 • CSAM is not one of the four `RaiFilterType` values and has its own result key `csam`; it has no confidence setting (REST templates ref and REST result ref, 2026-10-09) **[Documented]**
 ### R2
 Summary: **Four harm categories plus CSAM.** Hate speech, harassment, sexually explicit and dangerous content each have a one-line definition. The filters are tested in nine languages and do not decode encoded content or handle audio or video. **[Documented]**
@@ -87,10 +88,12 @@ Detail:
   – GKE integration: GA (release note 2025-09-15)
   – Streaming sanitization: GA (release note 2026-07-10)
   – LangChain: Preview (LangChain page)
-• The floor settings page still labels the Google Cloud MCP servers integration "(Preview)" (floor settings page, 2026-10-09); the dated release note 2026-04-22 says General Availability and is preferred, because the page label is undated **[Documented]**
+• The floor settings page still labels the Google Cloud MCP servers integration "(Preview)" (floor settings page, 2026-10-09) **[Documented]**
+• The dated release note 2026-04-22 (General Availability, sub-bullet above) is taken as current because the page label is undated **[Inferred]**
 • Apigee policies `SanitizeUserPrompt` and `SanitizeModelResponse`: Public Preview on 2025-05-22 and Generally Available on 2025-09-04 on Apigee X (Apigee release notes, Apigee docs not Model Armor docs, 2026-10-09) **[Documented]**
 • Service Extensions on application load balancers: Preview in release note 2025-04-09; the GKE Inference Gateway integration is Generally Available from release note 2025-09-15 (release notes, 2026-10-09) **[Documented]**
-• A GA date for other load balancers and for Secure Web Proxy (checked the release notes, the networking page and the integrations page; the Service Extensions configuration page returned no text through the raw fetch, so it is unread) **[To be verified]**
+• The Service Extensions guide for a Model Armor traffic extension says "Consider that Model Armor has a latency of approximately 250 milliseconds" when setting the callout timeout of 10 to 1000 milliseconds; no measurement conditions are given (Service Extensions docs, not Model Armor docs, 2026-10-09) **[Documented]**
+• A GA date for load balancers other than GKE and for Secure Web Proxy (checked the release notes, the networking and integrations pages, and the Service Extensions guides "Configure an extension to call a Google service" and "Configure a traffic extension", neither of which carries a launch-stage label) **[Not disclosed]**
 • Client libraries exist for C#, Go, Java, Node.js, PHP and Python; the page shows Java 0.40.0 in its sbt line and a pre-release C# package (`--version 1.0.0-beta05`) (client libraries page, 2026-10-09) **[Documented]**
 • Self-hosted or offline option: none described (checked overview, product page, locations page, client libraries page, which all call the managed API) **[Not disclosed]**
 ### R5
@@ -158,11 +161,11 @@ Detail:
 • Coverage in Singlish, Malay and Tamil and in the other languages the docs say "might vary"
 • Whether CSAM screening runs in limited-support regions with residency enforced, given "cannot be turned off" against the feature table's "No"
 • Whether any custom topic or competitor rule can be configured, despite the overview scenario (no configuration page found)
-• Latency per call: no figure published; the best practices page says "Enabling unnecessary detectors can increase latency" (needs testing)
+• Latency per call: the only figure found is "approximately 250 milliseconds" in the Service Extensions guide for load-balancer callouts, with no conditions or per-filter breakdown; the best practices page says "Enabling unnecessary detectors can increase latency" (needs testing)
 • Whether RAI runs on OCR text from images (see MA10)
 • Whether the Acceptable Use Policy testing clause covers detection benchmarks (checked the Acceptable Use Policy and General Service Terms, not stated; needs the project owner's reading)
 ### R9
-Summary: Model Armor documentation pages on docs.cloud.google.com, the product page, the Security Command Center pricing page, the Google Cloud blog, the Apigee policy reference and release notes, and Google's terms pages.
+Summary: Model Armor documentation pages on docs.cloud.google.com, the product page, the Security Command Center pricing page, the Google Cloud blog, the Apigee policy reference and release notes, Service Extensions guides, and Google's terms pages.
 Detail:
 • https://docs.cloud.google.com/model-armor/overview
 • https://docs.cloud.google.com/model-armor/manage-templates
@@ -194,6 +197,8 @@ Detail:
 • https://cloud.google.com/terms/aup
 • https://cloud.google.com/terms/service-terms
 • https://cloud.google.com/blog/products/identity-security/how-model-armor-can-help-protect-your-ai-apps
+• https://docs.cloud.google.com/service-extensions/docs/configure-extensions-to-google-services
+• https://docs.cloud.google.com/service-extensions/docs/configure-traffic-extensions
 
 ## Column MA2: Model Armor: Output-level responsible AI safety filtering
 ### R1
@@ -207,6 +212,7 @@ Detail:
 • Configured in the same template structure as for prompts, under `filterConfig.raiSettings.raiFilters[]`; the template does not mark filters as input or output (REST templates ref, 2026-10-09) **[Documented]**
 • The service returns a verdict and the caller acts on it: "If the response from the LLM violates policy, the response is blocked and not sent back to you." applies in Inspect and block mode, and "The calling service or integration point or Policy Enforcement Point (PEP) is responsible for blocking the further processing." (overview, 2026-10-09) **[Documented]**
 • CSAM: "This filter is applied by default and cannot be turned off." (overview, 2026-10-09) **[Documented]**
+• With data residency enforcement on, the feature availability table lists CSAM support as "No" in all seven limited-support locations (asia-northeast1, asia-northeast3, asia-south1, asia-southeast1, australia-southeast2, europe-west2, northamerica-northeast2) (feature availability page, 2026-10-09) **[Documented]**
 • CSAM is not one of the four `RaiFilterType` values and has its own result key `csam`; it has no confidence setting (REST templates ref and REST result ref, 2026-10-09) **[Documented]**
 ### R2
 Summary: **Four harm categories plus CSAM, on model output.** Hate speech, harassment, sexually explicit and dangerous content each have a one-line definition. The filters are tested in nine languages and do not decode encoded content or handle audio or video. **[Documented]**
@@ -292,10 +298,12 @@ Detail:
   – GKE integration: GA (release note 2025-09-15)
   – Streaming sanitization: GA (release note 2026-07-10)
   – LangChain: Preview (LangChain page)
-• The floor settings page still labels the Google Cloud MCP servers integration "(Preview)" (floor settings page, 2026-10-09); the dated release note 2026-04-22 says General Availability and is preferred, because the page label is undated **[Documented]**
+• The floor settings page still labels the Google Cloud MCP servers integration "(Preview)" (floor settings page, 2026-10-09) **[Documented]**
+• The dated release note 2026-04-22 (General Availability, sub-bullet above) is taken as current because the page label is undated **[Inferred]**
 • Apigee policies `SanitizeUserPrompt` and `SanitizeModelResponse`: Public Preview on 2025-05-22 and Generally Available on 2025-09-04 on Apigee X (Apigee release notes, Apigee docs not Model Armor docs, 2026-10-09) **[Documented]**
 • Service Extensions on application load balancers: Preview in release note 2025-04-09; the GKE Inference Gateway integration is Generally Available from release note 2025-09-15 (release notes, 2026-10-09) **[Documented]**
-• A GA date for other load balancers and for Secure Web Proxy (checked the release notes, the networking page and the integrations page; the Service Extensions configuration page returned no text through the raw fetch, so it is unread) **[To be verified]**
+• The Service Extensions guide for a Model Armor traffic extension says "Consider that Model Armor has a latency of approximately 250 milliseconds" when setting the callout timeout of 10 to 1000 milliseconds; no measurement conditions are given (Service Extensions docs, not Model Armor docs, 2026-10-09) **[Documented]**
+• A GA date for load balancers other than GKE and for Secure Web Proxy (checked the release notes, the networking and integrations pages, and the Service Extensions guides "Configure an extension to call a Google service" and "Configure a traffic extension", neither of which carries a launch-stage label) **[Not disclosed]**
 • Client libraries exist for C#, Go, Java, Node.js, PHP and Python; the page shows Java 0.40.0 in its sbt line and a pre-release C# package (`--version 1.0.0-beta05`) (client libraries page, 2026-10-09) **[Documented]**
 • Self-hosted or offline option: none described (checked overview, product page, locations page, client libraries page, which all call the managed API) **[Not disclosed]**
 ### R5
@@ -368,10 +376,10 @@ Detail:
 • Whether CSAM screening runs in limited-support regions with residency enforced, given "cannot be turned off" against the feature table's "No"
 • Whether any custom topic or competitor rule can be configured, despite the overview scenario (no configuration page found)
 • Response-side file and image request shape and which filters run on them (see MA9 and MA10)
-• Latency per call: no figure published; the best practices page says "Enabling unnecessary detectors can increase latency" (needs testing)
+• Latency per call: the only figure found is "approximately 250 milliseconds" in the Service Extensions guide for load-balancer callouts, with no conditions or per-filter breakdown; the best practices page says "Enabling unnecessary detectors can increase latency" (needs testing)
 • Whether the Acceptable Use Policy testing clause covers detection benchmarks (checked the Acceptable Use Policy and General Service Terms, not stated; needs the project owner's reading)
 ### R9
-Summary: Model Armor documentation pages on docs.cloud.google.com, the product page, the pricing page, the blog, the Apigee policy reference and release notes, the Go client source and Google's terms pages.
+Summary: Model Armor documentation pages on docs.cloud.google.com, the product page, the pricing page, the blog, the Apigee policy reference and release notes, the Go client source and Service Extensions guides and Google's terms pages.
 Detail:
 • https://docs.cloud.google.com/model-armor/overview
 • https://docs.cloud.google.com/model-armor/manage-templates
@@ -405,6 +413,8 @@ Detail:
 • https://cloud.google.com/terms/aup
 • https://cloud.google.com/terms/service-terms
 • https://cloud.google.com/blog/products/identity-security/how-model-armor-can-help-protect-your-ai-apps
+• https://docs.cloud.google.com/service-extensions/docs/configure-extensions-to-google-services
+• https://docs.cloud.google.com/service-extensions/docs/configure-traffic-extensions
 
 ## Column MA3: Model Armor: Input-level prompt injection and jailbreak detection
 ### R1
@@ -496,10 +506,12 @@ Detail:
   – GKE integration: GA (release note 2025-09-15)
   – Streaming sanitization: GA (release note 2026-07-10)
   – LangChain: Preview (LangChain page)
-• The floor settings page still labels the Google Cloud MCP servers integration "(Preview)" (floor settings page, 2026-10-09); the dated release note 2026-04-22 says General Availability and is preferred, because the page label is undated **[Documented]**
+• The floor settings page still labels the Google Cloud MCP servers integration "(Preview)" (floor settings page, 2026-10-09) **[Documented]**
+• The dated release note 2026-04-22 (General Availability, sub-bullet above) is taken as current because the page label is undated **[Inferred]**
 • Apigee policies `SanitizeUserPrompt` and `SanitizeModelResponse`: Public Preview on 2025-05-22 and Generally Available on 2025-09-04 on Apigee X (Apigee release notes, Apigee docs not Model Armor docs, 2026-10-09) **[Documented]**
 • Service Extensions on application load balancers: Preview in release note 2025-04-09; the GKE Inference Gateway integration is Generally Available from release note 2025-09-15 (release notes, 2026-10-09) **[Documented]**
-• A GA date for other load balancers and for Secure Web Proxy (checked the release notes, the networking page and the integrations page; the Service Extensions configuration page returned no text through the raw fetch, so it is unread) **[To be verified]**
+• The Service Extensions guide for a Model Armor traffic extension says "Consider that Model Armor has a latency of approximately 250 milliseconds" when setting the callout timeout of 10 to 1000 milliseconds; no measurement conditions are given (Service Extensions docs, not Model Armor docs, 2026-10-09) **[Documented]**
+• A GA date for load balancers other than GKE and for Secure Web Proxy (checked the release notes, the networking and integrations pages, and the Service Extensions guides "Configure an extension to call a Google service" and "Configure a traffic extension", neither of which carries a launch-stage label) **[Not disclosed]**
 • Self-hosted or offline option: none described (checked overview, product page, locations page, client libraries page, which all call the managed API) **[Not disclosed]**
 ### R5
 Summary: **Match flag plus a confidence level.** The result gives an execution state, a match state and a confidence level. Google's pages advise Medium or High as the setting, and Low and above for high-stakes categories. **[Documented]**
@@ -575,10 +587,10 @@ Detail:
 • Whether `filterRuleSettings` is a supported field of the v1 template (shown in the exclusion rules page, absent from the REST reference and the Go client)
 • Behaviour in asia-southeast1 for non-English prompts: the docs name only asia-south1 and northamerica-northeast2 for skipped detection
 • What the Workspace data enhancement of 2026-10-09 changes for ordinary prompts (needs testing; the release note scopes it to Workspace content)
-• Latency per call: no figure published; the best practices page says "Enabling unnecessary detectors can increase latency" (needs testing)
+• Latency per call: the only figure found is "approximately 250 milliseconds" in the Service Extensions guide for load-balancer callouts, with no conditions or per-filter breakdown; the best practices page says "Enabling unnecessary detectors can increase latency" (needs testing)
 • Whether the Acceptable Use Policy testing clause covers detection benchmarks (checked the Acceptable Use Policy and General Service Terms, not stated; needs the project owner's reading)
 ### R9
-Summary: Model Armor documentation pages on docs.cloud.google.com, the product page, the pricing page, the blog, the Apigee policy reference and release notes, Go and Java client sources and Google's terms pages.
+Summary: Model Armor documentation pages on docs.cloud.google.com, the product page, the pricing page, the blog, the Apigee policy reference and release notes, Go and Java client sources and Service Extensions guides and Google's terms pages.
 Detail:
 • https://docs.cloud.google.com/model-armor/overview
 • https://docs.cloud.google.com/model-armor/manage-templates
@@ -614,6 +626,8 @@ Detail:
 • https://cloud.google.com/terms/service-terms
 • https://cloud.google.com/terms/aup
 • https://cloud.google.com/blog/products/identity-security/how-model-armor-can-help-protect-your-ai-apps
+• https://docs.cloud.google.com/service-extensions/docs/configure-extensions-to-google-services
+• https://docs.cloud.google.com/service-extensions/docs/configure-traffic-extensions
 
 ## Column MA4: Model Armor: Output-level prompt injection and jailbreak detection
 ### R1
@@ -635,7 +649,8 @@ Detail:
 • Product page: the service helps "Stop embedded threats like indirect prompt injection where safe and legitimate prompts may be contaminated with malicious files and URLs" (product page, marketing text, 2026-10-09) **[Documented]**
 • Release note dated 2026-10-09: "Model Armor includes enhanced prompt injection and jailbreak protection for Workspace data", on the us and eu multi-regions with filter version v3 or later (release notes, 2026-10-09) **[Documented]**
 • What the Workspace data enhancement changes for ordinary prompts is not stated; the note scopes it to emails, documents and files from Workspace (checked the release note) **[Not disclosed]**
-• Release note 2025-09-23 lists vectors with improved detection in the upgraded model: "Do Anything Now prompts", "System instruction manipulation", "Unauthorized action execution" and "Sensitive information retrieval"; the note does not say whether this applies to responses (release notes, 2026-10-09) **[Documented]**
+• Release note 2025-09-23 lists vectors with improved detection in the upgraded model: "Do Anything Now prompts", "System instruction manipulation", "Unauthorized action execution" and "Sensitive information retrieval" (release notes, 2026-10-09) **[Documented]**
+• Whether the 2025-09-23 detection improvements apply to responses is not stated (checked the release note) **[Not disclosed]**
 • What response-side detection means (a response that carries an injection aimed at a downstream agent, or a response that shows the model was jailbroken): not defined (checked overview, templates page, product page, MCP page, REST references, blog) **[Not disclosed]**
 • System-prompt leakage detection on responses: none described; the docs' sample attack "reveal your system prompt" is treated as an input attack (checked the overview filter list, templates page detection list, REST `FilterConfig`, product page features, best practices and blog capabilities) **[Not disclosed]**
 • The overview's output-template focus on "leaking sensitive data" maps to Sensitive Data Protection, not to a system-prompt leakage check (columns MA5 and MA6) **[Inferred]**
@@ -710,10 +725,12 @@ Detail:
   – GKE integration: GA (release note 2025-09-15)
   – Streaming sanitization: GA (release note 2026-07-10)
   – LangChain: Preview (LangChain page)
-• The floor settings page still labels the Google Cloud MCP servers integration "(Preview)" (floor settings page, 2026-10-09); the dated release note 2026-04-22 says General Availability and is preferred, because the page label is undated **[Documented]**
+• The floor settings page still labels the Google Cloud MCP servers integration "(Preview)" (floor settings page, 2026-10-09) **[Documented]**
+• The dated release note 2026-04-22 (General Availability, sub-bullet above) is taken as current because the page label is undated **[Inferred]**
 • Apigee policies `SanitizeUserPrompt` and `SanitizeModelResponse`: Public Preview on 2025-05-22 and Generally Available on 2025-09-04 on Apigee X (Apigee release notes, Apigee docs not Model Armor docs, 2026-10-09) **[Documented]**
 • Service Extensions on application load balancers: Preview in release note 2025-04-09; the GKE Inference Gateway integration is Generally Available from release note 2025-09-15 (release notes, 2026-10-09) **[Documented]**
-• A GA date for other load balancers and for Secure Web Proxy (checked the release notes, the networking page and the integrations page; the Service Extensions configuration page returned no text through the raw fetch, so it is unread) **[To be verified]**
+• The Service Extensions guide for a Model Armor traffic extension says "Consider that Model Armor has a latency of approximately 250 milliseconds" when setting the callout timeout of 10 to 1000 milliseconds; no measurement conditions are given (Service Extensions docs, not Model Armor docs, 2026-10-09) **[Documented]**
+• A GA date for load balancers other than GKE and for Secure Web Proxy (checked the release notes, the networking and integrations pages, and the Service Extensions guides "Configure an extension to call a Google service" and "Configure a traffic extension", neither of which carries a launch-stage label) **[Not disclosed]**
 • Self-hosted or offline option: none described (checked overview, product page, locations page, client libraries page, which all call the managed API) **[Not disclosed]**
 ### R5
 Summary: **Match flag plus a confidence level field.** The result type has an execution state, a match state and a confidence level, though the docs' response example shows no level. Google's pages advise Medium or High as the setting. **[Documented]**
@@ -787,10 +804,10 @@ Detail:
 • Whether the optional `userPrompt` field of the response request changes any result (the REST method reference and the Apigee policy page list the field; none says what it changes)
 • Whether `filterRuleSettings` is a supported field of the v1 template (shown in the exclusion rules page, absent from the REST reference and the Go client)
 • Whether structured tool output (JSON, code) triggers false positives, given the MCP natural-language tip
-• Latency per call: no figure published; the best practices page says "Enabling unnecessary detectors can increase latency" (needs testing)
+• Latency per call: the only figure found is "approximately 250 milliseconds" in the Service Extensions guide for load-balancer callouts, with no conditions or per-filter breakdown; the best practices page says "Enabling unnecessary detectors can increase latency" (needs testing)
 • Whether the Acceptable Use Policy testing clause covers detection benchmarks (checked the Acceptable Use Policy and General Service Terms, not stated; needs the project owner's reading)
 ### R9
-Summary: Model Armor documentation pages on docs.cloud.google.com, the product page, the pricing page, the blog, the Apigee policy reference and release notes, Go and Java client sources and Google's terms pages.
+Summary: Model Armor documentation pages on docs.cloud.google.com, the product page, the pricing page, the blog, the Apigee policy reference and release notes, Go and Java client sources and Service Extensions guides and Google's terms pages.
 Detail:
 • https://docs.cloud.google.com/model-armor/overview
 • https://docs.cloud.google.com/model-armor/manage-templates
@@ -827,6 +844,8 @@ Detail:
 • https://cloud.google.com/terms/service-terms
 • https://cloud.google.com/terms/aup
 • https://cloud.google.com/blog/products/identity-security/how-model-armor-can-help-protect-your-ai-apps
+• https://docs.cloud.google.com/service-extensions/docs/configure-extensions-to-google-services
+• https://docs.cloud.google.com/service-extensions/docs/configure-traffic-extensions
 
 ## Column MA5: Model Armor: Input-level sensitive data detection and de-identification (Sensitive Data Protection)
 ### R1
@@ -935,6 +954,7 @@ Detail:
 • The sanitize page repeats this and names the agent `service-PROJECT_NUMBER@gcp-sa-modelarmor.iam.gserviceaccount.com` (sanitize page, 2026-10-09) **[Documented]**
 • Caller roles: `roles/modelarmor.user` to sanitize and `roles/modelarmor.admin` to manage templates (sanitize page and templates page, 2026-10-09) **[Documented]**
 • Token limit: the table gives 130,000 for Sensitive Data Protection against 65,536 for the other three filters; the limits "don't apply to the Model Armor integration with Gemini Enterprise" (quotas page, 2026-10-09) **[Documented]**
+• Over the 130,000-token limit a filter that finds a match returns MATCH_FOUND; otherwise it returns EXECUTION_SKIPPED with "Detection skipped as token limit exceeded." (quotas page, 2026-10-09) **[Documented]**
 • Apigee route: "Model Armor has token limits for processing prompts and responses, which vary by filter. Content exceeding these limits might not be fully scanned." (Apigee integration page, 2026-10-09) **[Documented]**
 • Whether the token limits apply on the Agent Platform, Agent Gateway (non-streaming), Service Extensions and MCP routes is not stated (checked the quotas page and the five integration pages) **[Not disclosed]**
 • The overview does not give the 130,000 figure; only the quotas page does (checked the overview and best practices pages) **[Not disclosed]**
@@ -1109,6 +1129,7 @@ Detail:
 • Cross-project: "the Model Armor service agent must be granted the DLP User role (roles/dlp.user) and DLP Reader role (roles/dlp.reader)" in the Sensitive Data Protection project (templates page, 2026-10-09) **[Documented]**
 • Cross-project templates: a calling service account in another project needs `roles/modelarmor.user` in the template-hosting project (sanitize page, 2026-10-09) **[Documented]**
 • Token limit: 130,000 for Sensitive Data Protection against 65,536 for the other filters; the limits "don't apply to the Model Armor integration with Gemini Enterprise" (quotas page, 2026-10-09) **[Documented]**
+• Over the 130,000-token limit a filter that finds a match returns MATCH_FOUND; otherwise it returns EXECUTION_SKIPPED with "Detection skipped as token limit exceeded." (quotas page, 2026-10-09) **[Documented]**
 • Apigee route: "Model Armor has token limits for processing prompts and responses, which vary by filter. Content exceeding these limits might not be fully scanned." (Apigee integration page, 2026-10-09) **[Documented]**
 • Whether the token limits apply on the Agent Platform, Agent Gateway (non-streaming), Service Extensions and MCP routes is not stated (checked the quotas page and the five integration pages) **[Not disclosed]**
 • Quota: "1200 queries per minute (QPM) per project" (quotas page, 2026-10-09) **[Documented]**
@@ -1250,10 +1271,12 @@ Detail:
   – GKE integration: GA (release note 2025-09-15)
   – Streaming sanitization: GA (release note 2026-07-10)
   – LangChain: Preview (LangChain page)
-• The floor settings page still labels the Google Cloud MCP servers integration "(Preview)" (floor settings page, 2026-10-09); the dated release note 2026-04-22 says General Availability and is preferred, because the page label is undated **[Documented]**
+• The floor settings page still labels the Google Cloud MCP servers integration "(Preview)" (floor settings page, 2026-10-09) **[Documented]**
+• The dated release note 2026-04-22 (General Availability, sub-bullet above) is taken as current because the page label is undated **[Inferred]**
 • Apigee policies `SanitizeUserPrompt` and `SanitizeModelResponse`: Public Preview on 2025-05-22 and Generally Available on 2025-09-04 on Apigee X (Apigee release notes, Apigee docs not Model Armor docs, 2026-10-09) **[Documented]**
 • Service Extensions on application load balancers: Preview in release note 2025-04-09; the GKE Inference Gateway integration is Generally Available from release note 2025-09-15 (release notes, 2026-10-09) **[Documented]**
-• A GA date for other load balancers and for Secure Web Proxy (checked the release notes, the networking page and the integrations page; the Service Extensions configuration page returned no text through the raw fetch, so it is unread) **[To be verified]**
+• The Service Extensions guide for a Model Armor traffic extension says "Consider that Model Armor has a latency of approximately 250 milliseconds" when setting the callout timeout of 10 to 1000 milliseconds; no measurement conditions are given (Service Extensions docs, not Model Armor docs, 2026-10-09) **[Documented]**
+• A GA date for load balancers other than GKE and for Secure Web Proxy (checked the release notes, the networking and integrations pages, and the Service Extensions guides "Configure an extension to call a Google service" and "Configure a traffic extension", neither of which carries a launch-stage label) **[Not disclosed]**
 • Self-hosted or offline option: none described (checked overview, product page, locations page, client libraries page, which all call the managed API) **[Not disclosed]**
 ### R5
 Summary: **Match flag and the matched URLs.** The result gives an execution state, a match state and a list of matched URIs, with character ranges for plain text. Confidence levels cannot be set for this filter. **[Documented]**
@@ -1310,10 +1333,10 @@ Detail:
 • Whether URLs found in images by OCR are checked (see MA10)
 • Whether us-east7 and global in the feature availability table are locations where a template can be created (the locations page lists 16 regions and 2 multi-regions; the data residency page says the global endpoint cannot manage templates; checked both, not stated)
 • Whether input-side use is intended (the overview gives both a URL inside a PDF and a returned link as examples; its input-template focus does not name URLs)
-• Latency per call: no figure published; the best practices page says "Enabling unnecessary detectors can increase latency" (needs testing)
+• Latency per call: the only figure found is "approximately 250 milliseconds" in the Service Extensions guide for load-balancer callouts, with no conditions or per-filter breakdown; the best practices page says "Enabling unnecessary detectors can increase latency" (needs testing)
 • Whether the Acceptable Use Policy testing clause covers detection benchmarks (checked the Acceptable Use Policy and General Service Terms, not stated; needs the project owner's reading)
 ### R9
-Summary: Model Armor documentation pages on docs.cloud.google.com, the product page, the pricing page, the Google Cloud blog, the Apigee policy reference and release notes, and Google's terms pages.
+Summary: Model Armor documentation pages on docs.cloud.google.com, the product page, the pricing page, the Google Cloud blog, the Apigee policy reference and release notes, Service Extensions guides, and Google's terms pages.
 Detail:
 • https://docs.cloud.google.com/model-armor/overview
 • https://docs.cloud.google.com/model-armor/manage-templates
@@ -1345,6 +1368,8 @@ Detail:
 • https://docs.cloud.google.com/apigee/docs/release-notes
 • https://cloud.google.com/terms/aup
 • https://cloud.google.com/terms/service-terms
+• https://docs.cloud.google.com/service-extensions/docs/configure-extensions-to-google-services
+• https://docs.cloud.google.com/service-extensions/docs/configure-traffic-extensions
 
 ## Column MA8: Model Armor: Output-level malicious URL detection
 ### R1
@@ -1430,10 +1455,12 @@ Detail:
   – GKE integration: GA (release note 2025-09-15)
   – Streaming sanitization: GA (release note 2026-07-10)
   – LangChain: Preview (LangChain page)
-• The floor settings page still labels the Google Cloud MCP servers integration "(Preview)" (floor settings page, 2026-10-09); the dated release note 2026-04-22 says General Availability and is preferred, because the page label is undated **[Documented]**
+• The floor settings page still labels the Google Cloud MCP servers integration "(Preview)" (floor settings page, 2026-10-09) **[Documented]**
+• The dated release note 2026-04-22 (General Availability, sub-bullet above) is taken as current because the page label is undated **[Inferred]**
 • Apigee policies `SanitizeUserPrompt` and `SanitizeModelResponse`: Public Preview on 2025-05-22 and Generally Available on 2025-09-04 on Apigee X (Apigee release notes, Apigee docs not Model Armor docs, 2026-10-09) **[Documented]**
 • Service Extensions on application load balancers: Preview in release note 2025-04-09; the GKE Inference Gateway integration is Generally Available from release note 2025-09-15 (release notes, 2026-10-09) **[Documented]**
-• A GA date for other load balancers and for Secure Web Proxy (checked the release notes, the networking page and the integrations page; the Service Extensions configuration page returned no text through the raw fetch, so it is unread) **[To be verified]**
+• The Service Extensions guide for a Model Armor traffic extension says "Consider that Model Armor has a latency of approximately 250 milliseconds" when setting the callout timeout of 10 to 1000 milliseconds; no measurement conditions are given (Service Extensions docs, not Model Armor docs, 2026-10-09) **[Documented]**
+• A GA date for load balancers other than GKE and for Secure Web Proxy (checked the release notes, the networking and integrations pages, and the Service Extensions guides "Configure an extension to call a Google service" and "Configure a traffic extension", neither of which carries a launch-stage label) **[Not disclosed]**
 • Self-hosted or offline option: none described (checked overview, product page, locations page, client libraries page, which all call the managed API) **[Not disclosed]**
 ### R5
 Summary: **Match flag and the matched URLs.** The result gives an execution state, a match state and a list of matched URIs, with character ranges for plain text. Confidence levels cannot be set for this filter. **[Documented]**
@@ -1492,10 +1519,10 @@ Detail:
 • Whether the optional `userPrompt` field of the response request changes the result for this filter (the REST method reference and the Apigee policy page list the field; none says what it changes)
 • Whether URLs found in generated images are checked (see MA10)
 • Whether us-east7 and global in the feature availability table are locations where a template can be created (the locations page lists 16 regions and 2 multi-regions; the data residency page says the global endpoint cannot manage templates; checked both, not stated)
-• Latency per call: no figure published; the best practices page says "Enabling unnecessary detectors can increase latency" (needs testing)
+• Latency per call: the only figure found is "approximately 250 milliseconds" in the Service Extensions guide for load-balancer callouts, with no conditions or per-filter breakdown; the best practices page says "Enabling unnecessary detectors can increase latency" (needs testing)
 • Whether the Acceptable Use Policy testing clause covers detection benchmarks (checked the Acceptable Use Policy and General Service Terms, not stated; needs the project owner's reading)
 ### R9
-Summary: Model Armor documentation pages on docs.cloud.google.com, the product page, the pricing page, the blog, the Apigee policy reference and release notes, the Go client source and Google's terms pages.
+Summary: Model Armor documentation pages on docs.cloud.google.com, the product page, the pricing page, the blog, the Apigee policy reference and release notes, the Go client source and Service Extensions guides and Google's terms pages.
 Detail:
 • https://docs.cloud.google.com/model-armor/overview
 • https://docs.cloud.google.com/model-armor/manage-templates
@@ -1529,6 +1556,8 @@ Detail:
 • https://docs.cloud.google.com/model-armor/reference/rest/v1/projects.locations.templates/sanitizeModelResponse
 • https://cloud.google.com/terms/aup
 • https://cloud.google.com/terms/service-terms
+• https://docs.cloud.google.com/service-extensions/docs/configure-extensions-to-google-services
+• https://docs.cloud.google.com/service-extensions/docs/configure-traffic-extensions
 
 ## Column MA9: Model Armor: Document screening (PDF, CSV, text and Office files)
 ### R1
@@ -1576,7 +1605,8 @@ Detail:
 • Response side: the request field `modelResponseData` has the same data item type as `userPromptData`, which can be text or a byte item (sanitizeModelResponse and DataItem references, 2026-10-09) **[Documented]**
 • The generated Go request type has `ModelResponseData *DataItem`, the same type as the prompt field (service.pb.go@modelarmor/v1.3.0:2379) **[Documented: repo googleapis/google-cloud-go@modelarmor/v1.3.0]**
 • No example in the sanitize page sends a document through `modelResponseData`; its response examples are text only (checked the sanitize page, overview and templates page) **[Not disclosed]**
-• Whether a document in a model response is accepted, and how an LLM would produce one, is not stated; the overview example of a PDF "processing LLM outputs" is about downstream systems (overview, 2026-10-09) **[To be verified]**
+• Whether a document can be sent in a model response is not stated (checked the overview, sanitize page, templates reference and release notes) **[Not disclosed]**
+• The overview's PDF example ("it can be used to compromise any downstream systems processing LLM outputs") concerns systems after the model, not a document sent to the response method **[Inferred]**
 • Template modality must allow text: `TEXT` "Scans text strings and text embedded in the supported file formats" and an empty `modalities` field scans only text (templates page and templates reference, 2026-10-09) **[Documented]**
 • With a single modality set, the other is skipped: "If you specify a single modality (IMAGE or TEXT), Model Armor skips the other and returns EXECUTION_SKIPPED." So an image-only template should skip documents (sanitize page, 2026-10-09) **[Inferred]**
 • Streaming methods are text only: "Model Armor streaming methods support only textual input, not attachments like images and files." (sanitize page, 2026-10-09) **[Documented]**
@@ -1587,6 +1617,8 @@ Detail:
 ### R4
 Summary: **Text extraction, then the ordinary filters.** Gemini Enterprise discards a violating file whole. The extractor and its handling of scans and layout are not described. **[Not disclosed]**
 Detail:
+• Overview: "Model Armor can screen the following types of documents for safety, prompt injection and jailbreak attempts, sensitive data, and malicious URLs" (overview, 2026-10-09) **[Documented]**
+• The REST modality reference says the text modality will "sanitize text fields, and text extracted from rich text files (like PDFs, DOCs) and plain text files (like TXT)" (templates reference, 2026-10-09) **[Documented]**
 • Extraction engine, parser identity and handling of tables, headers, comments, hidden text or embedded objects are not described (checked the overview, sanitize page, templates reference, product page and release notes) **[Not disclosed]**
 • The generated Go library defines the byte item types as enum values PDF, WORD_DOCUMENT, EXCEL_DOCUMENT, POWERPOINT_DOCUMENT, TXT, CSV, PLAINTEXT_UTF8 and IMAGE (service.pb.go@modelarmor/v1.3.0:776) **[Documented: repo googleapis/google-cloud-go@modelarmor/v1.3.0]**
 • GA or Preview status for document screening is not labelled on the overview or sanitize pages (checked both and the release notes; the image feature is labelled Preview, documents are not) **[Not disclosed]**
@@ -1723,7 +1755,7 @@ Detail:
 • Response side, schema: `modelResponseData` is a data item that can hold a byte item, and `IMAGE` is a byte item type (sanitizeModelResponse and DataItem references, 2026-10-09) **[Documented]**
 • Response side, code: the generated Go types give `SanitizeModelResponseRequest.ModelResponseData` as `*DataItem` and define `ByteDataItem_IMAGE` (service.pb.go@modelarmor/v1.3.0:2379 and :792) **[Documented: repo googleapis/google-cloud-go@modelarmor/v1.3.0]**
 • The overview limitations name both methods: "Model Armor doesn't screen images provided along with text in prompts and responses if you're using the SanitizeUserPrompt and SanitizeModelResponse methods." (overview, 2026-10-09) **[Documented]**
-• No page shows a request body that sends an image through `modelResponseData` (checked the sanitize page, overview, templates page and release notes) **[To be verified]**
+• No page shows a request body that sends an image through `modelResponseData` (checked the sanitize page, overview, templates page and release notes) **[Not disclosed]**
 • Template modality: "To enable image screening, set the modality in the template metadata." (sanitize page, 2026-10-09) **[Documented]**
 • An empty `modalities` field scans text only (templates reference, 2026-10-09) **[Documented]**
 • With one modality set, the other is skipped: "Model Armor skips the other and returns EXECUTION_SKIPPED." (sanitize page, 2026-10-09) **[Documented]**
@@ -1738,6 +1770,8 @@ Detail:
 ### R4
 Summary: **OCR plus advanced Sensitive Data Protection, in Preview.** The service reads image text and uses your inspect template for visuals; redaction needs a de-identify template with image redaction. The OCR engine is not disclosed. Images run only in the us and eu multi-regions. **[Not disclosed]**
 Detail:
+• Method 2: "Optical character recognition (OCR): Screens the text within images." (overview, 2026-10-09) **[Documented]**
+• The overview and templates pages label the feature Preview, subject to the Pre-GA terms (overview and templates page, 2026-10-09) **[Documented]**
 • OCR engine, image models, resolution handling and how OCR text is passed to other filters are not described (checked the overview, templates page, product page, sanitize page, release notes and blog) **[Not disclosed]**
 • Visual scanning relies on the advanced Sensitive Data Protection setting, so an inspect template in the same location as the Model Armor template is needed (overview and sanitize page, 2026-10-09) **[Documented]**
 • Redaction: "Model Armor redacts images only if you configured Model Armor filters with a Sensitive Data Protection inspect template and a Sensitive Data Protection de-identify template." (sanitize page, 2026-10-09) **[Documented]**

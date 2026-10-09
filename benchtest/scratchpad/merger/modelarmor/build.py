@@ -9,6 +9,7 @@ import lib
 import edits_a
 import edits_b
 import edits_inv
+import edits_p7
 
 DR = "benchtest/drafts/"
 FULLSHA = "37f936ac9d69e173da0ba4123e382c52b2dd741f"
@@ -40,6 +41,7 @@ def main():
 
     edits_a.apply(C)
     edits_b.apply(C)
+    edits_p7.apply_cols(C)
     open(DR + "modelarmor_two_level.md", "w", encoding="utf-8").write(lib.serialise_cols(C))
 
     pre, blocks, notes_i = lib.parse_inv(DR + "modelarmor_inventory.md")
@@ -51,6 +53,7 @@ def main():
         b["rows"] = [[norm(c) for c in r] for r in b["rows"]]
     pre[0] = "# Model Armor inventory (final, sheet 3x; the sheet letter is assigned at P8)"
     pre = edits_inv.apply(pre, blocks)
+    pre = edits_p7.apply_inv(pre, blocks)
     open(DR + "modelarmor_inventory_final.md", "w", encoding="utf-8").write(lib.serialise_inv(pre, blocks))
 
     json.dump(dict(ops=lib.OPS, iops=lib.IOPS, notes_a=notes_a, notes_b=notes_b, notes_i=notes_i,

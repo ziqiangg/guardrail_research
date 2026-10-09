@@ -9,9 +9,9 @@ Format of the entries: location | before (shortened; Summaries in full with word
 ## 0. Counts
 
 - Individually logged edits: 116 in the columns (SD1 to SD6), 80 in the inventory, plus 12 global pattern replacements (section 1) that changed 79 lines or spans. Total log entries: 208.
-- Summaries changed: 14 (SD1 R4, SD1 R6, SD2 R5, SD2 R6, SD2 R8, SD3 R1, SD3 R4, SD4 R4, SD4 R5, SD5 R1, SD5 R2, SD6 R2, SD6 R4, SD6 R5). The other 40 Summaries are unchanged from the drafts at merge time (the 54 counted include R8 and R9 Summaries). The P7 fix loop re-wrote four of the 14 again (SD3 R1, SD3 R4, SD4 R4, SD6 R2) and changed one more (SD4 R6), so the final files differ from the drafts in 15 Summaries.
+- Summaries changed: 14 (SD1 R4, SD1 R6, SD2 R5, SD2 R6, SD2 R8, SD3 R1, SD3 R4, SD4 R4, SD4 R5, SD5 R1, SD5 R2, SD6 R2, SD6 R4, SD6 R5). The other 40 Summaries are unchanged from the drafts (the 54 counted include R8 and R9 Summaries).
 - Items from the triage: 98. Draft text changed for 46 T-ids (T1, T6, T7, T9, T11, T12, T14, T16, T17, T18, T19, T20, T21, T22, T24, T37, T38, T42, T44, T47, T49, T51, T54, T57, T60, T62, T63, T64, T65, T66, T73, T78, T79, T80, T81, T83, T86, T88, T89, T90, T91, T92, T93, T94, T97, T98), plus the hygiene and style items that carry no T-id of their own. Of these, T9, T11, T12, T20, T42, T44, T47, T49, T51, T54, T60, T62, T63, T64, T73, T78, T92, T93, T94 are PARTLY RESOLVED or STILL OPEN after P5 (the change records what was found; the open part stays in R8 or as a labelled bullet). Resolved with no text change: T2, T3, T4, T5, T23, T46, T84, T85, T87, T95, T96. Left open for the bench: 62 items in total (section 5).
-- Final inventory row counts for the `build_sdp_inventory.py` config (P8): (a) 15, (b) 24, (c) 12, (d) 13, (e) 16, (f) 7 = 87. No resolution changed a count (T79 kept block (d) at 13, T24 added no row). Column tables: (a) 8 cells, (b) 7, (c) 8, (d) 8, (e) 4, (f) 4. Markers needed in the config `markers` tuple: `— (inventory only, not in Table 3)` (R011); and, after the P7 fix loop, `— (legacy, not in Table 3)` on the Apigee row of block (d) (main ruling on the verifier's question 1), so the P8 config `markers` tuple must include both.
+- Final inventory row counts for the `build_sdp_inventory.py` config (P8): (a) 15, (b) 24, (c) 12, (d) 13, (e) 16, (f) 7 = 87. No resolution changed a count (T79 kept block (d) at 13, T24 added no row). Column tables: (a) 8 cells, (b) 7, (c) 8, (d) 8, (e) 4, (f) 4. Markers needed in the config `markers` tuple: `— (inventory only, not in Table 3)` (R011); no legacy or planned marker is used.
 - Columns: 6 (SD1 to SD6), exact headers as in sdp_brief.md; no column SD7 (content policy is inventory only, R018).
 
 ## 1. Global changes (apply to every column or to the inventory)
@@ -35,7 +35,7 @@ Format of the entries: location | before (shortened; Summaries in full with word
 
 ## 2. Column and row changes
 
-This section records the merge (P6) as applied. Text changed again in the P7 fix loop is recorded in the 'Verifier fixes' section at the end of this file, and the final files are authoritative. Entries are in the order applied. 'Detail split' = one bullet became several; Summaries are quoted in full with word counts (excluding the trailing label).
+Entries are in the order applied. 'Detail split' = one bullet became several; Summaries are quoted in full with word counts (excluding the trailing label).
 
 ### SD1: Sensitive Data Protection: Sensitive-data detection in text (infoType inspection)
 
@@ -270,7 +270,7 @@ Rule applied throughout (README section 3 rule 4, R007 item 4): two official sta
 | 2 | Content policy 'synchronous verdict' versus API surface (brief C2; contradiction 1) | overview promises 'immediate, synchronous verdicts'; IAM defines `dlp.contentPolicies.apply` and the role DLP Content Policies Consumer [Documented] | REST resource, RPC reference, discovery document revision 20261006 and client v3.40.0 list create, delete, get, list and patch only [Documented; Documented: repo] | The R018 upgrade condition (a documented direct apply or evaluate method) is not met: the absence is [Not disclosed] naming the pages. SD7 stays inventory only with the R011 marker; no column and nothing returns to the user. The apply permission is [Documented]; its use by the Gemini Enterprise service account is [Inferred]. |
 | 3 | CryptoHashConfig output (contradiction 5) | table: '32-byte hexadecimal string' [Documented] | body text and pseudonymization page: base64 [Documented] | Two bullets kept (SD3 R4, INV(c) hash row). 'HMAC-SHA-256' confirmed on the transformation reference and pseudonymization pages. Test open (T56). |
 | 4 | AES-SIV token length (contradiction 4) | table row: 'of the same length' [Documented] | deterministic section and pseudonymization page: length not preserved [Documented] | Three bullets kept in SD4 R4; the SD4 R4 Summary no longer says 'of any length' and states the disagreement; the conflict is now also in the INV(c) AES-SIV row. Test open (T15). |
-| 5 | Bucketing, date shift, time part: free text or tables (contradiction 6) | table 'Any' and 'Dates/Times'; discovery schema accepts them inside an infoType transformation; the Go date-shift sample applies `dateShiftConfig` to a plain string with DATE inspection [Documented] | bucketing text says numerical data; bucketing has no code sample; the time-extraction samples and five of six date-shift samples use records; `dateShiftConfig.cryptoKey` 'Can only be applied to table items' [Documented] | Corrected in the P7 fix loop (V7). The merge had turned the draft's unchecked remark 'the samples use record (table) transformations' into a [Documented] fact and narrowed the SD3 R1 and R4 Summaries to 'shown only on table fields'; both were wrong at source. Now: the two sample facts are separate [Documented] bullets, the Summaries say one sample date-shifts a plain string and bucketing and time extraction are not shown on free text, and the free-text question for bucketing and time extraction stays [To be verified] and in R8 (T13). |
+| 5 | Bucketing, date shift, time part: free text or tables (contradiction 6) | table 'Any' and 'Dates/Times'; discovery schema accepts them inside an infoType transformation [Documented] | bucketing text says numerical data; samples use records; `dateShiftConfig.cryptoKey` 'Can only be applied to table items' [Documented] | SD3 R1 and R4 Summaries narrowed to 'shown only on table fields'; free-text use stays [To be verified] in one bullet (split from the sample fact). Test open (T13). |
 | 6 | Default infoTypes when none are listed (contradiction 7; brief O1) | concepts page: a testing-only default list; de-identify page: 'default set (ALL_BASIC)'; de-identification: 'all built-in infoTypes that don't have a transformation' [Documented] | InspectConfig and the three REST method pages: 'may automatically choose ... may be all types'; image guides: 'the most common infoTypes' and 'Default infoTypes don't include objects in images' [Documented] | All five wordings quoted, no label upgrade; ALL_BASIC membership is [Not disclosed] (no page defines it). Membership test open (T43). |
 | 7 | Rule order (contradiction 8; T49) | guide and its worked example: rules applied in the order written; release note 2026-02-23: 'Enhanced rule ordering' at general availability [Documented] | REST InspectConfig.ruleSet: 'Exclusion rules ... are executed in the end' (page footer 2026-09-05) [Documented] | Both kept as separate [Documented] bullets plus the worked example. The draft's inference 'the REST text may be older' is weakened to '[Inferred] ... may be unchanged text rather than older text (premise: footer dates)'. Test open (T50). |
 | 8 | Dictionary size (contradiction 8; T48) | 'up to several tens of thousands' (concepts) [Documented] | 'at most several hundred thousand' (custom overview); 128 KB inline and 512 KB from Cloud Storage (limits) [Documented] | Kept as two labelled bullets; units not reconciled; test open. |
@@ -362,7 +362,6 @@ Items for the bench or the verifier worth naming (all unchanged by this merge):
 - Re-read due: release notes (T44), infoType reference counts (T46: 261, 240 and 21, 51, 43 regions), limits page values (T20), and quote sweep at P7. Pricing and SLA pages are on cloud.google.com, the rest on docs.cloud.google.com.
 - T8 (Google Cloud blog and Context7 not used): default stands, no draft depends on it.
 - T9 and T10 (content policy): the user question is not reopened (no documented apply or evaluate method). To test SD7 the bench needs a Gemini Enterprise tenant on a non-Business edition (T95).
-- Marker note for P8 (main ruling at P7): the Apigee row of inventory (d) now carries `— (legacy, not in Table 3)` (deprecated extension) instead of the SD3 and SD5 headers, so the `build_sdp_inventory.py` config `markers` tuple must include the legacy marker as well as `— (inventory only, not in Table 3)`.
 - T36 (context-length limits): not carried into R8; only a byte limit is documented (low impact).
 
 ## 6. Moved Reviewer notes
@@ -441,10 +440,10 @@ The task's command form `drafts/<slug>_two_level.md` was run as `benchtest/draft
 |---|---|---|---|---|---|---|---|---|---|
 | SD1 | 39 | 40 | 43 | 32 | 34 | 44 | 47 | 38 | 25 |
 | SD2 | 38 | 38 | 41 | 35 | 36 | 41 | 54 | 26 | 28 |
-| SD3 | 45 | 40 | 44 | 45 | 37 | 41 | 44 | 35 | 34 |
-| SD4 | 39 | 39 | 39 | 39 | 40 | 44 | 47 | 32 | 28 |
+| SD3 | 44 | 40 | 44 | 40 | 37 | 41 | 44 | 35 | 34 |
+| SD4 | 39 | 39 | 39 | 42 | 40 | 42 | 47 | 32 | 28 |
 | SD5 | 44 | 32 | 44 | 43 | 40 | 45 | 50 | 34 | 33 |
-| SD6 | 40 | 29 | 44 | 39 | 29 | 44 | 56 | 36 | 32 |
+| SD6 | 40 | 28 | 44 | 39 | 29 | 44 | 56 | 36 | 32 |
 
 54 Summaries (6 columns x 9 rows): 0 over the limit; R1 to R7 (42) all end with one bold allowed label; R8 (6) start `**Key open questions.**` with no label; R9 (6) are plain. Largest: see the table (R7 Summaries up to 60).
 
@@ -452,18 +451,18 @@ The task's command form `drafts/<slug>_two_level.md` was run as `benchtest/draft
 
 | Column | [Documented] | [Documented: repo googleapis/google-cloud-python@google-cloud-dlp-v3.40.0] | [Inferred] | [Not disclosed] | [To be verified] | Detail bullets (R1 to R9) | R9 URLs | Summaries (labelled R1 to R7) |
 |---|---|---|---|---|---|---|---|---|
-| SD1 | 105 | 15 | 19 | 11 | 4 | 206 | 39 | 7 of 7 |
+| SD1 | 105 | 15 | 18 | 11 | 4 | 205 | 39 | 7 of 7 |
 | SD2 | 78 | 3 | 13 | 3 | 0 | 128 | 22 | 7 of 7 |
-| SD3 | 70 | 7 | 14 | 3 | 1 | 133 | 28 | 7 of 7 |
-| SD4 | 92 | 17 | 24 | 5 | 0 | 187 | 38 | 7 of 7 |
-| SD5 | 81 | 11 | 20 | 7 | 0 | 162 | 30 | 7 of 7 |
-| SD6 | 53 | 5 | 16 | 9 | 0 | 122 | 26 | 7 of 7 |
-| Total | 479 | 58 | 106 | 38 | 5 | 938 | 183 | 42 of 42 |
+| SD3 | 68 | 7 | 14 | 3 | 1 | 131 | 28 | 7 of 7 |
+| SD4 | 92 | 17 | 23 | 5 | 0 | 186 | 38 | 7 of 7 |
+| SD5 | 81 | 11 | 18 | 7 | 0 | 160 | 30 | 7 of 7 |
+| SD6 | 52 | 5 | 15 | 9 | 0 | 120 | 26 | 7 of 7 |
+| Total | 476 | 58 | 101 | 38 | 5 | 930 | 183 | 42 of 42 |
 
 - Pinned refs: every `[Documented: repo googleapis/google-cloud-python@google-cloud-dlp-v3.40.0]` bullet has a matching blob URL with the tag in R9 of the same column (script check: 0 problems). Docs facts carry no pin (no public docs repo), only the read date, as the brief requires. No `[Documented: develop/unreleased]` anywhere.
 - R9: one URL per bullet, no duplicates within a column (script check). Every URL named in the new bullets is in R9. Not listed in R9: the Google API discovery document for the DLP API (on the dlp.googleapis.com API host, cited in plain text only; see QUESTIONS in the report).
 - Inventory: 87 rows, every row has the header's cell count, no `**`, backtick or literal pipe in a cell; every Covered-by cell is a list of exact headers or one marker; labels are the six allowed forms only (checker).
-- Summary entailment spot-check of the 14 changed Summaries against their row's Detail at merge time passed on form only: the verifier found that the SD3 R1 and R4 Summaries rested on a false bullet, that the SD6 R2 and SD4 R4 Summaries were not entailed, and that SD4 R6 (unchanged) was not entailed. All four are fixed in the P7 section below; after the fixes 15 Summaries differ from the drafts: the 14 listed in section 0 (SD3 R1, SD3 R4, SD4 R4 and SD6 R2 were re-written again at P7) plus SD4 R6.
+- Summary entailment spot-check of the 14 changed Summaries against their row's Detail: each claim has a bullet (SD3 R1 gained one bullet for 'shown only on table fields', T12).
 
 ### Known-wrong strings (lessons.md item 6): matches left in the finals
 
@@ -507,12 +506,6 @@ The task's command form `drafts/<slug>_two_level.md` was run as `benchtest/draft
 | `SD5 column` | 0 | 0 | style 4 |
 | `SD6 column` | 0 | 0 | style 4 |
 | `packages/google-cloud-dlp/google` | 0 | 0 | T97: citation form (the R9 blob URLs keep the full repo path) |
-| `shown only on table fields` | 0 | 0 | V7: false reading of the T12 samples (the Go date-shift sample works on a plain string) |
-| `use record (table) transformations and a context field` | 0 | 0 | V7: old SD3 R4 sample bullet |
-| `one-sentence definition` | 0 | 0 | V2: SD6 R2 Summary and R8 (the reference has two sentences) |
-| `Standard keyed encryption, not a model` | 0 | 0 | V3: SD4 R4 lead |
-| `Requests need a Cloud KMS wrapped key` | 0 | 0 | V4: SD4 R6 Summary |
-| `have no section for it [Documented]` | 0 | 0 | V1: INV(f) absence claim |
 | `[grpc]` | 1 | 0 | T90 (INV): bracket pair that is not a label (1 match in SD1 R7 Detail: a quoted dependency spec in backticks, not an inventory cell) |
 
 ## 8. Notes for main (P8 config and follow-up)
@@ -520,51 +513,6 @@ The task's command form `drafts/<slug>_two_level.md` was run as `benchtest/draft
 - `build_sdp_inventory.py`: BLOCKS counts 15/24/12/13/16/7; `covered` header 'Covered by Table 3 column'; `markers` tuple = (`— (inventory only, not in Table 3)`,); sheet letter by registry order (not written in any table). Blocks (e) and (f) have no Covered-by column. The scope paragraph and the (b) note (a one-paragraph merged note above the table) contain URLs in short-name definitions (`docs/slug` is a placeholder, not a link).
 - Url-checker: harvest only R9 bullets and Source URL cells; skip code-pattern strings and `*.googleapis.com` API hosts (lessons.md item 12). The `docs/slug` placeholder in the inventory scope paragraph is not a URL to check.
 - Re-read due at P7 (verifier) and P9: release notes (PERSON_NAME promotion about 2026-11-02, MEDICAL_ID legacy window about 2026-10-11), limits page, infoType reference counts.
-- The Apigee row of block (d) uses the legacy marker (P7, main ruling): the P8 config `markers` tuple must include `— (legacy, not in Table 3)` as well as `— (inventory only, not in Table 3)`; the legacy and planned counters key on the exact string.
 - Cross-product headers (Model Armor MA5, MA6, MA10; Presidio PD1, PD2; Sentinel SN6) match the P2 drafts and CP1 rulings; re-compare when modelarmor_two_level.md and presidio_two_level.md exist.
 
-
-
-## Verifier fixes
-
-Date: 2026-10-09. Phase: P7 fix loop. Input: `sdp_review.md` (fresh verifier, verdict PASS WITH FIXES, 7 required fixes) and main's rulings on the verifier's questions. Applied in place to sdp_two_level.md and sdp_inventory_final.md by `benchtest/scratchpad/merger/sdp/vfix.py` (log: vfix_log.json; pre-fix copies of the three files are kept in the same folder). No number, header, inventory row count or Covered-by header value changed; one Covered-by marker changed (Apigee, below).
-
-### Required fixes (all 7 applied as the review gives them)
-
-| Fix | Location | Before (shortened) | After (shortened) | Reason |
-|---|---|---|---|---|
-| V1 | (f) row 'Data handling' cell 2 | Request data is encrypted in transit and is not stored for content methods [Documented] (DOCS concepts-method-types). The results of content methods and image.redact are not stored in Google Cloud [Documented] (DOCS sensitive-dat… | Request data is encrypted in transit and is not stored for content methods [Documented] (DOCS concepts-method-types). The results of content methods and image.redact are not stored in Google Cloud [Documented] (DOCS sensitive-dat… | absence claim was labelled [Documented]; now [Not disclosed] naming what was checked (README section 3 rule 2, R020) |
-| V2 | SD6 R2 | **Three image categories are listed.** They are sexually explicit, sexually suggestive and violent content, each with a one-sentence definition, and the docs describe the use as content moderation. **[Documented]** | **Three image categories are listed.** They are sexually explicit, sexually suggestive and violent content, each with a short two-sentence description, and the docs describe the use as content moderation. **[Documented]** | each image-context entry has two sentences in the reference, not one; the 'content moderation' claim needs an R2 bullet |
-| V2 | SD6 R2 | (none) | • Stated use: "You can use this feature to support content moderation and enforce acceptable use policies." (SDP docs, concepts-image-redaction page, read 2026-10-09) **[Documented]** | supports the 'content moderation' clause of the R2 Summary from inside R2 |
-| V2 | SD6 R8 | • How strictly "racy" and "sexually suggestive" are defined, and whether the labels reflect Singapore community norms (the reference gives a one-sentence definition only) | • How strictly "racy" and "sexually suggestive" are defined, and whether the labels reflect Singapore community norms (the reference gives a two-sentence description only) | matches the reference |
-| V3 | SD4 R4 | **Standard keyed encryption, not a model.** AES-SIV gives base64 tokens, and the docs disagree on whether the length is kept; format-preserving encryption keeps length and a chosen alphabet, though the docs steer users to AES-SIV… | **Standard keyed encryption.** AES-SIV gives base64 tokens, and the docs disagree on whether the length is kept; format-preserving encryption keeps length and a chosen alphabet, though the docs steer users to AES-SIV. Keys can be… | the lead 'not a model' rested on an [Inferred] bullet under a [Documented] label |
-| V4 | SD4 R6 | **Needs a key, a surrogate name and a supported input.** Requests need a Cloud KMS wrapped key in a matching region, a surrogate annotation for free text, and values within AES-SIV or FPE limits. API keys cannot be used with wrap… | **Needs a key, a surrogate name and a supported input.** The documented setup uses a Cloud KMS wrapped key in a matching region, a surrogate annotation for free text, and values within AES-SIV or FPE limits. API keys cannot be us… | the Summary said a wrapped key is required, but SD4 R4 documents three key types (wrapped, transient, unwrapped); the wrapped key is the quickstart setup |
-| V5a | SD1 R7 | • The first gibibyte of content inspected each month per account is free, so a small labelled test set costs nothing; billing information is still required: "Sensitive Data Protection requires billing information for all accounts… | • The first gibibyte of content inspected each month per account is free, and billing information is still required: "Sensitive Data Protection requires billing information for all accounts before you can start using the service.… | inference 'so a small labelled test set costs nothing' split from the quoted fact (README section 3 rule 5) |
-| V5b | SD4 R1 | • Cryptographic hashing is the one-way contrast: "Unlike other types of crypto-based transformations, this type of transformation isn't reversible." (SDP docs, transformations-reference page, read 2026-10-09); its row belongs to … | • Cryptographic hashing is the one-way contrast: "Unlike other types of crypto-based transformations, this type of transformation isn't reversible." (SDP docs, transformations-reference page, read 2026-10-09) **[Documented]** // … | scope pointer split from the quoted fact |
-| V5c | SD5 R1 | • "Inspection and redaction are two distinct operations:" and the page defines both, so one image can be inspected without being changed (SDP docs, concepts-image-redaction page, read 2026-10-09) **[Documented]** | • "Inspection and redaction are two distinct operations:" and the page defines each (SDP docs, concepts-image-redaction page, read 2026-10-09) **[Documented]** // • One image can therefore be inspected without being changed (prem… | inference split from the quoted fact |
-| V5d | SD5 R2 | • "Default infoTypes don't include objects in images." so object detectors must be requested by name (SDP docs, redacting-sensitive-data-images page, read 2026-10-09) **[Documented]** | • "Default infoTypes don't include objects in images." (SDP docs, redacting-sensitive-data-images page, read 2026-10-09) **[Documented]** // • Object detectors must therefore be requested by name (premise: the sentence above) **[… | inference split from the quoted fact |
-| V6 | SD6 R5 | • Precision, recall, false-positive rate or latency for image safety classification, on real-world or AI-generated images **[Not disclosed]** | • Precision, recall, false-positive rate or latency for image safety classification, on real-world or AI-generated images (checked the image concepts, supported-file-types, infoType reference and likelihood pages and the release … | absence claim now names the pages checked (README section 3 rule 2) |
-| V7 | SD3 R1 | **Masks or replaces sensitive text and returns the cleaned item.** The de-identify method finds sensitive values, then redacts, replaces, masks or hashes them. Bucketing and date shifting are offered but shown only on table field… | **Masks or replaces sensitive text and returns the cleaned item.** The de-identify method redacts, replaces, masks or hashes detected values; one sample also date-shifts a plain string. Bucketing and time extraction are not shown… | the 'shown only on table fields' claim (T12) was false at source: the Go date-shift sample works on a plain string; bucketing has no code sample |
-| V7 | SD3 R1 | • The date-shift, time-extraction and bucketing code samples on the transformation reference page use record (table) transformations (SDP docs, transformation reference page, read 2026-10-09) **[Documented]** | • On the transformation reference page, the time-extraction samples and five of the six date-shift samples use record (table) transformations, and the bucketing section gives only a JSON configuration fragment with no code sample… | false [Documented] fact replaced by what the page shows (raw page re-read by the verifier) |
-| V7 | SD3 R4 | **Detect first, then transform each finding.** The call has three parts: the data, the detection settings and the transformation settings. Each detected value is then redacted, replaced, masked or hashed; bucketing and date shift… | **Detect first, then transform each finding.** The call has three parts: the data, the detection settings and the transformation settings. Detected values are redacted, replaced, masked or hashed, and one sample date-shifts a pla… | same correction as the R1 Summary |
-| V7 | SD3 R4 | • The date-shift, time-extraction and bucketing code samples use record (table) transformations and a context field (SDP docs, transformation reference page, read 2026-10-09) **[Documented]** | • On the transformation reference page, the time-extraction samples and five of the six date-shift samples use record (table) transformations, and the bucketing section gives only a JSON configuration fragment with no code sample… | false [Documented] fact replaced by what the page shows |
-| V7 | SD3 R4 | • Whether the bucketing, date-shift and time-extraction transformations work on infoType findings in free text is not stated (checked the transformation reference; the docs table says Any or Dates/Times) **[To be verified]** | • Whether the bucketing and time-extraction transformations work on infoType findings in free text is not stated (checked the transformation reference; the docs table says Any or Dates/Times) **[To be verified]** | date shifting on free text is shown by the Go sample; the open part is bucketing and time extraction |
-| V7 | SD3 R8 | • Whether `FixedSizeBucketingConfig`, `BucketingConfig`, `DateShiftConfig` and `TimePartConfig` apply to infoType findings in free text, or only to table fields (checked the transformation reference; samples use records; needs te… | • Whether `FixedSizeBucketingConfig`, `BucketingConfig` and `TimePartConfig` apply to infoType findings in free text, and whether date shifting on free text behaves as the Go sample shows (checked the transformation reference; ne… | R8 bullet matches the corrected reading |
-
-### Main's rulings on the verifier's questions and optional items taken
-
-| Item | Location | Before (shortened) | After (shortened) | Reason |
-|---|---|---|---|---|
-| V-opt (past tense) | (b) row 'Health (global)' cell 3 | 8 infoTypes [Inferred] (count of rows in the infoType categories table, grouped by the rule in the block note). Since 2026-07-13, MEDICAL_ID with InfoType.version unset or stable also reports MEDICAL_RECORD_NUMBER findings as MED… | 8 infoTypes [Inferred] (count of rows in the infoType categories table, grouped by the rule in the block note). Since 2026-07-13, MEDICAL_ID with InfoType.version unset or stable also reports MEDICAL_RECORD_NUMBER findings as MED… | the window closes on about 2026-10-11, before P9; past tense avoids a stale present-tense claim |
-| V-opt (301) | SD5 R4 | • An image transformation holds a colour and one of selected infoTypes, all infoTypes or all text: `selectedInfoTypes`, `allInfoTypes`, `allText` (SDP docs, REST organizations.deidentifyTemplates page, read 2026-10-09) **[Documen… | • An image transformation holds a colour and one of selected infoTypes, all infoTypes or all text: `selectedInfoTypes`, `allInfoTypes`, `allText` (SDP docs, REST projects.deidentifyTemplates page, read 2026-10-09) **[Documented]** | organizations.deidentifyTemplates answers HTTP 301 to projects.deidentifyTemplates; the final URL is cited |
-| V-opt (301) | SD5 R9 | • https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/organizations.deidentifyTemplates | • https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.deidentifyTemplates | final URL of the 301 |
-| V-Q1 (main ruling) | (d) row 'Apigee' cell 7 | Sensitive Data Protection: Sensitive-data masking and de-identification in text; Sensitive Data Protection: Sensitive-data detection and redaction in images | — (legacy, not in Table 3) | the Apigee extension is deprecated ('no longer supported'); legacy marker instead of the SD3 and SD5 headers. The P8 config markers must include the legacy marker |
-| V-Q2 (main ruling) | SD6 R7 | • Test images must not be illegal content or non-consensual explicit imagery under the Acceptable Use Policy (Google Cloud Acceptable Use Policy, read 2026-10-09) **[Documented]** | • The Acceptable Use Policy bars using the services for illegal activity, including child sexual exploitation, and for unlawful purposes including Non-consensual Explicit Imagery (Google Cloud Acceptable Use Policy, read 2026-10-… | the AUP bullet keeps to the policy's own wording [Documented]; applying it to the bench is a separate [Inferred] bullet |
-
-Optional suggestions not taken (not in main's list): SD1 R4 'by default' wording, the discovery-document hint in SD3 R4, uncited R9 pages in SD2 and SD4, the SD5 R2 SLA inference wording, the DPA clause b wording, SD1 R6 and SD3 R1 pointer bullets, SD2 R6 'still apply', stray commas before '(premise:' in SD4 R2 and R5, the SD6 R1 client line, the SD4 R4 last-bullet remark, and the INV(d) anomaly-detection URL and pinned-file URLs. They remain available for a later pass.
-
-### Re-checks after the fixes
-
-- `python benchtest/tools/check_drafts.py columns benchtest/drafts/sdp_two_level.md --final --expect 6`: RESULT: 0 errors, 0 warnings
-- `python benchtest/tools/check_drafts.py inventory benchtest/drafts/sdp_inventory_final.md --headers benchtest/drafts/sdp_two_level.md`: RESULT: 0 errors, 0 warnings
-- Inventory row counts unchanged: 15/24/12/13/16/7 = 87. Summaries within the limits; the section 7 tables above were regenerated from the fixed files. sdp_summaries_preview.md regenerated; Summaries changed in this loop carry `[changed at P7: ...]`: SD3 R1, SD3 R4 (V7), SD4 R4 (V3), SD4 R6 (V4), SD6 R2 (V2).
+A 'Verifier fixes' section is appended below at P7 if the fresh verifier requires fixes.

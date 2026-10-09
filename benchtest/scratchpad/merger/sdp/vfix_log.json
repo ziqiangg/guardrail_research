@@ -1,0 +1,200 @@
+[
+ {
+  "file": "inv",
+  "loc": "(f) row 'Data handling' cell 2",
+  "tid": "V1",
+  "before": "Request data is encrypted in transit and is not stored for content methods [Documented] (DOCS concepts-method-types). The results of content methods and image.redact are not stored in Google Cloud [Documented] (DOCS sensitive-data-protection-overview). Regional endpoints keep data at rest, in use and in transit in the named location, excluding Service Data [Documented] (DOCS api-endpoints). The Google Cloud terms say Google will \"only access, use, and otherwise process Customer Data in accordance with the Cloud Data Processing Addendum and will not access, use, or process Customer Data for any other purpose\" [Documented] (Google Cloud terms, not SDP docs). Sensitive Data Protection is listed among the Google Cloud Platform Services and the Service Specific Terms have no section for it [Documented] (Google Cloud terms services list and Service Specific Terms, not SDP docs). Content sent to the SDP API is therefore processed only to provide, secure and monitor the service [Inferred] (premise: the Customer Data definition covers data provided through the Services and no SDP carve-out exists)",
+  "after": "Request data is encrypted in transit and is not stored for content methods [Documented] (DOCS concepts-method-types). The results of content methods and image.redact are not stored in Google Cloud [Documented] (DOCS sensitive-data-protection-overview). Regional endpoints keep data at rest, in use and in transit in the named location, excluding Service Data [Documented] (DOCS api-endpoints). The Google Cloud terms say Google will \"only access, use, and otherwise process Customer Data in accordance with the Cloud Data Processing Addendum and will not access, use, or process Customer Data for any other purpose\" [Documented] (Google Cloud terms, not SDP docs). Sensitive Data Protection is listed among the Google Cloud Platform Services [Documented] (Google Cloud terms services list, not SDP docs). A Sensitive Data Protection section in the Service Specific Terms [Not disclosed] (checked the Service Specific Terms for Sensitive Data Protection, Data Loss Prevention and DLP; the name appears only in the page navigation). Content sent to the SDP API is therefore processed only to provide, secure and monitor the service [Inferred] (premise: the Customer Data definition covers data provided through the Services and no SDP carve-out exists)",
+  "reason": "absence claim was labelled [Documented]; now [Not disclosed] naming what was checked (README section 3 rule 2, R020)",
+  "full": false
+ },
+ {
+  "file": "cols",
+  "loc": "SD6 R2",
+  "tid": "V2",
+  "before": "Summary: **Three image categories are listed.** They are sexually explicit, sexually suggestive and violent content, each with a one-sentence definition, and the docs describe the use as content moderation. **[Documented]**",
+  "after": "Summary: **Three image categories are listed.** They are sexually explicit, sexually suggestive and violent content, each with a short two-sentence description, and the docs describe the use as content moderation. **[Documented]**",
+  "reason": "each image-context entry has two sentences in the reference, not one; the 'content moderation' claim needs an R2 bullet",
+  "full": true
+ },
+ {
+  "file": "cols",
+  "loc": "SD6 R2",
+  "tid": "V2",
+  "before": "(none)",
+  "after": "• Stated use: \"You can use this feature to support content moderation and enforce acceptable use policies.\" (SDP docs, concepts-image-redaction page, read 2026-10-09) **[Documented]**",
+  "reason": "supports the 'content moderation' clause of the R2 Summary from inside R2",
+  "full": false
+ },
+ {
+  "file": "cols",
+  "loc": "SD6 R8",
+  "tid": "V2",
+  "before": "• How strictly \"racy\" and \"sexually suggestive\" are defined, and whether the labels reflect Singapore community norms (the reference gives a one-sentence definition only)",
+  "after": "• How strictly \"racy\" and \"sexually suggestive\" are defined, and whether the labels reflect Singapore community norms (the reference gives a two-sentence description only)",
+  "reason": "matches the reference",
+  "full": false
+ },
+ {
+  "file": "cols",
+  "loc": "SD4 R4",
+  "tid": "V3",
+  "before": "Summary: **Standard keyed encryption, not a model.** AES-SIV gives base64 tokens, and the docs disagree on whether the length is kept; format-preserving encryption keeps length and a chosen alphabet, though the docs steer users to AES-SIV. Keys can be wrapped by Cloud KMS. **[Documented]**",
+  "after": "Summary: **Standard keyed encryption.** AES-SIV gives base64 tokens, and the docs disagree on whether the length is kept; format-preserving encryption keeps length and a chosen alphabet, though the docs steer users to AES-SIV. Keys can be wrapped by Cloud KMS. **[Documented]**",
+  "reason": "the lead 'not a model' rested on an [Inferred] bullet under a [Documented] label",
+  "full": true
+ },
+ {
+  "file": "cols",
+  "loc": "SD4 R6",
+  "tid": "V4",
+  "before": "Summary: **Needs a key, a surrogate name and a supported input.** Requests need a Cloud KMS wrapped key in a matching region, a surrogate annotation for free text, and values within AES-SIV or FPE limits. API keys cannot be used with wrapped keys. **[Documented]**",
+  "after": "Summary: **Needs a key, a surrogate name and a supported input.** The documented setup uses a Cloud KMS wrapped key in a matching region, a surrogate annotation for free text, and values within AES-SIV or FPE limits. API keys cannot be used with wrapped keys. **[Documented]**",
+  "reason": "the Summary said a wrapped key is required, but SD4 R4 documents three key types (wrapped, transient, unwrapped); the wrapped key is the quickstart setup",
+  "full": true
+ },
+ {
+  "file": "cols",
+  "loc": "SD1 R7",
+  "tid": "V5a",
+  "before": "• The first gibibyte of content inspected each month per account is free, so a small labelled test set costs nothing; billing information is still required: \"Sensitive Data Protection requires billing information for all accounts before you can start using the service.\" (SDP pricing page, read 2026-10-09) **[Documented]**",
+  "after": "• The first gibibyte of content inspected each month per account is free, and billing information is still required: \"Sensitive Data Protection requires billing information for all accounts before you can start using the service.\" (SDP pricing page, read 2026-10-09) **[Documented]**\n• A small labelled test set therefore stays within the free tier (premise: the free first gibibyte per month on the pricing page) **[Inferred]**",
+  "reason": "inference 'so a small labelled test set costs nothing' split from the quoted fact (README section 3 rule 5)",
+  "full": false
+ },
+ {
+  "file": "cols",
+  "loc": "SD4 R1",
+  "tid": "V5b",
+  "before": "• Cryptographic hashing is the one-way contrast: \"Unlike other types of crypto-based transformations, this type of transformation isn't reversible.\" (SDP docs, transformations-reference page, read 2026-10-09); its row belongs to the masking and de-identification in text column **[Documented]**",
+  "after": "• Cryptographic hashing is the one-way contrast: \"Unlike other types of crypto-based transformations, this type of transformation isn't reversible.\" (SDP docs, transformations-reference page, read 2026-10-09) **[Documented]**\n• The hash row is covered by the masking and de-identification in text column, not here (premise: a pointer to the owning column, not a source fact) **[Inferred]**",
+  "reason": "scope pointer split from the quoted fact",
+  "full": false
+ },
+ {
+  "file": "cols",
+  "loc": "SD5 R1",
+  "tid": "V5c",
+  "before": "• \"Inspection and redaction are two distinct operations:\" and the page defines both, so one image can be inspected without being changed (SDP docs, concepts-image-redaction page, read 2026-10-09) **[Documented]**",
+  "after": "• \"Inspection and redaction are two distinct operations:\" and the page defines each (SDP docs, concepts-image-redaction page, read 2026-10-09) **[Documented]**\n• One image can therefore be inspected without being changed (premise: inspection is defined separately from redaction and returns only infoTypes and pixel coordinates) **[Inferred]**",
+  "reason": "inference split from the quoted fact",
+  "full": false
+ },
+ {
+  "file": "cols",
+  "loc": "SD5 R2",
+  "tid": "V5d",
+  "before": "• \"Default infoTypes don't include objects in images.\" so object detectors must be requested by name (SDP docs, redacting-sensitive-data-images page, read 2026-10-09) **[Documented]**",
+  "after": "• \"Default infoTypes don't include objects in images.\" (SDP docs, redacting-sensitive-data-images page, read 2026-10-09) **[Documented]**\n• Object detectors must therefore be requested by name (premise: the sentence above) **[Inferred]**",
+  "reason": "inference split from the quoted fact",
+  "full": false
+ },
+ {
+  "file": "cols",
+  "loc": "SD6 R5",
+  "tid": "V6",
+  "before": "• Precision, recall, false-positive rate or latency for image safety classification, on real-world or AI-generated images **[Not disclosed]**",
+  "after": "• Precision, recall, false-positive rate or latency for image safety classification, on real-world or AI-generated images (checked the image concepts, supported-file-types, infoType reference and likelihood pages and the release notes) **[Not disclosed]**",
+  "reason": "absence claim now names the pages checked (README section 3 rule 2)",
+  "full": false
+ },
+ {
+  "file": "cols",
+  "loc": "SD3 R1",
+  "tid": "V7",
+  "before": "Summary: **Masks or replaces sensitive text and returns the cleaned item.** The de-identify method finds sensitive values, then redacts, replaces, masks or hashes them. Bucketing and date shifting are offered but shown only on table fields. It returns the item and a summary of changes. **[Documented]**",
+  "after": "Summary: **Masks or replaces sensitive text and returns the cleaned item.** The de-identify method redacts, replaces, masks or hashes detected values; one sample also date-shifts a plain string. Bucketing and time extraction are not shown on free text. It returns the item and a change summary. **[Documented]**",
+  "reason": "the 'shown only on table fields' claim (T12) was false at source: the Go date-shift sample works on a plain string; bucketing has no code sample",
+  "full": true
+ },
+ {
+  "file": "cols",
+  "loc": "SD3 R1",
+  "tid": "V7",
+  "before": "• The date-shift, time-extraction and bucketing code samples on the transformation reference page use record (table) transformations (SDP docs, transformation reference page, read 2026-10-09) **[Documented]**",
+  "after": "• On the transformation reference page, the time-extraction samples and five of the six date-shift samples use record (table) transformations, and the bucketing section gives only a JSON configuration fragment with no code sample (SDP docs, transformation reference page, read 2026-10-09) **[Documented]**\n• The Go date-shift sample applies `dateShiftConfig` inside an infoType transformation to a plain string item with `DATE` inspection; its comments read `input := \"2016-01-10\"` and `Will print \"2016-01-09\"` (SDP docs, transformation reference page, read 2026-10-09) **[Documented]**",
+  "reason": "false [Documented] fact replaced by what the page shows (raw page re-read by the verifier)",
+  "full": false
+ },
+ {
+  "file": "cols",
+  "loc": "SD3 R4",
+  "tid": "V7",
+  "before": "Summary: **Detect first, then transform each finding.** The call has three parts: the data, the detection settings and the transformation settings. Each detected value is then redacted, replaced, masked or hashed; bucketing and date shifting are shown only on table fields. **[Documented]**",
+  "after": "Summary: **Detect first, then transform each finding.** The call has three parts: the data, the detection settings and the transformation settings. Detected values are redacted, replaced, masked or hashed, and one sample date-shifts a plain string; bucketing and time extraction are not shown on free text. **[Documented]**",
+  "reason": "same correction as the R1 Summary",
+  "full": true
+ },
+ {
+  "file": "cols",
+  "loc": "SD3 R4",
+  "tid": "V7",
+  "before": "• The date-shift, time-extraction and bucketing code samples use record (table) transformations and a context field (SDP docs, transformation reference page, read 2026-10-09) **[Documented]**",
+  "after": "• On the transformation reference page, the time-extraction samples and five of the six date-shift samples use record (table) transformations, and the bucketing section gives only a JSON configuration fragment with no code sample (SDP docs, transformation reference page, read 2026-10-09) **[Documented]**\n• The Go date-shift sample applies `dateShiftConfig` inside an infoType transformation to a plain string item with `DATE` inspection; its comments read `input := \"2016-01-10\"` and `Will print \"2016-01-09\"` (SDP docs, transformation reference page, read 2026-10-09) **[Documented]**",
+  "reason": "false [Documented] fact replaced by what the page shows",
+  "full": false
+ },
+ {
+  "file": "cols",
+  "loc": "SD3 R4",
+  "tid": "V7",
+  "before": "• Whether the bucketing, date-shift and time-extraction transformations work on infoType findings in free text is not stated (checked the transformation reference; the docs table says Any or Dates/Times) **[To be verified]**",
+  "after": "• Whether the bucketing and time-extraction transformations work on infoType findings in free text is not stated (checked the transformation reference; the docs table says Any or Dates/Times) **[To be verified]**",
+  "reason": "date shifting on free text is shown by the Go sample; the open part is bucketing and time extraction",
+  "full": false
+ },
+ {
+  "file": "cols",
+  "loc": "SD3 R8",
+  "tid": "V7",
+  "before": "• Whether `FixedSizeBucketingConfig`, `BucketingConfig`, `DateShiftConfig` and `TimePartConfig` apply to infoType findings in free text, or only to table fields (checked the transformation reference; samples use records; needs testing)",
+  "after": "• Whether `FixedSizeBucketingConfig`, `BucketingConfig` and `TimePartConfig` apply to infoType findings in free text, and whether date shifting on free text behaves as the Go sample shows (checked the transformation reference; needs testing)",
+  "reason": "R8 bullet matches the corrected reading",
+  "full": false
+ },
+ {
+  "file": "inv",
+  "loc": "(b) row 'Health (global)' cell 3",
+  "tid": "V-opt (past tense)",
+  "before": "8 infoTypes [Inferred] (count of rows in the infoType categories table, grouped by the rule in the block note). Since 2026-07-13, MEDICAL_ID with InfoType.version unset or stable also reports MEDICAL_RECORD_NUMBER findings as MEDICAL_ID; the old behaviour is available with version legacy for 90 days [Documented] (DOCS release-notes). The legacy window ends about 2026-10-11 [Inferred] (premise: 90 days counted from the note date)",
+  "after": "8 infoTypes [Inferred] (count of rows in the infoType categories table, grouped by the rule in the block note). Since 2026-07-13, MEDICAL_ID with InfoType.version unset or stable also reports MEDICAL_RECORD_NUMBER findings as MEDICAL_ID; and the note offered the old behaviour with version legacy for the next 90 days [Documented] (DOCS release-notes). That window ends about 2026-10-11 [Inferred] (premise: 90 days counted from the note date)",
+  "reason": "the window closes on about 2026-10-11, before P9; past tense avoids a stale present-tense claim",
+  "full": false
+ },
+ {
+  "file": "cols",
+  "loc": "SD5 R4",
+  "tid": "V-opt (301)",
+  "before": "• An image transformation holds a colour and one of selected infoTypes, all infoTypes or all text: `selectedInfoTypes`, `allInfoTypes`, `allText` (SDP docs, REST organizations.deidentifyTemplates page, read 2026-10-09) **[Documented]**",
+  "after": "• An image transformation holds a colour and one of selected infoTypes, all infoTypes or all text: `selectedInfoTypes`, `allInfoTypes`, `allText` (SDP docs, REST projects.deidentifyTemplates page, read 2026-10-09) **[Documented]**",
+  "reason": "organizations.deidentifyTemplates answers HTTP 301 to projects.deidentifyTemplates; the final URL is cited",
+  "full": false
+ },
+ {
+  "file": "cols",
+  "loc": "SD5 R9",
+  "tid": "V-opt (301)",
+  "before": "• https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/organizations.deidentifyTemplates",
+  "after": "• https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.deidentifyTemplates",
+  "reason": "final URL of the 301",
+  "full": false
+ },
+ {
+  "file": "inv",
+  "loc": "(d) row 'Apigee' cell 7",
+  "tid": "V-Q1 (main ruling)",
+  "before": "Sensitive Data Protection: Sensitive-data masking and de-identification in text; Sensitive Data Protection: Sensitive-data detection and redaction in images",
+  "after": "— (legacy, not in Table 3)",
+  "reason": "the Apigee extension is deprecated ('no longer supported'); legacy marker instead of the SD3 and SD5 headers. The P8 config markers must include the legacy marker",
+  "full": false
+ },
+ {
+  "file": "cols",
+  "loc": "SD6 R7",
+  "tid": "V-Q2 (main ruling)",
+  "before": "• Test images must not be illegal content or non-consensual explicit imagery under the Acceptable Use Policy (Google Cloud Acceptable Use Policy, read 2026-10-09) **[Documented]**",
+  "after": "• The Acceptable Use Policy bars using the services for illegal activity, including child sexual exploitation, and for unlawful purposes including Non-consensual Explicit Imagery (Google Cloud Acceptable Use Policy, read 2026-10-09) **[Documented]**\n• The bench's test images should stay within those limits (premise: the bench is a customer using the service under the Acceptable Use Policy; which explicit or violent test images are acceptable is decided in the bench design) **[Inferred]**",
+  "reason": "the AUP bullet keeps to the policy's own wording [Documented]; applying it to the bench is a separate [Inferred] bullet",
+  "full": false
+ }
+]
