@@ -69,3 +69,4 @@
 - 2026-10-09 B1 CLOSED (R029): presidio, sdp, modelarmor done; CLAUDE.md Products table updated; R028 CSS pass on all 6 pages running
 - 2026-10-09 session limit (reset 20:50 SGT) stopped R028 CSS agent + 6 B2 P2 drafters; WIP committed (R028 CSS lines applied, unverified; lionguard_cols_a.md partial?); resuming
 - 2026-10-09 lionguard P2 cols_a done: LN1 complete, 187 bullets, check 0/0; 2 TBV, 10 ND, 13 R8; conflicts C1–C6 + 2 new (11 heads vs 7 modules; playbook vs paper on embedders)
+- 2026-10-09 R028 applied to all 6 pages: scrollWidth 375 at 375 on all; 0 box changes at 1280; shared block lines 6-110 identical; README §3/§11 updated; build scripts synced. B1 diagram work complete.

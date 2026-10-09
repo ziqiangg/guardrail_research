@@ -25,11 +25,11 @@ The page explains and positions. It does not recommend, rank, or give setup step
 
 ## 3. CSS: copy verbatim
 
-Take `sentinel-explained.html` **lines 6 to 109** (from `:root {` through `ul.limits b { ... }`) unchanged, byte for byte. Verified: lines 6-109 are identical in `llama-guard-explained.html`, and lines 6-92 are identical in `nemo-rails-explained.html` (NeMo simply lacks the table/pill block that is lines 93-109). Line 93's comment ("Additions for this page: partly / not supported, tables, verdict pills") is part of the shared block: leave it as is. **Do not copy lines 110-119** (Sentinel's maker tints `.mk-*`, `.bar-*`, `.tick`); they are Sentinel-specific.
+Take `sentinel-explained.html` **lines 6 to 110** (from `:root {` through `ul.limits b { ... }`) unchanged, byte for byte. The block includes the phone-width rule `.wrap > *, .stage > *, .grid2 > * { min-width: 0; }` (line 91, directly after the `.grid2` rule; R028): it lets grid children shrink so only figures and tables scroll sideways on phones. Verified: lines 6-110 are identical in the other five pages (`llama-guard`, `presidio`, `sdp`, `modelarmor`), and lines 6-93 are identical in `nemo-rails-explained.html` (NeMo simply lacks the table/pill block that is lines 94-110). Line 94's comment ("Additions for this page: partly / not supported, tables, verdict pills") is part of the shared block: leave it as is. **Do not copy lines 111-120** (Sentinel's maker tints `.mk-*`, `.bar-*`, `.tick`); they are Sentinel-specific.
 
-Line 5 (the `/* Layout: ... */` comment) is the only per-page line in the base: rewrite it to list this page's section order. Product-specific CSS goes in a new block after line 109, headed `/* Additions for this page: <what for> */`, using only `var(--token)` colours and the existing naming style (`.mk-*` for ownership tints, `.bar-*` for scale bars). Add nothing for the look of the page itself.
+Line 5 (the `/* Layout: ... */` comment) is the only per-page line in the base: rewrite it to list this page's section order. Product-specific CSS goes in a new block after line 110, headed `/* Additions for this page: <what for> */`, using only `var(--token)` colours and the existing naming style (`.mk-*` for ownership tints, `.bar-*` for scale bars). Add nothing for the look of the page itself.
 
-Check: `diff <(sed -n 6,109p sentinel-explained.html) <(sed -n 6,109p NEW.html)` must print nothing.
+Check: `diff <(sed -n 6,110p sentinel-explained.html) <(sed -n 6,110p NEW.html)` must print nothing.
 
 Tokens and dark mode, verbatim (do not edit, do not add tokens):
 
@@ -192,7 +192,7 @@ Footer: first `<p>` begins "Sources: " and lists the official documents used (ve
 
 For the diagrammer (tick before handing over) and the reviewer (re-check independently):
 
-- [ ] `diff` of lines 6-109 of sentinel-explained.html against the new file prints nothing; extra CSS only in a final block headed `/* Additions for this page: ... */`; line 5 comment rewritten.
+- [ ] `diff` of lines 6-110 of sentinel-explained.html against the new file prints nothing; extra CSS only in a final block headed `/* Additions for this page: ... */`; line 5 comment rewritten.
 - [ ] Fragment format: title, preconnect, fonts link, style, `.wrap`; no doctype, lang, viewport, JS, images, external assets.
 - [ ] `<title>` is "How <Product> <Verb>s a Conversation" (title case); h1 same in sentence case; eyebrow is "<Vendor> <Product> · <version/status>".
 - [ ] Legend lists exactly the roles used in the page (no unused swatch, no used role missing) with "Check done by <Product>" / "Your app's job" wording.
