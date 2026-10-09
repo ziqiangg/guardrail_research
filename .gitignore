@@ -8,3 +8,7 @@ venv/
 .env
 .DS_Store
 Thumbs.db
+# vendor clones made by agents inside scratchpad (clone to /tmp instead; R013)
+benchtest/scratchpad/**/gcgo/
+benchtest/scratchpad/**/apsamples/
+benchtest/scratchpad/**/repo/
