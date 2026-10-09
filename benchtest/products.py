@@ -32,6 +32,9 @@ PRODUCTS = [
     dict(slug="modelarmor", name="Model Armor", header_prefix="Model Armor:",
          two_level_md=DRAFTS / "modelarmor_two_level.md", inventory_sheet="3h. Model Armor Inventory",
          inventory_builder_module="build_modelarmor_inventory", notes="inventory via inventory_sheet; MA1-MA10"),
+    dict(slug="lionguard", name="LionGuard", header_prefix="LionGuard:",
+         two_level_md=DRAFTS / "lionguard_two_level.md", inventory_sheet="3i. LionGuard Inventory",
+         inventory_builder_module="build_lionguard_inventory", notes="inventory via inventory_sheet; LN1"),
 ]
 
 SHEET3 = "3. Guardrail Research Table"

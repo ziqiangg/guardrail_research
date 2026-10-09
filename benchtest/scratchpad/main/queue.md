@@ -28,6 +28,7 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| lionguard P8 (coverage panel counts blocks (a)–(c) only; (d)/(e) are all inventory-only) | accepted; no shared-module change | main |
 | lionguard CP2 | R033 approved | user |
 | lionguard P7 Q (verifier GETs to huggingface.co/api/models URLs in R9) | GETs covered by the P4 Hub-metadata ruling; but R9/Source URL cells cite public model pages at the pinned revision, not api paths (same as purplellama P5 Q4) → added to the fix loop | main |
 | purplellama P5 r2 Q1 (label for PyPI sdist facts) | `[Documented]` + plain-text source "(PyPI sdist <name>-<ver>, sha256 <short>, read <date>)" with the PyPI project URL in R9; sdist-vs-pin comparisons `[Inferred]` | main |
