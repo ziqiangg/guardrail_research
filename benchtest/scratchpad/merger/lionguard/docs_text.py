@@ -30,7 +30,7 @@ GLOBAL = [
     ("Sentinel cross-reference facts", "no read date", "'read 2026-10-09' on the Sentinel source hints (R3, R4, R6; inventory (e) rows 1, 2 and 4)", "T17"),
     ("Process wording in deliverable text", "'covered under the Sentinel column', 'see R7' (2), 'routed as a licensing item', '(R019)' (3), 'was not read/worked around', 'This is a licensing item for the user ...', 'Nothing was signed in to, requested or called ...'", "removed or reworded as sources checked; nothing in the finals names a ruling, checkpoint, triage id or session", "T59"),
     ("Code identifiers and package names in Summaries", "'The predict call' (R3), 'pass the vectors to predict' (R6), 'transformers', 'torch', 'sentence-transformers' (R7)", "'The classifier call', 'to the classifier', 'Hugging Face Transformers and PyTorch'", "style 2"),
-    ("R9 list", "24 URLs", "33 URLs: 9 added so every page, file and pin cited in R1 to R8 is in R9 (one URL per bullet)", "T13 and the T-ids in section 2"),
+    ("R9 list", "24 URLs", "31 URLs: 10 added so every page, file and pin cited in R1 to R8 is in R9 (one URL per bullet) and the 3 huggingface.co/api URLs removed in the P7 fix loop (the model-page tree URLs at the pinned revisions were already listed)", "T13 and the T-ids in section 2; P7 main ruling"),
     ("Inventory block (d) row count", "10 rows", "11 rows (arXiv 2507.05980); BLOCKS counts for the P8 config are 4/11/8/11/4", "T15, main P5 Q-A"),
 ]
 
@@ -52,7 +52,7 @@ HANDLED = (
 
 URL_NOTE = (
     "Expected non-200 at the P9 URL check: openai.com/policies/terms-of-use and openai.com/policies/usage-policies (HTTP 403, an HTTP fact kept on purpose in R7 and inventory (c)). "
-    "The three huggingface.co/api JSON URLs in R9 are public metadata (200). huggingface.co/google/embeddinggemma-300m is a public page with gated files; "
+    "R9 and the inventory Source URL cells cite no huggingface.co/api path (P7 main ruling). huggingface.co/google/embeddinggemma-300m is a public page with gated files; "
     "huggingface.co/datasets/govtech/RabakBench-full (inventory (d) only) is gated manual and access was not requested. "
     "The Sentinel Onboarding Guide (HTTP 403 to a plain GET) is not cited anywhere."
 )
@@ -112,5 +112,19 @@ KNOWN = [
     ("we use", "decided-plan wording (R032)"), ("this is the plan", "decided-plan wording (R032)"),
     ("data-handling decision", "decided-plan wording (R032)"), ("a bench-design choice", "decided-plan wording (R032)"),
     ("Pick your own threshold", "old R7 Summary wording"), ("Reviewer notes", "reviewer notes"),
-    ("not worked around", "process wording"), ("fetch tool", "one HTTP-fact bullet in R7 only (1 expected)"),
+    ("not worked around", "process wording"), ("fetch tool", "reworded to a plain GET in the P7 fix loop (0 expected)"), ("huggingface.co/api", "main ruling: no API paths in R9 or Source URL cells (0 expected)"), ("open models", "scope paragraph wording removed in P7 fix 5"), ("choose a threshold yourself", "R7 instruction removed in P7 fix 2"), ("lionguard2.py@be4e38c9:152", "wrong line number (P7 fix 3)"),
 ]
+
+
+VFIX_INTRO = (
+    "Source: lionguard_review.md (gr-verifier, 2026-10-10), verdict PASS WITH FIXES, 5 required fixes, plus main's ruling (same as purplellama P5 Q4) that R9 and inventory Source URL cells must not cite huggingface.co/api paths, "
+    "plus the optional suggestions, all accepted by main. Applied by gr-merger in the P7 fix loop; the finals were regenerated from the same scripts (ops_fix.py runs after ops_cols.py and ops_inv.py), "
+    "so the edits also appear in sections 2 and 3 with the reason 'P7 ...'. Required: fix 1 (R1 Detail backs the R1 Summary), fix 2 (R7 minimum-setup wording), fix 3 (five wrong line numbers: R3 three bullets, R4 one, R5 one; the two optional R4 line-range touch-ups are included), "
+    "fix 4 (inventory (e) 'Hosted API behaviour' split into per-repo Documented facts and one Inferred conclusion), fix 5 (scope paragraph: 'models', not 'open models'). No Summary changed except the one-word R9 edit; no headline number changed; BLOCKS stay 4/11/8/11/4."
+)
+
+VFIX_NOTES = (
+    "Not done and why: the reviewer's optional note on the Table 1 Qwen3 row is recorded as an unlabelled R8 question only (the draft does not assert a typo in the paper); "
+    "the scope paragraph sentence 'nothing was installed, run or downloaded ...' is kept as the read-date and method statement of the Presidio precedent (the two sentences the reviewer named, in the (c) intro and the demo row, were removed). "
+    "R1 now has 12 top-level Detail bullets (was 9) and R4 52 (was 50), R8 14 (was 13), R9 31 (was 33); see section 8b."
+)

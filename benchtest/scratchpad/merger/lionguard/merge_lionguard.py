@@ -1,13 +1,14 @@
 import sys, os
 sys.stdout.reconfigure(encoding="utf-8")
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import merge_lib as L, ops_cols, ops_inv
+import merge_lib as L, ops_cols, ops_inv, ops_fix
 D = "benchtest/drafts/"
 def run():
     C = L.Cols([D + "lionguard_cols_a.md"])
     V = L.Inv(D + "lionguard_inventory.md")
     ops_cols.apply(C)
     ops_inv.apply(V)
+    ops_fix.apply(C, V)
     return C, V
 if __name__ == "__main__":
     C, V = run()

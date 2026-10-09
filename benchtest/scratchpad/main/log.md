@@ -88,3 +88,4 @@
 - 2026-10-10 weekly usage limit (reset 03:00 SGT) stopped both P6 mergers; lionguard finals written (in final sweeps) committed as WIP; purplellama merger had written nothing; both resumed 07:00
 - 2026-10-10 lionguard P6 done: 100 edits (68 col, 32 inv), 7/9 Summaries changed, BLOCKS 4/11/8/11/4 = 38; R032 + process sweeps 0 hits; checks 0/0; P7 started (fresh verifier)
 - 2026-10-10 lionguard P7: PASS WITH FIXES (5 required + R9 HF api URLs → model pages); 33/36 MATCH (3 line numbers); 45/47 URLs 200 (2 deliberate 403); fix loop sent to same merger
+- 2026-10-10 lionguard P7 fix loop done: 5 required + api-URL ruling + 13 optional; 138 edits logged; checks 0/0; ready for CP2
