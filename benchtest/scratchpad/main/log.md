@@ -71,3 +71,4 @@
 - 2026-10-09 lionguard P2 cols_a done: LN1 complete, 187 bullets, check 0/0; 2 TBV, 10 ND, 13 R8; conflicts C1–C6 + 2 new (11 heads vs 7 modules; playbook vs paper on embedders)
 - 2026-10-09 R028 applied to all 6 pages: scrollWidth 375 at 375 on all; 0 box changes at 1280; shared block lines 6-110 identical; README §3/§11 updated; build scripts synced. B1 diagram work complete.
 - 2026-10-09 lionguard P2 inventory done (4/11/8/10/4 = 37). P3: cols_a 0/0, inventory --headers cols_a 0/0. P4 started
+- 2026-10-09 purplellama P2 cols_b done (PL3, PL5, PL7): check 0/0; new: scan() overwrites ERROR status, AlignmentCheck fail-open on missing trace / fail-closed on LLM error, PIICheck fail-open, Maverick may not be on Together serverless [TBV], Together terms bar sensitive personal data; 8 conflicts
