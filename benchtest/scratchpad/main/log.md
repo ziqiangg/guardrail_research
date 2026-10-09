@@ -49,3 +49,4 @@
 - 2026-10-09 presidio P10 diagram written (12 SVGs; checklist all ticked; local min-width fix in Additions block; general-knowledge glosses UEN/NRIC/NINO flagged for verifier); Q2–Q4 ruled by main; scratch PNGs untracked + gitignored (sdp crops had been committed in 3930aea)
 - 2026-10-09 modelarmor P8 done: AT–BC (MA1–MA10) + '3h. Model Armor Inventory' (10/15/16/20/16; 8 inventory-only, 0 legacy, 0 planned); verify_modelarmor_apply 45/45; uncapped compare vs HEAD 1133 diffs, all AT–BC + sheet order + sheet-3 dims/col dims; recalc skipped; 61 URLs → P9
 - 2026-10-09 presidio P9 done: 223 URLs: 219 ok, 1 redirect-ok (data-privacy-stack.github.io/presidio → presidio.dataprivacystack.org), 3 github 429 (all 200 on re-check / raw alternate), 0 broken/network. Accepted by main.
+- 2026-10-09 B2 P0 started: purplellama (docs + code explorers), lionguard (1 explorer), in parallel with B1 P10 reviews and modelarmor P9
