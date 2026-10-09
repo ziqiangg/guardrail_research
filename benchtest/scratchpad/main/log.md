@@ -74,3 +74,4 @@
 - 2026-10-09 purplellama P2 cols_b done (PL3, PL5, PL7): check 0/0; new: scan() overwrites ERROR status, AlignmentCheck fail-open on missing trace / fail-closed on LLM error, PIICheck fail-open, Maverick may not be on Together serverless [TBV], Together terms bar sensitive personal data; 8 conflicts
 - 2026-10-09 purplellama P2 eval_tooling done: 8 sections (13 tools, 16 datasets counted at pin, 10 results incl. CSE3 paper PG1 71.4%@1%FPR and CodeShield P96/R79 [Documented]); parse_md OK; 8 conflicts; CyberSOCEval arXiv 2509.20166; no CSE4 paper [ND]; Q2 → triage/CP1
 - 2026-10-09 purplellama P2 inventory done: 16/8/11/16/12/8/12/5 = 88 rows, check 0/0 (headers via brief option B); new: PG2 AUC .998 card vs .98 paper, PG2 licence link points to Llama 3.2 file, PHP Semgrep rules unused, Rust regex disabled
+  (note: --headers vs cols_b alone flags PL1/2/4/6 Covered-by values as expected — those headers are in cols_a, pending; full cross-check at P3)
