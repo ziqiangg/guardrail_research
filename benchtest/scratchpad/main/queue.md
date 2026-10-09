@@ -21,6 +21,7 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| sdp P8 Q1/Q2 (sheet name "3g. Sensitive Data Protection Inventory" is 39 chars > Excel 31) | accept "3g. SDP Inventory" (auto-default: naming); full name stays in A1 title; diagrams/docs cite the tab name; future inventory sheet names must be ≤31 chars | main |
 | modelarmor P8-prep R025 Q1 (bench-rule bullet in MA7/MA8, whose Detail names exclusion rules only as unsupported) | keep: R025 literal scope "any column whose Detail names exclusion rules" | main |
 | modelarmor P8-prep R025 Q2 (bench rule plain text vs checker's bold end-label) | accept: rule text plain, single [Documented] covers the terms quote (drafts README label convention) | main |
 | modelarmor P5 r2 Q1/Q2 (AUP testing clause; Preview synthetic data) | R025 | user |

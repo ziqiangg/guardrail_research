@@ -26,6 +26,9 @@ PRODUCTS = [
     dict(slug="presidio", name="Presidio", header_prefix="Presidio:",
          two_level_md=DRAFTS / "presidio_two_level.md", inventory_sheet="3f. Presidio Inventory",
          inventory_builder_module="build_presidio_inventory", notes="inventory via inventory_sheet; PD1-PD6"),
+    dict(slug="sdp", name="Sensitive Data Protection", header_prefix="Sensitive Data Protection:",
+         two_level_md=DRAFTS / "sdp_two_level.md", inventory_sheet="3g. SDP Inventory",
+         inventory_builder_module="build_sdp_inventory", notes="inventory via inventory_sheet; SD1-SD6"),
 ]
 
 SHEET3 = "3. Guardrail Research Table"
