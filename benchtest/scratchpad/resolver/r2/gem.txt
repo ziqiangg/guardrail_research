@@ -1,0 +1,1111 @@
+# status 200  final_url https://docs.cloud.google.com/gemini/enterprise/docs/protect-sensitive-data  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Gemini Enterprise
+Start free
+Overview
+Administrator guide
+App user guide
+Developer guide
+Gemini Notebook Enterprise
+AlphaEvolve
+Reference
+Resources
+Documentation
+More
+Overview
+Administrator guide
+App user guide
+Developer guide
+Gemini Notebook Enterprise
+AlphaEvolve
+Reference
+Resources
+Console
+Get started
+Set up Gemini Enterprise
+Gemini Enterprise Quickstart Guide
+Manage subscriptions and licenses
+Get subscriptions and assign licenses
+Frequently asked questions
+Configure security and access
+Security Overview
+IAM roles and permissions
+Configure identity provider
+Configure access controls
+Configure access controls for apps
+Configure granular access controls for apps and data stores
+Secure your app with VPC Service Controls
+Manage resources with custom organization policies
+Configure private UI access
+Work with Model Armor
+Enable Model Armor
+Enable Model Armor for Gemini Notebook Enterprise
+Correlate Model Armor logs with Gemini Enterprise logs
+Protect sensitive data in sources
+Secure custom data sources
+Map external identities
+Configure access controls for custom data sources
+Enable Access Transparency
+Use customer-managed encryption keys
+Turn off Gemini Enterprise
+Manage costs
+Overview
+View feature usage
+Configure overages
+View costs
+Connect to your enterprise data
+About apps and data stores
+Get data store and entity details
+Connect data
+Introduction to connectors and data stores
+Introduction to self-hosted data sources
+Prepare data for custom data sources
+Connect a Google data source
+Overview
+Connect Google Calendar
+Overview
+Set up a Google Calendar data store
+Configure OAuth for Google Calendar
+Connect Google Chat
+Overview
+Set up a Google Chat data store
+Configure OAuth for Google Chat
+Add filters to a Google Chat data store
+Connect Google Compute Engine
+Overview
+Set up a Google Compute Engine data store
+Google Compute Engine configuration
+Connect Google Drive
+Overview
+Set up a Google Drive data store
+Configure OAuth for Google Drive
+Add filters to a Google Drive data store
+Connect Google Stitch
+Overview
+Set up a Google Stitch data store
+Google Stitch configuration
+Connect Gmail
+Overview
+Set up a Gmail data store
+Configure OAuth for Gmail
+Import from Cloud Storage
+Sync from Google Groups
+Connect to Google Sites
+Connect to Google Sites
+Add filters to a Google Sites data store
+Sync people data
+Import people data from a custom source
+Enable Gemini Notebook Enterprise as a search source
+Import from Firestore
+Import from Bigtable
+Connect to data from AlloyDB for PostgreSQL
+Connect to Data Cloud
+Best practices for Data Cloud connectors that use conversational analytics
+Connect to BigQuery
+Connect to Spanner
+Connect to Cloud SQL
+Connect to AlloyDB for PostgreSQL
+Connect to Knowledge Catalog
+Secure Data Cloud connectors
+Create a data store using Terraform
+Connect a third-party data source
+Overview
+View data store sync activity and set up alerts
+Configure static IP egress
+Connect Adobe Workfront
+Overview
+Set up an Adobe Workfront data store
+Connect Airtable
+Overview
+Set up an Airtable data store
+Connect AirOps
+Overview
+Set up an AirOps data store
+Connect Aiwyn Tax
+Overview
+Set up an Aiwyn Tax data store
+Connect AllTrails
+Overview
+Set up an AllTrails data store
+Connect Apollo GraphOS
+Overview
+Set up an Apollo GraphOS data store
+Connect Asana
+Overview
+Set up an Asana data store
+Connect Atlan
+Overview
+Set up an Atlan data store
+Connect Attio
+Overview
+Set up an Attio data store
+Connect Autodesk Product Help
+Overview
+Set up an Autodesk Product Help data store
+Connect AWS Marketplace
+Overview
+Set up an AWS Marketplace data store
+Connect Bitly
+Overview
+Set up a Bitly data store
+Connect Blockscout
+Overview
+Set up a Blockscout data store
+Connect Box
+Overview
+Set up a Box data store
+Connect Calendly
+Overview
+Set up a Calendly data store
+Connect Campfire
+Overview
+Set up a Campfire data store
+Connect Cisco Workspaces
+Overview
+Set up a Cisco Workspaces data store
+Connect Clay
+Overview
+Set up a Clay data store
+Connect Cohesity
+Overview
+Set up a Cohesity data store
+Connect CoinDesk
+Overview
+Set up a CoinDesk data store
+Connect Confluence Cloud
+Overview
+Set up a Confluence Cloud data store
+Confluence Cloud configuration
+Connect Confluence Data Center
+Overview
+Set up a Confluence Data Center data store
+Confluence Data Center configuration
+Connect CourtListener
+Overview
+Set up a CourtListener data store
+Connect Courtroom5
+Overview
+Set up a Courtroom5 data store
+Connect Crossbeam
+Overview
+Set up a Crossbeam data store
+Connect Crypto
+Overview
+Set up a Crypto data store
+Connect Descript
+Overview
+Set up a Descript data store
+Connect Dice
+Overview
+Set up a Dice data store
+Connect DirectBooker
+Overview
+Set up a DirectBooker data store
+Connect Docusign
+Overview
+Set up a Docusign data store
+Connect Dropbox
+Overview
+Set up a Dropbox data store
+Dropbox configuration
+Connect D&B Commercial Graph
+Overview
+Set up a D&B Commercial Graph data store
+Connect D&B Finance Analytics
+Overview
+Set up a D&B Finance Analytics data store
+Connect D&B Risk Analytics
+Overview
+Set up a D&B Risk Analytics data store
+Connect Daloopa
+Overview
+Set up a Daloopa data store
+Connect Dynamics 365
+Overview
+Set up a Dynamics 365 data store
+Dynamics 365 configuration
+Connect Egnyte
+Overview
+Set up an Egnyte data store
+Connect Excalidraw
+Overview
+Set up an Excalidraw data store
+Connect FactSet AI-Ready Data
+Overview
+Set up a FactSet AI-Ready Data data store
+Connect Fibery
+Overview
+Set up a Fibery data store
+Connect Finnhub
+Overview
+Set up a Finnhub data store
+Finnhub configuration
+Connect Fiscal.ai
+Overview
+Set up a Fiscal.ai data store
+Connect Freshservice
+Overview
+Set up a Freshservice data store
+Connect Fullstory
+Overview
+Set up a Fullstory data store
+Connect Gamma
+Overview
+Set up a Gamma data store
+Connect Hex
+Overview
+Set up a Hex data store
+Connect HubSpot
+Overview
+Set up a HubSpot data store
+Connect Hugging Face
+Overview
+Set up a Hugging Face data store
+Connect iManage platform
+Overview
+Set up an iManage platform data store
+Connect Intercom
+Overview
+Set up an Intercom data store
+Connect Invideo
+Overview
+Set up an Invideo data store
+Connect GitHub
+Overview
+Set up a GitHub data store
+GitHub configuration
+Connect GitLab
+Overview
+Set up a GitLab data store
+GitLab configuration
+Connect Globalping
+Overview
+Set up a Globalping data store
+Connect GoDaddy
+Overview
+Set up a GoDaddy data store
+Connect Gong
+Overview
+Set up a Gong data store
+Connect Grafana
+Overview
+Set up a Grafana data store
+Connect Granted
+Overview
+Set up a Granted data store
+Connect Guru
+Overview
+Set up a Guru data store
+Connect Jira Cloud
+Overview
+Set up a Jira Cloud data store
+Jira Cloud configuration
+Connect Jira Data Center
+Overview
+Set up a Jira Data Center data store
+Jira Data Center configuration
+Connect LastMinute
+Overview
+Set up a LastMinute data store
+Connect Kiwi
+Overview
+Set up a Kiwi data store
+Connect Kiwi.com
+Overview
+Set up a Kiwi.com data store
+Connect LegalZoom
+Overview
+Set up a LegalZoom data store
+Connect Linear
+Overview
+Set up a Linear data store
+Linear configuration
+Connect Lovable
+Overview
+Set up a Lovable data store
+Connect LumApps
+Overview
+Set up a LumApps data store
+LumApps configuration
+Connect MailerLite
+Overview
+Set up a MailerLite data store
+Connect Mercury
+Overview
+Set up a Mercury data store
+Connect Mermaid Chart
+Overview
+Set up a Mermaid Chart data store
+Connect Midpage
+Overview
+Set up a Midpage data store
+Connect Microsoft Entra ID
+Connect Microsoft Learn
+Overview
+Set up a Microsoft Learn data store
+Connect Microsoft OneDrive
+Overview
+Set up a Microsoft OneDrive data store
+Add filters to a Microsoft OneDrive data store
+Microsoft OneDrive configuration
+Connect Microsoft Outlook
+Overview
+Set up a Microsoft Outlook data store
+Microsoft Outlook configuration
+Connect Microsoft SharePoint Online
+Overview
+Set up a Microsoft SharePoint data store
+Add filters to a Microsoft SharePoint data store
+Microsoft SharePoint configuration
+Connect Microsoft Teams
+Overview
+Set up a Microsoft Teams data store
+Microsoft Teams configuration
+Connect Miro
+Overview
+Set up a Miro data store
+Connect Monday
+Overview
+Set up a Monday data store
+Monday configuration
+Connect Moody's
+Overview
+Set up a Moody's data store
+Connect MSCI
+Overview
+Set up an MSCI data store
+Connect NetDocuments
+Overview
+Set up a NetDocuments data store
+Connect Nexla
+Overview
+Set up a Nexla data store
+Connect Notion
+Overview
+Set up a Notion data store
+Notion configuration
+Connect Omni Analytics
+Overview
+Set up an Omni Analytics data store
+Connect Open Targets
+Overview
+Set up an Open Targets data store
+Connect Oracle NetSuite
+Overview
+Set up an Oracle NetSuite data store
+Oracle NetSuite configuration
+Connect PagerDuty
+Overview
+Set up a PagerDuty data store
+PagerDuty configuration
+Connect PandaDoc
+Overview
+Set up a PandaDoc data store
+Connect Pendo
+Overview
+Set up a Pendo data store
+Connect pg-aiguide
+Overview
+Set up a pg-aiguide data store
+Connect Pylon
+Overview
+Set up a Pylon data store
+Connect Ramp
+Overview
+Set up a Ramp data store
+Connect Relativity
+Overview
+Set up a Relativity data store
+Relativity configuration
+Connect S&P Global - Deterministic Retrieval
+Overview
+Set up a S&P Global - Deterministic Retrieval data store
+Connect Salesforce
+Overview
+Set up a Salesforce data store
+Salesforce configuration
+Connect Sanity
+Overview
+Set up a Sanity data store
+Connect ServiceM8
+Overview
+Set up a ServiceM8 data store
+Connect ServiceNow
+Overview
+Set up a ServiceNow data store
+ServiceNow configuration
+Connect Shopify
+Overview
+Set up a Shopify data store
+Shopify configuration
+Connect Smartsheet
+Overview
+Set up a Smartsheet data store
+Connect Solve Intelligence
+Overview
+Set up a Solve Intelligence data store
+Connect Sourcegraph
+Overview
+Set up a Sourcegraph data store
+Sourcegraph configuration
+Connect Slack
+Overview
+Set up a Slack data store
+Connect Squarespace
+Overview
+Set up a Squarespace data store
+Connect Starburst
+Overview
+Set up a Starburst data store
+Connect Streak
+Overview
+Set up a Streak data store
+Connect Stripe
+Overview
+Set up a Stripe data store
+Connect Superhuman Mail
+Overview
+Set up a Superhuman Mail data store
+Connect Supermetrics
+Overview
+Set up a Supermetrics data store
+Connect Supabase
+Overview
+Set up a Supabase data store
+Connect SurveyMonkey
+Overview
+Set up a SurveyMonkey data store
+Connect Taskrabbit
+Overview
+Set up a Taskrabbit data store
+Connect Tavily
+Overview
+Set up a Tavily data store
+Connect Trivago
+Overview
+Set up a Trivago data store
+Connect Twilio Docs
+Overview
+Set up a Twilio Docs data store
+Connect Vanta
+Overview
+Set up a Vanta data store
+Connect Viator
+Overview
+Set up a Viator data store
+Connect Webex Meetings
+Overview
+Set up a Webex Meetings data store
+Connect Wix
+Overview
+Set up a Wix data store
+Connect Windsor.ai
+Overview
+Set up a Windsor.ai data store
+Connect Wrike
+Overview
+Set up a Wrike data store
+Connect Zapier
+Overview
+Set up a Zapier data store
+Connect Zendesk
+Overview
+Set up a Zendesk data store
+Zendesk configuration
+Connect Zoho Books
+Overview
+Set up a Zoho Books data store
+Connect Zoho CRM
+Overview
+Set up a Zoho CRM data store
+Connect Zoho Desk
+Overview
+Set up a Zoho Desk data store
+Connect Zoho Projects
+Overview
+Set up a Zoho Projects data store
+Connect ZoomInfo
+Overview
+Set up a ZoomInfo data store
+Connect a custom MCP server
+Set up a custom MCP server data store
+Override constraint for custom MCP data stores
+Import MCP servers from Agent Registry
+Work with organization policy constraints
+Overview of managed policy constraints
+Configure allowed data sources
+Configure allowed egress FQDNs
+Custom connectors
+Overview
+Create a custom connector
+Provide or auto-detect a schema
+Parse and chunk documents
+Create an app
+Connect an app to an existing data store
+Manage actions
+Use Knowledge Graph and search
+Work with user events
+About user events
+Import historical user events
+Record real-time user events
+Troubleshoot data stores
+Configure AI developer tools
+Overview
+Configure settings
+View metrics
+Track third-party model token usage
+Create a custom role to restrict access
+Turn off AI developer tools
+Configure agents
+Agents overview
+Register and manage Dialogflow agents
+Register and manage A2A agents
+Register and manage ADK agents
+Register and manage
+Configure cross-project access
+Register and manage A2UI agents
+Register and manage
+Tutorial: Host an agent on Cloud Run
+A2UI component gallery reference
+Add and manage A2A agents from Google Cloud Marketplace
+Import A2A agents from Agent Registry
+Share agents from Google Cloud console
+Programmatically invoke agents
+Call a specific agent with the StreamAssist API
+Call an agent using its registry A2A endpoint
+Configure settings
+Configure field settings
+Configure serving controls
+Configure autocomplete
+Basic autocomplete
+Advanced autocomplete
+Configure UI results
+Configure the app home page
+Configure results for the UI
+Configure facets for the UI
+Configure feedback
+Configure the assistant
+About custom preambles
+Manage web app features
+Configure Canvas
+Manage observability settings
+Manage skills
+Configure prompt chips
+Configure Chrome Enterprise cloud-managed browsers
+Configure the Gemini Enterprise app for Slack
+Configure the mobile app
+Configure the mobile app
+Monitor usage
+View analytics data
+Monitor long-running operations
+Access connector error logs
+Access usage audit logs
+Access Cloud Audit Logs
+Access traces and spans
+Access metrics
+Maintain your apps and data stores
+Refresh structured and unstructured data
+Update a schema
+View a schema definition
+Purge a first-party data store
+Delete a schema for structured data
+Delete an app
+Delete a data store
+Evaluate search quality
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Note: This documentation set is for the Standard, Plus, Pay-as-you-go, and Frontline editions of Gemini Enterprise. For the Business edition documentation, see the Gemini Enterprise - Business edition Help Center.
+Home
+Documentation
+AI and ML
+Gemini Enterprise
+Administrator guide
+Send feedback
+Protect sensitive data in sources
+Stay organized with collections
+Save and categorize content based on your preferences.
+This document describes how to apply Sensitive Data Protection content
+policies to Gemini Enterprise connectors and apps
+and to Gemini Notebook Enterprise notebooks.
+About Sensitive Data Protection in Gemini Enterprise
+Sensitive Data Protection content
+policies are designed to
+inspect data for data violations or unwanted content and choose when to allow or
+block this content. This includes blocking confidential or inappropriate source
+material, such as preventing sensitive data from being shown to users and
+blocking file uploads to the assistant or Gemini Notebook Enterprise if they
+violate policy. This capability enhances the security and safety of your
+Gemini Enterprise apps by protecting against various risks and ensuring
+responsible AI practices.
+Sensitive Data Protection and Model Armor work together
+Sensitive Data Protection and Model Armor work together in
+Gemini Enterprise to provide a layered security defense for your data. They
+protect different aspects of your AI interactions.
+Sensitive Data Protection safeguards inbound data
+For data connectors, Sensitive Data Protection prevents sensitive data
+from being ingested or indexed. Content policies can inspect various content
+types, including textual content (with OCR for images), image object detection,
+image safety, rich documents (like PDF, DOCx, PPTx, and XLSx) with embedded
+images, and metadata labels (Microsoft sensitivity
+labels and Google Workspace labels). Sensitive Data Protection
+focuses on ensuring only compliant information enters the system as the source.
+For uploaded sources to the assistant and
+Gemini Notebook Enterprise,
+if content violates the content policy, the source is not uploaded.
+Model Armor safeguards the serving path
+Model Armor helps protect the user interaction in
+Gemini Enterprise by screening prompts before LLM processing and in model
+responses before delivery to the user. By screening prompts,
+Model Armor guards against prompt injection and malicious URLs.
+If a policy is violated, Gemini Enterprise blocks the request and displays
+an error message.
+For more information about using Model Armor with
+Gemini Enterprise, see Enable
+Model Armor.
+Supported sources
+Sensitive Data Protection content policies can inspect data in
+connectors, metadata labels, and file
+uploads.
+Connectors
+You can apply content policies to the following connectors:
+Third-party connectors: Sensitive Data Protection supports both
+ingestion and federated third-party connectors. For a list of these
+connectors, see Connect a third-party data
+source.
+Custom MCP servers: Sensitive Data Protection supports content
+in custom Model Context Protocol (MCP) servers. For general information
+about custom MCP servers, see Set up your custom MCP server data
+store.
+Google Workspace connectors:
+Google Calendar
+Google Chat
+Google Drive
+Gmail
+Metadata labels
+Sensitive Data Protection supports two types of metadata labels for
+certain connectors and uploads:
+Microsoft sensitivity labels: Also known as Purview Information
+Protection (MSIP) labels, Azure Information Protection (AIP) labels, and
+Microsoft Information Protection (MIP) labels, these are sensitivity labels
+applied to Microsoft 365 assets (such as Word, Excel, and Outlook). They
+embed metadata directly into the file or email header to denote sensitivity
+(for example, "Highly Confidential" or "Internal Only").
+Sensitive Data Protection supports Microsoft sensitivity labels in
+connectors as follows:
+Microsoft
+SharePoint: Labels
+on Office 365 files and PDFs. Microsoft sensitivity labels on other file
+types, such as SharePoint sites and pages, aren't supported.
+Microsoft
+OneDrive: Labels on
+Office 365 files and PDFs.
+Microsoft Outlook:
+Labels on email messages and calendar events.
+Microsoft Teams:
+Labels on Office 365 files and PDFs.
+Direct uploads and non-Microsoft connectors: Labels on Office 365
+files and PDFs, if the files contain embedded labels.
+Google Workspace labels: These labels are for data classification
+across Google Workspace. Administrators define custom schemas that users
+or automated systems can apply to Google Workspace items to classify them
+(for example, "Confidential" or "Internal").
+Sensitive Data Protection supports Google Workspace labels for
+files in Google Workspace connectors and files uploaded to the
+Gemini Enterprise assistant from Google Drive.
+File uploads
+When you upload files from a local drive, Google Drive, or Microsoft OneDrive
+to the assistant or Gemini Notebook Enterprise,
+Sensitive Data Protection scans the files and blocks uploads that
+violate the content policy.
+The following table lists the supported file types for scanning:
+| MIME type
+| Description
+| application/pdf
+| PDF
+| text/html
+| HTML
+| text/plain
+| Plain text
+| application/json
+| JSON
+| application/vnd.openxmlformats-officedocument.wordprocessingml.document
+| Microsoft Word (DOCX)
+| application/vnd.openxmlformats-officedocument.presentationml.presentation
+| Microsoft PowerPoint (PPTX)
+| application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+| Microsoft Excel (XLSX)
+| application/vnd.ms-excel.sheet.macroenabled.12
+| Microsoft Excel Macro-Enabled Worksheet (XLSM)
+| application/xml
+| XML
+| image/bmp
+| BMP image
+| image/gif
+| GIF image
+| image/jpeg
+| JPEG image
+| image/png
+| PNG image
+| image/tiff
+| TIFF image
+| image/svg+xml
+| SVG image
+| text/csv
+| CSV (Comma-separated values)
+| text/tab-separated-values
+| TSV (Tab-separated values)
+Note: Although you can upload video and audio files to the assistant,
+Sensitive Data Protection doesn't scan these file types.
+Supported editions of Gemini Enterprise
+You can use Sensitive Data Protection with all Gemini Enterprise
+editions except the Gemini Enterprise
+Business edition.
+There's no additional cost to use Sensitive Data Protection.
+Supported regions
+Sensitive Data Protection supports the global, EU, and US multi-regions.
+Limitations
+The following limitations apply to Sensitive Data Protection content
+policies in Gemini Enterprise:
+Content policies don't apply to the older type of data store,
+such as data from Cloud Storage or BigQuery or websites. Only
+the connectors, which contain entity data, can be protected by content
+policies.
+Although you can apply a content policy from one project to
+Gemini Enterprise in
+another project, the two projects must be in the same VPC Service Controls
+perimeter. For general information about VPC Service Controls for
+Gemini Enterprise, see Secure your app with VPC Service
+Controls.
+Google Workspace labels and content scanning aren't
+supported for uploads to Gemini Notebook Enterprise notebooks.
+Sensitive Data Protection has limits on file size support that can be
+different from Gemini Enterprise. For information about the maximum size
+of PDFs, Office 365 files, text files, and image files, see Content policy
+limits. By default,
+content policies allow content in large files. However, you can configure
+policies to block content in large files.
+For Microsoft connectors that contain encrypted files, because neither
+Gemini Enterprise nor Sensitive Data Protection can decrypt the
+files, the files aren't scanned for content violations. If users ask questions
+about the content, Gemini Enterprise can't answer because the content is
+encrypted. But, if users ask questions that can be answered from any
+unencrypted snippets and metadata, then Gemini Enterprise does provide
+those answers.
+Before you begin
+Before you begin, make sure that you have completed the following prerequisites:
+You have the required roles assigned to you and the
+Gemini Enterprise service account:
+You need the Gemini Enterprise
+Admin role.
+The Gemini Enterprise service account needs the DLP User
+(roles/dlp.user) role.
+For more information, see Required
+roles
+in Create and manage content policies in the
+Sensitive Data Protection documentation set.
+Note: To grant multiple IAM roles to a service account, see
+Grant or revoke multiple IAM roles using the Google Cloud
+console.
+You have created a Gemini Enterprise app or have
+Gemini Notebook Enterprise configured. For more information, see
+Create an app or Set up
+Gemini Notebook Enterprise.
+Create a content policy
+To prepare a Sensitive Data Protection content policy to apply to a
+Gemini Enterprise connector or app or to
+Gemini Notebook Enterprise, do the following:
+Create a content policy following the instructions in Create and manage
+content policies in
+the Sensitive Data Protection documentation.
+Make sure to create the policy in the same region as the apps you want to
+apply it to.
+Make a note of the policy name. To add a policy to a connector, you need the
+full path, in the form
+projects/PROJECT_ID/locations/LOCATION/contentPolicies/POLICY_ID.
+Protect sensitive data in connectors with content policies
+To block entity information being shown to users if the entity contains
+sensitive data, apply a Sensitive Data Protection content policy to the
+connector, follow the instructions in Apply a content policy to a
+Gemini Enterprise connector.
+If you subsequently need to remove the content policy
+from the connector, see Remove the content policy from a
+connector.
+Apply a content policy to a Gemini Enterprise connector
+Applying a Sensitive Data Protection content policy to a connector
+prevents Gemini Enterprise from returning entity data that contains
+sensitive content from the connector.
+For certain types of connectors, applying the content policy can also block the
+return of entity data based on metadata labels.
+Note: Applying a Sensitive Data Protection content policy can increase
+latency.
+To apply a content policy to a connector, do the following:
+In the Google Cloud console, go to the Gemini Enterprise page and
+then click Data Stores.
+Go to the Data Stores page
+Click the name of the connector that you want to apply the policy to.
+In the Content policy field, enter the full name for the content policy
+resource.
+After you enter the policy into the field, it is applied right away.
+Note: If you don't have the full policy name, do the following:
+Open the Content policy tooltip help_outline and click the link to navigate
+to the content policies list.
+If the policy is in a different project from your
+Gemini Enterprise connector, switch to that project.
+Click the Resource name for the policy and
+copy the policy's Name from the Content Policy Details
+page. Policy names typically look like this:
+projects/my-project/locations/global/contentPolicies/123-abc.
+Optional: Test the content policy. If you have data in the connector that
+violates the policy, ask the assistant to tell you about
+it.
+Remove the content policy from a connector
+To remove a policy from a connector, do the following:
+In the Google Cloud console, go to the Gemini Enterprise page, and
+then click Data Stores.
+Go to the Data Stores page
+Click the name of the connector that you want to remove the policy from.
+Delete the text in the Content policy field, and enter an empty field.
+The policy is removed right away.
+Protect uploads to the assistant with content policies
+To protect uploads to the assistant for a Gemini Enterprise app, follow the
+instructions in Apply a content policy to Gemini Enterprise assistant
+uploads.
+If you subsequently need to remove a Sensitive Data Protection content
+policy from the assistant, see Remove the content policy from the
+assistant.
+Apply a content policy to the assistant uploads
+Applying a Sensitive Data Protection content policy to the assistant
+causes Gemini Enterprise to scan and block files uploaded to the app (from
+a local device, Google Drive, or Microsoft OneDrive) if they contain content
+or metadata labels that violate the policy. If a user attempts to upload a file
+that violates the policy, the upload fails and the file is not added to the
+session.
+Note: Applying a Sensitive Data Protection content policy can increase
+latency.
+To apply a content policy to assistant uploads, do the following:
+In the Google Cloud console, go to the Gemini Enterprise page.
+Gemini Enterprise
+Click the name of the app that you want to apply the policy to.
+Click Security.
+In the Sensitive Data Protection configuration, under the Assistant
+setting, select a content policy from the menu.
+If the content policy isn't in the menu, do one of the following:
+Click Switch project to select a policy from a different project.
+Click Enter manually to enter the path to the policy:
+projects/PROJECT_ID/locations/LOCATION/contentPolicies/POLICY_ID.
+Click Create new to navigate to the Create Content Policy page.
+Make sure to choose a policy in the same region as the app.
+Click Save.
+Optional: Test the policy:
+Create a file that contains a harmless violation of the policy. For
+example, if the content policy blocks US social security numbers, create a
+file that contains "999-00-0000".
+Attempt to upload the file to the app's chat. The upload should fail
+and the file should be blocked.
+Remove the content policy from the assistant
+To remove the content policy from assistant uploads for an app, do the
+following:
+In the Google Cloud console, go to the Gemini Enterprise page.
+Gemini Enterprise
+Click the name of the app.
+Click Security.
+In the Sensitive Data Protection configuration, under the Assistant
+setting, click the drop-down arrow and select Enter manually.
+Delete the text in the Resource Name field so that the field is empty,
+and then click Confirm.
+Click Save.
+Protect uploads to Gemini Notebook Enterprise with a content policy
+Applying a content policy to Gemini Notebook Enterprise prevents users
+from uploading source material that violates the policy.
+Gemini Notebook Enterprise notebooks aren't
+associated with any particular app. To apply the content policy to all
+notebooks in a project, you apply it to any app in the project.
+Similarly, if you remove a content policy from any app in the project, none of
+the notebooks associated with the project are protected by the policy.
+Procedures for adding or removing a Sensitive Data Protection content
+policy in Gemini Notebook Enterprise:
+Apply a content policy to Gemini Notebook Enterprise
+Remove the content policy from Gemini Notebook Enterprise
+Apply a content policy to Gemini Notebook Enterprise
+Applying a content policy to Gemini Notebook Enterprise prevents users
+from uploading source material that violates the policy.
+Gemini Notebook Enterprise notebooks aren't associated with any
+particular app. To apply the content policy to all notebooks, you apply it to
+any app in the project.
+Note: Applying a Sensitive Data Protection content policy can increase
+latency.
+In the Google Cloud console, go to the Gemini Enterprise page.
+Gemini Enterprise
+Click the name of any app in the region for which you want to protect
+notebooks.
+Click Security.
+In the Sensitive Data Protection configuration, under the NotebookLM
+setting, select a content policy from the menu.
+If the content policy isn't in the menu, do one of the following:
+Click Switch project to select a policy from a different project.
+Click Enter manually to enter the path to the policy
+projects/PROJECT_ID/locations/LOCATION/contentPolicies/POLICY_NAME.
+Click Create new to navigate to the Create Content Policy page and
+follow the instructions above.
+However you specify the policy, make sure to choose a policy in the same
+region as the app.
+Click Save.
+Wait approximately 10 minutes for the content policy to propagate.
+Gemini Notebook Enterprise will then start using the specified
+policy to scan uploaded source documents.
+Optional: Test the content policy:
+Create a source document that contains a harmless violation of the
+policy. For example, if the content policy blocks US social security
+numbers, create a source file that says "Mickey Mouse's social
+security number is 999-00-0000".
+Upload the source document to a notebook. If the policy is in effect, the
+document appears as blocked in the source list.
+Remove the content policy from Gemini Notebook Enterprise
+To remove the content policy from Gemini Notebook Enterprise so that
+uploaded source files won't be blocked based on content, do the following:
+In the Google Cloud console, go to the Gemini Enterprise page.
+Gemini Enterprise
+Click the name of any app in the region.
+Click Security.
+In the Sensitive Data Protection configuration, under the NotebookLM
+setting, click the drop-down arrow and select Enter manually.
+Select the text in the field and press delete so that the Resource Name
+field is empty, then click Confirm.
+Click Save.
+Wait approximately 10 minutes for the removal of the content policy to
+propagate. Gemini Notebook Enterprise will then stop scanning
+source files for all notebooks in that region and project.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-07 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

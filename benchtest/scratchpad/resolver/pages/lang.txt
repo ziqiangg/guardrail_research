@@ -1,0 +1,226 @@
+# status 200  final_url https://presidio.dataprivacystack.org/analyzer/languages/  content-type text/html; charset=utf-8
+Skip to content
+Presidio
+PII detection in different languages
+Search
+GitHub
+Presidio
+Quick start
+Learn Presidio
+Resources
+Recipes
+Samples
+Presidio
+GitHub
+Presidio
+Presidio
+Home
+Installation
+FAQ
+Quick start
+Quick start
+Home
+Text
+Images
+Semi/Structured data
+Learn Presidio
+Learn Presidio
+Home
+Concepts
+Tutorial
+Tutorial
+Home
+Getting started
+Deny-list recognizers
+Regex recognizers
+Rule-based recognizers
+Additional models/languages
+External services
+Context enhancement
+Decision process
+No-code recognizers
+Ad-hoc recognizers
+Simple anonymization
+Custom anonymization
+Encryption/Decryption
+Allow-lists
+Text de-identification
+Text de-identification
+Home
+Presidio Analyzer
+Presidio Analyzer
+Home
+Developing PII recognizers
+Developing PII recognizers
+Tutorial
+Best practices
+Recognizer registry from file
+Filtering recognizers by country
+Multi-language support
+Multi-language support
+On this page
+Table of contents
+Configuring the NLP Engine
+Set up language specific recognizers
+Automatically install NLP models into the Docker container
+Customizing the NLP model
+Customizing the NLP model
+Home
+Spacy/Stanza
+Transformers
+GPU Acceleration
+Tracing the decision process
+Configure from file
+Presidio Anonymizer
+Presidio Anonymizer
+Home
+Developing PII anonymization operators
+Azure Health Data Services de-identification service integration
+Image de-identification
+Image de-identification
+Home
+Evaluating DICOM redaction
+Structured and Semi-structured
+Structured and Semi-structured
+Home
+PII detection evaluation
+Resources
+Resources
+Supported entities
+Project transition update
+Community
+Change log
+Setting up a development environment
+Build and release process
+Changes from V1 to V2
+Python API reference
+Python API reference
+Home
+Presidio Analyzer Python API
+Presidio Anonymizer Python API
+Presidio Image Redactor Python API
+Presidio Structured Python API
+REST API reference
+Recipes
+Recipes
+Home
+Contributing
+Template
+Samples
+Samples
+Home
+Text
+Text
+Presidio Basic Usage Notebook
+Customizing Presidio Analyzer
+Configuring The NLP engine
+Encrypting and Decrypting identified entities
+Getting the identified entity value using a custom Operator
+Anonymizing known values
+Keeping some entities from being anonymized
+Integrating with external services
+Remote Recognizer
+Azure AI Language as a Remote Recognizer
+Azure Health DataServices De-identification as a Remote Recognizer
+Using Flair as an external PII model
+Using Span Marker as an external PII model
+Using Transformers as an external PII model
+Using GLiNER as an external PII model
+Pseudonymization (replace PII values using mappings)
+Passing a lambda as a Presidio anonymizer using Faker
+Synthetic data generation with OpenAI
+YAML based no-code configuration
+Data
+Data
+Analyzing structured / semi-structured data in batch
+Presidio Structured Basic Usage Notebook
+Analyze and Anonymize CSV file
+Images
+Images
+Redacting Text PII from DICOM images
+Using an allow list with image redaction
+Plot custom bounding boxes
+Example DICOM redaction evaluation
+PDF
+PDF
+Annotating PII in a PDF
+Deployment
+Deployment
+Presidio with App Service
+Presidio with Kubernetes
+Presidio with Spark
+Presidio with Fabric
+Redacting Telemetry with Presidio
+Azure Data Factory
+Azure Data Factory
+ETL using AppService/Databricks
+Add Presidio as an HTTP service to your Azure Data Factory
+Add Presidio on Databricks to your Azure Data Factory
+PII Masking LLM calls using LiteLLM proxy
+Demo app
+Demo app
+Create a simple demo app using Streamlit
+On this page
+Table of contents
+Configuring the NLP Engine
+Set up language specific recognizers
+Automatically install NLP models into the Docker container
+PII detection in different languages
+Presidio supports PII detection in multiple languages.
+In its default configuration, it contains recognizers and models for English.
+To extend Presidio to detect PII in an additional language, these modules require modification:
+The NlpEngine containing the NLP model which performs tokenization,
+lemmatization, Named Entity Recognition and other NLP tasks.
+PII recognizers (different EntityRecognizer objects) should be adapted or created.
+Note
+While different detection mechanisms such as regular expressions are language agnostic, the context words used to increase the PII detection confidence aren't. Consider updating the list of context words for each recognizer to leverage context words in additional languages.
+Table of contents
+Configuring the NLP Engine
+Set up language specific recognizers
+Automatically install NLP models into the Docker container
+Configuring the NLP Engine
+Presidio's NLP engine can be adapted to support multiple languages and frameworks (such as spaCy, Stanza and transformers).
+Configuring the NLP engine for a new language or NLP framework is done by downloading or using a model trained on a different language, and providing a configuration.
+See the NLP model customization documentation for details on how to configure models for new languages.
+Set up language specific recognizers
+Recognizers are language dependent either by their logic or by the context words used while scanning the surrounding of a detected entity.
+As these context words are used to increase score, they should be in the expected input language.
+Consider updating the context words of existing recognizers or add new recognizers to support new languages.
+Each recognizer can support one language. For example:
+from presidio_analyzer import AnalyzerEngine, RecognizerRegistry
+from presidio_analyzer.predefined_recognizers import EmailRecognizer
+from presidio_analyzer.nlp_engine import NlpEngineProvider
+LANGUAGES_CONFIG_FILE = "./docs/analyzer/languages-config.yml"
+# Create NLP engine based on configuration file
+provider = NlpEngineProvider(conf_file=LANGUAGES_CONFIG_FILE)
+nlp_engine_with_spanish = provider.create_engine()
+# Setting up an English Email recognizer:
+email_recognizer_en = EmailRecognizer(supported_language="en", context=["email", "mail"])
+# Setting up a Spanish Email recognizer
+email_recognizer_es = EmailRecognizer(supported_language="es", context=["correo", "electrónico"])
+registry = RecognizerRegistry()
+# Add recognizers to registry
+registry.add_recognizer(email_recognizer_en)
+registry.add_recognizer(email_recognizer_es)
+# Set up analyzer with our updated recognizer registry
+analyzer = AnalyzerEngine(
+registry=registry,
+supported_languages=["en","es"],
+nlp_engine=nlp_engine_with_spanish)
+analyzer.analyze(text="My name is David", language="en")
+Link to LANGUAGES_CONFIG_FILE=languages-config.yml
+Automatically install NLP models into the Docker container
+When packaging the code into a Docker container, NLP models are automatically installed.
+To define which models should be installed,
+update the conf/default.yaml file. This file is read during
+the docker build phase and the models defined in it are installed automatically.
+For transformers based models, the configuration can be found here.
+A docker file supporting transformers models can be found here.
+Back to top
+Previous
+Filtering recognizers by country
+Next
+Home
+Data Privacy Stack
+Made with
+Zensical

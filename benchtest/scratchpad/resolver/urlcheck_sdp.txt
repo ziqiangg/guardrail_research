@@ -1,0 +1,83 @@
+200 https://docs.cloud.google.com/data-fusion/docs/how-to/using-dlp | https://cloud.google.com/data-fusion/docs/how-to/using-dlp
+200 https://cloud.google.com/dlp/demo/ | https://cloud.google.com/dlp/demo
+200 https://cloud.google.com/sensitive-data-protection/pricing | https://cloud.google.com/sensitive-data-protection/pricing
+200 https://cloud.google.com/sensitive-data-protection/sla | https://cloud.google.com/sensitive-data-protection/sla
+400 https://dlp.googleapis.com/v2/parent=projects/*/content:deidentify` | https://dlp.googleapis.com/v2/{parent=projects/*}/content:deidentify`
+400 https://dlp.googleapis.com/v2/parent=projects/*/content:inspect` | https://dlp.googleapis.com/v2/{parent=projects/*}/content:inspect`
+400 https://dlp.googleapis.com/v2/parent=projects/*/image:redact` | https://dlp.googleapis.com/v2/{parent=projects/*}/image:redact`
+200 https://docs.apigee.com/api-platform/reference/extensions/google-cloud-data-loss-prevention/google-cloud-data-loss-prevention-extension-120 | https://docs.apigee.com/api-platform/reference/extensions/google-cloud-data-loss-prevention/google-cloud-data-loss-prevention-extension-120
+200 https://docs.cloud.google.com/gemini/enterprise/docs/protect-sensitive-data | https://docs.cloud.google.com/gemini/enterprise/docs/protect-sensitive-data
+200 https://docs.cloud.google.com/model-armor/overview | https://docs.cloud.google.com/model-armor/overview
+200 https://docs.cloud.google.com/model-armor/sanitize-prompts-responses | https://docs.cloud.google.com/model-armor/sanitize-prompts-responses
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/access-control/roles-permissions | https://docs.cloud.google.com/sensitive-data-protection/docs/access-control/roles-permissions
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/api-endpoints | https://docs.cloud.google.com/sensitive-data-protection/docs/api-endpoints
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/auth | https://docs.cloud.google.com/sensitive-data-protection/docs/auth
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-date-shifting | https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-date-shifting
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-deidentify-storage | https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-deidentify-storage
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-hybrid-jobs | https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-hybrid-jobs
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-image-redaction | https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-image-redaction
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-infotypes | https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-infotypes
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-job-triggers | https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-job-triggers
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-method-types | https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-method-types
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-risk-analysis | https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-risk-analysis
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-templates | https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-templates
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-text-redaction | https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-text-redaction
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/content-policy | https://docs.cloud.google.com/sensitive-data-protection/docs/content-policy
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/create-custom-infotypes-metadata-labels | https://docs.cloud.google.com/sensitive-data-protection/docs/create-custom-infotypes-metadata-labels
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/create-wrapped-key | https://docs.cloud.google.com/sensitive-data-protection/docs/create-wrapped-key
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes | https://docs.cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes-dictionary | https://docs.cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes-dictionary
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes-likelihood | https://docs.cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes-likelihood
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes-regex | https://docs.cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes-regex
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes-rules | https://docs.cloud.google.com/sensitive-data-protection/docs/creating-custom-infotypes-rules
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes | https://docs.cloud.google.com/sensitive-data-protection/docs/creating-stored-infotypes
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/data-profiles | https://docs.cloud.google.com/sensitive-data-protection/docs/data-profiles
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/deidentify-bq-tutorial | https://docs.cloud.google.com/sensitive-data-protection/docs/deidentify-bq-tutorial
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/deidentify-sensitive-data | https://docs.cloud.google.com/sensitive-data-protection/docs/deidentify-sensitive-data
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/deidentify-storage | https://docs.cloud.google.com/sensitive-data-protection/docs/deidentify-storage
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/infotypes-reference | https://docs.cloud.google.com/sensitive-data-protection/docs/infotypes-reference
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/inspect-sensitive-text-api | https://docs.cloud.google.com/sensitive-data-protection/docs/inspect-sensitive-text-api
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/inspect-sensitive-text-de-identify | https://docs.cloud.google.com/sensitive-data-protection/docs/inspect-sensitive-text-de-identify
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-images | https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-images
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-storage | https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-storage
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-structured-text | https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-structured-text
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-text | https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-text
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/libraries | https://docs.cloud.google.com/sensitive-data-protection/docs/libraries
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/likelihood | https://docs.cloud.google.com/sensitive-data-protection/docs/likelihood
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/listing-infotypes | https://docs.cloud.google.com/sensitive-data-protection/docs/listing-infotypes
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/locations | https://docs.cloud.google.com/sensitive-data-protection/docs/locations
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/manage-content-policies | https://docs.cloud.google.com/sensitive-data-protection/docs/manage-content-policies
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/pseudonymization | https://docs.cloud.google.com/sensitive-data-protection/docs/pseudonymization
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/quote | https://docs.cloud.google.com/sensitive-data-protection/docs/quote
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/redacting-sensitive-data-images | https://docs.cloud.google.com/sensitive-data-protection/docs/redacting-sensitive-data-images
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest | https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/ContentItem | https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/ContentItem
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/InspectConfig | https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/InspectConfig
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/InspectResult | https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/InspectResult
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/RedactImageResponse | https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/RedactImageResponse
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.deidentifyTemplates | https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/organizations.deidentifyTemplates
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.content/deidentify | https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.content/deidentify
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.content/inspect | https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.content/inspect
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.content/reidentify | https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.content/reidentify
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.image/redact | https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.image/redact
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.locations.content/reidentify | https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.locations.content/reidentify
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.locations.contentPolicies | https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.locations.contentPolicies
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.locations.image/redact | https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.locations.image/redact
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/release-notes | https://docs.cloud.google.com/sensitive-data-protection/docs/release-notes
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/sensitive-data-protection-overview | https://docs.cloud.google.com/sensitive-data-protection/docs/sensitive-data-protection-overview
+404 https://docs.cloud.google.com/sensitive-data-protection/docs/slug | https://docs.cloud.google.com/sensitive-data-protection/docs/slug
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location | https://docs.cloud.google.com/sensitive-data-protection/docs/specifying-location
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/supported-file-types | https://docs.cloud.google.com/sensitive-data-protection/docs/supported-file-types
+200 https://docs.cloud.google.com/sensitive-data-protection/docs/transformations-reference | https://docs.cloud.google.com/sensitive-data-protection/docs/transformations-reference
+200 https://docs.cloud.google.com/sensitive-data-protection/limits | https://docs.cloud.google.com/sensitive-data-protection/limits
+skip-github | https://github.com/google/re2/wiki/Syntax
+skip-github | https://github.com/googleapis/google-cloud-python/blob/google-cloud-dlp-v3.40.0/packages/google-cloud-dlp/CHANGELOG.md
+skip-github | https://github.com/googleapis/google-cloud-python/blob/google-cloud-dlp-v3.40.0/packages/google-cloud-dlp/LICENSE
+skip-github | https://github.com/googleapis/google-cloud-python/blob/google-cloud-dlp-v3.40.0/packages/google-cloud-dlp/README.rst
+skip-github | https://github.com/googleapis/google-cloud-python/blob/google-cloud-dlp-v3.40.0/packages/google-cloud-dlp/google/cloud/dlp/gapic_version.py
+skip-github | https://github.com/googleapis/google-cloud-python/blob/google-cloud-dlp-v3.40.0/packages/google-cloud-dlp/google/cloud/dlp_v2/services/dlp_service/client.py
+skip-github | https://github.com/googleapis/google-cloud-python/blob/google-cloud-dlp-v3.40.0/packages/google-cloud-dlp/google/cloud/dlp_v2/services/dlp_service/transports/rest.py
+skip-github | https://github.com/googleapis/google-cloud-python/blob/google-cloud-dlp-v3.40.0/packages/google-cloud-dlp/google/cloud/dlp_v2/types/dlp.py
+skip-github | https://github.com/googleapis/google-cloud-python/blob/google-cloud-dlp-v3.40.0/packages/google-cloud-dlp/google/cloud/dlp_v2/types/storage.py
+skip-github | https://github.com/googleapis/google-cloud-python/blob/google-cloud-dlp-v3.40.0/packages/google-cloud-dlp/setup.py
+400 https://www.googleapis.com/auth/cloud-platform` | https://www.googleapis.com/auth/cloud-platform`

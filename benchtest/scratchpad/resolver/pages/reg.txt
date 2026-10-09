@@ -1,0 +1,261 @@
+# status 200  final_url https://presidio.dataprivacystack.org/analyzer/recognizer_registry_provider/  content-type text/html; charset=utf-8
+Skip to content
+Presidio
+Customizing recognizer registry from file
+Search
+GitHub
+Presidio
+Quick start
+Learn Presidio
+Resources
+Recipes
+Samples
+Presidio
+GitHub
+Presidio
+Presidio
+Home
+Installation
+FAQ
+Quick start
+Quick start
+Home
+Text
+Images
+Semi/Structured data
+Learn Presidio
+Learn Presidio
+Home
+Concepts
+Tutorial
+Tutorial
+Home
+Getting started
+Deny-list recognizers
+Regex recognizers
+Rule-based recognizers
+Additional models/languages
+External services
+Context enhancement
+Decision process
+No-code recognizers
+Ad-hoc recognizers
+Simple anonymization
+Custom anonymization
+Encryption/Decryption
+Allow-lists
+Text de-identification
+Text de-identification
+Home
+Presidio Analyzer
+Presidio Analyzer
+Home
+Developing PII recognizers
+Developing PII recognizers
+Tutorial
+Best practices
+Recognizer registry from file
+Recognizer registry from file
+On this page
+Configuration file structure
+Recognizer list
+The recognizer parameters
+Filtering recognizers by country
+Multi-language support
+Customizing the NLP model
+Customizing the NLP model
+Home
+Spacy/Stanza
+Transformers
+GPU Acceleration
+Tracing the decision process
+Configure from file
+Presidio Anonymizer
+Presidio Anonymizer
+Home
+Developing PII anonymization operators
+Azure Health Data Services de-identification service integration
+Image de-identification
+Image de-identification
+Home
+Evaluating DICOM redaction
+Structured and Semi-structured
+Structured and Semi-structured
+Home
+PII detection evaluation
+Resources
+Resources
+Supported entities
+Project transition update
+Community
+Change log
+Setting up a development environment
+Build and release process
+Changes from V1 to V2
+Python API reference
+Python API reference
+Home
+Presidio Analyzer Python API
+Presidio Anonymizer Python API
+Presidio Image Redactor Python API
+Presidio Structured Python API
+REST API reference
+Recipes
+Recipes
+Home
+Contributing
+Template
+Samples
+Samples
+Home
+Text
+Text
+Presidio Basic Usage Notebook
+Customizing Presidio Analyzer
+Configuring The NLP engine
+Encrypting and Decrypting identified entities
+Getting the identified entity value using a custom Operator
+Anonymizing known values
+Keeping some entities from being anonymized
+Integrating with external services
+Remote Recognizer
+Azure AI Language as a Remote Recognizer
+Azure Health DataServices De-identification as a Remote Recognizer
+Using Flair as an external PII model
+Using Span Marker as an external PII model
+Using Transformers as an external PII model
+Using GLiNER as an external PII model
+Pseudonymization (replace PII values using mappings)
+Passing a lambda as a Presidio anonymizer using Faker
+Synthetic data generation with OpenAI
+YAML based no-code configuration
+Data
+Data
+Analyzing structured / semi-structured data in batch
+Presidio Structured Basic Usage Notebook
+Analyze and Anonymize CSV file
+Images
+Images
+Redacting Text PII from DICOM images
+Using an allow list with image redaction
+Plot custom bounding boxes
+Example DICOM redaction evaluation
+PDF
+PDF
+Annotating PII in a PDF
+Deployment
+Deployment
+Presidio with App Service
+Presidio with Kubernetes
+Presidio with Spark
+Presidio with Fabric
+Redacting Telemetry with Presidio
+Azure Data Factory
+Azure Data Factory
+ETL using AppService/Databricks
+Add Presidio as an HTTP service to your Azure Data Factory
+Add Presidio on Databricks to your Azure Data Factory
+PII Masking LLM calls using LiteLLM proxy
+Demo app
+Demo app
+Create a simple demo app using Streamlit
+On this page
+Configuration file structure
+Recognizer list
+The recognizer parameters
+Customizing recognizer registry from file
+To load recognizers from file, use RecognizerRegistryProvider to instantiate the recognizer registry and then pass it through to the analyzer engine:
+from presidio_analyzer import AnalyzerEngine
+from presidio_analyzer.recognizer_registry import RecognizerRegistryProvider
+recognizer_registry_conf_file = "./analyzer/recognizers-config.yml"
+provider = RecognizerRegistryProvider(
+conf_file=recognizer_registry_conf_file
+)
+registry = provider.create_recognizer_registry()
+analyzer = AnalyzerEngine(registry=registry)
+results = analyzer.analyze(text="My name is Morris", language="en")
+print(results)
+Configuration file structure
+global_regex_flags: 26
+supported_languages:
+- en
+recognizers:
+...
+The configuration file consists of two parts:
+global_regex_flags: regex flags to be used in regex matching (see regex flags).
+supported_languages: A list of supported languages that the registry will support.
+recognizers: a list of recognizers to be loaded by the recognizer registry. This list consists of two different types of recognizers:
+Predefined: A set of already defined recognizer classes in presidio. This includes all recognizers defined in the codebase (along with user defined recognizers) that inherit from EntityRecognizer.
+Custom: custom created pattern recognizers that are created based on the fields provided in the configuration file.
+Note
+supported_languages must be identical to the same field in analyzer_engine
+Recognizer list
+The recognizer list comprises of both the predefined and custom recognizers, for example:
+...
+- name: CreditCardRecognizer
+supported_languages:
+- language: en
+context: [credit, card, visa, mastercard, cc, amex, discover, jcb, diners, maestro, instapayment]
+- language: es
+context: [tarjeta, credito, visa, mastercard, cc, amex, discover, jcb, diners, maestro, instapayment]
+- language: it
+- language: pl
+type: predefined
+- name: UsBankRecognizer
+supported_languages:
+- en
+type: predefined
+- name: MedicalLicenseRecognizer
+type: predefined
+- name: ExampleCustomRecognizer
+patterns:
+- name: "zip code (weak)"
+regex: "(\\b\\d{5}(?:\\-\\d{4})?\\b)"
+score: 0.01
+supported_languages:
+- language: en
+context: [zip, code]
+- language: es
+context: [código, postal]
+supported_entity: "ZIP"
+type: custom
+enabled: true
+- name: "TitlesRecognizer"
+supported_language: "en"
+supported_entity: "TITLE"
+deny_list: [Mr., Mrs., Ms., Miss, Dr., Prof.]
+deny_list_score: 1
+- name: "HuggingFace NER"
+type: "predefined"
+class_name: "HuggingFaceNerRecognizer"
+model_name: "dslim/bert-base-NER"
+supported_languages:
+- en
+supported_entities: ["PERSON", "LOCATION", "ORGANIZATION"]
+aggregation_strategy: "simple"
+device: "cpu"
+The recognizer parameters
+supported_languages: A list of supported languages that the analyzer will support. In case this field is missing, a recognizer will be created for each supported language provided to the AnalyzerEngine.
+In addition to the language code, this field also contains a list of context words, which increases confidence in the detection in case it is found in the surroundings of a detected entity (as seen in the credit card example above).
+type: this could be either predefined or custom. As this is optional, if not stated otherwise, the default type is custom.
+name: Different per the type of the recognizer. For predefined recognizers, this is the class name as defined in presidio, while for custom recognizers, it will be set as the name of the recognizer.
+patterns: a list of objects of type Pattern that contains a name, score and regex that define matching patterns.
+enabled: enables or disables the recognizer.
+supported_entity: the detected entity associated by the recognizer.
+deny_list: A list of words to detect, in case the recognizer uses a predefined list of words.
+deny_list_score: confidence score for a term identified using a deny-list.
+Configuration Tip: Agglutinative languages (e.g., Korean)
+If spaCy-based NER produces noisy or redundant results, you can disable SpacyRecognizer and use HuggingFaceNerRecognizer as an alternative. Note that HuggingFaceNerRecognizer bypasses the spaCy tokenizer alignment mechanism.
+- name: "SpacyRecognizer"
+type: "predefined"
+class_name: "SpacyRecognizer"
+supported_languages: ["ko"]
+enabled: false
+Back to top
+Previous
+Best practices
+Next
+Filtering recognizers by country
+Data Privacy Stack
+Made with
+Zensical

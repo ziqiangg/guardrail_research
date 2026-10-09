@@ -1,0 +1,294 @@
+# status 200  final_url https://docs.cloud.google.com/model-armor/model-armor-gemini-enterprise-integration  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Model Armor
+Start free
+Overview
+Guides
+Reference
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Resources
+Console
+Discover
+Product overview
+Data residency and endpoints
+Feature availability for templates by region
+Best practices for scaling and high traffic
+Retry strategy
+Configure Model Armor
+Create and manage templates
+Configure template-specific exclusion rules
+Set the filter version
+Filter version history
+Configure floor settings
+Sanitize prompts and responses
+Configure logging
+View the monitoring dashboard
+Control access
+Access control with IAM
+Roles and permissions
+Service accounts
+Integrate Model Armor with services or frameworks
+Overview
+Integrate with Agent Gateway
+Integrate with Apigee
+Integrate with Gemini Enterprise
+Integrate with Google and Google Cloud MCP servers
+Integrate with Google Cloud networking services
+Integrate with Agent Platform
+Integrate with LangChain
+Monitor
+Audit logging
+Troubleshoot
+Troubleshooting
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Home
+Documentation
+AI and ML
+Model Armor
+Guides
+Send feedback
+Integrate Model Armor with Gemini Enterprise
+Stay organized with collections
+Save and categorize content based on your preferences.
+Integrating Model Armor with Gemini Enterprise lets you
+screen user prompts to and responses from your AI agents, mitigating risks such
+as prompt injection, harmful content, and sensitive data leakage. After the
+integration is set up, it applies to all user interactions.
+Before you begin
+Create a Model Armor template and ensure that it is in the same Google Cloud
+project as Gemini Enterprise. The location of the template and the
+Gemini Enterprise instance must match. For more information about supported locations, see
+Model Armor locations
+and Gemini Enterprise locations.
+Required roles
+Before you integrate Model Armor with Gemini Enterprise,
+ensure that you have the required role.
+To get the permissions that
+you need to create and manage Model Armor templates,
+ask your administrator to grant you the
+Model Armor Admin (roles/modelarmor.admin) IAM role on Model Armor templates.
+For more information about granting roles, see Manage access to projects, folders, and organizations.
+You might also be able to get
+the required permissions through custom
+roles or other predefined
+roles.
+Enable the integration
+To enable Gemini Enterprise with Model Armor, your
+security administrator creates policies in Model Armor and your
+Gemini Enterprise administrator applies these policies to the
+Gemini Enterprise instance.
+Create a Model Armor template.
+Enable and configure Model Armor in Gemini Enterprise.
+Limitations and considerations
+Consider the following limitations and considerations when integrating Model Armor
+with Gemini Enterprise:
+De-identification and masking: When Model Armor uses a
+Sensitive Data Protection template for scanning prompts or responses,
+Model Armor checks if the content matches the infoType detector
+criteria defined in the template. Although Sensitive Data Protection
+supports de-identification based on the template configuration,
+Model Armor doesn't pass de-identified or masked data back to
+Gemini Enterprise. If the content triggers any infoType detectors
+from Sensitive Data Protection and the enforcement type is
+INSPECT_AND_BLOCK, Gemini Enterprise blocks the request or response
+rather than de-identifying it.
+Document and image screening: In addition to text prompts, the integration
+supports documents (such
+as PDFs) and images. The integration screens the following files only when
+you upload them to the Gemini Enterprise assistant:
+Images that you upload directly.
+Images contained inside other files and documents that you upload directly.
+If a file or an image inside a document violates your configured policies, the
+entire file or document is discarded and excluded from the request.
+Screened agents and interactions: Screening applies to the
+Gemini Enterprise assistant, employee-made agents (created in
+the Gemini Enterprise app using the Workflow Builder), and
+Google-made agents. Interactions with custom agents from your organization
+(such as ADK, A2A, and Dialogflow) are not screened.
+Token limits and quotas: There are no token limits when you use
+Model Armor with Gemini Enterprise. However, the total
+throughput of Model Armor evaluations is governed by
+Gemini Enterprise system
+quotas and Model Armor API
+rate limits.
+Service Level Agreement (SLA): Gemini Enterprise provides
+a Service Level Agreement.
+When Gemini Enterprise is configured to use
+Model Armor, blocked queries don't count as SLA violations,
+regardless of whether the fail-open or fail-closed mode is used.
+Compliance: Both Gemini Enterprise and
+Model Armor offer various compliance certifications. When used
+together, the effective compliance certifications are the common subset of
+both products. Review the compliance certifications for both products to
+ensure that they meet your regulatory requirements.
+How it works
+After the integration is configured, Gemini Enterprise routes user inputs and assistant
+outputs through the Model Armor API for screening using the
+selected templates. The Gemini Enterprise authenticates
+to Model Armor using the service agent. Model Armor
+responds based on the filter configuration defined in the template,
+which Gemini Enterprise acts upon by either blocking the request
+or response or allowing it.
+For example, Gemini Enterprise might detect a request containing personally
+identifiable information and route it to Model Armor for screening.
+If the Model Armor template is configured to block personally
+identifiable information (PII), it tells Gemini Enterprise to block the request.
+Logging
+Model Armor generates platform logs for sanitization requests and
+their responses in Cloud Logging. You need the Private Logs Viewer
+(roles/logging.privateLogViewer) IAM role to view the
+Model Armor audit logs. For more information about the
+auto-generated audit logs, see
+Model Armor audit logging.
+To log the sanitize operations, set the templateMetadata.logSanitizeOperations
+field to true. For more information, see
+Configure logging in templates.
+What's next
+Enable Model Armor in
+Gemini Enterprise
+Correlate Model Armor logs with Gemini Enterprise
+logs
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-06 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

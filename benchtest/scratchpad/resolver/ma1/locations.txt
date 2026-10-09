@@ -1,0 +1,236 @@
+# status 200  final_url https://docs.cloud.google.com/model-armor/locations  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Model Armor
+Start free
+Overview
+Guides
+Reference
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Resources
+Console
+Model Armor
+All resources
+Pricing
+Quotas and limits
+Release notes
+Locations
+Compliance and security controls
+Billing questions
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Home
+Documentation
+AI and ML
+Model Armor
+Resources
+Send feedback
+Model Armor locations
+Stay organized with collections
+Save and categorize content based on your preferences.
+Model Armor is available in the following zones,
+regions, and multi-regions. For more information about regions and
+zones, see Geography and regions.
+For more information about data residency controls for each region, see
+Data residency.
+Regions
+The following table lists the regions in Asia Pacific where
+Model Armor is available.
+| Region description
+| Region name
+| Tokyo
+| asia-northeast1
+| Seoul
+| asia-northeast3
+| Mumbai
+| asia-south1
+| Singapore
+| asia-southeast1
+| Melbourne
+| australia-southeast2
+The following table lists the regions in North America where
+Model Armor is available.
+| Region description
+| Region name
+| Toronto
+| northamerica-northeast2
+| Iowa
+| us-central1
+| South Carolina
+| us-east1
+| Northern Virginia
+| us-east4
+| Oregon
+| us-west1
+The following table lists the regions in Europe where
+Model Armor is available.
+| Region description
+| Region name
+| Madrid
+| europe-southwest1
+| Belgium
+| europe-west1
+| London
+| europe-west2
+| Frankfurt
+| europe-west3
+| Netherlands
+| europe-west4
+| Paris
+| europe-west9
+Multi-regions
+The following table lists the multi-regions where
+Model Armor is available.
+| Multi-region description
+| Multi-region name
+| Data centers in the European Union
+| eu
+| Data centers in the United States
+| us
+Note: Feature availability varies by region to comply with data residency and
+other regional requirements. Regions such as asia-south1 and
+northamerica-northeast2 have specific feature limitations to ensure
+in-jurisdiction data processing. For more
+information, see Feature availability by region.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-06 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

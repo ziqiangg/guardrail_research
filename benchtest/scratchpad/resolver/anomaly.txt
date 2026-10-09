@@ -1,0 +1,666 @@
+# status 200  final_url https://docs.cloud.google.com/sensitive-data-protection/docs  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Sensitive Data Protection
+Start free
+Overview
+Guides
+Reference
+Samples
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Samples
+Resources
+Console
+Google Cloud Documentation home
+Get started with Google Cloud
+Product list
+Integrated AI assistance with Gemini for Google Cloud
+What's new in documentation
+Recent product release notes
+Cloud Customer Care
+Cross-product tools
+Access and resource management
+Access and resource management overview
+Access management
+Cloud Identity
+Identity Platform
+Managed Service for Microsoft Active Directory
+Access Approval
+See additional products on overview page
+Control and discoverability
+Cloud API Registry
+Cloud Marketplace
+Service Catalog
+Service Usage
+Optimization and service health
+Cloud Hub
+Recommender
+See additional products on overview page
+Resource management
+Config Connector
+See additional products on overview page
+Costs and usage management
+Costs and usage management overview
+Monitor and optimize costs
+Cloud Billing
+App Optimize API
+Free cloud features and trial offer
+Manage resources and usage
+Cloud Quotas
+Sustainability
+Carbon Footprint
+Google Cloud SDK, languages, frameworks, and tools
+Google Cloud SDK, languages, frameworks, and tools overview
+General authentication guides
+Google Cloud SDK
+Google Cloud SDK overview
+Google Cloud CLI
+Languages
+C# and .NET
+C++
+Go
+Java
+JavaScript and Node.js
+PHP
+Python
+Ruby
+Rust
+Frameworks and tools
+Spring
+Prometheus
+See additional products on overview page
+Cloud APIs
+Infrastructure as code
+Infrastructure as code overview
+Provision deploy and manage infrastructure
+Infrastructure Manager
+Terraform on Google Cloud
+Cloud Development Kit for Terraform
+Google Cloud provider for Pulumi
+Ansible
+Crossplane
+Selected related product
+Cloud Deployment Manager
+AI and ML
+Overview of AI and ML
+Gemini Enterprise Agent Platform
+Gemini Enterprise
+Model Garden
+Agents
+Agent Development Kit (ADK)
+Agent Gateway
+Agent Registry
+Agent Runtime
+Agent Studio
+Search and grounding
+Agent Search
+Enterprise Knowledge Graph
+RAG Engine
+Vector Search
+Notebooks
+Agent Platform Workbench
+Colab Enterprise
+TensorFlow Enterprise
+Model development
+Agent Platform Managed Training
+Cloud TPU
+Deep Learning Containers
+Deep Learning VM Images
+Experiments on Gemini Enterprise Agent Platform
+Neural Architecture Search
+Ray on Gemini Enterprise Agent Platform
+Deploy and serve
+AI/ML orchestration on Cloud Run
+AI/ML orchestration on GKE
+Agent Platform Pipelines
+Agent Platform Inference
+Feature Store
+Model Monitoring
+Model Registry
+Vertex AI TensorBoard
+Customer service, conversation, speech, and text
+Agent Assist
+Cloud Natural Language
+Conversational AI
+Conversational Agents (Dialogflow CX)
+Customer Experience Insights
+Dialogflow ES
+Document AI
+Google Cloud CCaaS
+Speech-to-Text
+Text-to-Speech
+Cloud Translation
+Video, images, vision, and augmented reality
+Agent Platform Vision
+Cloud Vision API
+Live Stream API
+Transcoder API
+Video Intelligence API
+Video Stitcher API
+See additional products on overview page
+Application development
+Overview of application development
+API management
+API Gateway
+Apigee
+Apigee Hybrid
+Cloud Endpoints
+Build and deploy apps with CI/CD
+Cloud Build
+Artifact Registry
+Artifact Analysis
+Software supply chain security
+Cloud Deploy
+Development platforms and tools
+App Hub
+Application Design Center
+Cloud Code
+Cloud Code for Cloud Shell
+Cloud Code for IntelliJ
+Cloud Code for VS Code
+Cloud Shell
+Cloud Workstations
+Developer Device Platform
+Service Infrastructure
+See additional products on overview page
+Event-driven app creation
+Cloud Scheduler
+Cloud Tasks
+Eventarc
+Workflows
+Industry-specific APIs
+See additional products on overview page
+Integration
+Application Integration
+Developer Connect
+Integration Connectors
+GitLab on Google Cloud
+Source code management tools
+Cloud Source Repositories
+Secure Source Manager
+Application hosting
+Overview of application hosting infrastructure
+Serverless
+Cloud Run
+Cloud Run functions
+App Engine
+Container orchestration
+Google Kubernetes Engine (GKE)
+See additional products on overview page
+Selected related products
+Buildpacks
+Blockchain Node Engine
+Blockchain RPC
+Compute
+Overview of compute
+Virtual machines
+Compute Engine
+Capacity Planner
+See additional products on overview page
+Images
+Container-Optimized OS
+See additional products on overview page
+Block storage
+Local SSD
+Persistent Disk
+Hyperdisk
+Workloads
+AI Hypercomputer
+Cluster Director
+Batch
+Cloud GPUs
+Selected related products
+Google Cloud VMware Engine
+SAP on Google Cloud
+Workload Manager
+Cluster Toolkit
+Shielded VM
+VM Manager
+Oracle on Google Cloud Compute
+Cluster Services for OpenShift
+Data analytics
+Overview of data analytics
+BigQuery
+Data Agent Kit
+Knowledge Catalog
+Lakehouse
+Data analysis
+Looker
+Data Studio
+Compare Looker and Data Studio
+See additional products on overview page
+Data governance and sharing
+Data Catalog
+See additional products on overview page
+Data integration and orchestration
+Cloud Data Fusion
+Dataform
+Datastream
+Managed Service for Apache Airflow
+Orchestration Pipelines
+See additional products on overview page
+Data processing
+Dataproc Metastore
+Managed Service for Apache Spark
+See additional products on overview page
+Streaming
+Dataflow
+Managed Service for Apache Kafka
+Pub/Sub
+Pub/Sub Lite
+See additional products on overview page
+AI and ML
+Gemini Cloud Assist
+Gemini in BigQuery
+Gemini in Looker
+Gemini in Data Studio
+Selected related products
+Blockchain Analytics
+Cortex Framework
+Earth Engine (other Google site)
+Manufacturing Data Engine
+Databases
+Overview of databases
+Non-relational databases
+Bigtable
+Firestore in Datastore mode
+Firestore with MongoDB compatibility
+Firestore in Native mode
+Memorystore for Redis
+Memorystore for Redis Cluster
+Memorystore for Valkey
+Memorystore for Memcached
+See additional products on overview page
+Relational databases
+AlloyDB for PostgreSQL
+AlloyDB Omni
+Spanner
+Spanner Omni
+Cloud SQL
+Migration
+Database Migration Service
+See additional products on overview page
+Fleet management
+Database Center
+Distributed, hybrid, and multicloud
+Overview of distributed, hybrid, and multicloud
+Distributed Cloud
+Google Distributed Cloud overview
+Google Distributed Cloud air-gapped
+Google Distributed Cloud air-gapped appliance
+Google Distributed Cloud air-gapped sandbox
+Google Distributed Cloud connected
+Gemini on Google Distributed Cloud connected API
+Google Distributed Cloud software only for bare metal
+Google Distributed Cloud software only for VMware
+Multicloud
+GKE Multi-Cloud
+Cloud Location Finder
+Knative serving
+Fleet management
+See product on overview page
+Selected related products
+Config Controller
+Config Sync
+Policy Controller
+Service Directory
+Industry solutions
+Overview of industry solutions
+Financial services
+Anti Money Laundering AI
+Healthcare
+Cloud Healthcare API
+See additional products on overview page
+Media and entertainment
+See products on overview page
+Commerce
+AI Commerce Search
+Vision API Product Search
+Transport fleet, career, and telecom
+Cloud Talent Solution
+Telecom Subscriber Insights
+Telecom Network Automation
+Migration
+Overview of migration
+Migration Center
+Virtual machine migration
+Migrate to Virtual Machines
+Migrate to Containers
+Mainframe modernization
+Mainframe Assessment Tool
+Mainframe Connector
+Dual Run
+See additional products on overview page
+Networking
+Overview of networking
+Connectivity
+Core networking
+Virtual Private Cloud (VPC)
+Cloud Number Registry
+Cloud NAT
+Network Service Tiers
+Hybrid networking
+Network Connectivity Center
+Cloud VPN
+Cloud Interconnect
+Cloud Router
+Scalability
+Core services
+Cloud DNS
+Cloud Load Balancing
+Service Extensions
+Cloud Domains
+CDN
+Media CDN
+Cloud CDN
+Networking security
+Cloud NGFW
+Secure Access Connect
+Network Security Integration
+Secure Web Proxy
+VPC Service Controls
+Google Cloud Armor
+Cloud IDS
+See additional products on overview page
+Networking observability
+Network Intelligence Center
+VPC Flow Logs
+See additional products on overview page
+Selected related products
+Cloud Service Mesh
+Data Transfer Essentials
+Observability and monitoring
+Overview of observability and monitoring
+Observability and monitoring
+Google Cloud Observability
+Cloud Logging
+Cloud Monitoring
+Cloud Trace
+Error Reporting
+Observability optimization
+Cloud Profiler
+Security
+Overview of security
+General security guides
+Security operations
+Advisory Notifications
+Cyber Insurance Hub
+Google Security Operations
+Security Command Center
+Access management
+Access Context Manager
+Certificate Authority Service
+Identity and Access Management (IAM)
+Application security
+Binary Authorization
+Certificate Manager
+Identity-Aware Proxy
+Model Armor
+Fraud Defense
+Web Risk
+See additional products on overview page
+Auditing, monitoring, and logging
+Access Transparency
+Audit Manager
+Cloud Audit Logs
+Cloud provider access management
+Personalized Service Health
+Unified Maintenance
+See additional products on overview page
+Cloud governance
+Assured Workloads
+Cloud Asset Inventory
+Organization Policy Service
+Policy Intelligence
+Resource Manager
+Data security
+Cloud Key Management Service
+Confidential Computing
+Secret Manager
+Sensitive Data Protection
+See additional products on overview page
+Network security
+Chrome Enterprise Premium
+Spectrum Access System
+See additional products on overview page
+Selected related products
+Assured Open Source Software
+Sovereign Controls by Partners
+Storage
+Overview of storage
+Backing up your data resources
+Backup and DR Service
+Backup for GKE
+Storage solutions
+Cloud Storage
+Filestore
+NetApp Volumes
+Managed Lustre
+See additional products on overview page
+Data transfer
+Cloud FTP
+Storage Transfer Service
+Transfer Appliance
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Cloud Data Loss Prevention (Cloud DLP) is now a part of Sensitive Data Protection. The API name remains the same: Cloud Data Loss Prevention API (DLP API). For information about the services that make up Sensitive Data Protection, see Sensitive Data Protection overview.
+Home
+Documentation
+Security
+Sensitive Data Protection
+Sensitive Data Protection documentation
+Read product documentation
+Sensitive Data Protection provides access to a powerful sensitive data inspection, classification,
+and de-identification platform. Sensitive Data Protection includes:
+Over 200 built-in information type (or
+"infoType") detectors.
+The ability to define custom infoType detectors using
+dictionaries, regular expressions, and contextual elements.
+De-identification techniques including
+redaction, masking, format-preserving encryption, date-shifting, and more.
+The ability to detect sensitive data within streams of data,
+structured text,
+files in storage repositories such as Cloud Storage and
+BigQuery, and even within images.
+Analysis of structured data to help understand
+its risk of being re-identified, including computation of metrics like k-anonymity,
+l-diversity, and more.
+The ability to automatically
+discover unencrypted secrets and
+profile data across an organization,
+folder, or project to identify data assets where high-risk and sensitive data reside.
+Go to the Sensitive Data Protection product page for more.
+Get started for free
+Start your proof of concept with $300 in free credit
+Develop with our latest Generative AI models and tools.
+Get free usage of 20+ popular products, including Compute Engine and AI APIs.
+No automatic charges, no commitment.
+View free product offers
+Keep exploring with 20+ always-free products.
+Access 20+ free products for common use cases, including AI APIs, VMs, data warehouses,
+and more.
+Documentation resources
+Find quickstarts and guides, review key references, and get help with common issues.
+format_list_numbered
+Guides
+Quickstart: Using a JSON request
+Quickstart: Inspect sensitive text by using the command line
+Quickstart: Schedule a Sensitive Data Protection inspection scan
+De-identifying sensitive data
+Redacting sensitive data from images
+Inspecting storage and databases for sensitive data
+Inspecting text for sensitive data
+Creating inspection templates
+Creating and scheduling inspection jobs
+find_in_page
+Reference
+Sensitive Data Protection client libraries
+REST API
+RPC API
+info
+Resources
+Sensitive Data Protection pricing
+Getting support
+Sensitive Data Protection data security
+Release notes
+Billing questions
+Related resources
+Explore self-paced training, use cases, reference architectures, and code samples with examples of how to use and connect Google Cloud services.
+Codelab
+Training and tutorials
+Redact sensitive data with Sensitive Data Protection
+Learn the basic capabilities of the DLP API and try various ways to use
+the API to help protect data.
+Codelab
+Training and tutorials
+Create a de-identified copy of data in Cloud Storage
+Scan a Cloud Storage bucket for sensitive data and create a de-identified copy of
+the data in a separate bucket.
+Course
+Training and tutorials
+Discover and Protect Sensitive Data Across Your Ecosystem
+Complete a skill badge course to demonstrate your skills
+in using Sensitive Data Protection services to discover, inspect, and de-identify
+sensitive data in Google Cloud.
+Related videos
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-07 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

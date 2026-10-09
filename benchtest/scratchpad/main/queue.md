@@ -16,6 +16,9 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| sdp P5 r1 Q1 (T5 marker on Model Armor/Gemini Enterprise rows; T7 Apigee/Data Fusion/BigQuery cross-refs) | T5: R011 + R012; T7: R007 item 1 (Google-authored pages official) | main |
+| sdp P5 r1 Q2/Q5 (clone denied → raw GitHub fallback; absence labels) | R020 | main |
+| sdp P5 r1 Q3/Q4 (T49 conflict stays two [Documented] bullets; T44 PERSON_NAME ~2026-11-02 and MEDICAL_ID legacy ~2026-10-11 dates) | merger keeps both; verifier re-reads release notes at P7, url-checker run at P9 | main |
 | presidio CP1 (Q01, Q02, T1–T7, local runs) | R016, R019 | user |
 | modelarmor CP1 (Q01, D1–D7) | R017, R019 | user |
 | sdp CP1 (Q01–Q03, T1–T4, T92/T93) | R018, R019 | user |

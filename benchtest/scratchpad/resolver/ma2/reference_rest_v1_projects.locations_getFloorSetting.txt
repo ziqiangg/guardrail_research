@@ -1,0 +1,217 @@
+# status 200  final_url https://docs.cloud.google.com/model-armor/reference/rest/v1/projects.locations/getFloorSetting  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español – América Latina
+Français
+Português – Brasil
+中文 – 简体
+日本語
+한국어
+Sign in
+Model Armor
+Start free
+Overview
+Guides
+Reference
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Resources
+Console
+Model Armor API
+Client libraries
+REST reference
+Overview
+v1
+REST Resources
+folders.locations
+Overview
+getFloorSetting
+updateFloorSetting
+organizations.locations
+Overview
+getFloorSetting
+updateFloorSetting
+projects.locations
+Overview
+get
+getFloorSetting
+list
+updateFloorSetting
+projects.locations.templates
+Overview
+create
+delete
+get
+list
+patch
+sanitizeModelResponse
+sanitizeUserPrompt
+Types
+Code
+DataItem
+FloorSetting
+MultiLanguageDetectionMetadata
+OperationMetadata
+SanitizationResult
+StreamingMode
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Home
+Documentation
+AI and ML
+Model Armor
+Reference
+Send feedback
+Method: projects.locations.getFloorSetting
+Stay organized with collections
+Save and categorize content based on your preferences.
+HTTP request
+Path parameters
+Request body
+Response body
+Authorization scopes
+IAM Permissions
+Gets details of a single floor setting of a project
+HTTP request
+GET https://modelarmor.googleapis.com/v1/{name=projects/*/locations/*/floorSetting}
+The URL uses gRPC Transcoding syntax.
+Path parameters
+| Parameters
+| name
+|
+string
+Required. The name of the floor setting to get, example projects/123/floorsetting.
+Request body
+The request body must be empty.
+Response body
+If successful, the response body contains an instance of FloorSetting.
+Authorization scopes
+Requires the following OAuth scope:
+https://www.googleapis.com/auth/cloud-platform
+For more information, see the Authentication Overview.
+IAM Permissions
+Requires the following IAM permission on the name resource:
+modelarmor.floorSettings.get
+For more information, see the IAM documentation.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-08-19 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español – América Latina
+Français
+Português – Brasil
+中文 – 简体
+日本語
+한국어

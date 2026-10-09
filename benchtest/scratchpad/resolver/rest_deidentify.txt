@@ -1,0 +1,481 @@
+# status 200  final_url https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.content/deidentify  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español – América Latina
+Français
+Português – Brasil
+中文 – 简体
+日本語
+한국어
+Sign in
+Sensitive Data Protection
+Start free
+Overview
+Guides
+Reference
+Samples
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Samples
+Resources
+Console
+Data Loss Prevention API
+All APIs & reference
+Client libraries
+REST reference
+Overview
+v2
+Overview
+REST Resources
+infoTypes
+Overview
+list
+locations.infoTypes
+Overview
+list
+organizations.locations.columnDataProfiles
+Overview
+get
+list
+organizations.locations.connections
+Overview
+create
+delete
+get
+list
+patch
+search
+organizations.locations.discoveryConfigs
+Overview
+create
+delete
+get
+list
+patch
+organizations.locations.fileStoreDataProfiles
+Overview
+delete
+get
+list
+organizations.locations.projectDataProfiles
+Overview
+get
+list
+organizations.locations.tableDataProfiles
+Overview
+delete
+get
+list
+projects.content
+Overview
+deidentify
+inspect
+reidentify
+projects.deidentifyTemplates
+Overview
+create
+delete
+get
+list
+patch
+projects.dlpJobs
+Overview
+cancel
+create
+delete
+get
+list
+projects.image
+Overview
+redact
+projects.inspectTemplates
+Overview
+create
+delete
+get
+list
+patch
+projects.jobTriggers
+Overview
+activate
+create
+delete
+get
+list
+patch
+projects.locations.columnDataProfiles
+Overview
+get
+list
+projects.locations.connections
+Overview
+create
+delete
+get
+list
+patch
+search
+projects.locations.content
+Overview
+deidentify
+inspect
+reidentify
+projects.locations.contentPolicies
+Overview
+create
+delete
+get
+list
+patch
+projects.locations.deidentifyTemplates
+Overview
+create
+delete
+get
+list
+patch
+projects.locations.discoveryConfigs
+Overview
+create
+delete
+get
+list
+patch
+projects.locations.dlpJobs
+Overview
+cancel
+create
+delete
+finish
+get
+hybridInspect
+list
+projects.locations.fileStoreDataProfiles
+Overview
+delete
+get
+list
+projects.locations.image
+Overview
+redact
+projects.locations.inspectTemplates
+Overview
+create
+delete
+get
+list
+patch
+projects.locations.jobTriggers
+Overview
+activate
+create
+delete
+get
+hybridInspect
+list
+patch
+projects.locations.projectDataProfiles
+Overview
+get
+list
+projects.locations.storedInfoTypes
+Overview
+create
+delete
+get
+list
+patch
+projects.locations.tableDataProfiles
+Overview
+delete
+get
+list
+projects.storedInfoTypes
+Overview
+create
+delete
+get
+list
+patch
+Types
+Action
+BigQueryTable
+ByteContentItem
+CloudStoragePath
+Code
+Container
+ContentItem
+ContentPolicyActionLog
+DataProfileAction
+DataProfileBigQueryRowSchema
+DataProfileConfigSnapshot
+DataProfileFinding
+DataProfilePubSubMessage
+DataRiskLevel
+DataSourceType
+DeidentifyContentResponse
+Dictionary
+Domain
+Error
+FallbackActionType
+FieldId
+FileType
+HybridContentItem
+HybridInspectResponse
+ImageRedactionConfig
+InfoType
+InfoTypeSummary
+InspectConfig
+InspectContentResponse
+InspectJobConfig
+InspectResult
+ListColumnDataProfilesResponse
+ListConnectionsResponse
+ListDeidentifyTemplatesResponse
+ListDiscoveryConfigsResponse
+ListDlpJobsResponse
+ListFileStoreDataProfilesResponse
+ListInfoTypesResponse
+ListInspectTemplatesResponse
+ListJobTriggersResponse
+ListProjectDataProfilesResponse
+ListStoredInfoTypesResponse
+ListTableDataProfilesResponse
+OtherCloudDiscoveryStartingLocation
+OtherInfoTypeSummary
+ProfileStatus
+RecordTransformation
+RedactImageResponse
+Regex
+ReidentifyContentResponse
+RelatedResource
+ResourceVisibility
+SaveToGcsFindingsOutput
+SearchConnectionsResponse
+SensitivityScore
+Status
+Tag
+TransformationContainerType
+TransformationDescription
+TransformationDetails
+TransformationOverview
+TransformationResultStatusType
+TransformationType
+Value
+WordList
+RPC reference
+Overview
+google.privacy.dlp.v2
+google.rpc
+google.type
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Cloud Data Loss Prevention (Cloud DLP) is now a part of Sensitive Data Protection. The API name remains the same: Cloud Data Loss Prevention API (DLP API). For information about the services that make up Sensitive Data Protection, see Sensitive Data Protection overview.
+Home
+Documentation
+Security
+Sensitive Data Protection
+Reference
+Send feedback
+Method: projects.content.deidentify
+Stay organized with collections
+Save and categorize content based on your preferences.
+HTTP request
+Path parameters
+Request body
+JSON representation
+Response body
+Authorization scopes
+Try it!
+De-identifies potentially sensitive info from a ContentItem. This method has limits on input size and output size. See https://docs.cloud.google.com/sensitive-data-protection/docs/deidentify-sensitive-data to learn more.
+When no InfoTypes or CustomInfoTypes are specified in this request, the system will automatically choose what detectors to run. By default this may be all types, but may change over time as detectors are updated.
+HTTP request
+Choose an endpoint:
+global africa-south1 asia-east1 asia-east2 asia-northeast1 asia-northeast2 asia-northeast3 asia-south1 asia-south2 asia-southeast1 asia-southeast2 australia-southeast1 australia-southeast2 europe-central2 europe-north1 europe-north2 europe-southwest1 europe-west1 europe-west10 europe-west12 europe-west2 europe-west3 europe-west4 europe-west6 europe-west8 europe-west9 me-central1 me-central2 me-west1 northamerica-northeast1 northamerica-northeast2 northamerica-south1 southamerica-east1 southamerica-west1 us-central1 us-east1 us-east4 us-east5 us-south1 us-west1 us-west2 us-west3 us-west4 us eu in
+POST https://dlp.googleapis.com/v2/{parent=projects/*}/content:deidentify
+The URLs use gRPC Transcoding syntax.
+Path parameters
+| Parameters
+| parent
+|
+string
+Parent resource name.
+The format of this value varies depending on whether you have specified a processing location:
+Projects scope, location specified: projects/{projectId}/locations/{locationId}
+Projects scope, no location specified (defaults to global): projects/{projectId}
+The following example parent string specifies a parent project with the identifier example-project, and specifies the europe-west3 location for processing data:
+parent=projects/example-project/locations/europe-west3
+Authorization requires the following IAM permission on the specified resource parent:
+serviceusage.services.use
+Request body
+The request body contains data with the following structure:
+| JSON representation
+|
+{
+"deidentifyConfig": {
+object (DeidentifyConfig)
+},
+"inspectConfig": {
+object (InspectConfig)
+},
+"item": {
+object (ContentItem)
+},
+"inspectTemplateName": string,
+"deidentifyTemplateName": string,
+"locationId": string
+}
+| Fields
+| deidentifyConfig
+|
+object (DeidentifyConfig)
+Configuration for the de-identification of the content item. Items specified here will override the template referenced by the deidentifyTemplateName argument.
+| inspectConfig
+|
+object (InspectConfig)
+Configuration for the inspector. Items specified here will override the template referenced by the inspectTemplateName argument.
+| item
+|
+object (ContentItem)
+The item to de-identify. Will be treated as text.
+This value must be of type Table if your deidentifyConfig is a RecordTransformations object.
+| inspectTemplateName
+|
+string
+Template to use. Any configuration directly specified in inspectConfig will override those set in the template. Singular fields that are set in this request will replace their corresponding fields in the template. Repeated fields are appended. Singular sub-messages and groups are recursively merged.
+| deidentifyTemplateName
+|
+string
+Template to use. Any configuration directly specified in deidentifyConfig will override those set in the template. Singular fields that are set in this request will replace their corresponding fields in the template. Repeated fields are appended. Singular sub-messages and groups are recursively merged.
+| locationId
+|
+string
+Deprecated. This field has no effect.
+Response body
+If successful, the response body contains an instance of DeidentifyContentResponse.
+Authorization scopes
+Requires the following OAuth scope:
+https://www.googleapis.com/auth/cloud-platform
+For more information, see the Authentication Overview.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-02 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español – América Latina
+Français
+Português – Brasil
+中文 – 简体
+日本語
+한국어

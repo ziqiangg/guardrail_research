@@ -1,0 +1,481 @@
+# status 200  final_url https://docs.cloud.google.com/data-fusion/docs/how-to/using-dlp  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Cloud Data Fusion
+Start free
+Overview
+Guides
+Reference
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Resources
+Console
+Discover
+Product overview
+Explore the plugins
+Get started
+Enable or disable Cloud Data Fusion
+Introduction to Cloud Data Fusion: Console
+Introduction to Cloud Data Fusion: Studio
+Introduction to Cloud Data Fusion networking
+Authentication
+Quickstarts
+Create a target campaign pipeline
+Create a private instance with Private Service Connect
+Create a pipeline monitoring dashboard
+Use Salesforce batch source to analyze leads data in BigQuery
+Create
+Create an instance
+Create a public instance
+Create a private instance with Private Service Connect
+Create a private instance with VPC peering
+Configure
+Configure networking
+Connect to an external network
+Connect to a public source from a private instance
+Control egress in a private instance
+Resolve domain names
+Configure plugins
+Batch sources
+Google services
+BigQuery
+Cloud Storage
+Connect to a Cloud SQL-MySQL source from a private instance
+SAP
+Configure an SAP ERP system
+SAP Ariba
+SAP BW Open Hub Destination
+SAP ODATA
+SAP ODP
+SAP ODP overview
+Extract data through CDS views
+SAP SLT Replication
+SAP SuccessFactors
+SAP Table
+SAP Order to Cash accelerator
+SAP Procure to Pay accelerator
+Other applications
+Database
+Redshift
+Salesforce
+Salesforce overview
+Create a Salesforce Connected App for Cloud Data Fusion
+Use case: SOQL queries in the Salesforce source
+Best practices for the Salesforce source
+Streaming sources
+Read from a Pub/Sub streaming source
+Manage
+Manage Cloud Data Fusion: Studio
+Manage Studio administration
+Manage pipeline design
+Create and manage namespaces
+Work with plugins
+Types of plugins
+Deploy a plugin from the Hub
+Create and manage connections
+Macros and macro functions
+Create plugin templates
+Manage multiple versions of the same plugin
+Plugin drivers
+Preview data
+Create alerts
+Data preparation with Wrangler
+Wrangler overview
+Wrangler workspace directives
+Parse files
+Format strings
+Send records to error
+Work with numbers
+Work with decimal data
+Transform dates
+Filter data
+Find and replace data
+Fill null or empty cells
+Rename, copy, delete, or keep columns
+Join and swap two columns
+Extract data from fields
+Explode data from fields
+Mask data
+Apply a hashing algorithm
+Encode and decode rows
+Wrangler command-line directives
+Manage pipeline execution
+Deploy and run pipelines
+Manage pipeline configurations
+View and download pipeline logs
+Flow control in Cloud Data Fusion
+Manage pushdowns
+Transformation pushdown overview
+Push down transformations to BigQuery
+Manage compute profiles
+Manage compute profiles
+Provisioners
+Provisioners in Cloud Data Fusion
+Dataproc provisioner properties
+Dataproc cluster configuration
+Manage macros, preferences, and runtime arguments
+Manage pipeline performance and tuning
+Pipeline performance overview
+Parallel processing
+Parallel processing for JOINs
+Resource management
+Cluster sizing
+Manage pipeline lifecycle
+Edit pipelines
+Manage pipelines using Source Control Management
+Export and import pipelines
+Schedule pipelines
+Orchestrate pipelines
+Manage lineage
+View lineage in Knowledge Catalog
+Manage instances
+Delete an instance
+Back up and restore
+Manage upgrades
+Versioning in Cloud Data Fusion
+Version upgrades for instances and pipelines
+Patch revisions for instances
+Available upgrades
+Configure maintenance windows
+Manage accelerators
+Manage accelerators
+Contact Center AI Insights
+Manage Replication Accelerator
+Replication overview
+Enable Replication in an existing instance
+Pass a runtime argument
+Add tables to a job
+Upgrade a job
+Isolation levels in SQL Server replication
+Monitor
+Generate reports
+Audit logs
+Metrics overview
+Monitor system, instance, and pipeline health
+View Cloud Data Fusion logs
+View advanced pipeline logs
+Monitor pipeline status in Pub/Sub
+Secure and control access
+Security overview
+Access control with IAM
+Access control with IAM
+Control access with tags
+Service accounts in Cloud Data Fusion
+Minimum permissions required for the Cloud Data Fusion Service Account
+Grant service account roles for Dataproc
+Use case: Access control for Dataproc cluster in another project
+Create custom constraints
+Access control with namespace service account
+Access control with namespace service account
+Use case: Access control with namespace service accounts
+Role-based access control
+Role-based access control overview
+Use role-based access control
+RBAC roles and permissions
+Customer-managed data encryption
+VPC Service controls
+Tutorials
+Pipeline design
+Design and create a reusable pipeline
+Redact confidential data
+Use Sensitive Data Protection with Cloud Data Fusion
+Parse invoices
+Pipeline execution
+Run a pipeline against an existing Dataproc cluster
+Change the Dataproc image version
+Reuse a Dataproc cluster
+Plugins
+Read from a PostgreSQL database
+Read from a Microsoft SQL Server table
+Read from multiple Microsoft SQL Server tables
+Lineage
+Explore data lineage using metadata
+Troubleshoot
+Troubleshoot general issues
+Troubleshoot batch pipelines
+Troubleshoot Knowledge Catalog asset lineage integrations
+Troubleshoot deleting clusters
+Troubleshoot replication jobs
+Troubleshoot plugins
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Home
+Documentation
+Data analytics
+Cloud Data Fusion
+Guides
+Send feedback
+Use Sensitive Data Protection with Cloud Data Fusion
+Stay organized with collections
+Save and categorize content based on your preferences.
+This guide explains how to use Sensitive Data Protection with Cloud Data Fusion.
+Cloud Data Fusion provides a Sensitive Data Protection plugin
+that provides three transforms that can filter, redact, or decrypt your sensitive data:
+The PII Filter transform lets you filter sensitive records from an
+input stream of data.
+The Redact transform lets you transform sensitive data, such as
+masking the data or encrypting it.
+The Decrypt transform lets you decrypt sensitive data that was previously
+encrypted using the Redact transform,
+Note: The Sensitive Data Protection plugin available in Cloud Data Fusion is
+based on the Cloud Data Loss Prevention API and therefore complies with the
+Sensitive Data Protection quotas and usage limits.
+Costs
+In this document, you use the following billable components of Google Cloud:
+Cloud Data Fusion
+Sensitive Data Protection
+To generate a cost estimate based on your projected usage,
+use the pricing calculator.
+New Google Cloud users might be eligible for a free trial.
+Before you begin
+In the Google Cloud console, go to the project selector page and select or
+create a project.
+Go to the project selector
+Enable the Cloud Data Fusion API for your project.
+Enable the Cloud Data Fusion API
+Enable the DLP API (part of Sensitive Data Protection) for your project.
+Enable the DLP API
+Create a Cloud Data Fusion instance.
+Note: The Sensitive Data Protection plugin is available for instances using
+Cloud Data Fusion version 6.1.1 or higher.
+Grant Sensitive Data Protection permissions
+In the Google Cloud console, go to the IAM page.
+Go to IAM
+In the permissions table, select one of the following service accounts
+in the Principal column:
+For permission to resources at runtime, select the service account that
+your Managed Service for Apache Spark cluster uses. The default is the Compute Engine
+service account, which is not recommended for security reasons
+For permission to resources when using Wrangler or Preview in
+Cloud Data Fusion (not at runtime), instead select the service
+account that matches the format:
+service-project-number@gcp-sa-datafusion.iam.gserviceaccount.com.
+Click the pencil icon to the right of the service account.
+Click Add Another Role.
+Click the dropdown that appears.
+Use the search bar to search and then select DLP Administrator.
+Click Save. Check that DLP Administrator appears in the Role column.
+Deploy the Sensitive Data Protection plugin
+Go to your instance:
+In the Google Cloud console, go to the Cloud Data Fusion page.
+To open the instance in the Cloud Data Fusion Studio,
+click Instances, and then click View instance.
+Go to Instances
+In the Cloud Data Fusion web UI, click Hub in the upper right.
+Click the Data Loss Prevention plugin.
+Click Deploy.
+Click Finish.
+Click Create a pipeline.
+Use the PII Filter transform
+This transform separates sensitive records from non-sensitive records. A record
+is considered sensitive if it matches criteria that you define in a
+Sensitive Data Protection template. For example, when you create your template, you can
+define sensitive data to be credit card information or Social Security numbers.
+Create a Sensitive Data Protection inspection template.
+Open your pipeline in Cloud Data Fusion and click Studio > Transform.
+Click the PII Filter transform.
+Hold the pointer over the PII Filter node and click Properties.
+Under Filter on, choose whether you want to filter records or fields.
+In compliance with Sensitive Data Protection limits,
+if a record exceeds 0.5 MB, your Cloud Data Fusion pipeline will fail.
+To avoid such a failure, filter by field instead of record.
+Under Template ID, enter the template ID of the Sensitive Data Protection
+template you created.
+Under Error Handling, define how to proceed when your pipeline encounters
+sensitive data. Choose one of the following error handling options:
+Stop pipeline: Stops the pipeline as soon as an error is encountered.
+Skip record: Skips the record that caused the error. The pipeline
+continues to run, and no error is reported.
+Send to error: Sends errors to the error port. The pipeline continues to
+run.
+Click the X button.
+Use the Redact transform
+This transform identifies sensitive records in the input stream and applies
+transformations that you define to those records. A record is considered
+sensitive if it matches predefined Sensitive Data Protection filters you chose
+or a custom template you defined.
+In the Studio page of the Cloud Data Fusion web UI, click to expand
+the Transform menu.
+Click the Redact transform.
+Hold the pointer over the Redact node and click Properties.
+Choose if you want to apply transformations to predefined filters or if
+you'd like to create your own.
+You cannot combine these two options. You can either use predefined
+filters OR create a custom template.
+Predefined filters
+To apply transformations to predefined filters, leave the Custom
+Template set to No, and under Matching, define a rule:
+Following Apply, click the dropdown and choose a transformation.
+Learn more about the available transformations in the
+Description section of the plugin's Documentation tab.
+Following on, click the dropdown and choose a category, which is
+a set of predefined Sensitive Data Protection filters grouped together
+by type. For the full list of provided categories and what filters
+they contain, see the DLP Filter Mapping section in the
+plugin's Documentation tab.
+To set multiple matching rules, click the + button.
+Custom template
+To apply transformations according to a custom template, set the Custom
+Template to Yes.
+Create a custom Sensitive Data Protection template.
+Back in the Cloud Data Fusion web UI, in the Redact properties
+menu, under Template ID, enter the template ID of the custom
+template you created.
+Click the X button.
+Use the Decrypt transform
+This transform identifies records that were encrypted using Sensitive Data Protection
+in the input stream and applies decryption. Only records that were encrypted
+using a reversible algorithm such as Format Preserving Encryption or
+Deterministic Encryption can be decrypted.
+In the Studio page of the Cloud Data Fusion web UI, click to expand
+the Transform menu.
+Click the Decrypt transform.
+Hold the pointer over the Decrypt node and click Properties.
+Enter the same values that were used to configure the Redact plugin that
+encrypted this data. The properties for this plugin are identical to the
+Redact plugin.
+Click the X button.
+What's next
+Follow a tutorial to redact sensitive user data.
+Read more about Sensitive Data Protection.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-07 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

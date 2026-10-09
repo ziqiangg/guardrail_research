@@ -1,0 +1,356 @@
+# status 200  final_url https://docs.cloud.google.com/kms/docs/key-rotation  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Cloud KMS
+Start free
+Overview
+Guides
+Reference
+Samples
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Samples
+Resources
+Console
+Discover
+Product overview
+Protection levels
+Overview
+Cloud HSM overview
+Single-tenant Cloud HSM overview
+Cloud EKM overview
+Reference architectures for Cloud EKM
+CMEK overview
+Cloud KMS with Autokey
+Compatible services
+Cloud HSM for Google Workspace
+Locations
+Get started
+Cloud KMS resources
+Key purposes and algorithms
+Separation of duties
+Create and use encryption keys
+CMEK recommended practices
+CMEK key rotation
+Create and manage Single-tenant Cloud HSM instances
+Create keys
+Automate key creation
+Autokey overview
+Enable Autokey
+Create a resource with Autokey
+Create a key ring
+Create a key
+Import keys
+About key import
+Key wrapping
+Format a key for import
+Manually wrap a key for import
+Configure OpenSSL for manual key wrapping
+Wrap a key using OpenSSL
+Quantum-safe key import
+Set up automatic key wrapping
+Import a key version
+Verify an imported key version
+Create external keys
+Set up Cloud EKM over the internet
+Create an EKM connection
+Create an external Key
+Control access
+Manage IAM roles
+Use Organization Policy Contraints
+Create custom organization policy constraints for Cloud KMS
+CMEK organization policies
+Control Autokey usage
+Control key destruction
+Secure data using keys
+Key APIs
+Use gRPC
+Access the API
+Sort and filter API list results
+Generate random bytes
+Use Cloud KMS keys in Google Cloud
+Encrypt and decrypt data
+Envelope encryption
+Additional authenticated data
+Asymmetric encryption
+Encrypt and decrypt data with a symmetric key
+Encrypt and decrypt data with a raw symmetric key
+Encrypt and decrypt data with an asymmetric key
+Verify end-to-end data integrity
+Encrypt application data
+Set up client-side encryption with Tink
+Onboard to Cloud HSM for Google Workspace
+Sign and validate data
+Digital signatures
+Create and validate signatures
+MAC signatures
+Create and validate MAC signatures
+Share secrets using key encapsulation mechanisms
+Key encapsulation mechanisms
+Encapsulate and decapsulate using KEMs
+Manage keys
+Resource consistency
+Key version states
+View keys and key details
+View keys by project
+View encryption metrics
+View key usage
+Get a Cloud KMS resource ID
+Retrieve a public key
+Attest a Cloud HSM key
+View post-quantum cryptography (PQC) insights
+Label a key
+Create and manage tags
+Migrate external keys
+Enable and disable a key version
+Destroy and restore a key version
+Delete Cloud KMS resources
+Rotate keys
+About key rotation
+Rotate a key
+Re-encrypt data
+Update external key reference
+Monitor
+Using Cloud Audit Logging
+Cloud KMS Inventory Service audit logging
+Monitor state changes
+Monitor and adjust quotas
+Use Cloud Monitoring
+Monitor EKM usage
+Troubleshoot
+Troubleshoot failed imports
+Troubleshoot EKM via VPC errors
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Home
+Documentation
+Security
+Cloud KMS
+Guides
+Send feedback
+Key rotation
+Stay organized with collections
+Save and categorize content based on your preferences.
+This page discusses key rotation in Cloud Key Management Service. Key rotation is the
+process of creating new encryption keys to replace existing keys. By rotating
+your encryption keys on a regular schedule or after specific events, you can
+reduce the potential consequences of your key being compromised. For specific
+instructions to rotate a key, see Rotating keys.
+Why rotate keys?
+For symmetric encryption, periodically and automatically rotating keys is a
+recommended security practice. Some industry standards, such as
+Payment Card Industry Data Security Standard (PCI DSS), require the regular
+rotation of keys.
+Cloud Key Management Service does not support automatic rotation of asymmetric keys. See
+Considerations for asymmetric keys in this document.
+Rotating keys provides several benefits:
+Limiting the number of messages encrypted with the same key version helps
+prevent attacks enabled by cryptanalysis. Key lifetime
+recommendations depend on the key's algorithm, as well as either the number
+of messages produced or the total number of bytes encrypted with the same
+key version. For example, the recommended key lifetime for symmetric
+encryption keys in Galois/Counter Mode (GCM) is based on the number of
+messages encrypted, as noted at
+https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38d.pdf.
+In the event that a key is compromised, regular rotation limits the number of
+actual messages vulnerable to compromise.
+If you suspect that a key version is compromised,
+disable it and
+revoke access to it as soon as possible.
+Regular key rotation ensures that your system is resilient to manual rotation,
+whether due to a security breach or the need to migrate your application to a
+stronger cryptographic algorithm. Validate your key rotation procedures
+before a real-life security incident occurs.
+You can also manually rotate a key, either because it is compromised, or to
+modify your application to use a different algorithm.
+How often to rotate keys
+We recommend that you rotate keys automatically
+on a regular schedule. A rotation schedule defines the frequency of rotation,
+and optionally the date and time when the first rotation occurs. The rotation
+schedule can be based on either the key's age or the number or volume of
+messages encrypted with a key version.
+Some security regulations require periodic, automatic key rotation. Automatic
+key rotation at a defined period, such as every 90 days, increases security with
+minimal administrative complexity.
+You should also manually rotate a key if you
+suspect that it has been compromised, or when security guidelines require you to
+migrate an application to a stronger key algorithm. You can schedule a manual
+rotation for a date and time in the future. Manually rotating a key does not
+pause, modify, or otherwise impact an existing automatic rotation schedule for
+the key.
+Note: When you rotate a key, data encrypted with previous key versions isn't
+automatically re-encrypted with the new key version. For more information, see
+re-encrypting data.
+Don't rely on irregular or manual rotation as a primary component of your
+application's security.
+After you rotate keys
+Rotating keys creates new active key versions, but doesn't re-encrypt your data
+and doesn't disable or delete previous key versions. Previous key versions
+remain active and incur costs until they are destroyed. Re-encrypting data
+removes your reliance on old key versions, allowing you to destroy them to avoid
+incurring additional costs. To learn how to re-encrypt your data, see
+Re-encrypting data.
+You must make sure that a key version is no longer in
+use before destroying the key
+version.
+Warning: Destroying a key version that is still in use can cause permanent data
+loss. It's your responsibility to ensure that a key version is safe to destroy.
+Google is not responsible for outages, loss of data, or compliance issues that
+result from you destroying a key version.
+Considerations for asymmetric keys
+Cloud KMS does not support automatic rotation for asymmetric keys,
+because additional steps are required before you can use the new asymmetric key
+version.
+For asymmetric keys used for signing, you must distribute the public
+key portion of the new key version. Afterward, you can specify the
+new key version in calls to the CryptoKeyVersions.asymmetricSign method
+to create a signature, and update applications to use the new key version.
+For asymmetric keys used for encryption, you must distribute and
+incorporate the public portion of the new key version into applications that
+encrypt data, and grant access to the private portion of the new key version,
+for applications that decrypt data.
+What's next
+Rotate a key.
+Enable or disable a key.
+Learn more about re-encrypting data.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-06 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

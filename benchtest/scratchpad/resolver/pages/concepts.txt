@@ -1,0 +1,255 @@
+# status 200  final_url https://presidio.dataprivacystack.org/learn_presidio/concepts/  content-type text/html; charset=utf-8
+Skip to content
+Presidio
+Concepts in Presidio
+Search
+GitHub
+Presidio
+Quick start
+Learn Presidio
+Resources
+Recipes
+Samples
+Presidio
+GitHub
+Presidio
+Presidio
+Home
+Installation
+FAQ
+Quick start
+Quick start
+Home
+Text
+Images
+Semi/Structured data
+Learn Presidio
+Learn Presidio
+Home
+Concepts
+Concepts
+On this page
+High-level concepts
+Main objects in Presidio
+Evaluation concepts
+Tutorial
+Tutorial
+Home
+Getting started
+Deny-list recognizers
+Regex recognizers
+Rule-based recognizers
+Additional models/languages
+External services
+Context enhancement
+Decision process
+No-code recognizers
+Ad-hoc recognizers
+Simple anonymization
+Custom anonymization
+Encryption/Decryption
+Allow-lists
+Text de-identification
+Text de-identification
+Home
+Presidio Analyzer
+Presidio Analyzer
+Home
+Developing PII recognizers
+Developing PII recognizers
+Tutorial
+Best practices
+Recognizer registry from file
+Filtering recognizers by country
+Multi-language support
+Customizing the NLP model
+Customizing the NLP model
+Home
+Spacy/Stanza
+Transformers
+GPU Acceleration
+Tracing the decision process
+Configure from file
+Presidio Anonymizer
+Presidio Anonymizer
+Home
+Developing PII anonymization operators
+Azure Health Data Services de-identification service integration
+Image de-identification
+Image de-identification
+Home
+Evaluating DICOM redaction
+Structured and Semi-structured
+Structured and Semi-structured
+Home
+PII detection evaluation
+Resources
+Resources
+Supported entities
+Project transition update
+Community
+Change log
+Setting up a development environment
+Build and release process
+Changes from V1 to V2
+Python API reference
+Python API reference
+Home
+Presidio Analyzer Python API
+Presidio Anonymizer Python API
+Presidio Image Redactor Python API
+Presidio Structured Python API
+REST API reference
+Recipes
+Recipes
+Home
+Contributing
+Template
+Samples
+Samples
+Home
+Text
+Text
+Presidio Basic Usage Notebook
+Customizing Presidio Analyzer
+Configuring The NLP engine
+Encrypting and Decrypting identified entities
+Getting the identified entity value using a custom Operator
+Anonymizing known values
+Keeping some entities from being anonymized
+Integrating with external services
+Remote Recognizer
+Azure AI Language as a Remote Recognizer
+Azure Health DataServices De-identification as a Remote Recognizer
+Using Flair as an external PII model
+Using Span Marker as an external PII model
+Using Transformers as an external PII model
+Using GLiNER as an external PII model
+Pseudonymization (replace PII values using mappings)
+Passing a lambda as a Presidio anonymizer using Faker
+Synthetic data generation with OpenAI
+YAML based no-code configuration
+Data
+Data
+Analyzing structured / semi-structured data in batch
+Presidio Structured Basic Usage Notebook
+Analyze and Anonymize CSV file
+Images
+Images
+Redacting Text PII from DICOM images
+Using an allow list with image redaction
+Plot custom bounding boxes
+Example DICOM redaction evaluation
+PDF
+PDF
+Annotating PII in a PDF
+Deployment
+Deployment
+Presidio with App Service
+Presidio with Kubernetes
+Presidio with Spark
+Presidio with Fabric
+Redacting Telemetry with Presidio
+Azure Data Factory
+Azure Data Factory
+ETL using AppService/Databricks
+Add Presidio as an HTTP service to your Azure Data Factory
+Add Presidio on Databricks to your Azure Data Factory
+PII Masking LLM calls using LiteLLM proxy
+Demo app
+Demo app
+Create a simple demo app using Streamlit
+On this page
+High-level concepts
+Main objects in Presidio
+Evaluation concepts
+Concepts in Presidio
+High-level concepts
+| Concept
+| Definition
+| Learn More
+| Entity
+| An entity is a span of text that can be used to directly identify an individual. For example, a phone number, email address, or social security number. In Presidio, an entity is represented by a RecognizerResult object.
+| Analyzer concepts
+| Context
+| Context is defined as the surrounding text of an entity. Context can be used to provide additional information about the entity which can be used to improve the detection accuracy.
+| Analyzer concepts
+| Recognizer
+| A recognizer is an object that is responsible for detecting entities in text. Recognizers can be rule-based, machine learning-based, or a combination of both. The Presidio Analyzer orchestrates multiple recognizers to detect PII entities in text. The main objects in Presidio that implement PII detection logic are the EntityRecognizer and PatternRecognizer.
+| Analyzer concepts
+| Analyzer
+| The Presidio AnalyzerEngine is responsible for orchestrating the PII detection using various recognizers.
+| Analyzer concepts
+| Predefined recognizer
+| A recognizer that already exists in Presidio
+| Predefined recognizers
+| Custom recognizer
+| A recognizer that is added by the user
+| Adding recognizers
+| ad-hoc recognizer
+| A recognizer that is added to the request itself, rather than to the list of recognizers loaded within Presidio
+| ad-hoc recognizers
+| Deny list
+| A list of terms that should always be identified as PII
+| denylist tutorial
+| Allow list
+| A list of terms that should not be identified as PII
+| allowlist tutorial
+Main objects in Presidio
+| Concept
+| Definition
+| Learn More
+| EntityRecognizer
+| An EntityRecognizer is an object in Presidio that is responsible for detecting entities in text. An entity recognizer can be rule-based, a machine learning model, or a combination of both.
+| Analyzer concepts
+| RecognizerResult
+| A RecognizerResult holds the type and span of a PII entity.
+| Analyzer concepts
+| RecognizerRegistry
+| The RecognizerRegistry is a class in Presidio that is responsible for holding the various recognizers used by the AnalyzerEngine.
+| link
+| NlpEngine
+| The NlpEngine is an interface that defines the methods for processing text. Presidio provides several implementations of the NlpEngine, such as SpacyNlpEngine, TransformersNlpEngine, and StanzaNlpEngine.
+| Analyzer concepts
+| AnalyzerEngine
+| The AnalyzerEngine is the main class in Presidio that is responsible for orchestrating the PII detection in text. It uses an NlpEngine to process the text and a RecognizerRegistry to hold the different recognizers.
+| Analyzer concepts
+| BatchAnalyzerEngine
+| The BatchAnalyzerEngine is a class in Presidio that is responsible for detecting PII entities in a batch of texts. It uses the AnalyzerEngine to process each text in the batch.
+| Batch processing sample
+| AnonymizerEngine
+| The AnonymizerEngine is the main class in Presidio that is responsible for anonymizing PII entities in text. It uses the results from the AnalyzerEngine to perform the anonymization.
+| Anonymizer concepts
+| DeanonymizerEngine
+| The DeanonymizerEngine is a class in Presidio that is responsible for deanonymizing text that has been anonymized by the AnonymizerEngine, given that the operation is reversible (e.g. encryption).
+| Anonymizer concepts
+| Operator
+| An Operator is an object in Presidio that is responsible for performing the anonymization operation on a PII entity. Presidio provides several built-in operators, such as Replace, Redact, and Encrypt, and allows users to create custom operators.
+| Anonymizer concepts
+| BatchAnonymizerEngine
+| The BatchAnonymizerEngine is a class in Presidio that is responsible for anonymizing PII entities in a batch of texts. It uses the AnonymizerEngine to perform the anonymization on each text in the batch.
+| Sample
+| ImageRedactorEngine
+| The ImageRedactorEngine is a class in Presidio that is responsible for redacting PII entities in images. It leverages the AnalyzerEngine to detect PII entities in the text extracted from the images.
+| Image redaction docs
+| StructuredEngine
+| The StructuredEngine is a class in Presidio that is responsible for detecting PII entities in structured data. It uses the AnalyzerEngine to detect PII entities in the text fields of the structured data.
+| Image redaction docs
+Evaluation concepts
+| Concept
+| Definition
+| Learn More
+| Precision
+| Precision is a metric that measures the proportion of true positive results among the positive results. In the context of PII detection, precision measures the proportion of correctly identified PII entities among all the entities identified by the system.
+| Evaluation docs
+| Recall
+| Recall is a metric that measures the proportion of true positive results among the actual positive results. In the context of PII detection, recall measures the proportion of correctly identified PII entities among all the PII entities present in the text.
+| Evaluation docs
+Back to top
+Previous
+Home
+Next
+Home
+Data Privacy Stack
+Made with
+Zensical

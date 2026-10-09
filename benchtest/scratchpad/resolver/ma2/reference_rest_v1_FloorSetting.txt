@@ -1,0 +1,351 @@
+# status 200  final_url https://docs.cloud.google.com/model-armor/reference/rest/v1/FloorSetting  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español – América Latina
+Français
+Português – Brasil
+中文 – 简体
+日本語
+한국어
+Sign in
+Model Armor
+Start free
+Overview
+Guides
+Reference
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Resources
+Console
+Model Armor API
+Client libraries
+REST reference
+Overview
+v1
+REST Resources
+folders.locations
+Overview
+getFloorSetting
+updateFloorSetting
+organizations.locations
+Overview
+getFloorSetting
+updateFloorSetting
+projects.locations
+Overview
+get
+getFloorSetting
+list
+updateFloorSetting
+projects.locations.templates
+Overview
+create
+delete
+get
+list
+patch
+sanitizeModelResponse
+sanitizeUserPrompt
+Types
+Code
+DataItem
+FloorSetting
+MultiLanguageDetectionMetadata
+OperationMetadata
+SanitizationResult
+StreamingMode
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Home
+Documentation
+AI and ML
+Model Armor
+Reference
+Send feedback
+FloorSetting
+Stay organized with collections
+Save and categorize content based on your preferences.
+JSON representation
+IntegratedService
+AiPlatformFloorSetting
+JSON representation
+FloorSettingMetadata
+JSON representation
+MultiLanguageDetection
+JSON representation
+McpServerFloorSetting
+JSON representation
+Message describing FloorSetting resource
+| JSON representation
+|
+{
+"name": string,
+"createTime": string,
+"updateTime": string,
+"filterConfig": {
+object (FilterConfig)
+},
+"integratedServices": [
+enum (IntegratedService)
+],
+"floorSettingMetadata": {
+object (FloorSettingMetadata)
+},
+"enableFloorSettingEnforcement": boolean,
+"aiPlatformFloorSetting": {
+object (AiPlatformFloorSetting)
+},
+"googleMcpServerFloorSetting": {
+object (McpServerFloorSetting)
+}
+}
+| Fields
+| name
+|
+string
+Identifier. The resource name.
+| createTime
+|
+string (Timestamp format)
+Output only. [Output only] Create timestamp
+Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: "2014-10-02T15:01:23Z", "2014-10-02T15:01:23.045123456Z" or "2014-10-02T15:01:23+05:30".
+| updateTime
+|
+string (Timestamp format)
+Output only. [Output only] Update timestamp
+Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: "2014-10-02T15:01:23Z", "2014-10-02T15:01:23.045123456Z" or "2014-10-02T15:01:23+05:30".
+| filterConfig
+|
+object (FilterConfig)
+Required. ModelArmor filter configuration.
+| integratedServices[]
+|
+enum (IntegratedService)
+Optional. List of integrated services for which the floor setting is applicable.
+| floorSettingMetadata
+|
+object (FloorSettingMetadata)
+Optional. Metadata for FloorSetting
+| enableFloorSettingEnforcement
+|
+boolean
+Optional. Floor Settings enforcement status.
+| aiPlatformFloorSetting
+|
+object (AiPlatformFloorSetting)
+Optional. AI Platform floor setting.
+| googleMcpServerFloorSetting
+|
+object (McpServerFloorSetting)
+Optional. Google MCP Server floor setting.
+IntegratedService
+Integrated service for which the floor setting is applicable.
+| Enums
+| INTEGRATED_SERVICE_UNSPECIFIED
+| Unspecified integrated service.
+| AI_PLATFORM
+| AI Platform.
+| GOOGLE_MCP_SERVER
+| Google MCP Server (via Shim Service Extension)
+AiPlatformFloorSetting
+message describing AiPlatformFloorSetting
+| JSON representation
+|
+{
+"enableCloudLogging": boolean,
+// The following is a list of mutually exclusive fields. At most one of the
+// fields will be set in a response:
+"inspectOnly": boolean,
+"inspectAndBlock": boolean
+// End of mutually exclusive fields.
+}
+| Fields
+| enableCloudLogging
+|
+boolean
+Optional. If true, log Model Armor filter results to Cloud Logging.
+| enforcement type for Model Armor filters. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+| inspectOnly
+|
+boolean
+Optional. If true, Model Armor filters will be run in inspect only mode. No action will be taken on the request.
+| inspectAndBlock
+|
+boolean
+Optional. If true, Model Armor filters will be run in inspect and block mode. Requests that trip Model Armor filters will be blocked.
+| End of mutually exclusive fields.
+FloorSettingMetadata
+message describing FloorSetting Metadata
+| JSON representation
+|
+{
+"multiLanguageDetection": {
+object (MultiLanguageDetection)
+}
+}
+| Fields
+| multiLanguageDetection
+|
+object (MultiLanguageDetection)
+Optional. Metadata for multi language detection.
+MultiLanguageDetection
+Metadata to enable multi language detection via floor setting.
+| JSON representation
+|
+{
+"enableMultiLanguageDetection": boolean
+}
+| Fields
+| enableMultiLanguageDetection
+|
+boolean
+Required. If true, multi language detection will be enabled.
+McpServerFloorSetting
+Message describing MCP Server Floor Setting.
+| JSON representation
+|
+{
+"enableCloudLogging": boolean,
+// The following is a list of mutually exclusive fields. At most one of the
+// fields will be set in a response:
+"inspectOnly": boolean,
+"inspectAndBlock": boolean
+// End of mutually exclusive fields.
+}
+| Fields
+| enableCloudLogging
+|
+boolean
+Optional. If true, log Model Armor filter results to Cloud Logging.
+| enforcement type for Model Armor filters. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+| inspectOnly
+|
+boolean
+Optional. If true, Model Armor filters will be run in inspect only mode. No action will be taken on the request.
+| inspectAndBlock
+|
+boolean
+Optional. If true, Model Armor filters will be run in inspect and block mode. Requests that trip Model Armor filters will be blocked.
+| End of mutually exclusive fields.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-09-07 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español – América Latina
+Français
+Português – Brasil
+中文 – 简体
+日本語
+한국어

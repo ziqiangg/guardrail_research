@@ -1,0 +1,1797 @@
+# status 200  final_url https://docs.cloud.google.com/model-armor/configure-floor-settings  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Model Armor
+Start free
+Overview
+Guides
+Reference
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Resources
+Console
+Discover
+Product overview
+Data residency and endpoints
+Feature availability for templates by region
+Best practices for scaling and high traffic
+Retry strategy
+Configure Model Armor
+Create and manage templates
+Configure template-specific exclusion rules
+Set the filter version
+Filter version history
+Configure floor settings
+Sanitize prompts and responses
+Configure logging
+View the monitoring dashboard
+Control access
+Access control with IAM
+Roles and permissions
+Service accounts
+Integrate Model Armor with services or frameworks
+Overview
+Integrate with Agent Gateway
+Integrate with Apigee
+Integrate with Gemini Enterprise
+Integrate with Google and Google Cloud MCP servers
+Integrate with Google Cloud networking services
+Integrate with Agent Platform
+Integrate with LangChain
+Monitor
+Audit logging
+Troubleshoot
+Troubleshooting
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Home
+Documentation
+AI and ML
+Model Armor
+Guides
+Send feedback
+Configure floor settings
+Stay organized with collections
+Save and categorize content based on your preferences.
+This document describes how to view and update Model Armor floor
+settings and provides an example of a floor setting violation.
+Floor settings serve two primary purposes:
+Template conformance: Ensure new templates are at least as
+restrictive as those defined in the floor settings. Template conformance is
+defined at the organization and folder levels.
+Inline enforcement: Apply Model Armor
+protections to Gemini models and Google Cloud MCP servers. Inline enforcement is
+configured at the project level. If you use floor settings for inline
+enforcement, any template that you create in the project must conform to those
+floor settings.
+When to use floor settings
+The following are some common use cases:
+Enforce template compliance and prevent policy regressions: Define
+minimum filter thresholds at the organization, folder, or project level to
+ensure that newly created and updated templates meet your security
+standards and can't lower protection below established baselines.
+Enable inline enforcement for models and tools: Help protect supported
+Gemini models and Google Cloud remote MCP servers at the project
+level without altering application code.
+Govern decentralized team configurations: Allow autonomous project
+teams to create custom templates while guaranteeing that their settings
+conform to organizational governance policies.
+Before you begin
+Before you begin, complete the following tasks.
+Obtain the required permissions
+To get the permissions that
+you need to manage floor settings,
+ask your administrator to grant you the
+Model Armor Floor Setting Admin (roles/modelarmor.floorSettingsAdmin) IAM role on Model Armor floor settings.
+For more information about granting roles, see Manage access to projects, folders, and organizations.
+You might also be able to get
+the required permissions through custom
+roles or other predefined
+roles.
+Enable APIs
+You must enable the Model Armor API before you can use Model Armor.
+Console
+Enable the Model Armor API, if it is not already enabled.
+Roles required to enable APIs
+To enable APIs, you need the serviceusage.services.enable permission. If you
+created the project, then you likely already have this permission through the
+Owner role (roles/owner). Otherwise, you can get this permission through the
+Service Usage Admin role (roles/serviceusage.serviceUsageAdmin).
+Learn how to grant roles.
+Enable the API
+Select the project where you want to activate Model Armor.
+gcloud
+Before you begin, follow these steps using the Google Cloud CLI with the
+Model Armor API:
+In the Google Cloud console, activate Cloud Shell.
+Activate Cloud Shell
+At the bottom of the Google Cloud console, a
+Cloud Shell
+session starts and displays a command-line prompt. Cloud Shell is a shell environment
+with the Google Cloud CLI
+already installed and with values already set for
+your current project. It can take a few seconds for the session to initialize.
+Enable the Model Armor API, if it is not already enabled:
+Roles required to enable APIs
+To enable APIs, you need the serviceusage.services.enable permission. If you
+created the project, then you likely already have this permission through the
+Owner role (roles/owner). Otherwise, you can get this permission through the
+Service Usage Admin role (roles/serviceusage.serviceUsageAdmin).
+Learn how to grant roles.
+gcloud services enable modelarmor.googleapis.com
+Set the API endpoint override using the
+gcloud CLI.
+Set the API endpoint override using the gcloud CLI
+This step is only required if you use the gcloud CLI with
+Model Armor and want to use a region or multi-region other than
+the default us multi-region. You must manually set the API endpoint override
+to ensure the gcloud CLI correctly routes requests to the
+Model Armor service.
+Run the following command to use the global API endpoint:
+gcloud config set api_endpoint_overrides/modelarmor "https://modelarmor.googleapis.com/"
+Floor settings application
+Local settings are always applied. For example, if floor settings
+conflict, the settings lower in the resource hierarchy take precedence.
+Similarly, project-level floor settings override conflicting
+folder-level floor settings.
+The following table lists how floor settings are applied at different levels:
+| Floor settings level
+| Application
+| Organization level
+| Applies to everything within the organization.
+| Folder level
+| Applies to all projects inside that specific folder.
+| Project level
+| Applies only to that one specific project.
+To illustrate how floor settings are applied when set at different levels,
+consider the following example scenario. For example, suppose you set floor settings
+as follows:
+Folder-level (less specific) floor settings: All content in this folder must
+enable a malicious URI filter.
+Project-level (more specific) floor settings: Your project in the
+folder must use prompt injection and jailbreak detection with medium
+confidence.
+In this scenario, the settings result in the following:
+Any template you create in your project must include the prompt injection
+and jailbreak detection filter because the project-level settings always take
+precedence over folder-level settings.
+A template created in a different project or folder isn't affected by the malicious URI filter rule from the
+first folder.
+Floor settings apply only within their specific level in the hierarchy, unless
+set at the organization level, in which case, they apply throughout the organization.
+Templates and floor settings conformance
+When a Model Armor template is created or updated,
+Model Armor checks whether the template's configuration conforms
+with the floor settings. You cannot create or update a
+template that's less strict than the floor settings.
+You can set floor settings at the organization, folder, and project levels. The user
+interface is available only at the project level and lets you inherit
+organization-level or folder-level settings. To set floor
+settings at the organization or folder level, you must use the API.
+Template conformance validates template configurations. Data inspection uses the
+configurations defined in a conformant template to analyze prompts or responses
+during runtime. The following table describes how template conformance and data
+inspection apply to templates and floor settings.
+| Check
+| Floor settings
+| Templates
+| Template conformance
+| Configured at the organization, folder, or project level.
+Note: Sensitive Data Protection can be set to enforce data
+security policies on the templates. However, it does not validate the
+template conformance.
+| Configured only at the project level.
+| Data inspection
+| Enforced only at the project level using the inspect and block mode.
+| Enforced using REST API, Service Extensions,
+Gemini Enterprise, and Agent Runtime.
+Integration with Gemini Enterprise Agent Platform and Google Cloud MCP servers
+Model Armor integrates with Agent Platform and
+Google Cloud MCP servers to screen requests and responses from Gemini models and
+Google Cloud remote MCP servers based on the floor settings you define.
+You must enable Cloud Logging to view prompts and responses.
+For more information, see Model Armor integration with Gemini Enterprise Agent Platform
+and Model Armor integration with Google Cloud MCP servers.
+Floor settings filter versions
+Floor settings use the Stable
+filter version by default.
+The following list describes how filter versions work with each integration:
+Integration with Gemini Enterprise Agent Platform:
+if you want to override this setting, specify a template in the
+generateContent call to the Gemini model.
+Integration with Google and Google Cloud MCP servers:
+you can't override the filter version because this integration only
+supports floor settings.
+Configure floor settings
+Configure floor settings to define the minimum detection thresholds for
+Model Armor templates. These settings ensure that all new and modified
+templates meet specific requirements.
+To configure floor settings, do the following:
+In the Google Cloud console, go to the Model Armor page.
+Go to Model Armor
+Select a project.
+On the Model Armor page, go to the Floor settings tab and click
+Configure floor settings.
+On the Configure floor settings page, select the configuration option.
+In the Detections section,
+configure the detection settings.
+Optional: If you select Sensitive Data Protection detection, configure the
+Sensitive Data Protection settings.
+In the Responsible AI section,
+set the confidence level for each content filter.
+Note: If you don't specify a confidence level, it defaults to Medium and above.
+In the Services section, select the services
+where these floor settings apply.
+In the Logs section, select Enable Cloud Logging to log all user
+prompts, model responses, and the floor settings detector results.
+Select Enable multi-language support to use the
+multi-language detection settings.
+Click Save floor settings.
+Allow a few minutes for the changes to the floor settings to take effect.
+Define how floor settings are inherited
+When configuring floor settings, select the configuration option.
+Inherit parent's floor settings: Inherit floor settings set earlier in
+the resource hierarchy. Click Save floor settings and skip the remaining
+steps. To view the inherited settings, go to the Floor settings tab.
+Note: When you enable inheritance, the inherited settings override
+existing floor settings.
+Custom: Define floor settings for this project. Custom settings that
+you define for a project override any inherited floor settings.
+Disable: Disable any inherited floor settings. This means no detection
+rules apply to the Model Armor templates and Agent Platform
+for your Gemini workloads. Click Save floor settings and
+skip the remaining steps. View the disabled status on the Floor settings tab.
+Define where floor settings are applied
+Select one of the following services where the configured floor settings
+apply.
+Model Armor - Template creation & update: Model Armor checks every new and modified
+Model Armor template in a project to ensure that the
+minimum settings align with the floor settings.
+Note: Floor settings don't check templates for Sensitive Data Protection
+conformance.
+Google MCP Server: Floor settings check requests sent to or from
+Google or Google Cloud remote MCP servers to
+ensure they meet the floor setting thresholds. For more
+information, see
+Model Armor integration with Google Cloud MCP servers (Preview).
+Agent Platform: Screen requests sent to Gemini models, and
+then log or block requests that meet floor settings thresholds.
+If you select Agent Platform, the Agent Platform section
+appears where you choose how floor settings are enforced.
+Inspect only: Detect requests that don't meet floor settings but
+don't block them.
+Inspect and block violations: Detect and block requests that
+don't meet the floor settings.
+View Model Armor floor settings
+View Model Armor floor settings to verify existing settings, to
+identify the minimum requirements for your AI applications, or to
+troubleshoot issues when a template is not behaving as expected.
+Run the following command to view the Model Armor floor settings.
+Console
+In the Google Cloud console, go to the Model Armor page.
+Go to Model Armor
+Verify that you are viewing the project that you activated
+Model Armor on.
+On the Model Armor page, go to the Floor settings tab. If floor
+settings are set at the organization level, you can view them. If no
+floor settings are defined, you must configure them. For more
+information, see Configure floor settings.
+gcloud
+View the Model Armor floor setting for a project.
+gcloud model-armor floorsettings describe \
+--full-uri='projects/PROJECT_ID/locations/global/floorSetting'
+View the Model Armor floor setting for an organization.
+gcloud model-armor floorsettings describe \
+--full-uri='organizations/ORGANIZATION_ID/locations/global/floorSetting'
+View the Model Armor floor setting for a folder.
+gcloud model-armor floorsettings describe \
+--full-uri='folders/FOLDER_ID/locations/global/floorSetting'
+Replace the following:
+The ID of the project for the floor settings.
+The ID of the folder for the floor settings.
+The ID of the organization for the floor settings.
+REST
+View the Model Armor floor setting for a project.
+curl -X GET \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+"https://modelarmor.googleapis.com/v1/projects/PROJECT_ID/locations/global/floorSetting"
+View the Model Armor floor setting for a folder.
+curl -X GET \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+"https://modelarmor.googleapis.com/v1/folders/FOLDER_ID/locations/global/floorSetting"
+View the Model Armor floor setting for an organization.
+curl -X GET \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+"https://modelarmor.googleapis.com/v1/organizations/ORGANIZATION_ID/locations/global/floorSetting"
+Replace the following:
+The ID of the project for the floor settings.
+The ID of the folder for the floor settings.
+The ID of the organization for the floor settings.
+C#
+To run this code, first set up a C# development environment
+and install the Model Armor C# SDK.
+View the Model Armor floor setting for a given project.
+using Google.Cloud.ModelArmor.V1;
+using System;
+public class GetProjectFloorSettings
+{
+public FloorSetting GetProjectFloorSetting(string projectId)
+{
+// Initialize client
+ModelArmorClient client = ModelArmorClient.Create();
+// Construct the resource name
+string name = $"projects/{projectId}/locations/global/floorSetting";
+// Create the request
+GetFloorSettingRequest request = new GetFloorSettingRequest { Name = name };
+// Make the request
+FloorSetting response = client.GetFloorSetting(request);
+Console.WriteLine($"Floor settings retrieved successfully: {response}");
+return response;
+}
+}
+View the Model Armor floor setting for a given folder.
+using Google.Cloud.ModelArmor.V1;
+using System;
+public class GetFolderFloorSettings
+{
+public FloorSetting GetFolderFloorSetting(string folderId)
+{
+// Initialize client.
+ModelArmorClient client = ModelArmorClient.Create();
+// Construct the resource name.
+string name = $"folders/{folderId}/locations/global/floorSetting";
+// Create the request.
+GetFloorSettingRequest request = new GetFloorSettingRequest { Name = name };
+// Make the request.
+FloorSetting response = client.GetFloorSetting(request);
+return response;
+}
+}
+View the Model Armor floor setting for a given organization.
+using Google.Cloud.ModelArmor.V1;
+using System;
+public class GetOrganizationFloorSettings
+{
+public FloorSetting GetOrganizationFloorSetting(string organizationId)
+{
+// Initialize client
+ModelArmorClient client = ModelArmorClient.Create();
+// Construct the resource name
+string name = $"organizations/{organizationId}/locations/global/floorSetting";
+// Create the request
+GetFloorSettingRequest request = new GetFloorSettingRequest { Name = name };
+// Make the request
+FloorSetting response = client.GetFloorSetting(request);
+Console.WriteLine($"Floor settings retrieved successfully: {response}");
+return response;
+}
+}
+Go
+To run this code, first set up a Go development environment
+and install the Model Armor Go SDK.
+View the Model Armor floor setting for a given project.
+import (
+"context"
+"fmt"
+"io"
+modelarmor "cloud.google.com/go/modelarmor/apiv1"
+modelarmorpb "cloud.google.com/go/modelarmor/apiv1/modelarmorpb"
+)
+// getProjectFloorSettings gets details of a single floor setting of a project.
+//
+// This method retrieves the details of a single floor setting of a project.
+//
+// w io.Writer: The writer to use for logging.
+// projectID string: The ID of the project.
+func getProjectFloorSettings(w io.Writer, projectID string) error {
+ctx := context.Background()
+// Create the Model Armor client.
+client, err := modelarmor.NewClient(ctx)
+if err != nil {
+return fmt.Errorf("failed to create client: %w", err)
+}
+defer client.Close()
+floorSettingsName := fmt.Sprintf("projects/%s/locations/global/floorSetting", projectID)
+// Get the project floor setting.
+req := &modelarmorpb.GetFloorSettingRequest{
+Name: floorSettingsName,
+}
+response, err := client.GetFloorSetting(ctx, req)
+if err != nil {
+return fmt.Errorf("failed to get floor setting: %w", err)
+}
+// Print the retrieved floor setting using fmt.Fprintf with the io.Writer.
+fmt.Fprintf(w, "Retrieved floor setting: %v\n", response)
+return nil
+}
+View the Model Armor floor setting for a given folder.
+import (
+"context"
+"fmt"
+"io"
+modelarmor "cloud.google.com/go/modelarmor/apiv1"
+modelarmorpb "cloud.google.com/go/modelarmor/apiv1/modelarmorpb"
+)
+// getFolderFloorSettings gets details of a single floor setting of a folder.
+//
+// This method retrieves the details of a single floor setting of a folder.
+//
+// w io.Writer: The writer to use for logging.
+// folderID string: The ID of the folder.
+func getFolderFloorSettings(w io.Writer, folderID string) error {
+ctx := context.Background()
+// Create the Model Armor client.
+client, err := modelarmor.NewClient(ctx)
+if err != nil {
+return fmt.Errorf("failed to create client: %w", err)
+}
+defer client.Close()
+// Prepare folder floor setting path/name
+floorSettingsName := fmt.Sprintf("folders/%s/locations/global/floorSetting", folderID)
+// Get the folder floor setting.
+req := &modelarmorpb.GetFloorSettingRequest{
+Name: floorSettingsName,
+}
+response, err := client.GetFloorSetting(ctx, req)
+if err != nil {
+return fmt.Errorf("failed to get floor setting: %w", err)
+}
+// Print the retrieved floor setting using fmt.Fprintf with the io.Writer.
+fmt.Fprintf(w, "Retrieved folder floor setting: %v\n", response)
+return nil
+}
+View the Model Armor floor setting for a given organization.
+import (
+"context"
+"fmt"
+"io"
+modelarmor "cloud.google.com/go/modelarmor/apiv1"
+modelarmorpb "cloud.google.com/go/modelarmor/apiv1/modelarmorpb"
+)
+// getOrganizationFloorSettings gets details of a single floor setting of an organization.
+//
+// This method retrieves the details of a single floor setting of an organization.
+//
+// w io.Writer: The writer to use for logging.
+// organizationID string: The ID of the organization.
+func getOrganizationFloorSettings(w io.Writer, organizationID string) error {
+ctx := context.Background()
+// Create the Model Armor client.
+client, err := modelarmor.NewClient(ctx)
+if err != nil {
+return fmt.Errorf("failed to create client: %w", err)
+}
+defer client.Close()
+floorSettingsName := fmt.Sprintf("organizations/%s/locations/global/floorSetting", organizationID)
+// Get the organization floor setting.
+req := &modelarmorpb.GetFloorSettingRequest{
+Name: floorSettingsName,
+}
+response, err := client.GetFloorSetting(ctx, req)
+if err != nil {
+return fmt.Errorf("failed to get floor setting: %w", err)
+}
+// Print the retrieved floor setting using fmt.Fprintf with the io.Writer.
+fmt.Fprintf(w, "Retrieved org floor setting: %v\n", response)
+return nil
+}
+Java
+To run this code, first set up a Java development environment
+and install the Model Armor Java SDK.
+View the Model Armor floor setting for a given project.
+import com.google.cloud.modelarmor.v1.FloorSetting;
+import com.google.cloud.modelarmor.v1.FloorSettingName;
+import com.google.cloud.modelarmor.v1.GetFloorSettingRequest;
+import com.google.cloud.modelarmor.v1.ModelArmorClient;
+import java.io.IOException;
+public class GetProjectFloorSetting {
+public static void main(String[] args) throws IOException {
+// TODO(developer): Replace these variables before running the sample.
+String projectId = "your-project-id";
+getProjectFloorSetting(projectId);
+}
+public static FloorSetting getProjectFloorSetting(String projectId) throws IOException {
+// Initialize client that will be used to send requests. This client only
+// needs to be created once, and can be reused for multiple requests.
+try (ModelArmorClient client = ModelArmorClient.create()) {
+String name = FloorSettingName.of(projectId, "global").toString();
+GetFloorSettingRequest request = GetFloorSettingRequest.newBuilder().setName(name).build();
+FloorSetting floorSetting = client.getFloorSetting(request);
+System.out.println("Fetched floor setting for project: " + projectId);
+return floorSetting;
+}
+}
+}
+View the Model Armor floor setting for a given folder.
+import com.google.cloud.modelarmor.v1.FloorSetting;
+import com.google.cloud.modelarmor.v1.FloorSettingName;
+import com.google.cloud.modelarmor.v1.GetFloorSettingRequest;
+import com.google.cloud.modelarmor.v1.ModelArmorClient;
+import java.io.IOException;
+public class GetFolderFloorSetting {
+public static void main(String[] args) throws IOException {
+// TODO(developer): Replace these variables before running the sample.
+String folderId = "your-folder-id";
+getFolderFloorSetting(folderId);
+}
+public static FloorSetting getFolderFloorSetting(String folderId) throws IOException {
+// Initialize client that will be used to send requests. This client only
+// needs to be created once, and can be reused for multiple requests.
+try (ModelArmorClient client = ModelArmorClient.create()) {
+String name = FloorSettingName.ofFolderLocationName(folderId, "global").toString();
+GetFloorSettingRequest request = GetFloorSettingRequest.newBuilder().setName(name).build();
+FloorSetting floorSetting = client.getFloorSetting(request);
+System.out.println("Fetched floor setting for folder: " + folderId);
+return floorSetting;
+}
+}
+}
+View the Model Armor floor setting for a given organization.
+import com.google.cloud.modelarmor.v1.FloorSetting;
+import com.google.cloud.modelarmor.v1.FloorSettingName;
+import com.google.cloud.modelarmor.v1.GetFloorSettingRequest;
+import com.google.cloud.modelarmor.v1.ModelArmorClient;
+import java.io.IOException;
+public class GetOrganizationFloorSetting {
+public static void main(String[] args) throws IOException {
+// TODO(developer): Replace these variables before running the sample.
+String organizationId = "your-organization-id";
+getOrganizationFloorSetting(organizationId);
+}
+public static FloorSetting getOrganizationFloorSetting(String organizationId) throws IOException {
+// Initialize client that will be used to send requests. This client only
+// needs to be created once, and can be reused for multiple requests.
+try (ModelArmorClient client = ModelArmorClient.create()) {
+String name = FloorSettingName.ofOrganizationLocationName(organizationId, "global")
+.toString();
+GetFloorSettingRequest request = GetFloorSettingRequest.newBuilder().setName(name).build();
+FloorSetting floorSetting = client.getFloorSetting(request);
+System.out.println("Fetched floor setting for organization: " + organizationId);
+return floorSetting;
+}
+}
+}
+Node.js
+To run this code, first set up a Node.js development environment
+and install the Model Armor Node.js SDK.
+View the Model Armor floor setting for a given project.
+/**
+* TODO(developer): Uncomment these variables before running the sample.
+*/
+// const projectId = 'your-project-id';
+const name = `projects/${projectId}/locations/global/floorSetting`;
+// Imports the Modelarmor library
+const {ModelArmorClient} = require('@google-cloud/modelarmor').v1;
+// Instantiates a client
+const modelarmorClient = new ModelArmorClient();
+async function getProjectFloorSettings() {
+// Construct request
+const request = {
+name,
+};
+// Run request
+const [response] = await modelarmorClient.getFloorSetting(request);
+return response;
+}
+return await getProjectFloorSettings();
+View the Model Armor floor setting for a given folder.
+/**
+* TODO(developer): Uncomment these variables before running the sample.
+*/
+// const folderId = 'your-folder-id';
+const name = `folders/${folderId}/locations/global/floorSetting`;
+// Imports the Modelarmor library
+const {ModelArmorClient} = require('@google-cloud/modelarmor').v1;
+// Instantiates a client
+const modelarmorClient = new ModelArmorClient();
+async function getFolderFloorSettings() {
+// Construct request
+const request = {
+name,
+};
+const [response] = await modelarmorClient.getFloorSetting(request);
+return response;
+}
+return await getFolderFloorSettings();
+View the Model Armor floor setting for a given organization.
+/**
+* TODO(developer): Uncomment these variables before running the sample.
+*/
+// const organizationId = 'your-organization-id';
+const name = `organizations/${organizationId}/locations/global/floorSetting`;
+// Imports the Modelarmor library
+const {ModelArmorClient} = require('@google-cloud/modelarmor').v1;
+// Instantiates a client
+const modelarmorClient = new ModelArmorClient();
+async function getOrganizationFloorSettings() {
+// Construct request
+const request = {
+name,
+};
+// Run request
+const [response] = await modelarmorClient.getFloorSetting(request);
+return response;
+}
+return await getOrganizationFloorSettings();
+PHP
+To run this code, first set up a PHP development environment
+and install the Model Armor PHP SDK.
+View the Model Armor floor setting for a given project.
+use Google\Cloud\ModelArmor\V1\Client\ModelArmorClient;
+use Google\Cloud\ModelArmor\V1\GetFloorSettingRequest;
+/**
+* Gets the floor settings for a given project.
+*
+* @param string $projectId The project Id for which the floor settings is to be retrieved.
+*
+*/
+function get_project_floor_settings(string $projectId): void
+{
+$client = new ModelArmorClient();
+$floorSettingsName = sprintf('projects/%s/locations/global/floorSetting', $projectId);
+$response = $client->getFloorSetting((new GetFloorSettingRequest())->setName($floorSettingsName));
+printf("Floor settings retrieved successfully: %s\n", $response->serializeToJsonString());
+}
+View the Model Armor floor setting for a given folder.
+use Google\Cloud\ModelArmor\V1\Client\ModelArmorClient;
+use Google\Cloud\ModelArmor\V1\GetFloorSettingRequest;
+/**
+* Gets the floor settings for a given folder.
+*
+* @param string $folderId The folder Id for which the floor settings is to be retrieved.
+*
+*/
+function get_folder_floor_settings(string $folderId): void
+{
+$client = new ModelArmorClient();
+$floorSettingsName = sprintf('folders/%s/locations/global/floorSetting', $folderId);
+$response = $client->getFloorSetting((new GetFloorSettingRequest())->setName($floorSettingsName));
+printf("Floor settings retrieved successfully: %s\n", $response->serializeToJsonString());
+}
+View the Model Armor floor setting for a given organization.
+use Google\Cloud\ModelArmor\V1\Client\ModelArmorClient;
+use Google\Cloud\ModelArmor\V1\GetFloorSettingRequest;
+/**
+* Gets the floor settings for a given organization.
+*
+* @param string $organizationId The organization Id for which the floor settings is to be retrieved.
+*
+*/
+function get_organization_floor_settings(string $organizationId): void
+{
+$client = new ModelArmorClient();
+$floorSettingsName = sprintf('organizations/%s/locations/global/floorSetting', $organizationId);
+$response = $client->getFloorSetting((new GetFloorSettingRequest())->setName($floorSettingsName));
+printf("Floor settings retrieved successfully: %s\n", $response->serializeToJsonString());
+}
+Python
+To run this code, first set up a Python development environment
+and install the Model Armor Python SDK.
+View the Model Armor floor setting for a given project.
+from google.cloud import modelarmor_v1
+# Create the Model Armor client.
+client = modelarmor_v1.ModelArmorClient(transport="rest")
+# TODO(Developer): Uncomment below variable.
+# project_id = "YOUR_PROJECT_ID"
+floor_settings_name = f"projects/{project_id}/locations/global/floorSetting"
+# Get the project floor setting.
+response = client.get_floor_setting(
+request=modelarmor_v1.GetFloorSettingRequest(name=floor_settings_name)
+)
+# Print the retrieved floor setting.
+print(response)
+View the Model Armor floor setting for a given folder.
+from google.cloud import modelarmor_v1
+# Create the Model Armor client.
+client = modelarmor_v1.ModelArmorClient(transport="rest")
+# TODO(Developer): Uncomment below variable.
+# folder_id = "YOUR_FOLDER_ID"
+# Prepare folder floor setting path/name
+floor_settings_name = f"folders/{folder_id}/locations/global/floorSetting"
+# Get the folder floor setting.
+response = client.get_floor_setting(
+request=modelarmor_v1.GetFloorSettingRequest(name=floor_settings_name)
+)
+# Print the retrieved floor setting.
+print(response)
+View the Model Armor floor setting for a given organization.
+from google.cloud import modelarmor_v1
+# Create the Model Armor client.
+client = modelarmor_v1.ModelArmorClient(transport="rest")
+# TODO(Developer): Uncomment below variable.
+# organization_id = "YOUR_ORGANIZATION_ID"
+floor_settings_name = (
+f"organizations/{organization_id}/locations/global/floorSetting"
+)
+# Get the organization floor setting.
+response = client.get_floor_setting(
+request=modelarmor_v1.GetFloorSettingRequest(name=floor_settings_name)
+)
+# Print the retrieved floor setting.
+print(response)
+Update Model Armor floor settings
+Update Model Armor floor settings to change the minimum requirements
+for templates, reflect changes in security policies, correct
+misconfigurations, or resolve conflicts between floor settings.
+Run the following command to update the Model Armor floor settings.
+Console
+In the Google Cloud console, go to the Model Armor page.
+Go to Model Armor
+Verify that you are viewing the project that you activated
+Model Armor on.
+On the Model Armor page, go to the Floor settings tab and
+click Configure floor settings.
+Update the required fields and click Save floor settings.
+gcloud
+gcloud model-armor floorsettings update --full-uri=<full-uri-of-the-floorsetting>
+Example command:
+gcloud model-armor floorsettings update \
+--malicious-uri-filter-settings-enforcement=ENABLED \
+--pi-and-jailbreak-filter-settings-enforcement=DISABLED \
+--pi-and-jailbreak-filter-settings-confidence-level=LOW_AND_ABOVE \
+--basic-config-filter-enforcement=ENABLED \
+--add-rai-settings-filters='[{"confidenceLevel": "low_and_above", "filterType": "HARASSMENT"}, {"confidenceLevel": "high", "filterType": "SEXUALLY_EXPLICIT"}]' \
+--full-uri='folders/FOLDER_ID/locations/global/floorSetting' \
+--enable-floor-setting-enforcement=true
+To configure floor settings with multi-language detection enabled, run
+the following command:
+gcloud model-armor floorsettings update \
+--full-uri=projects/PROJECT_ID/locations/global/floorSetting \
+--enable-multi-language-detection
+Replace the following:
+PROJECT_ID: the ID of the project for the floor settings.
+FOLDER_ID: the ID of the folder for the floor settings.
+REST
+Update the Model Armor floor setting for a given project.
+curl -X PATCH
+-d '{"filterConfig" :{"piAndJailbreakFilterSettings": { "filterEnforcement": "ENABLED"}, "maliciousUriFilterSettings": { "filterEnforcement": "ENABLED" }, "rai_settings":{"rai_filters":{"filter_type":"DANGEROUS", "confidence_level":"LOW_AND_ABOVE" }, \
+"rai_filters":{"filter_type":"HATE_SPEECH", "confidence_level":"LOW_AND_ABOVE" }, "rai_filters":{"filter_type":"HARASSMENT", "confidence_level":"LOW_AND_ABOVE" }, "rai_filters":{"filter_type":"SEXUALLY_EXPLICIT", "confidence_level":"LOW_AND_ABOVE" }}},"enableFloorSettingEnforcement":"true"}' \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $(gcloud auth print-access-token) \
+"https://modelarmor.googleapis.com/v1/projects/PROJECT_ID/locations/global/floorSetting"
+Update the Model Armor floor setting for a given folder.
+curl -X PATCH \
+-d '{"filterConfig" :{"piAndJailbreakFilterSettings": { "filterEnforcement": "ENABLED"}, "maliciousUriFilterSettings": {"filterEnforcement": "ENABLED" }},"enableFloorSettingEnforcement":"true"}' \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+"https://modelarmor.googleapis.com/v1/folders/FOLDER_ID/locations/global/floorSetting"
+Update the Model Armor floor setting for a given organization.
+curl -X PATCH \
+-d '{"filterConfig" :{"piAndJailbreakFilterSettings": { "filterEnforcement": "ENABLED"}, "maliciousUriFilterSettings": {
+"filterEnforcement": "ENABLED" }},"enableFloorSettingEnforcement":"true"}' \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+"https://modelarmor.googleapis.com/v1/organizations/ORGANIZATION_ID/locations/global/floorSetting"
+Replace the following:
+PROJECT_ID: the ID of the project for the floor settings.
+FOLDER_ID: the ID of the folder for the floor settings.
+ORGANIZATION_ID: the ID of the organization for the floor settings.
+Note: If you don't specify the prompt injection and jailbreak detection
+confidence level, the confidence level defaults to LOW_AND_ABOVE for
+all levels: project, organization, or folder.
+The update command returns the following response:
+{
+"name": "projects/PROJECT_ID/locations/global/floorSetting",
+"updateTime": "2024-12-19T15:36:21.318191Z",
+"filterConfig": {
+"piAndJailbreakFilterSettings": {
+"filterEnforcement": "ENABLED"
+},
+"maliciousUriFilterSettings": {
+"filterEnforcement": "ENABLED"
+}
+}
+}
+Note: If you want to disable the inherited floor settings, set the enableFloorSettingEnforcement flag to false.
+C#
+To run this code, first set up a C# development environment
+and install the Model Armor C# SDK.
+Update the Model Armor floor setting for a given project.
+using Google.Cloud.ModelArmor.V1;
+using System;
+public class UpdateProjectFloorSettings
+{
+public FloorSetting UpdateProjectFloorSetting(string projectId)
+{
+// Create the client
+ModelArmorClient client = ModelArmorClient.Create();
+// Construct the floor settings name
+string floorSettingsName = $"projects/{projectId}/locations/global/floorSetting";
+// Build the floor settings with your preferred filters
+// For more details on filters, please refer to the following doc:
+// https://cloud.google.com/security-command-center/docs/key-concepts-model-armor#ma-filters
+var raiFilter = new RaiFilterSettings.Types.RaiFilter
+{
+FilterType = RaiFilterType.HateSpeech,
+ConfidenceLevel = DetectionConfidenceLevel.High,
+};
+var raiFilterSettings = new RaiFilterSettings();
+raiFilterSettings.RaiFilters.Add(raiFilter);
+var filterConfig = new FilterConfig { RaiSettings = raiFilterSettings };
+var floorSetting = new FloorSetting
+{
+Name = floorSettingsName,
+FilterConfig = filterConfig,
+EnableFloorSettingEnforcement = true,
+};
+// Create the update request
+var updateRequest = new UpdateFloorSettingRequest { FloorSetting = floorSetting };
+// Update the floor settings
+FloorSetting response = client.UpdateFloorSetting(updateRequest);
+Console.WriteLine($"Floor setting updated: {response.Name}");
+return response;
+}
+}
+Update the Model Armor floor setting for a given folder.
+using Google.Cloud.ModelArmor.V1;
+using System;
+public class UpdateFolderFloorSettings
+{
+public FloorSetting UpdateFolderFloorSetting(string folderId)
+{
+// Create the client
+ModelArmorClient client = ModelArmorClient.Create();
+// Construct the floor settings name
+string floorSettingsName = $"folders/{folderId}/locations/global/floorSetting";
+// Build the floor settings with your preferred filters
+// For more details on filters, please refer to the following doc:
+// https://cloud.google.com/security-command-center/docs/key-concepts-model-armor#ma-filters
+var raiFilter = new RaiFilterSettings.Types.RaiFilter
+{
+FilterType = RaiFilterType.HateSpeech,
+ConfidenceLevel = DetectionConfidenceLevel.High,
+};
+var raiFilterSettings = new RaiFilterSettings();
+raiFilterSettings.RaiFilters.Add(raiFilter);
+var filterConfig = new FilterConfig { RaiSettings = raiFilterSettings };
+var floorSetting = new FloorSetting
+{
+Name = floorSettingsName,
+FilterConfig = filterConfig,
+EnableFloorSettingEnforcement = true,
+};
+// Create the update request
+var updateRequest = new UpdateFloorSettingRequest { FloorSetting = floorSetting };
+// Update the floor settings
+FloorSetting response = client.UpdateFloorSetting(updateRequest);
+Console.WriteLine($"Floor setting updated: {response.Name}");
+return response;
+}
+}
+Update the Model Armor floor setting for a given organization.
+using Google.Cloud.ModelArmor.V1;
+using System;
+public class UpdateOrganizationFloorSettings
+{
+public FloorSetting UpdateOrganizationFloorSetting(string organizationId)
+{
+// Create the client
+ModelArmorClient client = ModelArmorClient.Create();
+// Construct the floor settings name
+string floorSettingsName = $"organizations/{organizationId}/locations/global/floorSetting";
+// Build the floor settings with your preferred filters
+// For more details on filters, please refer to the following doc:
+// https://cloud.google.com/security-command-center/docs/key-concepts-model-armor#ma-filters
+var raiFilter = new RaiFilterSettings.Types.RaiFilter
+{
+FilterType = RaiFilterType.HateSpeech,
+ConfidenceLevel = DetectionConfidenceLevel.High,
+};
+var raiFilterSettings = new RaiFilterSettings();
+raiFilterSettings.RaiFilters.Add(raiFilter);
+var filterConfig = new FilterConfig { RaiSettings = raiFilterSettings };
+var floorSetting = new FloorSetting
+{
+Name = floorSettingsName,
+FilterConfig = filterConfig,
+EnableFloorSettingEnforcement = true,
+};
+// Create the update request
+var updateRequest = new UpdateFloorSettingRequest { FloorSetting = floorSetting };
+// Update the floor settings
+FloorSetting response = client.UpdateFloorSetting(updateRequest);
+Console.WriteLine($"Floor setting updated: {response.Name}");
+return response;
+}
+}
+Go
+To run this code, first set up a Go development environment
+and install the Model Armor Go SDK.
+Update the Model Armor floor setting for a given project.
+import (
+"context"
+"fmt"
+"io"
+modelarmor "cloud.google.com/go/modelarmor/apiv1"
+modelarmorpb "cloud.google.com/go/modelarmor/apiv1/modelarmorpb"
+)
+// updateProjectFloorSettings updates the floor settings of a project.
+//
+// This method updates the floor settings of a project.
+//
+// w io.Writer: The writer to use for logging.
+// projectID string: The ID of the project.
+func updateProjectFloorSettings(w io.Writer, projectID string) error {
+ctx := context.Background()
+// Create the Model Armor client.
+client, err := modelarmor.NewClient(ctx)
+if err != nil {
+return fmt.Errorf("failed to create client: %w", err)
+}
+defer client.Close()
+// Prepare project floor setting path/name
+floorSettingsName := fmt.Sprintf("projects/%s/locations/global/floorSetting", projectID)
+// Update the project floor setting
+// For more details on filters, please refer to the following doc:
+// [https://cloud.google.com/security-command-center/docs/key-concepts-model-armor#ma-filters](https://cloud.google.com/security-command-center/docs/key-concepts-model-armor#ma-filters)
+enableEnforcement := true
+req := &modelarmorpb.UpdateFloorSettingRequest{
+FloorSetting: &modelarmorpb.FloorSetting{
+Name: floorSettingsName,
+FilterConfig: &modelarmorpb.FilterConfig{
+RaiSettings: &modelarmorpb.RaiFilterSettings{
+RaiFilters: []*modelarmorpb.RaiFilterSettings_RaiFilter{
+{
+FilterType: modelarmorpb.RaiFilterType_HATE_SPEECH,
+ConfidenceLevel: modelarmorpb.DetectionConfidenceLevel_HIGH,
+},
+},
+},
+},
+EnableFloorSettingEnforcement: &enableEnforcement,
+},
+}
+response, err := client.UpdateFloorSetting(ctx, req)
+if err != nil {
+return fmt.Errorf("failed to update floor setting: %w", err)
+}
+// Print the updated config
+fmt.Fprintf(w, "Updated project floor setting: %+v\n", response)
+return nil
+}
+Update the Model Armor floor setting for a given folder.
+import (
+"context"
+"fmt"
+"io"
+modelarmor "cloud.google.com/go/modelarmor/apiv1"
+modelarmorpb "cloud.google.com/go/modelarmor/apiv1/modelarmorpb"
+)
+// updateFolderFloorSettings updates floor settings of a folder.
+//
+// This method updates the floor settings of a folder.
+//
+// w io.Writer: The writer to use for logging.
+// folderID string: The ID of the folder.
+func updateFolderFloorSettings(w io.Writer, folderID string) error {
+ctx := context.Background()
+// Create the Model Armor client.
+client, err := modelarmor.NewClient(ctx)
+if err != nil {
+return fmt.Errorf("failed to create client: %w", err)
+}
+defer client.Close()
+// Prepare folder floor settings path/name
+floorSettingsName := fmt.Sprintf("folders/%s/locations/global/floorSetting", folderID)
+// Prepare the floor setting update
+enableEnforcement := true
+floorSetting := &modelarmorpb.FloorSetting{
+Name: floorSettingsName,
+FilterConfig: &modelarmorpb.FilterConfig{
+RaiSettings: &modelarmorpb.RaiFilterSettings{
+RaiFilters: []*modelarmorpb.RaiFilterSettings_RaiFilter{
+{
+FilterType: modelarmorpb.RaiFilterType_HATE_SPEECH,
+ConfidenceLevel: modelarmorpb.DetectionConfidenceLevel_HIGH,
+},
+},
+},
+},
+EnableFloorSettingEnforcement: &enableEnforcement,
+}
+// Prepare request for updating the floor setting.
+req := &modelarmorpb.UpdateFloorSettingRequest{
+FloorSetting: floorSetting,
+}
+// Update the floor setting.
+response, err := client.UpdateFloorSetting(ctx, req)
+if err != nil {
+return fmt.Errorf("failed to update floor setting: %w", err)
+}
+// Print the updated config
+fmt.Fprintf(w, "Updated folder floor setting: %v\n", response)
+return nil
+}
+Update the Model Armor floor setting for a given organization.
+import (
+"context"
+"fmt"
+"io"
+modelarmor "cloud.google.com/go/modelarmor/apiv1"
+modelarmorpb "cloud.google.com/go/modelarmor/apiv1/modelarmorpb"
+)
+// updateOrganizationFloorSettings updates floor settings of an organization.
+//
+// This method updates the floor settings of an organization.
+//
+// w io.Writer: The writer to use for logging.
+// organizationID string: The ID of the organization.
+func updateOrganizationFloorSettings(w io.Writer, organizationID string) error {
+ctx := context.Background()
+// Create the Model Armor client.
+client, err := modelarmor.NewClient(ctx)
+if err != nil {
+return fmt.Errorf("failed to create client: %w", err)
+}
+defer client.Close()
+// Prepare organization floor setting path/name
+floorSettingsName := fmt.Sprintf("organizations/%s/locations/global/floorSetting", organizationID)
+// Update the organization floor setting
+// For more details on filters, please refer to the following doc:
+// [https://cloud.google.com/security-command-center/docs/key-concepts-model-armor#ma-filters](https://cloud.google.com/security-command-center/docs/key-concepts-model-armor#ma-filters)
+enableEnforcement := true
+req := &modelarmorpb.UpdateFloorSettingRequest{
+FloorSetting: &modelarmorpb.FloorSetting{
+Name: floorSettingsName,
+FilterConfig: &modelarmorpb.FilterConfig{
+RaiSettings: &modelarmorpb.RaiFilterSettings{
+RaiFilters: []*modelarmorpb.RaiFilterSettings_RaiFilter{
+{
+FilterType: modelarmorpb.RaiFilterType_HATE_SPEECH,
+ConfidenceLevel: modelarmorpb.DetectionConfidenceLevel_HIGH,
+},
+},
+},
+},
+EnableFloorSettingEnforcement: &enableEnforcement,
+},
+}
+response, err := client.UpdateFloorSetting(ctx, req)
+if err != nil {
+return fmt.Errorf("failed to update floor setting: %w", err)
+}
+// Print the updated config
+fmt.Fprintf(w, "Updated org floor setting: %+v\n", response)
+Java
+To run this code, first set up a Java development environment
+and install the Model Armor Java SDK.
+Update the Model Armor floor setting for a given project.
+import com.google.cloud.modelarmor.v1.DetectionConfidenceLevel;
+import com.google.cloud.modelarmor.v1.FilterConfig;
+import com.google.cloud.modelarmor.v1.FloorSetting;
+import com.google.cloud.modelarmor.v1.FloorSettingName;
+import com.google.cloud.modelarmor.v1.ModelArmorClient;
+import com.google.cloud.modelarmor.v1.RaiFilterSettings;
+import com.google.cloud.modelarmor.v1.RaiFilterSettings.RaiFilter;
+import com.google.cloud.modelarmor.v1.RaiFilterType;
+import com.google.cloud.modelarmor.v1.UpdateFloorSettingRequest;
+import com.google.protobuf.FieldMask;
+import java.io.IOException;
+import java.util.List;
+public class UpdateProjectFloorSetting {
+public static void main(String[] args) throws IOException {
+// TODO(developer): Replace these variables before running the sample.
+String projectId = "your-project-id";
+updateProjectFloorSetting(projectId);
+}
+public static FloorSetting updateProjectFloorSetting(String projectId)
+throws IOException {
+// Initialize client that will be used to send requests. This client only
+// needs to be created once, and can be reused for multiple requests.
+try (ModelArmorClient client = ModelArmorClient.create()) {
+String name = FloorSettingName.of(projectId, "global").toString();
+// For more details on filters, please refer to the following doc:
+// https://cloud.google.com/security-command-center/docs/key-concepts-model-armor#ma-filters
+RaiFilterSettings raiFilterSettings =
+RaiFilterSettings.newBuilder()
+.addAllRaiFilters(
+List.of(
+RaiFilter.newBuilder()
+.setFilterType(RaiFilterType.HARASSMENT)
+.setConfidenceLevel(DetectionConfidenceLevel.LOW_AND_ABOVE)
+.build(),
+RaiFilter.newBuilder()
+.setFilterType(RaiFilterType.SEXUALLY_EXPLICIT)
+.setConfidenceLevel(DetectionConfidenceLevel.HIGH)
+.build()))
+.build();
+FilterConfig modelArmorFilter = FilterConfig.newBuilder()
+.setRaiSettings(raiFilterSettings)
+.build();
+// Create a field mask to specify which fields to update.
+// Ref: https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask
+FieldMask updateMask = FieldMask.newBuilder().addPaths("filter_config.rai_settings").build();
+FloorSetting floorSetting = FloorSetting.newBuilder()
+.setName(name)
+.setFilterConfig(modelArmorFilter)
+.setEnableFloorSettingEnforcement(true)
+.build();
+UpdateFloorSettingRequest request = UpdateFloorSettingRequest.newBuilder()
+.setFloorSetting(floorSetting)
+.setUpdateMask(updateMask)
+.build();
+FloorSetting updatedFloorSetting = client.updateFloorSetting(request);
+System.out.println("Updated floor setting for project: " + projectId);
+return updatedFloorSetting;
+}
+}
+}
+Update the Model Armor floor setting for a given folder.
+import com.google.cloud.modelarmor.v1.DetectionConfidenceLevel;
+import com.google.cloud.modelarmor.v1.FilterConfig;
+import com.google.cloud.modelarmor.v1.FloorSetting;
+import com.google.cloud.modelarmor.v1.FloorSettingName;
+import com.google.cloud.modelarmor.v1.ModelArmorClient;
+import com.google.cloud.modelarmor.v1.RaiFilterSettings;
+import com.google.cloud.modelarmor.v1.RaiFilterSettings.RaiFilter;
+import com.google.cloud.modelarmor.v1.RaiFilterType;
+import com.google.cloud.modelarmor.v1.UpdateFloorSettingRequest;
+import com.google.protobuf.FieldMask;
+import java.io.IOException;
+import java.util.List;
+public class UpdateFolderFloorSetting {
+public static void main(String[] args) throws IOException {
+// TODO(developer): Replace these variables before running the sample.
+String folderId = "your-folder-id";
+updateFolderFloorSetting(folderId);
+}
+public static FloorSetting updateFolderFloorSetting(String folderId)
+throws IOException {
+// Initialize client that will be used to send requests. This client only
+// needs to be created once, and can be reused for multiple requests.
+try (ModelArmorClient client = ModelArmorClient.create()) {
+String name = FloorSettingName.ofFolderLocationName(folderId, "global").toString();
+// For more details on filters, please refer to the following doc:
+// https://cloud.google.com/security-command-center/docs/key-concepts-model-armor#ma-filters
+RaiFilterSettings raiFilterSettings =
+RaiFilterSettings.newBuilder()
+.addAllRaiFilters(
+List.of(
+RaiFilter.newBuilder()
+.setFilterType(RaiFilterType.HARASSMENT)
+.setConfidenceLevel(DetectionConfidenceLevel.LOW_AND_ABOVE)
+.build(),
+RaiFilter.newBuilder()
+.setFilterType(RaiFilterType.SEXUALLY_EXPLICIT)
+.setConfidenceLevel(DetectionConfidenceLevel.HIGH)
+.build()))
+.build();
+FilterConfig modelArmorFilter = FilterConfig.newBuilder()
+.setRaiSettings(raiFilterSettings)
+.build();
+// Create a field mask to specify which fields to update.
+// Ref: https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask
+FieldMask updateMask = FieldMask.newBuilder().addPaths("filter_config.rai_settings").build();
+FloorSetting floorSetting = FloorSetting.newBuilder()
+.setName(name)
+.setFilterConfig(modelArmorFilter)
+.setEnableFloorSettingEnforcement(true)
+.build();
+UpdateFloorSettingRequest request = UpdateFloorSettingRequest.newBuilder()
+.setFloorSetting(floorSetting)
+.setUpdateMask(updateMask)
+.build();
+FloorSetting updatedFloorSetting = client.updateFloorSetting(request);
+System.out.println("Updated floor setting for folder: " + folderId);
+return updatedFloorSetting;
+}
+}
+}
+Update the Model Armor floor setting for a given organization.
+import com.google.cloud.modelarmor.v1.DetectionConfidenceLevel;
+import com.google.cloud.modelarmor.v1.FilterConfig;
+import com.google.cloud.modelarmor.v1.FloorSetting;
+import com.google.cloud.modelarmor.v1.FloorSettingName;
+import com.google.cloud.modelarmor.v1.ModelArmorClient;
+import com.google.cloud.modelarmor.v1.RaiFilterSettings;
+import com.google.cloud.modelarmor.v1.RaiFilterSettings.RaiFilter;
+import com.google.cloud.modelarmor.v1.RaiFilterType;
+import com.google.cloud.modelarmor.v1.UpdateFloorSettingRequest;
+import com.google.protobuf.FieldMask;
+import java.io.IOException;
+import java.util.List;
+public class UpdateOrganizationsFloorSetting {
+public static void main(String[] args) throws IOException {
+// TODO(developer): Replace these variables before running the sample.
+String organizationId = "your-organization-id";
+updateOrganizationFloorSetting(organizationId);
+}
+public static FloorSetting updateOrganizationFloorSetting(String organizationId)
+throws IOException {
+// Initialize client that will be used to send requests. This client only
+// needs to be created once, and can be reused for multiple requests.
+try (ModelArmorClient client = ModelArmorClient.create()) {
+String name = FloorSettingName.ofOrganizationLocationName(organizationId, "global")
+.toString();
+// For more details on filters, please refer to the following doc:
+// https://cloud.google.com/security-command-center/docs/key-concepts-model-armor#ma-filters
+RaiFilterSettings raiFilterSettings =
+RaiFilterSettings.newBuilder()
+.addAllRaiFilters(
+List.of(
+RaiFilter.newBuilder()
+.setFilterType(RaiFilterType.HARASSMENT)
+.setConfidenceLevel(DetectionConfidenceLevel.LOW_AND_ABOVE)
+.build(),
+RaiFilter.newBuilder()
+.setFilterType(RaiFilterType.SEXUALLY_EXPLICIT)
+.setConfidenceLevel(DetectionConfidenceLevel.HIGH)
+.build()))
+.build();
+FilterConfig modelArmorFilter = FilterConfig.newBuilder()
+.setRaiSettings(raiFilterSettings)
+.build();
+// Create a field mask to specify which fields to update.
+// Ref: https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask
+FieldMask updateMask = FieldMask.newBuilder()
+.addPaths("filter_config.rai_settings")
+.build();
+FloorSetting floorSetting = FloorSetting.newBuilder()
+.setName(name)
+.setFilterConfig(modelArmorFilter)
+.setEnableFloorSettingEnforcement(true)
+.build();
+UpdateFloorSettingRequest request = UpdateFloorSettingRequest.newBuilder()
+.setFloorSetting(floorSetting)
+.setUpdateMask(updateMask)
+.build();
+FloorSetting updatedFloorSetting = client.updateFloorSetting(request);
+System.out.println("Updated floor setting for organization: " + organizationId);
+return updatedFloorSetting;
+}
+}
+}
+Node.js
+To run this code, first set up a Node.js development environment
+and install the Model Armor Node.js SDK.
+Update the Model Armor floor setting for a given project.
+/**
+* TODO(developer): Uncomment these variables before running the sample.
+*/
+// const projectId = 'your-project-id';
+const modelarmor = require('@google-cloud/modelarmor');
+const {ModelArmorClient} = modelarmor.v1;
+const {protos} = modelarmor;
+// Initiate client
+const client = new ModelArmorClient();
+async function updateProjectFloorSettings() {
+const floorSettingsName = `projects/${projectId}/locations/global/floorSetting`;
+// Build the floor settings with your preferred filters
+// For more details on filters, please refer to the following doc:
+// https://cloud.google.com/security-command-center/docs/key-concepts-model-armor#ma-filters
+const floorSetting = {
+name: floorSettingsName,
+filterConfig: {
+raiSettings: {
+raiFilters: [
+{
+filterType:
+protos.google.cloud.modelarmor.v1.RaiFilterType.HARASSMENT,
+confidenceLevel:
+protos.google.cloud.modelarmor.v1.DetectionConfidenceLevel
+.LOW_AND_ABOVE,
+},
+{
+filterType:
+protos.google.cloud.modelarmor.v1.RaiFilterType
+.SEXUALLY_EXPLICIT,
+confidenceLevel:
+protos.google.cloud.modelarmor.v1.DetectionConfidenceLevel
+.LOW_AND_ABOVE,
+},
+],
+},
+},
+enableFloorSettingEnforcement: true,
+};
+const request = {
+floorSetting: floorSetting,
+};
+const [response] = await client.updateFloorSetting(request);
+return response;
+}
+return await updateProjectFloorSettings();
+Update the Model Armor floor setting for a given folder.
+/**
+* TODO(developer): Uncomment these variables before running the sample.
+*/
+// const folderId = 'your-folder-id';
+// Imports the Model Armor library
+const modelarmor = require('@google-cloud/modelarmor');
+const {ModelArmorClient} = modelarmor.v1;
+const {protos} = modelarmor;
+// Instantiates a client
+const client = new ModelArmorClient();
+async function updateFolderFloorSettings() {
+const floorSettingsName = `folders/${folderId}/locations/global/floorSetting`;
+// Build the floor settings with your preferred filters
+// For more details on filters, please refer to the following doc:
+// https://cloud.google.com/security-command-center/docs/key-concepts-model-armor#ma-filters
+const floorSetting = {
+name: floorSettingsName,
+filterConfig: {
+raiSettings: {
+raiFilters: [
+{
+filterType:
+protos.google.cloud.modelarmor.v1.RaiFilterType.HARASSMENT,
+confidenceLevel:
+protos.google.cloud.modelarmor.v1.DetectionConfidenceLevel
+.LOW_AND_ABOVE,
+},
+{
+filterType:
+protos.google.cloud.modelarmor.v1.RaiFilterType
+.SEXUALLY_EXPLICIT,
+confidenceLevel:
+protos.google.cloud.modelarmor.v1.DetectionConfidenceLevel
+.LOW_AND_ABOVE,
+},
+],
+},
+},
+enableFloorSettingEnforcement: true,
+};
+const request = {
+floorSetting: floorSetting,
+};
+const [response] = await client.updateFloorSetting(request);
+return response;
+}
+return await updateFolderFloorSettings();
+Update the Model Armor floor setting for a given organization.
+/**
+* TODO(developer): Uncomment these variables before running the sample.
+*/
+// const organizationId = 'your-organization-id';
+const modelarmor = require('@google-cloud/modelarmor');
+const {ModelArmorClient} = modelarmor.v1;
+const {protos} = modelarmor;
+const client = new ModelArmorClient();
+async function updateOrganizationFloorSettings() {
+const floorSettingsName = `organizations/${organizationId}/locations/global/floorSetting`;
+// Build the floor settings with your preferred filters
+// For more details on filters, please refer to the following doc:
+// https://cloud.google.com/security-command-center/docs/key-concepts-model-armor#ma-filters
+const floorSetting = {
+name: floorSettingsName,
+filterConfig: {
+raiSettings: {
+raiFilters: [
+{
+filterType:
+protos.google.cloud.modelarmor.v1.RaiFilterType.HARASSMENT,
+confidenceLevel:
+protos.google.cloud.modelarmor.v1.DetectionConfidenceLevel
+.LOW_AND_ABOVE,
+},
+{
+filterType:
+protos.google.cloud.modelarmor.v1.RaiFilterType
+.SEXUALLY_EXPLICIT,
+confidenceLevel:
+protos.google.cloud.modelarmor.v1.DetectionConfidenceLevel
+.LOW_AND_ABOVE,
+},
+],
+},
+},
+enableFloorSettingEnforcement: true,
+};
+const request = {
+floorSetting: floorSetting,
+};
+const [response] = await client.updateFloorSetting(request);
+return response;
+}
+return await updateOrganizationFloorSettings();
+PHP
+To run this code, first set up a PHP development environment
+and install the Model Armor PHP SDK.
+Update the Model Armor floor setting for a given project.
+use Google\Cloud\ModelArmor\V1\Client\ModelArmorClient;
+use Google\Cloud\ModelArmor\V1\RaiFilterType;
+use Google\Cloud\ModelArmor\V1\DetectionConfidenceLevel;
+use Google\Cloud\ModelArmor\V1\UpdateFloorSettingRequest;
+use Google\Cloud\ModelArmor\V1\FilterConfig;
+use Google\Cloud\ModelArmor\V1\FloorSetting;
+use Google\Cloud\ModelArmor\V1\RaiFilterSettings;
+use Google\Cloud\ModelArmor\V1\RaiFilterSettings\RaiFilter;
+/**
+* Updates the floor settings for a given project.
+*
+* @param string $projectId The project Id for which the floor settings is to be updated.
+*
+*/
+function update_project_floor_settings(string $projectId): void
+{
+$client = new ModelArmorClient();
+$floorSettingsName = sprintf('projects/%s/locations/global/floorSetting', $projectId);
+// Build the floor settings with your preferred filters
+// For more details on filters, please refer to the following doc:
+// https://cloud.google.com/security-command-center/docs/key-concepts-model-armor#ma-filters
+$raiFilterSetting = (new RaiFilterSettings())
+->setRaiFilters([
+(new RaiFilter())
+->setFilterType(RaiFilterType::HATE_SPEECH)
+->setConfidenceLevel(DetectionConfidenceLevel::HIGH)
+]);
+$filterConfig = (new FilterConfig())->setRaiSettings($raiFilterSetting);
+$floorSetting = (new FloorSetting())
+->setName($floorSettingsName)
+->setFilterConfig($filterConfig)
+->setEnableFloorSettingEnforcement(true);
+$updateRequest = (new UpdateFloorSettingRequest())->setFloorSetting($floorSetting);
+$response = $client->updateFloorSetting($updateRequest);
+printf("Floor setting updated: %s\n", $response->getName());
+}
+Update the Model Armor floor setting for a given folder.
+use Google\Cloud\ModelArmor\V1\Client\ModelArmorClient;
+use Google\Cloud\ModelArmor\V1\RaiFilterType;
+use Google\Cloud\ModelArmor\V1\DetectionConfidenceLevel;
+use Google\Cloud\ModelArmor\V1\UpdateFloorSettingRequest;
+use Google\Cloud\ModelArmor\V1\FilterConfig;
+use Google\Cloud\ModelArmor\V1\FloorSetting;
+use Google\Cloud\ModelArmor\V1\RaiFilterSettings;
+use Google\Cloud\ModelArmor\V1\RaiFilterSettings\RaiFilter;
+/**
+* Updates the floor settings for a given folder.
+*
+* @param string $folderId The folder Id for which the floor settings is to be updated.
+*
+*/
+function update_folder_floor_settings(string $folderId): void
+{
+$client = new ModelArmorClient();
+$floorSettingsName = sprintf('folders/%s/locations/global/floorSetting', $folderId);
+// Build the floor settings with your preferred filters
+// For more details on filters, please refer to the following doc:
+// https://cloud.google.com/security-command-center/docs/key-concepts-model-armor#ma-filters
+$raiFilterSetting = (new RaiFilterSettings())
+->setRaiFilters([
+(new RaiFilter())
+->setFilterType(RaiFilterType::HATE_SPEECH)
+->setConfidenceLevel(DetectionConfidenceLevel::HIGH)
+]);
+$filterConfig = (new FilterConfig())->setRaiSettings($raiFilterSetting);
+$floorSetting = (new FloorSetting())
+->setName($floorSettingsName)
+->setFilterConfig($filterConfig)
+->setEnableFloorSettingEnforcement(true);
+$updateRequest = (new UpdateFloorSettingRequest())->setFloorSetting($floorSetting);
+$response = $client->updateFloorSetting($updateRequest);
+printf("Floor setting updated: %s\n", $response->getName());
+}
+Update the Model Armor floor setting for a given organization.
+use Google\Cloud\ModelArmor\V1\Client\ModelArmorClient;
+use Google\Cloud\ModelArmor\V1\RaiFilterType;
+use Google\Cloud\ModelArmor\V1\DetectionConfidenceLevel;
+use Google\Cloud\ModelArmor\V1\UpdateFloorSettingRequest;
+use Google\Cloud\ModelArmor\V1\FilterConfig;
+use Google\Cloud\ModelArmor\V1\FloorSetting;
+use Google\Cloud\ModelArmor\V1\RaiFilterSettings;
+use Google\Cloud\ModelArmor\V1\RaiFilterSettings\RaiFilter;
+/**
+* Updates the floor settings for a given organization.
+*
+* @param string $organizationId The organization Id for which the floor settings is to be updated.
+*
+*/
+function update_organization_floor_settings(string $organizationId)
+{
+$client = new ModelArmorClient();
+$floorSettingsName = sprintf('organizations/%s/locations/global/floorSetting', $organizationId);
+// Build the floor settings with your preferred filters
+// For more details on filters, please refer to the following doc:
+// https://cloud.google.com/security-command-center/docs/key-concepts-model-armor#ma-filters
+$raiFilterSetting = (new RaiFilterSettings())
+->setRaiFilters([
+(new RaiFilter())
+->setFilterType(RaiFilterType::HATE_SPEECH)
+->setConfidenceLevel(DetectionConfidenceLevel::HIGH)
+]);
+$filterConfig = (new FilterConfig())->setRaiSettings($raiFilterSetting);
+$floorSetting = (new FloorSetting())
+->setName($floorSettingsName)
+->setFilterConfig($filterConfig)
+->setEnableFloorSettingEnforcement(true);
+$updateRequest = (new UpdateFloorSettingRequest())->setFloorSetting($floorSetting);
+$response = $client->updateFloorSetting($updateRequest);
+printf("Floor setting updated: %s\n", $response->getName());
+}
+Python
+To run this code, first set up a Python development environment
+and install the Model Armor Python SDK.
+Update the Model Armor floor setting for a given project.
+from google.cloud import modelarmor_v1
+# Create the Model Armor client.
+client = modelarmor_v1.ModelArmorClient(transport="rest")
+# TODO(Developer): Uncomment these variables.
+# project_id = "YOUR_PROJECT_ID"
+# Prepare project floor setting path/name
+floor_settings_name = f"projects/{project_id}/locations/global/floorSetting"
+# Update the project floor setting
+# For more details on filters, please refer to the following doc:
+# https://cloud.google.com/security-command-center/docs/key-concepts-model-armor#ma-filters
+response = client.update_floor_setting(
+request=modelarmor_v1.UpdateFloorSettingRequest(
+floor_setting=modelarmor_v1.FloorSetting(
+name=floor_settings_name,
+filter_config=modelarmor_v1.FilterConfig(
+rai_settings=modelarmor_v1.RaiFilterSettings(
+rai_filters=[
+modelarmor_v1.RaiFilterSettings.RaiFilter(
+filter_type=modelarmor_v1.RaiFilterType.HATE_SPEECH,
+confidence_level=modelarmor_v1.DetectionConfidenceLevel.HIGH,
+)
+]
+),
+),
+enable_floor_setting_enforcement=True,
+)
+)
+)
+# Print the updated config
+print(response)
+Update the Model Armor floor setting for a given folder.
+from google.cloud import modelarmor_v1
+# Create the Model Armor client.
+client = modelarmor_v1.ModelArmorClient(transport="rest")
+# TODO (Developer): Uncomment these variables and initialize
+# folder_id = "YOUR_FOLDER_ID"
+# Prepare folder floor settings path/name
+floor_settings_name = f"folders/{folder_id}/locations/global/floorSetting"
+# Update the folder floor setting
+# For more details on filters, please refer to the following doc:
+# https://cloud.google.com/security-command-center/docs/key-concepts-model-armor#ma-filters
+response = client.update_floor_setting(
+request=modelarmor_v1.UpdateFloorSettingRequest(
+floor_setting=modelarmor_v1.FloorSetting(
+name=floor_settings_name,
+filter_config=modelarmor_v1.FilterConfig(
+rai_settings=modelarmor_v1.RaiFilterSettings(
+rai_filters=[
+modelarmor_v1.RaiFilterSettings.RaiFilter(
+filter_type=modelarmor_v1.RaiFilterType.HATE_SPEECH,
+confidence_level=modelarmor_v1.DetectionConfidenceLevel.HIGH,
+)
+]
+),
+),
+enable_floor_setting_enforcement=True,
+)
+)
+)
+# Print the updated config
+print(response)
+Update the Model Armor floor setting for a given organization.
+from google.cloud import modelarmor_v1
+# Create the Model Armor client.
+client = modelarmor_v1.ModelArmorClient(transport="rest")
+# TODO (Developer): Uncomment these variables and initialize
+# organization_id = "YOUR_ORGANIZATION_ID"
+# Prepare organization floor setting path/name
+floor_settings_name = (
+f"organizations/{organization_id}/locations/global/floorSetting"
+)
+# Update the organization floor setting
+# For more details on filters, please refer to the following doc:
+# https://cloud.google.com/security-command-center/docs/key-concepts-model-armor#ma-filters
+response = client.update_floor_setting(
+request=modelarmor_v1.UpdateFloorSettingRequest(
+floor_setting=modelarmor_v1.FloorSetting(
+name=floor_settings_name,
+filter_config=modelarmor_v1.FilterConfig(
+rai_settings=modelarmor_v1.RaiFilterSettings(
+rai_filters=[
+modelarmor_v1.RaiFilterSettings.RaiFilter(
+filter_type=modelarmor_v1.RaiFilterType.HATE_SPEECH,
+confidence_level=modelarmor_v1.DetectionConfidenceLevel.HIGH,
+)
+]
+),
+),
+enable_floor_setting_enforcement=True,
+)
+)
+)
+# Print the updated config
+print(response)
+Review findings about floor setting violation
+Each Model Armor finding
+identifies a floor setting violation. A violation occurs when a
+Model Armor template fails to meet the minimum security standards
+defined by the resource hierarchy's floor settings. Floor settings define the
+minimum requirements for templates.
+Findings are generated when any of the following floor setting violations occur:
+A template with less restrictive settings is created before you configure floor settings.
+A template is missing required filters.
+A template does not meet the minimum confidence level for the filters.
+When the system detects a violation, the system generates a high-severity finding in
+Security Command Center (if you use the
+Premium or Enterprise service tier of Security Command Center).
+The finding specifies the violated floor setting, the non-compliant template,
+and details about the violation.
+The following example shows the finding's sourceProperties field. This
+violation, related to the malicious URI filter, occurred
+because the template setting for maliciousUriFilterSettings is
+DISABLED, but the floor settings require it to be ENABLED.
+{
+"filterConfig": {
+"raiSettings": {
+"raiFilters": [
+{
+"filterType": "HATE_SPEECH",
+"confidenceLevel": {
+"floorSettings": "LOW_AND_ABOVE",
+"template": "MEDIUM_AND_ABOVE"
+}
+},
+{
+"filterType": "HARASSMENT",
+"confidenceLevel": {
+"floorSettings": "MEDIUM_AND_ABOVE",
+"template": "HIGH"
+}
+}
+]
+},
+"piAndJailbreakFilterSettings": {
+"confidenceLevel": {
+"floorSettings": "LOW_AND_ABOVE",
+"template": "HIGH"
+}
+},
+"maliciousUriFilterSettings": {
+"floorSettings": "ENABLED",
+"template": "DISABLED"
+}
+}
+}
+What's next
+Learn more about Model Armor.
+Learn about Model Armor templates.
+Sanitize prompts and responses.
+Troubleshoot Model Armor issues.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-06 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

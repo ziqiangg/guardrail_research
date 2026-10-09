@@ -1,0 +1,239 @@
+# status 200  final_url https://docs.cloud.google.com/model-armor/model-armor-networking-integration  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Model Armor
+Start free
+Overview
+Guides
+Reference
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Resources
+Console
+Discover
+Product overview
+Data residency and endpoints
+Feature availability for templates by region
+Best practices for scaling and high traffic
+Retry strategy
+Configure Model Armor
+Create and manage templates
+Configure template-specific exclusion rules
+Set the filter version
+Filter version history
+Configure floor settings
+Sanitize prompts and responses
+Configure logging
+View the monitoring dashboard
+Control access
+Access control with IAM
+Roles and permissions
+Service accounts
+Integrate Model Armor with services or frameworks
+Overview
+Integrate with Agent Gateway
+Integrate with Apigee
+Integrate with Gemini Enterprise
+Integrate with Google and Google Cloud MCP servers
+Integrate with Google Cloud networking services
+Integrate with Agent Platform
+Integrate with LangChain
+Monitor
+Audit logging
+Troubleshoot
+Troubleshooting
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Home
+Documentation
+AI and ML
+Model Armor
+Guides
+Send feedback
+Integrate with Google Cloud networking services
+Stay organized with collections
+Save and categorize content based on your preferences.
+Model Armor integrates with Google Cloud networking services to
+provide inline security for AI applications at the network level. This integration
+allows Model Armor to inspect and filter prompts and responses
+without requiring modifications to the application code itself.
+The mechanism for this integration is through Service Extensions.
+Service Extensions enable you to plug in custom logic, like
+Model Armor's security checks, into the data path of various
+Google Cloud networking services.
+Before you begin
+Ensure that you have met all the prerequisites.
+Integration points
+Model Armor integrates with the following networking services.
+| Networking service
+| Description
+| Reference
+| Cloud Load Balancing
+| Use Model Armor with Service Extensions to filter
+traffic passing through Layer 7 load balancers. This is useful for protecting
+web applications and APIs that leverage LLMs.
+|
+Configure a traffic extension to call the Model Armor service
+|
+GKE Inference Gateway
+| Use Model Armor with Service Extensions
+associated with the GKE Inference Gateway, for containerized AI
+applications or LLMs running on Google Kubernetes Engine, to inspect and enforce
+policies on traffic entering or leaving the GKE clusters.
+|
+Configure AI security and safety checks using GKE Inference Gateway
+| Secure Web Proxy
+| Use Model Armor with Secure Web Proxy to inspect
+and secure egress traffic from your VPC to AI applications, MCP servers, or LLMs.
+|
+Configure a traffic extension
+How it works
+Service Extensions enable Google Cloud networking products
+to call out to Model Armor during data transiting.
+When traffic to or from your AI applications, MCP servers, or models passes through a configured network
+service, for example, a load balancer, Service Extensions forward
+the request or response content to Model Armor for inspection.
+Model Armor applies a set of filters based on your preconfigured
+template settings. These filters can identify and block prompt injections,
+jailbreak detection attempts, sensitive data leakage, malicious URLs, and
+harmful or inappropriate content, such as hate speech and harassment.
+Based on the scan results and your policy, Model Armor instructs
+the networking service to either allow, block, or modify the traffic, ensuring
+only safe and compliant interactions reach or leave your AI applications, MCP servers, or models.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-06 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

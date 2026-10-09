@@ -1,0 +1,213 @@
+# status 200  final_url https://presidio.dataprivacystack.org/community/  content-type text/html; charset=utf-8
+Skip to content
+Presidio
+Presidio eco-system
+Search
+GitHub
+Presidio
+Quick start
+Learn Presidio
+Resources
+Recipes
+Samples
+Presidio
+GitHub
+Presidio
+Presidio
+Home
+Installation
+FAQ
+Quick start
+Quick start
+Home
+Text
+Images
+Semi/Structured data
+Learn Presidio
+Learn Presidio
+Home
+Concepts
+Tutorial
+Tutorial
+Home
+Getting started
+Deny-list recognizers
+Regex recognizers
+Rule-based recognizers
+Additional models/languages
+External services
+Context enhancement
+Decision process
+No-code recognizers
+Ad-hoc recognizers
+Simple anonymization
+Custom anonymization
+Encryption/Decryption
+Allow-lists
+Text de-identification
+Text de-identification
+Home
+Presidio Analyzer
+Presidio Analyzer
+Home
+Developing PII recognizers
+Developing PII recognizers
+Tutorial
+Best practices
+Recognizer registry from file
+Filtering recognizers by country
+Multi-language support
+Customizing the NLP model
+Customizing the NLP model
+Home
+Spacy/Stanza
+Transformers
+GPU Acceleration
+Tracing the decision process
+Configure from file
+Presidio Anonymizer
+Presidio Anonymizer
+Home
+Developing PII anonymization operators
+Azure Health Data Services de-identification service integration
+Image de-identification
+Image de-identification
+Home
+Evaluating DICOM redaction
+Structured and Semi-structured
+Structured and Semi-structured
+Home
+PII detection evaluation
+Resources
+Resources
+Supported entities
+Project transition update
+Community
+Community
+On this page
+Resources
+Change log
+Setting up a development environment
+Build and release process
+Changes from V1 to V2
+Python API reference
+Python API reference
+Home
+Presidio Analyzer Python API
+Presidio Anonymizer Python API
+Presidio Image Redactor Python API
+Presidio Structured Python API
+REST API reference
+Recipes
+Recipes
+Home
+Contributing
+Template
+Samples
+Samples
+Home
+Text
+Text
+Presidio Basic Usage Notebook
+Customizing Presidio Analyzer
+Configuring The NLP engine
+Encrypting and Decrypting identified entities
+Getting the identified entity value using a custom Operator
+Anonymizing known values
+Keeping some entities from being anonymized
+Integrating with external services
+Remote Recognizer
+Azure AI Language as a Remote Recognizer
+Azure Health DataServices De-identification as a Remote Recognizer
+Using Flair as an external PII model
+Using Span Marker as an external PII model
+Using Transformers as an external PII model
+Using GLiNER as an external PII model
+Pseudonymization (replace PII values using mappings)
+Passing a lambda as a Presidio anonymizer using Faker
+Synthetic data generation with OpenAI
+YAML based no-code configuration
+Data
+Data
+Analyzing structured / semi-structured data in batch
+Presidio Structured Basic Usage Notebook
+Analyze and Anonymize CSV file
+Images
+Images
+Redacting Text PII from DICOM images
+Using an allow list with image redaction
+Plot custom bounding boxes
+Example DICOM redaction evaluation
+PDF
+PDF
+Annotating PII in a PDF
+Deployment
+Deployment
+Presidio with App Service
+Presidio with Kubernetes
+Presidio with Spark
+Presidio with Fabric
+Redacting Telemetry with Presidio
+Azure Data Factory
+Azure Data Factory
+ETL using AppService/Databricks
+Add Presidio as an HTTP service to your Azure Data Factory
+Add Presidio on Databricks to your Azure Data Factory
+PII Masking LLM calls using LiteLLM proxy
+Demo app
+Demo app
+Create a simple demo app using Streamlit
+On this page
+Resources
+Presidio eco-system
+This section collects different resources developed with Presidio.
+Resources
+| Resource
+| Description
+| HashiCorp Vault Operator
+| A library that allows to integrate Presidio with HashiCorp Vault for anonymization and deanonymization.
+| Rasa bot framework
+| Use Presidio to de-identify chat bot messages in Rasa.
+| LangChain
+| De-identification and reversible anonymization within LangChain.
+| LlamaIndex
+| De-identification and reversible anonymization within LlamaIndex.
+| LiteLLM
+| Integrate Presidio into LiteLLM
+| Guardrails-ai
+| Use Presidio as an LLM guardrails using the Guardrails AI suite.
+| Presidio in LLMGuard
+| Integrate Presidio into LLM Guard - The Security Toolkit for LLM Interactions.
+| Privy
+| Integrate Presidio into Privy.
+| Huggingface
+| Automatic PII detection on Huggingface datasets.
+| KNIME
+| Use Presidio within the KNIME framework.
+| OpenMetadata
+| Auto PII tagging for Sensitive/NonSensitive at the column level.
+| dataiku
+| PII detection in the LLM Mesh can detect various forms of PII in your prompts and queries, and either block or redact the queries.
+| Obsei
+| Obsei is an open-source, low-code, AI powered automation tool
+| data-describe
+| data-describe is a Python toolkit for Exploratory Data Analysis (EDA). It aims to accelerate data exploration and analysis by providing automated and polished analysis widgets.
+| Azure Search Power Skills
+| Power Skills are a collection of useful functions to be deployed as custom skills for Azure Cognitive Search. The skills can be used as templates or starting points for your own custom skills, or they can be deployed and used as they are if they happen to meet your requirements.
+| DataOps for the Modern Data Warehouse
+| Contains numerous code samples and artifacts on how to apply DevOps principles to data pipelines built according to the Modern Data Warehouse (MDW) architectural pattern on Microsoft Azure.
+| Extending Power BI with Python and R
+| Code repository for Extending Power BI with Python and R, published by Packt.
+| HebSafeHarbor
+| Clinical notes anonymization in Hebrew.
+| Presidio GitHub Action
+| GitHub Action that analyzes text for PII entities with the Presidio framework.
+Please create a PR if you're interested in adding your tool to this list.
+Back to top
+Previous
+Project transition update
+Next
+Change log
+Data Privacy Stack
+Made with
+Zensical

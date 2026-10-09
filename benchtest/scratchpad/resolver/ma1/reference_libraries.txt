@@ -1,0 +1,335 @@
+# status 200  final_url https://docs.cloud.google.com/model-armor/reference/libraries  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español – América Latina
+Français
+Português – Brasil
+中文 – 简体
+日本語
+한국어
+Sign in
+Model Armor
+Start free
+Overview
+Guides
+Reference
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Resources
+Console
+Model Armor API
+Client libraries
+REST reference
+Overview
+v1
+REST Resources
+folders.locations
+Overview
+getFloorSetting
+updateFloorSetting
+organizations.locations
+Overview
+getFloorSetting
+updateFloorSetting
+projects.locations
+Overview
+get
+getFloorSetting
+list
+updateFloorSetting
+projects.locations.templates
+Overview
+create
+delete
+get
+list
+patch
+sanitizeModelResponse
+sanitizeUserPrompt
+Types
+Code
+DataItem
+FloorSetting
+MultiLanguageDetectionMetadata
+OperationMetadata
+SanitizationResult
+StreamingMode
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Home
+Documentation
+AI and ML
+Model Armor
+Reference
+Send feedback
+Model Armor API client libraries
+Stay organized with collections
+Save and categorize content based on your preferences.
+This page shows how to get started with the Cloud Client Libraries for the
+Model Armor API. Client libraries make it easier to access
+Google Cloud APIs from a supported language. Although you can use
+Google Cloud APIs directly by making raw requests to the server, client
+libraries provide simplifications that significantly reduce the amount of code
+you need to write.
+Read more about the Cloud Client Libraries
+and the older Google API Client Libraries in
+Client libraries explained.
+Install the client library
+C#
+Install the client library by using one of the
+following options:
+NuGet in Visual Studio Code:
+Enable pre-release packages. For more information, see
+Include prerelease package versions in the Visual Studio Code documentation..
+Add the Google.Cloud.ModelArmor.V1 package. For more information,
+see Add a package
+in the Visual Studio Code documentation.
+NuGet in Visual Studio: For more information, see Installation.
+.NET CLI:
+dotnet add package Google.Cloud.ModelArmor.V1 --version 1.0.0-beta05
+For more information, see Setting Up a C# Development Environment.
+Go
+go get cloud.google.com/go/modelarmor
+For more information, see Setting Up a Go Development Environment.
+Java
+If you are using Maven, add
+the following to your pom.xml file. For more information about
+BOMs, see The Google Cloud Platform Libraries BOM.
+<dependencyManagement>
+<dependencies>
+<dependency>
+<groupId>com.google.cloud</groupId>
+<artifactId>libraries-bom</artifactId>
+<version>26.86.0</version>
+<type>pom</type>
+<scope>import</scope>
+</dependency>
+</dependencies>
+</dependencyManagement>
+<dependencies>
+<dependency>
+<groupId>com.google.cloud</groupId>
+<artifactId>google-cloud-modelarmor</artifactId>
+</dependency>
+</dependencies>
+If you are using Gradle,
+add the following to your dependencies:
+implementation platform('com.google.cloud:libraries-bom:26.86.0')
+implementation 'com.google.cloud:google-cloud-modelarmor'
+If you are using sbt, add
+the following to your dependencies:
+libraryDependencies += "com.google.cloud" % "google-cloud-modelarmor" % "0.40.0"
+If you're using Visual Studio Code or IntelliJ, you can add client libraries to your
+project using the following IDE plugins:
+Cloud Code for VS Code
+Cloud Code for IntelliJ
+The plugins provide additional functionality, such as key management for service accounts. Refer
+to each plugin's documentation for details.
+Note: Cloud Java client libraries do not currently support Android.
+For more information, see Setting Up a Java Development Environment.
+Node.js
+npm install @google-cloud/modelarmor
+For more information, see Setting Up a Node.js Development Environment.
+PHP
+composer require google/cloud-modelarmor
+For more information, see Using PHP on Google Cloud.
+Python
+pip install --upgrade google-cloud-modelarmor
+For more information, see Setting Up a Python Development Environment.
+Set up authentication
+To authenticate calls to Google Cloud APIs, client libraries support
+Application Default Credentials (ADC);
+the libraries look for credentials in a set of defined locations and use those credentials
+to authenticate requests to the API. With ADC, you can make
+credentials available to your application in a variety of environments, such as local
+development or production, without needing to modify your application code.
+For production environments, the way you set up ADC depends on the service
+and context. For more information, see Set up Application Default Credentials.
+For a local development environment, you can set up ADC with the credentials
+that are associated with your Google Account:
+Install the Google Cloud CLI.
+After installation,
+initialize the Google Cloud CLI by running the following command:
+gcloud init
+If you're using an external identity provider (IdP), you must first
+sign in to the gcloud CLI with your federated identity.
+If you're using a local shell, then create local authentication credentials for your user
+account:
+gcloud auth application-default login
+You don't need to do this if you're using Cloud Shell.
+If an authentication error is returned, and you are using an external identity provider
+(IdP), confirm that you have
+signed in to the gcloud CLI with your federated identity.
+A sign-in screen appears. After you sign in, your credentials are stored in the
+local credential file used by ADC.
+Additional resources
+C#
+The following list contains links to more resources related to the
+client library for C#:
+API reference
+Client libraries best practices
+Issue tracker
+google-model-armor on Stack Overflow
+Source code
+Go
+The following list contains links to more resources related to the
+client library for Go:
+API reference
+Client libraries best practices
+Issue tracker
+google-model-armor on Stack Overflow
+Source code
+Java
+The following list contains links to more resources related to the
+client library for Java:
+API reference
+Client libraries best practices
+Issue tracker
+google-model-armor on Stack Overflow
+Source code
+Node.js
+The following list contains links to more resources related to the
+client library for Node.js:
+API reference
+Client libraries best practices
+Issue tracker
+google-model-armor on Stack Overflow
+Source code
+PHP
+The following list contains links to more resources related to the
+client library for PHP:
+API reference
+Client libraries best practices
+Issue tracker
+google-model-armor on Stack Overflow
+Source code
+Python
+The following list contains links to more resources related to the
+client library for Python:
+API reference
+Client libraries best practices
+Issue tracker
+google-model-armor on Stack Overflow
+Source code
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-05 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español – América Latina
+Français
+Português – Brasil
+中文 – 简体
+日本語
+한국어

@@ -1,0 +1,675 @@
+# status 200  final_url https://docs.cloud.google.com/security-command-center/docs/terraform  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Security Command Center
+Start free
+Overview
+Guides
+Reference
+Samples
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Samples
+Resources
+Console
+Discover
+Product overview
+Service tiers
+Activate Security Command Center
+Overview of activating Security Command Center
+Standard tier enhanced and automatically activated for some customers
+Plan for the activation
+Data and infrastructure security overview
+Data residency
+Plan for data residency
+Security Command Center regional endpoints
+Control access with IAM
+Access control with IAM
+Control access with organization-level activations
+Control access with project-level activations
+Configure custom organization policies
+Enable CMEK for Security Command Center
+Overview of VPC Service Controls and Security Command Center
+Best practices
+Security Command Center best practices
+Cryptomining detection best practices
+Activate Security Command Center Standard or Premium
+Activate Security Command Center Standard tier for an organization
+Activate Security Command Center Premium tier for an organization
+Activate Security Command Center Standard or Premium for a project
+Features available with project-level activations
+Activate Security Command Center Enterprise for an organization
+Activate Security Command Center Enterprise
+Modify Security Command Center Enterprise tier
+Connect to AWS for configuration and resource data collection
+Connect to Azure for configuration and resource data collection
+Control access to features in SecOps console pages
+Map and authenticate users to enable SOAR-related features
+Integrate Security Command Center Enterprise with ticketing systems
+Connect to AWS for log data collection
+Connect to Microsoft Azure for log data collection
+Advanced configuration for threat management
+Update the Enterprise use case for SOAR
+Manage SOAR settings
+Configure additional security services
+Choose the services to enable
+Configure security services
+Provision Security Command Center resources with Terraform
+Modify Security Command Center Standard or Premium tier
+Modify the Security Command Center Standard tier
+Modify the Security Command Center Premium tier
+Modify data residency or data encryption configuration
+Investigate findings, issues, and assets
+Use Security Command Center in the Google Cloud console
+Assess risk using Risk overview dashboards
+Work with issues
+Issues overview
+Manage and remediate issues
+Predefined security graph rules
+Work with findings
+Overview of findings
+Overview of the finding lifecycle
+When to expect findings
+Findings classes
+Finding severities
+Finding states
+Review and manage findings in the console
+Query findings in the console
+Mute findings in Security Command Center
+Mute findings overview
+Manage mute rules
+Mute individual findings
+Migrate from static to dynamic mute rules
+Annotate findings with security marks
+Configure exports and notifications
+Export Security Command Center data
+Enable Pub/Sub notifications
+Stream findings to BigQuery
+Bulk export findings to BigQuery
+Export logs to Cloud Logging
+Enable real-time chat notifications
+Work with assets and resources
+Assets and resources overview
+Inspect assets monitored by Security Command Center
+Annotate assets with security marks
+Explore the security graph using queries
+Generate risk reports
+Risk reports overview
+Download risk reports
+Gemini in Security Command Center
+Manage security posture and compliance
+Compliance Manager
+Compliance Manager overview
+Enable Compliance Manager
+Manage frameworks
+Framework reference
+Manage cloud controls
+Write rules for custom cloud controls
+Cloud control reference
+Cloud controls that support batch scanning only
+Monitor your frameworks for compliance
+Audit your environment
+Audit locations for Compliance Manager
+Use Compliance Manager with VPC Service Controls
+Assess compliance without Compliance Manager (legacy)
+Data security posture management
+Data security posture management overview
+Data security posture management in the Standard tier
+Use data security posture management
+Monitor your data security posture
+Security posture service
+Security posture overview
+Manage a security posture
+Manage security posture resources using custom constraints
+Posture templates
+BigQuery, essential
+Cloud Storage, essential
+Cloud Storage, extended
+Secure by default, essential
+Secure by default, extended
+Secure AI, essential
+Secure AI, extended
+VPC networking, essential
+VPC networking, extended
+Compliance standards
+CIS Benchmark 2.0
+ISO 27001
+NIST 800-53
+PCI DSS
+Detect vulnerabilities and misconfigurations
+Services that detect software vulnerabilities
+Detect possible attack paths with Risk Engine
+Toxic combinations and chokepoints overview
+Investigate toxic combinations and chokepoints
+Overview of attack exposure scores and attack paths
+Risk Engine feature support
+Define and manage your high-value resource set
+Security Health Analytics
+Overview
+Use Security Health Analytics
+Remediate Security Health Analytics findings
+Custom modules for Security Health Analytics
+Overview of custom modules for Security Health Analytics
+Use custom modules with Security Health Analytics
+Code a custom module for Security Health Analytics
+Test custom modules for Security Health Analytics
+Artifact Registry vulnerability assessment
+Cloud Infrastructure Entitlement Management (CIEM)
+CIEM overview
+Enable the CIEM detection service
+Investigate identity and access findings
+Review cases for identity and access issues
+Vulnerability Assessment for Google Cloud
+Enable and use Vulnerability Assessment for Google Cloud
+Allow Vulnerability Assessment to access VPC Service Controls perimeters
+Vulnerability Assessment for AWS
+Overview
+Enable and use Vulnerability Assessment for AWS
+Modify or disable Vulnerability Assessment for AWS
+Role policy for using Vulnerability Assessment with AWS
+Sensitive data discovery
+Sensitive data discovery overview
+Enable and use sensitive data discovery
+Web Security Scanner
+Web Security Scanner overview
+Use Web Security Scanner
+Set up custom scans using Web Security Scanner
+Remediate Web Security Scanner findings
+Validate your infrastructure against organization policies
+Validate IaC against organization policies
+Supported asset types and policies for IaC validation
+Integrate IaC validation with Cloud Build
+Integrate IaC validation with Jenkins
+Integrate IaC validation with GitHub Actions
+Create a sample IaC validation report
+Detect exposed resources
+Investigate vulnerabilities
+View vulnerability findings
+Prioritize the remediation of vulnerabilities
+Protect AI workloads and applications
+Protect AI workloads with AI Protection
+AI Protection overview
+Configure AI Protection
+Review AI security
+Protect AI applications with Model Armor
+Detect and respond to threats
+Detect threats
+Threat detection in Security Command Center
+Detect threats to GKE containers
+Container Threat Detection overview
+Test Container Threat Detection
+Use Container Threat Detection
+Detect threats to Cloud Run containers
+Cloud Run Threat Detection overview
+Test Cloud Run Threat Detection
+Use Cloud Run Threat Detection
+Detect threats to agentic workloads
+Agent Platform Threat Detection overview
+Test Agent Platform Threat Detection
+Use Agent Platform Threat Detection
+Detect threats from event logging
+Event Threat Detection overview
+Test Event Threat Detection
+Use Event Threat Detection
+Allow Event Threat Detection to access VPC Service Controls perimeters
+Custom modules for Event Threat Detection
+Overview of custom modules for Event Threat Detection
+Create and manage custom modules
+Detect and review sensitive actions
+Sensitive Actions Service overview
+Test Sensitive Actions
+Use Sensitive Actions
+Detect threats to VMs
+Virtual Machine Threat Detection overview
+Use Virtual Machine Threat Detection
+Allow VM Threat Detection to access VPC Service Controls perimeters
+Enable Virtual Machine Threat Detection for AWS
+Inspect a VM for signs of kernel memory tampering
+Detect external anomalies
+Identify correlated threats
+Correlated Threats overview
+Test Correlated Threats
+Investigate and respond to threats
+Overview
+Respond to AI threats
+Respond to Cloud Run threats
+Respond to Compute Engine threats
+Respond to Google Kubernetes Engine threats
+Respond to Google Workspace threats
+Respond to network threats
+Investigate threats with curated detections
+Secure code and integrate with CI/CD
+Assured Open Source Software (Assured OSS) for code security
+Integrate with Assured OSS for code security
+Configure Assured OSS support for VPC Service Controls
+Configure and download packages from a remote repository
+Download packages from Artifact Registry
+Download Go packages
+Download Java packages
+Download NPM packages
+Download Python packages
+Access security metadata and verify packages
+Security metadata fields
+Supported packages
+List of supported Go packages
+List of supported Java and Python packages
+List of supported NPM packages
+Create artifact guard policies
+Overview of artifact guard
+Configure CI/CD integration
+Configure artifact guard policies
+Artifact guard roles and permissions
+Detect package vulnerabilities in Colab Enterprise notebooks
+Enable and use Notebook Security Scanner
+View Python package vulnerabilities
+Additional configuration
+Integrate with other products
+Google Security Operations SOAR
+Cortex XSOAR
+Elastic Stack
+Elastic Stack using Docker
+Jira
+QRadar
+ServiceNow
+Snyk
+Splunk
+Connect to other cloud providers in the Enterprise tier
+Amazon Web Services (AWS)
+Connect to AWS for configuration and resource data collection
+Modify the connector for AWS
+Microsoft Azure
+Connect to Azure for configuration and resource data collection
+Modify the connector for Azure
+Use Mandiant Attack Surface Management with VPC Service Controls
+Work with cases in the Enterprise tier
+Work with cases
+Cases overview
+Using the workdesk
+Determine ownership for posture findings
+Group findings in cases
+Mute findings in cases
+Assign tickets in cases
+Working with alerts
+Work with playbooks
+Playbooks overview
+Automate IAM recommendations using playbooks
+Enable public bucket remediation
+Use the Security Command Center API
+Create and manage findings
+List security findings
+Create and manage security findings
+Manage security marks on findings and assets
+Create, manage, and filter Notification Configs
+Create and manage Notification Configs
+Filter notifications
+Create and manage security sources
+Discover and list assets
+Configure asset discovery
+List assets
+Monitor and troubleshoot
+View audit logs
+Security Command Center
+Security Command Center Management
+Compliance Manager
+Web Security Scanner
+Security Posture
+Assured Open Source Software
+Troubleshooting steps
+Error messages
+Frequently asked questions
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Home
+Documentation
+Security
+Security Command Center
+Guides
+Send feedback
+Provision Security Command Center resources with Terraform
+Stay organized with collections
+Save and categorize content based on your preferences.
+Standard-legacy, Standard, Premium, and Enterprise (Deprecated) service tiers
+The Security Command Center Enterprise service tier will shut down on May 21, 2027.
+If your organization uses the Enterprise service tier, then the organization will automatically
+move to the Premium service tier on or after May 21, 2027.
+Contact your account representative or a
+Google Cloud sales specialist
+if you have questions.
+HashiCorp Terraform is an infrastructure-as-code (IaC) tool that lets you
+provision and manage cloud infrastructure. Terraform provides plugins called
+providers that let you interact with cloud providers and other APIs. You can
+use the Terraform provider for Google Cloud to provision and manage
+Google Cloud resources, including Security Command Center.
+This page introduces you to using Terraform with Security Command Center, including an
+introduction to how Terraform works and some resources to help you get started using
+Terraform with Google Cloud. You'll also find links to Terraform reference docs for
+Security Command Center, code examples, and guides for using Terraform to provision
+Security Command Center resources.
+For instructions on how to get started with Terraform for Google Cloud, see
+Install and configure Terraform or the
+Terraform for Google Cloud quickstart.
+How Terraform works
+Terraform has a declarative and configuration-oriented syntax, which you can
+use to describe the infrastructure that you want to provision in your
+Google Cloud project. After you author this configuration in one or more
+Terraform configuration files, you can use the Terraform CLI to apply this
+configuration to your Security Command Center resources.
+The following steps explain how Terraform works:
+You describe the infrastructure you want to provision in a Terraform
+configuration file. You don't need to write code describing how to
+provision the infrastructure. Terraform provisions the infrastructure for you.
+You run the terraform plan command, which evaluates your configuration and
+generates an execution plan. You can review the plan and make changes as
+needed.
+You run the terraform apply command, which performs the following
+actions:
+It provisions your infrastructure based on your execution plan by invoking
+the corresponding Security Command Center APIs in the background.
+It creates a Terraform state file, which is a JSON file that maps the resources
+in your configuration file to the resources in the real-world infrastructure. Terraform uses
+this file to keep a record of the most recent state of your infrastructure, and to determine
+when to create, update, and destroy resources.
+When you run terraform apply, Terraform uses the mapping in
+the state file to compare the existing infrastructure to the code, and make
+updates as necessary:
+If a resource object is defined in the configuration file, but doesn't exist in the
+state file, Terraform creates it.
+If a resource object exists in the state file, but has a different
+configuration from your configuration file, Terraform updates the resource
+to match your configuration file.
+If a resource object in the state file matches your configuration file,
+Terraform leaves the resource unchanged.
+Terraform resources for Security Command Center
+Resources are the fundamental elements in the Terraform language. Each
+resource block describes one or more infrastructure objects, such as virtual
+networks or compute instances.
+The following table lists the Terraform resources available for
+Security Command Center:
+| Service
+| Terraform resources
+| Data sources
+| Security Command Center (SCC) v2 API
+|
+google_scc_v2_folder_mute_config
+google_scc_v2_folder_notification_config
+google_scc_v2_folder_scc_big_query_export
+google_scc_v2_organization_mute_config
+google_scc_v2_organization_notification_config
+google_scc_v2_organization_scc_big_query_export
+google_scc_v2_organization_scc_big_query_exports
+google_scc_v2_organization_source
+google_scc_v2_organization_source_iam
+google_scc_v2_project_mute_config
+google_scc_v2_project_notification_config
+google_scc_v2_project_scc_big_query_export
+|
+google_scc_v2_organization_source_iam_policy
+| Security Command Center (SCC) [v1 API]
+|
+google_scc_event_threat_detection_custom_module
+google_scc_folder_custom_module
+google_scc_folder_notification_config
+google_scc_folder_scc_big_query_export
+google_scc_mute_config
+google_scc_notification_config
+google_scc_organization_custom_module
+google_scc_organization_scc_big_query_export
+google_scc_project_custom_module
+google_scc_project_notification_config
+google_scc_project_scc_big_query_export
+google_scc_source
+google_scc_source_iam
+|
+google_scc_source_iam_policy
+| Security Command Center Management (SCC)
+|
+google_scc_management_folder_security_health_analytics_custom_module
+google_scc_management_organization_event_threat_detection_custom_module
+google_scc_management_organization_security_health_analytics_custom_module
+google_scc_management_project_security_health_analytics_custom_module
+|
+| Compliance Manager
+|
+google_cloud_security_compliance_cloud_control
+google_cloud_security_compliance_framework
+google_cloud_security_compliance_framework_deployment
+|
+| Cloud Security Scanner [Web Security Scanner]
+|
+google_security_scanner_scan_config
+|
+| Model Armor
+|
+google_model_armor_floorsetting
+google_model_armor_template
+|
+| Security Posture
+|
+google_securityposture_posture
+google_securityposture_posture_deployment
+|
+Terraform-based guides for Security Command Center
+The following table lists Terraform-based how-to guides and tutorials for
+Security Command Center:
+| Guide
+| Details
+|
+Create and manage
+custom modules for Event Threat Detection
+|
+This guide explains how to manage custom modules for Event Threat Detection.
+Custom modules help you detect threats based on parameters that you
+specify.
+|
+Enable finding
+notifications for Pub/Sub
+|
+This guide explains how to send notifications for new and updated
+Security Command Center findings to a Pub/Sub topic.
+|
+Create
+a custom cloud control
+|
+This guide explains how to create custom cloud controls for
+Compliance Manager. Custom cloud controls let you create your
+own rules that let you detect possible violations to
+your security or compliance intent in your Google Cloud
+environment.
+|
+Create
+and deploy frameworks
+|
+This guide explains how to create custom frameworks for
+Compliance Manager and deploy frameworks in your environment.
+Frameworks are a collection of cloud controls that you want to deploy to
+your Google Cloud environment to detect possible violations to
+your security or compliance intent.
+|
+Mute findings in
+Security Command Center
+|
+This guide explains how to reduce the volume of Security Command Center
+findings that you receive by muting findings.
+|
+Stream
+findings to BigQuery for analysis
+|
+This guide explains how to stream new and updated Security Command Center
+findings to a BigQuery dataset.
+|
+Using custom
+modules with Security Health Analytics
+|
+This guide explains how to manage custom modules for Security Health Analytics.
+Custom modules help you detect threats based on parameters that you
+specify.
+|
+Manage a
+security posture
+|
+This guide describes how to manage security postures and monitor for
+changes that are made outside of security postures, which causes drift.
+Terraform modules and blueprints for Security Command Center
+Modules and blueprints help you automate provisioning and managing of
+Google Cloud resources at scale. A module is a
+reusable set of Terraform configuration files that creates a logical abstraction
+of Terraform resources. A blueprint is a package of deployable and reusable
+modules, and a policy that implements and documents a specific solution.
+The following table lists modules and blueprints related to
+Security Command Center:
+| Module or blueprint
+| Details
+|
+iam
+|
+Manages multiple IAM roles for resources on
+Google Cloud
+|
+org-policy
+| Manages Google Cloud organization policies
+What's next
+Terraform code samples for Security Command Center
+Terraform on Google Cloud documentation
+Google Cloud provider documentation in HashiCorp
+Infrastructure as code for Google Cloud
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-07 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

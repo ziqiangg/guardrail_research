@@ -1,0 +1,3486 @@
+# status 200  final_url https://docs.cloud.google.com/sensitive-data-protection/docs/deidentify-sensitive-data  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Sensitive Data Protection
+Start free
+Overview
+Guides
+Reference
+Samples
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Samples
+Resources
+Console
+Discover
+Product overview
+Plan your data risk management strategy
+Evaluate your data risk management needs
+Learn about your data through discovery and inspection
+Recommended strategies for mitigating data risk
+Release notes
+Pricing
+Locations
+Global and regional endpoints for Sensitive Data Protection
+Sensitive Data Protection locations
+Specify a processing location
+Service method types
+Supported file types and scanning modes
+Get started
+Quickstarts
+Inspect text using the command-line tool
+Inspect text using a JSON request
+Schedule an inspection scan
+Create an inspection template
+De-identify and re-identify sensitive text
+Google Cloud Skills Boost labs
+Detect sensitive data
+Discover and profile data resources
+Overview of sensitive data discovery
+Common discovery enablement scenarios
+Allow discovery within service perimeters
+Profile your data
+Profile a single data resource
+Profile BigQuery data
+Estimate BigQuery data profiling cost
+Estimate the cost of profiling BigQuery data in a project
+Estimate the cost of profiling BigQuery data in an organization or folder
+Profile BigQuery data in a project
+Profile BigQuery data in an organization or folder
+Profile Cloud SQL data
+Profile Cloud SQL data in a project
+Profile Cloud SQL data in an organization or folder
+Manage connections
+Profile Cloud Storage data
+Profile Cloud Storage data in a project
+Profile Cloud Storage data in an organization or folder
+Profile Vertex AI data
+Sensitive data discovery for Vertex AI data
+Profile Vertex AI data in a project
+Profile Vertex AI data in an organization or folder
+Profile Amazon S3 data
+Sensitive data discovery for Amazon S3 data
+Profile Amazon S3 data
+Profile Azure Blob Storage data
+Report secrets in environment variables to Security Command Center
+Grant data profiling access to a service agent
+Manage data profiles
+Control IAM access to resources based on data sensitivity
+Send discovery insights to other services
+Enable discovery actions
+Send data profiles to Security Command Center
+Receive and parse Pub/Sub messages about data profiles
+Tag tables in Data Catalog based on insights from data profiles
+Add Knowledge Catalog aspects based on insights from data profiles
+Analyze and visualize data profiles
+Visualize data profiles in the discovery dashboard
+Analyze data profiles
+Remediate findings from the data profiler
+Manage scan configurations
+Troubleshoot issues with the data profiler
+Metrics reference
+Data risk and sensitivity levels
+Inspect for sensitive data
+Inspect data stored in Google Cloud
+Inspect data from any source
+Inspect unstructured text synchronously
+Inspect structured text synchronously
+Inspect an image synchronously
+Asynchronous inspection overview
+Inspect data from any source asynchronously
+Quote the sensitive data in the results
+Work with inspection results
+Actions
+Send inspection results to Knowledge Catalog as aspects
+Send inspection results to Data Catalog
+Send inspection results to Security Command Center
+Analyze and report on inspection findings
+Query inspection findings in BigQuery
+Parse findings stored as Protobuf text
+Jobs and job triggers
+Overview of jobs and job triggers
+Create and manage jobs and job triggers
+Web-based inspection demonstration app
+Allow or block content based on sensitivity
+Overview of content policies
+Create and manage content policies
+Configure detection
+Templates
+Overview of templates
+Create inspection templates
+InfoTypes and infoType detectors
+Overview of infoTypes and infoType detectors
+Built-in infoType detectors
+List built-in infoType detectors
+InfoType detector reference
+Custom infoType detectors
+Overview of custom infoType detectors
+Create a regular custom dictionary detector
+Create a large custom dictionary detector
+Create a custom regex detector
+Create a custom metadata label detector
+Custom infoType examples
+Manage infoTypes through the Google Cloud console
+Modify infoType detectors to refine scan results
+Match likelihood
+Likelihood overview
+Customize match likelihood
+Mask and de-identify data
+Overview
+Transformation methods
+Transformation reference
+Text classification and redaction
+Date shifting
+Generalization and bucketing
+Pseudonymization
+De-identify sensitive data
+De-identify data stored in Google Cloud
+Overview
+Through the Cloud console
+Through the DLP API
+Transformation details reference
+De-identify data from any source
+De-identify text or tabular content
+Examples of text redaction
+Examples of tabular data de-identification
+Image inspection and redaction
+Redact sensitive data from images
+Create a de-identification template
+Create a wrapped key
+De-identify BigQuery data at query time
+De-identification and re-identification of PII in large-scale datasets
+Redact sensitive data from PDF files
+Analyze re-identification risk
+Overview of re-identification risk analysis
+Re-identification risk analysis techniques
+Compute k-anonymity for a dataset
+Compute l-diversity for a dataset
+Compute k-map for a dataset
+Compute δ-presence for a dataset
+Compute numerical and categorical statistics
+Visualize re-identification risk using Data Studio
+Connect to other services
+Use Sensitive Data Protection with BigQuery
+Use Sensitive Data Protection with Cloud Storage
+Use Sensitive Data Protection with Cloud Storage
+Automate the classification of data uploaded to Cloud Storage
+Send inspection results to Data Catalog
+Send inspection results to Security Command Center
+Monitor your usage with Cloud Monitoring
+Use Sensitive Data Protection with AWS S3
+Use Sensitive Data Protection with JDBC Databases
+Use Sensitive Data Protection with Apigee
+Use Sensitive Data Protection with Data Fusion
+Build a secure anomaly detection solution using Dataflow, BigQuery ML, and Sensitive Data Protection
+Troubleshoot
+Troubleshoot issues with the data profiler
+Control access
+Authentication
+IAM
+Access control with IAM
+Sensitive Data Protection roles and permissions
+Sensitive Data Protection service agents
+Control access with VPC Service Controls
+Monitor
+Audit logging
+Monitor your usage with Cloud Monitoring
+Develop
+All Sensitive Data Protection code samples
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Cloud Data Loss Prevention (Cloud DLP) is now a part of Sensitive Data Protection. The API name remains the same: Cloud Data Loss Prevention API (DLP API). For information about the services that make up Sensitive Data Protection, see Sensitive Data Protection overview.
+Home
+Documentation
+Security
+Sensitive Data Protection
+Guides
+Send feedback
+De-identifying sensitive data
+Stay organized with collections
+Save and categorize content based on your preferences.
+Sensitive Data Protection can de-identify sensitive data in text content, including
+text stored in container structures such as tables. De-identification is the
+process of removing identifying information from data. The API detects
+sensitive data such as personally identifiable information (PII), and then
+uses a de-identification transformation to mask, delete, or otherwise obscure
+the data. For example, de-identification techniques can include any of the
+following:
+Masking sensitive data by partially or fully replacing characters with a
+symbol, such as an asterisk (*) or hash (#).
+Replacing each instance of sensitive data with a token, or surrogate,
+string.
+Encrypting and replacing sensitive data using a randomly generated or
+pre-determined key.
+You can feed information to the API using JSON over HTTPS, as well as the CLI
+and several programming languages using the Sensitive Data Protection client
+libraries.
+To set up the CLI, refer to the
+quickstart.
+For more information about submitting information in JSON format, see the JSON
+quickstart.
+API overview
+To de-identify sensitive data, use Sensitive Data Protection's
+content.deidentify
+method.
+There are three parts to a de-identification API call:
+The data to inspect: A string or table structure
+(ContentItem
+object) for the API to inspect.
+What to inspect for: Detection configuration information
+(InspectConfig)
+such as what types of data (or infoTypes)
+to look for, whether to filter findings that are above a certain likelihood
+threshold, and whether to return no more than a certain number of results.
+In your InspectConfig object, make sure to include the infoTypes that you
+want to scan for. Otherwise, Sensitive Data Protection scans for a
+default set of infoTypes (ALL_BASIC), some of which you might not need.
+Scanning for infoTypes that you don't need can unnecessarily add latency to
+your request.
+An InspectConfig object is required in your request, with one exception.
+For more information, see Record transformations
+on this page.
+What to do with the inspection findings: Configuration information
+(DeidentifyConfig)
+that defines how you want the sensitive data de-identified. This argument
+is covered in more detail in the following section.
+The API returns the same items you gave it, in the same format, but any text
+identified as containing sensitive information according to your criteria
+has been de-identified.
+Specifying detection criteria
+Information type (or "infoType") detectors are the mechanisms that
+Sensitive Data Protection uses to find sensitive data.
+Sensitive Data Protection includes several kinds of infoType detectors, all
+of which are summarized here:
+Built-in infoType detectors are built into
+Sensitive Data Protection. They include detectors for country- or
+region-specific sensitive data types as well as globally applicable data
+types.
+Custom infoType detectors are detectors that you create
+yourself. There are three kinds of custom infoType detectors:
+Regular custom dictionary detectors are simple word lists that
+Sensitive Data Protection matches on. Use regular custom dictionary
+detectors when you have a list of up to several tens of thousands of
+words or phrases. Regular custom dictionary detectors are preferred if
+you don't anticipate your word list changing significantly.
+Stored custom dictionary detectors are generated by
+Sensitive Data Protection using large lists of words or phrases stored
+in either Cloud Storage or BigQuery. Use stored custom dictionary
+detectors when you have a large list of words or phrases—up to tens
+of millions.
+Regular expressions (regex) detectors enable
+Sensitive Data Protection to detect matches based on a regular expression
+pattern.
+To refine scan results, you can create inspection
+rules.
+De-identification transformations
+You must specify one or more transformations when you set the de-identification
+configuration
+(DeidentifyConfig).
+There are two categories of transformations:
+InfoTypeTransformations:
+Transformations that are only applied to values within submitted text that
+are identified as a specific infoType.
+RecordTransformations:
+Transformations that are only applied to values within submitted tabular
+text data that are identified as a specific infoType, or on an entire column
+of tabular data.
+InfoType transformations
+You can specify one or more infoType transformations per request. Within each
+InfoTypeTransformation object, you specify both of the following:
+One or more infoTypes to which a
+transformation should be applied (the infoTypes[] array object).
+A primitive transformation (the
+PrimitiveTransformation
+object).
+Note that specifying an infoType is optional, but not specifying at least one
+infoType in an
+InspectConfig
+argument causes the transformation to apply to all built-in infoTypes that
+don't have a transformation provided. Doing so is not recommended, as it can
+cause decreased performance and increased cost.
+Primitive transformations
+You must specify at least one primitive transformation to apply to the input,
+regardless of whether you're applying it only to certain infoTypes or to the
+entire text string. The following sections describe examples of transformation
+methods that you can use. For a list of all transformation methods that
+Sensitive Data Protection offers, see Transformation
+reference.
+replaceConfig
+Setting replaceConfig to a ReplaceValueConfig
+object replaces matched input values with a value you specify.
+For example, suppose you've set replaceConfig to "[email-address]"
+for all EMAIL_ADDRESS infoTypes, and the following string is sent to
+Sensitive Data Protection:
+My name is Alicia Abernathy, and my email address is aabernathy@example.com.
+The returned string will be the following:
+My name is Alicia Abernathy, and my email address is [email-address].
+The following JSON example and code in several languages shows how to form the
+API request and what the DLP API returns:
+Important:
+The code on this page requires that you first set up a Sensitive Data Protection client. For more
+information about installing and creating a Sensitive Data Protection client, see
+Sensitive Data Protection client libraries. (Sending JSON
+to Sensitive Data Protection REST endpoints does not require a client
+library.)
+Python
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+from typing import List
+import google.cloud.dlp
+def deidentify_with_replace(
+project: str,
+input_str: str,
+info_types: List[str],
+replacement_str: str = "REPLACEMENT_STR",
+) -> None:
+"""Uses the Data Loss Prevention API to deidentify sensitive data in a
+string by replacing matched input values with a value you specify.
+Args:
+project: The Google Cloud project id to use as a parent resource.
+input_str: The string to deidentify (will be treated as text).
+info_types: A list of strings representing info types to look for.
+replacement_str: The string to replace all values that match given
+info types.
+Returns:
+None; the response from the API is printed to the terminal.
+"""
+# Instantiate a client
+dlp = google.cloud.dlp_v2.DlpServiceClient()
+# Convert the project id into a full resource id.
+parent = f"projects/{project}/locations/global"
+# Construct inspect configuration dictionary
+inspect_config = {"info_types": [{"name": info_type} for info_type in info_types]}
+# Construct deidentify configuration dictionary
+deidentify_config = {
+"info_type_transformations": {
+"transformations": [
+{
+"primitive_transformation": {
+"replace_config": {
+"new_value": {"string_value": replacement_str}
+}
+}
+}
+]
+}
+}
+# Construct item
+item = {"value": input_str}
+# Call the API
+response = dlp.deidentify_content(
+request={
+"parent": parent,
+"deidentify_config": deidentify_config,
+"inspect_config": inspect_config,
+"item": item,
+}
+)
+# Print out the results.
+print(response.item.value)
+Java
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import com.google.cloud.dlp.v2.DlpServiceClient;
+import com.google.privacy.dlp.v2.ContentItem;
+import com.google.privacy.dlp.v2.DeidentifyConfig;
+import com.google.privacy.dlp.v2.DeidentifyContentRequest;
+import com.google.privacy.dlp.v2.DeidentifyContentResponse;
+import com.google.privacy.dlp.v2.InfoType;
+import com.google.privacy.dlp.v2.InfoTypeTransformations;
+import com.google.privacy.dlp.v2.InfoTypeTransformations.InfoTypeTransformation;
+import com.google.privacy.dlp.v2.InspectConfig;
+import com.google.privacy.dlp.v2.LocationName;
+import com.google.privacy.dlp.v2.PrimitiveTransformation;
+import com.google.privacy.dlp.v2.ReplaceValueConfig;
+import com.google.privacy.dlp.v2.Value;
+public class DeIdentifyWithReplacement {
+public static void main(String[] args) throws Exception {
+// TODO(developer): Replace these variables before running the sample.
+String projectId = "your-project-id";
+String textToInspect =
+"My name is Alicia Abernathy, and my email address is aabernathy@example.com.";
+deIdentifyWithReplacement(projectId, textToInspect);
+}
+// Inspects the provided text.
+public static void deIdentifyWithReplacement(String projectId, String textToRedact) {
+// Initialize client that will be used to send requests. This client only needs to be created
+// once, and can be reused for multiple requests. After completing all of your requests, call
+// the "close" method on the client to safely clean up any remaining background resources.
+try (DlpServiceClient dlp = DlpServiceClient.create()) {
+// Specify the content to be inspected.
+ContentItem item = ContentItem.newBuilder().setValue(textToRedact).build();
+// Specify the type of info the inspection will look for.
+// See https://cloud.google.com/dlp/docs/infotypes-reference for complete list of info types
+InfoType infoType = InfoType.newBuilder().setName("EMAIL_ADDRESS").build();
+InspectConfig inspectConfig = InspectConfig.newBuilder().addInfoTypes(infoType).build();
+// Specify replacement string to be used for the finding.
+ReplaceValueConfig replaceValueConfig =
+ReplaceValueConfig.newBuilder()
+.setNewValue(Value.newBuilder().setStringValue("[email-address]").build())
+.build();
+// Define type of deidentification as replacement.
+PrimitiveTransformation primitiveTransformation =
+PrimitiveTransformation.newBuilder().setReplaceConfig(replaceValueConfig).build();
+// Associate deidentification type with info type.
+InfoTypeTransformation transformation =
+InfoTypeTransformation.newBuilder()
+.addInfoTypes(infoType)
+.setPrimitiveTransformation(primitiveTransformation)
+.build();
+// Construct the configuration for the Redact request and list all desired transformations.
+DeidentifyConfig redactConfig =
+DeidentifyConfig.newBuilder()
+.setInfoTypeTransformations(
+InfoTypeTransformations.newBuilder().addTransformations(transformation))
+.build();
+// Construct the Redact request to be sent by the client.
+DeidentifyContentRequest request =
+DeidentifyContentRequest.newBuilder()
+.setParent(LocationName.of(projectId, "global").toString())
+.setItem(item)
+.setDeidentifyConfig(redactConfig)
+.setInspectConfig(inspectConfig)
+.build();
+// Use the client to send the API request.
+DeidentifyContentResponse response = dlp.deidentifyContent(request);
+// Parse the response and process results
+System.out.println("Text after redaction: " + response.getItem().getValue());
+} catch (Exception e) {
+System.out.println("Error during inspectString: \n" + e.toString());
+}
+}
+}
+REST
+See the JSON quickstart for more information about
+using the DLP API with JSON.
+JSON Input:
+POST https://dlp.googleapis.com/v2/projects/[PROJECT_ID]/content:deidentify?key={YOUR_API_KEY}
+{
+"item":{
+"value":"My name is Alicia Abernathy, and my email address is aabernathy@example.com."
+},
+"deidentifyConfig":{
+"infoTypeTransformations":{
+"transformations":[
+{
+"infoTypes":[
+{
+"name":"EMAIL_ADDRESS"
+}
+],
+"primitiveTransformation":{
+"replaceConfig":{
+"newValue":{
+"stringValue":"[email-address]"
+}
+}
+}
+}
+]
+}
+},
+"inspectConfig":{
+"infoTypes":[
+{
+"name":"EMAIL_ADDRESS"
+}
+]
+}
+}
+JSON Output:
+{
+"item":{
+"value":"My name is Alicia Abernathy, and my email address is [email-address]."
+},
+"overview":{
+"transformedBytes":"22",
+"transformationSummaries":[
+{
+"infoType":{
+"name":"EMAIL_ADDRESS"
+},
+"transformation":{
+"replaceConfig":{
+"newValue":{
+"stringValue":"[email-address]"
+}
+}
+},
+"results":[
+{
+"count":"1",
+"code":"SUCCESS"
+}
+],
+"transformedBytes":"22"
+}
+]
+}
+}
+redactConfig
+Specifying
+redactConfig
+redacts a given value by removing it completely. The redactConfig message
+has no arguments; specifying it enables its transformation.
+For example, suppose you've specified redactConfig for all EMAIL_ADDRESS
+infoTypes, and the following string is sent to Sensitive Data Protection:
+My name is Alicia Abernathy, and my email address is aabernathy@example.com.
+The returned string will be the following:
+My name is Alicia Abernathy, and my email address is .
+The following examples show how to form the API request and what the
+DLP API returns:
+Important:
+The code on this page requires that you first set up a Sensitive Data Protection client. For more
+information about installing and creating a Sensitive Data Protection client, see
+Sensitive Data Protection client libraries. (Sending JSON
+to Sensitive Data Protection REST endpoints does not require a client
+library.)
+C#
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+using System;
+using System.Collections.Generic;
+using Google.Api.Gax.ResourceNames;
+using Google.Cloud.Dlp.V2;
+public class DeidentifyDataUsingRedactWithMatchedInputValues
+{
+public static DeidentifyContentResponse Deidentify(
+string projectId,
+string text,
+IEnumerable<InfoType> infoTypes = null)
+{
+// Instantiate the client.
+var dlp = DlpServiceClient.Create();
+// Construct inspect config.
+var inspectConfig = new InspectConfig
+{
+InfoTypes = { infoTypes ?? new InfoType[] { new InfoType { Name = "EMAIL_ADDRESS" } } },
+};
+// Construct redact config.
+var redactConfig = new RedactConfig();
+// Construct deidentify config using redact config.
+var deidentifyConfig = new DeidentifyConfig
+{
+InfoTypeTransformations = new InfoTypeTransformations
+{
+Transformations =
+{
+new InfoTypeTransformations.Types.InfoTypeTransformation
+{
+PrimitiveTransformation = new PrimitiveTransformation
+{
+RedactConfig = redactConfig
+}
+}
+}
+}
+};
+// Construct a request.
+var request = new DeidentifyContentRequest
+{
+ParentAsLocationName = new LocationName(projectId, "global"),
+DeidentifyConfig = deidentifyConfig,
+InspectConfig = inspectConfig,
+Item = new ContentItem { Value = text }
+};
+// Call the API.
+var response = dlp.DeidentifyContent(request);
+// Check the deidentified content.
+Console.WriteLine($"Deidentified content: {response.Item.Value}");
+return response;
+}
+}
+Go
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import (
+"context"
+"fmt"
+"io"
+dlp "cloud.google.com/go/dlp/apiv2"
+"cloud.google.com/go/dlp/apiv2/dlppb"
+)
+// deidentifyWithRedact de-identify the data by redacting with matched input values
+func deidentifyWithRedact(w io.Writer, projectID, inputStr string, infoTypeNames []string) error {
+// projectID := "my-project-id"
+// inputStr := "My name is Alicia Abernathy, and my email address is aabernathy@example.com."
+// infoTypeNames := []string{"EMAIL_ADDRESS"}
+ctx := context.Background()
+// Initialize a client once and reuse it to send multiple requests. Clients
+// are safe to use across goroutines. When the client is no longer needed,
+// call the Close method to cleanup its resources.
+client, err := dlp.NewClient(ctx)
+if err != nil {
+return fmt.Errorf("dlp.NewClient: %w", err)
+}
+// Closing the client safely cleans up background resources.
+defer client.Close()
+// Specify the content to be inspected.
+contentItem := &dlppb.ContentItem{
+DataItem: &dlppb.ContentItem_Value{
+Value: inputStr,
+},
+}
+// Specify the type of info the inspection will look for.
+// See https://cloud.google.com/dlp/docs/infotypes-reference for complete list of info types
+var infoTypes []*dlppb.InfoType
+for _, it := range infoTypeNames {
+infoTypes = append(infoTypes, &dlppb.InfoType{Name: it})
+}
+inspectConfig := &dlppb.InspectConfig{
+InfoTypes: infoTypes,
+}
+// Define type of de-identification.
+primitiveTransformation := &dlppb.PrimitiveTransformation{
+Transformation: &dlppb.PrimitiveTransformation_RedactConfig{
+RedactConfig: &dlppb.RedactConfig{},
+},
+}
+// Associate de-identification type with info type.
+transformation := &dlppb.InfoTypeTransformations_InfoTypeTransformation{
+InfoTypes: infoTypes,
+PrimitiveTransformation: primitiveTransformation,
+}
+// Construct the configuration for the Redact request and list all desired transformations.
+redactConfig := &dlppb.DeidentifyConfig{
+Transformation: &dlppb.DeidentifyConfig_InfoTypeTransformations{
+InfoTypeTransformations: &dlppb.InfoTypeTransformations{
+Transformations: []*dlppb.InfoTypeTransformations_InfoTypeTransformation{
+transformation,
+},
+},
+},
+}
+// Create a configured request.
+req := &dlppb.DeidentifyContentRequest{
+Parent: fmt.Sprintf("projects/%s/locations/global", projectID),
+DeidentifyConfig: redactConfig,
+InspectConfig: inspectConfig,
+Item: contentItem,
+}
+// Send the request.
+resp, err := client.DeidentifyContent(ctx, req)
+if err != nil {
+return err
+}
+// Print the result.
+fmt.Fprintf(w, "output: %v", resp.GetItem().GetValue())
+return nil
+}
+Java
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import com.google.cloud.dlp.v2.DlpServiceClient;
+import com.google.privacy.dlp.v2.ContentItem;
+import com.google.privacy.dlp.v2.DeidentifyConfig;
+import com.google.privacy.dlp.v2.DeidentifyContentRequest;
+import com.google.privacy.dlp.v2.DeidentifyContentResponse;
+import com.google.privacy.dlp.v2.InfoType;
+import com.google.privacy.dlp.v2.InfoTypeTransformations;
+import com.google.privacy.dlp.v2.InfoTypeTransformations.InfoTypeTransformation;
+import com.google.privacy.dlp.v2.InspectConfig;
+import com.google.privacy.dlp.v2.LocationName;
+import com.google.privacy.dlp.v2.PrimitiveTransformation;
+import com.google.privacy.dlp.v2.RedactConfig;
+public class DeIdentifyWithRedaction {
+public static void main(String[] args) throws Exception {
+// TODO(developer): Replace these variables before running the sample.
+String projectId = "your-project-id";
+String textToInspect =
+"My name is Alicia Abernathy, and my email address is aabernathy@example.com.";
+deIdentifyWithRedaction(projectId, textToInspect);
+}
+// Inspects the provided text.
+public static void deIdentifyWithRedaction(String projectId, String textToRedact) {
+// Initialize client that will be used to send requests. This client only needs to be created
+// once, and can be reused for multiple requests. After completing all of your requests, call
+// the "close" method on the client to safely clean up any remaining background resources.
+try (DlpServiceClient dlp = DlpServiceClient.create()) {
+// Specify the content to be inspected.
+ContentItem item = ContentItem.newBuilder().setValue(textToRedact).build();
+// Specify the type of info the inspection will look for.
+// See https://cloud.google.com/dlp/docs/infotypes-reference for complete list of info types
+InfoType infoType = InfoType.newBuilder().setName("EMAIL_ADDRESS").build();
+InspectConfig inspectConfig = InspectConfig.newBuilder().addInfoTypes(infoType).build();
+// Define type of deidentification.
+PrimitiveTransformation primitiveTransformation =
+PrimitiveTransformation.newBuilder()
+.setRedactConfig(RedactConfig.getDefaultInstance())
+.build();
+// Associate deidentification type with info type.
+InfoTypeTransformation transformation =
+InfoTypeTransformation.newBuilder()
+.addInfoTypes(infoType)
+.setPrimitiveTransformation(primitiveTransformation)
+.build();
+// Construct the configuration for the Redact request and list all desired transformations.
+DeidentifyConfig redactConfig =
+DeidentifyConfig.newBuilder()
+.setInfoTypeTransformations(
+InfoTypeTransformations.newBuilder().addTransformations(transformation))
+.build();
+// Construct the Redact request to be sent by the client.
+DeidentifyContentRequest request =
+DeidentifyContentRequest.newBuilder()
+.setParent(LocationName.of(projectId, "global").toString())
+.setItem(item)
+.setDeidentifyConfig(redactConfig)
+.setInspectConfig(inspectConfig)
+.build();
+// Use the client to send the API request.
+DeidentifyContentResponse response = dlp.deidentifyContent(request);
+// Parse the response and process results
+System.out.println("Text after redaction: " + response.getItem().getValue());
+} catch (Exception e) {
+System.out.println("Error during inspectString: \n" + e.toString());
+}
+}
+}
+Node.js
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+// Imports the Google Cloud Data Loss Prevention library
+const DLP = require('@google-cloud/dlp');
+// Instantiates a client
+const dlp = new DLP.DlpServiceClient();
+// TODO(developer): Replace these variables before running the sample.
+// const projectId = "your-project-id";
+// The string to deidentify
+// const string =
+// 'My name is Alicia Abernathy, and my email address is aabernathy@example.com.';
+// The infoTypes of information to match
+// See https://cloud.google.com/dlp/docs/concepts-infotypes for more information
+// about supported infoTypes.
+// const infoTypes = [{name: 'EMAIL_ADDRESS'}];
+async function deIdentifyRedaction() {
+// Construct deidentify configuration
+const deidentifyConfig = {
+infoTypeTransformations: {
+transformations: [
+{
+infoTypes: infoTypes,
+primitiveTransformation: {
+redactConfig: {},
+},
+},
+],
+},
+};
+// Construct inspect configuration
+const inspectConfig = {
+infoTypes: infoTypes,
+};
+// Construct Item
+const item = {
+value: string,
+};
+// Combine configurations into a request for the service.
+const request = {
+parent: `projects/${projectId}/locations/global`,
+item,
+deidentifyConfig,
+inspectConfig,
+};
+// Send the request and receive response from the service
+const [response] = await dlp.deidentifyContent(request);
+// Print the results
+console.log(`Text after redaction: ${response.item.value}`);
+}
+deIdentifyRedaction();
+PHP
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+use Google\Cloud\Dlp\V2\Client\DlpServiceClient;
+use Google\Cloud\Dlp\V2\ContentItem;
+use Google\Cloud\Dlp\V2\DeidentifyConfig;
+use Google\Cloud\Dlp\V2\DeidentifyContentRequest;
+use Google\Cloud\Dlp\V2\InfoType;
+use Google\Cloud\Dlp\V2\InfoTypeTransformations;
+use Google\Cloud\Dlp\V2\InfoTypeTransformations\InfoTypeTransformation;
+use Google\Cloud\Dlp\V2\InspectConfig;
+use Google\Cloud\Dlp\V2\PrimitiveTransformation;
+use Google\Cloud\Dlp\V2\RedactConfig;
+/**
+* De-identify data: Redacting with matched input values
+* Uses the Data Loss Prevention API to de-identify sensitive data in a string by redacting matched input values.
+*
+* @param string $callingProjectId The Google Cloud project id to use as a parent resource.
+* @param string $textToInspect The string to deidentify (will be treated as text).
+*/
+function deidentify_redact(
+// TODO(developer): Replace sample parameters before running the code.
+string $callingProjectId,
+string $textToInspect = 'My name is Alicia Abernathy, and my email address is aabernathy@example.com.'
+): void {
+// Instantiate a client.
+$dlp = new DlpServiceClient();
+// Specify the content to be de-identify.
+$contentItem = (new ContentItem())
+->setValue($textToInspect);
+// Specify the type of info the inspection will look for.
+$infoType = (new InfoType())
+->setName('EMAIL_ADDRESS');
+$inspectConfig = (new InspectConfig())
+->setInfoTypes([$infoType]);
+// Define type of de-identification.
+$primitiveTransformation = (new PrimitiveTransformation())
+->setRedactConfig(new RedactConfig());
+// Associate de-identification type with info type.
+$transformation = (new InfoTypeTransformation())
+->setInfoTypes([$infoType])
+->setPrimitiveTransformation($primitiveTransformation);
+// Construct the configuration for the Redact request and list all desired transformations.
+$deidentifyConfig = (new DeidentifyConfig())
+->setInfoTypeTransformations((new InfoTypeTransformations())
+->setTransformations([$transformation]));
+$parent = "projects/$callingProjectId/locations/global";
+// Run request
+$deidentifyContentRequest = (new DeidentifyContentRequest())
+->setParent($parent)
+->setDeidentifyConfig($deidentifyConfig)
+->setInspectConfig($inspectConfig)
+->setItem($contentItem);
+$response = $dlp->deidentifyContent($deidentifyContentRequest);
+// Print results
+printf('Text after redaction: %s', $response->getItem()->getValue());
+}
+Python
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+from typing import List
+import google.cloud.dlp
+def deidentify_with_redact(
+project: str,
+input_str: str,
+info_types: List[str],
+) -> None:
+"""Uses the Data Loss Prevention API to deidentify sensitive data in a
+string by redacting matched input values.
+Args:
+project: The Google Cloud project id to use as a parent resource.
+input_str: The string to deidentify (will be treated as text).
+info_types: A list of strings representing info types to look for.
+Returns:
+None; the response from the API is printed to the terminal.
+"""
+# Instantiate a client
+dlp = google.cloud.dlp_v2.DlpServiceClient()
+# Convert the project id into a full resource id.
+parent = f"projects/{project}/locations/global"
+# Construct inspect configuration dictionary
+inspect_config = {"info_types": [{"name": info_type} for info_type in info_types]}
+# Construct deidentify configuration dictionary
+deidentify_config = {
+"info_type_transformations": {
+"transformations": [{"primitive_transformation": {"redact_config": {}}}]
+}
+}
+# Construct item
+item = {"value": input_str}
+# Call the API
+response = dlp.deidentify_content(
+request={
+"parent": parent,
+"deidentify_config": deidentify_config,
+"inspect_config": inspect_config,
+"item": item,
+}
+)
+# Print out the results.
+print(response.item.value)
+REST
+JSON Input:
+POST https://dlp.googleapis.com/v2/projects/[PROJECT_ID]/content:deidentify?key={YOUR_API_KEY}
+{
+"item":{
+"value":"My name is Alicia Abernathy, and my email address is aabernathy@example.com."
+},
+"deidentifyConfig":{
+"infoTypeTransformations":{
+"transformations":[
+{
+"infoTypes":[
+{
+"name":"EMAIL_ADDRESS"
+}
+],
+"primitiveTransformation":{
+"redactConfig":{
+}
+}
+}
+]
+}
+},
+"inspectConfig":{
+"infoTypes":[
+{
+"name":"EMAIL_ADDRESS"
+}
+]
+}
+}
+JSON Output:
+{
+"item":{
+"value":"My name is Alicia Abernathy, and my email address is ."
+},
+"overview":{
+"transformedBytes":"22",
+"transformationSummaries":[
+{
+"infoType":{
+"name":"EMAIL_ADDRESS"
+},
+"transformation":{
+"redactConfig":{
+}
+},
+"results":[
+{
+"count":"1",
+"code":"SUCCESS"
+}
+],
+"transformedBytes":"22"
+}
+]
+}
+}
+characterMaskConfig
+Setting characterMaskConfig to a CharacterMaskConfig
+object partially masks a string by replacing a given number of characters
+with a fixed character. Masking can start from the beginning or end of the
+string. This transformation also works with number types such as long
+integers.
+The CharacterMaskConfig object has several of its own arguments:
+maskingCharacter: The character to use to mask each character of a
+sensitive value. For example, you could specify an asterisk (*) or hash
+(#) to mask a series of numbers such as those in a credit card number.
+numberToMask: The number of characters to mask. If you don't set this
+value, all matching characters will be masked.
+reverseOrder: Whether to mask characters in reverse order. Setting
+reverseOrder to true causes characters in matched values to be masked
+from the end toward the beginning of the value. Setting it to false causes
+masking to begin at the start of the value.
+charactersToIgnore[]: One or more characters to skip when masking
+values. For example, specify a hyphen here to leave the hyphens in place
+when masking a telephone number. You can also specify a group of common
+characters (CharsToIgnore)
+to ignore when masking.
+For example, suppose you've set characterMaskConfig to mask with '#' for
+EMAIL_ADDRESS infotypes, except for the '.' and '@' characters. If the
+following string is sent to Sensitive Data Protection:
+My name is Alicia Abernathy, and my email address is aabernathy@example.com.
+The returned string will be the following:
+My name is Alicia Abernathy, and my email address is ##########@#######.###.
+Following are examples that demonstrate how to use the
+DLP API to de-identify sensitive data using masking
+techniques.
+Important:
+The code on this page requires that you first set up a Sensitive Data Protection client. For more
+information about installing and creating a Sensitive Data Protection client, see
+Sensitive Data Protection client libraries. (Sending JSON
+to Sensitive Data Protection REST endpoints does not require a client
+library.)
+Java
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import com.google.cloud.dlp.v2.DlpServiceClient;
+import com.google.privacy.dlp.v2.CharacterMaskConfig;
+import com.google.privacy.dlp.v2.ContentItem;
+import com.google.privacy.dlp.v2.DeidentifyConfig;
+import com.google.privacy.dlp.v2.DeidentifyContentRequest;
+import com.google.privacy.dlp.v2.DeidentifyContentResponse;
+import com.google.privacy.dlp.v2.InfoType;
+import com.google.privacy.dlp.v2.InfoTypeTransformations;
+import com.google.privacy.dlp.v2.InfoTypeTransformations.InfoTypeTransformation;
+import com.google.privacy.dlp.v2.InspectConfig;
+import com.google.privacy.dlp.v2.LocationName;
+import com.google.privacy.dlp.v2.PrimitiveTransformation;
+import java.io.IOException;
+import java.util.Arrays;
+public class DeIdentifyWithMasking {
+public static void main(String[] args) throws Exception {
+// TODO(developer): Replace these variables before running the sample.
+String projectId = "your-project-id";
+String textToDeIdentify = "My SSN is 372819127";
+deIdentifyWithMasking(projectId, textToDeIdentify);
+}
+public static void deIdentifyWithMasking(String projectId, String textToDeIdentify)
+throws IOException {
+// Initialize client that will be used to send requests. This client only needs to be created
+// once, and can be reused for multiple requests. After completing all of your requests, call
+// the "close" method on the client to safely clean up any remaining background resources.
+try (DlpServiceClient dlp = DlpServiceClient.create()) {
+// Specify what content you want the service to DeIdentify
+ContentItem contentItem = ContentItem.newBuilder().setValue(textToDeIdentify).build();
+// Specify the type of info the inspection will look for.
+// See https://cloud.google.com/dlp/docs/infotypes-reference for complete list of info types
+InfoType infoType = InfoType.newBuilder().setName("US_SOCIAL_SECURITY_NUMBER").build();
+InspectConfig inspectConfig =
+InspectConfig.newBuilder().addAllInfoTypes(Arrays.asList(infoType)).build();
+// Specify how the info from the inspection should be masked.
+CharacterMaskConfig characterMaskConfig =
+CharacterMaskConfig.newBuilder()
+.setMaskingCharacter("X") // Character to replace the found info with
+.setNumberToMask(5) // How many characters should be masked
+.build();
+PrimitiveTransformation primitiveTransformation =
+PrimitiveTransformation.newBuilder()
+.setCharacterMaskConfig(characterMaskConfig)
+.build();
+InfoTypeTransformation infoTypeTransformation =
+InfoTypeTransformation.newBuilder()
+.setPrimitiveTransformation(primitiveTransformation)
+.build();
+InfoTypeTransformations transformations =
+InfoTypeTransformations.newBuilder().addTransformations(infoTypeTransformation).build();
+DeidentifyConfig deidentifyConfig =
+DeidentifyConfig.newBuilder().setInfoTypeTransformations(transformations).build();
+// Combine configurations into a request for the service.
+DeidentifyContentRequest request =
+DeidentifyContentRequest.newBuilder()
+.setParent(LocationName.of(projectId, "global").toString())
+.setItem(contentItem)
+.setInspectConfig(inspectConfig)
+.setDeidentifyConfig(deidentifyConfig)
+.build();
+// Send the request and receive response from the service
+DeidentifyContentResponse response = dlp.deidentifyContent(request);
+// Print the results
+System.out.println("Text after masking: " + response.getItem().getValue());
+}
+}
+}
+Node.js
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+// Imports the Google Cloud Data Loss Prevention library
+const DLP = require('@google-cloud/dlp');
+// Instantiates a client
+const dlp = new DLP.DlpServiceClient();
+// The project ID to run the API call under
+// const projectId = 'my-project-id';
+// The string to deidentify
+// const string = 'My SSN is 372819127';
+// (Optional) The maximum number of sensitive characters to mask in a match
+// If omitted from the request or set to 0, the API will mask any matching characters
+// const numberToMask = 5;
+// (Optional) The character to mask matching sensitive data with
+// const maskingCharacter = 'x';
+// Construct deidentification request
+const item = {value: string};
+async function deidentifyWithMask() {
+const request = {
+parent: `projects/${projectId}/locations/global`,
+deidentifyConfig: {
+infoTypeTransformations: {
+transformations: [
+{
+primitiveTransformation: {
+characterMaskConfig: {
+maskingCharacter: maskingCharacter,
+numberToMask: numberToMask,
+},
+},
+},
+],
+},
+},
+item: item,
+};
+// Run deidentification request
+const [response] = await dlp.deidentifyContent(request);
+const deidentifiedItem = response.item;
+console.log(deidentifiedItem.value);
+}
+deidentifyWithMask();
+Python
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+from typing import List
+import google.cloud.dlp
+def deidentify_with_mask(
+project: str,
+input_str: str,
+info_types: List[str],
+masking_character: str = None,
+number_to_mask: int = 0,
+) -> None:
+"""Uses the Data Loss Prevention API to deidentify sensitive data in a
+string by masking it with a character.
+Args:
+project: The Google Cloud project id to use as a parent resource.
+input_str: The string to deidentify (will be treated as text).
+info_types: A list of strings representing info types to look for.
+A full list of info type categories can be fetched from the API.
+masking_character: The character to mask matching sensitive data with.
+number_to_mask: The maximum number of sensitive characters to mask in
+a match. If omitted or set to zero, the API will default to no
+maximum.
+Returns:
+None; the response from the API is printed to the terminal.
+"""
+# Instantiate a client
+dlp = google.cloud.dlp_v2.DlpServiceClient()
+# Convert the project id into a full resource id.
+parent = f"projects/{project}/locations/global"
+# Construct inspect configuration dictionary
+inspect_config = {"info_types": [{"name": info_type} for info_type in info_types]}
+# Construct deidentify configuration dictionary
+deidentify_config = {
+"info_type_transformations": {
+"transformations": [
+{
+"primitive_transformation": {
+"character_mask_config": {
+"masking_character": masking_character,
+"number_to_mask": number_to_mask,
+}
+}
+}
+]
+}
+}
+# Construct item
+item = {"value": input_str}
+# Call the API
+response = dlp.deidentify_content(
+request={
+"parent": parent,
+"deidentify_config": deidentify_config,
+"inspect_config": inspect_config,
+"item": item,
+}
+)
+# Print out the results.
+print(response.item.value)
+Go
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import (
+"context"
+"fmt"
+"io"
+dlp "cloud.google.com/go/dlp/apiv2"
+"cloud.google.com/go/dlp/apiv2/dlppb"
+)
+// mask deidentifies the input by masking all provided info types with maskingCharacter
+// and prints the result to w.
+func mask(w io.Writer, projectID, input string, infoTypeNames []string, maskingCharacter string, numberToMask int32) error {
+// projectID := "my-project-id"
+// input := "My SSN is 111222333"
+// infoTypeNames := []string{"US_SOCIAL_SECURITY_NUMBER"}
+// maskingCharacter := "+"
+// numberToMask := 6
+// Will print "My SSN is ++++++333"
+ctx := context.Background()
+client, err := dlp.NewClient(ctx)
+if err != nil {
+return fmt.Errorf("dlp.NewClient: %w", err)
+}
+defer client.Close()
+// Convert the info type strings to a list of InfoTypes.
+var infoTypes []*dlppb.InfoType
+for _, it := range infoTypeNames {
+infoTypes = append(infoTypes, &dlppb.InfoType{Name: it})
+}
+// Create a configured request.
+req := &dlppb.DeidentifyContentRequest{
+Parent: fmt.Sprintf("projects/%s/locations/global", projectID),
+InspectConfig: &dlppb.InspectConfig{
+InfoTypes: infoTypes,
+},
+DeidentifyConfig: &dlppb.DeidentifyConfig{
+Transformation: &dlppb.DeidentifyConfig_InfoTypeTransformations{
+InfoTypeTransformations: &dlppb.InfoTypeTransformations{
+Transformations: []*dlppb.InfoTypeTransformations_InfoTypeTransformation{
+{
+InfoTypes: []*dlppb.InfoType{}, // Match all info types.
+PrimitiveTransformation: &dlppb.PrimitiveTransformation{
+Transformation: &dlppb.PrimitiveTransformation_CharacterMaskConfig{
+CharacterMaskConfig: &dlppb.CharacterMaskConfig{
+MaskingCharacter: maskingCharacter,
+NumberToMask: numberToMask,
+},
+},
+},
+},
+},
+},
+},
+},
+// The item to analyze.
+Item: &dlppb.ContentItem{
+DataItem: &dlppb.ContentItem_Value{
+Value: input,
+},
+},
+}
+// Send the request.
+r, err := client.DeidentifyContent(ctx, req)
+if err != nil {
+return fmt.Errorf("DeidentifyContent: %w", err)
+}
+// Print the result.
+fmt.Fprint(w, r.GetItem().GetValue())
+return nil
+}
+PHP
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+use Google\Cloud\Dlp\V2\CharacterMaskConfig;
+use Google\Cloud\Dlp\V2\Client\DlpServiceClient;
+use Google\Cloud\Dlp\V2\ContentItem;
+use Google\Cloud\Dlp\V2\DeidentifyConfig;
+use Google\Cloud\Dlp\V2\DeidentifyContentRequest;
+use Google\Cloud\Dlp\V2\InfoType;
+use Google\Cloud\Dlp\V2\InfoTypeTransformations;
+use Google\Cloud\Dlp\V2\InfoTypeTransformations\InfoTypeTransformation;
+use Google\Cloud\Dlp\V2\PrimitiveTransformation;
+/**
+* Deidentify sensitive data in a string by masking it with a character.
+*
+* @param string $callingProjectId The GCP Project ID to run the API call under
+* @param string $string The string to deidentify
+* @param int $numberToMask (Optional) The maximum number of sensitive characters to mask in a match
+* @param string $maskingCharacter (Optional) The character to mask matching sensitive data with (defaults to "x")
+*/
+function deidentify_mask(
+string $callingProjectId,
+string $string,
+int $numberToMask = 0,
+string $maskingCharacter = 'x'
+): void {
+// Instantiate a client.
+$dlp = new DlpServiceClient();
+// The infoTypes of information to mask
+$ssnInfoType = (new InfoType())
+->setName('US_SOCIAL_SECURITY_NUMBER');
+$infoTypes = [$ssnInfoType];
+// Create the masking configuration object
+$maskConfig = (new CharacterMaskConfig())
+->setMaskingCharacter($maskingCharacter)
+->setNumberToMask($numberToMask);
+// Create the information transform configuration objects
+$primitiveTransformation = (new PrimitiveTransformation())
+->setCharacterMaskConfig($maskConfig);
+$infoTypeTransformation = (new InfoTypeTransformation())
+->setPrimitiveTransformation($primitiveTransformation)
+->setInfoTypes($infoTypes);
+$infoTypeTransformations = (new InfoTypeTransformations())
+->setTransformations([$infoTypeTransformation]);
+// Create the deidentification configuration object
+$deidentifyConfig = (new DeidentifyConfig())
+->setInfoTypeTransformations($infoTypeTransformations);
+$item = (new ContentItem())
+->setValue($string);
+$parent = "projects/$callingProjectId/locations/global";
+// Run request
+$deidentifyContentRequest = (new DeidentifyContentRequest())
+->setParent($parent)
+->setDeidentifyConfig($deidentifyConfig)
+->setItem($item);
+$response = $dlp->deidentifyContent($deidentifyContentRequest);
+// Print the results
+$deidentifiedValue = $response->getItem()->getValue();
+print($deidentifiedValue);
+}
+C#
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+using System;
+using Google.Api.Gax.ResourceNames;
+using Google.Cloud.Dlp.V2;
+public class DeidentifyWithMasking
+{
+public static DeidentifyContentResponse Deidentify(string projectId, string text)
+{
+// Instantiate a client.
+var dlp = DlpServiceClient.Create();
+// Construct a request.
+var transformation = new InfoTypeTransformations.Types.InfoTypeTransformation
+{
+PrimitiveTransformation = new PrimitiveTransformation
+{
+CharacterMaskConfig = new CharacterMaskConfig
+{
+MaskingCharacter = "*",
+NumberToMask = 5,
+ReverseOrder = false,
+}
+}
+};
+var request = new DeidentifyContentRequest
+{
+Parent = new LocationName(projectId, "global").ToString(),
+InspectConfig = new InspectConfig
+{
+InfoTypes =
+{
+new InfoType { Name = "US_SOCIAL_SECURITY_NUMBER" }
+}
+},
+DeidentifyConfig = new DeidentifyConfig
+{
+InfoTypeTransformations = new InfoTypeTransformations
+{
+Transformations = { transformation }
+}
+},
+Item = new ContentItem { Value = text }
+};
+// Call the API.
+var response = dlp.DeidentifyContent(request);
+// Inspect the results.
+Console.WriteLine($"Deidentified content: {response.Item.Value}");
+return response;
+}
+}
+REST
+The following JSON example shows how to form the API request and what the
+DLP API returns:
+JSON Input:
+POST https://dlp.googleapis.com/v2/projects/[PROJECT_ID]/content:deidentify?key={YOUR_API_KEY}
+{
+"item":{
+"value":"My name is Alicia Abernathy, and my email address is aabernathy@example.com."
+},
+"deidentifyConfig":{
+"infoTypeTransformations":{
+"transformations":[
+{
+"infoTypes":[
+{
+"name":"EMAIL_ADDRESS"
+}
+],
+"primitiveTransformation":{
+"characterMaskConfig":{
+"maskingCharacter":"#",
+"reverseOrder":false,
+"charactersToIgnore":[
+{
+"charactersToSkip":".@"
+}
+]
+}
+}
+}
+]
+}
+},
+"inspectConfig":{
+"infoTypes":[
+{
+"name":"EMAIL_ADDRESS"
+}
+]
+}
+}
+JSON Output:
+{
+"item":{
+"value":"My name is Alicia Abernathy, and my email address is ##########@#######.###."
+},
+"overview":{
+"transformedBytes":"22",
+"transformationSummaries":[
+{
+"infoType":{
+"name":"EMAIL_ADDRESS"
+},
+"transformation":{
+"characterMaskConfig":{
+"maskingCharacter":"#",
+"charactersToIgnore":[
+{
+"charactersToSkip":".@"
+}
+]
+}
+},
+"results":[
+{
+"count":"1",
+"code":"SUCCESS"
+}
+],
+"transformedBytes":"22"
+}
+]
+}
+}
+cryptoHashConfig
+Setting cryptoHashConfig to a CryptoHashConfig
+object performs pseudonymization on an input value
+by generating a surrogate value using cryptographic hashing.
+This method replaces the input value with an encrypted "digest," or hash value.
+The digest is computed by taking the SHA-256 hash of the input value.
+The cryptographic key used to make the hash is a
+CryptoKey
+object, and must be either 32 or 64 bytes in size.
+The method outputs a base64-encoded representation of the hashed output.
+Currently, only string and integer values can be hashed.
+For example, suppose you've specified cryptoHashConfig for all
+EMAIL_ADDRESS infoTypes, and the CryptoKey object consists of a
+randomly-generated key (a
+TransientCryptoKey).
+Then, the following string is sent to Sensitive Data Protection:
+My name is Alicia Abernathy, and my email address is aabernathy@example.com.
+The cryptographically generated returned string will look like the following:
+My name is Alicia Abernathy, and my email address is 41D1567F7F99F1DC2A5FAB886DEE5BEE.
+Of course, the hex string will be cryptographically generated and different
+from the one shown here.
+dateShiftConfig
+Setting dateShiftConfig to a DateShiftConfig object performs date shifting on
+a date input value by shifting the dates by a random number of days.
+Date shifting techniques randomly shift a set of dates but preserve the
+sequence and duration of a period of time. Shifting dates is usually done in
+context to an individual or an entity. That is, you want to shift all of the
+dates for a specific individual using the same shift differential, but use a
+separate shift differential for each other individual.
+For more information about date shifting, see the date
+shifting concept topic.
+Following is sample code in several languages that demonstrates how to
+use the DLP API to de-identify dates using date shifting.
+Important:
+The code on this page requires that you first set up a Sensitive Data Protection client. For more
+information about installing and creating a Sensitive Data Protection client, see
+Sensitive Data Protection client libraries. (Sending JSON
+to Sensitive Data Protection REST endpoints does not require a client
+library.)
+Java
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import com.google.cloud.dlp.v2.DlpServiceClient;
+import com.google.common.base.Splitter;
+import com.google.privacy.dlp.v2.ContentItem;
+import com.google.privacy.dlp.v2.DateShiftConfig;
+import com.google.privacy.dlp.v2.DeidentifyConfig;
+import com.google.privacy.dlp.v2.DeidentifyContentRequest;
+import com.google.privacy.dlp.v2.DeidentifyContentResponse;
+import com.google.privacy.dlp.v2.FieldId;
+import com.google.privacy.dlp.v2.FieldTransformation;
+import com.google.privacy.dlp.v2.LocationName;
+import com.google.privacy.dlp.v2.PrimitiveTransformation;
+import com.google.privacy.dlp.v2.RecordTransformations;
+import com.google.privacy.dlp.v2.Table;
+import com.google.privacy.dlp.v2.Value;
+import com.google.type.Date;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+public class DeIdentifyWithDateShift {
+public static void main(String[] args) throws Exception {
+// TODO(developer): Replace these variables before running the sample.
+String projectId = "your-project-id";
+Path inputCsvFile = Paths.get("path/to/your/input/file.csv");
+Path outputCsvFile = Paths.get("path/to/your/output/file.csv");
+deIdentifyWithDateShift(projectId, inputCsvFile, outputCsvFile);
+}
+public static void deIdentifyWithDateShift(
+String projectId, Path inputCsvFile, Path outputCsvFile) throws IOException {
+// Initialize client that will be used to send requests. This client only needs to be created
+// once, and can be reused for multiple requests. After completing all of your requests, call
+// the "close" method on the client to safely clean up any remaining background resources.
+try (DlpServiceClient dlp = DlpServiceClient.create()) {
+// Read the contents of the CSV file into a Table
+List<FieldId> headers;
+List<Table.Row> rows;
+try (BufferedReader input = Files.newBufferedReader(inputCsvFile)) {
+// Parse and convert the first line into header names
+headers =
+Arrays.stream(input.readLine().split(","))
+.map(header -> FieldId.newBuilder().setName(header).build())
+.collect(Collectors.toList());
+// Parse the remainder of the file as Table.Rows
+rows =
+input.lines().map(DeIdentifyWithDateShift::parseLineAsRow).collect(Collectors.toList());
+}
+Table table = Table.newBuilder().addAllHeaders(headers).addAllRows(rows).build();
+ContentItem item = ContentItem.newBuilder().setTable(table).build();
+// Set the maximum days to shift dates backwards (lower bound) or forward (upper bound)
+DateShiftConfig dateShiftConfig =
+DateShiftConfig.newBuilder().setLowerBoundDays(5).setUpperBoundDays(5).build();
+PrimitiveTransformation transformation =
+PrimitiveTransformation.newBuilder().setDateShiftConfig(dateShiftConfig).build();
+// Specify which fields the DateShift should apply too
+List<FieldId> dateFields = Arrays.asList(headers.get(1), headers.get(3));
+FieldTransformation fieldTransformation =
+FieldTransformation.newBuilder()
+.addAllFields(dateFields)
+.setPrimitiveTransformation(transformation)
+.build();
+RecordTransformations recordTransformations =
+RecordTransformations.newBuilder().addFieldTransformations(fieldTransformation).build();
+// Specify the config for the de-identify request
+DeidentifyConfig deidentifyConfig =
+DeidentifyConfig.newBuilder().setRecordTransformations(recordTransformations).build();
+// Combine configurations into a request for the service.
+DeidentifyContentRequest request =
+DeidentifyContentRequest.newBuilder()
+.setParent(LocationName.of(projectId, "global").toString())
+.setItem(item)
+.setDeidentifyConfig(deidentifyConfig)
+.build();
+// Send the request and receive response from the service
+DeidentifyContentResponse response = dlp.deidentifyContent(request);
+// Write the results to the target CSV file
+try (BufferedWriter writer = Files.newBufferedWriter(outputCsvFile)) {
+Table outTable = response.getItem().getTable();
+String headerOut =
+outTable.getHeadersList().stream()
+.map(FieldId::getName)
+.collect(Collectors.joining(","));
+writer.write(headerOut + "\n");
+List<String> rowOutput =
+outTable.getRowsList().stream()
+.map(row -> joinRow(row.getValuesList()))
+.collect(Collectors.toList());
+for (String line : rowOutput) {
+writer.write(line + "\n");
+}
+System.out.println("Content written to file: " + outputCsvFile.toString());
+}
+}
+}
+// Convert the string from the csv file into com.google.type.Date
+public static Date parseAsDate(String s) {
+LocalDate date = LocalDate.parse(s, DateTimeFormatter.ofPattern("MM/dd/yyyy"));
+return Date.newBuilder()
+.setDay(date.getDayOfMonth())
+.setMonth(date.getMonthValue())
+.setYear(date.getYear())
+.build();
+}
+// Each row is in the format: Name,BirthDate,CreditCardNumber,RegisterDate
+public static Table.Row parseLineAsRow(String line) {
+List<String> values = Splitter.on(",").splitToList(line);
+Value name = Value.newBuilder().setStringValue(values.get(0)).build();
+Value birthDate = Value.newBuilder().setDateValue(parseAsDate(values.get(1))).build();
+Value creditCardNumber = Value.newBuilder().setStringValue(values.get(2)).build();
+Value registerDate = Value.newBuilder().setDateValue(parseAsDate(values.get(3))).build();
+return Table.Row.newBuilder()
+.addValues(name)
+.addValues(birthDate)
+.addValues(creditCardNumber)
+.addValues(registerDate)
+.build();
+}
+public static String formatDate(Date d) {
+return String.format("%s/%s/%s", d.getMonth(), d.getDay(), d.getYear());
+}
+public static String joinRow(List<Value> values) {
+String name = values.get(0).getStringValue();
+String birthDate = formatDate(values.get(1).getDateValue());
+String creditCardNumber = values.get(2).getStringValue();
+String registerDate = formatDate(values.get(3).getDateValue());
+return String.join(",", name, birthDate, creditCardNumber, registerDate);
+}
+}
+Node.js
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+// Imports the Google Cloud Data Loss Prevention library
+const DLP = require('@google-cloud/dlp');
+// Instantiates a client
+const dlp = new DLP.DlpServiceClient();
+// Import other required libraries
+const fs = require('fs');
+// The project ID to run the API call under
+// const projectId = 'my-project';
+// The path to the CSV file to deidentify
+// The first row of the file must specify column names, and all other rows
+// must contain valid values
+// const inputCsvFile = '/path/to/input/file.csv';
+// The path to save the date-shifted CSV file to
+// const outputCsvFile = '/path/to/output/file.csv';
+// The list of (date) fields in the CSV file to date shift
+// const dateFields = [{ name: 'birth_date'}, { name: 'register_date' }];
+// The maximum number of days to shift a date backward
+// const lowerBoundDays = 1;
+// The maximum number of days to shift a date forward
+// const upperBoundDays = 1;
+// (Optional) The column to determine date shift amount based on
+// If this is not specified, a random shift amount will be used for every row
+// If this is specified, then 'wrappedKey' and 'keyName' must also be set
+// const contextFieldId = [{ name: 'user_id' }];
+// (Optional) The name of the Cloud KMS key used to encrypt ('wrap') the AES-256 key
+// If this is specified, then 'wrappedKey' and 'contextFieldId' must also be set
+// const keyName = 'projects/YOUR_GCLOUD_PROJECT/locations/YOUR_LOCATION/keyRings/YOUR_KEYRING_NAME/cryptoKeys/YOUR_KEY_NAME';
+// (Optional) The encrypted ('wrapped') AES-256 key to use when shifting dates
+// This key should be encrypted using the Cloud KMS key specified above
+// If this is specified, then 'keyName' and 'contextFieldId' must also be set
+// const wrappedKey = 'YOUR_ENCRYPTED_AES_256_KEY'
+// Helper function for converting CSV rows to Protobuf types
+const rowToProto = row => {
+const values = row.split(',');
+const convertedValues = values.map(value => {
+if (Date.parse(value)) {
+const date = new Date(value);
+return {
+dateValue: {
+year: date.getFullYear(),
+month: date.getMonth() + 1,
+day: date.getDate(),
+},
+};
+} else {
+// Convert all non-date values to strings
+return {stringValue: value.toString()};
+}
+});
+return {values: convertedValues};
+};
+async function deidentifyWithDateShift() {
+// Read and parse a CSV file
+const csvLines = fs
+.readFileSync(inputCsvFile)
+.toString()
+.split('\n')
+.filter(line => line.includes(','));
+const csvHeaders = csvLines[0].split(',');
+const csvRows = csvLines.slice(1);
+// Construct the table object
+const tableItem = {
+table: {
+headers: csvHeaders.map(header => {
+return {name: header};
+}),
+rows: csvRows.map(row => rowToProto(row)),
+},
+};
+// Construct DateShiftConfig
+const dateShiftConfig = {
+lowerBoundDays: lowerBoundDays,
+upperBoundDays: upperBoundDays,
+};
+if (contextFieldId && keyName && wrappedKey) {
+dateShiftConfig.context = {name: contextFieldId};
+dateShiftConfig.cryptoKey = {
+kmsWrapped: {
+wrappedKey: wrappedKey,
+cryptoKeyName: keyName,
+},
+};
+} else if (contextFieldId || keyName || wrappedKey) {
+throw new Error(
+'You must set either ALL or NONE of {contextFieldId, keyName, wrappedKey}!'
+);
+}
+// Construct deidentification request
+const request = {
+parent: `projects/${projectId}/locations/global`,
+deidentifyConfig: {
+recordTransformations: {
+fieldTransformations: [
+{
+fields: dateFields,
+primitiveTransformation: {
+dateShiftConfig: dateShiftConfig,
+},
+},
+],
+},
+},
+item: tableItem,
+};
+// Run deidentification request
+const [response] = await dlp.deidentifyContent(request);
+const tableRows = response.item.table.rows;
+// Write results to a CSV file
+tableRows.forEach((row, rowIndex) => {
+const rowValues = row.values.map(
+value =>
+value.stringValue ||
+`${value.dateValue.month}/${value.dateValue.day}/${value.dateValue.year}`
+);
+csvLines[rowIndex + 1] = rowValues.join(',');
+});
+csvLines.push('');
+fs.writeFileSync(outputCsvFile, csvLines.join('\n'));
+// Print status
+console.log(`Successfully saved date-shift output to ${outputCsvFile}`);
+}
+deidentifyWithDateShift();
+Python
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import base64
+import csv
+from datetime import datetime
+from typing import List
+import google.cloud.dlp
+from google.cloud.dlp_v2 import types
+def deidentify_with_date_shift(
+project: str,
+input_csv_file: str = None,
+output_csv_file: str = None,
+date_fields: List[str] = None,
+lower_bound_days: int = None,
+upper_bound_days: int = None,
+context_field_id: str = None,
+wrapped_key: str = None,
+key_name: str = None,
+) -> None:
+"""Uses the Data Loss Prevention API to deidentify dates in a CSV file by
+pseudorandomly shifting them.
+Args:
+project: The Google Cloud project id to use as a parent resource.
+input_csv_file: The path to the CSV file to deidentify. The first row
+of the file must specify column names, and all other rows must
+contain valid values.
+output_csv_file: The path to save the date-shifted CSV file.
+date_fields: The list of (date) fields in the CSV file to date shift.
+Example: ['birth_date', 'register_date']
+lower_bound_days: The maximum number of days to shift a date backward
+upper_bound_days: The maximum number of days to shift a date forward
+context_field_id: (Optional) The column to determine date shift amount
+based on. If this is not specified, a random shift amount will be
+used for every row. If this is specified, then 'wrappedKey' and
+'keyName' must also be set. Example:
+contextFieldId = [{ 'name': 'user_id' }]
+key_name: (Optional) The name of the Cloud KMS key used to encrypt
+('wrap') the AES-256 key. Example:
+key_name = 'projects/YOUR_GCLOUD_PROJECT/locations/YOUR_LOCATION/
+keyRings/YOUR_KEYRING_NAME/cryptoKeys/YOUR_KEY_NAME'
+wrapped_key: (Optional) The encrypted ('wrapped') AES-256 key to use.
+This key should be encrypted using the Cloud KMS key specified by
+key_name.
+Returns:
+None; the response from the API is printed to the terminal.
+"""
+# Instantiate a client
+dlp = google.cloud.dlp_v2.DlpServiceClient()
+# Convert the project id into a full resource id.
+parent = f"projects/{project}/locations/global"
+# Convert date field list to Protobuf type
+def map_fields(field: str) -> dict:
+return {"name": field}
+if date_fields:
+date_fields = map(map_fields, date_fields)
+else:
+date_fields = []
+f = []
+with open(input_csv_file) as csvfile:
+reader = csv.reader(csvfile)
+for row in reader:
+f.append(row)
+# Helper function for converting CSV rows to Protobuf types
+def map_headers(header: str) -> dict:
+return {"name": header}
+def map_data(value: str) -> dict:
+try:
+date = datetime.strptime(value, "%m/%d/%Y")
+return {
+"date_value": {"year": date.year, "month": date.month, "day": date.day}
+}
+except ValueError:
+return {"string_value": value}
+def map_rows(row: str) -> dict:
+return {"values": map(map_data, row)}
+# Using the helper functions, convert CSV rows to protobuf-compatible
+# dictionaries.
+csv_headers = map(map_headers, f[0])
+csv_rows = map(map_rows, f[1:])
+# Construct the table dict
+table_item = {"table": {"headers": csv_headers, "rows": csv_rows}}
+# Construct date shift config
+date_shift_config = {
+"lower_bound_days": lower_bound_days,
+"upper_bound_days": upper_bound_days,
+}
+# If using a Cloud KMS key, add it to the date_shift_config.
+# The wrapped key is base64-encoded, but the library expects a binary
+# string, so decode it here.
+if context_field_id and key_name and wrapped_key:
+date_shift_config["context"] = {"name": context_field_id}
+date_shift_config["crypto_key"] = {
+"kms_wrapped": {
+"wrapped_key": base64.b64decode(wrapped_key),
+"crypto_key_name": key_name,
+}
+}
+elif context_field_id or key_name or wrapped_key:
+raise ValueError(
+"""You must set either ALL or NONE of
+[context_field_id, key_name, wrapped_key]!"""
+)
+# Construct Deidentify Config
+deidentify_config = {
+"record_transformations": {
+"field_transformations": [
+{
+"fields": date_fields,
+"primitive_transformation": {
+"date_shift_config": date_shift_config
+},
+}
+]
+}
+}
+# Write to CSV helper methods
+def write_header(header: types.storage.FieldId) -> str:
+return header.name
+def write_data(data: types.storage.Value) -> str:
+return data.string_value or "{}/{}/{}".format(
+data.date_value.month,
+data.date_value.day,
+data.date_value.year,
+)
+# Call the API
+response = dlp.deidentify_content(
+request={
+"parent": parent,
+"deidentify_config": deidentify_config,
+"item": table_item,
+}
+)
+# Write results to CSV file
+with open(output_csv_file, "w") as csvfile:
+write_file = csv.writer(csvfile, delimiter=",")
+write_file.writerow(map(write_header, response.item.table.headers))
+for row in response.item.table.rows:
+write_file.writerow(map(write_data, row.values))
+# Print status
+print(f"Successfully saved date-shift output to {output_csv_file}")
+Go
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import (
+"context"
+"fmt"
+"io"
+dlp "cloud.google.com/go/dlp/apiv2"
+"cloud.google.com/go/dlp/apiv2/dlppb"
+)
+// deidentifyDateShift shifts dates found in the input between lowerBoundDays and
+// upperBoundDays.
+func deidentifyDateShift(w io.Writer, projectID string, lowerBoundDays, upperBoundDays int32, input string) error {
+// projectID := "my-project-id"
+// lowerBoundDays := -1
+// upperBound := -1
+// input := "2016-01-10"
+// Will print "2016-01-09"
+ctx := context.Background()
+client, err := dlp.NewClient(ctx)
+if err != nil {
+return fmt.Errorf("dlp.NewClient: %w", err)
+}
+defer client.Close()
+// Create a configured request.
+req := &dlppb.DeidentifyContentRequest{
+Parent: fmt.Sprintf("projects/%s/locations/global", projectID),
+DeidentifyConfig: &dlppb.DeidentifyConfig{
+Transformation: &dlppb.DeidentifyConfig_InfoTypeTransformations{
+InfoTypeTransformations: &dlppb.InfoTypeTransformations{
+Transformations: []*dlppb.InfoTypeTransformations_InfoTypeTransformation{
+{
+InfoTypes: []*dlppb.InfoType{}, // Match all info types.
+PrimitiveTransformation: &dlppb.PrimitiveTransformation{
+Transformation: &dlppb.PrimitiveTransformation_DateShiftConfig{
+DateShiftConfig: &dlppb.DateShiftConfig{
+LowerBoundDays: lowerBoundDays,
+UpperBoundDays: upperBoundDays,
+},
+},
+},
+},
+},
+},
+},
+},
+// The InspectConfig is used to identify the DATE fields.
+InspectConfig: &dlppb.InspectConfig{
+InfoTypes: []*dlppb.InfoType{
+{
+Name: "DATE",
+},
+},
+},
+// The item to analyze.
+Item: &dlppb.ContentItem{
+DataItem: &dlppb.ContentItem_Value{
+Value: input,
+},
+},
+}
+// Send the request.
+r, err := client.DeidentifyContent(ctx, req)
+if err != nil {
+return fmt.Errorf("DeidentifyContent: %w", err)
+}
+// Print the result.
+fmt.Fprint(w, r.GetItem().GetValue())
+return nil
+}
+PHP
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+use DateTime;
+use Exception;
+use Google\Cloud\Dlp\V2\Client\DlpServiceClient;
+use Google\Cloud\Dlp\V2\ContentItem;
+use Google\Cloud\Dlp\V2\CryptoKey;
+use Google\Cloud\Dlp\V2\DateShiftConfig;
+use Google\Cloud\Dlp\V2\DeidentifyConfig;
+use Google\Cloud\Dlp\V2\DeidentifyContentRequest;
+use Google\Cloud\Dlp\V2\FieldId;
+use Google\Cloud\Dlp\V2\FieldTransformation;
+use Google\Cloud\Dlp\V2\KmsWrappedCryptoKey;
+use Google\Cloud\Dlp\V2\PrimitiveTransformation;
+use Google\Cloud\Dlp\V2\RecordTransformations;
+use Google\Cloud\Dlp\V2\Table;
+use Google\Cloud\Dlp\V2\Table\Row;
+use Google\Cloud\Dlp\V2\Value;
+use Google\Type\Date;
+/**
+* Deidentify dates in a CSV file by pseudorandomly shifting them.
+* If contextFieldName is not specified, a random shift amount will be used for every row.
+* If contextFieldName is specified, then 'wrappedKey' and 'keyName' must also be set.
+*
+* @param string $callingProjectId The GCP Project ID to run the API call under
+* @param string $inputCsvFile The path to the CSV file to deidentify
+* @param string $outputCsvFile The path to save the date-shifted CSV file to
+* @param string $dateFieldNames The comma-separated list of (date) fields in the CSV file to date shift
+* @param int $lowerBoundDays The maximum number of days to shift a date backward
+* @param int $upperBoundDays The maximum number of days to shift a date forward
+* @param string $contextFieldName (Optional) The column to determine date shift amount based on
+* @param string $keyName (Optional) The encrypted ('wrapped') AES-256 key to use when shifting dates
+* @param string $wrappedKey (Optional) The name of the Cloud KMS key used to encrypt (wrap) the AES-256 key
+*/
+function deidentify_dates(
+string $callingProjectId,
+string $inputCsvFile,
+string $outputCsvFile,
+string $dateFieldNames,
+int $lowerBoundDays,
+int $upperBoundDays,
+string $contextFieldName = '',
+string $keyName = '',
+string $wrappedKey = ''
+): void {
+// Instantiate a client.
+$dlp = new DlpServiceClient();
+// Read a CSV file
+$csvLines = file($inputCsvFile, FILE_IGNORE_NEW_LINES);
+$csvHeaders = explode(',', $csvLines[0]);
+$csvRows = array_slice($csvLines, 1);
+// Convert CSV file into protobuf objects
+$tableHeaders = array_map(function ($csvHeader) {
+return (new FieldId)->setName($csvHeader);
+}, $csvHeaders);
+$tableRows = array_map(function ($csvRow) {
+$rowValues = array_map(function ($csvValue) {
+if ($csvDate = DateTime::createFromFormat('m/d/Y', $csvValue)) {
+$date = (new Date())
+->setYear((int) $csvDate->format('Y'))
+->setMonth((int) $csvDate->format('m'))
+->setDay((int) $csvDate->format('d'));
+return (new Value())
+->setDateValue($date);
+} else {
+return (new Value())
+->setStringValue($csvValue);
+}
+}, explode(',', $csvRow));
+return (new Row())
+->setValues($rowValues);
+}, $csvRows);
+// Convert date fields into protobuf objects
+$dateFields = array_map(function ($dateFieldName) {
+return (new FieldId())->setName($dateFieldName);
+}, explode(',', $dateFieldNames));
+// Construct the table object
+$table = (new Table())
+->setHeaders($tableHeaders)
+->setRows($tableRows);
+$item = (new ContentItem())
+->setTable($table);
+// Construct dateShiftConfig
+$dateShiftConfig = (new DateShiftConfig())
+->setLowerBoundDays($lowerBoundDays)
+->setUpperBoundDays($upperBoundDays);
+if ($contextFieldName && $keyName && $wrappedKey) {
+$contextField = (new FieldId())
+->setName($contextFieldName);
+// Create the wrapped crypto key configuration object
+$kmsWrappedCryptoKey = (new KmsWrappedCryptoKey())
+->setWrappedKey(base64_decode($wrappedKey))
+->setCryptoKeyName($keyName);
+$cryptoKey = (new CryptoKey())
+->setKmsWrapped($kmsWrappedCryptoKey);
+$dateShiftConfig
+->setContext($contextField)
+->setCryptoKey($cryptoKey);
+} elseif ($contextFieldName || $keyName || $wrappedKey) {
+throw new Exception('You must set either ALL or NONE of {$contextFieldName, $keyName, $wrappedKey}!');
+}
+// Create the information transform configuration objects
+$primitiveTransformation = (new PrimitiveTransformation())
+->setDateShiftConfig($dateShiftConfig);
+$fieldTransformation = (new FieldTransformation())
+->setPrimitiveTransformation($primitiveTransformation)
+->setFields($dateFields);
+$recordTransformations = (new RecordTransformations())
+->setFieldTransformations([$fieldTransformation]);
+// Create the deidentification configuration object
+$deidentifyConfig = (new DeidentifyConfig())
+->setRecordTransformations($recordTransformations);
+$parent = "projects/$callingProjectId/locations/global";
+// Run request
+$deidentifyContentRequest = (new DeidentifyContentRequest())
+->setParent($parent)
+->setDeidentifyConfig($deidentifyConfig)
+->setItem($item);
+$response = $dlp->deidentifyContent($deidentifyContentRequest);
+// Check for errors
+foreach ($response->getOverview()->getTransformationSummaries() as $summary) {
+foreach ($summary->getResults() as $result) {
+if ($details = $result->getDetails()) {
+printf('Error: %s' . PHP_EOL, $details);
+return;
+}
+}
+}
+// Save the results to a file
+$csvRef = fopen($outputCsvFile, 'w');
+fputcsv($csvRef, $csvHeaders);
+foreach ($response->getItem()->getTable()->getRows() as $tableRow) {
+$values = array_map(function ($tableValue) {
+if ($tableValue->getStringValue()) {
+return $tableValue->getStringValue();
+}
+$protoDate = $tableValue->getDateValue();
+$date = mktime(0, 0, 0, $protoDate->getMonth(), $protoDate->getDay(), $protoDate->getYear());
+return strftime('%D', $date);
+}, iterator_to_array($tableRow->getValues()));
+fputcsv($csvRef, $values);
+};
+fclose($csvRef);
+printf('Deidentified dates written to %s' . PHP_EOL, $outputCsvFile);
+}
+C#
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+using System;
+using System.IO;
+using System.Linq;
+using Google.Api.Gax.ResourceNames;
+using Google.Cloud.Dlp.V2;
+using Google.Protobuf;
+public class DeidentifyWithDateShift
+{
+public static DeidentifyContentResponse Deidentify(
+string projectId,
+string inputCsvFilePath,
+int lowerBoundDays,
+int upperBoundDays,
+string dateFields,
+string contextField,
+string keyName,
+string wrappedKey)
+{
+var hasKeyName = !string.IsNullOrEmpty(keyName);
+var hasWrappedKey = !string.IsNullOrEmpty(wrappedKey);
+var hasContext = !string.IsNullOrEmpty(contextField);
+bool allFieldsSet = hasKeyName && hasWrappedKey && hasContext;
+bool noFieldsSet = !hasKeyName && !hasWrappedKey && !hasContext;
+if (!(allFieldsSet || noFieldsSet))
+{
+throw new ArgumentException("Must specify ALL or NONE of: {contextFieldId, keyName, wrappedKey}!");
+}
+var dlp = DlpServiceClient.Create();
+// Read file
+var csvLines = File.ReadAllLines(inputCsvFilePath);
+var csvHeaders = csvLines[0].Split(',');
+var csvRows = csvLines.Skip(1).ToArray();
+// Convert dates to protobuf format, and everything else to a string
+var protoHeaders = csvHeaders.Select(header => new FieldId { Name = header });
+var protoRows = csvRows.Select(csvRow =>
+{
+var rowValues = csvRow.Split(',');
+var protoValues = rowValues.Select(rowValue =>
+System.DateTime.TryParse(rowValue, out var parsedDate)
+? new Value { DateValue = Google.Type.Date.FromDateTime(parsedDate) }
+: new Value { StringValue = rowValue });
+var rowObject = new Table.Types.Row();
+rowObject.Values.Add(protoValues);
+return rowObject;
+});
+var dateFieldList = dateFields
+.Split(',')
+.Select(field => new FieldId { Name = field });
+// Construct + execute the request
+var dateShiftConfig = new DateShiftConfig
+{
+LowerBoundDays = lowerBoundDays,
+UpperBoundDays = upperBoundDays
+};
+dateShiftConfig.Context = new FieldId { Name = contextField };
+dateShiftConfig.CryptoKey = new CryptoKey
+{
+KmsWrapped = new KmsWrappedCryptoKey
+{
+WrappedKey = ByteString.FromBase64(wrappedKey),
+CryptoKeyName = keyName
+}
+};
+var deidConfig = new DeidentifyConfig
+{
+RecordTransformations = new RecordTransformations
+{
+FieldTransformations =
+{
+new FieldTransformation
+{
+PrimitiveTransformation = new PrimitiveTransformation
+{
+DateShiftConfig = dateShiftConfig
+},
+Fields = { dateFieldList }
+}
+}
+}
+};
+var response = dlp.DeidentifyContent(
+new DeidentifyContentRequest
+{
+Parent = new LocationName(projectId, "global").ToString(),
+DeidentifyConfig = deidConfig,
+Item = new ContentItem
+{
+Table = new Table
+{
+Headers = { protoHeaders },
+Rows = { protoRows }
+}
+}
+});
+return response;
+}
+}
+cryptoReplaceFfxFpeConfig
+Setting cryptoReplaceFfxFpeConfig to a
+CryptoReplaceFfxFpeConfig
+object performs pseudonymization on an input
+value by replacing an input value with a token. This token is:
+The encrypted input value.
+The same length as the input value.
+Computed using format-preserving encryption in FFX mode ("FPE-FFX") keyed
+on the cryptographic key specified by cryptoKey.
+Comprised of the characters specified by alphabet. Valid options:
+NUMERIC
+HEXADECIMAL
+UPPER_CASE_ALPHA_NUMERIC
+ALPHA_NUMERIC
+The input value:
+Must be at least two characters long (or the empty string).
+Must be comprised of the characters specified by an alphabet. The alphabet
+can be comprised of between 2 and 95 characters. (An alphabet with 95
+characters includes all printable characters in the US-ASCII character set.)
+Sensitive Data Protection computes the replacement token using a
+cryptographic key. You provide this key in one of three ways:
+By embedding it unencrypted in the API request. This is not recommended.
+By requesting that Sensitive Data Protection generate it.
+By embedding it encrypted in the API request.
+If you choose to embed the key in the API request, you need to
+create a key and wrap (encrypt) it using a
+Cloud Key Management Service (Cloud KMS) key. The value returned is a
+base64-encoded string by default. To set this value in
+Sensitive Data Protection, you must decode it into a byte string. The following
+code snippets highlight how to do this in several languages.
+End-to-end examples are provided following these snippets.
+Java
+KmsWrappedCryptoKey.newBuilder()
+.setWrappedKey(ByteString.copyFrom(BaseEncoding.base64().decode(wrappedKey)))
+Python
+# The wrapped key is base64-encoded, but the library expects a binary
+# string, so decode it here.
+import base64
+wrapped_key = base64.b64decode(wrapped_key)
+PHP
+// Create the wrapped crypto key configuration object
+$kmsWrappedCryptoKey = (new KmsWrappedCryptoKey())
+->setWrappedKey(base64_decode($wrappedKey))
+->setCryptoKeyName($keyName);
+C#
+WrappedKey = ByteString.FromBase64(wrappedKey)
+For more information about encrypting and decrypting data using
+Cloud KMS, see
+Encrypting and Decrypting Data.
+Note: When you use
+Cloud KMS for cryptographic operations,
+charges apply. In addition, when you use a Cloud HSM key or a Cloud EKM key, you consume Cloud KMS quota on the
+project that contains the key. In contrast, if you're using a software Cloud KMS key with
+Sensitive Data Protection, no quota values apply. For more information, see Quotas in the
+Cloud KMS documentation.
+By design, FPE-FFX preserves the length and character set of the input
+text. This means that it lacks authentication and an initialization vector,
+which would cause a length expansion in the output token. Other methods like
+AES-SIV
+provide these stronger security guarantees and are recommended for tokenization
+use cases unless length and character set preservation are strict
+requirements—for example, for backward compatibility with a legacy data
+system.
+Following is sample code in several languages that demonstrates how to
+use Sensitive Data Protection to de-identify sensitive data by replacing an
+input value with a token.
+Important:
+The code on this page requires that you first set up a Sensitive Data Protection client. For more
+information about installing and creating a Sensitive Data Protection client, see
+Sensitive Data Protection client libraries. (Sending JSON
+to Sensitive Data Protection REST endpoints does not require a client
+library.)
+Java
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import com.google.cloud.dlp.v2.DlpServiceClient;
+import com.google.common.io.BaseEncoding;
+import com.google.privacy.dlp.v2.ContentItem;
+import com.google.privacy.dlp.v2.CryptoKey;
+import com.google.privacy.dlp.v2.CryptoReplaceFfxFpeConfig;
+import com.google.privacy.dlp.v2.CryptoReplaceFfxFpeConfig.FfxCommonNativeAlphabet;
+import com.google.privacy.dlp.v2.DeidentifyConfig;
+import com.google.privacy.dlp.v2.DeidentifyContentRequest;
+import com.google.privacy.dlp.v2.DeidentifyContentResponse;
+import com.google.privacy.dlp.v2.InfoType;
+import com.google.privacy.dlp.v2.InfoTypeTransformations;
+import com.google.privacy.dlp.v2.InfoTypeTransformations.InfoTypeTransformation;
+import com.google.privacy.dlp.v2.InspectConfig;
+import com.google.privacy.dlp.v2.KmsWrappedCryptoKey;
+import com.google.privacy.dlp.v2.LocationName;
+import com.google.privacy.dlp.v2.PrimitiveTransformation;
+import com.google.protobuf.ByteString;
+import java.io.IOException;
+import java.util.Arrays;
+public class DeIdentifyWithFpe {
+public static void main(String[] args) throws Exception {
+// TODO(developer): Replace these variables before running the sample.
+String projectId = "your-project-id";
+String textToDeIdentify = "I'm Gary and my SSN is 552096781";
+String kmsKeyName =
+"projects/YOUR_PROJECT/"
++ "locations/YOUR_KEYRING_REGION/"
++ "keyRings/YOUR_KEYRING_NAME/"
++ "cryptoKeys/YOUR_KEY_NAME";
+String wrappedAesKey = "YOUR_ENCRYPTED_AES_256_KEY";
+deIdentifyWithFpe(projectId, textToDeIdentify, kmsKeyName, wrappedAesKey);
+}
+public static void deIdentifyWithFpe(
+String projectId, String textToDeIdentify, String kmsKeyName, String wrappedAesKey)
+throws IOException {
+// Initialize client that will be used to send requests. This client only needs to be created
+// once, and can be reused for multiple requests. After completing all of your requests, call
+// the "close" method on the client to safely clean up any remaining background resources.
+try (DlpServiceClient dlp = DlpServiceClient.create()) {
+// Specify what content you want the service to DeIdentify
+ContentItem contentItem = ContentItem.newBuilder().setValue(textToDeIdentify).build();
+// Specify the type of info the inspection will look for.
+// See https://cloud.google.com/dlp/docs/infotypes-reference for complete list of info types
+InfoType infoType = InfoType.newBuilder().setName("US_SOCIAL_SECURITY_NUMBER").build();
+InspectConfig inspectConfig =
+InspectConfig.newBuilder().addAllInfoTypes(Arrays.asList(infoType)).build();
+// Specify an encrypted AES-256 key and the name of the Cloud KMS key that encrypted it
+KmsWrappedCryptoKey kmsWrappedCryptoKey =
+KmsWrappedCryptoKey.newBuilder()
+.setWrappedKey(ByteString.copyFrom(BaseEncoding.base64().decode(wrappedAesKey)))
+.setCryptoKeyName(kmsKeyName)
+.build();
+CryptoKey cryptoKey = CryptoKey.newBuilder().setKmsWrapped(kmsWrappedCryptoKey).build();
+// Specify how the info from the inspection should be encrypted.
+InfoType surrogateInfoType = InfoType.newBuilder().setName("SSN_TOKEN").build();
+CryptoReplaceFfxFpeConfig cryptoReplaceFfxFpeConfig =
+CryptoReplaceFfxFpeConfig.newBuilder()
+.setCryptoKey(cryptoKey)
+// Set of characters in the input text. For more info, see
+// https://cloud.google.com/dlp/docs/reference/rest/v2/organizations.deidentifyTemplates#DeidentifyTemplate.FfxCommonNativeAlphabet
+.setCommonAlphabet(FfxCommonNativeAlphabet.NUMERIC)
+.setSurrogateInfoType(surrogateInfoType)
+.build();
+PrimitiveTransformation primitiveTransformation =
+PrimitiveTransformation.newBuilder()
+.setCryptoReplaceFfxFpeConfig(cryptoReplaceFfxFpeConfig)
+.build();
+InfoTypeTransformation infoTypeTransformation =
+InfoTypeTransformation.newBuilder()
+.setPrimitiveTransformation(primitiveTransformation)
+.build();
+InfoTypeTransformations transformations =
+InfoTypeTransformations.newBuilder().addTransformations(infoTypeTransformation).build();
+DeidentifyConfig deidentifyConfig =
+DeidentifyConfig.newBuilder().setInfoTypeTransformations(transformations).build();
+// Combine configurations into a request for the service.
+DeidentifyContentRequest request =
+DeidentifyContentRequest.newBuilder()
+.setParent(LocationName.of(projectId, "global").toString())
+.setItem(contentItem)
+.setInspectConfig(inspectConfig)
+.setDeidentifyConfig(deidentifyConfig)
+.build();
+// Send the request and receive response from the service
+DeidentifyContentResponse response = dlp.deidentifyContent(request);
+// Print the results
+System.out.println(
+"Text after format-preserving encryption: " + response.getItem().getValue());
+}
+}
+}
+Node.js
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+// Imports the Google Cloud Data Loss Prevention library
+const DLP = require('@google-cloud/dlp');
+// Instantiates a client
+const dlp = new DLP.DlpServiceClient();
+// The project ID to run the API call under
+// const projectId = 'my-project';
+// The string to deidentify
+// const string = 'My SSN is 372819127';
+// The set of characters to replace sensitive ones with
+// For more information, see https://cloud.google.com/dlp/docs/reference/rest/v2/organizations.deidentifyTemplates#ffxcommonnativealphabet
+// const alphabet = 'ALPHA_NUMERIC';
+// The name of the Cloud KMS key used to encrypt ('wrap') the AES-256 key
+// const keyName = 'projects/YOUR_GCLOUD_PROJECT/locations/YOUR_LOCATION/keyRings/YOUR_KEYRING_NAME/cryptoKeys/YOUR_KEY_NAME';
+// The encrypted ('wrapped') AES-256 key to use
+// This key should be encrypted using the Cloud KMS key specified above
+// const wrappedKey = 'YOUR_ENCRYPTED_AES_256_KEY'
+// (Optional) The name of the surrogate custom info type to use
+// Only necessary if you want to reverse the deidentification process
+// Can be essentially any arbitrary string, as long as it doesn't appear
+// in your dataset otherwise.
+// const surrogateType = 'SOME_INFO_TYPE_DEID';
+async function deidentifyWithFpe() {
+// Construct FPE config
+const cryptoReplaceFfxFpeConfig = {
+cryptoKey: {
+kmsWrapped: {
+wrappedKey: wrappedKey,
+cryptoKeyName: keyName,
+},
+},
+commonAlphabet: alphabet,
+};
+if (surrogateType) {
+cryptoReplaceFfxFpeConfig.surrogateInfoType = {
+name: surrogateType,
+};
+}
+// Construct deidentification request
+const item = {value: string};
+const request = {
+parent: `projects/${projectId}/locations/global`,
+deidentifyConfig: {
+infoTypeTransformations: {
+transformations: [
+{
+primitiveTransformation: {
+cryptoReplaceFfxFpeConfig: cryptoReplaceFfxFpeConfig,
+},
+},
+],
+},
+},
+item: item,
+};
+// Run deidentification request
+const [response] = await dlp.deidentifyContent(request);
+const deidentifiedItem = response.item;
+console.log(deidentifiedItem.value);
+}
+deidentifyWithFpe();
+Python
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import base64
+from typing import List
+import google.cloud.dlp
+def deidentify_with_fpe(
+project: str,
+input_str: str,
+info_types: List[str],
+alphabet: str = None,
+surrogate_type: str = None,
+key_name: str = None,
+wrapped_key: str = None,
+) -> None:
+"""Uses the Data Loss Prevention API to deidentify sensitive data in a
+string using Format Preserving Encryption (FPE).
+Args:
+project: The Google Cloud project id to use as a parent resource.
+input_str: The string to deidentify (will be treated as text).
+info_types: A list of strings representing info types to look for.
+alphabet: The set of characters to replace sensitive ones with. For
+more information, see https://cloud.google.com/dlp/docs/reference/
+rest/v2beta2/organizations.deidentifyTemplates#ffxcommonnativealphabet
+surrogate_type: The name of the surrogate custom info type to use. Only
+necessary if you want to reverse the deidentification process. Can
+be essentially any arbitrary string, as long as it doesn't appear
+in your dataset otherwise.
+key_name: The name of the Cloud KMS key used to encrypt ('wrap') the
+AES-256 key. Example:
+key_name = 'projects/YOUR_GCLOUD_PROJECT/locations/YOUR_LOCATION/
+keyRings/YOUR_KEYRING_NAME/cryptoKeys/YOUR_KEY_NAME'
+wrapped_key: The encrypted ('wrapped') AES-256 key to use. This key
+should be encrypted using the Cloud KMS key specified by key_name.
+Returns:
+None; the response from the API is printed to the terminal.
+"""
+# Instantiate a client
+dlp = google.cloud.dlp_v2.DlpServiceClient()
+# Convert the project id into a full resource id.
+parent = f"projects/{project}/locations/global"
+# The wrapped key is base64-encoded, but the library expects a binary
+# string, so decode it here.
+wrapped_key = base64.b64decode(wrapped_key)
+# Construct FPE configuration dictionary
+crypto_replace_ffx_fpe_config = {
+"crypto_key": {
+"kms_wrapped": {"wrapped_key": wrapped_key, "crypto_key_name": key_name}
+},
+"common_alphabet": alphabet,
+}
+# Add surrogate type
+if surrogate_type:
+crypto_replace_ffx_fpe_config["surrogate_info_type"] = {"name": surrogate_type}
+# Construct inspect configuration dictionary
+inspect_config = {"info_types": [{"name": info_type} for info_type in info_types]}
+# Construct deidentify configuration dictionary
+deidentify_config = {
+"info_type_transformations": {
+"transformations": [
+{
+"primitive_transformation": {
+"crypto_replace_ffx_fpe_config": crypto_replace_ffx_fpe_config
+}
+}
+]
+}
+}
+# Convert string to item
+item = {"value": input_str}
+# Call the API
+response = dlp.deidentify_content(
+request={
+"parent": parent,
+"deidentify_config": deidentify_config,
+"inspect_config": inspect_config,
+"item": item,
+}
+)
+# Print results
+print(response.item.value)
+Go
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+import (
+"context"
+"encoding/base64"
+"fmt"
+"io"
+dlp "cloud.google.com/go/dlp/apiv2"
+"cloud.google.com/go/dlp/apiv2/dlppb"
+)
+// deidentifyFPE deidentifies the input with FPE (Format Preserving Encryption).
+// keyFileName is the file name with the KMS wrapped key and cryptoKeyName is the
+// full KMS key resource name used to wrap the key. surrogateInfoType is an
+// optional identifier needed for reidentification. surrogateInfoType can be any
+// value not found in your input.
+// Info types can be found with the infoTypes.list method or on https://cloud.google.com/dlp/docs/infotypes-reference
+func deidentifyFPE(w io.Writer, projectID, input string, infoTypeNames []string, kmsKeyName, wrappedAESKey, surrogateInfoType string) error {
+// projectID := "my-project-id"
+// input := "My SSN is 123456789"
+// infoTypeNames := []string{"US_SOCIAL_SECURITY_NUMBER"}
+// kmsKeyName := "projects/YOUR_GCLOUD_PROJECT/locations/YOUR_LOCATION/keyRings/YOUR_KEYRING_NAME/cryptoKeys/YOUR_KEY_NAME"
+// wrappedAESKey := "YOUR_ENCRYPTED_AES_256_KEY"
+// surrogateInfoType := "AGE"
+ctx := context.Background()
+client, err := dlp.NewClient(ctx)
+if err != nil {
+return fmt.Errorf("dlp.NewClient: %w", err)
+}
+defer client.Close()
+// Convert the info type strings to a list of InfoTypes.
+var infoTypes []*dlppb.InfoType
+for _, it := range infoTypeNames {
+infoTypes = append(infoTypes, &dlppb.InfoType{Name: it})
+}
+// Specify an encrypted AES-256 key and the name of the Cloud KMS key that encrypted it.
+kmsWrappedCryptoKey, err := base64.StdEncoding.DecodeString(wrappedAESKey)
+if err != nil {
+return err
+}
+// Create a configured request.
+req := &dlppb.DeidentifyContentRequest{
+Parent: fmt.Sprintf("projects/%s/locations/global", projectID),
+InspectConfig: &dlppb.InspectConfig{
+InfoTypes: infoTypes,
+},
+DeidentifyConfig: &dlppb.DeidentifyConfig{
+Transformation: &dlppb.DeidentifyConfig_InfoTypeTransformations{
+InfoTypeTransformations: &dlppb.InfoTypeTransformations{
+Transformations: []*dlppb.InfoTypeTransformations_InfoTypeTransformation{
+{
+InfoTypes: []*dlppb.InfoType{}, // Match all info types.
+PrimitiveTransformation: &dlppb.PrimitiveTransformation{
+Transformation: &dlppb.PrimitiveTransformation_CryptoReplaceFfxFpeConfig{
+CryptoReplaceFfxFpeConfig: &dlppb.CryptoReplaceFfxFpeConfig{
+CryptoKey: &dlppb.CryptoKey{
+Source: &dlppb.CryptoKey_KmsWrapped{
+KmsWrapped: &dlppb.KmsWrappedCryptoKey{
+WrappedKey: kmsWrappedCryptoKey,
+CryptoKeyName: kmsKeyName,
+},
+},
+},
+// Set the alphabet used for the output.
+Alphabet: &dlppb.CryptoReplaceFfxFpeConfig_CommonAlphabet{
+CommonAlphabet: dlppb.CryptoReplaceFfxFpeConfig_ALPHA_NUMERIC,
+},
+// Set the surrogate info type, used for reidentification.
+SurrogateInfoType: &dlppb.InfoType{
+Name: surrogateInfoType,
+},
+},
+},
+},
+},
+},
+},
+},
+},
+// The item to analyze.
+Item: &dlppb.ContentItem{
+DataItem: &dlppb.ContentItem_Value{
+Value: input,
+},
+},
+}
+// Send the request.
+r, err := client.DeidentifyContent(ctx, req)
+if err != nil {
+return fmt.Errorf("DeidentifyContent: %w", err)
+}
+// Print the result.
+fmt.Fprint(w, r.GetItem().GetValue())
+return nil
+}
+PHP
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+use Google\Cloud\Dlp\V2\Client\DlpServiceClient;
+use Google\Cloud\Dlp\V2\ContentItem;
+use Google\Cloud\Dlp\V2\CryptoKey;
+use Google\Cloud\Dlp\V2\CryptoReplaceFfxFpeConfig;
+use Google\Cloud\Dlp\V2\CryptoReplaceFfxFpeConfig\FfxCommonNativeAlphabet;
+use Google\Cloud\Dlp\V2\DeidentifyConfig;
+use Google\Cloud\Dlp\V2\DeidentifyContentRequest;
+use Google\Cloud\Dlp\V2\InfoType;
+use Google\Cloud\Dlp\V2\InfoTypeTransformations;
+use Google\Cloud\Dlp\V2\InfoTypeTransformations\InfoTypeTransformation;
+use Google\Cloud\Dlp\V2\KmsWrappedCryptoKey;
+use Google\Cloud\Dlp\V2\PrimitiveTransformation;
+/**
+* Deidentify a string using Format-Preserving Encryption (FPE).
+*
+* @param string $callingProjectId The GCP Project ID to run the API call under
+* @param string $string The string to deidentify
+* @param string $keyName The name of the Cloud KMS key used to encrypt (wrap) the AES-256 key
+* @param string $wrappedKey The name of the Cloud KMS key use, encrypted with the KMS key in $keyName
+* @param string $surrogateTypeName (Optional) surrogate custom info type to enable reidentification
+*/
+function deidentify_fpe(
+string $callingProjectId,
+string $string,
+string $keyName,
+string $wrappedKey,
+string $surrogateTypeName = ''
+): void {
+// Instantiate a client.
+$dlp = new DlpServiceClient();
+// The infoTypes of information to mask
+$ssnInfoType = (new InfoType())
+->setName('US_SOCIAL_SECURITY_NUMBER');
+$infoTypes = [$ssnInfoType];
+// Create the wrapped crypto key configuration object
+$kmsWrappedCryptoKey = (new KmsWrappedCryptoKey())
+->setWrappedKey(base64_decode($wrappedKey))
+->setCryptoKeyName($keyName);
+// The set of characters to replace sensitive ones with
+// For more information, see https://cloud.google.com/dlp/docs/reference/rest/V2/organizations.deidentifyTemplates#ffxcommonnativealphabet
+$commonAlphabet = FfxCommonNativeAlphabet::NUMERIC;
+// Create the crypto key configuration object
+$cryptoKey = (new CryptoKey())
+->setKmsWrapped($kmsWrappedCryptoKey);
+// Create the crypto FFX FPE configuration object
+$cryptoReplaceFfxFpeConfig = (new CryptoReplaceFfxFpeConfig())
+->setCryptoKey($cryptoKey)
+->setCommonAlphabet($commonAlphabet);
+if ($surrogateTypeName) {
+$surrogateType = (new InfoType())
+->setName($surrogateTypeName);
+$cryptoReplaceFfxFpeConfig->setSurrogateInfoType($surrogateType);
+}
+// Create the information transform configuration objects
+$primitiveTransformation = (new PrimitiveTransformation())
+->setCryptoReplaceFfxFpeConfig($cryptoReplaceFfxFpeConfig);
+$infoTypeTransformation = (new InfoTypeTransformation())
+->setPrimitiveTransformation($primitiveTransformation)
+->setInfoTypes($infoTypes);
+$infoTypeTransformations = (new InfoTypeTransformations())
+->setTransformations([$infoTypeTransformation]);
+// Create the deidentification configuration object
+$deidentifyConfig = (new DeidentifyConfig())
+->setInfoTypeTransformations($infoTypeTransformations);
+$content = (new ContentItem())
+->setValue($string);
+$parent = "projects/$callingProjectId/locations/global";
+// Run request
+$deidentifyContentRequest = (new DeidentifyContentRequest())
+->setParent($parent)
+->setDeidentifyConfig($deidentifyConfig)
+->setItem($content);
+$response = $dlp->deidentifyContent($deidentifyContentRequest);
+// Print the results
+$deidentifiedValue = $response->getItem()->getValue();
+print($deidentifiedValue);
+}
+C#
+To learn how to install and use the client library for Sensitive Data Protection, see
+Sensitive Data Protection client libraries.
+To authenticate to Sensitive Data Protection, set up Application Default Credentials.
+For more information, see
+Set up authentication for a local development environment.
+using System;
+using System.Collections.Generic;
+using Google.Api.Gax.ResourceNames;
+using Google.Cloud.Dlp.V2;
+using Google.Protobuf;
+using static Google.Cloud.Dlp.V2.CryptoReplaceFfxFpeConfig.Types;
+public class DeidentifyWithFpe
+{
+public static DeidentifyContentResponse Deidentify(
+string projectId,
+string dataValue,
+IEnumerable<InfoType> infoTypes,
+string keyName,
+string wrappedKey,
+FfxCommonNativeAlphabet alphabet)
+{
+var deidentifyConfig = new DeidentifyConfig
+{
+InfoTypeTransformations = new InfoTypeTransformations
+{
+Transformations =
+{
+new InfoTypeTransformations.Types.InfoTypeTransformation
+{
+PrimitiveTransformation = new PrimitiveTransformation
+{
+CryptoReplaceFfxFpeConfig = new CryptoReplaceFfxFpeConfig
+{
+CommonAlphabet = alphabet,
+CryptoKey = new CryptoKey
+{
+KmsWrapped = new KmsWrappedCryptoKey
+{
+CryptoKeyName = keyName,
+WrappedKey = ByteString.FromBase64 (wrappedKey)
+}
+},
+SurrogateInfoType = new InfoType
+{
+Name = "TOKEN"
+}
+}
+}
+}
+}
+}
+};
+var dlp = DlpServiceClient.Create();
+var response = dlp.DeidentifyContent(
+new DeidentifyContentRequest
+{
+Parent = new LocationName(projectId, "global").ToString(),
+InspectConfig = new InspectConfig
+{
+InfoTypes = { infoTypes }
+},
+DeidentifyConfig = deidentifyConfig,
+Item = new ContentItem { Value = dataValue }
+});
+Console.WriteLine($"Deidentified content: {response.Item.Value}");
+return response;
+}
+}
+For code samples that demonstrate how to use Sensitive Data Protection to
+re-identify sensitive data that was de-identified through the
+CryptoReplaceFfxFpeConfig transformation method, see Format-preserving
+encryption: re-identification
+examples.
+fixedSizeBucketingConfig
+The bucketing transformations—this one and
+bucketingConfig—serve to mask numerical data by
+"bucketing" it into ranges. The resulting number range is a hyphenated string
+consisting of a lower bound, a hyphen, and an upper bound.
+Setting fixedSizeBucketingConfig to a FixedSizeBucketingConfig
+object buckets input values based on fixed size ranges. The
+FixedSizeBucketingConfig object consists of the following:
+lowerBound: The lower bound value of all of the buckets. Values less than
+this one are grouped together in a single bucket.
+upperBound: The upper bound value of all of the buckets. Values greater
+than this one are grouped together in a single bucket.
+bucketSize: The size of each bucket other than the minimum and maximum
+buckets.
+For example, if lowerBound is set to 10, upperBound is set to 89, and
+bucketSize is set to 10, then the following buckets would be used: -10,
+10-20, 20-30, 30-40, 40-50, 50-60, 60-70, 70-80, 80-89, 89+.
+For more information about the concept of bucketing, see Generalization and
+Bucketing.
+bucketingConfig
+The bucketingConfig transformation offers more flexibility than the other
+bucketing transformation, fixedSizeBucketingConfig.
+Instead of specifying upper and lower bounds and an interval value with which
+to create equal-sized buckets, you specify the maximum and minimum values for
+each bucket you want created. Each maximum and minimum value pair must have
+the same type.
+Setting bucketingConfig to a BucketingConfig
+object specifies custom buckets. The BucketingConfig object consists of a
+buckets[] array of Bucket
+objects. Each Bucket object consists of the following:
+min: The lower bound of the bucket's range. Omit this value to create a
+bucket that has no lower bound.
+max: The upper bound of the bucket's range. Omit this value to create a
+bucket that has no upper bound.
+replacementValue: The value with which to replace values that fall within
+the lower and upper bounds. If you don't provide a replacementValue, a
+hyphenated min-max range will be used instead.
+If a value falls outside of the defined ranges, the TransformationSummary
+returned will contain an error message.
+For example, consider the following configuration for the bucketingConfig
+transformation:
+"bucketingConfig":{
+"buckets":[
+{
+"min":{
+"integerValue":"1"
+},
+"max":{
+"integerValue":"30"
+},
+"replacementValue":{
+"stringValue":"LOW"
+}
+},
+{
+"min":{
+"integerValue":"31"
+},
+"max":{
+"integerValue":"65"
+},
+"replacementValue":{
+"stringValue":"MEDIUM"
+}
+},
+{
+"min":{
+"integerValue":"66"
+},
+"max":{
+"integerValue":"100"
+},
+"replacementValue":{
+"stringValue":"HIGH"
+}
+}
+]
+}
+This defines the following behavior:
+Integer values falling between 1 and 30 are masked by being replaced with
+LOW.
+Integer values falling between 31-65 are masked by being replaced with
+MEDIUM.
+Integer values falling between 66-100 are masked by being replaced with
+HIGH.
+For more information about the concept of bucketing, see Generalization and
+Bucketing.
+replaceWithInfoTypeConfig
+Specifying
+replaceWithInfoTypeConfig
+replaces each matched value with the name of the infoType. The
+replaceWithInfoTypeConfig message has no arguments; specifying it enables
+its transformation.
+For example, suppose you've specified replaceWithInfoTypeConfig for all
+EMAIL_ADDRESS infoTypes, and the following string is sent to
+Sensitive Data Protection:
+My name is Alicia Abernathy, and my email address is aabernathy@example.com.
+The returned string will be the following:
+My name is Alicia Abernathy, and my email address is EMAIL_ADDRESS.
+timePartConfig
+Setting timePartConfig to a
+TimePartConfig
+object preserves a portion of a matched value that includes Date,
+Timestamp, and TimeOfDay values. The TimePartConfig object consists of
+a partToExtract argument, which can be set to any of the TimePart
+enumerated values, including year, month, day of the month, and so on.
+For example, suppose you've configured a timePartConfig transformation by
+setting partToExtract to YEAR. After sending the data in the first column
+below to Sensitive Data Protection, you'd end up with the transformed values
+in the second column:
+| Original values
+| Transformed values
+| 9/21/1976
+| 1976
+| 6/7/1945
+| 1945
+| 1/20/2009
+| 2009
+| 7/4/1776
+| 1776
+| 8/1/1984
+| 1984
+| 4/21/1982
+| 1982
+Record transformations
+Record transformations (the
+RecordTransformations
+object) are only applied to values within tabular data that are identified as
+a specific infoType. Within RecordTransformations, there are two further
+subcategories of transformations:
+fieldTransformations[]:
+Transformations that apply various field transformations.
+recordSuppressions[]:
+Rules defining which records get suppressed completely. Records that match
+any suppression rule within recordSuppressions[] are omitted from the
+output.
+Note: If you want to use a RecordTransformations configuration in a
+content.deidentify call, make
+sure that the value of the
+item
+field is of type Table.
+Field transformations
+Each
+FieldTransformation
+object includes three arguments:
+fields: One or more input fields (FieldID
+objects) to apply the transformation to.
+condition: A condition (a
+RecordCondition
+object) that must evaluate to true for the transformation to be applied. For
+example, apply a bucket transformation to an age column of a record only if
+the ZIP code column for the same record is within a specific range. Or,
+redact a field only if the birthdate field puts a person's age at 85 or above.
+One of the following two transformation type arguments. Specifying one is
+required:
+infoTypeTransformations: Treat the contents of the field as free text,
+and apply a
+PrimitiveTransformation
+only to content that matches an
+InfoType. These
+transformations were discussed
+earlier in this topic.
+primitiveTransformation: Apply the specified primitive transformation
+(PrimitiveTransformation
+object) to the entire field. These transformations were discussed
+earlier in this topic.
+If your RecordTransformations object contains only a
+primitiveTransformation and no infoTypeTransformations, then you don't
+need to include an InspectConfig object in your request. If you do,
+Sensitive Data Protection ignores it.
+Field transformations example
+The following example sends a
+projects.content.deidentify
+request with two field transformations:
+The first field transformation applies to the first two columns (column1 and
+column2). Because its transformation type is a primitiveTransformation
+object (specifically, a
+CryptoDeterministicConfig),
+Sensitive Data Protection transforms the entire field.
+Warning: For demonstration purposes, this example uses an unwrapped key. Don't
+use this key for actual sensitive workloads. Google recommends that you use a
+wrapped key instead. For more information about how to create a wrapped key
+and use it in de-identification and re-identification requests, see
+De-identify and re-identify sensitive
+data.
+The second field transformation applies to the third column (column3).
+Because its transformation type is an infoTypeTransformations object,
+Sensitive Data Protection applies the primitive transformation (specifically, a
+ReplaceWithInfoTypeConfig)
+to only the content that matches the infoType set in the inspection
+configuration.
+Before using any of the request data,
+make the following replacements:
+PROJECT_ID: Your Google Cloud project ID. Project IDs are
+alphanumeric strings, like my-project.
+HTTP method and URL:
+POST https://dlp.googleapis.com/v2/projects/PROJECT_ID/content:deidentify
+Request JSON body:
+{
+"item": {
+"table": {
+"headers": [
+{
+"name": "column1"
+},
+{
+"name": "column2"
+},
+{
+"name": "column3"
+}
+],
+"rows": [
+{
+"values": [
+{
+"stringValue": "Example string 1"
+},
+{
+"stringValue": "Example string 2"
+},
+{
+"stringValue": "My email address is dani@example.org"
+}
+]
+},
+{
+"values": [
+{
+"stringValue": "Example string 1"
+},
+{
+"stringValue": "Example string 3"
+},
+{
+"stringValue": "My email address is cruz@example.org"
+}
+]
+}
+]
+}
+},
+"deidentifyConfig": {
+"recordTransformations": {
+"fieldTransformations": [
+{
+"fields": [
+{
+"name": "column1"
+},
+{
+"name": "column2"
+}
+],
+"primitiveTransformation": {
+"cryptoDeterministicConfig": {
+"cryptoKey": {
+"unwrapped": {
+"key": "YWJjZGVmZ2hpamtsbW5vcA=="
+}
+}
+}
+}
+},
+{
+"fields": [
+{
+"name": "column3"
+}
+],
+"infoTypeTransformations": {
+"transformations": [
+{
+"primitiveTransformation": {
+"replaceWithInfoTypeConfig": {}
+}
+}
+]
+}
+}
+]
+}
+},
+"inspectConfig": {
+"infoTypes": [
+{
+"name": "EMAIL_ADDRESS"
+}
+]
+}
+}
+To send your request, expand one of these options:
+curl (Linux, macOS, or Cloud Shell)
+Note:
+The following command assumes that you have logged in to
+the gcloud CLI with your user account by running
+gcloud init
+or
+gcloud auth login
+, or by using Cloud Shell,
+which automatically logs you into the gcloud CLI
+.
+You can check the currently active account by running
+gcloud auth list.
+Save the request body in a file named deidentify-tabular-content-request.json,
+and execute the following command:
+curl -X POST \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "x-goog-user-project: PROJECT_ID" \
+-H "Content-Type: application/json; charset=utf-8" \
+-d @deidentify-tabular-content-request.json \
+"https://dlp.googleapis.com/v2/projects/PROJECT_ID/content:deidentify"
+PowerShell (Windows)
+Note:
+The following command assumes that you have logged in to
+the gcloud CLI with your user account by running
+gcloud init
+or
+gcloud auth login
+.
+You can check the currently active account by running
+gcloud auth list.
+Save the request body in a file named deidentify-tabular-content-request.json,
+and execute the following command:
+$cred = gcloud auth print-access-token
+$headers = @{ "Authorization" = "Bearer $cred"; "x-goog-user-project" = "PROJECT_ID" }
+Invoke-WebRequest `
+-Method POST `
+-Headers $headers `
+-ContentType: "application/json; charset=utf-8" `
+-InFile deidentify-tabular-content-request.json `
+-Uri "https://dlp.googleapis.com/v2/projects/PROJECT_ID/content:deidentify" | Select-Object -Expand Content
+You should receive a JSON response similar to the following:
+{
+"item": {
+"table": {
+"headers": [
+{
+"name": "column1"
+},
+{
+"name": "column2"
+},
+{
+"name": "column3"
+}
+],
+"rows": [
+{
+"values": [
+{
+"stringValue": "AWttmGlln6Z2MFOMqcOzDdNJS52XFxOOZsg0ckDeZzfc"
+},
+{
+"stringValue": "AUBTE+sQB6eKZ5iD3Y0Ss682zANXbijuFl9KL9ExVOTF"
+},
+{
+"stringValue": "My email address is [EMAIL_ADDRESS]"
+}
+]
+},
+{
+"values": [
+{
+"stringValue": "AWttmGlln6Z2MFOMqcOzDdNJS52XFxOOZsg0ckDeZzfc"
+},
+{
+"stringValue": "AU+oD2pnqUDTLNItE8RplY3E0fTHeO4rZkX4GeFHN2CI"
+},
+{
+"stringValue": "My email address is [EMAIL_ADDRESS]"
+}
+]
+}
+]
+}
+},
+"overview": {
+"transformedBytes": "96",
+"transformationSummaries": [
+{
+"field": {
+"name": "column1"
+},
+"results": [
+{
+"count": "2",
+"code": "SUCCESS"
+}
+],
+"fieldTransformations": [
+{
+"fields": [
+{
+"name": "column1"
+},
+{
+"name": "column2"
+}
+],
+"primitiveTransformation": {
+"cryptoDeterministicConfig": {
+"cryptoKey": {
+"unwrapped": {
+"key": "YWJjZGVmZ2hpamtsbW5vcA=="
+}
+}
+}
+}
+}
+],
+"transformedBytes": "32"
+},
+{
+"field": {
+"name": "column2"
+},
+"results": [
+{
+"count": "2",
+"code": "SUCCESS"
+}
+],
+"fieldTransformations": [
+{
+"fields": [
+{
+"name": "column1"
+},
+{
+"name": "column2"
+}
+],
+"primitiveTransformation": {
+"cryptoDeterministicConfig": {
+"cryptoKey": {
+"unwrapped": {
+"key": "YWJjZGVmZ2hpamtsbW5vcA=="
+}
+}
+}
+}
+}
+],
+"transformedBytes": "32"
+},
+{
+"infoType": {
+"name": "EMAIL_ADDRESS",
+"sensitivityScore": {
+"score": "SENSITIVITY_MODERATE"
+}
+},
+"field": {
+"name": "column3"
+},
+"results": [
+{
+"count": "2",
+"code": "SUCCESS"
+}
+],
+"fieldTransformations": [
+{
+"fields": [
+{
+"name": "column3"
+}
+],
+"infoTypeTransformations": {
+"transformations": [
+{
+"primitiveTransformation": {
+"replaceWithInfoTypeConfig": {}
+}
+}
+]
+}
+}
+],
+"transformedBytes": "32"
+}
+]
+}
+}
+Record suppressions
+In addition to applying transformations to field data, you can also instruct
+Sensitive Data Protection to de-identify data by simply suppressing records
+when certain suppression conditions evaluate to true. You can apply both field
+transformations and record suppressions in the same request.
+You set the recordSuppressions message of the RecordTransformations
+object to an array of one or more RecordSuppression objects.
+Each
+RecordSuppression
+object contains a single
+RecordCondition
+object, which in turn contains a single
+Expressions
+object.
+An Expressions
+object contains:
+logicalOperator: One of the LogicalOperator enumerated
+types.
+conditions: A
+Conditions
+object, containing an array of one or more
+Condition
+objects. A Condition is a comparison of a field value and another value,
+both of which be of type string, boolean, integer, double,
+Timestamp, or TimeofDay.
+If the comparison evaluates to true, the record is suppressed, and vice-versa.
+If the compared values are not the same type, a warning is given and the
+condition evaluates to false.
+Reversible transformations
+When you de-identify data using the
+CryptoReplaceFfxFpeConfig
+or
+CryptoDeterministicConfig
+infoType transformations, you can re-identify that data, as long as you have the
+CryptoKey
+used to originally de-identify the data.
+For more information, see Crypto-based tokenization
+transformations.
+Limit on the number of findings
+If your request has more than 3,000 findings,
+Sensitive Data Protection returns the following message:
+Too many findings to de-identify. Retry with a smaller request.
+The list of findings that Sensitive Data Protection returns is an arbitrary subset
+of all findings in the request. To get all of the findings, break up your
+request into smaller batches.
+What's next
+Learn more about how a de-identification workflow fits into real-life
+deployments.
+Work through the Redacting Sensitive Data with Sensitive Data Protection
+codelab.
+Work through an example that demonstrates how to create a wrapped
+key, tokenize content, and re-identify tokenized content.
+Learn more about creating a de-identified copy of data in
+storage.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-07 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
