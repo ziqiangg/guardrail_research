@@ -22,6 +22,8 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| modelarmor P10 Q3 (reciprocal link sdp → modelarmor page) | yes: add in the sdp diagram fix loop where the sdp page names Model Armor (R012) | main |
+| modelarmor P10 Q2/Q4 (AUP line pending R025 ruling 1; Monitoring "Partly") | AUP line stays "open" until user rules; Monitoring call → diagram verifier | main |
 | presidio P10 Q2 (screenshots in scratch) | scratch PNGs are gitignored (`benchtest/scratchpad/**/*.png`); scripts committed | main |
 | presidio P10 Q3 (three-way NeMo/Llama Guard/Sentinel table) | not required: positioning compares only what the presidio drafts state (CLAUDE.md facts-from-drafts; README); verifier may flag | main |
 | presidio P10 Q4 (eyebrow "Data Privacy Stack Presidio · release 2.2.364, created at Microsoft") | accepted (R016 dual ownership) | main |

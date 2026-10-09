@@ -51,3 +51,4 @@
 - 2026-10-09 presidio P9 done: 223 URLs: 219 ok, 1 redirect-ok (data-privacy-stack.github.io/presidio → presidio.dataprivacystack.org), 3 github 429 (all 200 on re-check / raw alternate), 0 broken/network. Accepted by main.
 - 2026-10-09 B2 P0 started: purplellama (docs + code explorers), lionguard (1 explorer), in parallel with B1 P10 reviews and modelarmor P9
 - 2026-10-09 session rate limit (reset 15:50 SGT) stopped 7 agents (modelarmor diagram + P9, presidio/sdp diagram reviews, purplellama P0 docs/code, lionguard P0); all resumed via SendMessage after reset; partial modelarmor-explained.html left uncommitted until done
+- 2026-10-09 modelarmor P10 diagram written (15 SVGs; checklist all ticked except shared 375 px overflow); diagram verifier started
