@@ -18,6 +18,9 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| sdp P6 Q1 (discovery doc URL in R9?) | keep plain-text citation, no URL cell (lessons 12: no googleapis.com API hosts in URL lists) | main |
+| sdp P6 Q2/Q3/Q6 (ruling ids removed; extra edits; T36) | accepted; verifier reviews extra edits at P7 | main |
+| sdp P6 Q4 (cross-product headers) | main re-compares after modelarmor/presidio P6 | main |
 | presidio P5 Q1 (2.2.364 release body unreadable) | Option A: CHANGELOG at tag substitute (R015); main's add_repo showed only anonymous git reads, no API | main |
 | presidio P5 Q2 (T66 Covered-by for operator rows and Docker row) | list a header only where that column's Detail cites the row's function; merger applies resolver's proposal under that test | main |
 | presidio P5 Q3 (main HEAD 2523c7b REMOVE_INTERSECTIONS fix after the tag) | merger adds one PD2 R8 bullet labelled [Documented: develop/unreleased] citing the commit; pin stays 2.2.364 | main |

@@ -9,7 +9,7 @@ Phases: P0 explore · P1 brief · P2 drafts · P3 mechanical · P4 triage · CP1
 | sentinel | — | done | AA–AG (7) | 3e | — | sentinel-explained.html | baseline-2026-10-09 | |
 | presidio | B1 | P5 done → P6 merge running (2026-10-09) | PD1–PD6 (R016) | | presidio-research → inventory (R010) | | | |
 | modelarmor | B1 | P5 done → P6 merge running (2026-10-09) | MA1–MA10 (R017) | | | | | |
-| sdp | B1 | P5 done → P6 merge running (2026-10-09) | SD1–SD6 (R018; SD7 inventory only) | | | | | |
+| sdp | B1 | P6 done (checks 0/0) → P7 verify running (2026-10-09) | SD1–SD6 (R018; SD7 inventory only) | | | | | |
 | purplellama | B2 | not started | | | CyberSecEval | | | R004 |
 | lionguard | B2 | not started | | | | | | R005 |
 | cloak | B3 | not started | | | | | | |

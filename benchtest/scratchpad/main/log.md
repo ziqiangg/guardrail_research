@@ -29,3 +29,4 @@
 - 2026-10-09 sdp P5 r2 done: 32 items (18 resolved, 7 partly, 6 open, 1 correction T57); no Summary changes; 477 quotes swept verbatim. RULE SLIP disclosed: 4 unauthenticated GETs to dlp.googleapis.com method paths during a URL sweep (HTTP 400, no creds) → lessons 12; Q1–Q6 ruled by main
 - 2026-10-09 modelarmor P5 r2 done: 32 entries (13 resolved, 10 partly, 5 open, 4 corrections T52 130k-token skip, T55 NRIC built-in, T78 date, T80 footers); 4 Summary changes; AUP testing clause → user at CP2; P6 started
 - 2026-10-09 presidio P5 done: 47 entries (38 resolved, 7 partly, 2 corrections T10, T44); 10 Summary changes; F2 0.661 was at threshold 0.4; Q1–Q6 ruled by main; P6 started
+- 2026-10-09 sdp P6 done: 208 edits, 14/54 Summaries changed, 62 items open; checks 0/0; inventory 15/24/12/13/16/7; P7 started
