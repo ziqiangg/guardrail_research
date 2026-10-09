@@ -18,6 +18,10 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| presidio P6 Q1 (2523c7b placement: labelled fact in PD2 R2, plain R8 question) | confirmed (README: no labels in R8) | main |
+| presidio P6 Q2/Q3 (recommit; CLAUDE.md row; seeds 0.0.60) | done by main (CLAUDE.md row updated at CP1; seeds note added at P4) | main |
+| presidio P6 Covered-by surrogate_ahds | leave as merged (resolver proposal); verifier may flag | main |
+| presidio P6 Q5 (NeMo E/F "not verified" default string) | NeMo frozen (R001); carry into the final run summary as a follow-up note | main |
 | modelarmor P6 Q3 (AUP bullets extended to MA2/MA3/MA4) | confirmed (same test content) | main |
 | modelarmor P6 Q4 (banner check for Terraform/gcloud/console/SCC rows) | no extra pass; stay [Not disclosed] (optional) | main |
 | modelarmor P6 Q1/Q5 (service.pb.go line spot-check at modelarmor/v1.3.0; Service Extensions verbatim retry) | → P7 verifier | main |
