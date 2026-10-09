@@ -29,9 +29,9 @@ Items touching each source file (an item can touch several): purplellama_cols_a.
 
 CP1 decision items counted in class b: T1, T2, T3, T4, T5. Class b honest-gap items: T18, T21, T29, T30, T34, T55, T58, T60, T61, T73, T79, T88.
 
-Dedup note: the same open question appears in several columns (threshold, latency and limits, release notes, PyPI parity, tool-call arguments, Together availability and terms, language count, per-call scanner creation) and is merged into one id with every location listed. Where a question has a documentation half and a run-it half it is split into two ids (a + b): <<thr_doc>> / <<thr_test>> (thresholds), <<tog_avail>> / <<tog_live>> (Together model availability), <<lf_reload>> / <<lf_reload_time>> (per-call scanner creation), <<cs_cov>> / <<cs_run>> (Code Shield rule paths). Licensing questions about the same Llama 4 text are split by what the user must decide: <<c_aup>> (test use), <<c_mau>> (user count), <<c_lictext>> (which text governs).
+Dedup note: the same open question appears in several columns (threshold, latency and limits, release notes, PyPI parity, tool-call arguments, Together availability and terms, language count, per-call scanner creation) and is merged into one id with every location listed. Where a question has a documentation half and a run-it half it is split into two ids (a + b): T26 / T27 (thresholds), T46 / T47 (Together model availability), T35 / T36 (per-call scanner creation), T68 / T71 (Code Shield rule paths). Licensing questions about the same Llama 4 text are split by what the user must decide: T6 (test use), T7 (user count), T8 (which text governs).
 
-Provenance note: cols_a, cols_b and the inventory state that docs pages were read raw with `fetch_text.py`, code from a shallow clone at the pin, and that WebFetch was not used for any quote or number, so no item is classed as depending on a summarising fetch. Facts that depend on something not read: the three gated HF card bodies (<<pin_hfcard>>), the PyPI sdists (<<pin_cs>>, <<pin_lf>>), the llama-cookbook files (<<pin_cookbook>>), the alignment-check evals dataset files (<<pin_aleval>>), the Together catalogue beyond one table read (<<tog_avail>>), the paper figure with per-language precision and recall (<<cs_pr>>), and the git history of the docs and the benchmark folder (<<samples>>, <<ev_maint>>).
+Provenance note: cols_a, cols_b and the inventory state that docs pages were read raw with `fetch_text.py`, code from a shallow clone at the pin, and that WebFetch was not used for any quote or number, so no item is classed as depending on a summarising fetch. Facts that depend on something not read: the three gated HF card bodies (T21), the PyPI sdists (T19, T20), the llama-cookbook files (T23), the alignment-check evals dataset files (T24), the Together catalogue beyond one table read (T46), the paper figure with per-language precision and recall (T72), and the git history of the docs and the benchmark folder (T40, T84).
 
 Raw label census (whole-file bracket occurrences, including Reviewer notes): A: [Documented] 68, [Documented: repo meta-llama/PurpleLlama@172c1074] 199, repo labels on the two PG2 HF repos 6, [Inferred] 71, [To be verified] 4, [Not disclosed] 19. B: [Documented] 41, PurpleLlama repo label 116, repo labels on the Maverick FP8 and alignment-check evals repos 2, [Inferred] 49, [To be verified] 4, [Not disclosed] 18. INV: [Documented] 43, PurpleLlama repo label 296, other repo labels 12, [Inferred] 37, [To be verified] 11, [Not disclosed] 25. EV: [Documented] 16, PurpleLlama repo label 55, other repo labels 4, [Inferred] 23, [To be verified] 8, [Not disclosed] 10.
 
@@ -42,20 +42,20 @@ Groups (id ranges): CP1 decisions T1 to T5; Licensing, gating and terms (class c
 | Matter | Ruling | Effect on triage |
 |---|---|---|
 | Engine and wrapper stay separate columns (PL1 and PL2, PL6 and PL4) | queue.md q02 and q15, R004 | No item; the cross-references are checked in the contradictions |
-| AlignmentCheck is a column with the Trace-level label; R7 states the Together dependency | queue.md q04 | Terms questions go to class c (<<c_tog_pii>>, <<c_tog_ret>>) |
-| Pin = commit 172c1074 plus PyPI versions plus HF revisions, stated separately; release notes [Not disclosed] | queue.md q14, R020 | <<pin_notes>> is an honest gap; PyPI parity is <<pin_cs>>, <<pin_lf>> |
+| AlignmentCheck is a column with the Trace-level label; R7 states the Together dependency | queue.md q04 | Terms questions go to class c (T11, T12) |
+| Pin = commit 172c1074 plus PyPI versions plus HF revisions, stated separately; release notes [Not disclosed] | queue.md q14, R020 | T18 is an honest gap; PyPI parity is T19, T20 |
 | CyberSecEval 4 row Covered-by marker | queue.md P1 Q1, R011, R003 | Checked: INV(a) row 23 uses `— (inventory only, not in Table 3)` |
-| Sheet letters | queue.md P1 Q2, R003 | <<inv_letters>> only records wording to clean |
+| Sheet letters | queue.md P1 Q2, R003 | T80 only records wording to clean |
 | Research is read-only; needs-testing items stay open | R019 | No local-run consent item (unlike presidio); all b items wait for the bench |
 | "Not built for X" statements are [Inferred] with the premise named; absences are [Not disclosed] with what was checked | R015, R020, R007 item 5 | Used to label the Summary fixes in group "Summary labels and entailment" |
 | Llama Guard 3 and 4 are cross-referenced only | R004 | One plain sentence each in PL1 R2 and R3 and INV(f) and (h); checked, no Summary mentions Llama Guard |
-| P1 Q5 and Q6 (Llama AUP for red-teaming; Together API terms for traces) | queue.md Resolved: to P4 triage as class c | <<c_aup>>, <<c_mau>>, <<c_tog_pii>>, <<c_tog_ret>> |
+| P1 Q5 and Q6 (Llama AUP for red-teaming; Together API terms for traces) | queue.md Resolved: to P4 triage as class c | T6, T7, T11, T12 |
 
 ## Items for CP1 (decision-bearing for the user)
 
 Defaults are the triager's recommendations and match the brief where the brief drafted one. Nothing is decided here.
 
-### Q-A Header prefix (<<cp1_prefix>>)
+### Q-A Header prefix (T1)
 
 - Option B (drafted, default): per-tool prefixes `Prompt Guard 2:`, `LlamaFirewall:`, `Code Shield:`. Evidence: R009 says the prefix is the product's own name as its owner writes it; Meta names the three tools (and writes the first one three ways: Llama Prompt Guard 2, Prompt Guard 2, PromptGuard 2); `Llama Guard:` (also a Purple Llama tool) already has its own prefix on sheet 3; headers are shorter and the tool is visible at a glance. Cost: three registry prefixes at P8; the checker warns on several prefixes (expected).
 - Option A: one `Purple Llama:` prefix with the tool in a parenthesis. Evidence: R004 names it first; one registry entry; the inventory sheet and the diagram are titled Purple Llama either way. Cost: longer headers; Purple Llama is the umbrella project, not a tool a user installs.
@@ -63,34 +63,34 @@ Defaults are the triager's recommendations and match the brief where the brief d
 - Switching later is mechanical: 7 `## Column` lines, the Covered-by cells in INV(a), (b), (c), (e) and the Evaluates cells in EV; no Summary or Detail changes. R004's example `Prompt Guard:` differs from the drafted `Prompt Guard 2:`; the header is fixed at CP1 and frozen after CP2 (R009).
 - Recommended default: option B.
 
-### Q-B Column set (<<cp1_pl7>>, <<cp1_pl8>>)
+### Q-B Column set (T2, T3)
 
 - Default: seven columns PL1 to PL7, with PL7 Hidden ASCII provisional and PL5 one column.
-- PL7 Hidden ASCII. Keep (default): a distinct deterministic function, no dependency, named in the ScannerType enum, easy to test with a code-point oracle; P0 q13 recommended a column for it. Drop to inventory only: no Meta page describes it beyond one tutorial enum sentence, so purpose and support are inferred and its R2 Summary is [Inferred] only; Meta may not treat it as a supported feature (<<hid_supported>>).
-- PL5. One column (default, as drafted and as R004 lists it): Meta documents "Regex + Custom" as one layer; the LLM-prompt scanners are isolated in their own bullets. Split into PL8 (custom LLM-prompt scanning and PII check): different function and setup (Together key, experimental, PIICheck fails open, no docs page), and a PII scanner is what sheet 4 would want to group with the Presidio and Sensitive Data Protection columns. P0 q13 suggested inventory only for PIICheck and CustomCheckScanner. A split costs new R1 to R9 Summaries for PL8 and rewritten PL5 Summaries (<<s_pl5r2>>, <<s_other>>).
+- PL7 Hidden ASCII. Keep (default): a distinct deterministic function, no dependency, named in the ScannerType enum, easy to test with a code-point oracle; P0 q13 recommended a column for it. Drop to inventory only: no Meta page describes it beyond one tutorial enum sentence, so purpose and support are inferred and its R2 Summary is [Inferred] only; Meta may not treat it as a supported feature (T61).
+- PL5. One column (default, as drafted and as R004 lists it): Meta documents "Regex + Custom" as one layer; the LLM-prompt scanners are isolated in their own bullets. Split into PL8 (custom LLM-prompt scanning and PII check): different function and setup (Together key, experimental, PIICheck fails open, no docs page), and a PII scanner is what sheet 4 would want to group with the Presidio and Sensitive Data Protection columns. P0 q13 suggested inventory only for PIICheck and CustomCheckScanner. A split costs new R1 to R9 Summaries for PL8 and rewritten PL5 Summaries (T92, T95).
 - Column count: 6 (PL7 dropped), 7 (default), 8 (PL8 added); the Q-C role split would add two more.
 - Recommended default: keep PL7 as a column; keep PL5 as one column and revisit a PL8 split at CP2 if the user wants a PII group on sheet 4.
 
-### Q-C LlamaFirewall direction (<<cp1_dir>>)
+### Q-C LlamaFirewall direction (T4)
 
 - Option 1 (drafted, default): one column per scanner, roles listed in Detail (R3, R6 and INV(c)). Evidence: no per-direction rail, flag or endpoint; scanner logic is identical across roles; defaults mix roles (INV(c) rows 45-49); the Sentinel LionGuard 2 and Presidio precedents.
 - Option 2: split by role. PromptGuard scanner into an input column (USER, SYSTEM) and a tool/retrieval column (TOOL, MEMORY); CodeShield scanner into an assistant-output column (ASSISTANT) and a tool-output column (TOOL); Regex and Hidden ASCII stay one column each. Evidence: R002 names prompt roles as a direction surface and keeps the split for a wrapper with per-direction configuration; test inputs differ by role. Cost: five roles not two, the same code path for each, two more near-identical columns.
 - Sub-question (level words): PL1, PL2, PL4, PL6 are headed Input-level or Output-level but their R3 says the string or role is arbitrary, and Meta evaluated PromptGuard on user and tool messages only. R002 lets an undifferentiated check be one column when R3 and R6 explain both uses; the Sentinel LionGuard 2 precedent carries no level word. Keeping the words is defensible because Meta's own intended-use text is one-sided (PromptGuard: "user inputs and untrusted content"; CodeShield: "output scanning").
 - Recommended default: option 1, level words kept, with R3 and INV(c) carrying the role detail (already drafted).
 
-### Q-D Bench design: own injection-removed negatives (<<cp1_neg>>)
+### Q-D Bench design: own injection-removed negatives (T5)
 
 - Option 1: yes, the bench builds its own negatives by removing the injected span from the 251 English cases (and the multilingual file), documents the method, and treats results as bench-internal, not comparable to Meta's CSE3 figure. Evidence: the data is Meta-written and MIT (EV:52); the CSE3 method used matching injection-removed negatives (EV:70); the repo ships none (EV:108, EV:121); cases embed a secret-key task so removed-text negatives may be unrepresentative.
 - Option 2: no; use only external benign corpora and the 750 MITRE false-refusal prompts (EV:111) as negatives. Cost: no matched pairs, so a classifier that keys on topic rather than override intent cannot be separated.
 - Option 3: both, reported separately.
-- Recommended default: option 3 (own matched negatives plus external benign sets, results labelled bench-internal). Related open point: <<ev_neg>> may find that CSE3 published its negatives.
+- Recommended default: option 3 (own matched negatives plus external benign sets, results labelled bench-internal). Related open point: T82 may find that CSE3 published its negatives.
 
 ### Also for CP1 or CP2: class c judgements (record, decide later, as R025)
 
-- <<c_aup>> and <<c_mau>>: default as R025 ruling 1, quote the AUP clause as [Documented], keep "whether bench red-team testing is permitted" as an open R8 item, and let the user or their legal contact settle it before any Prompt Guard 2 or PromptGuard scanner test starts. Evidence: only item 2.8 is close; no clause names security testing; the 700 million user clause depends on the organisation.
-- <<c_tog_pii>> and <<c_tog_ret>>: default as R025 ruling 2, a bench rule that AlignmentCheck, PIICheck and CustomCheckScanner are tested with synthetic data only (Together terms section 4 bars sensitive personal data; ZDR is an account setting with an unstated default), recorded in PL3 R7 and PL5 R7 and in INV(f).
-- <<c_semgrep>>: default to record the LGPL 2.1 fact and the dependency in INV(f) and leave legal consequences to the user; no bench blocker is evident from the drafts.
-- <<c_csedata>>: default to reuse only Meta-written MIT CyberSecEval data (prompt injection, MITRE, interpreter, spear phishing) and keep CrowdStrike, ARVO and third-party-code-derived data out of any redistributed bench artefact until the owners' licences are read.
+- T6 and T7: default as R025 ruling 1, quote the AUP clause as [Documented], keep "whether bench red-team testing is permitted" as an open R8 item, and let the user or their legal contact settle it before any Prompt Guard 2 or PromptGuard scanner test starts. Evidence: only item 2.8 is close; no clause names security testing; the 700 million user clause depends on the organisation.
+- T11 and T12: default as R025 ruling 2, a bench rule that AlignmentCheck, PIICheck and CustomCheckScanner are tested with synthetic data only (Together terms section 4 bars sensitive personal data; ZDR is an account setting with an unstated default), recorded in PL3 R7 and PL5 R7 and in INV(f).
+- T14: default to record the LGPL 2.1 fact and the dependency in INV(f) and leave legal consequences to the user; no bench blocker is evident from the drafts.
+- T15: default to reuse only Meta-written MIT CyberSecEval data (prompt injection, MITRE, interpreter, spear phishing) and keep CrowdStrike, ARVO and third-party-code-derived data out of any redistributed bench artefact until the owners' licences are read.
 - Local-run consent: not needed; R019 keeps all needs-testing items for the bench.
 
 ## Triage table

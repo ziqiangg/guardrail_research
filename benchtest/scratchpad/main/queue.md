@@ -27,6 +27,10 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| purplellama P4 Q1 (huggingface.co/api/models JSON as evidence) | allowed: public unauthenticated read-only Hub metadata of the vendor org, not a product API (sdp discovery-doc precedent); never gated files | main |
+| purplellama P4 Q2 (download public PyPI sdists to read) | allowed read-only, no install/execution, into own empty scratch dir, treated as untrusted (R019) | main |
+| purplellama P4 Q3 (non-shallow git history reads) | allowed: anonymous read-only git (R013, R015) | main |
+| purplellama P4 Q4 (Together model catalogue/deprecation/pricing pages) | allowed as "not Meta docs" for dependency availability facts only (R007 item 1, R019) | main |
 | lionguard P4 Q1 (arXiv 2507.05980 RabakBench paper as official) | yes: GovTech-authored paper (CLAUDE.md rule 1); add to brief sources and inventory (d) | main |
 | lionguard P4 Q2 (third-party embedder behaviour facts in cells) | keep only embedder identity facts (model name, max input, output dimension) plus gating/licence/terms, each attributed "not GovTech docs"; drop other third-party behaviour (brief scope, R019) | main |
 | lionguard P4 Q3 (R8-Summary-only items priority) | M (Presidio/Sentinel convention) | main |

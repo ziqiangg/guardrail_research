@@ -269,7 +269,7 @@ w('')
 w('Cross-file values compared and found consistent (by reading): commit pin 172c1074 and author date 2026-09-29; PyPI latest files (llamafirewall 1.0.3, codeshield 1.0.1); HF revisions a8ded8e6, 11614a15, 1209add6; PG2 card values (.998, 97.5%, .995, 92.4 ms; .995, 88.7%, .942, 19.3 ms; 81.2% and 78.4%); default thresholds PromptGuard 0.9, Regex 1.0, Hidden ASCII 1.0, CodeShield 1.0, PIICheck 0.7, CustomCheckScanner 0.0; no-config role defaults (TOOL: CODE_SHIELD and PROMPT_GUARD, USER: PROMPT_GUARD, ASSISTANT: CODE_SHIELD, SYSTEM and MEMORY empty); AlignmentCheck decisions (ALLOW or HUMAN_IN_THE_LOOP_REQUIRED, never BLOCK; fail closed on LLM error, open on a missing trace); config.yaml regex rule ids 38 equal the sum of the INV(d) enabled counts (5+2+2+14+1+3+3+0+8) and the 77 Semgrep ids equal the INV(d) generated counts without C++ (16+20+11+13+7+10); the analyser map (7 regex plus Semgrep, 7 regex only) matches INV(d); the 16 enum members and 8 default languages match between PL4 R2, PL6 R2 and INV(d); the seven column headers are identical in the brief, the column files and every INV Covered-by cell; inventory row counts equal the brief targets (16, 8, 11, 16, 12, 8, 12, 5). Compared by reading, not by execution.')
 w('')
 
-open(OUT, 'w', encoding='utf-8').write('\n'.join(L) + '\n')
+open(OUT, 'w', encoding='utf-8').write('\n'.join(R(x) for x in L) + '\n')
 print('items', N, dict(cnt), 'H', pri['H'], dict(pri))
 print('cp1', [i['id'] for i in cp1])
 print('hg', [i['id'] for i in hg])
