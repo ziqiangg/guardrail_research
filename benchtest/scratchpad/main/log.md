@@ -28,3 +28,4 @@
 - 2026-10-09 modelarmor P5 r1 done: 22 a-items (7 resolved, 11 partly, 3 open, 1 correction T16 userPrompt documented in REST); 6 Summary changes; Apigee GA 2025-09-04; /model-armor/pricing 404; Q1–Q5 ruled by main
 - 2026-10-09 sdp P5 r2 done: 32 items (18 resolved, 7 partly, 6 open, 1 correction T57); no Summary changes; 477 quotes swept verbatim. RULE SLIP disclosed: 4 unauthenticated GETs to dlp.googleapis.com method paths during a URL sweep (HTTP 400, no creds) → lessons 12; Q1–Q6 ruled by main
 - 2026-10-09 modelarmor P5 r2 done: 32 entries (13 resolved, 10 partly, 5 open, 4 corrections T52 130k-token skip, T55 NRIC built-in, T78 date, T80 footers); 4 Summary changes; AUP testing clause → user at CP2; P6 started
+- 2026-10-09 presidio P5 done: 47 entries (38 resolved, 7 partly, 2 corrections T10, T44); 10 Summary changes; F2 0.661 was at threshold 0.4; Q1–Q6 ruled by main; P6 started

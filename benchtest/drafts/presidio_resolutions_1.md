@@ -176,7 +176,7 @@ Items handled (47): T1 to T16, T19 to T22, T24, T26, T30, T35, T37, T38, T41, T4
 - Verdict: PARTLY RESOLVED (the site cannot be pinned to a commit; its publishing chain and date are established)
 - Evidence:
   - Branch `gh-pages` of data-privacy-stack/presidio: HEAD e1987e57d4474f14f9da03884ca1a99ece7dc6a5 (2026-07-04, "Create CNAME"); `CNAME` content `presidio.dataprivacystack.org`; its `installation/index.html` lists python 3.10, 3.11, 3.12, 3.13, as the live page does (live: "Presidio is supported for the following python versions: 3.10 3.11 3.12 3.13"). So the live site is the `gh-pages` branch as of 2026-07-04.
-  - `.github/workflows/release-docs.yml@2.2.364`: trigger `on: workflow_dispatch:` (manual); "Builds the docs with Zensical ... and publishes the result to GitHub Pages"; the build ref is whichever ref the dispatcher selects and no build SHA is recorded in the published files (no commit id in `gh-pages` root files).
+  - `.github/workflows/release-docs.yml@2.2.364`: trigger `on: workflow_dispatch:` (manual); "Builds the docs with Zensical ... and publishes the result to GitHub Pages"; the build ref is whichever ref the dispatcher selects, and a search of the `gh-pages` html and json files for the tag commit and the `main` head ids found no build commit id.
   - Distinctive passages that differ from `docs/` at the tag: `docs/installation.md@2.2.364:24` lists `* 3.14`, the live page does not; `docs/analyzer/recognizer_registry_provider.md@2.2.364:113` documents `score_thresholds`, the `gh-pages` copy of that page does not contain it (0 hits); `docs/supported_entities.md@2.2.364` has the PH_UMID row, the live page does not (T20).
   - The tag 2.2.364 was created on 2026-07-22, 18 days after the last docs publish.
 - Label to use: live docs facts stay `[Documented]` without a pin and "read 2026-10-09"; "the site predates the 2.2.364 tag, which explains the differences" is `[Inferred]` (premise: gh-pages HEAD 2026-07-04, tag 2026-07-22).
@@ -330,3 +330,196 @@ Items handled (47): T1 to T16, T19 to T22, T24, T26, T30, T35, T37, T38, T41, T4
 - Label to use: `[Documented: repo data-privacy-stack/presidio@2.2.364]` (already in PD6 R4 B:393) and `[Documented]` (PD6 R1 B:345).
 - Draft impact: B, PD6 R8: delete B:448. PD6 R8 Summary: see T13 / list at the end (new text without non-pattern logic).
 
+### T52 — Authentication, TLS and rate-limit guidance beyond the FAQ
+- Verdict: RESOLVED (the absences stand with a longer checked list; two network-control facts added)
+- Evidence: FAQ https://presidio.dataprivacystack.org/faq/ "Presidio API endpoints do not include built-in authentication by design." and "It is strongly recommended not to expose Presidio services directly to untrusted networks without an authentication layer in front of them." Kubernetes sample https://presidio.dataprivacystack.org/samples/deployments/k8s/ "Presidio is deployed with an ingress controller by default, and uses nginx as ingress.class." (no TLS, certificate or authentication text: searched tls, ssl, https, authentic; `values.yaml` and chart templates under `docs/samples/deployments/k8s/charts/presidio/` also have no tls or ssl entry). App Service sample https://presidio.dataprivacystack.org/samples/deployments/app-service/ "Use the following script to restrict network access for a specific ip such as your computer, a front-end website or an API management." and "Further network isolation, using virtual networks, is possible using an Isolated tier of Azure App Service." Data Factory sample https://presidio.dataprivacystack.org/samples/deployments/data-factory/presidio-data-factory/ uses a managed identity and Key Vault access policy for the factory (no statement on Presidio endpoint authentication or TLS). No rate-limit text anywhere (searched "rate limit" on the same pages and the FAQ).
+- Label to use: the two network-control facts `[Documented]`; TLS and rate limiting `[Not disclosed]` (checked FAQ, installation, analyzer, Kubernetes, App Service and Data Factory pages and the Helm chart files).
+- Draft impact:
+  - A, PD1 R6: extend A:142 to `• TLS for the REST service (checked the FAQ, installation, analyzer, Kubernetes, App Service and Data Factory pages and the Helm chart files; not mentioned) **[Not disclosed]**`; add `• The Kubernetes sample deploys an NGINX ingress controller by default (Presidio docs, Kubernetes page) **[Documented]**` and `• The App Service sample shows a script that restricts network access to a given IP range (Presidio docs, App Service page) **[Documented]**`. Add "rate limiting" to the A:142 list or a separate `[Not disclosed]` bullet "Rate limits (checked the same pages; none stated)".
+  - A, PD1 R8 A:168: replace with `• Whether TLS termination is expected at an ingress or gateway (the Kubernetes sample deploys an NGINX ingress; no page mentions TLS or rate limits)`.
+  - A, PD2 R6 A:334 / PD3 R6 A:478 / PD4 R6 B:114 / PD6 R6 B:432: no change needed except extending the checked list as above.
+  - INV (d) rows 92 and 93 caveats: add `Ingress by default; TLS not mentioned [Not disclosed] (checked K8S)` for row 92 and `IP-range access restriction script [Documented] (APPSVC)` for row 93 (row 93 already says "network blocking").
+
+### T54 — x-correlation-id response header
+- Verdict: RESOLVED
+- Evidence: https://presidio.dataprivacystack.org/analyzer/decision_process/ "The id can be retrieved from each API response header: x-correlation-id." (also `docs/analyzer/decision_process.md@2.2.364:79`). In the code: `presidio-analyzer/app.py@2.2.364:92` passes `correlation_id=req_data.correlation_id` into `analyze`; `grep -rn -i "after_request\|headers\|add_header\|response.headers\|make_response"` over `presidio-analyzer/app.py` and `presidio-analyzer/presidio_analyzer/` returns no match; `grep -rn -i correlation` over the Analyzer package (outside tests) finds only the request field, the engine parameter and the tracer calls.
+- Label to use: docs side `[Documented]`; code absence `[Not disclosed]` (checked the files and patterns named).
+- Draft impact: A, PD1 R6, replace A:139 with two bullets: `• The decision-process page says: "The id can be retrieved from each API response header: x-correlation-id." (Presidio docs, decision process page) **[Documented]**` and `• No code in `presidio-analyzer/app.py` or `presidio_analyzer/` at the tag sets a response header (searched for headers, after_request, add_header and make_response; `app.py@2.2.364:92` only passes the id into `analyze`) **[Not disclosed]**`.
+
+### T55 — Decision-process logging and PII in logs
+- Verdict: RESOLVED
+- Evidence: `presidio-analyzer/presidio_analyzer/analyzer_engine.py:246-248` `if self.log_decision_process:` `self.app_tracer.trace(` `correlation_id, "nlp artifacts:" + nlp_artifacts.to_json()`; `nlp_engine/nlp_artifacts.py:81-84` `return_dict["tokens"] = [token.text for token in self.tokens]` and `return_dict["entities"] = [entity.text for entity in self.entities]`. Page https://presidio.dataprivacystack.org/analyzer/decision_process/ "The decision process logs will be written to standard output." and the example line "[nlp artifacts:{'entities': (Bart Simpson, 4095, 425), 'tokens': ['My', 'name', 'is', 'Bart', 'Simpson'" (the sample text there is "My name is Bart Simpson, my Credit card is: 4095-2609-9393-4932").
+- Label to use: code and docs example `[Documented: repo ...]` and `[Documented]`; "PII from the analysed text reaches standard output" `[Inferred]` (premise: the two documented facts).
+- Draft impact: A, PD1 R6, replace A:138 with `• With `log_decision_process` on, the trace includes the NLP artifacts with the token texts and entity texts of the analysed string (`analyzer_engine.py@2.2.364:246-248`; `nlp_artifacts.py@2.2.364:81-84`) **[Documented: repo data-privacy-stack/presidio@2.2.364]`; `• The decision-process page says "The decision process logs will be written to standard output." and its example trace line contains the sample text's name and digits (Presidio docs, decision process page) **[Documented]`; `• So PII from the analysed text reaches standard output when decision-process logging is on **[Inferred]** (premise: the two bullets above)`. Add the `nlp_artifacts.py` blob URL to PD1 R9.
+
+### T56 — Automatic language detection
+- Verdict: RESOLVED (absence stands)
+- Evidence: grep of `docs/` at 2.2.364 for language detect, langdetect, lingua, fasttext, langid, identify language: no statement of automatic language detection (hits are unrelated: recipes, the languages page "PII detection in different languages", GPU auto-detect of hardware); `presidio-analyzer/pyproject.toml:26-35` dependencies list no language-identification package; `presidio-analyzer/app.py:79-83` requires `language`.
+- Label to use: `[Not disclosed]` (checked docs/ at the tag, the languages and analyzer pages, pyproject dependencies and app.py).
+- Draft impact: A, PD1 R3 A:52: extend the checked list to "the analyzer and languages pages, `docs/` at the tag, the dependency list and `app.py`"; label unchanged.
+
+### T57 — "Out of purpose" statement label
+- Verdict: RESOLVED
+- Evidence: R015 ruling 1 (main): "`[Inferred]`, with the premise named in the bullet (e.g. 'home page module list'), applied consistently in every column." Home page module list (https://presidio.dataprivacystack.org/, re-read): "Presidio analyzer: PII identification in text", "Presidio anonymizer: De-identify detected PII entities using different operators", "Presidio image redactor: Redact PII entities from images using OCR and PII identification", "Presidio structured: PII identification in structured/semi-structured data".
+- Label to use: `[Inferred]` everywhere, premise "home page module list".
+- Draft impact:
+  - A, PD1 R2 A:38 (already Inferred): append the premise: `... and list no such entity or check (premise: the Home page module list) **[Inferred]**`. A, PD2 R2 A:272: append `(premise: the Home page module list)`.
+  - B, PD4 R2 B:19: change label to `**[Inferred]**` and keep the text ("Out of purpose: the home page lists the modules as ...; none is a prompt-injection, harmful-content or topic check (premise: Presidio docs, home page, read 2026-10-09)"). B, PD5 R2 B:198 and PD6 R2 B:362: same change (PD6 bullet label `[Documented]` -> `[Inferred]`).
+  - Summary labels: PD4 R2 Summary label `**[Documented]**` -> `**[Inferred]**` (text unchanged, 45 words). PD5 R2 Summary label `**[Documented]**` -> `**[Inferred]**` (text unchanged, 41 words). PD6 R2 Summary is already `[Inferred]`. PD1 R2 and PD2 R2 Summaries do not carry the statement.
+  - Brief, R007-style note: record the convention in the change log.
+
+### T58 — Summary labels stronger than their Detail
+- Verdict: RESOLVED (rewording given for all four Summaries; label hygiene note for R1 "no verdict" kept as is)
+- Evidence: the cited Detail bullets: PD1 R2 A:26-27 are `[Documented: repo ...@0.3.2]` / `[Inferred]` and A:18 is an own count (T20); PD4 R5 B:90 and B:95, PD5 R5 B:264-265, PD6 R5 B:414 and B:416 are `[Not disclosed]`. README section 4 rule 5: "Each Summary label must match the facts the Summary draws on".
+- Label to use: Summaries keep `**[Documented]**` after removing the absence sentences; each new sentence is entailed by a `[Documented: repo ...]` bullet of the same row (named below). Absences remain in the Detail and in the R8 Summaries.
+- Draft impact (new Summary lines; word counts computed, limit 45):
+  - PD1 R2: see T20 (40 words).
+  - PD4 R5 (44 words): `Summary: **No verdict; an image comes back.** Python returns the redacted image and, optionally, one box per redacted word with entity type, offsets, score and position. REST returns only the image. The score threshold is 0 in Python and 0.4 on the REST upload form. **[Documented]**` (entailed by B:81-88).
+  - PD5 R5 (41 words): `Summary: **A transformed table or object plus a column map.** Output is the anonymised table or dict; the analysis step returns a column-to-entity map with no per-cell findings or scores. The detection threshold defaults to 0 and the mixed-strategy cut-off to 0.5. **[Documented]**` Add to PD5 R5 Detail: `• `mixed_strategy_threshold` defaults to 0.5 (`analysis_builder.py@2.2.364:176`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**` (B:261 already gives the detection threshold default 0). This also replaces "DataFrame" in the Summary by "table" (style item 2).
+  - PD6 R5 (42 words): `Summary: **Spans with the score you set.** A custom recognizer returns the usual Analyzer result: entity type, start, end and score. With the decision process on, the explanation names the pattern, regex, original score and context boost. The engine threshold defaults to 0. **[Documented]**` (entailed by B:405-406, B:412).
+  - The "returns detections, not a decision" `[Inferred]` in R1 versus `[Documented]` in R5 (label hygiene row 6): acceptable as is; no change.
+
+### T59 — Summary claims without a supporting bullet in the same row
+- Verdict: RESOLVED
+- Evidence: PD3 R1: https://presidio.dataprivacystack.org/anonymizer/ "Presidio does not store or maintain stateful sessions." (page line 423). PD2 R1: the anonymizer page class diagram lists `EngineResult` with `text` and `items`, and `OperatorResult` with `start`, `end`, `entity_type`, `text`, `operator`; `presidio-anonymizer/presidio_anonymizer/anonymizer_engine.py@2.2.364:76-81` docstring example: input "My name is Bond, James Bond" gives `text: My name is BIP, BIP.` and items `{'start': 16, 'end': 19, ...}` and `{'start': 11, 'end': 14, ...}` (positions in the new text). PD1 R6: https://presidio.dataprivacystack.org/analyzer/languages/ "In its default configuration, it contains recognizers and models for English." and "To extend Presidio to detect PII in an additional language, these modules require modification:".
+- Label to use: `[Documented]` for the page quotes; `[Documented: repo data-privacy-stack/presidio@2.2.364]` for the docstring example.
+- Draft impact:
+  - A, PD3 R1: add `• "Presidio does not store or maintain stateful sessions." (Presidio docs, anonymizer page) **[Documented]**` and change the Summary's last sentence to "Presidio keeps no session state between calls." New Summary (40 words): `Summary: **Encrypts PII in text so it can be restored later.** The encrypt operator swaps each entity for AES ciphertext, and the Deanonymize engine or the decrypt operator reverses it with the same key. Presidio keeps no session state between calls. **[Documented]**`
+  - A, PD2 R1: add `• The result is an `EngineResult` with `text` and `items`; each item is an `OperatorResult` with `start`, `end`, `entity_type`, `text` and `operator` (Presidio docs, anonymizer page, class diagram) **[Documented]**` and `• The `anonymize` docstring example shows item positions in the new text: input "My name is Bond, James Bond" gives "My name is BIP, BIP." with items at 16 to 19 and 11 to 14 (`anonymizer_engine.py@2.2.364:76-81`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**`. Summary unchanged.
+  - A, PD1 R6: add `• "To extend Presidio to detect PII in an additional language, these modules require modification:" followed by the NLP engine and the recognizers (Presidio docs, languages page) **[Documented]**`. Summary unchanged.
+
+### T60 — Status cells
+- Verdict: RESOLVED
+- Evidence: `grep -n "Development Status"` over every `pyproject.toml` at 2.2.364 (analyzer, anonymizer, image-redactor, structured, cli, presidio) and over presidio-research@0.3.2: no match; the READMEs of the six packages and the analyzer and anonymizer docs pages carry no stable, beta, alpha or experimental word (searched); marks that exist: image redactor "Please notice, this package is still in beta and not production ready." (https://presidio.dataprivacystack.org/image-redactor/), structured "Alpha: This package is currently in alpha" (T44), LangExtract sample "(Experimental Feature)".
+- Label to use: `stable [Inferred]` rows keep their label and premise (premise confirmed); "Not stated" rows keep `[Not disclosed]`.
+- Draft impact: INV (a) rows 11, 12, 16 to 23 and INV (d) status cells: change the checked lists to "checked README, pyproject classifiers (no Development Status classifier in any package at the tag) and the docs pages". The vendor wording "alpha" stays (ruled earlier). No Summary affected.
+
+### T61 — Extras for the regex recognizer rows
+- Verdict: RESOLVED
+- Evidence: an AST import scan of every file under `presidio-analyzer/presidio_analyzer/predefined_recognizers/` at 2.2.364 lists non-standard-library imports only in these files: `generic/email_recognizer.py` (tldextract), `generic/iban_recognizer.py` and `country_specific/spain/es_passport_recognizer.py` (regex), `generic/phone_recognizer.py` (phonenumbers), `ner/gliner_recognizer.py` (gliner), `ner/huggingface_ner_recognizer.py` (torch, transformers), `third_party/ahds_recognizer.py` (azure), `third_party/azure_ai_language.py` (azure), `third_party/azure_openai_langextract_recognizer.py` and `azure_openai_provider.py` (langextract, openai). `presidio-analyzer/pyproject.toml:26-35` core `dependencies` include `regex` (line 31), `tldextract` (line 32), `phonenumbers` (line 34); extras are listed from line 38.
+- Label to use: `[Documented: repo data-privacy-stack/presidio@2.2.364]` (code read; the scan is mine and is stated in the cell).
+- Draft impact: INV (b) column "Extra install or external service": replace "None beyond presidio-analyzer [Inferred] (premise: ...)" in rows 32 to 54 as follows. Row 32 (credit card, crypto, IBAN): `regex is a core dependency used by IbanRecognizer [Documented: repo data-privacy-stack/presidio@2.2.364] (pyproject.toml:31; generic/iban_recognizer.py)`. Row 33: keep the phonenumbers fact and add `tldextract is a core dependency used by EmailRecognizer [Documented: repo ...] (pyproject.toml:32)`. Row 39 (Spain): `regex is a core dependency used by EsPassportRecognizer [Documented: repo ...] (pyproject.toml:31)`. Rows 34, 35, 37, 38, 40 to 54 (all other regex recognizers): `None; imports are standard library and presidio_analyzer only [Documented: repo data-privacy-stack/presidio@2.2.364] (import scan of the recognizer folder)`. Rows 36 (NER) and 55 to 61 unchanged.
+
+### T63 — Status "Sample" for deployment pages
+- Verdict: RESOLVED (premise verified; the classification stays an inference)
+- Evidence: `mkdocs.yml@2.2.364:85` `- Samples:`; `:120-128` under `- Deployment:`: `Presidio with App Service: samples/deployments/app-service/index.md`, `Presidio with Kubernetes: samples/deployments/k8s/index.md`, `Presidio with Spark: samples/deployments/spark/index.md`, `Presidio with Fabric: samples/fabric/index.md`, and the Data Factory pages. `docs/samples/deployments/spark/index.md:7` "**Note** that this code works for Databricks runtime 8.1 (spark 3.1.1) and the libraries described here" (live: https://presidio.dataprivacystack.org/samples/deployments/spark/).
+- Label to use: premise `[Documented: repo data-privacy-stack/presidio@2.2.364]`; "Sample" status stays `[Inferred]`.
+- Draft impact: INV (d) rows 92 to 95: change "Sample [Inferred] (premise: under Samples in the nav)" to `Sample [Inferred] (premise: the pages sit under Samples > Deployment in mkdocs.yml:85,120-128 [Documented: repo data-privacy-stack/presidio@2.2.364])`. The scope paragraph of block (d) gets the same wording.
+
+### T65 — Legacy V1 contents
+- Verdict: RESOLVED
+- Evidence: `git ls-remote --heads` lists `refs/heads/V1` at 037d239f819271da57b9ff0e1eb4f84b2f1da6f5; clone of branch V1 (2021-02-28, "Update README.MD"): `VERSION` contains `0.95`; `README.MD` begins "DEPRECATED: - This is the V1 version of Presidio. ... - Note that support for services in this version is ceased." and names `pip install presidio-analyzer==0.95` and Docker `tag=v1`; line 44 "Replacing gRPC with HTTP to allow more customizable APIs and easier debugging."; `docs/development.md:114` `GRPC_PORT`; tag `v0.95` exists (`e13d3f9d`). V2 page https://presidio.dataprivacystack.org/presidio_V2/ "The legacy V1 code base will continue to be available under branch V1 but will no longer be officially supported."
+- Label to use: `[Documented: repo data-privacy-stack/presidio@V1]` is not a form the README allows for a branch; use `[Documented: repo data-privacy-stack/presidio@037d239f]` (short sha) for V1 facts and `[Documented]` for the V2 page.
+- Draft impact: INV (a) row 24: replace "Branch V1 contents not read [To be verified]" with `Branch V1 head 037d239f (2021-02-28) has VERSION 0.95 and a README marked "DEPRECATED" that names PyPI presidio-analyzer==0.95 and Docker tag v1 [Documented: repo data-privacy-stack/presidio@037d239f] (VERSION; README.MD)`. Add `https://github.com/data-privacy-stack/presidio/blob/037d239f819271da57b9ff0e1eb4f84b2f1da6f5/README.MD` to the row's URL cell. The row's "gRPC services [Documented] (V2)" stays.
+
+### T66 — Covered-by convention
+- Verdict: RESOLVED (convention proposal; main or merger decides, see QUESTIONS)
+- Evidence: no source needed. Facts: `presidio-structured` applies the Anonymizer operators (`operators_factory.py@2.2.364:24-26` list used by `data_processors.py@2.2.364:78`); PD4 and PD5 reuse the Analyzer; the Analyzer image serves `ad_hoc_recognizers` (`presidio-analyzer/app.py@2.2.364:96`); INV (d) row 89 already lists PD6.
+- Label to use: not applicable.
+- Draft impact (proposal): (1) INV (c) rows 70 to 75 and 77 (replace, redact, hash, mask, custom, keep, encrypt): append `; Presidio: PII detection and anonymisation in structured data (tables and JSON)` to "Covered by Table 3 column"; decrypt, deanonymize_keep and surrogate_ahds rows unchanged (PD5 hardcodes the Anonymize type; surrogate_ahds is registered only with its extra, and is therefore left out). (2) INV (b): no change (the recognizer rows describe the Analyzer, which PD4 to PD6 reuse but do not redefine). (3) INV (d) row 88 (Docker images): append `; Presidio: Custom-recognizer detection (regex patterns, deny lists, ad-hoc recognizers)`. The `check_drafts.py inventory --headers` check passes either way (headers are exact copies of the PD5 and PD6 headings). If main prefers no change, nothing breaks.
+
+### T67 — Presidio default replacement string
+- Verdict: RESOLVED
+- Evidence: anonymizer page https://presidio.dataprivacystack.org/anonymizer/ "The replacing value will be the entity type e.g.: <PHONE_NUMBER>" (page lines 409-410); `presidio-anonymizer/presidio_anonymizer/operators/replace.py:18` `return f"<{params.get('entity_type')}>"` when `new_value` is empty (`:14-18`). `two_level_v2.md` lines 586 and 680 (NeMo columns E and F R8) still say the string is "not verified in the Presidio docs"; those sheets are frozen (R001).
+- Label to use: `[Documented]` and `[Documented: repo data-privacy-stack/presidio@2.2.364]`.
+- Draft impact: A, PD2 R2 A:250: split. Keep `• Code: `Replace` has `return f"<{params.get('entity_type')}>"` when `new_value` is empty (`replace.py@2.2.364:18`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**` and delete the clause "; the NeMo Guardrails PII columns list this default string as unverified in the Presidio docs". Record the NeMo note in presidio_changes.md only. No change to NeMo sheets. INV (d) row 97 unchanged.
+
+### T68 — German recipe in the nav and on the live site
+- Verdict: RESOLVED
+- Evidence: `mkdocs.yml@2.2.364:82-84` the Recipes nav lists only `Home: recipes/index.md`, `Contributing: recipes/CONTRIBUTING.md`, `Template: recipes/template.md`. The live site serves the recipe: https://presidio.dataprivacystack.org/recipes/german-language-support/ HTTP 200, text "Formal evaluation against a labelled German dataset has not yet been performed." and "Set score_threshold to 0.4–0.5 for production use to filter out low-confidence"; the `gh-pages` branch contains `recipes/german-language-support/`; the recipes index page mentions "Multilingual: Examples for Spanish, French, German, and other languages" without a link.
+- Label to use: `[Documented]` for the live page; `[Documented: repo data-privacy-stack/presidio@2.2.364]` for the repo copy (already used).
+- Draft impact: A, PD1 R5 A:103 and A:117: keep the repo-pinned bullets and add `https://presidio.dataprivacystack.org/recipes/german-language-support/` to PD1 R9; add one bullet `• The recipe page is served on the live site although the site navigation does not list it (Presidio docs, German language support recipe) **[Documented]**`. A RN-9 not carried.
+
+### T69 — "Data Protection toolkit for OpenAI" sample
+- Verdict: PARTLY RESOLVED (it is linked from the samples index; maintenance status not stated)
+- Evidence: `docs/samples/index.md@2.2.364:39` `| Deployment | | Data Protection toolkit for OpenAI | [Data Protection toolkit for OpenAI](deployments/openai-anonymaztion-and-deanonymaztion-best-practices/index.md)|`; the live samples page https://presidio.dataprivacystack.org/samples/ lists "Data Protection toolkit for OpenAI"; it is not in `mkdocs.yml` navigation (grep for "openai" finds only the Streamlit and synthetic-data samples). The sample page https://presidio.dataprivacystack.org/samples/deployments/openai-anonymaztion-and-deanonymaztion-best-practices/ says "spikes/ - Experimental code, such as a Streamlit chat application" (only the spikes folder is called experimental). No maintenance or support statement found (checked the sample page, the samples index and `mkdocs.yml`); the shallow clone holds one commit, so file history was not read.
+- Label to use: index listing `[Documented]` / `[Documented: repo ...]`; maintenance status `[Not disclosed]` (checked the sample page, samples index, nav).
+- Draft impact: A, PD1 R3 A:49 (and PD2 R3 A:281, PD3 R2 A:411-412): add after the quote `• The sample is listed in the samples index as a Deployment sample (`docs/samples/index.md@2.2.364:39`) though not in the left navigation **[Documented: repo data-privacy-stack/presidio@2.2.364]**` once (PD1 R3), and `• Maintenance status of that sample (checked the sample page, the samples index and the nav; not stated) **[Not disclosed]**`. Keep the URL with the vendor's spelling "anonymaztion".
+
+### T70 — URL pre-check for P9
+- Verdict: PARTLY RESOLVED (pre-check done; P9 still runs the official check)
+- Evidence (2026-10-09, GET/HEAD only):
+  - 50 docs-site URLs extracted from A, B and INV: 49 return HTTP 200; the one 404 is an extraction artefact (trailing backtick) and not a draft URL. `https://data-privacy-stack.github.io/presidio/` answers HTTP 301 with `location: https://presidio.dataprivacystack.org/`; `https://microsoft.github.io/presidio/` answers 200 with a meta-refresh stub ("This page has moved.").
+  - `github.com` answers HTTP 403 through the session proxy for every URL tried (three blob URLs of the two repos, the repository roots of data-privacy-stack/presidio and microsoft/presidio); the 139 distinct `github.com/data-privacy-stack/.../blob/...` URLs in A, B and INV were therefore checked on `raw.githubusercontent.com` (same owner, repo, ref and path): 126 answer 200, so those files exist at the cited refs. The 13 that return 404 on raw are INV (b) Source URL cells that point at a directory with `/blob/` (`.../predefined_recognizers/country_specific/{us,uk,spain,italy,singapore,australia,india,korea,nigeria,philippines,sweden,turkey,germany}/`); raw cannot serve directories.
+  - The presidio-research URLs in INV (a) row 23 use the full SHA 0cb365021884d849c5bc21957de67c91943c1662 (reachable on raw) and must follow T11 to `.../blob/0.3.2/...`.
+- Label to use: HTTP facts `[Documented]` with plain text "(HTTP 301 to https://presidio.dataprivacystack.org/ observed 2026-10-09)".
+- Draft impact:
+  - INV (b) rows 37 to 54 (Source URL cells): change the 13 directory links from `/blob/2.2.364/.../country_specific/<country>/` to `/tree/2.2.364/.../country_specific/<country>/`.
+  - INV (a) row 23: URLs per T11.
+  - Tell gr-url-checker: expect HTTP 403 from github.com for repository URLs in this environment (record as an exception, verified by the raw equivalent returning 200); expect 301 for data-privacy-stack.github.io/presidio/ and the 200 stub for microsoft.github.io/presidio/.
+  - Strip the stray backtick artefact only if a `.txt` URL list is built from the drafts by regex.
+
+---
+
+## Summary table
+
+| Tn | Verdict | Label | Changes a Summary? |
+|---|---|---|---|
+| T1 | RESOLVED (R016) | none new | no |
+| T2 | RESOLVED (R016) | n/a | no |
+| T3 | RESOLVED (R016) | n/a | yes (PD5 R8 Summary) |
+| T4 | RESOLVED (R016) | n/a | no |
+| T5 | RESOLVED (R010) | [Documented: repo presidio-research@0.3.2] / [Inferred] | no |
+| T6 | RESOLVED | [Documented] (owner pages, not Presidio docs) | no |
+| T7 | PARTLY RESOLVED | [Documented] (Microsoft docs); AHDS [Not disclosed] | yes (PD1 R8 Summary) |
+| T8 | RESOLVED | [Documented: repo presidio@2.2.364]; conclusion [Inferred] | yes (PD1 R8 Summary, shared with T7) |
+| T9 | PARTLY RESOLVED | [Documented: repo presidio@2.2.364]; release notes [To be verified] (dropped from bullets) | no |
+| T10 | CORRECTION | [Documented: repo presidio@2.2.364] | no |
+| T11 | RESOLVED | [Documented: repo presidio-research@0.3.2] | no |
+| T12 | RESOLVED | [Documented: repo presidio-research@0.3.2]; absences [Not disclosed] | no |
+| T13 | RESOLVED | [Documented: repo presidio@2.2.364]; staleness [Inferred] | yes (PD6 R8 Summary) |
+| T14 | PARTLY RESOLVED | live docs [Documented] unpinned; explanation [Inferred] | no |
+| T15 | RESOLVED | [Documented] / [Documented: repo ...] per source | no |
+| T16 | RESOLVED | [Documented] | no |
+| T19 | RESOLVED | [Not disclosed] (live page); PH_UMID row [Documented: repo ...] | no |
+| T20 | RESOLVED | structure [Documented]; counts [Inferred] | yes (PD1 R2 Summary) |
+| T21 | RESOLVED | premise [Documented: repo ...]; consequence [Inferred] | no |
+| T22 | RESOLVED | [Not disclosed]; examples [Documented: repo ...] | no (Summaries in T58) |
+| T24 | PARTLY RESOLVED | figures [Documented: repo presidio-research@0.3.2]; dates [Inferred] | yes (PD1 R5 Summary) |
+| T26 | RESOLVED | [Documented: repo presidio-research@0.3.2]; relative gain [Inferred] | no |
+| T30 | RESOLVED | [Documented: repo presidio@2.2.364]; conclusion [Inferred] | yes (PD2 R8 Summary) |
+| T35 | PARTLY RESOLVED | [Not disclosed]; cipher reading [Inferred] | no |
+| T37 | RESOLVED | [Not disclosed] | no |
+| T38 | RESOLVED | [Documented: repo presidio@2.2.364] | no |
+| T41 | RESOLVED | [Documented: repo ...]; [Not disclosed]; [Inferred] | no |
+| T42 | RESOLVED | [Documented] / [Documented: repo ...] | no |
+| T44 | CORRECTION | [Documented] | optional (PD5 R4 Summary) |
+| T46 | RESOLVED | [Documented] / [Documented: repo ...] | no |
+| T47 | RESOLVED | [Documented: repo presidio@2.2.364] | yes (PD6 R8 Summary) |
+| T52 | RESOLVED | [Documented]; TLS and rate limits [Not disclosed] | no |
+| T54 | RESOLVED | [Documented]; code absence [Not disclosed] | no |
+| T55 | RESOLVED | [Documented: repo ...] / [Documented]; conclusion [Inferred] | no |
+| T56 | RESOLVED | [Not disclosed] | no |
+| T57 | RESOLVED (R015) | [Inferred] | yes (PD4 R2 and PD5 R2 labels) |
+| T58 | RESOLVED | [Documented] after rewording | yes (PD1 R2, PD4 R5, PD5 R5, PD6 R5) |
+| T59 | RESOLVED | [Documented] | yes (PD3 R1 wording) |
+| T60 | RESOLVED | [Inferred] / [Not disclosed] kept | no |
+| T61 | RESOLVED | [Documented: repo presidio@2.2.364] | no |
+| T63 | RESOLVED | premise [Documented: repo ...]; status [Inferred] | no |
+| T65 | RESOLVED | [Documented: repo presidio@037d239f] | no |
+| T66 | RESOLVED (proposal) | n/a | no |
+| T67 | RESOLVED | [Documented] / [Documented: repo ...] | no |
+| T68 | RESOLVED | [Documented] | no |
+| T69 | PARTLY RESOLVED | [Documented]; maintenance [Not disclosed] | no |
+| T70 | PARTLY RESOLVED | [Documented] (HTTP facts) | no |
+
+## Report
+
+Counts by verdict (47 entries): RESOLVED 38 (including T1 to T5 by rulings, T57 by R015, T66 as a proposal); PARTLY RESOLVED 7 (T7, T9, T14, T24, T35, T69, T70); CORRECTION 2 (T10, T44); STILL OPEN 0 (none of the handled items ended fully open; the residual open parts are named inside the PARTLY entries).
+
+CORRECTION items:
+- T10: 0.0.60 is presidio-image-redactor, presidio-structured is 0.0.8, presidio-cli 0.0.9 at 2.2.364; the brief, P0 note and seeds line are wrong, the drafts are right.
+- T44: PD5 R4 B:247 says presidio-structured's maturity label is not stated; the getting-started page says "Alpha: This package is currently in alpha ..."; the inventory row is right.
+- Also noted as corrections inside other entries: T24 (the headline "default settings" for F2 0.661 was run at threshold 0.4 and its output predates the 2.2.364 tag), T19 (PH_UMID is on the repo copy of the entity page as "Disabled by default" but not on the live page), T13 (score_thresholds is also listed under the 2.2.363 section, not only under unreleased), T38 (INV encrypt key sizes and mask defaults are documented in code).
+
+Summaries that must change (new text in the entries named):
+- PD1 R2 (T20/T58), PD1 R5 (T24), PD1 R8 (T7: `Summary: **Key open questions.** No recommended threshold or latency figure, which listed entities are active in a default install, per-entity accuracy, and retention at the Azure Health Data Services endpoint.`, 29 words).
+- PD2 R8 (T30).
+- PD3 R1 (T59).
+- PD4 R2 label only to `[Inferred]` (T57); PD4 R5 (T58).
+- PD5 R2 label only to `[Inferred]` (T57); PD5 R5 (T58); PD5 R8 (T3).
+- PD6 R5 (T58); PD6 R8 (T13/T47: `Summary: **Key open questions.** REST error codes for a bad regex or language, server-side regex safety under concurrent requests, how request and recognizer thresholds combine in batch calls, and score choices for weak patterns.`, 33 words).
+- Optional: PD5 R4 (T44, adds "marked alpha").
+- Unchanged: all R1 to R7 Summaries not listed, all PD4 R8 and PD3 R8 Summaries (their questions remain open).
+
+Items still open (not handled here, class b or honest gap): T17, T18, T23, T25, T27, T28, T29, T31, T32, T33, T34, T36, T39, T40, T43, T45, T48, T49, T50, T51, T53, T62, T64. Residual open parts of handled items: GitHub release page and title for 2.2.364 (T9); AHDS retention and region (T7); Stanza model licences (T6); roadmap for authenticated encryption (T35); maintenance status of the OpenAI sample (T69).

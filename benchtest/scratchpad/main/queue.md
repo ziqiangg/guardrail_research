@@ -18,6 +18,12 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| presidio P5 Q1 (2.2.364 release body unreadable) | Option A: CHANGELOG at tag substitute (R015); main's add_repo showed only anonymous git reads, no API | main |
+| presidio P5 Q2 (T66 Covered-by for operator rows and Docker row) | list a header only where that column's Detail cites the row's function; merger applies resolver's proposal under that test | main |
+| presidio P5 Q3 (main HEAD 2523c7b REMOVE_INTERSECTIONS fix after the tag) | merger adds one PD2 R8 bullet labelled [Documented: develop/unreleased] citing the commit; pin stays 2.2.364 | main |
+| presidio P5 Q4 (third-party licence/model-card sources) | accepted under R019; read date + last-modified suffices | main |
+| presidio P5 Q5 (P9 URL notes: github.com 403 → raw check; 13 /blob/→/tree/; re-pin presidio-research to 0.3.2) | merger fixes URLs; url-checker uses raw equivalents for github.com (R020) | main |
+| presidio P5 Q6 (process text removal; checks) | merger runs check_drafts | main |
 | modelarmor P5 r2 Q3 (T41 range) | covered by resolutions_1 (PARTLY RESOLVED) + r2 cross-range note; merger uses both | main |
 | modelarmor P5 r2 Q4 (T78 date 2026-10-09, T80 page footers) | merger records in modelarmor_changes.md | main |
 | modelarmor P5 r2 Q6 (Pre-GA suffix) | intro sentence only; Preview rows keep Status "Preview" (auto-default: equivalent wordings) | main |
