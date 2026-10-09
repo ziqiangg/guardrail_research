@@ -1,0 +1,802 @@
+# status 200  final_url https://www.together.ai/models/llama-4-maverick  content-type text/html; charset=utf-8
+Inference
+Serverless Inference
+High-performance inference as APIs
+Batch Inference
+Inference for batch workloads
+Provisioned Throughput
+Token-based capacity with SLAs
+Dedicated Model Inference
+Inference on custom hardware
+Dedicated Container Inference
+Inference for custom models
+Together Link
+Run open models in your harness
+MiniMax M3
+Gemma 4 31B
+DeepSeek V4 Pro
+GLM-5.2
+kimi K2.7 Code
+gpt-oss-120B
+Model library
+Explore the top open-source models
+Explore Top Open-Source Models
+Chat
+Image
+Code
+Vision
+Video
+Show all
+Compute
+Accelerated Compute
+GPU Clusters
+Reliable GPU clusters at scale
+AI Factory
+Custom infrastructure at frontier scale
+Developer Environments
+Sandbox
+Build development environments for AI
+Storage
+Managed Storage
+Store model weights & data securely
+GB300
+GB200
+B200
+H200
+H100
+Model Shaping
+Custom Training
+Post-training for frontier quality at scale
+Fine-Tuning
+Shape models with your data
+Evaluations
+Measure model quality
+kimi K2.7 Code
+Gemma 4 31B-it FP8
+GLM 5.1 FP4
+gpt-oss-120b
+Qwen3.5 397B A17b
+Llama 4 Maverick
+Model library
+Fine-tune top open-source models
+Research
+Research
+Systems research for production AI
+Research blog
+All our research publications
+Featured publications
+FlashAttention
+ATLAS
+Kernel Collection
+ThunderKittens
+DSGym
+Show all
+Developers
+Documentation
+Technical docs for Together AI
+Demos
+Our open-source demo apps
+Cookbooks
+Practical implementation guides
+Voice Agents
+Build voice agents for production
+Open-source AI
+Build better with open models
+Together Link
+Run open models in your harness
+Model Library
+Playground
+Together Chat
+Which LLM to use
+Open-source ROI calculator
+Company
+Resources
+Customer stories
+Testimonials from AI Natives
+Startup accelerator
+Build and scale your startup
+Customer support
+Find answers to your questions
+Blog
+Our latest news & blog posts
+Events
+Explore our events calendar
+Company
+About
+Get to know us
+Careers
+Join our mission
+Press
+Together in the news
+Pricing
+Serverless Inference
+High-performance inference as APIs
+Batch Inference
+Inference for batch workloads
+Provisioned Throughput
+Token-based capacity with SLAs
+Dedicated Model Inference
+Inference on custom hardware
+Dedicated Container Inference
+Inference for custom models
+Together Link
+Run open models in your harness
+MiniMax M3
+Gemma 4 31B
+DeepSeek V4 Pro
+GLM-5.2
+kimi K2.7 Code
+gpt-oss-120B
+Model library
+Explore the top open-source models
+Explore Top Open-Source Models
+Chat
+Image
+Code
+Vision
+Video
+Show all
+Accelerated Compute
+GPU Clusters
+Reliable GPU clusters at scale
+AI Factory
+Custom infrastructure at frontier scale
+Developer Environments
+Sandbox
+Build development environments for AI
+Storage
+Managed Storage
+Store model weights & data securely
+GB300
+GB200
+B200
+H200
+H100
+Custom Training
+Post-training for frontier quality at scale
+Fine-Tuning
+Shape models with your data
+Evaluations
+Measure model quality
+kimi K2.7 Code
+Gemma 4 31B-it FP8
+GLM 5.1 FP4
+gpt-oss-120b
+Qwen3.5 397B A17b
+Llama 4 Maverick
+Model library
+Fine-tune top open-source models
+Research
+Systems research for production AI
+Research blog
+All our research publications
+Featured publications
+FlashAttention
+ATLAS
+Kernel Collection
+ThunderKittens
+DSGym
+Show all
+Documentation
+Technical docs for Together AI
+Demos
+Our open-source demo apps
+Cookbooks
+Practical implementation guides
+Voice Agents
+Build voice agents for production
+Open-source AI
+Build better with open models
+Together Link
+Run open models in your harness
+Model Library
+Playground
+Together Chat
+Which LLM to use
+Open-source ROI calculator
+Resources
+Customer stories
+Testimonials from AI Natives
+Startup accelerator
+Build and scale your startup
+Customer support
+Find answers to your questions
+Blog
+Our latest news & blog posts
+Events
+Explore our events calendar
+Company
+About
+Get to know us
+Careers
+Join our mission
+Press
+Together in the news
+Contact sales
+Contact sales
+Sign in
+Models / Meta
+Chat
+Vision
+Llama 4 Maverick
+SOTA 128-expert MoE powerhouse for multilingual image/text understanding, creative writing, and enterprise-scale applications.
+Try now
+Read Docs
+About model
+Together AI offers day 1 support for the new Llama 4 multilingual vision models that can analyze multiple images and respond to queries about them.
+Register for a Together AI account to get an API key. New accounts come with free credits to start. Install the Together AI library for your preferred language.
+Quickstart guides
+Vision
+Quickstart: How to Do OCR
+RAG
+Building a RAG Workflow
+Agents
+Agent Workflows
+Performance benchmarks
+|
+Model
+|
+FrontierMath Tier 4
+|
+GPQA Diamond
+|
+HLE
+|
+SciCode
+|
+GDPval-AA
+|
+Terminal-Bench 2.1
+|
+Agent Arena
+|
+FrontierCode
+|
+DeepSWE
+|
+Llama 4 Maverick
+|
+|
+|
+5.7%
+|
+|
+|
+|
+|
+|
+|
+Related open-source models
+|
+Competitor closed-source models
+|
+Claude Fable 5
+|
+87.8%
+|
+92.6%
+|
+53%
+|
+60%
+|
+62%
+|
+85%
+|
+|
+53.5%
+|
+70%
+|
+Claude Opus 5
+|
+73.2%
+|
+93.2%
+|
+53%
+|
+56%
+|
+68%
+|
+89%
+|
++16.4pp
+|
+53.4%
+|
+74%
+|
+GPT-5.6 Sol
+|
+82.9%
+|
+94.1%
+|
+47%
+|
+56%
+|
+61%
+|
+88%
+|
+|
+47.5%
+|
+73%
+|
+Grok 4.5
+|
+24.4%
+|
+93.1%
+|
+40%
+|
+54%
+|
+51%
+|
+82%
+|
++4.2pp
+|
+42.4%
+|
+54%
+|
+GPT-5.6 Luna
+|
+61.0%
+|
+91.1%
+|
+37%
+|
+53%
+|
+54%
+|
+81%
+|
+|
+39.8%
+|
+67%
+How to use model
+Input
+from together import Together
+client = Together() # API key via api_key param or TOGETHER_API_KEY env var
+# Query image with Llama 4 Maverick model
+response = client.chat.completions.create(
+model="meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8",
+messages=[{
+"role": "user",
+"content": [
+{"type": "text", "text": "What can you see in this image?"},
+{"type": "image_url", "image_url": {"url": "https://huggingface.co/datasets/patrickvonplaten/random_img/resolve/main/yosemite.png"}}
+]
+}]
+)
+print(response.choices[0].message.content)
+Output
+The image depicts a serene landscape of Yosemite National Park, featuring a river flowing through a valley surrounded by towering cliffs and lush greenery.
+* **River:**
+* The river is calm and peaceful, with clear water that reflects the surrounding scenery.
+* It flows gently from the bottom-left corner to the center-right of the image.
+* The riverbank is lined with rocks and grasses, adding to the natural beauty of the scene.
+* **Cliffs:**
+* The cliffs are massive and imposing, rising steeply from the valley floor.
+* They are composed of light-colored rock, possibly granite, and feature vertical striations.
+* The cliffs are covered in trees and shrubs, which adds to their rugged charm.
+* **Trees and Vegetation:**
+* The valley is densely forested, with tall trees growing along the riverbanks and on the cliffsides.
+* The trees are a mix of evergreen and deciduous species, with some displaying vibrant green foliage.
+* Grasses and shrubs grow in the foreground, adding texture and color to the scene.
+* **Sky:**
+* The sky is a brilliant blue, with only a few white clouds scattered across it.
+* The sun appears to be shining from the right side of the image, casting a warm glow over the scene.
+In summary, the image presents a breathtaking view of Yosemite National Park, showcasing the natural beauty of the valley and its surroundings. The calm river, towering cliffs, and lush vegetation all contribute to a sense of serenity and wonder.
+Function Calling
+Input
+import os
+import json
+import openai
+client = openai.OpenAI(
+base_url = "https://api.together.xyz/v1",
+api_key = os.environ['TOGETHER_API_KEY'],
+)
+tools = [
+{
+"type": "function",
+"function": {
+"name": "get_current_weather",
+"description": "Get the current weather in a given location",
+"parameters": {
+"type": "object",
+"properties": {
+"location": {
+"type": "string",
+"description": "The city and state, e.g. San Francisco, CA"
+},
+"unit": {
+"type": "string",
+"enum": [
+"celsius",
+"fahrenheit"
+]
+}
+}
+}
+}
+}
+]
+messages = [
+{"role": "system", "content": "You are a helpful assistant that can access external functions. The responses from these function calls will be appended to this dialogue. Please provide responses based on the information from these function calls."},
+{"role": "user", "content": "What is the current temperature of New York, San Francisco and Chicago?"}
+]
+response = client.chat.completions.create(
+model="meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8",
+messages=messages,
+tools=tools,
+tool_choice="auto",
+)
+print(json.dumps(response.choices[0].message.model_dump()['tool_calls'], indent=2))
+Output
+[
+{
+"id": "call_1p75qwks0etzfy1g6noxvsgs",
+"function": {
+"arguments": "{\"location\":\"New York, NY\",\"unit\":\"fahrenheit\"}",
+"name": "get_current_weather"
+},
+"type": "function"
+},
+{
+"id": "call_aqjfgn65d0c280fjd3pbzpc6",
+"function": {
+"arguments": "{\"location\":\"San Francisco, CA\",\"unit\":\"fahrenheit\"}",
+"name": "get_current_weather"
+},
+"type": "function"
+},
+{
+"id": "call_rsg8muko8hymb4brkycu3dm5",
+"function": {
+"arguments": "{\"location\":\"Chicago, IL\",\"unit\":\"fahrenheit\"}",
+"name": "get_current_weather"
+},
+"type": "function"
+}
+]
+Query models with multiple images
+Currently this model supports 5 images as input.
+Input
+# Multi-modal message with multiple images
+response = client.chat.completions.create(
+model="meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8",
+messages=[{
+"role": "user",
+"content": [
+{
+"type": "text",
+"text": "Compare these two images."
+},
+{
+"type": "image_url",
+"image_url": {
+"url": "https://huggingface.co/datasets/patrickvonplaten/random_img/resolve/main/yosemite.png"
+}
+},
+{
+"type": "image_url",
+"image_url": {
+"url": "https://huggingface.co/datasets/patrickvonplaten/random_img/resolve/main/slack.png"
+}
+}
+]
+}]
+)
+print(response.choices[0].message.content)
+Output
+The first image is a collage of multiple identical landscape photos showing a natural scene with rocks, trees, and a stream under a blue sky. The second image is a screenshot of a mobile app interface, specifically the navigation menu of the Canva app, which includes icons for Home, DMs (Direct Messages), Activity, Later, Canvases, and More.
+### Comparison:
+1. **Content**:
+- The first image focuses on a natural landscape.
+- The second image shows a digital interface from an app.
+2. **Purpose**:
+- The first image could be used for showcasing nature, design elements in graphic work, or as a background.
+- The second image represents the functionality and layout of the Canva app's navigation system.
+3. **Visual Style**:
+- The first image has vibrant colors and realistic textures typical of outdoor photography.
+- The second image uses flat design icons with a simple color palette suited for user interface design.
+4. **Context**:
+- The first image is likely intended for artistic or environmental contexts.
+- The second image is relevant to digital design and app usability discussions.
+Model card
+Model String: meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8
+Specs:
+17B active parameters (400B total)
+128-expert MoE architecture
+524,288 context length (will be increased to 1M)
+Support for 12 languages: Arabic, English, French, German, Hindi, Indonesian, Italian, Portuguese, Spanish, Tagalog, Thai, and Vietnamese
+Multimodal capabilities (text + images)
+Support Function Calling
+Best for: Enterprise applications, multilingual support, advanced document intelligence
+Knowledge Cutoff: August 2024
+Applications & use cases
+Multilingual customer support with visual context: Process and respond to customer inquiries with attached screenshots in 12 different languages, enabling support teams to quickly diagnose technical issues by understanding both the user's description and visual evidence simultaneously.
+Generating marketing content from multimodal PDFs: Create compelling marketing materials by analyzing existing multimedia PDFs containing both text and visuals, extracting key themes, and generating new content that maintains brand consistency across formats.
+Advanced document intelligence with text, diagrams, and tables: Extract structured information from complex documents containing a mix of text, diagrams, tables, and graphs, enabling automated analysis of technical manuals, financial reports, and research papers with unprecedented accuracy.
+Related models
+View All
+Chat
+Kimi K3
+Cached/1M
+$0.27
+Input/1M
+$2.70
+Output/1M
+$13.50
+Serverless
+Dedicated
+Provisioned Throughput
+Chat
+Reasoning
+Vision
+moonshotai/Kimi-K3
+Moonshot AI
+Chat
+Qwen3.8-2.4T-A95B
+Cached/1M
+$0.25
+Input/1M
+$2.00
+Output/1M
+$6.00
+Serverless
+Dedicated
+Chat
+Reasoning
+Vision
+Qwen/Qwen3.8-2.4T-A95B
+Qwen
+Chat
+NVIDIA Nemotron 3.5 Lightning
+Parameters
+30B
+Dedicated
+Chat
+nvidia/nemotron-3.5-lightning
+NVIDIA
+Chat
+Muse Glimmer 30B
+Cached/1M
+$0.04
+Input/1M
+$0.35
+Output/1M
+$1.50
+Serverless
+Dedicated
+Chat
+Vision
+meta-models/Muse-Glimmer-30B
+Meta
+Chat
+DeepSeek V4 Pro 0813
+Cached/1M
+$0.13
+Input/1M
+$1.32
+Output/1M
+$3.96
+Serverless
+Dedicated
+Reasoning
+Chat
+Code
+LLM
+deepseek-ai/DeepSeek-V4-Pro-0813
+DeepSeek
+Chat
+GLM-5.3
+Cached/1M
+$0.26
+Input/1M
+$1.40
+Output/1M
+$4.40
+Serverless
+Dedicated
+Chat
+Reasoning
+zai-org/GLM-5.3
+ZAI
+new
+Chat
+GLM-5.3-Flash
+Cached/1M
+$0.03
+Input/1M
+$0.15
+Output/1M
+$0.50
+Serverless
+Dedicated
+Chat
+Reasoning
+Vision
+zai-org/GLM-5.3-Flash
+ZAI
+new
+Chat
+DeepSeek V4.1 Flash
+Cached/1M
+$0.006
+Input/1M
+$0.30
+Output/1M
+$1.20
+Serverless
+Dedicated
+Chat
+Reasoning
+Vision
+deepseek-ai/DeepSeek-V4.1-Flash
+DeepSeek
+new
+Chat
+Tev1 4B Experimental
+Input/1M
+$0.04
+Output/1M
+Free
+Parameters
+4.7B
+Serverless
+Dedicated
+Chat
+together/Tev1-4B-experimental
+Together AI
+Free
+Chat
+Ternary Bonsai 27B
+Input/1M
+$0.00
+Output/1M
+$0.00
+Parameters
+27B
+Serverless
+Chat
+Reasoning
+Vision
+Prism-ML/Ternary-Bonsai-27B
+PrismML
+Chat
+DeepSeek V4 Flash 0731
+Cached/1M
+$0.03
+Input/1M
+$0.14
+Output/1M
+$0.28
+Serverless
+Dedicated
+Chat
+Reasoning
+deepseek-ai/DeepSeek-V4-Flash-0731
+DeepSeek
+new
+Chat
+Qwen3.8 Flash
+Input/1M
+$0.15
+Output/1M
+$0.47
+Parameters
+125B
+Serverless
+Chat
+Reasoning
+Vision
+Qwen/Qwen3.8-Flash
+Qwen
+View All
+Model specifications
+Model data
+Model provider
+Meta
+Type
+Chat
+Vision
+Main use cases
+Small & Fast
+Function Calling
+Vision
+Features
+Function Calling
+JSON Mode
+Speed
+Very High
+Intelligence
+High
+Deployment
+Dedicated
+Parameters
+401.6B
+Context length
+1048K
+Input price
+$0.27 / 1M tokens
+Output price
+$0.85 / 1M tokens
+Input modalities
+Text
+Image
+Output modalities
+Text
+Released
+April 1, 2025
+Quantization level
+FP8
+External link
+Provider docs
+Category
+Chat
+Quickstart docs
+Deploy model
+Start building on Together AI
+From optimized training and model shaping to large-scale production inference
+Explore models
+Products
+Accelerated Compute
+Together Link
+Serverless Inference
+Provisioned Throughput
+Dedicated Inference
+Fine-Tuning
+Sandbox
+Evaluations
+Models
+See all models
+DeepSeek
+Meta
+Qwen
+Google
+OpenAI
+Mistral AI
+Custom models
+Developers
+Research
+Docs
+Open-source AI
+OSS ROI calculator
+Pricing
+Pricing overview
+Inference
+Fine-Tuning
+GPU Clusters
+Resources
+Blog
+About us
+Careers
+Customer Stories
+Support
+Privacy Policy
+Terms of service
+Cookie Policy
+Consent Preferences
+© 2026 Together AI. All Rights Reserved.
+Privacy Policy
+Terms of service
+Launching soon
+Want to be notified when the model is available on Together AI?
+You're on the list
+We'll email you when the endpoint goes live. Until then, 200+ models are ready to call.
+Browse Models
+Continue

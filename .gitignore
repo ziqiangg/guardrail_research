@@ -16,3 +16,12 @@ benchtest/scratchpad/**/repo/
 benchtest/scratchpad/**/*.png
 # workbook copies made by agents in scratch folders
 benchtest/scratchpad/**/*.xlsx
+# vendor packages, clones and data downloaded by agents into scratch (read-only evidence; never commit:
+# large, and vendor test fixtures trip GitHub secret scanning — lessons 17)
+benchtest/scratchpad/**/sdist_*/
+benchtest/scratchpad/**/pypi_*/
+benchtest/scratchpad/**/pl_full/
+benchtest/scratchpad/**/crwd_data/
+benchtest/scratchpad/**/cookbook/
+benchtest/scratchpad/**/hist/
+benchtest/scratchpad/**/purplellama_code/

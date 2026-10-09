@@ -1,0 +1,7 @@
+Cloning into 'cookbook'...
+error: unable to create file end-to-end-use-cases/agents/DeepLearningai_Course_Notebooks/AI_Agentic_Design_Patterns_with_AutoGen_L4_Tool_Use_and_Conversational_Chess.ipynb: Filename too long
+fatal: unable to checkout working tree
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+

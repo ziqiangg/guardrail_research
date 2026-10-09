@@ -1,0 +1,104 @@
+# status 200  final_url https://huggingface.co/collections/meta-llama/metas-llama-31-models-and-evals  content-type text/html; charset=utf-8
+Hugging Face
+Models
+Datasets
+Spaces
+Buckets new
+Docs
+Enterprise
+Pricing
+Website
+Tasks
+HuggingChat
+Collections
+Languages
+Organizations
+Community
+Blog
+Posts
+Daily Papers
+Hardware
+Learn
+Discord
+Forum
+GitHub
+Solutions
+Team & Enterprise
+Hugging Face PRO
+Enterprise Support
+Inference Providers
+Inference Endpoints
+Storage Buckets
+Log In
+Sign Up
+meta-llama 's Collections
+Llama 4
+Llama 3.3
+Llama 3.3 Evals
+Llama 3.2
+Llama 3.2 Evals
+Llama 3.1
+Llama 3.1 Evals
+Meta Llama 3
+Llama 2 Family
+Code Llama Family
+Meta's Llama2 models
+Meta's Llama 3.1 models & evals
+Meta's Llama 3.2 language models & evals
+Meta's Llama 3.2 multimodal models
+Meta's Llama 3.3 models & evals
+Meta's Llama 3.1 models & evals
+updated Dec 13, 2024
+Upvote
+633
++623
+Sort:
+Collection
+meta-llama/Llama-3.1-8B
+Text Generation • 8B • Updated Oct 16, 2024 • 679k • • 2.62k
+meta-llama/Llama-3.1-70B
+Text Generation • 71B • Updated Sep 25, 2024 • 41.2k • • 444
+meta-llama/Llama-3.1-405B
+Text Generation • 406B • Updated Sep 25, 2024 • 76.1k • 991
+meta-llama/Llama-3.1-70B-Instruct
+Text Generation • 71B • Updated Dec 15, 2024 • 82.3k • • 1.01k
+meta-llama/Llama-3.1-405B-Instruct
+Text Generation • 406B • Updated Sep 25, 2024 • 10.3k • 604
+meta-llama/Llama-3.1-8B-Instruct
+Text Generation • 8B • Updated Sep 25, 2024 • 6.07M • • 8.31k
+meta-llama/Llama-3.1-405B-Instruct-FP8
+Text Generation • 406B • Updated Sep 25, 2024 • 415 • 194
+meta-llama/Llama-3.1-405B-FP8
+Text Generation • 406B • Updated Dec 6, 2024 • 474k • 124
+meta-llama/Prompt-Guard-86M
+Text Classification • 0.3B • Updated Nov 12, 2025 • 2.95M • • 422
+meta-llama/Llama-Guard-3-8B-INT8
+Text Generation • 8B • Updated Aug 7, 2024 • 24.2k • 38
+meta-llama/Llama-Guard-3-8B
+Text Generation • 8B • Updated Oct 11, 2024 • 35.7k • • 338
+meta-llama/Llama-3.1-8B-evals
+Viewer • Updated Oct 2, 2024 • 79.7k • 43 • 27
+meta-llama/Llama-3.1-405B-evals
+Viewer • Updated Oct 2, 2024 • 79.7k • 11 • 17
+meta-llama/Llama-3.1-70B-evals
+Viewer • Updated Oct 2, 2024 • 79.7k • 20 • 14
+meta-llama/Llama-3.1-405B-Instruct-evals
+Viewer • Updated Oct 2, 2024 • 158k • 17 • 26
+meta-llama/Llama-3.1-8B-Instruct-evals
+Viewer • Updated Oct 2, 2024 • 158k • 485 • 35
+meta-llama/Llama-3.1-70B-Instruct-evals
+Viewer • Updated Oct 2, 2024 • 158k • 56 • 15
+Upvote
+633
++629
+Sort:
+Collection
+Share collection
+View history
+Collection guide
+Browse collections
+System theme
+Company
+TOS Privacy About Careers
+Website
+Models Datasets Spaces Pricing Docs

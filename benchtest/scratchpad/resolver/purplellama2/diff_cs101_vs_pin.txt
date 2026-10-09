@@ -1,0 +1,44 @@
+Only in PYPI101: .gitignore
+Files PYPI101/codeshield.py and PIN/codeshield.py differ
+Files PYPI101/example.py and PIN/example.py differ
+Files PYPI101/insecure_code_detector/analyzers.py and PIN/insecure_code_detector/analyzers.py differ
+Files PYPI101/insecure_code_detector/insecure_code_detector.py and PIN/insecure_code_detector/insecure_code_detector.py differ
+Files PYPI101/insecure_code_detector/insecure_patterns.py and PIN/insecure_code_detector/insecure_patterns.py differ
+Files PYPI101/insecure_code_detector/issues.py and PIN/insecure_code_detector/issues.py differ
+Files PYPI101/insecure_code_detector/languages.py and PIN/insecure_code_detector/languages.py differ
+Files PYPI101/insecure_code_detector/oss.py and PIN/insecure_code_detector/oss.py differ
+Files PYPI101/insecure_code_detector/rules/semgrep/_generated_/java_codeshield.json and PIN/insecure_code_detector/rules/semgrep/_generated_/java_codeshield.json differ
+Files PYPI101/insecure_code_detector/rules/semgrep/_generated_/java_cyberseceval.json and PIN/insecure_code_detector/rules/semgrep/_generated_/java_cyberseceval.json differ
+Only in PIN/insecure_code_detector/rules/semgrep/_generated_: kotlin_codeshield.json
+Only in PIN/insecure_code_detector/rules/semgrep/_generated_: kotlin_cyberseceval.json
+Only in PYPI101/insecure_code_detector/rules/semgrep/c: bad-crypto-api-usage.c
+Only in PYPI101/insecure_code_detector/rules/semgrep/c: bugprone-snprintf.c
+Only in PYPI101/insecure_code_detector/rules/semgrep/c: crypto-weak-prng.c
+Only in PYPI101/insecure_code_detector/rules/semgrep/c: fixed_seed_use.c
+Only in PYPI101/insecure_code_detector/rules/semgrep/c: integer-overflow-to-buffer-overflow.c
+Only in PYPI101/insecure_code_detector/rules/semgrep/c: invalid-free.c
+Only in PYPI101/insecure_code_detector/rules/semgrep/c: mcf-get-c-string-result-ignored.c
+Only in PYPI101/insecure_code_detector/rules/semgrep/c: potential-command-injection.c
+Only in PYPI101/insecure_code_detector/rules/semgrep/c: write-to-stack-buffer.c
+Files PYPI101/insecure_code_detector/rules/semgrep/java/third-party/ssrf.yaml and PIN/insecure_code_detector/rules/semgrep/java/third-party/ssrf.yaml differ
+Only in PYPI101/insecure_code_detector/rules/semgrep: rule_gen
+Files PYPI101/insecure_code_detector/tests/insecure_code_detector_test.py and PIN/insecure_code_detector/tests/insecure_code_detector_test.py differ
+Files PYPI101/insecure_code_detector/tests/test_c_insecure_code_detector.py and PIN/insecure_code_detector/tests/test_c_insecure_code_detector.py differ
+Files PYPI101/insecure_code_detector/tests/test_cpp_insecure_code_detector.py and PIN/insecure_code_detector/tests/test_cpp_insecure_code_detector.py differ
+Files PYPI101/insecure_code_detector/tests/test_csharp_insecure_code_detector.py and PIN/insecure_code_detector/tests/test_csharp_insecure_code_detector.py differ
+Files PYPI101/insecure_code_detector/tests/test_functional.py and PIN/insecure_code_detector/tests/test_functional.py differ
+Files PYPI101/insecure_code_detector/tests/test_java_insecure_code_detector.py and PIN/insecure_code_detector/tests/test_java_insecure_code_detector.py differ
+Files PYPI101/insecure_code_detector/tests/test_javascript_insecure_code_detector.py and PIN/insecure_code_detector/tests/test_javascript_insecure_code_detector.py differ
+Files PYPI101/insecure_code_detector/tests/test_kotlin_insecure_code_detector.py and PIN/insecure_code_detector/tests/test_kotlin_insecure_code_detector.py differ
+Files PYPI101/insecure_code_detector/tests/test_objective_c_code_detector.py and PIN/insecure_code_detector/tests/test_objective_c_code_detector.py differ
+Files PYPI101/insecure_code_detector/tests/test_php_insecure_code_detector.py and PIN/insecure_code_detector/tests/test_php_insecure_code_detector.py differ
+Files PYPI101/insecure_code_detector/tests/test_python_insecure_code_detector.py and PIN/insecure_code_detector/tests/test_python_insecure_code_detector.py differ
+Files PYPI101/insecure_code_detector/tests/test_ruby_insecure_code_detector.py and PIN/insecure_code_detector/tests/test_ruby_insecure_code_detector.py differ
+Files PYPI101/insecure_code_detector/tests/test_rust_insecure_code_detector.py and PIN/insecure_code_detector/tests/test_rust_insecure_code_detector.py differ
+Files PYPI101/insecure_code_detector/tests/test_swift_code_detector.py and PIN/insecure_code_detector/tests/test_swift_code_detector.py differ
+Files PYPI101/insecure_code_detector/tests/test_xml_insecure_code_detector.py and PIN/insecure_code_detector/tests/test_xml_insecure_code_detector.py differ
+Files PYPI101/insecure_code_detector/usecases.py and PIN/insecure_code_detector/usecases.py differ
+Files PYPI101/notebook/CodeShieldUsageDemo.ipynb and PIN/notebook/CodeShieldUsageDemo.ipynb differ
+Only in PYPI101: PKG-INFO
+Files PYPI101/pyproject.toml and PIN/pyproject.toml differ
+Files PYPI101/README.md and PIN/README.md differ
