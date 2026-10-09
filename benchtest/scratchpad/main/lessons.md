@@ -13,3 +13,5 @@ Lessons carried over from the NeMo, Llama Guard and Sentinel runs. When a lesson
 9. **openpyxl saves are not byte-reproducible.** Compare workbooks with `benchtest/compare_workbooks.py`.
 10. **Products move.** Presidio left Microsoft for the `data-privacy-stack` org; the GitHub MCP followed the rename silently. Always record the canonical `owner/repo` and the final URLs (dry run, 2026-10-09).
 11. **Cold-read dry runs find real gaps.** Re-run one after any major instruction change.
+12. **URL sweeps must skip code-pattern strings.** sdp P5 r2 resolver ran a URL check over every URL-like string and sent 4 unauthenticated GETs to `dlp.googleapis.com/v2/{parent=…}` method paths and an OAuth scope URL (all HTTP 400; no credentials or bodies). This breaches hard rule 5 (no vendor API calls). Self-disclosed and logged. URL checks must harvest only R9 / Source URL cells and skip `*.googleapis.com` API hosts and `{…}` templates (2026-10-09).
+13. **Shared scratch folders get overwritten by parallel agents.** Give each parallel agent its own subfolder (`<role>/<slug><N>/`).

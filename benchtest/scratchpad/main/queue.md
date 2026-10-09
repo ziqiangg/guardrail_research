@@ -16,6 +16,11 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| sdp P5 r2 Q1 (Google sample repos dlp-dataflow-deidentification, community) | yes, as "supporting only" with [Documented: repo …@sha] (R013: Google sample repos are supporting) | main |
+| sdp P5 r2 Q2 (T65 drop SD4 from hash row) | yes: hashing is one-way, SD4 is reversible tokenisation (R018 keeps SD4) | main |
+| sdp P5 r2 Q3/Q4 (T92/T93 terms facts) | accept resolver's text: general Google Cloud terms [Documented] + [Inferred] applicability; benchmarking/AUP in SD6 R7/R8 and INV(f) (R019) | main |
+| sdp P5 r2 Q5 (T78 file bytes on content.inspect) | Detail-level in SD1 R3; job-based file scans inventory only | main |
+| sdp P5 r2 Q6 (T51/T63 permission questions) | stay open (needs-testing, bench) | main |
 | modelarmor P5 r1 Q1 (pin google-cloud-go@37f936ac HEAD vs tag modelarmor/v1.3.0) | merger re-pins to `modelarmor/v1.3.0` (README rule 8; resolver showed service.pb.go identical) | main |
 | modelarmor P5 r1 Q2 (T25 other-language client versions) | INV(b) Client libraries only + one short R4 bullet | main |
 | modelarmor P5 r1 Q3 (T23 status for banner-free rows) | "GA [Inferred]" only where the page was read and shows no launch-stage banner; unread pages stay [Not disclosed]/[To be verified] | main |
