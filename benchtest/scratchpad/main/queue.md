@@ -21,6 +21,8 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| modelarmor P8-prep R025 Q1 (bench-rule bullet in MA7/MA8, whose Detail names exclusion rules only as unsupported) | keep: R025 literal scope "any column whose Detail names exclusion rules" | main |
+| modelarmor P8-prep R025 Q2 (bench rule plain text vs checker's bold end-label) | accept: rule text plain, single [Documented] covers the terms quote (drafts README label convention) | main |
 | modelarmor P5 r2 Q1/Q2 (AUP testing clause; Preview synthetic data) | R025 | user |
 | B1 CP2 (presidio, sdp, modelarmor) | R022, R023, R024 | user |
 | modelarmor P7 Q1 (T21 read via curl + stdlib parse) | R021: counts as verbatim; label [Not disclosed] | main |

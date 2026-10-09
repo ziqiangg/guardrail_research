@@ -151,7 +151,6 @@ Detail:
 • No self-hosted or offline option is described (R4), so tests need network access to Google Cloud and a billing account **[Inferred]**
 • Google's Acceptable Use Policy bars using the Services "to test or reverse-engineer the Services in order to find limitations or vulnerabilities, or to evade filtering capabilities, except as expressly permitted in the Agreement" (Google Cloud Acceptable Use Policy, 2026-10-09) **[Documented]**
 • Whether sending jailbreak, injection or harmful-content prompts to measure detection rates is "expressly permitted" is not stated (checked the Acceptable Use Policy and the General Service Terms) **[Not disclosed]**
-• Bench rule (user, 2026-10-09): Preview features are tested with synthetic data only, because the Pre-GA Offerings Terms advise against processing personal data (here the Preview feature is template exclusion rules); the terms say "Customer should not use Pre-GA Offerings to process personal data or other data subject to legal or regulatory compliance requirements" (Google Cloud General Service Terms, 2026-10-09) **[Documented]**
 ### R8
 Summary: **Key open questions.** Which model backs the filter, the default confidence level, what the per-category confidence field means, accuracy by category and language, CSAM behaviour in limited-support regions, and any topic enforcement.
 Detail:
@@ -364,7 +363,6 @@ Detail:
 • No self-hosted or offline option is described (R4), so tests need network access to Google Cloud and a billing account **[Inferred]**
 • Google's Acceptable Use Policy bars using the Services "to test or reverse-engineer the Services in order to find limitations or vulnerabilities, or to evade filtering capabilities, except as expressly permitted in the Agreement" (Google Cloud Acceptable Use Policy, 2026-10-09) **[Documented]**
 • Whether sending jailbreak, injection or harmful-content prompts to measure detection rates is "expressly permitted" is not stated (checked the Acceptable Use Policy and the General Service Terms) **[Not disclosed]**
-• Bench rule (user, 2026-10-09): Preview features are tested with synthetic data only, because the Pre-GA Offerings Terms advise against processing personal data (here the Preview feature is template exclusion rules); the terms say "Customer should not use Pre-GA Offerings to process personal data or other data subject to legal or regulatory compliance requirements" (Google Cloud General Service Terms, 2026-10-09) **[Documented]**
 ### R8
 Summary: **Key open questions.** Which model backs the filter, the default confidence level, what the per-category confidence field means, accuracy on model output by category and language, CSAM behaviour in limited-support regions, and whether the response filter sees the prompt.
 Detail:
@@ -576,7 +574,6 @@ Detail:
 • No self-hosted or offline option is described (R4), so tests need network access to Google Cloud and a billing account **[Inferred]**
 • Google's Acceptable Use Policy bars using the Services "to test or reverse-engineer the Services in order to find limitations or vulnerabilities, or to evade filtering capabilities, except as expressly permitted in the Agreement" (Google Cloud Acceptable Use Policy, 2026-10-09) **[Documented]**
 • Whether sending jailbreak, injection or harmful-content prompts to measure detection rates is "expressly permitted" is not stated (checked the Acceptable Use Policy and the General Service Terms) **[Not disclosed]**
-• Bench rule (user, 2026-10-09): Preview features are tested with synthetic data only, because the Pre-GA Offerings Terms advise against processing personal data (here the Preview feature is template exclusion rules); the terms say "Customer should not use Pre-GA Offerings to process personal data or other data subject to legal or regulatory compliance requirements" (Google Cloud General Service Terms, 2026-10-09) **[Documented]**
 ### R8
 Summary: **Key open questions.** Which model backs the filter, which threshold to use, the default level, accuracy by attack type and language, indirect and multi-turn coverage, and the exclusion rules schema gap.
 Detail:
@@ -795,7 +792,6 @@ Detail:
 • No self-hosted or offline option is described (R4), so tests need network access to Google Cloud and a billing account **[Inferred]**
 • Google's Acceptable Use Policy bars using the Services "to test or reverse-engineer the Services in order to find limitations or vulnerabilities, or to evade filtering capabilities, except as expressly permitted in the Agreement" (Google Cloud Acceptable Use Policy, 2026-10-09) **[Documented]**
 • Whether sending jailbreak, injection or harmful-content prompts to measure detection rates is "expressly permitted" is not stated (checked the Acceptable Use Policy and the General Service Terms) **[Not disclosed]**
-• Bench rule (user, 2026-10-09): Preview features are tested with synthetic data only, because the Pre-GA Offerings Terms advise against processing personal data (here the Preview feature is template exclusion rules); the terms say "Customer should not use Pre-GA Offerings to process personal data or other data subject to legal or regulatory compliance requirements" (Google Cloud General Service Terms, 2026-10-09) **[Documented]**
 ### R8
 Summary: **Key open questions.** Which model backs the filter, what response-side detection covers, which threshold to use, whether the three-word rule applies to responses, accuracy by attack type, and the exclusion rules schema gap.
 Detail:
@@ -1326,7 +1322,6 @@ Detail:
 • No self-hosted or offline option is described (R4), so tests need network access to Google Cloud and a billing account **[Inferred]**
 • Google's Acceptable Use Policy bars using the Services "to test or reverse-engineer the Services in order to find limitations or vulnerabilities, or to evade filtering capabilities, except as expressly permitted in the Agreement" (Google Cloud Acceptable Use Policy, 2026-10-09) **[Documented]**
 • Whether sending jailbreak, injection or harmful-content prompts to measure detection rates is "expressly permitted" is not stated (checked the Acceptable Use Policy and the General Service Terms) **[Not disclosed]**
-• Bench rule (user, 2026-10-09): Preview features are tested with synthetic data only, because the Pre-GA Offerings Terms advise against processing personal data (template exclusion rules are Preview but list this filter as unsupported); the terms say "Customer should not use Pre-GA Offerings to process personal data or other data subject to legal or regulatory compliance requirements" (Google Cloud General Service Terms, 2026-10-09) **[Documented]**
 ### R8
 Summary: **Key open questions.** What reputation source and method the filter uses, how obfuscated, shortened and redirecting URLs are handled, accuracy, behaviour past 256 URLs, why it is unavailable in limited-support regions, and whether it checks URLs from images.
 Detail:
@@ -1512,7 +1507,6 @@ Detail:
 • No self-hosted or offline option is described (R4), so tests need network access to Google Cloud and a billing account **[Inferred]**
 • Google's Acceptable Use Policy bars using the Services "to test or reverse-engineer the Services in order to find limitations or vulnerabilities, or to evade filtering capabilities, except as expressly permitted in the Agreement" (Google Cloud Acceptable Use Policy, 2026-10-09) **[Documented]**
 • Whether sending jailbreak, injection or harmful-content prompts to measure detection rates is "expressly permitted" is not stated (checked the Acceptable Use Policy and the General Service Terms) **[Not disclosed]**
-• Bench rule (user, 2026-10-09): Preview features are tested with synthetic data only, because the Pre-GA Offerings Terms advise against processing personal data (template exclusion rules are Preview but list this filter as unsupported); the terms say "Customer should not use Pre-GA Offerings to process personal data or other data subject to legal or regulatory compliance requirements" (Google Cloud General Service Terms, 2026-10-09) **[Documented]**
 ### R8
 Summary: **Key open questions.** What reputation source and method the filter uses, how obfuscated, shortened and redirecting URLs are handled, accuracy, behaviour past 256 URLs and across streamed chunks, why it is unavailable in limited-support regions, and whether it checks URLs from images.
 Detail:
@@ -1681,7 +1675,6 @@ Detail:
 • Standalone use costs nothing up to 2 million tokens per month, then $0.10 per million tokens (Security Command Center pricing page, 2026-10-09) **[Documented]**
 • Response-side document tests are exploratory because the docs show no example **[Inferred]**
 • No self-hosted or offline option is documented (checked the overview, product page and integrations page) **[Not disclosed]**
-• Bench rule (user, 2026-10-09): Preview features are tested with synthetic data only, because the Pre-GA Offerings Terms advise against processing personal data (here the Preview feature is the LangChain integration; document screening itself carries no Preview label); the terms say "Customer should not use Pre-GA Offerings to process personal data or other data subject to legal or regulatory compliance requirements" (Google Cloud General Service Terms, 2026-10-09) **[Documented]**
 ### R8
 Summary: **Key open questions.** Whether responses can carry documents, what the extractor does with scans and layout, what a skipped oversize file returns, whether embedded images are screened, how antivirus is configured, and what accuracy to expect.
 Detail:
@@ -1720,7 +1713,6 @@ Detail:
 • https://cloud.google.com/blog/products/identity-security/how-model-armor-can-help-protect-your-ai-apps
 • https://github.com/googleapis/google-cloud-go/blob/modelarmor/v1.3.0/modelarmor/apiv1/modelarmorpb/service.pb.go
 • https://docs.cloud.google.com/sensitive-data-protection/docs/create-custom-infotypes-metadata-labels
-• https://cloud.google.com/terms/service-terms
 
 ## Column MA10: Model Armor: Image screening with OCR and visual scanning
 ### R1
@@ -1843,7 +1835,7 @@ Detail:
 • Singapore (asia-southeast1) cannot be used for images because image support is "No" there; a Singapore-based tester must call a us or eu endpoint, which sends the image across jurisdictions **[Inferred]**
 • The General Service Terms commit to storing Customer Data at rest only in the selected region or multi-region and "do not limit the locations from which Customer or Customer End Users may access Customer Data" (Google Cloud General Service Terms, 2026-10-09) **[Documented]**
 • Response-side image tests are exploratory because the docs show no response example **[Inferred]**
-• Bench rule (user, 2026-10-09): Preview features are tested with synthetic data only, because the Pre-GA Offerings Terms advise against processing personal data (here the Preview feature is image screening); the terms say "Customer should not use Pre-GA Offerings to process personal data or other data subject to legal or regulatory compliance requirements" (Google Cloud General Service Terms, 2026-10-09) **[Documented]**
+• Image tests should use synthetic images only, because the Pre-GA terms in R4 advise against processing personal data in Pre-GA Offerings **[Inferred]**
 • No self-hosted or offline option is documented (checked the overview, product page and integrations page) **[Not disclosed]**
 • Google's Acceptable Use Policy bars using the Services "to test or reverse-engineer the Services in order to find limitations or vulnerabilities, or to evade filtering capabilities, except as expressly permitted in the Agreement" (Google Cloud Acceptable Use Policy, 2026-10-09) **[Documented]**
 • Whether sending jailbreak, injection or harmful-content prompts to measure detection rates is "expressly permitted" is not stated (checked the Acceptable Use Policy and the General Service Terms) **[Not disclosed]**
