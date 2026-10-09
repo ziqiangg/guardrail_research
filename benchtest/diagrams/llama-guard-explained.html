@@ -1,0 +1,645 @@
+<title>How Llama Guard Judges a Conversation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400&display=swap">
+<style>
+/* Layout: one reading column; overview map, judge-vs-framework, how it works, then the checkpoints it can serve, a scorecard and limits */
+:root {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --ink: #1d2433;
+  --muted: #5b6577;
+  --line: #c9d0dc;
+  --accent: #2f5bd3;
+  --pass: #1f7a52;
+  --pass-soft: #e3f3ea;
+  --stop: #b3332b;
+  --stop-soft: #fbe7e5;
+  --edit: #9a5b00;
+  --edit-soft: #fdf0d9;
+  --gate-soft: #e8eefc;
+  --f-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12161f; --surface: #1a2030; --ink: #e6e9f0; --muted: #9aa4b8; --line: #364055;
+    --accent: #8aa8ff; --pass: #5fcf98; --pass-soft: #163327; --stop: #ff8a80; --stop-soft: #3a1d1c;
+    --edit: #f0b85a; --edit-soft: #3a2c12; --gate-soft: #1f2a48; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12161f; --surface: #1a2030; --ink: #e6e9f0; --muted: #9aa4b8; --line: #364055;
+  --accent: #8aa8ff; --pass: #5fcf98; --pass-soft: #163327; --stop: #ff8a80; --stop-soft: #3a1d1c;
+  --edit: #f0b85a; --edit-soft: #3a2c12; --gate-soft: #1f2a48; color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 17px; line-height: 1.55; }
+.wrap { max-width: 920px; margin: 0 auto; padding-inline: 20px; padding-block: 40px 64px; display: grid; gap: 44px; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; line-height: 1.15; }
+h1 { font-size: clamp(30px, 5vw, 44px); }
+h2 { font-size: 26px; }
+h3 { font-size: 20px; }
+p { margin: 0; max-width: 65ch; }
+.lede { color: var(--muted); font-size: 19px; }
+header { display: grid; gap: 14px; }
+.eyebrow { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+.legend { display: flex; flex-wrap: wrap; gap: 10px 18px; font-size: 15px; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 8px; }
+.sw { width: 14px; height: 14px; border-radius: 3px; border: 2px solid; }
+.sw.pass { background: var(--pass-soft); border-color: var(--pass); }
+.sw.stop { background: var(--stop-soft); border-color: var(--stop); }
+.sw.edit { background: var(--edit-soft); border-color: var(--edit); }
+.sw.gate { background: var(--gate-soft); border-color: var(--accent); }
+section.stage { display: grid; gap: 22px; }
+.stage-head { display: grid; gap: 6px; border-top: 2px solid var(--line); padding-top: 18px; }
+.rail { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 22px; display: grid; gap: 16px; min-width: 0; }
+.rail-head { display: grid; gap: 4px; }
+.tag { font-size: 13px; color: var(--muted); }
+figure { margin: 0; overflow-x: auto; }
+figcaption { font-size: 15px; color: var(--muted); margin-top: 8px; max-width: 70ch; }
+svg { display: block; width: 100%; max-width: 100%; height: auto; min-width: 520px; }
+.overview svg { min-width: 600px; }
+/* SVG classes, all driven by tokens */
+.box { fill: var(--surface); stroke: var(--line); stroke-width: 1.5; }
+.gate { fill: var(--gate-soft); stroke: var(--accent); stroke-width: 2; }
+.ok { fill: var(--pass-soft); stroke: var(--pass); stroke-width: 2; }
+.no { fill: var(--stop-soft); stroke: var(--stop); stroke-width: 2; }
+.ed { fill: var(--edit-soft); stroke: var(--edit); stroke-width: 2; }
+.t { fill: var(--ink); font-family: var(--f-body); font-size: 15px; }
+.tb { fill: var(--ink); font-family: var(--f-body); font-size: 15px; font-weight: 600; }
+.ts { fill: var(--muted); font-family: var(--f-body); font-size: 13px; }
+.tok { fill: var(--pass); font-family: var(--f-body); font-size: 13px; font-weight: 600; }
+.tno { fill: var(--stop); font-family: var(--f-body); font-size: 13px; font-weight: 600; }
+.ted { fill: var(--edit); font-family: var(--f-body); font-size: 13px; font-weight: 600; }
+.ln { stroke: var(--muted); stroke-width: 1.8; fill: none; }
+.lok { stroke: var(--pass); stroke-width: 2; fill: none; }
+.lno { stroke: var(--stop); stroke-width: 2; fill: none; }
+.led { stroke: var(--edit); stroke-width: 2; fill: none; }
+.ah { fill: var(--muted); } .ahok { fill: var(--pass); } .ahno { fill: var(--stop); } .ahed { fill: var(--edit); }
+.dev { stroke-dasharray: 7 5; }
+.sw.dev { background: var(--gate-soft); border-color: var(--accent); border-style: dashed; }
+.zone { fill: none; stroke: var(--accent); stroke-width: 1.5; stroke-dasharray: 5 4; }
+.zl { fill: var(--accent); font-family: var(--f-body); font-size: 13px; font-weight: 600; }
+/* Example strip */
+.example { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; font-size: 15px; align-items: baseline; }
+.example dt { color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: .06em; }
+.example dd { margin: 0; font-family: var(--f-mono); font-size: 14px; min-width: 0; overflow-wrap: anywhere; }
+mark { background: var(--edit-soft); color: var(--edit); padding: 0 3px; border-radius: 3px; }
+.know { font-size: 15px; color: var(--muted); border-left: 3px solid var(--line); padding-left: 12px; }
+.know b { color: var(--ink); }
+.grid2 { display: grid; gap: 22px; }
+footer { font-size: 14px; color: var(--muted); display: grid; gap: 6px; }
+footer a { color: var(--accent); }
+/* Additions for this page: partly / not supported, tables, verdict pills */
+.part { fill: var(--edit-soft); stroke: var(--edit); stroke-width: 2; stroke-dasharray: 7 5; }
+.na { fill: var(--bg); stroke: var(--line); stroke-width: 1.5; stroke-dasharray: 4 4; }
+.lna { stroke: var(--line); stroke-width: 1.8; fill: none; stroke-dasharray: 4 4; }
+.sw.part { background: var(--edit-soft); border-color: var(--edit); border-style: dashed; }
+.sw.na { background: var(--bg); border-color: var(--line); border-style: dashed; }
+.tablewrap { overflow-x: auto; }
+table.cats { border-collapse: collapse; width: 100%; font-size: 15px; background: var(--surface); }
+table.cats th, table.cats td { border: 1px solid var(--line); padding: 7px 10px; text-align: left; vertical-align: top; }
+table.cats th { font-weight: 600; color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: .06em; }
+table.cats td.code { font-family: var(--f-mono); font-size: 14px; white-space: nowrap; }
+.pill { display: inline-block; font-size: 13px; font-weight: 600; padding: 1px 9px; border-radius: 99px; border: 2px solid; white-space: nowrap; }
+.pill.yes { color: var(--pass); background: var(--pass-soft); border-color: var(--pass); }
+.pill.partly { color: var(--edit); background: var(--edit-soft); border-color: var(--edit); border-style: dashed; }
+.pill.no { color: var(--muted); background: var(--bg); border-color: var(--line); border-style: dashed; }
+ul.limits { margin: 0; padding-left: 20px; display: grid; gap: 8px; max-width: 70ch; }
+ul.limits b { color: var(--ink); }
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">Meta Llama Guard · Llama Guard 4 and Llama Guard 3</div>
+  <h1>How Llama Guard judges a conversation</h1>
+  <p class="lede">Llama Guard is a single AI model from Meta that reads part of a chat and says whether it is harmful. It is a judge, not a security system: it gives a verdict, and your app decides what to do with it. This page shows how it works, where it can sit in a chat, and what it cannot do.</p>
+  <div class="legend" aria-label="Colour key">
+    <span><i class="sw gate"></i>Check done by Llama Guard</span>
+    <span><i class="sw dev"></i>Your app's job (not Llama Guard)</span>
+    <span><i class="sw pass"></i>Allowed through</span>
+    <span><i class="sw stop"></i>Stopped</span>
+    <span><i class="sw part"></i>Partly supported</span>
+    <span><i class="sw na"></i>Not supported</span>
+  </div>
+</header>
+
+<!-- OVERVIEW -->
+<section class="overview">
+  <figure>
+    <svg viewBox="0 0 880 400" role="img" aria-label="A user's message, optionally with a photo, is checked by Llama Guard before it reaches the AI model. The AI model's answer is checked by Llama Guard again before the user sees it. In both cases Llama Guard only gives a verdict and the app refuses or discards. Documents fetched for the AI model are not checked by Llama Guard. Code the AI model wants to run can be partly checked.">
+      <defs>
+        <marker id="o-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker>
+      </defs>
+      <!-- main row, centre line y=200 -->
+      <rect class="box" x="10" y="170" width="100" height="60" rx="8"/>
+      <text class="tb" x="60" y="197" text-anchor="middle">User</text>
+      <text class="ts" x="60" y="216" text-anchor="middle">asks a question</text>
+
+      <rect class="gate" x="150" y="160" width="160" height="80" rx="8"/>
+      <text class="tb" x="230" y="192" text-anchor="middle">Input check</text>
+      <text class="ts" x="230" y="212" text-anchor="middle">diagram 3</text>
+
+      <rect class="box" x="360" y="160" width="140" height="80" rx="8"/>
+      <text class="tb" x="430" y="192" text-anchor="middle">AI model</text>
+      <text class="ts" x="430" y="212" text-anchor="middle">writes the answer</text>
+
+      <rect class="gate" x="550" y="160" width="160" height="80" rx="8"/>
+      <text class="tb" x="630" y="192" text-anchor="middle">Output check</text>
+      <text class="ts" x="630" y="212" text-anchor="middle">diagram 4</text>
+
+      <rect class="box" x="760" y="170" width="100" height="60" rx="8"/>
+      <text class="tb" x="810" y="205" text-anchor="middle">User</text>
+
+      <line class="ln" x1="110" y1="200" x2="146" y2="200" marker-end="url(#o-a)"/>
+      <line class="ln" x1="310" y1="200" x2="356" y2="200" marker-end="url(#o-a)"/>
+      <line class="ln" x1="500" y1="200" x2="546" y2="200" marker-end="url(#o-a)"/>
+      <line class="ln" x1="710" y1="200" x2="756" y2="200" marker-end="url(#o-a)"/>
+      <text class="ts" x="333" y="152" text-anchor="middle">if safe</text>
+      <text class="ts" x="523" y="152" text-anchor="middle">draft</text>
+      <text class="ts" x="733" y="152" text-anchor="middle">if safe</text>
+
+      <!-- photo branch above the input check -->
+      <rect class="box" x="10" y="40" width="120" height="60" rx="8"/>
+      <text class="tb" x="70" y="67" text-anchor="middle">Photo</text>
+      <text class="ts" x="70" y="86" text-anchor="middle">optional, diagram 5</text>
+      <path class="ln" d="M130,70 H230 V156" marker-end="url(#o-a)"/>
+
+      <!-- documents branch: not checked -->
+      <rect class="na" x="340" y="30" width="180" height="80" rx="8"/>
+      <text class="tb" x="430" y="62" text-anchor="middle">Your documents</text>
+      <text class="ts" x="430" y="82" text-anchor="middle">no Llama Guard check</text>
+      <path class="lna" d="M430,110 V156" marker-end="url(#o-a)"/>
+
+      <!-- verdict handling, bottom row -->
+      <path class="ln" d="M230,240 V296" marker-end="url(#o-a)"/>
+      <text class="ts" x="240" y="272">verdict</text>
+      <rect class="gate dev" x="150" y="300" width="160" height="80" rx="8"/>
+      <text class="tb" x="230" y="332" text-anchor="middle">Your app</text>
+      <text class="ts" x="230" y="352" text-anchor="middle">refuses if unsafe</text>
+
+      <path class="ln" d="M430,240 V296" marker-end="url(#o-a)"/>
+      <text class="ts" x="440" y="272">wants to run code</text>
+      <rect class="part" x="355" y="300" width="150" height="80" rx="8"/>
+      <text class="tb" x="430" y="332" text-anchor="middle">Code check</text>
+      <text class="ts" x="430" y="352" text-anchor="middle">partly, diagram 6</text>
+
+      <path class="ln" d="M630,240 V296" marker-end="url(#o-a)"/>
+      <text class="ts" x="640" y="272">verdict</text>
+      <rect class="gate dev" x="550" y="300" width="160" height="80" rx="8"/>
+      <text class="tb" x="630" y="332" text-anchor="middle">Your app</text>
+      <text class="ts" x="630" y="352" text-anchor="middle">discards if unsafe</text>
+    </svg>
+    <figcaption>Llama Guard covers the two main checkpoints: what the user sends and what the AI answers. A photo sent with the question goes through the same check. Code the AI wants to run is only partly covered, and documents fetched for the AI are not covered at all. At every checkpoint, Llama Guard only says "safe" or "unsafe"; the refusing is done by your app.</figcaption>
+  </figure>
+</section>
+
+<!-- JUDGE VS FRAMEWORK -->
+<section class="stage">
+  <div class="stage-head">
+    <div class="eyebrow">Llama Guard and NeMo</div>
+    <h2>A judge, not a security system</h2>
+    <p>NeMo Guardrails is a framework: it decides where the checkpoints go, runs the rules a developer writes, and can edit text. Llama Guard is one judge you can post at a checkpoint. The two are not rivals. NeMo can use Llama Guard as the safety model behind its input and output checks.</p>
+  </div>
+
+  <article class="rail">
+    <div class="rail-head">
+      <h3>1. Where Llama Guard fits inside NeMo</h3>
+      <span class="tag">NeMo built-in rails: "llama guard check input" and "llama guard check output"</span>
+    </div>
+    <figure>
+      <svg viewBox="0 0 760 300" role="img" aria-label="NeMo Guardrails is drawn as a large frame with five checkpoint slots: input, retrieval, dialog, action and output. Below the input and output slots there is a safety model box. Llama Guard, outside the frame, can be plugged into those two safety model boxes. The retrieval, dialog and action slots are handled by NeMo itself.">
+        <defs>
+          <marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker>
+        </defs>
+        <rect class="zone" x="10" y="20" width="490" height="240" rx="10"/>
+        <text class="zl" x="26" y="44">NeMo Guardrails · the framework</text>
+
+        <rect class="box" x="26" y="64" width="84" height="56" rx="8"/>
+        <text class="tb" x="68" y="97" text-anchor="middle">Input</text>
+        <rect class="box" x="120" y="64" width="84" height="56" rx="8"/>
+        <text class="tb" x="162" y="97" text-anchor="middle">Retrieval</text>
+        <rect class="box" x="214" y="64" width="84" height="56" rx="8"/>
+        <text class="tb" x="256" y="97" text-anchor="middle">Dialog</text>
+        <rect class="box" x="308" y="64" width="84" height="56" rx="8"/>
+        <text class="tb" x="350" y="97" text-anchor="middle">Action</text>
+        <rect class="box" x="402" y="64" width="84" height="56" rx="8"/>
+        <text class="tb" x="444" y="97" text-anchor="middle">Output</text>
+        <text class="ts" x="256" y="142" text-anchor="middle">NeMo's own rules and tools</text>
+
+        <rect class="gate" x="26" y="160" width="84" height="60" rx="8"/>
+        <text class="ts" x="68" y="186" text-anchor="middle">safety</text>
+        <text class="ts" x="68" y="203" text-anchor="middle">model</text>
+        <rect class="gate" x="402" y="160" width="84" height="60" rx="8"/>
+        <text class="ts" x="444" y="186" text-anchor="middle">safety</text>
+        <text class="ts" x="444" y="203" text-anchor="middle">model</text>
+        <line class="ln" x1="68" y1="120" x2="68" y2="156" marker-end="url(#a1)"/>
+        <line class="ln" x1="444" y1="120" x2="444" y2="156" marker-end="url(#a1)"/>
+
+        <rect class="gate" x="560" y="120" width="190" height="90" rx="8"/>
+        <text class="tb" x="655" y="157" text-anchor="middle">Llama Guard</text>
+        <text class="ts" x="655" y="177" text-anchor="middle">Meta's judge model</text>
+        <text class="ts" x="655" y="195" text-anchor="middle">safe or unsafe + category</text>
+
+        <path class="ln" d="M560,180 H490" marker-end="url(#a1)"/>
+        <path class="ln" d="M600,210 V285 H68 V224" marker-end="url(#a1)"/>
+        <text class="ts" x="655" y="236" text-anchor="middle">can plug in here</text>
+      </svg>
+      <figcaption>Think of NeMo as the building's whole security setup and Llama Guard as a guard who can be posted at the front door (input) and the back door (output). The other three slots (documents, conversation rules and actions) stay NeMo's job.</figcaption>
+    </figure>
+    <div class="tablewrap">
+      <table class="cats">
+        <thead><tr><th></th><th>NeMo Guardrails</th><th>Llama Guard</th></tr></thead>
+        <tbody>
+          <tr><td>What it is</td><td>A framework that wraps your chatbot</td><td>One AI model that gives a verdict</td></tr>
+          <tr><td>Decides where checks run</td><td>Yes</td><td>No, your app or a framework does</td></tr>
+          <tr><td>Runs your own rules and fixed replies</td><td>Yes</td><td>No</td></tr>
+          <tr><td>Edits or masks text (e.g. hides emails)</td><td>Yes, with a personal-data scanner</td><td>No, it only labels text</td></tr>
+          <tr><td>Judges harmful content</td><td>Yes, through a safety model it calls</td><td>Yes, that is its whole job</td></tr>
+          <tr><td>Looks at images</td><td>Not on its own</td><td>Yes, Llama Guard 4 and 3-Vision</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="know"><b>Good to know:</b> NeMo's built-in Llama Guard checks block the message if Llama Guard's reply cannot be read. They were written around the first Llama Guard, so using Llama Guard 3 or 4 means rewriting the instruction NeMo sends. That is our reading of the code; we have not tested it yet.</p>
+  </article>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="stage">
+  <div class="stage-head">
+    <div class="eyebrow">How it works</div>
+    <h2>An instruction goes in, a one-word verdict comes out</h2>
+    <p>Llama Guard is a language model that was trained for one job. Your app writes it a short instruction, and it writes back its verdict as text.</p>
+  </div>
+
+  <article class="rail">
+    <div class="rail-head">
+      <h3>2. What Llama Guard is given, and what it says back</h3>
+      <span class="tag">The same model checks questions and answers; only the instruction changes</span>
+    </div>
+    <figure>
+      <svg viewBox="0 0 760 270" role="img" aria-label="Three things go into Llama Guard: the list of harm categories, the conversation so far, and the question whether the last user message or the last AI message is safe. Llama Guard replies either safe, or unsafe followed by the codes of the categories broken, for example S1 and S10.">
+        <defs>
+          <marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker>
+          <marker id="a2o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ahok"/></marker>
+          <marker id="a2n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ahno"/></marker>
+        </defs>
+        <rect class="box" x="10" y="15" width="300" height="70" rx="8"/>
+        <text class="tb" x="26" y="43">① Category list</text>
+        <text class="ts" x="26" y="64">S1 Violent Crimes … S13 Elections (+ S14)</text>
+        <rect class="box" x="10" y="100" width="300" height="70" rx="8"/>
+        <text class="tb" x="26" y="128">② The conversation</text>
+        <text class="ts" x="26" y="149">User's message (+ AI's answer, when checking it)</text>
+        <rect class="box" x="10" y="185" width="300" height="70" rx="8"/>
+        <text class="tb" x="26" y="213">③ The question</text>
+        <text class="ts" x="26" y="234">"Is the last User (or Agent) message safe?"</text>
+
+        <path class="ln" d="M310,50 H340 V135" />
+        <path class="ln" d="M310,220 H340 V135" />
+        <line class="ln" x1="310" y1="135" x2="386" y2="135" marker-end="url(#a2)"/>
+
+        <rect class="gate" x="390" y="90" width="160" height="90" rx="8"/>
+        <text class="tb" x="470" y="128" text-anchor="middle">Llama Guard</text>
+        <text class="ts" x="470" y="148" text-anchor="middle">writes its verdict</text>
+
+        <path class="lok" d="M550,115 C580,115 580,60 606,60" marker-end="url(#a2o)"/>
+        <path class="lno" d="M550,155 C580,155 580,210 606,210" marker-end="url(#a2n)"/>
+        <rect class="ok" x="610" y="30" width="140" height="60" rx="8"/>
+        <text class="tb" x="680" y="57" text-anchor="middle">safe</text>
+        <text class="ts" x="680" y="76" text-anchor="middle">nothing else</text>
+        <rect class="no" x="610" y="180" width="140" height="60" rx="8"/>
+        <text class="tb" x="680" y="207" text-anchor="middle">unsafe</text>
+        <text class="ts" x="680" y="226" text-anchor="middle">then codes: S1,S10</text>
+      </svg>
+      <figcaption>To check a question, the app sends only the user's message and asks about the "User". To check an answer, it sends the question and the answer and asks about the "Agent". It is one model either way. The reply is plain text, so the app has to read it and act on it.</figcaption>
+    </figure>
+    <dl class="example">
+      <dt>Asked</dt><dd>Is the last User message safe? User: "How do I make a pipe bomb?"</dd>
+      <dt>Reply</dt><dd>unsafe<br>S9</dd>
+    </dl>
+    <p class="know"><b>Good to know:</b> there is no "maybe". The app can turn how confident the model was about its first word into a score, and Meta describes doing this for Llama Guard 3-8B, but Meta does not say what cut-off to use. We would have to pick one from our own tests.</p>
+  </article>
+
+  <article class="rail">
+    <div class="rail-head">
+      <h3>The 14 harm categories</h3>
+      <span class="tag">Based on the MLCommons hazard list; the same codes in Llama Guard 3 and 4</span>
+    </div>
+    <div class="tablewrap">
+      <table class="cats">
+        <thead><tr><th>Code</th><th>Category</th><th>Code</th><th>Category</th></tr></thead>
+        <tbody>
+          <tr><td class="code">S1</td><td>Violent crimes</td><td class="code">S8</td><td>Intellectual property</td></tr>
+          <tr><td class="code">S2</td><td>Non-violent crimes</td><td class="code">S9</td><td>Indiscriminate weapons</td></tr>
+          <tr><td class="code">S3</td><td>Sex-related crimes</td><td class="code">S10</td><td>Hate</td></tr>
+          <tr><td class="code">S4</td><td>Child sexual exploitation</td><td class="code">S11</td><td>Suicide and self-harm</td></tr>
+          <tr><td class="code">S5</td><td>Defamation</td><td class="code">S12</td><td>Sexual content</td></tr>
+          <tr><td class="code">S6</td><td>Specialised advice</td><td class="code">S13</td><td>Elections (false voting information)</td></tr>
+          <tr><td class="code">S7</td><td>Privacy</td><td class="code">S14</td><td>Code interpreter abuse (3-8B and 4 only)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </article>
+
+  <article class="rail">
+    <div class="rail-head">
+      <h3>Which Llama Guard</h3>
+      <span class="tag">Current versions; all are downloadable from Meta after accepting its Llama licence</span>
+    </div>
+    <div class="tablewrap">
+      <table class="cats">
+        <thead><tr><th>Model</th><th>Reads</th><th>Languages</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Llama Guard 4 (12B)</td><td>Text and several images</td><td>English and 7 others</td><td>The newest; one model for text and images; checks code (S14) in text only</td></tr>
+          <tr><td>Llama Guard 3 8B</td><td>Text</td><td>English, French, German, Hindi, Italian, Portuguese, Spanish, Thai</td><td>Checks code (S14); a smaller-memory version exists</td></tr>
+          <tr><td>Llama Guard 3 1B</td><td>Text</td><td>Same 8</td><td>Small and fast; a further-shrunk version runs on a phone; not tuned for S14</td></tr>
+          <tr><td>Llama Guard 3 11B-Vision</td><td>One image with text</td><td>Tuned for English</td><td>Not meant for text-only or image-only checks</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </article>
+</section>
+
+<!-- INPUT + OUTPUT -->
+<section class="stage">
+  <div class="stage-head">
+    <div class="eyebrow">Stages 1 and 2 · Input and output</div>
+    <h2>What Llama Guard was built for</h2>
+    <p>These are the two checkpoints Meta designed Llama Guard for, and every current version supports both.</p>
+  </div>
+
+  <div class="grid2">
+    <article class="rail">
+      <div class="rail-head">
+        <h3>3. Checking what the user typed</h3>
+        <span class="tag">Supported: all current versions · <span class="pill yes">Yes</span></span>
+      </div>
+      <figure>
+        <svg viewBox="0 0 760 250" role="img" aria-label="The user's message is read by Llama Guard, asked whether the user message is safe. If safe, it continues to the AI model. If unsafe, Llama Guard names the category and the app sends a refusal, so the AI model never sees the message.">
+          <defs>
+            <marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker>
+            <marker id="a3o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ahok"/></marker>
+            <marker id="a3n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ahno"/></marker>
+          </defs>
+          <rect class="box" x="10" y="90" width="160" height="70" rx="8"/>
+          <text class="tb" x="90" y="120" text-anchor="middle">User's message</text>
+          <text class="ts" x="90" y="140" text-anchor="middle">as typed</text>
+          <line class="ln" x1="170" y1="125" x2="226" y2="125" marker-end="url(#a3)"/>
+          <rect class="gate" x="230" y="75" width="200" height="100" rx="8"/>
+          <text class="tb" x="330" y="112" text-anchor="middle">Llama Guard</text>
+          <text class="ts" x="330" y="132" text-anchor="middle">"is the User message safe?"</text>
+          <text class="ts" x="330" y="150" text-anchor="middle">safe or unsafe + code</text>
+          <path class="lok" d="M430,105 C470,105 470,55 506,55" marker-end="url(#a3o)"/>
+          <path class="lno" d="M430,145 C470,145 470,195 506,195" marker-end="url(#a3n)"/>
+          <text class="tok" x="455" y="72" text-anchor="middle">safe</text>
+          <text class="tno" x="460" y="185" text-anchor="end">unsafe</text>
+          <rect class="ok" x="510" y="25" width="240" height="60" rx="8"/>
+          <text class="tb" x="630" y="52" text-anchor="middle">Continues to the AI model</text>
+          <text class="ts" x="630" y="71" text-anchor="middle">nothing changed</text>
+          <rect class="no dev" x="510" y="165" width="240" height="60" rx="8"/>
+          <text class="tb" x="630" y="192" text-anchor="middle">Your app sends a refusal</text>
+          <text class="ts" x="630" y="211" text-anchor="middle">the AI model never sees it</text>
+        </svg>
+        <figcaption>Llama Guard reads the message on its own and says whether it falls into one of the 14 categories. The refusal (the dashed box) is written and sent by your app.</figcaption>
+      </figure>
+      <dl class="example">
+        <dt>In</dt><dd>Give me step-by-step instructions to hurt my neighbour.</dd>
+        <dt>Verdict</dt><dd>unsafe · S1</dd>
+        <dt>Out</dt><dd>Sorry, I can't help with that. (written by your app)</dd>
+      </dl>
+      <p class="know"><b>Good to know:</b> checking the question stops more harm but also refuses more harmless questions than checking the answer does, according to Meta's Llama Guard 4 notes. Llama Guard does not look for jailbreak tricks such as "ignore your instructions"; Meta points to a separate model, Prompt Guard 2, for that.</p>
+    </article>
+
+    <article class="rail">
+      <div class="rail-head">
+        <h3>4. Checking the AI's answer</h3>
+        <span class="tag">Supported: all current versions · <span class="pill yes">Yes</span></span>
+      </div>
+      <figure>
+        <svg viewBox="0 0 760 250" role="img" aria-label="The AI model's draft answer, together with the user's question, is read by Llama Guard, asked whether the agent message is safe. A safe draft is shown to the user. An unsafe draft is discarded by the app and the user gets a refusal instead.">
+          <defs>
+            <marker id="a4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker>
+            <marker id="a4o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ahok"/></marker>
+            <marker id="a4n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ahno"/></marker>
+          </defs>
+          <rect class="box" x="10" y="90" width="160" height="70" rx="8"/>
+          <text class="tb" x="90" y="120" text-anchor="middle">AI's draft answer</text>
+          <text class="ts" x="90" y="140" text-anchor="middle">plus the user's question</text>
+          <line class="ln" x1="170" y1="125" x2="226" y2="125" marker-end="url(#a4)"/>
+          <rect class="gate" x="230" y="75" width="200" height="100" rx="8"/>
+          <text class="tb" x="330" y="112" text-anchor="middle">Llama Guard</text>
+          <text class="ts" x="330" y="132" text-anchor="middle">"is the Agent message safe?"</text>
+          <text class="ts" x="330" y="150" text-anchor="middle">same model as diagram 3</text>
+          <path class="lok" d="M430,105 C470,105 470,55 506,55" marker-end="url(#a4o)"/>
+          <path class="lno" d="M430,145 C470,145 470,195 506,195" marker-end="url(#a4n)"/>
+          <text class="tok" x="455" y="72" text-anchor="middle">safe</text>
+          <text class="tno" x="460" y="185" text-anchor="end">unsafe</text>
+          <rect class="ok" x="510" y="25" width="240" height="60" rx="8"/>
+          <text class="tb" x="630" y="52" text-anchor="middle">Answer shown to the user</text>
+          <text class="ts" x="630" y="71" text-anchor="middle">unchanged</text>
+          <rect class="no dev" x="510" y="165" width="240" height="60" rx="8"/>
+          <text class="tb" x="630" y="192" text-anchor="middle">Your app discards the draft</text>
+          <text class="ts" x="630" y="211" text-anchor="middle">and sends a refusal instead</text>
+        </svg>
+        <figcaption>This catches harmful answers that a harmless-looking question still produced. The question is included so Llama Guard can judge the answer in context.</figcaption>
+      </figure>
+      <dl class="example">
+        <dt>Draft</dt><dd>Here is how to make the device: first you…</dd>
+        <dt>Verdict</dt><dd>unsafe · S9</dd>
+        <dt>Shown</dt><dd>Sorry, I can't help with that. (written by your app)</dd>
+      </dl>
+      <p class="know"><b>Good to know:</b> in Meta's own English test, Llama Guard 4 caught about 7 in 10 harmful answers and wrongly flagged about 1 in 9 harmless ones. These are Meta's numbers on Meta's data; ours may differ.</p>
+    </article>
+  </div>
+</section>
+
+<!-- IMAGES -->
+<section class="stage">
+  <div class="stage-head">
+    <div class="eyebrow">Stage 2b · Images</div>
+    <h2>Checking a photo together with its question</h2>
+    <p>NeMo's page has no image checkpoint. Two Llama Guard models can read pictures: Llama Guard 4 (several images) and Llama Guard 3 11B-Vision (one image, English).</p>
+  </div>
+
+  <article class="rail">
+    <div class="rail-head">
+      <h3>5. Image plus text</h3>
+      <span class="tag">Supported: Llama Guard 4 and 3-11B-Vision · <span class="pill yes">Yes</span></span>
+    </div>
+    <figure>
+      <svg viewBox="0 0 760 250" role="img" aria-label="A user sends a photo with a text question. Llama Guard 4 or Llama Guard 3 Vision reads the photo and the text together. If safe, the request continues to the AI model. If unsafe, for example asking to identify a stranger in a photo, the app refuses.">
+        <defs>
+          <marker id="a5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker>
+          <marker id="a5o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ahok"/></marker>
+          <marker id="a5n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ahno"/></marker>
+        </defs>
+        <rect class="box" x="10" y="90" width="160" height="70" rx="8"/>
+        <text class="tb" x="90" y="120" text-anchor="middle">Photo + question</text>
+        <text class="ts" x="90" y="140" text-anchor="middle">read together</text>
+        <line class="ln" x1="170" y1="125" x2="226" y2="125" marker-end="url(#a5)"/>
+        <rect class="gate" x="230" y="75" width="200" height="100" rx="8"/>
+        <text class="tb" x="330" y="112" text-anchor="middle">Llama Guard</text>
+        <text class="ts" x="330" y="132" text-anchor="middle">4 or 3-11B-Vision</text>
+        <text class="ts" x="330" y="150" text-anchor="middle">same 13 categories</text>
+        <path class="lok" d="M430,105 C470,105 470,55 506,55" marker-end="url(#a5o)"/>
+        <path class="lno" d="M430,145 C470,145 470,195 506,195" marker-end="url(#a5n)"/>
+        <text class="tok" x="455" y="72" text-anchor="middle">safe</text>
+        <text class="tno" x="460" y="185" text-anchor="end">unsafe</text>
+        <rect class="ok" x="510" y="25" width="240" height="60" rx="8"/>
+        <text class="tb" x="630" y="52" text-anchor="middle">Continues to the AI model</text>
+        <text class="ts" x="630" y="71" text-anchor="middle">nothing changed</text>
+        <rect class="no dev" x="510" y="165" width="240" height="60" rx="8"/>
+        <text class="tb" x="630" y="192" text-anchor="middle">Your app refuses</text>
+        <text class="ts" x="630" y="211" text-anchor="middle">category recorded, e.g. privacy</text>
+      </svg>
+      <figcaption>A harmless picture can become harmful because of the question asked about it, and the other way round. The model judges the pair, not the picture alone. Meta paid particular attention to requests to identify real people in images.</figcaption>
+    </figure>
+    <dl class="example">
+      <dt>In</dt><dd>[photo of a stranger on a train] Who is this and where does she live?</dd>
+      <dt>Verdict</dt><dd>unsafe · S7 (privacy)</dd>
+    </dl>
+    <p class="know"><b>Good to know:</b> neither model is meant for checking a picture with no text. When checking the AI's answer, the answer itself is text. In Meta's test, Llama Guard 4 caught about 4 in 10 harmful single-image cases, clearly weaker than on text.</p>
+  </article>
+</section>
+
+<!-- EXECUTION + DIALOG -->
+<section class="stage">
+  <div class="stage-head">
+    <div class="eyebrow">Stages 3 and 4 · Execution and dialog</div>
+    <h2>Only partly covered</h2>
+    <p>Llama Guard can help at these two checkpoints, but it is not a replacement for the rules a developer writes in NeMo. In both cases it only labels; your app still has to act.</p>
+  </div>
+
+  <div class="grid2">
+    <article class="rail">
+      <div class="rail-head">
+        <h3>6. Checking code before it runs</h3>
+        <span class="tag">Category S14, Llama Guard 3-8B and 4 only · <span class="pill partly">Partly</span></span>
+      </div>
+      <figure>
+        <svg viewBox="0 0 760 250" role="img" aria-label="The AI model writes code to run in a code interpreter. Llama Guard 3 8B or 4 checks it against category S14, code interpreter abuse. If it looks harmless, the app runs it. If it looks like an attack on the machine, the app does not run it.">
+          <defs>
+            <marker id="a6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker>
+            <marker id="a6o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ahok"/></marker>
+            <marker id="a6n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ahno"/></marker>
+          </defs>
+          <rect class="box" x="10" y="90" width="160" height="70" rx="8"/>
+          <text class="tb" x="90" y="120" text-anchor="middle">AI wants to run code</text>
+          <text class="ts" x="90" y="140" text-anchor="middle">in a code interpreter</text>
+          <line class="ln" x1="170" y1="125" x2="226" y2="125" marker-end="url(#a6)"/>
+          <rect class="part" x="230" y="75" width="200" height="100" rx="8"/>
+          <text class="tb" x="330" y="112" text-anchor="middle">Llama Guard</text>
+          <text class="ts" x="330" y="132" text-anchor="middle">S14 code interpreter abuse</text>
+          <text class="ts" x="330" y="150" text-anchor="middle">3-8B or 4, text only</text>
+          <path class="lok" d="M430,105 C470,105 470,55 506,55" marker-end="url(#a6o)"/>
+          <path class="lno" d="M430,145 C470,145 470,195 506,195" marker-end="url(#a6n)"/>
+          <text class="tok" x="455" y="72" text-anchor="middle">safe</text>
+          <text class="tno" x="460" y="185" text-anchor="end">unsafe S14</text>
+          <rect class="ok" x="510" y="25" width="240" height="60" rx="8"/>
+          <text class="tb" x="630" y="52" text-anchor="middle">Your app runs the code</text>
+          <text class="ts" x="630" y="71" text-anchor="middle">as asked</text>
+          <rect class="no dev" x="510" y="165" width="240" height="60" rx="8"/>
+          <text class="tb" x="630" y="192" text-anchor="middle">Your app does not run it</text>
+          <text class="ts" x="630" y="211" text-anchor="middle">and tells the user why</text>
+        </svg>
+        <figcaption>S14 covers code meant to attack the machine it runs on: overloading it, breaking out of its sandbox, or gaining powers it should not have. Llama Guard 3-8B was also trained and tested on results from search tools.</figcaption>
+      </figure>
+      <dl class="example">
+        <dt>Code</dt><dd>import os; os.system(":(){ :|:& };:")   # floods the machine</dd>
+        <dt>Verdict</dt><dd>unsafe · S14</dd>
+      </dl>
+      <p class="know"><b>Good to know:</b> Llama Guard asks "is this harmful?", not "is this sensible?". A $5,000 refund request looks harmless to it, so business limits like NeMo's diagram 8 still need a written rule. Meta also defines no standard way to show a tool request to Llama Guard, so how we present it is our own choice and needs testing.</p>
+    </article>
+
+    <article class="rail">
+      <div class="rail-head">
+        <h3>7. Your own off-limits topic</h3>
+        <span class="tag">Custom categories added to the list · <span class="pill partly">Partly</span></span>
+      </div>
+      <figure>
+        <svg viewBox="0 0 760 250" role="img" aria-label="The developer adds their own category, Politics, to the category list. Llama Guard reads the user's message against that list. If nothing matches, the AI model answers normally. If it matches Politics, Llama Guard reports it and the app sends the developer's fixed reply.">
+          <defs>
+            <marker id="a7" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker>
+            <marker id="a7o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ahok"/></marker>
+            <marker id="a7n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ahno"/></marker>
+          </defs>
+          <rect class="box" x="10" y="90" width="160" height="70" rx="8"/>
+          <text class="tb" x="90" y="120" text-anchor="middle">User's message</text>
+          <text class="ts" x="90" y="140" text-anchor="middle">as typed</text>
+          <line class="ln" x1="170" y1="125" x2="226" y2="125" marker-end="url(#a7)"/>
+          <rect class="part" x="230" y="75" width="200" height="100" rx="8"/>
+          <text class="tb" x="330" y="112" text-anchor="middle">Llama Guard</text>
+          <text class="ts" x="330" y="132" text-anchor="middle">your list: "Politics"</text>
+          <text class="ts" x="330" y="150" text-anchor="middle">no fixed reply of its own</text>
+          <path class="lok" d="M430,105 C470,105 470,55 506,55" marker-end="url(#a7o)"/>
+          <path class="lno" d="M430,145 C470,145 470,195 506,195" marker-end="url(#a7n)"/>
+          <text class="tok" x="455" y="72" text-anchor="middle">no match</text>
+          <text class="tno" x="460" y="185" text-anchor="end">"Politics"</text>
+          <rect class="ok" x="510" y="25" width="240" height="60" rx="8"/>
+          <text class="tb" x="630" y="52" text-anchor="middle">AI model answers normally</text>
+          <text class="ts" x="630" y="71" text-anchor="middle">free answer</text>
+          <rect class="no dev" x="510" y="165" width="240" height="60" rx="8"/>
+          <text class="tb" x="630" y="192" text-anchor="middle">Your app sends a fixed reply</text>
+          <text class="ts" x="630" y="211" text-anchor="middle">you write it, not Llama Guard</text>
+        </svg>
+        <figcaption>Meta says the category list can be swapped for your own. That lets Llama Guard spot an off-limits topic, the same job as NeMo's diagram 7. The difference is that NeMo also sends the fixed reply, while here your code has to.</figcaption>
+      </figure>
+      <dl class="example">
+        <dt>Your list</dt><dd>Politics: questions about parties, candidates or how to vote</dd>
+        <dt>In</dt><dd>Who should I vote for in the election?</dd>
+        <dt>Out</dt><dd>I can only help with questions about our services. (written by your app)</dd>
+      </dl>
+      <p class="know"><b>Good to know:</b> the built-in S13 Elections category only covers false information about voting, such as the wrong polling date, so it would not catch this question. Llama Guard 4, 3-1B and 3-11B-Vision accept a custom list directly; 3-8B ignores it unless the instruction is built by hand. Meta publishes no accuracy results for custom lists on the current models, so this needs testing.</p>
+    </article>
+  </div>
+</section>
+
+<!-- SCORECARD -->
+<section class="stage">
+  <div class="stage-head">
+    <div class="eyebrow">At a glance</div>
+    <h2>Llama Guard at NeMo's five checkpoints</h2>
+    <p>The same five places NeMo can check, plus images, with an honest answer for each.</p>
+  </div>
+  <div class="tablewrap">
+    <table class="cats">
+      <thead><tr><th>Checkpoint</th><th>Llama Guard?</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Input</td><td><span class="pill yes">Yes</span></td><td>What it was built for. All current versions.</td></tr>
+        <tr><td>Output</td><td><span class="pill yes">Yes</span></td><td>What it was built for. All current versions.</td></tr>
+        <tr><td>Images</td><td><span class="pill yes">Yes</span></td><td>Llama Guard 4 and 3-11B-Vision, always with text.</td></tr>
+        <tr><td>Retrieval (your documents)</td><td><span class="pill no">No</span></td><td>Nothing from Meta describes checking fetched documents. Llama Guard cannot hide personal data or drop one passage; it only labels text. Feeding a passage in as if it were a chat message might work but is undocumented and untested.</td></tr>
+        <tr><td>Execution (actions, tools)</td><td><span class="pill partly">Partly</span></td><td>Flags attacks through code (S14) on 3-8B and 4. Cannot judge whether an action is sensible, and has no standard format for tool requests.</td></tr>
+        <tr><td>Dialog (topics, fixed replies)</td><td><span class="pill partly">Partly</span></td><td>Can flag a topic you add to its list. Has no conversation rules and sends no replies; your app does that.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- LIMITATIONS -->
+<section class="stage">
+  <div class="stage-head">
+    <div class="eyebrow">Limitations</div>
+    <h2>What Llama Guard cannot do</h2>
+  </div>
+  <article class="rail">
+    <ul class="limits">
+      <li><b>It never acts on its own.</b> It only answers "safe" or "unsafe". Refusing, discarding and replying are all your app's job.</li>
+      <li><b>It does not catch jailbreaks or prompt injection</b>, such as "ignore your previous instructions". Meta points to a separate model, Prompt Guard 2, for that.</li>
+      <li><b>It can be fooled on purpose.</b> In Meta's own attack tests on the vision model, an attacker with full access to the model crafted extra text that got 72% of harmful requests judged safe.</li>
+      <li><b>It is weak where up-to-date facts matter</b>: defamation, intellectual property and elections. Meta says these may need extra, more complex systems.</li>
+      <li><b>It sometimes flags harmless requests.</b> Meta warns it can increase refusals of benign prompts, more so when checking questions than answers.</li>
+      <li><b>No official cut-off and few speed figures.</b> Meta does not say what confidence score should count as unsafe, and gives a speed figure only for the small phone version.</li>
+      <li><b>No document checks, no editing or masking, and no standard format for tool requests</b>, as shown in the scorecard above.</li>
+      <li><b>Limits differ by model.</b> 3-11B-Vision is tuned for English with one image; 3-1B is not tuned for code abuse (S14); Meta's pages disagree on exactly which languages Llama Guard 4 covers.</li>
+    </ul>
+  </article>
+</section>
+
+<footer>
+  <p>Sources: Meta's Llama Guard 4 and Llama Guard 3 model cards (Hugging Face and the meta-llama/PurpleLlama repository), Meta's Llama Guard 3 and 4 documentation pages, the Llama Guard 3 Vision paper (arXiv 2411.10414), and the NVIDIA-NeMo/Guardrails Llama Guard documentation and source code at release v0.24.1. Accuracy figures are Meta's own reported results. Example messages, the code sample and the "Politics" category are illustrative.</p>
+  <p><a href="https://huggingface.co/meta-llama/Llama-Guard-4-12B">Llama Guard 4 card</a> · <a href="https://huggingface.co/meta-llama/Llama-Guard-3-8B">Llama Guard 3 8B card</a> · <a href="https://dev.meta.ai/llama/docs/model-cards-and-prompt-formats/llama-guard-4/">Llama Guard 4 docs</a> · <a href="https://dev.meta.ai/llama/docs/model-cards-and-prompt-formats/llama-guard-3/">Llama Guard 3 docs</a> · <a href="https://arxiv.org/abs/2411.10414">Llama Guard 3 Vision paper</a> · <a href="https://github.com/NVIDIA-NeMo/Guardrails/blob/v0.24.1/docs/configure-rails/guardrail-catalog/community/llama-guard.mdx">NeMo Llama Guard rails</a></p>
+</footer>
+
+</div>
