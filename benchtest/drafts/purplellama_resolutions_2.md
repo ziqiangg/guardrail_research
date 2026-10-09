@@ -630,9 +630,9 @@ Short names as in the triage: A = purplellama_cols_a.md, B = purplellama_cols_b.
 ## Report
 
 **Counts per verdict** (assigned items, each T-id once; the R032 pass and the class b group are counted separately):
-- RESOLVED: 33 (T20, T22, T40, T45, T46, T54, T59, T66, T68, T74, T75, T77, T78, T80, T81, T82, T83, T84, T85, T86, T89, T90, T91, T92, T93, T94, T95, T96, T97, T98, T99, T100, T101, T103, T104, T105, T5; T20 also carries one CORRECTION of a Reviewer note)
+- RESOLVED: 36 (T5, T20, T22, T40, T45, T46, T54, T59, T66, T68, T74, T75, T77, T78, T80 to T86, T89 to T101, T103 to T105; T20 also carries one CORRECTION of a Reviewer note)
 - PARTLY RESOLVED: 8 (T48, T64, T65, T69, T70, T72, T76, T87)
-- CORRECTION: 4 (T19, T24, T67, and the Reviewer note B8 correction under T20)
+- CORRECTION: 3 items (T19, T24, T67) plus one Reviewer-note correction under T20
 - STILL OPEN (class b, not resolvable from documents): 20 ids (T47, T49 to T53, T55 to T58, T60 to T63, T71, T73, T79, T88; T65 measurement half)
 
 **CORRECTIONs**

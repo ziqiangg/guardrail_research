@@ -27,6 +27,11 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| purplellama P5 r2 Q1 (label for PyPI sdist facts) | `[Documented]` + plain-text source "(PyPI sdist <name>-<ver>, sha256 <short>, read <date>)" with the PyPI project URL in R9; sdist-vs-pin comparisons `[Inferred]` | main |
+| purplellama P5 r2 Q2 (INV(g) CSE3 latency statement) | merge into the existing "statement 3" row, both sources cited; keep 12 rows | main |
+| purplellama P5 r2 Q3 (per-language values read by eye from a bar chart) | not allowed (hard rule 4: numbers verbatim); keep axis labels / language list only | main |
+| purplellama P5 r2 Q4 (Hub metadata URL for gated Maverick repo in R9) | cite the public gate/model page, not the api path (lessons 12: no API paths in URL lists) | main |
+| purplellama P5 r2 Q5 (overlap split with r1) | accepted: r2 text for T93–T95 and PL5 half of T40; r1 for PL2 R4/R7/R8, T35, PL2 half of T40; merger reconciles | main |
 | purplellama P5 r1 Q2 (licence/terms items T6–T8, T10, T11, T13–T15 incl. Together §4 "benchmarking"/"probe, scan, or test" clause) | listed in the CP2 summary as recorded clauses; decided before bench testing (R025/R031 pattern, R032 wording); no separate user question now | main |
 | purplellama P5 r1 Q3 (Together removed Llama Guard 4 12B from serverless 2026-08-25) | Llama Guard frozen (R004); final-run summary follow-up note | main |
 | lionguard P5 Q-A (INV(d) 11th row arXiv 2507.05980 → BLOCKS 4/11/8/11/4) | yes; counts asserted at P8 from the final | main |
