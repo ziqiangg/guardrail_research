@@ -27,3 +27,6 @@
 | presidio P2 inventory Q3 (2.2.364 release notes, presidio-research tag) | routed to presidio P5 resolver via triage | main |
 | presidio P2 inventory Q4 (NeMo row sourced from NVIDIA docs) | keep, attributed in plain text (R007 item 1 precedent: wrapper vendor's docs for its own semantics) | main |
 | presidio P2 inventory Q5 (14/31/10/14 vs targets) | accept; brief targets are not binding, P8 config asserts final counts | main |
+| presidio P2 cols_a Q3 (notebook figures in R5 Summary) | R014 | main |
+| presidio P2 cols_a Q2 (release notes / latest tag) | routed to presidio P5 resolver (hint: `git ls-remote --tags` works where github.com pages 403) | main |
+| presidio P2 cols_a Q4 (test /supportedentities on Docker image) | needs-testing item → triage → CP1 (pulling images is outside read-only rule) | main |

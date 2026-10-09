@@ -33,11 +33,13 @@ Detail:
 • Topic enforcement configuration: no topic filter, setting or page was found (checked REST `FilterConfig`, templates page, overview filter section, blog, product page) **[Not disclosed]**
 • Response-side files and images: the overview says images are screened "in the prompts and responses", but the `modelResponseData` examples on the sanitize page are text only (column MA9 and MA10 cover the detail) (overview, sanitize page, 2026-10-09) **[Documented]**
 ### R3
-Summary: **The model response text, sent on its own.** The caller posts it to the sanitize-model-response method of a regional endpoint with a template name. No user prompt field appears in the documented request. **[Documented]**
+Summary: **The model response text, sent on its own.** The caller posts it to the sanitize-model-response method of a regional endpoint with a template name. The docs examples send no user prompt, though the client library has an optional field for one. **[Documented]**
 Detail:
 • Method and field: `POST https://modelarmor.LOCATION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/templates/TEMPLATE_ID:sanitizeModelResponse` with body `{"modelResponseData":{"text":"..."}}` (sanitize page, 2026-10-09) **[Documented]**
 • Streaming variant `StreamSanitizeModelResponse`: "Streams and sanitizes LLM-generated text"; buffered or real-time mode; text only (sanitize page, 2026-10-09) **[Documented]**
-• The documented request carries the response text only; whether the filter can use the user prompt as context (checked the sanitize page examples and the REST template reference, which shows no prompt field for this method) **[Not disclosed]**
+• The docs examples for the response method send the response text alone (sanitize page, 2026-10-09) **[Documented]**
+• The Go client request struct for the response method has an optional `UserPrompt` field, commented "User Prompt associated with Model response." (modelarmor/apiv1/modelarmorpb/service.pb.go@37f936ac:2380-2381) **[Documented: repo googleapis/google-cloud-go@37f936ac]**
+• Whether any filter uses that prompt as context (checked the sanitize page, the REST template reference, the overview and the Go client comments; none says) **[Not disclosed]**
 • Single-turn and stateless: no conversation history is kept (overview, 2026-10-09) **[Documented]**
 • The overview suggests a separate output template, because "User inputs and model outputs have different risk profiles and objectives" (overview, 2026-10-09) **[Documented]**
 • Routes that run this filter on responses (docs pages named in each item, 2026-10-09) **[Documented]**
@@ -71,6 +73,7 @@ Detail:
 • LangChain runnables take a `fail_open` flag: `True` "logs a warning but lets content pass even if risks are detected" and `False` raises a `ValueError` (LangChain page, 2026-10-09) **[Documented]**
 • Release status of routes: Agent Platform GA (release note 2025-12-03), Agent Gateway GA (2026-06-24), Gemini Enterprise GA (2025-09-16), Google and Google Cloud MCP servers GA (2026-04-22), GKE integration GA (2025-09-15), streaming sanitization GA (2026-07-10), LangChain Preview (LangChain page) **[Documented]**
 • Apigee policies `SanitizeUserPrompt` and `SanitizeModelResponse` and load-balancer Service Extensions other than GKE: no GA or Preview label found on the pages read **[To be verified]**
+• Client libraries exist for C#, Go, Java, Node.js, PHP and Python; the C# install line is a pre-release package (`--version 1.0.0-beta05`) (client libraries page, 2026-10-09) **[Documented]**
 • Self-hosted or offline option: none described (checked overview, product page, locations page, client libraries page, which all call the managed API) **[Not disclosed]**
 ### R5
 Summary: **Match flags per category, no numeric score.** The result gives an overall match state and a match state for each of the four categories, sometimes with a confidence level. Google publishes no accuracy figures. **[Documented]**
@@ -101,6 +104,7 @@ Detail:
 • Required before calling: enable `modelarmor.googleapis.com`, create a template, and hold Model Armor User (`roles/modelarmor.user`); creating templates needs Model Armor Admin (`roles/modelarmor.admin`) (sanitize page, templates page, 2026-10-09) **[Documented]**
 • Cross-project use: the calling account needs `roles/modelarmor.user` in the project that hosts the template (sanitize page, 2026-10-09) **[Documented]**
 • Request fields for text: `modelResponseData.text`; optional `multiLanguageDetectionMetadata` with `enableMultiLanguageDetection` and `sourceLanguage` (sanitize page, 2026-10-09) **[Documented]**
+• Optional `UserPrompt` string in the Go client request for this method, "User Prompt associated with Model response." (modelarmor/apiv1/modelarmorpb/service.pb.go@37f936ac:2380-2381) **[Documented: repo googleapis/google-cloud-go@37f936ac]**
 • Token limit: "Model Armor screens text up to 65,536 tokens (approximately 262,144 characters)" for prompt injection, responsible AI and CSAM filters (quotas page, 2026-10-09) **[Documented]**
 • Over the limit the filter returns `EXECUTION_SKIPPED` with the message "Detection skipped as token limit exceeded." (quotas page, 2026-10-09) **[Documented]**
 • Unlimited tokens apply in real-time streaming mode, which suits long model outputs; buffered mode keeps the limits, and the limits "don't apply to the Model Armor integration with Gemini Enterprise" (quotas page, sanitize page, 2026-10-09) **[Documented]**
@@ -116,7 +120,7 @@ Detail:
 • Cost: the premise is the standalone allowance of 2 million tokens a month (R4); responses are longer than prompts, so count tokens before a large run **[Inferred]**
 • Test data: Google supplies none for this filter; the bench needs labelled model outputs per category, written as the model would phrase them (refusal-style replies, quoted harmful text, instructions), plus benign outputs that mention violence, sex or drugs in medical, legal or news contexts **[Inferred]**
 • Run each set at all three confidence levels using one template per level, because the result gives match states, not scores **[Inferred]**
-• Pair the outputs with their prompts offline for scoring; the endpoint takes the response alone (R3) **[Inferred]**
+• Pair the outputs with their prompts offline for scoring; run a second pass that also sends the optional `userPrompt` field to see whether results change (R3, R6) **[Inferred]**
 • Cover the nine tested languages and add Singlish, Malay and Tamil, which are not in the tested list (R2) **[Inferred]**
 • Do not build CSAM test material; check only that `csam` returns `EXECUTION_SUCCESS` and `NO_MATCH_FOUND` on benign text **[Inferred]**
 • Region: choose a full-support location (for example us-central1); asia-southeast1 offers the responsible AI filter with residency enforced but not CSAM, multi-language, malicious URL, image or antivirus, unless `dataResidencyCompliant` is set to false (feature availability page, release note 2026-08-27) **[Inferred]**
@@ -129,7 +133,7 @@ Detail:
 • Whether the `confidenceLevel` in each category result is the detected or the configured level (docs examples differ)
 • Whether the docs sample for "IP address of the current network is ##.##.##.##" is a real result, and whether masked data triggers the Dangerous category
 • Precision and recall per category and per level on model output, and the effect of the v3 and v4 changes (no figures published; needs testing)
-• Whether the response filter can use the user prompt as context (checked the sanitize page and REST references; not stated)
+• Whether any filter uses the optional `userPrompt` field of the response request (the Go client documents it; the docs pages do not mention it)
 • Coverage in Singlish, Malay and Tamil and in the other languages the docs say "might vary"
 • Whether CSAM screening runs in limited-support regions with residency enforced, given "cannot be turned off" against the feature table's "No"
 • Whether any custom topic or competitor rule can be configured, despite the overview scenario (no configuration page found)
@@ -159,6 +163,8 @@ Detail:
 • https://docs.cloud.google.com/model-armor/model-armor-networking-integration
 • https://docs.cloud.google.com/model-armor/model-armor-langchain-integration
 • https://docs.cloud.google.com/model-armor/best-practices
+• https://docs.cloud.google.com/model-armor/reference/libraries
+• https://github.com/googleapis/google-cloud-go/blob/37f936ac9d69e173da0ba4123e382c52b2dd741f/modelarmor/apiv1/modelarmorpb/service.pb.go
 • https://cloud.google.com/security/products/model-armor
 • https://cloud.google.com/security-command-center/pricing
 • https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy

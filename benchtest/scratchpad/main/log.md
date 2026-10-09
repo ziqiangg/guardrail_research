@@ -14,3 +14,4 @@
 - 2026-10-09 sdp P1 done: brief SD1–SD6 (SD4/SD6 headers reworded), SD7 reserved (inventory-only default), inventory (a)–(f) 87 rows target; P2 started (cols_a SD1–SD3, cols_b SD4–SD6, inventory)
 - 2026-10-09 presidio P2 inventory done: (a)14 (b)31 (c)10 (d)14 rows; check_drafts 0 errors; YAML 74/50 confirmed; Q1/Q4/Q5 ruled by main, Q3 → P5, Q2 → CP1
 - 2026-10-09 presidio P2 cols_b done (PD4–PD6), check 0 errors; corrections: presidio-structured is 0.0.8 (0.0.60 = image-redactor); per-recognizer thresholds already at tag
+- 2026-10-09 presidio P2 done (cols_a PD1–PD3, cols_b PD4–PD6, inventory). P3: cols_a 0/0, cols_b 0/0, inventory --headers 0/0. R014 (vendor notebook figures). Known pin inconsistency: presidio-research 0.3.2 (cols_a) vs 0cb36502 (inventory) → triage. P4 started

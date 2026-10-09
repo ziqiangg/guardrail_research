@@ -68,6 +68,7 @@ Detail:
 • Failure behaviour on the Agent Platform route: Model Armor sanitisation is skipped and the request continues when Model Armor is unavailable in the region, temporarily unreachable or returns an error (Agent Platform page, 2026-10-09) **[Documented]**
 • Release status of routes: Agent Platform GA (release note 2025-12-03), Agent Gateway GA (2026-06-24), Gemini Enterprise GA (2025-09-16), Google and Google Cloud MCP servers GA (2026-04-22), GKE integration GA (2025-09-15), streaming sanitization GA (2026-07-10), LangChain Preview (LangChain page) **[Documented]**
 • Apigee policies `SanitizeUserPrompt` and `SanitizeModelResponse` and load-balancer Service Extensions other than GKE: no GA or Preview label found on the pages read **[To be verified]**
+• Client libraries exist for C#, Go, Java, Node.js, PHP and Python; the C# install line is a pre-release package (`--version 1.0.0-beta05`) (client libraries page, 2026-10-09) **[Documented]**
 • Self-hosted or offline option: none described (checked overview, product page, locations page, client libraries page, which all call the managed API) **[Not disclosed]**
 ### R5
 Summary: **Match flags per category, no numeric score.** The result gives an overall match state and a match state for each of the four categories, sometimes with a confidence level. Google publishes no accuracy figures. **[Documented]**
@@ -153,6 +154,7 @@ Detail:
 • https://docs.cloud.google.com/model-armor/model-armor-networking-integration
 • https://docs.cloud.google.com/model-armor/model-armor-langchain-integration
 • https://docs.cloud.google.com/model-armor/best-practices
+• https://docs.cloud.google.com/model-armor/reference/libraries
 • https://cloud.google.com/security/products/model-armor
 • https://cloud.google.com/security-command-center/pricing
 • https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-user-prompt-policy
