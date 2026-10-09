@@ -16,6 +16,9 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| modelarmor P4 Q2/Q3 (doc-answerable H items; T55 NRIC built-in infoType per sdp_cols_a) | → modelarmor P5 resolver (with sdp evidence for T55) | main |
+| modelarmor P4 Q4/Q5 (triager file renames; Settled table; T83 block (d) = 20 rows → counts 10/15/16/20/16) | accepted; counts asserted at P8 | main |
+| modelarmor P4 Q1 (D1–D7: split 10/6, MA11 tool-call screening, alt (e) 14 cols, antivirus, prefix, live testing/terms, Preview reliance) | user at modelarmor CP1 | user |
 | sdp P4 Q5 / T19 ("out of purpose" label) | R015 ([Inferred] everywhere, premise named) | main |
 | sdp P4 Q6 (Apigee/Data Fusion/BigQuery/demo cross-refs; marker on Model Armor and Gemini Enterprise rows) | keep: Google-authored pages on docs.cloud.google.com/cloud.google.com are official (R007 item 1); R011 marker correct, Model Armor named in text only (R012) | main |
 | sdp P4 Q7 (Google API discovery doc + IAM permissions reference for T9) | yes: both Google-owned official pages (googleapis.com discovery, docs.cloud.google.com/iam) | main |
