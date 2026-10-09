@@ -333,9 +333,9 @@ body = f'''
 <!-- POSITIONING -->
 <section class="stage">
   <div class="stage-head">
-    <div class="eyebrow">Presidio and NeMo</div>
+    <div class="eyebrow">Presidio, NeMo, Llama Guard and Sentinel</div>
     <h2>A toolkit of parts, not a judge</h2>
-    <p>Presidio does not decide whether a message is safe. It finds personal data and, if asked, edits it. NeMo Guardrails calls Presidio for its personal-data checks, and Llama Guard and Sentinel have their own pages.</p>
+    <p>The four tools sit at different levels. NeMo is a framework you run that decides where checks go. Llama Guard is one model you run that gives a verdict. Sentinel is a web service run by GovTech that gives a score for each check. Presidio is a toolkit you run that finds personal data and, if asked, edits it; it never decides whether a message is safe. NeMo Guardrails calls Presidio for its personal-data checks.</p>
   </div>
 
   <article class="rail">
@@ -360,15 +360,16 @@ body = f'''
     </div>
     <div class="tablewrap">
       <table class="cats">
-        <thead><tr><th></th><th>Presidio</th></tr></thead>
+        <thead><tr><th></th><th>NeMo Guardrails</th><th>Llama Guard</th><th>GovTech Sentinel</th><th>Presidio</th></tr></thead>
         <tbody>
-          <tr><td>Who made it</td><td>Created at Microsoft. The project is "in the process of transitioning" to an independent, community-governed organisation, Data Privacy Stack, and Microsoft supports the move.</td></tr>
-          <tr><td>Who runs it</td><td>You. The FAQ says it "is not an official product of any company and comes with no warranty or SLA" (a promised service level).</td></tr>
-          <tr><td>Who can use it</td><td>Anyone: it is open source under the MIT licence (a common open-source licence), which the project says will stay.</td></tr>
-          <tr><td>What it hands back</td><td>Findings with scores, or edited text, images and tables. Never a pass or fail.</td></tr>
-          <tr><td>Decides where checks run</td><td>No. Your app chooses which text, image or table to send. There is no setting for input versus output.</td></tr>
-          <tr><td>Edits text</td><td>Yes, through the Anonymizer: swap, remove, mask, hash, encrypt and more.</td></tr>
-          <tr><td>Languages</td><td>English by default. Other languages need changes to both the name model and the detectors (called recognisers); no accuracy is published for any non-English one.</td></tr>
+          <tr><td>What it is</td><td>A framework around your chatbot</td><td>One AI model</td><td>A web service with a menu of checks</td><td>An open-source toolkit of four parts that find and edit personal data</td></tr>
+          <tr><td>Who runs it</td><td>You</td><td>You</td><td>GovTech (hosted); some models can be self-hosted</td><td>You. The FAQ says it "is not an official product of any company and comes with no warranty or SLA" (a promised service level).</td></tr>
+          <tr><td>What it hands back</td><td>Allow or block</td><td>Safe or unsafe, plus a category</td><td>A score from 0 to 1 per check</td><td>Findings with scores, or edited text, images and tables. Never a pass or fail.</td></tr>
+          <tr><td>Decides where checks run</td><td>Yes</td><td>No</td><td>No, your app chooses what text to send</td><td>No. Your app chooses which text, image or table to send.</td></tr>
+          <tr><td>Your own rules and fixed replies</td><td>Yes</td><td>No</td><td>No</td><td>Your own patterns and word lists for what to find; no fixed replies</td></tr>
+          <tr><td>Edits text</td><td>Masks personal data</td><td>No</td><td>Returns a masked copy (personal data, via AWS)</td><td>Yes, through the Anonymizer: swap, remove, mask, hash, encrypt and more</td></tr>
+          <tr><td>Singapore languages</td><td>Depends on the model it calls</td><td>Listed languages do not include Chinese, Malay or Tamil</td><td>LionGuard: Singlish, Chinese, Malay, partial Tamil</td><td>English by default. Other languages need changes to the language-processing model and the detectors (called recognisers); no accuracy is published for any non-English one.</td></tr>
+          <tr><td>Who can use it</td><td>Anyone (open source)</td><td>Anyone who accepts Meta's licence</td><td>Singapore Government public officers, closed beta</td><td>Anyone: open source under the MIT licence (a common open-source licence), which the project says will stay</td></tr>
         </tbody>
       </table>
     </div>
@@ -411,7 +412,7 @@ body = f'''
           <tr><td>Names and places</td><td class="code">PERSON<br>LOCATION</td><td>On, found by a name model from the spaCy language toolkit. Every hit starts with the same fixed score, 0.85.</td></tr>
           <tr><td>United States IDs</td><td class="code">US_SSN<br>US_PASSPORT<br>US_DRIVER_LICENSE</td><td>On for five of seven types (SSN is the US social security number). The other two are off.</td></tr>
           <tr><td>United Kingdom IDs</td><td class="code">UK_NHS</td><td>Only the NHS number is on. Driving licence, national insurance number, passport, postcode and vehicle registration are off.</td></tr>
-          <tr><td>Singapore</td><td class="code">SG_NRIC_FIN<br>SG_UEN</td><td>The NRIC and FIN pattern (Singapore's national ID numbers) is switched off in the default file. The UEN type (a business registration number) is on the entity page but has no entry in the default file, so whether it runs is open.</td></tr>
+          <tr><td>Singapore</td><td class="code">SG_NRIC_FIN<br>SG_UEN</td><td>The NRIC and FIN pattern (Singapore's identity card numbers and foreign identification numbers) is switched off in the default file. The UEN type (a registration number for Singapore businesses and other organisations) is on the entity page but has no entry in the default file, so whether it runs is open.</td></tr>
           <tr><td>Other countries</td><td class="code">AU_TFN<br>IN_AADHAAR<br>DE_TAX_ID<br>KR_RRN</td><td>Off. The file holds types for Australia, India, Korea, Germany, Sweden, Turkey, Thailand, South Africa, Nigeria, the Philippines and Canada. Finland has no entry in it.</td></tr>
           <tr><td>Spain, Italy, Poland</td><td class="code">ES_NIF<br>IT_FISCAL_CODE<br>PL_PESEL</td><td>Marked on in the file, but the default setup loads English only, so they do not run. That is our reading of the code; it matches the type list in the vendor's notebook.</td></tr>
           <tr><td>Medical terms</td><td class="code">MEDICAL_MEDICATION<br>MEDICAL_HISTORY</td><td>Off. They need an extra install and a third-party model, so they are not part of a default setup.</td></tr>
@@ -437,7 +438,7 @@ body = f'''
           <tr><td class="code">hash</td><td>Swaps the value for a one-way scrambled code (a salted hash). The same value gives the same code only if you supply the same salt, the extra input that makes it unique.</td><td>No</td></tr>
           <tr><td class="code">custom</td><td>Swaps the value for the result of your own function. Python only; the web service refuses it.</td><td>Depends on your function</td></tr>
           <tr><td class="code">keep</td><td>Leaves the value in the text but still lists it in the changes.</td><td>Nothing changed</td></tr>
-          <tr><td class="code">surrogate_ahds</td><td>Writes realistic stand-in values using Azure Health Data Services. Needs an Azure account.</td><td>No</td></tr>
+          <tr><td class="code">surrogate_ahds</td><td>Writes realistic stand-in values using Azure Health Data Services (a Microsoft cloud service). Needs an Azure account.</td><td>No</td></tr>
           <tr><td class="code">encrypt</td><td>Encrypts the value (with AES, a standard encryption method) into a coded token.</td><td>Yes, with the decrypt step and the same key</td></tr>
         </tbody>
       </table>
@@ -482,7 +483,7 @@ body = f'''
       </figure>
       <dl class="example">
         <dt>In</dt><dd>My NRIC is S1234567D, email tan@example.com. (illustrative)</dd>
-        <dt>Masked</dt><dd>My NRIC is S1234567D, email <mark>&lt;EMAIL_ADDRESS&gt;</mark>. (expected in a default setup; not tested)</dd>
+        <dt>Masked</dt><dd>My NRIC is S1234567D, email <mark>&lt;EMAIL_ADDRESS&gt;</mark>. (illustrative: what we expect from a default setup; not tested)</dd>
       </dl>
       <p class="know"><b>Good to know:</b> the example shows why the default setup matters: the Singapore NRIC pattern is switched off in the default file, so it is not expected to be masked until you turn it on. The Anonymizer only edits what the Analyzer found.</p>
     </article>
@@ -508,7 +509,7 @@ body = f'''
     </figure>
     <dl class="example">
       <dt>Draft</dt><dd>You can reach Jane Tan at jane.tan@example.com.</dd>
-      <dt>Shown</dt><dd>You can reach <mark>&lt;PERSON&gt;</mark> at <mark>&lt;EMAIL_ADDRESS&gt;</mark>.</dd>
+      <dt>Shown</dt><dd>You can reach <mark>&lt;PERSON&gt;</mark> at <mark>&lt;EMAIL_ADDRESS&gt;</mark>. (illustrative)</dd>
     </dl>
     <p class="know"><b>Good to know:</b> no Presidio page shows the calls on an AI's answer; they are the same calls on a different piece of text. That is our reading of the code; we have not tested it yet. The vendor's LiteLLM page covers masking on the way in, using LiteLLM, a separate product that sits between your app and the AI model.</p>
   </article>
@@ -536,7 +537,7 @@ body = f'''
       <dt>Draft</dt><dd>Dear <mark>[the same token]</mark>, thank you for your message. (illustrative)</dd>
       <dt>Shown</dt><dd>Dear <mark>Jane Tan</mark>, thank you for your message. (illustrative)</dd>
     </dl>
-    <p class="know"><b>Good to know:</b> Presidio keeps no memory between calls, so your app must hold the key and find the token again if the AI model moves or edits it. The docs give no guidance on where to store keys, and their web example puts the key in the request body of a service with no built-in login.</p>
+    <p class="know"><b>Good to know:</b> Presidio keeps no memory between calls, so your app must hold the key and find the token again if the AI model moves or edits it. The same name encrypts to a different token each time, so the AI model cannot tell that two tokens are the same person. The docs give no guidance on where to store keys, and their web example puts the key in the request body of a service with no built-in login.</p>
   </article>
 </section>
 
@@ -585,7 +586,7 @@ body = f'''
     <dl class="example">
       <dt>Rule</dt><dd>Word list TITLE: Mr., Mrs., Miss (Presidio's docs)</dd>
       <dt>In</dt><dd>Mr. Schmidt</dd>
-      <dt>Result</dt><dd>TITLE found at "Mr.", score 1.0 (the word-list default)</dd>
+      <dt>Result</dt><dd>TITLE found at "Mr.", score 1.0, the word-list default (illustrative: the docs show the call, not its output)</dd>
     </dl>
     <p class="know"><b>Good to know:</b> patterns match letters, not meaning, so a reworded or disguised value is missed. A pattern you send to the web service runs on the server, with a 60-second timeout by default, and the docs say that service has no built-in login. NeMo's regex blocklist blocks a message; a Presidio pattern leaves that decision to your app.</p>
   </article>
@@ -596,7 +597,7 @@ body = f'''
   <div class="stage-head">
     <div class="eyebrow">Stage 3 · Retrieval, partly</div>
     <h2>Scanning passages from your documents</h2>
-    <p>Presidio has no document-specific check. Its text steps work on any text, so passages fetched for the AI model can be scanned before the model reads them.</p>
+    <p>Presidio has no retrieval-specific check. It does document some file inputs that fetched material could arrive in: CSV and JSON files, pictures and medical image files, and a PDF sample. Passages in those forms can be scanned before the AI model reads them.</p>
   </div>
 
   <article class="rail">
@@ -606,9 +607,9 @@ body = f'''
     </div>
     <figure>
 {d9}
-      <figcaption>The AI model cannot repeat personal data it was never shown. Same steps as diagram 4, but run earlier, on your documents.</figcaption>
+      <figcaption>The AI model cannot repeat personal data it was never shown, but anything the Analyzer misses still reaches it. Same steps as diagram 4, but run earlier, on your documents.</figcaption>
     </figure>
-    <p class="know"><b>Good to know:</b> Presidio's own pages never show it on retrieved passages; NVIDIA's NeMo docs do run Presidio on retrieved chunks. That is our reading of the code for Presidio itself; we have not tested it yet.</p>
+    <p class="know"><b>Good to know:</b> Presidio's own pages do not describe retrieval: its documented inputs are CSV and JSON files, images, and a PDF sample that marks personal data in the PDF's text layer. NVIDIA's NeMo docs run Presidio on retrieved chunks. That Presidio's own steps work on a plain passage is our reading of the code; we have not tested it yet.</p>
   </article>
 </section>
 
@@ -645,8 +646,8 @@ body = f'''
       <thead><tr><th>Checkpoint</th><th>Presidio?</th><th>Why</th></tr></thead>
       <tbody>
         <tr><td>Input</td><td>{pill("yes", "Yes")}</td><td>Finds and masks personal data in the user's message (diagrams 3 and 4). Only for the types switched on; harmful content, prompt attacks and topics are outside what Presidio does.</td></tr>
-        <tr><td>Output</td><td>{pill("yes", "Yes")}</td><td>The same two steps on the AI's draft answer (diagram 5). No Presidio page shows it, so that is our reading.</td></tr>
-        <tr><td>Retrieval (your documents)</td><td>{pill("partly", "Partly")}</td><td>The text steps work on any passage, but Presidio's pages show no example. NVIDIA's NeMo docs run Presidio on retrieved chunks.</td></tr>
+        <tr><td>Output</td><td>{pill("yes", "Yes")}</td><td>Nothing in Presidio's calls separates input from output, so the same two steps run on the AI's draft answer (diagram 5). No Presidio page shows an example, so that is our reading.</td></tr>
+        <tr><td>Retrieval (your documents)</td><td>{pill("partly", "Partly")}</td><td>Partly because Presidio documents file inputs a passage could arrive in: CSV and JSON files, images, and a PDF sample (diagram 9). It does not describe retrieval itself; NVIDIA's NeMo docs run Presidio on retrieved chunks.</td></tr>
         <tr><td>Dialog (topics, fixed replies)</td><td>{pill("no", "No")}</td><td>No conversation rules, topic checks or fixed replies. Nothing official describes any.</td></tr>
         <tr><td>Execution (actions, tools)</td><td>{pill("partly", "Partly")}</td><td>Can mask the tables and JSON a tool sends or returns (alpha). It does not judge whether an action should run.</td></tr>
         <tr><td>Images</td><td>{pill("partly", "Partly")}</td><td>Finds text in a picture with OCR and paints over it (beta). Faces and signatures are not stated to be covered.</td></tr>
@@ -668,17 +669,17 @@ body = f'''
       <li><b>It finds and edits; it never decides.</b> You get findings or edited text, with no pass, fail or block. Your app refuses, logs, chooses the cut-off and passes the masked copy on.</li>
       <li><b>It only covers personal data.</b> It has no check for prompt attacks, harmful content or topics. No type exists for API keys, passwords or other secrets.</li>
       <li><b>The default setup is narrow.</b> It is English only, and 24 of the 74 recogniser entries are switched on. The Singapore NRIC pattern is off, whether the UEN type runs is open, and Singapore phone numbers are not in the phone check's regions.</li>
-      <li><b>Published accuracy is thin.</b> The only figures are the vendor's demo notebooks on made-up data, and the second one changed several things at once. No per-type accuracy, no non-English accuracy, no recommended cut-off and no speed figures are published.</li>
-      <li><b>The web services have no built-in security.</b> The FAQ says the endpoints have no authentication by design. Encrypted connections (TLS), rate limits and request size are not stated, and keys travel in the request in the docs' example.</li>
+      <li><b>Published accuracy is thin.</b> The only text-detection figures are the vendor's demo notebooks on made-up data, and the second one changed several things at once. No per-type accuracy, no non-English accuracy and no recommended cut-off for the default setup are published, and the only speed figure is one notebook timing with the hardware not stated.</li>
+      <li><b>The web services have no built-in login.</b> The FAQ says the endpoints have no authentication by design. Encrypted connections (TLS), rate limits and request size are not stated, and keys travel in the request in the docs' example.</li>
       <li><b>Some parts are pre-release or samples.</b> The Image Redactor is beta, presidio-structured is alpha, the language-model recogniser is marked experimental, and the deployment pages are samples. The FAQ says there is "no warranty or SLA" (no promised service level).</li>
-      <li><b>The project is mid-move, and its docs disagree.</b> It is moving from Microsoft to Data Privacy Stack. The live docs were last published on 2026-07-04, before release 2.2.364, so the docs and the code differ in places (for example, the web API file omits options the code accepts), and the older Microsoft container images are no longer updated.</li>
+      <li><b>The project is mid-move, and its docs disagree.</b> It is moving from Microsoft to Data Privacy Stack. The live docs were last published on 2026-07-04, before release 2.2.364, and the docs and the code differ in places (for example, the web API description omits options the code accepts, and one docs example names an edit differently from the code). The older Microsoft container images are no longer updated.</li>
       <li><b>Some options send text elsewhere.</b> The Azure AI Language, Azure Health Data Services, Azure OpenAI and Azure Document Intelligence options send text or images to Azure (our reading of the code), and how long the health service keeps text is not stated. The default setup needs no account and no key.</li>
     </ul>
   </article>
 </section>
 
 <footer>
-  <p>Sources: the Presidio documentation (presidio.dataprivacystack.org, the Data Privacy Stack host), its project transition page, the Presidio source code at release 2.2.364 and the presidio-research evaluation repository at 0.3.2, and NVIDIA's NeMo Guardrails page on Presidio (for the NeMo link only). Accuracy figures are Presidio's own demo results in presidio-research. Example messages are illustrative unless marked as quoted from Presidio's docs.</p>
+  <p>Sources: the Presidio documentation (presidio.dataprivacystack.org, the Data Privacy Stack host), its project transition page, the Presidio source code at release 2.2.364 and the presidio-research evaluation repository at 0.3.2, and NVIDIA's NeMo Guardrails page on Presidio (for how NeMo uses Presidio). Accuracy figures are Presidio's own demo results in presidio-research. Example messages are illustrative unless marked as quoted from Presidio's docs.</p>
   <p><a href="https://presidio.dataprivacystack.org/">Presidio home</a> · <a href="https://presidio.dataprivacystack.org/analyzer/">Analyzer</a> · <a href="https://presidio.dataprivacystack.org/supported_entities/">Supported entities</a> · <a href="https://presidio.dataprivacystack.org/anonymizer/">Anonymizer</a> · <a href="https://presidio.dataprivacystack.org/image-redactor/">Image Redactor</a> · <a href="https://presidio.dataprivacystack.org/structured/">presidio-structured</a> · <a href="https://presidio.dataprivacystack.org/analyzer/adding_recognizers/">Adding recognisers</a> · <a href="https://presidio.dataprivacystack.org/samples/python/encrypt_decrypt/">Encrypt and decrypt sample</a> · <a href="https://presidio.dataprivacystack.org/samples/docker/litellm/">LiteLLM sample</a> · <a href="https://presidio.dataprivacystack.org/installation/">Installation</a> · <a href="https://presidio.dataprivacystack.org/faq/">FAQ</a> · <a href="https://presidio.dataprivacystack.org/project_transition/">Project transition</a> · <a href="https://presidio.dataprivacystack.org/evaluation/">Evaluation</a> · <a href="https://github.com/data-privacy-stack/presidio-research/blob/0.3.2/notebooks/4_Evaluate_Presidio_Analyzer.ipynb">Evaluation notebook 4</a> · <a href="https://github.com/data-privacy-stack/presidio-research/blob/0.3.2/notebooks/5_Evaluate_Custom_Presidio_Analyzer.ipynb">Evaluation notebook 5</a> · <a href="https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-analyzer/presidio_analyzer/conf/default_recognizers.yaml">Default recogniser file</a> · <a href="https://docs.nvidia.com/nemo/guardrails/configure-guardrails/guardrail-catalog/third-party/presidio">NeMo: Presidio</a></p>
 </footer>
 

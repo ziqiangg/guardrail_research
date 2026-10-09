@@ -59,3 +59,4 @@
 - 2026-10-09 sdp P10 fix loop done: RF1–RF3 + O1–O4, O6 + reciprocal modelarmor links; old strings gone (grep 0), base CSS identical; awaiting user review (+ shared CSS question)
 - 2026-10-09 purplellama P0 docs done: 6 cols (PG2, PG scanner, AlignmentCheck, CodeShield scanner, regex/custom, Code Shield); inventory (a)–(f) ~55 rows; CyberSecEval ~11 tools; www.llama.com → dev.meta.ai/llama (same owner); 11 gaps, 7 conflicts; Q02/Q04/Q05 ruled by main; Q01/Q03 → CP1; P1 started
 - 2026-10-09 presidio P10 review: PASS WITH FIXES (8 required: positioning 4-way table, example labels, FIN gloss, limits wording, footer); 14/14 spot-checks MATCH, 17/17 URLs ok; R027 (sibling cells) + README §10 note; fix loop sent to same diagrammer
+- 2026-10-09 presidio P10 fix loop done: 8 required + O1, O2, O4–O9 (O3 moot); 4-way positioning table (sibling cells verbatim per R027); old strings gone; base CSS identical; awaiting user review
