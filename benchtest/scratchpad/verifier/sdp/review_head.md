@@ -4,9 +4,18 @@ Date of checks: 2026-10-09. Inputs read: CLAUDE.md, drafts/README.md, sdp_brief.
 
 ## Verdict: PASS WITH FIXES
 
-The merge is faithful and mechanically clean. Every changed line in the columns and every changed inventory cell is explained by an entry in the merger's edit log, and every log entry is in sdp_changes.md. Source spot-checks: 33 facts checked, 32 MATCH, 1 MISMATCH (the SD6 R2 Summary). A quote sweep of 523 quoted fragments found 514 verbatim on the official pages or the client code at the tag; the other 9 are header names or the draft's own words between quoted prices, not quotes. All 96 URLs return 200. The release notes, re-read today, still have 2026-10-03 as their newest entry, so the dated PERSON_NAME and MEDICAL_ID statements are correct as written.
+The merge is mechanically clean and, with one exception, faithful. Every changed line in the columns and every changed inventory cell is explained by an entry in the merger's edit log, and every log entry is in sdp_changes.md. Source spot-checks: 33 facts checked, 31 MATCH, 2 MISMATCH. A quote sweep of 523 quoted fragments found 514 verbatim on the official pages or the client code at the tag; the other 9 are header names or the draft's own words between quoted prices, not quotes. All 96 URLs return 200. The release notes, re-read today, still have 2026-10-03 as their newest entry, so the dated PERSON_NAME and MEDICAL_ID statements are correct as written.
 
-There are 6 required fixes: 1 absence claim labelled Documented, 3 Summaries not entailed by their own Detail (one of them a factual mismatch with the source), 1 group of 4 inferences inside Documented bullets, and 1 absence claim that does not name what was checked. None changes a number, a column header, an inventory row count or a Covered-by value.
+The most important finding is fix 7. The T12 merge turned the draft's unchecked [To be verified] remark ("the date-shift, time-extraction and bucketing code samples use record (table) transformations") into a [Documented] fact in SD3 R1 and R4. Both changed Summaries rest on it ("shown only on table fields"). At source this is wrong. The transformation reference has no bucketing code sample at all, and its Go date-shift sample applies date shifting to infoType findings in a plain string.
+
+There are 7 required fixes:
+- 1 false [Documented] fact, driving two changed Summaries (fix 7);
+- 1 absence claim labelled Documented (fix 1);
+- 3 more Summaries not entailed by their own Detail, one of them also wrong at source (fixes 2 to 4);
+- 1 group of 4 inferences inside Documented bullets (fix 5);
+- 1 absence claim that does not name what was checked (fix 6).
+
+None changes a number, a column header, an inventory row count or a Covered-by value.
 
 ## Required fixes
 
@@ -44,6 +53,23 @@ There are 6 required fixes: 1 absence claim labelled Documented, 3 Summaries not
 
 6. **SD6 R5, absence claim without the pages checked (README section 3 rule 2).** The bullet "Precision, recall, false-positive rate or latency for image safety classification, on real-world or AI-generated images **[Not disclosed]**" names no pages. I checked: the concepts-image-redaction and supported-file-types pages have no precision, recall or latency terms. On the infoType reference, "latency" appears only in the "latency sensitive operations" notes. The likelihood page defines the terms only. The one latency hit in the release notes concerns inspection jobs.
    - Replace with: `• Precision, recall, false-positive rate or latency for image safety classification, on real-world or AI-generated images (checked the image concepts, supported-file-types, infoType reference and likelihood pages and the release notes) **[Not disclosed]**`
+
+7. **SD3 R1 and SD3 R4: a false [Documented] fact, and the two changed Summaries (T12) that rest on it. Also SD3 R4 [To be verified] and SD3 R8.**
+   - **What the finals say.** SD3 R1 Detail says "The date-shift, time-extraction and bucketing code samples on the transformation reference page use record (table) transformations ... **[Documented]**". SD3 R4 has the same claim. The Summaries say "Bucketing and date shifting are offered but shown only on table fields" (R1) and "bucketing and date shifting are shown only on table fields" (R4).
+   - **Where it came from.** In the draft, this sample claim sat inside a [To be verified] bullet. The T12 resolution quoted only the discovery schema, the Input-type column and the bucketing text, not the samples. The merger split the claim out as [Documented] with no quote (README section 3 rule 1).
+   - **What the source shows.** I read the raw transformations-reference page:
+     - the "Bucketing" section (fetched lines 7572 to 7655) has no code sample, only a JSON fragment of a `bucketingConfig`;
+     - the "Date shifting" section has six samples. Java, Node.js, Python, PHP and C# use record transformations on a table. The Go sample `deidentifyDateShift` builds `DeidentifyConfig_InfoTypeTransformations` with `PrimitiveTransformation_DateShiftConfig`, inspects for `DATE`, and sends `ContentItem_Value` with the comments `input := "2016-01-10"` and `Will print "2016-01-09"`. That is date shifting on infoType findings in a plain string;
+     - all time-extraction samples use record transformations on a table.
+   - SD3 R1 Summary, replace with: `Summary: **Masks or replaces sensitive text and returns the cleaned item.** The de-identify method redacts, replaces, masks or hashes detected values; one sample also date-shifts a plain string. Bucketing and time extraction are not shown on free text. It returns the item and a change summary. **[Documented]**` (45 words)
+   - SD3 R4 Summary, replace with: `Summary: **Detect first, then transform each finding.** The call has three parts: the data, the detection settings and the transformation settings. Detected values are redacted, replaced, masked or hashed, and one sample date-shifts a plain string; bucketing and time extraction are not shown on free text. **[Documented]**` (45 words)
+   - SD3 R1, replace the bullet "The date-shift, time-extraction and bucketing code samples on the transformation reference page use record (table) transformations ..." with two bullets:
+     - `• On the transformation reference page, the time-extraction samples and five of the six date-shift samples use record (table) transformations, and the bucketing section gives only a JSON configuration fragment with no code sample (SDP docs, transformation reference page, read 2026-10-09) **[Documented]**`
+     - `• The Go date-shift sample applies `dateShiftConfig` inside an infoType transformation to a plain string item with `DATE` inspection; its comments read `input := "2016-01-10"` and `Will print "2016-01-09"` (SDP docs, transformation reference page, read 2026-10-09) **[Documented]**`
+   - SD3 R4: replace the bullet "The date-shift, time-extraction and bucketing code samples use record (table) transformations and a context field" with the same two bullets.
+   - SD3 R4: replace the [To be verified] bullet with `• Whether the bucketing and time-extraction transformations work on infoType findings in free text is not stated (checked the transformation reference; the docs table says Any or Dates/Times) **[To be verified]**`
+   - SD3 R8: replace the bucketing bullet with `• Whether `FixedSizeBucketingConfig`, `BucketingConfig` and `TimePartConfig` apply to infoType findings in free text, and whether date shifting on free text behaves as the Go sample shows (checked the transformation reference; needs testing)`. The R8 Summary can stay.
+   - Also note: sdp_changes.md section 4 conflict 5 and section 7 ("SD3 R1 gained one bullet for 'shown only on table fields'") record the wrong reading. The merger should log this fix in the "Verifier fixes" section. INV(c) needs no change: its bucketing rows keep [To be verified] for free text, and the date-shift row makes no free-text claim.
 
 ## Optional suggestions
 

@@ -103,6 +103,15 @@ class Cols:
         L[i + 1:i + 1] = newlines
         _log("cols", "%s R%d" % (col, n), "add", "(anchor: %s)" % L[i][:90], "\n".join(newlines), reason)
 
+    def ins_before(self, col, n, anchor, newlines, reason):
+        i = self.find(col, n, anchor)
+        L = self.cols[col]["lines"]
+        if isinstance(newlines, str):
+            newlines = [newlines]
+        before = L[i]
+        L[i:i] = newlines
+        _log("cols", "%s R%d" % (col, n), "add", "(none; inserted before: %s)" % before[:90], "\n".join(newlines), reason)
+
     def delete(self, col, n, anchor, reason):
         i = self.find(col, n, anchor)
         L = self.cols[col]["lines"]

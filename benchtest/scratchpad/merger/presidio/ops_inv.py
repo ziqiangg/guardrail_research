@@ -72,7 +72,7 @@ def apply(V):
     old_ver = V.cell_get("a", "presidio-research", "Version read")
     assert old_ver == "0.3.2 [Documented: repo data-privacy-stack/presidio-research@0cb36502] (pyproject.toml:3) at commit 0cb36502. Latest release tag not determined [To be verified] (the shallow clone showed no tags; github.com release pages returned 403)", old_ver
     V.sub("a", "presidio-research", "Version read", old_ver,
-          "0.3.2 " + RR + " (pyproject.toml:3), tag 0.3.2 is the highest tag " + RR, "T11: pinned to the release tag; the [To be verified] latest-tag item is answered")
+          "0.3.2 " + RR + " (pyproject.toml:3), tag 0.3.2 is the latest release tag (tag 0.22, dated 2025-01-08, carries version 0.2.2) " + RR, "T11: pinned to the release tag; the [To be verified] latest-tag item is answered. P7: the mistyped older tag 0.22 is named")
     V.sub("a", "presidio-research", "Status",
           "Not stated [Not disclosed] (checked README, pyproject, CHANGELOG; no stable or beta mark; CHANGELOG has an Unreleased section)",
           "Not stated [Not disclosed] (checked the README, " + CLASSIFIERS + ", the CHANGELOG and the docs pages; no stable or beta mark; the CHANGELOG at the tag has an empty Unreleased heading)",
@@ -163,13 +163,13 @@ def apply(V):
     V.url_add("b", "AzureHealthDeidRecognizer", ["https://learn.microsoft.com/en-us/azure/healthcare-apis/deidentification/overview"], "T7")
 
     # ------------------------------------------------------------------ (c) operators
-    for name in ["replace", "redact", "hash", "mask", "custom", "keep", "encrypt"]:
+    for name in ["replace", "redact", "hash", "mask", "custom", "keep", "surrogate_ahds", "encrypt"]:
         hdr, rows = V.table("c")
         hit = [i for i in rows if V.split(V.lines[i])[0] == name]
         assert len(hit) == 1, name
         old = V.split(V.lines[hit[0]])[hdr.index("Covered by Table 3 column")]
         V.sub("c", name, "Covered by", old, old + " ; " + PD5,
-              "T66 (main Q2): PD5 R4 cites the factory operator list and R7 tests this operator; decrypt, deanonymize_keep and surrogate_ahds not added (PD5 hardcodes the Anonymize type; the surrogate needs an extra)", kind="covered")
+              "T66 (main Q2): PD5 R4 cites the factory operator list, which includes surrogate_ahds when its extra is installed, and R6/R7 use or test most of these operators; decrypt and deanonymize_keep not added (PD5 R4 says they are not reachable). P7 fix 4: surrogate_ahds added (an Anonymize operator in the list PD5 uses, operators_factory.py:26 and data_processors.py:78-80; the extra applies equally to PD2)", kind="covered")
     V.sub("c", "mask", "Default behaviour", "No default values are stated for the three parameters [Not disclosed] (checked ANON and operators/mask.py)",
           "All three parameters are required and have no default; a missing one raises InvalidParamError \"Expected parameter ...\" " + RP + " (operators/mask.py:47,53-54; services/validators.py:53-54). The ANON page states no defaults for them [Not disclosed] (checked ANON)",
           "T38: code fact documented; the docs absence kept separately")

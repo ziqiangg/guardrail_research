@@ -4,7 +4,7 @@ Generated from presidio_two_level.md on 2026-10-09. Format: `Rn` (words excludin
 
 ## PD1: Presidio: PII detection in text (Analyzer)
 
-- **R1** (35w, 8 bullets): **Finds PII in text and reports where.** The Analyzer runs recognizers over one string and returns each entity type with its position and a confidence score. Rewriting the text is left to the separate Anonymizer. **[Documented]**
+- **R1** (35w, 9 bullets): **Finds PII in text and reports where.** The Analyzer runs recognizers over one string and returns each entity type with its position and a confidence score. Rewriting the text is left to the separate Anonymizer. **[Documented]**
 - **R2** (40w, 26 bullets): **PII entity types, English by default.** The supported-entities page groups its types into Global, 18 country sections and a medical section. A default English setup loads pattern recognizers plus a spaCy name and place model. Detection is not guaranteed complete. **[Documented]**
 - **R3** (38w, 12 bullets): **Any string, before or after the model.** The Analyzer takes one text field and a language per call and needs no system prompt or conversation history. The same call works on prompts, responses, retrieved passages and tool output. **[Inferred]**
 - **R4** (43w, 43 bullets): **Rules plus a spaCy model.** Regex, checksum and context-word recognizers run beside a spaCy name model; scores are boosted by context, thresholded and de-duplicated. Optional extras add Stanza, transformers, GLiNER and language-model recognizers. MIT licence; the project is moving to a community organisation. **[Documented]**
@@ -17,14 +17,14 @@ Generated from presidio_two_level.md on 2026-10-09. Format: `Rn` (words excludin
 ## PD2: Presidio: PII anonymisation and masking in text (Anonymizer)
 
 - **R1** (38w, 10 bullets): **Rewrites detected PII with a chosen operator.** The Anonymizer takes text plus the Analyzer's spans and replaces, redacts, hashes, masks or keeps each entity. It also returns a list of the changes with positions in the new text. **[Documented]**
-- **R2** (38w, 28 bullets): **Hides whatever spans it is given.** One-way operators replace, redact, hash, mask, run custom code, keep a value or, with an Azure extra, generate a realistic surrogate. The default is replace, writing the entity type in angle brackets. **[Documented]**
+- **R2** (38w, 29 bullets): **Hides whatever spans it is given.** One-way operators replace, redact, hash, mask, run custom code, keep a value or, with an Azure extra, generate a realistic surrogate. The default is replace, writing the entity type in angle brackets. **[Documented]**
 - **R3** (42w, 10 bullets): **Text plus the Analyzer's spans, from any source.** The call needs the original string, entity spans with scores, and an operator per entity type. It has no direction flag and no prompt context, so it works on prompts, responses and other strings. **[Inferred]**
 - **R4** (39w, 22 bullets): **Operators applied to detected spans.** The engine resolves overlaps, then applies the operator set for each entity type, falling back to replace. Python package or REST service on GHCR images. MIT licence, moving to the Data Privacy Stack community. **[Documented]**
 - **R5** (38w, 9 bullets): **Rewritten text plus a change list.** The result holds the new text and, for each entity, its type, start and end in the new text, the replacement and the operator used. There is no score or pass-fail field. **[Documented]**
 - **R6** (41w, 12 bullets): **Text, spans and an operator map.** Required are the text and the Analyzer's spans with type, start, end and score; operators are optional, with a default entry. Each operator has its own parameters, and hash salts are the caller's to manage. **[Documented]**
 - **R7** (48w, 10 bullets): **Minimum setup:** pip install the Analyzer, the Anonymizer and a spaCy model, or run both GHCR images; no account or key. Feed labelled texts with known PII through the Analyzer, anonymize with each operator, and check that no original value survives and that placeholders and offsets are right. **[Inferred]**
 - **R8** (36w, 9 bullets): **Key open questions.** No accuracy or latency figures, REST support for the keep and Azure surrogate operators, the effect of space merging on adjacent names, offsets for non-BMP text, and what the Azure surrogate operator retains.
-- **R9** (22w, 33 bullets): Presidio docs site pages, the Presidio repository at tag 2.2.364 and one commit on its main branch, and one Microsoft Learn page.
+- **R9** (28w, 33 bullets): Presidio docs site pages, the Presidio repository at tag 2.2.364 and one commit on its main branch, the presidio-research repository at tag 0.3.2, and one Microsoft Learn page.
 
 ## PD3: Presidio: Reversible anonymisation and deanonymisation (encrypt and decrypt)
 
@@ -36,7 +36,7 @@ Generated from presidio_two_level.md on 2026-10-09. Format: `Rn` (words excludin
 - **R6** (42w, 12 bullets): **Key, token text and token offsets.** Required are the same AES key used to encrypt, the text holding the tokens, and each token's start, end and entity type. The REST route takes these as JSON. The caller supplies and holds the key. **[Documented]**
 - **R7** (51w, 10 bullets): **Minimum setup:** pip install the Anonymizer, make a 16, 24 or 32 character key, encrypt labelled entities, decrypt, and compare with the originals. Then replay a mock model reply that echoes, edits or drops tokens, and try a wrong key and a damaged token, to see what restores and what fails. **[Inferred]**
 - **R8** (35w, 7 bullets): **Key open questions.** What happens on a wrong key or a damaged token, how a real model treats the long tokens, no key-management guidance, and whether the batch deanonymiser and its REST coverage are release-ready.
-- **R9** (18w, 28 bullets): Presidio docs site pages, the Presidio repository at tag 2.2.364, and the NVIDIA NeMo Guardrails page on Presidio.
+- **R9** (24w, 28 bullets): Presidio docs site pages, the Presidio repository at tag 2.2.364, the presidio-research repository at tag 0.3.2, and the NVIDIA NeMo Guardrails page on Presidio.
 
 ## PD4: Presidio: PII detection and redaction in images (Image Redactor)
 
@@ -45,7 +45,7 @@ Generated from presidio_two_level.md on 2026-10-09. Format: `Rn` (words excludin
 - **R3** (42w, 13 bullets): **Images, not text.** Takes a picture or DICOM file sent to or from a model, covering uploads and images in responses or tool results alike, with no system or user prompt needed. The REST service accepts a form upload or base64 JSON. **[Inferred]**
 - **R4** (44w, 33 bullets): **OCR, then the Analyzer, then filled boxes.** Tesseract is the default OCR engine and Azure Document Intelligence the alternative. The OCR text goes to the default English Analyzer, and each matching word box is filled. MIT licence; ownership is moving to Data Privacy Stack. **[Documented]**
 - **R5** (44w, 15 bullets): **No verdict; an image comes back.** Python returns the redacted image and, optionally, one box per redacted word with entity type, offsets, score and position. REST returns only the image. The score threshold is 0 in Python and 0.4 on the REST upload form. **[Documented]**
-- **R6** (43w, 16 bullets): **An image plus optional fill, language and filters.** Needs the image, an OCR engine (Tesseract installed, or an Azure endpoint and key) and the Analyzer's English spaCy model. Optional inputs are fill colour, OCR confidence cut-off, entities, language, allow list and score threshold. **[Documented]**
+- **R6** (43w, 18 bullets): **An image plus optional fill, language and filters.** Needs the image, an OCR engine (Tesseract installed, or an Azure endpoint and key) and the Analyzer's English spaCy model. Optional inputs are fill colour, OCR confidence cut-off, entities, language, allow list and score threshold. **[Documented]**
 - **R7** (42w, 11 bullets): **Minimum setup:** install the package, Tesseract and the English spaCy model, or pull the Docker image; the default OCR needs no account. Test with images of known text carrying labelled PII plus clean images, and for DICOM use the documented ground-truth route. **[Inferred]**
 - **R8** (30w, 11 bullets): **Key open questions.** Accuracy on real screenshots and scans, non-English OCR, non-text PII, the two REST thresholds, JSON fill colour, request limits, Tesseract version in the image, and beta stability.
 - **R9** (43w, 40 bullets): Presidio docs site pages (image redactor, getting started with images, installation, FAQ, evaluation, concepts, transition, samples, API spec), repo files at tag 2.2.364 (image redactor package, Dockerfile, tests, API spec), the licence, the presidio-research README at tag 0.3.2, and a Microsoft Learn page.
@@ -60,7 +60,7 @@ Generated from presidio_two_level.md on 2026-10-09. Format: `Rn` (words excludin
 - **R6** (41w, 10 bullets): **Data, an entity map and operators.** Needs a table or dict, a column-to-entity map (generated or hand-written) and operators keyed by entity with a default. Sampling, language, strategy and batch settings are optional. The Analyzer's spaCy model must also be installed. **[Inferred]**
 - **R7** (43w, 10 bullets): **Minimum setup:** pip install presidio-structured and the English spaCy model, then run it on a small table and a JSON object with known PII columns and clean columns. No account is needed. Score the column map and the output cells separately against labels. **[Inferred]**
 - **R8** (25w, 11 bullets): **Key open questions.** The default replace output, behaviour on non-text cells and odd column names, in-place mutation, majority-vote mapping errors, and throughput on large tables.
-- **R9** (35w, 29 bullets): Presidio docs site pages (structured, getting started, home, installation, FAQ, evaluation, concepts, context tutorial, transition), repo files at tag 2.2.364 (structured package, Analyzer and Anonymizer code, changelog, licence) and the presidio-research README at tag 0.3.2.
+- **R9** (34w, 29 bullets): Presidio docs site pages (structured, getting started, home, installation, FAQ, evaluation, concepts, context tutorial, transition), repo files at tag 2.2.364 (structured package, Analyzer and Anonymizer code, changelog) and the presidio-research README at tag 0.3.2.
 
 ## PD6: Presidio: Custom-recognizer detection (regex patterns, deny lists, ad-hoc recognizers)
 
@@ -85,10 +85,10 @@ Generated from presidio_two_level.md on 2026-10-09. Format: `Rn` (words excludin
 | PD2 R4 | 39 | 39 | entailment (T1 contradiction 1: FAQ 'has since transitioned' versus transition page 'in the process of transitioning'): the R4 Detail says the project is moving, so the Summary says moving, as in PD1 and PD4 |
 | PD2 R6 | 41 | 41 | style 2: code identifier removed from a Summary |
 | PD2 R8 | 30 | 36 | T30: the NONE-strategy question is answered (36 words) |
-| PD2 R9 | 11 | 22 | R9 Summary updated: adds the main-branch commit (main Q3) and the Microsoft Learn page (T7) |
+| PD2 R9 | 11 | 28 | R9 Summary updated: adds the main-branch commit (main Q3) and the Microsoft Learn page (T7) |
 | PD3 R1 | 38 | 40 | T59: sentence now entailed by a same-row bullet (40 words) |
 | PD3 R4 | 43 | 44 | style 2: abbreviation 'IV' removed from a Summary; entailment (as PD2 R4): the R4 Detail says transition, so the Summary says moving |
-| PD3 R9 | 11 | 18 | R9 Summary updated: adds the NVIDIA page cited in R4 (T37) |
+| PD3 R9 | 11 | 24 | R9 Summary updated: adds the NVIDIA page cited in R4 (T37) |
 | PD4 R2 | 45 | 45 | T57 (R015): out-of-purpose statement is [Inferred] in every column (text unchanged, 45 words) |
 | PD4 R5 | 44 | 44 | T58: absence sentence (which rested on [Not disclosed] bullets) replaced by threshold facts entailed by the REST and Python bullets (44 words) |
 | PD4 R9 | 31 | 43 | R9 Summary updated: adds presidio-research (T12), the live API spec (T42) and the Microsoft Learn page (T7) |
@@ -99,7 +99,7 @@ Generated from presidio_two_level.md on 2026-10-09. Format: `Rn` (words excludin
 | PD5 R6 | 41 | 41 | style 2: class name 'DataFrame' removed from a Summary |
 | PD5 R7 | 43 | 43 | style 2: class name 'DataFrame' removed from a Summary |
 | PD5 R8 | 32 | 25 | T3 (R016): drops the CP1 clause; T44: drops 'maturity' (answered) (25 words) |
-| PD5 R9 | 27 | 35 | R9 Summary updated: adds the getting-started page (T44) and presidio-research (T12) |
+| PD5 R9 | 27 | 34 | R9 Summary updated: adds the getting-started page (T44) and presidio-research (T12) |
 | PD6 R5 | 44 | 42 | T58: absence sentence replaced by the default threshold (entailed by the engine-threshold bullet) (42 words) |
 | PD6 R8 | 31 | 33 | T13, T47: drops non-pattern logic over REST and per-recognizer threshold status (both answered) (33 words) |
 | PD6 R9 | 35 | 40 | R9 Summary updated: adds presidio-research (T12) |

@@ -121,7 +121,7 @@ def census(col):
 CONFLICTS = [
     ("Where the labelled develop/unreleased fact for main commit 2523c7b lives (main Q3)",
      "main's ruling asks for a PD2 R8 bullet labelled [Documented: develop/unreleased]. drafts/README.md section 4 says R8 bullets are unlabelled and check_drafts.py rejects any label in an R8 bullet.",
-     "The labelled fact is a PD2 R2 bullet (next to the REMOVE_INTERSECTIONS code facts, label [Documented: develop/unreleased], text: head 2523c7b, 2026-10-08, fix #2331, not in tag 2.2.364). PD2 R8 carries an unlabelled question about it (develop/unreleased written in plain text). The pin stays 2.2.364. R9 gets https://github.com/data-privacy-stack/presidio/commit/2523c7b. Only the commit number, date and PR number from main's note are used; no commit text was read, so the bullet makes no claim about what the fix changes."),
+     "The labelled fact is a PD2 R2 bullet (next to the REMOVE_INTERSECTIONS code facts, label [Documented: develop/unreleased], text: head 2523c7b, 2026-10-08, fix #2331, not in tag 2.2.364). PD2 R8 carries an unlabelled question about it (develop/unreleased written in plain text). The pin stays 2.2.364. R9 gets https://github.com/data-privacy-stack/presidio/commit/2523c7b. At merge time only main's note (commit number, date, PR number) was used and no commit text was read; the P7 verifier then read the commit, and the bullet was split into a [Documented: develop/unreleased] fact (title and effect on the REMOVE_INTERSECTIONS pass) and an [Inferred] bullet on the tagged behaviour (see Verifier fixes). The R9 URL is the full-SHA commit URL."),
     ("2.2.364 release body (T9, main Q1)",
      "The GitHub release body is unreadable; the P0 note held quotes from it. CHANGELOG.md at the tag has no 2.2.364 heading and lists the four features under unreleased.",
      "CHANGELOG at the tag is the substitute (R015), labelled [Documented: repo data-privacy-stack/presidio@2.2.364]. No release-note wording is used in any column. 'Latest release' and the release wording stay [To be verified] only in the inventory (rows 22 and 98 of sheet 3f), as 'release notes were not read'. The unreleased heading looks stale is an [Inferred] bullet with its premise (PD1 R4)."),
@@ -133,7 +133,7 @@ CONFLICTS = [
      "Two bullets, each [Documented] with its page (PD1 R4); PD2 to PD4 R4 keep the transition-page wording. The PD2 and PD3 R4 Summaries said 'now under the Data Privacy Stack community', which their own Detail did not entail; they now say 'moving to', as PD1 and PD4 already did (entailment fix, README section 4)."),
     ("Operator rows in Covered-by (T66, main Q2)",
      "Resolver proposed adding PD5 to seven operator rows and PD6 to the Docker row; main: list a header only where that column's Detail cites the row's function.",
-     "Test applied row by row. PD5: R4 cites the factory's anonymise list (Custom, Encrypt, Hash, Keep, Mask, Redact, Replace), R6 cites replace and custom, R7 tests replace, redact, mask, hash, custom, encrypt, so all seven rows pass. decrypt and deanonymize_keep fail (PD5 R4 says they are not reachable), surrogate_ahds is left out as in the proposal (PD5 hardcodes the Anonymize type; the surrogate needs an extra). PD6 R7 cites running the Analyzer image with ad_hoc_recognizers, so the Docker row passes. Recognizer rows (b) unchanged. check_drafts accepts the exact headers."),
+     "Test applied row by row. PD5: R4 cites the factory's anonymise list (Custom, Encrypt, Hash, Keep, Mask, Redact, Replace, plus the AHDS surrogate when its extra is installed), R6 cites replace and custom, R7 tests replace, redact, mask, hash, custom, encrypt, so all eight rows pass. decrypt and deanonymize_keep fail (PD5 R4 says they are not reachable). The first merge left surrogate_ahds out (reason: 'PD5 hardcodes the Anonymize type; the surrogate needs an extra'); the P7 verifier showed that reason does not hold (surrogate_ahds is an Anonymize operator in the list PD5 uses, and the extra applies equally to PD2) and main ruled to add it, so it is added (see Verifier fixes). PD6 R7 cites running the Analyzer image with ad_hoc_recognizers, so the Docker row passes. Recognizer rows (b) unchanged. check_drafts accepts the exact headers."),
     ("Label of the application of Ollama's licence rule (T6)",
      "Resolver labelled 'shipped model qwen2.5:1.5b is under the Apache 2.0 license' [Documented]. The Ollama page says all models except the 3B and 72B are Apache 2.0; it does not name the 1.5B model.",
      "Two facts: the page sentence [Documented] and the application to the 1.5B model [Inferred] with its premise (README section 3 rule 5; no label upgrade without a quote)."),
@@ -279,7 +279,7 @@ G = [
     ("Bracketed non-labels in inventory cells", "'[unreleased]' in sheet 3f (a) row 22 and (d) row 98", "'under its unreleased heading of CHANGELOG.md'", "T13, hygiene"),
     ("R9 lists", "URLs for pages and files cited in the old text", "%d URLs added in the columns so every new pin, page and file cited in R1 to R8 is in the R9 list of its column; one URL per bullet" % kinds_c["url"], "T7, T8, T12, T14, T15, T20, T22, T26, T41, T42, T44, T46, T52, T55, T68, T69, main Q3"),
     ("Directory links in sheet 3f (b)", "13 Source URL cells with .../country_specific/<country>/ under /blob/", "/tree/ (13 cells)", "T70, main Q5"),
-    ("Covered by Table 3 column", "operator rows listed PD2 or PD3 only; Docker row omitted PD6", "PD5 appended to the seven operator rows replace, redact, hash, mask, custom, keep, encrypt; PD6 appended to the Docker row; other rows unchanged", "T66, main Q2"),
+    ("Covered by Table 3 column", "operator rows listed PD2 or PD3 only; Docker row omitted PD6", "PD5 appended to the eight operator rows replace, redact, hash, mask, custom, keep, surrogate_ahds, encrypt; PD6 appended to the Docker row; other rows unchanged", "T66, main Q2"),
     ("Status vocabulary", "'alpha' outside stable/beta/legacy", "vendor wording stays (documented on the getting-started page); status checked lists extended with 'no Development Status classifier in any package at the tag'", "T60, T44, main P2 Q1"),
 ]
 for l in tbl(G, ["Scope", "Before", "After", "Reason"]):
@@ -343,7 +343,7 @@ tree = sorted(u for u in urls if "/tree/" in u)
 thirdparty = sorted(u for u in urls if not u.startswith("https://github.com/data-privacy-stack/") and "presidio.dataprivacystack.org" not in u and "github.io/presidio" not in u and "docs.nvidia.com" not in u)
 A("- Inventory config (gr-xlsx-writer): sheet 3f; BLOCKS (a) Components and variants 14, (b) Recognizer catalogue 31, (c) Anonymizer operators 10, (d) Integration paths 14; Covered-by column name 'Covered by Table 3 column'; markers tuple = legacy and inventory only (R011); prefix 'Presidio:', column IDs PD1 to PD6 (R009); headers are the six lines of the form 'Presidio: ...' in presidio_two_level.md.")
 A("- Distinct URLs in R9 lists and inventory Source URL cells: %d (%d on github.com/data-privacy-stack, %d on the docs host presidio.dataprivacystack.org, %d elsewhere, including the two github.io pages, the NVIDIA page and the third-party pages listed below)." % (len(urls), len(gh), len([u for u in urls if "presidio.dataprivacystack.org" in u]), len([u for u in urls if not u.startswith("https://github.com/data-privacy-stack/") and "presidio.dataprivacystack.org" not in u])))
-A("- Expected statuses for gr-url-checker (R020, main Q5): github.com answers HTTP 403 from the session proxy, so check the raw.githubusercontent.com equivalent of each blob URL (same owner, repo, ref, path). Directory and commit URLs cannot be served raw; list them as exceptions verified by their parent files: %d /tree/ URLs (%d country folders and the gh-pages head), the commit URL https://github.com/data-privacy-stack/presidio/commit/2523c7b." % (len(tree), len([u for u in tree if "country_specific" in u])))
+A("- Expected statuses for gr-url-checker (R020, main Q5): github.com blob pages answer HTTP 403 from the session proxy, so check the raw.githubusercontent.com equivalent of each blob URL (same owner, repo, ref, path). Directory and commit URLs cannot be served raw; list them as exceptions verified by their parent files: %d /tree/ URLs (%d country folders and the gh-pages head) and the commit URL https://github.com/data-privacy-stack/presidio/commit/2523c7b74a469270c5c78bb253f140eafca21e31. Correction from the P7 review: through the proxy the 13 country /tree/ URLs answer HTTP 400 (not 403) and the gh-pages /tree/e1987e57 URL answers 403; the checker should expect both codes for these directory and commit pages." % (len(tree), len([u for u in tree if "country_specific" in u])))
 A("- https://data-privacy-stack.github.io/presidio/ answers HTTP 301 to https://presidio.dataprivacystack.org/ (an HTTP fact, kept on purpose); https://microsoft.github.io/presidio/ answers 200 with a meta-refresh stub.")
 A("- Third-party URLs added by T6 and T7 (not Presidio docs): " + "; ".join(thirdparty) + ".")
 A("")
@@ -505,6 +505,42 @@ A(inv_result)
 A("```")
 A("")
 A("Exit codes: columns %d, inventory %d." % (cols_rc, inv_rc))
+A("")
+A("")
+A("## 9. Verifier fixes")
+A("")
+A("Source: presidio_review.md (gr-verifier, 2026-10-09), verdict PASS WITH FIXES, 4 required fixes. Applied by gr-merger in the P7 fix loop; the finals were regenerated from the same scripts, so the fixes also appear in the section 2 and 3 tables with the reason 'P7 fix n'. Main's ruling applied to fix 4: add the PD5 header, applying the Covered-by test consistently.")
+A("")
+VF = [
+    ("1", "PD2 R2 (commit 2523c7b bullet), PD2 R8, PD2 R9", "One bullet ending 'so the tagged behaviour described here may differ on main' under [Documented: develop/unreleased] (an inference inside a documented bullet; commit text not read); R8 question about overlap results; short-SHA commit URL", "Two R2 bullets: [Documented: develop/unreleased] with the commit title 'fix(anonymizer): stop REMOVE_INTERSECTIONS from leaving flagged text in clear (#2331)' and its effect; [Inferred] bullet that at tag 2.2.364 the pass sorts by start only and keeps zero-length results (anonymizer_engine.py@2.2.364:197,216), so a Python caller who selects REMOVE_INTERSECTIONS can get flagged text back unchanged, while the default strategy and the REST route do not run it (premise stated). New R8 question on leakage at the tag and the next release. R9 URL now https://github.com/data-privacy-stack/presidio/commit/2523c7b74a469270c5c78bb253f140eafca21e31", "README section 3 rule 5 (one label, one fact); verifier read the commit"),
+    ("2", "PD1 R1", "R1 Summary says the Analyzer returns entity type, position and score [Documented]; only an [Inferred] R1 bullet mentioned result fields", "Added after the POST /analyze bullet: 'Each result carries entity_type, start, end and score (recognizer_result.py@2.2.364:34-46)' [Documented: repo data-privacy-stack/presidio@2.2.364]; recognizer_result.py is already in PD1 R9; Summary unchanged (35 words)", "Summary entailment"),
+    ("3", "PD4 R6", "R6 Summary names an OCR engine (Tesseract or Azure) and the Analyzer's English spaCy model; no R6 bullet mentioned Tesseract or the model", "Two bullets at the top of R6, both [Documented] from the installation page (already in PD4 R9): 'Install an OCR engine. The default version uses the Tesseract OCR Engine.' and 'Presidio image redactor uses the presidio-analyzer ... which requires a spaCy language model:' followed by the en_core_web_lg download. Summary unchanged (43 words)", "Summary entailment"),
+    ("4", "Sheet 3f (c) surrogate_ahds, Covered by Table 3 column", "Presidio: PII anonymisation and masking in text (Anonymizer)", "Presidio: PII anonymisation and masking in text (Anonymizer) ; Presidio: PII detection and anonymisation in structured data (tables and JSON). Corrected reason: surrogate_ahds is an Anonymize operator, appended to ANONYMIZERS at operators_factory.py@2.2.364:26, the list data_processors.py@2.2.364:78-80 uses with OperatorType.Anonymize; the extra applies equally to PD2; PD5 R4 cites it in the factory list (main Q2 test). The earlier reason ('PD5 hardcodes the Anonymize type; the surrogate needs an extra') is withdrawn in sections 3 and 4 item 5", "main Q2 test applied consistently; main ruling"),
+]
+for l in tbl(VF, ["Fix", "Location", "Before", "After", "Reason"]):
+    A(l)
+A("")
+A("Optional suggestions taken (trivial and entailed):")
+A("")
+OPT = [
+    ("Inventory (a) presidio-research, Version read", "'tag 0.3.2 is the highest tag'", "'tag 0.3.2 is the latest release tag (tag 0.22, dated 2025-01-08, carries version 0.2.2)'; label unchanged. The review confirmed 0.22 is a mistyped older tag (version 0.2.2)"),
+    ("PD2 R9 and PD3 R9 Summaries", "omitted presidio-research although both R9 lists carry presidio-research@0.3.2 URLs", "'... the presidio-research repository at tag 0.3.2 ...' added (PD2 R9 21 words more than before: see preview)"),
+    ("PD5 R9 Summary", "listed 'licence' among the repo files; no LICENSE URL in PD5 R9", "'licence' dropped from the Summary"),
+    ("Section 5b of this log", "github.com /tree/ URLs answer 403", "country /tree/ URLs answer 400 and /tree/e1987e57 answers 403 through the proxy (coordinator instruction)"),
+]
+for l in tbl(OPT, ["Where", "Before", "After"]):
+    A(l)
+A("")
+A("Optional suggestions not taken: PD3 R2 Summary rewording and PD1 R1 'list over REST' wording (Summary changes beyond a trivial fix, left to main); [Documented] instead of the repo pin for the git ls-remote tag listing in PD1 R4 (the fact is right either way); pinning the third-party licence URLs to tags (kept on main or master, read date stated, R019).")
+A("")
+A("Checker output after the fixes (run from the repo root):")
+A("")
+A("```")
+A("python benchtest/tools/check_drafts.py columns benchtest/drafts/presidio_two_level.md --final --expect 6")
+A(cols_result)
+A("python benchtest/tools/check_drafts.py inventory benchtest/drafts/presidio_inventory_final.md --headers benchtest/drafts/presidio_two_level.md")
+A(inv_result)
+A("```")
 A("")
 open(D + "presidio_changes.md", "w", encoding="utf-8").write("\n".join(out) + "\n")
 print("changes.md lines:", len(out))

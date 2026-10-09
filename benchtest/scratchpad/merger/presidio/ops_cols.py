@@ -157,6 +157,9 @@ def apply(C):
     C.sub("PD1", 4, "Version: `presidio_analyzer` is `version = \"2.2.364\"`", "(local clone log)", "(git log at the tag)",
           "style 4: process wording 'local clone' removed", kind="style")
 
+    C.ins_after("PD1", 1, "REST entry point `POST /analyze`", [
+        "• Each result carries `entity_type`, `start`, `end` and `score` (`recognizer_result.py@2.2.364:34-46`) " + RP],
+        "P7 fix 2: the Summary's result claim needs a [Documented] R1 bullet")
     # ===================================================================== PD2
     C.ins_after("PD2", 1, "Built-in anonymize operators:", [
         "• The result is an `EngineResult` with `text` and `items`; each item is an `OperatorResult` with `start`, `end`, `entity_type`, `text` and `operator` (Presidio docs, anonymizer page, class diagram) " + D,
@@ -167,8 +170,9 @@ def apply(C):
     C.ins_after("PD2", 2, "The enum has two members", [
         "• `_remove_conflicts_and_get_text_manipulation_data` runs its merge and containment passes for every strategy value and adds a third pass only when the strategy equals `REMOVE_INTERSECTIONS` (`anonymizer_engine.py@2.2.364:133-196`) " + RP,
         "• A no-resolution mode named NONE therefore does not exist in the tagged code (premise: the enum has two members and the passes above) " + I,
-        "• The development branch main (head 2523c7b, dated 2026-10-08) carries a later fix to `REMOVE_INTERSECTIONS` handling (#2331) that is not in tag 2.2.364, so the tagged behaviour described here may differ on main **[Documented: develop/unreleased]**"],
-        "T30; main Q3 (commit 2523c7b, label develop/unreleased). The labelled bullet sits in R2 because the checker and README section 4 forbid labels in R8 bullets")
+        "• Main commit 2523c7b (2026-10-08, after tag 2.2.364) is titled \"fix(anonymizer): stop REMOVE_INTERSECTIONS from leaving flagged text in clear (#2331)\"; it changes only the `REMOVE_INTERSECTIONS` pass, sorting by start and end and dropping results trimmed to zero length **[Documented: develop/unreleased]**",
+        "• At tag 2.2.364 that pass sorts by start only and keeps zero-length results (`anonymizer_engine.py@2.2.364:197,216`), so a Python caller who selects `REMOVE_INTERSECTIONS` can get flagged text back unchanged; the default strategy and the REST route do not run this pass (premise: the tagged code read against the test cases the commit adds) " + I],
+        "T30; main Q3 (commit 2523c7b, label develop/unreleased). The labelled bullet sits in R2 because the checker and README section 4 forbid labels in R8 bullets. P7 fix 1: commit title and diff read by the verifier; fact and inference split into two bullets")
     C.sub("PD2", 2, "Out of purpose: it does not judge harmful content", "and it sees no model or policy context " + I,
           "and it sees no model or policy context (premise: the Home page module list) " + I, "T57 (R015): premise named")
     C.summary_text("PD2", 4, "MIT licence, now under the Data Privacy Stack community.", "MIT licence, moving to the Data Privacy Stack community.",
@@ -194,10 +198,10 @@ def apply(C):
            "• What the GitHub release notes for 2.2.364 say (the release page was not read; CHANGELOG.md at the tag lists the changes under its unreleased heading)",
            "T9, style 4")
     C.repl("PD2", 8, "Owner question Q01",
-           "• Whether the post-tag fix to `REMOVE_INTERSECTIONS` handling on the development branch (main commit 2523c7b, #2331; develop/unreleased) changes overlap results compared with tag 2.2.364 (see R2; needs testing against the next release)",
-           "main Q3: the Q01 process bullet (T1) is replaced by the open question on commit 2523c7b")
+           "• Whether `REMOVE_INTERSECTIONS` at tag 2.2.364 leaves flagged text in clear on real overlapping results, as main commit 2523c7b (#2331; develop/unreleased) indicates, and whether the next release fixes it (see R2; needs testing)",
+           "main Q3: the Q01 process bullet (T1) is replaced by the open question on commit 2523c7b; P7 fix 1: wording per the verifier")
     C.add_url("PD2", "https://learn.microsoft.com/en-us/azure/healthcare-apis/deidentification/overview", "T7 (Microsoft docs, not Presidio docs)")
-    C.add_url("PD2", "https://github.com/data-privacy-stack/presidio/commit/2523c7b", "main Q3")
+    C.add_url("PD2", "https://github.com/data-privacy-stack/presidio/commit/2523c7b74a469270c5c78bb253f140eafca21e31", "main Q3; P7 fix 1: full-SHA commit URL")
 
     # ===================================================================== PD3
     C.summary("PD3", 1, "Summary: **Encrypts PII in text so it can be restored later.** The encrypt operator swaps each entity for AES ciphertext, and the Deanonymize engine or the decrypt operator reverses it with the same key. Presidio keeps no session state between calls. " + D,
@@ -255,6 +259,10 @@ def apply(C):
         "T42")
     C.summary("PD4", 5, "Summary: **No verdict; an image comes back.** Python returns the redacted image and, optionally, one box per redacted word with entity type, offsets, score and position. REST returns only the image. The score threshold is 0 in Python and 0.4 on the REST upload form. " + D,
               "T58: absence sentence (which rested on [Not disclosed] bullets) replaced by threshold facts entailed by the REST and Python bullets (44 words)")
+    C.ins_before("PD4", 6, "Python parameters: `image`", [
+        "• Installation page: \"Install an OCR engine. The default version uses the Tesseract OCR Engine.\" (Presidio docs, installation page) " + D,
+        "• Installation page: \"Presidio image redactor uses the presidio-analyzer \u2026 which requires a spaCy language model:\" followed by the `en_core_web_lg` download (Presidio docs, installation page) " + D],
+        "P7 fix 3: the Summary's OCR engine and spaCy model need R6 bullets")
     C.sub("PD4", 7, "presidio-research (R010):", "presidio-research (R010): ", "presidio-research: ", "style: internal ruling id removed from deliverable text", kind="style")
     C.repl("PD4", 7, "Its README, version and any image or OCR feature were not read",
            "• presidio-research has no image, OCR or DICOM evaluation mode (checked README.md, docs/, presidio_evaluator/ and pyproject.toml at the tag; its models are the Analyzer and single-recognizer wrappers, and its dataset format is text with character spans) " + ND,
@@ -351,8 +359,8 @@ def apply(C):
 
     # ---- R9 Summaries (describe the sources actually listed)
     C.summary("PD1", 9, "Summary: Presidio docs site pages, the Presidio repository at tag 2.2.364, the presidio-research repository at tag 0.3.2, and one Microsoft Learn page.", "R9 Summary updated: adds the Microsoft Learn page cited for AHDS (T7)")
-    C.summary("PD2", 9, "Summary: Presidio docs site pages, the Presidio repository at tag 2.2.364 and one commit on its main branch, and one Microsoft Learn page.", "R9 Summary updated: adds the main-branch commit (main Q3) and the Microsoft Learn page (T7)")
-    C.summary("PD3", 9, "Summary: Presidio docs site pages, the Presidio repository at tag 2.2.364, and the NVIDIA NeMo Guardrails page on Presidio.", "R9 Summary updated: adds the NVIDIA page cited in R4 (T37)")
+    C.summary("PD2", 9, "Summary: Presidio docs site pages, the Presidio repository at tag 2.2.364 and one commit on its main branch, the presidio-research repository at tag 0.3.2, and one Microsoft Learn page.", "R9 Summary updated: adds the main-branch commit (main Q3) and the Microsoft Learn page (T7)")
+    C.summary("PD3", 9, "Summary: Presidio docs site pages, the Presidio repository at tag 2.2.364, the presidio-research repository at tag 0.3.2, and the NVIDIA NeMo Guardrails page on Presidio.", "R9 Summary updated: adds the NVIDIA page cited in R4 (T37)")
     C.summary("PD4", 9, "Summary: Presidio docs site pages (image redactor, getting started with images, installation, FAQ, evaluation, concepts, transition, samples, API spec), repo files at tag 2.2.364 (image redactor package, Dockerfile, tests, API spec), the licence, the presidio-research README at tag 0.3.2, and a Microsoft Learn page.", "R9 Summary updated: adds presidio-research (T12), the live API spec (T42) and the Microsoft Learn page (T7)")
-    C.summary("PD5", 9, "Summary: Presidio docs site pages (structured, getting started, home, installation, FAQ, evaluation, concepts, context tutorial, transition), repo files at tag 2.2.364 (structured package, Analyzer and Anonymizer code, changelog, licence) and the presidio-research README at tag 0.3.2.", "R9 Summary updated: adds the getting-started page (T44) and presidio-research (T12)")
+    C.summary("PD5", 9, "Summary: Presidio docs site pages (structured, getting started, home, installation, FAQ, evaluation, concepts, context tutorial, transition), repo files at tag 2.2.364 (structured package, Analyzer and Anonymizer code, changelog) and the presidio-research README at tag 0.3.2.", "R9 Summary updated: adds the getting-started page (T44) and presidio-research (T12)")
     C.summary("PD6", 9, "Summary: Presidio docs pages on adding and developing recognizers, the registry provider, tutorials (deny list, context, no-code, ad-hoc, allow list), decision process, FAQ and evaluation, plus repo files at tag 2.2.364 (Analyzer code, OpenAPI file, changelog) and presidio-research at tag 0.3.2.", "R9 Summary updated: adds presidio-research (T12)")

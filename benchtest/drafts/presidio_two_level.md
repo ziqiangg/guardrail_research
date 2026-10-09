@@ -8,6 +8,7 @@ Detail:
 • The FAQ says: "Presidio is a library or SDK rather than a service." (Presidio docs, FAQ page) **[Documented]**
 • Python entry point `AnalyzerEngine.analyze`, whose docstring reads "Find PII entities in text using different PII recognizers for a given language." (`analyzer_engine.py@2.2.364:185`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • REST entry point `POST /analyze` (`presidio-analyzer/app.py@2.2.364:67`); the same app serves `GET /recognizers` (line 134), `GET /supportedentities` (line 149) and `GET /health` (line 62) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Each result carries `entity_type`, `start`, `end` and `score` (`recognizer_result.py@2.2.364:34-46`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • A list of strings in `text` is run as a batch: `batch_request = isinstance(req_data.text, list)` (`presidio-analyzer/app.py@2.2.364:76`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • Presidio returns detections, not a decision: the result fields (R5) hold spans, scores and explanations but no pass, fail or block value, and the docs describe identification and anonymisation only, so it is a PII detector rather than a guardrail with a verdict **[Inferred]**
 ### R2
@@ -313,7 +314,8 @@ Detail:
 • The enum has two members, `MERGE_SIMILAR_OR_CONTAINED` and `REMOVE_INTERSECTIONS = "remove_intersections"` (`conflict_resolution_strategy.py@2.2.364:19`), but its docstring also describes "NONE: No conflict resolution will be performed." (line 15), which has no member **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • `_remove_conflicts_and_get_text_manipulation_data` runs its merge and containment passes for every strategy value and adds a third pass only when the strategy equals `REMOVE_INTERSECTIONS` (`anonymizer_engine.py@2.2.364:133-196`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • A no-resolution mode named NONE therefore does not exist in the tagged code (premise: the enum has two members and the passes above) **[Inferred]**
-• The development branch main (head 2523c7b, dated 2026-10-08) carries a later fix to `REMOVE_INTERSECTIONS` handling (#2331) that is not in tag 2.2.364, so the tagged behaviour described here may differ on main **[Documented: develop/unreleased]**
+• Main commit 2523c7b (2026-10-08, after tag 2.2.364) is titled "fix(anonymizer): stop REMOVE_INTERSECTIONS from leaving flagged text in clear (#2331)"; it changes only the `REMOVE_INTERSECTIONS` pass, sorting by start and end and dropping results trimmed to zero length **[Documented: develop/unreleased]**
+• At tag 2.2.364 that pass sorts by start only and keeps zero-length results (`anonymizer_engine.py@2.2.364:197,216`), so a Python caller who selects `REMOVE_INTERSECTIONS` can get flagged text back unchanged; the default strategy and the REST route do not run this pass (premise: the tagged code read against the test cases the commit adds) **[Inferred]**
 • Docs versus code on names: the docs example calls the AHDS operator `"surrogate"` (Presidio docs, AHDS page) **[Documented]**
 • Docs versus code on names: the code registers it as `return "surrogate_ahds"` (`ahds_surrogate.py@2.2.364:366`) and the operator table also says `surrogate_ahds`; the code is the better guide **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • Over REST, custom lambdas are refused: `raise BadRequest("Custom type anonymizer is not supported")` (`presidio-anonymizer/app.py@2.2.364:58`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
@@ -408,9 +410,9 @@ Detail:
 • Which operator is best per entity type for LLM prompts (the docs give examples only; needs testing against model answer quality)
 • Whether the hash output length or format leaks anything useful to a model (needs testing)
 • What the GitHub release notes for 2.2.364 say (the release page was not read; CHANGELOG.md at the tag lists the changes under its unreleased heading)
-• Whether the post-tag fix to `REMOVE_INTERSECTIONS` handling on the development branch (main commit 2523c7b, #2331; develop/unreleased) changes overlap results compared with tag 2.2.364 (see R2; needs testing against the next release)
+• Whether `REMOVE_INTERSECTIONS` at tag 2.2.364 leaves flagged text in clear on real overlapping results, as main commit 2523c7b (#2331; develop/unreleased) indicates, and whether the next release fixes it (see R2; needs testing)
 ### R9
-Summary: Presidio docs site pages, the Presidio repository at tag 2.2.364 and one commit on its main branch, and one Microsoft Learn page.
+Summary: Presidio docs site pages, the Presidio repository at tag 2.2.364 and one commit on its main branch, the presidio-research repository at tag 0.3.2, and one Microsoft Learn page.
 Detail:
 • https://presidio.dataprivacystack.org/anonymizer/
 • https://presidio.dataprivacystack.org/installation/
@@ -444,7 +446,7 @@ Detail:
 • https://github.com/data-privacy-stack/presidio-research/blob/0.3.2/presidio_evaluator/data_generator/presidio_pseudonymize.py
 • https://github.com/data-privacy-stack/presidio-research/blob/0.3.2/docs/evaluation.md
 • https://learn.microsoft.com/en-us/azure/healthcare-apis/deidentification/overview
-• https://github.com/data-privacy-stack/presidio/commit/2523c7b
+• https://github.com/data-privacy-stack/presidio/commit/2523c7b74a469270c5c78bb253f140eafca21e31
 
 ## Column PD3: Presidio: Reversible anonymisation and deanonymisation (encrypt and decrypt)
 ### R1
@@ -555,7 +557,7 @@ Detail:
 • Whether the batch deanonymiser is named in the 2.2.364 release notes (code is in the tag; the CHANGELOG lists it under its unreleased heading; the release page was not read)
 • What LiteLLM does beyond the Presidio page (the LiteLLM behaviour is not Presidio evidence)
 ### R9
-Summary: Presidio docs site pages, the Presidio repository at tag 2.2.364, and the NVIDIA NeMo Guardrails page on Presidio.
+Summary: Presidio docs site pages, the Presidio repository at tag 2.2.364, the presidio-research repository at tag 0.3.2, and the NVIDIA NeMo Guardrails page on Presidio.
 Detail:
 • https://presidio.dataprivacystack.org/anonymizer/
 • https://presidio.dataprivacystack.org/tutorial/12_encryption/
@@ -689,6 +691,8 @@ Detail:
 ### R6
 Summary: **An image plus optional fill, language and filters.** Needs the image, an OCR engine (Tesseract installed, or an Azure endpoint and key) and the Analyzer's English spaCy model. Optional inputs are fill colour, OCR confidence cut-off, entities, language, allow list and score threshold. **[Documented]**
 Detail:
+• Installation page: "Install an OCR engine. The default version uses the Tesseract OCR Engine." (Presidio docs, installation page) **[Documented]**
+• Installation page: "Presidio image redactor uses the presidio-analyzer … which requires a spaCy language model:" followed by the `en_core_web_lg` download (Presidio docs, installation page) **[Documented]**
 • Python parameters: `image`, `fill`, `ocr_kwargs`, `ad_hoc_recognizers` and extra keyword arguments (`text_analyzer_kwargs`), the last forwarded to `AnalyzerEngine.analyze` (image_redactor_engine.py@2.2.364:83-89 and :101-102) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • Analyzer options such as `entities`, `score_threshold`, `allow_list` and `language` pass through `text_analyzer_kwargs`; `language` defaults to `en` (image_analyzer_engine.py@2.2.364:74-76) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • Allow list: words in it get no box (`word not in allow_list`, image_analyzer_engine.py@2.2.364:174) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
@@ -904,7 +908,7 @@ Detail:
 • Whether a REST or Docker route for structured data is planned (checked the repo tree at the tag, docker-compose.yml and docs, not stated)
 • What the GitHub release notes for 2.2.364 say (the release page was not read; CHANGELOG.md at the tag lists the changes under its unreleased heading)
 ### R9
-Summary: Presidio docs site pages (structured, getting started, home, installation, FAQ, evaluation, concepts, context tutorial, transition), repo files at tag 2.2.364 (structured package, Analyzer and Anonymizer code, changelog, licence) and the presidio-research README at tag 0.3.2.
+Summary: Presidio docs site pages (structured, getting started, home, installation, FAQ, evaluation, concepts, context tutorial, transition), repo files at tag 2.2.364 (structured package, Analyzer and Anonymizer code, changelog) and the presidio-research README at tag 0.3.2.
 Detail:
 • https://presidio.dataprivacystack.org/structured/
 • https://presidio.dataprivacystack.org/
