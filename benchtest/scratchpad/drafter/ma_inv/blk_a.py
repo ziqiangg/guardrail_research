@@ -14,7 +14,7 @@ GAI,
 cov(1,2)]))
 R.append(row([
 "Child sexual abuse material (CSAM) filter [Documented] (OV)",
-"No config key: FilterConfig lists raiSettings, sdpSettings, piAndJailbreakFilterSettings and maliciousUriFilterSettings only [Documented] (RT). The Go v1 FilterConfig has the same four fields [Documented: repo googleapis/google-cloud-go@37f936ac] (GOPB1)",
+"FilterConfig lists four settings: raiSettings, sdpSettings, piAndJailbreakFilterSettings and maliciousUriFilterSettings [Documented] (RT); the Go v1 FilterConfig has the same four fields [Documented: repo googleapis/google-cloud-go@37f936ac] (GOPB1). A CSAM setting [Not disclosed] (checked RT and the Go v1 FilterConfig)",
 "No levels: 'You can set confidence levels only for prompt injection and jailbreak detection and responsible AI safety filters.' [Documented] (OV)",
 "Always on: 'This filter is applied by default and cannot be turned off.' [Documented] (OV)",
 "Input and Output: the OV use case covers user inputs and model outputs, and both SAN example responses include a csam result [Documented] (OV; SAN)",
@@ -64,11 +64,11 @@ GAI,
 cov(5,6)]))
 R.append(row([
 "Antivirus scanning [Documented] (FAR; RR)",
-"No config key found: FilterConfig has no antivirus setting [Documented] (RT). How antivirus is switched on [To be verified] (checked OV, TPL, SAN, FLR, FAR and RN; no configuration page found)",
+"FilterConfig lists four settings (raiSettings, sdpSettings, piAndJailbreakFilterSettings, maliciousUriFilterSettings) [Documented] (RT). An antivirus setting [Not disclosed] (checked RT and the Go v1 FilterConfig, GOPB1). How antivirus is switched on [To be verified] (checked OV, TPL, SAN, FLR, FAR and RN; no configuration page found)",
 "No confidence level in the result type [Documented] (RR). ScannedContentType values UNKNOWN, PLAINTEXT and PDF, with the note 'PDF Scanning for only PDF is supported.' [Documented] (RR)",
 "[Not disclosed] (checked OV, TPL, SAN, FLR, FAR and RN)",
 "Prompts and responses per the product page text 'within AI prompts and responses' [Documented] (PROD). Which request fields carry files for this filter [To be verified]",
-"FilterResult has virusScanFilterResult with executionState, messageItems, matchState, scannedContentType, virusDetails[] (vendor, names, threatType) and scannedSize [Documented] (RR). The filterResults key list on RR does not name an antivirus key [Documented] (RR). Release note 2026-04-10: virusDetails no longer carries security-vendor names or threat signatures [Documented] (RN)",
+"FilterResult has virusScanFilterResult with executionState, messageItems, matchState, scannedContentType, virusDetails[] (vendor, names, threatType) and scannedSize [Documented] (RR). RR names the filterResults keys csam, malicious_uris, rai, pi_and_jailbreak and sdp [Documented] (RR); an antivirus key [Not disclosed] (checked RR). Release note 2026-04-10: virusDetails no longer carries security-vendor names or threat signatures [Documented] (RN)",
 "[Not disclosed] (no antivirus-specific size or token limit; checked QUO, OV and RR). The general 4 MB file limit is documented but not tied to this filter [Documented] (QUO)",
 "Not documented: no GA or Preview statement found [Not disclosed] (checked RN, FAR, RR, OV). Listed as a filter for full-support regions only [Documented] (FAR)",
 MARK]))

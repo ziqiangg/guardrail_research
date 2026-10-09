@@ -30,3 +30,7 @@
 | presidio P2 cols_a Q3 (notebook figures in R5 Summary) | R014 | main |
 | presidio P2 cols_a Q2 (release notes / latest tag) | routed to presidio P5 resolver (hint: `git ls-remote --tags` works where github.com pages 403) | main |
 | presidio P2 cols_a Q4 (test /supportedentities on Docker image) | needs-testing item → triage → CP1 (pulling images is outside read-only rule) | main |
+| modelarmor P2 inventory Q1 (BLOCKS 10/15/16/18/16; markers incl. R011) | recorded for P8 config | main |
+| modelarmor P2 inventory Q2 (Agent Gateway ingress MA1–MA8 vs egress marker) | bundled with modelarmor CP1 Q-B (tool-call screening) | user at CP1 |
+| modelarmor P2 inventory Q3 (console + monitoring rows) | keep; brief targets not binding | main |
+| modelarmor P2 inventory Q4 (Terraform registry page official?) | registry.terraform.io is HashiCorp's, not Google's → not an official source for Model Armor; cite Google's own Terraform docs on docs.cloud.google.com if found, else [To be verified]; Apigee status → P5 resolver | main |

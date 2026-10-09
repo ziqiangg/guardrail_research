@@ -70,7 +70,7 @@ R.append(row([
 "Filter config: filterConfig.raiSettings.raiFilters[] with filterType and confidenceLevel [Documented] (RT)",
 "filterType HATE_SPEECH, HARASSMENT, SEXUALLY_EXPLICIT, DANGEROUS; confidenceLevel LOW_AND_ABOVE, MEDIUM_AND_ABOVE, HIGH [Documented] (RT)",
 "No categories until listed; level default is documented inconsistently (see block a) [Documented] (EXC; TPL; RT; FLR)",
-"A positive match is reported at or above the configured level. CSAM is not in this list and cannot be turned off [Documented] (RT; OV)",
+"A positive match is reported at or above the configured level [Documented] (RT). The CSAM filter cannot be turned off [Documented] (OV)",
 GAI]))
 R.append(row([
 "piAndJailbreakFilterSettings [Documented] (RT)",
@@ -95,7 +95,7 @@ R.append(row([
 GAI]))
 R.append(row([
 "filterRuleSettings (template-specific exclusion rules) [Documented] (EXC)",
-"Filter config: filterConfig.filterRuleSettings.ruleSets[] with filterTypes, and rules[].exclusionRule holding a dictionary wordList or a regex pattern plus matchingScope [Documented] (EXC). The REST FilterConfig reference lists only four settings and does not show this field [To be verified] (RT)",
+"Filter config: filterConfig.filterRuleSettings.ruleSets[] with filterTypes, and rules[].exclusionRule holding a dictionary wordList or a regex pattern plus matchingScope [Documented] (EXC). The REST FilterConfig reference lists four settings [Documented] (RT); this field in the REST reference [To be verified] (not shown there)",
 "filterTypes PROMPT_INJECTION_AND_JAILBREAK or RESPONSIBLE_AI; matchingScope MATCHING_SCOPE_PARTIAL_MATCH or MATCHING_SCOPE_FULL_MATCH [Documented] (EXC)",
 "Partial match is the default scope [Documented] (EXC)",
 "A matching rule overrides MATCH_FOUND or EXECUTION_SKIPPED to NO_MATCH_FOUND for the whole filter type. Not supported in streaming APIs or floor settings; evaluated on raw text before translation or de-identification; applies only to its own template [Documented] (EXC)",

@@ -15,3 +15,4 @@
 - 2026-10-09 presidio P2 inventory done: (a)14 (b)31 (c)10 (d)14 rows; check_drafts 0 errors; YAML 74/50 confirmed; Q1/Q4/Q5 ruled by main, Q3 → P5, Q2 → CP1
 - 2026-10-09 presidio P2 cols_b done (PD4–PD6), check 0 errors; corrections: presidio-structured is 0.0.8 (0.0.60 = image-redactor); per-recognizer thresholds already at tag
 - 2026-10-09 presidio P2 done (cols_a PD1–PD3, cols_b PD4–PD6, inventory). P3: cols_a 0/0, cols_b 0/0, inventory --headers 0/0. R014 (vendor notebook figures). Known pin inconsistency: presidio-research 0.3.2 (cols_a) vs 0cb36502 (inventory) → triage. P4 started
+- 2026-10-09 modelarmor P2 inventory done: 10/15/16/18/16 = 75 rows, check 0 errors (--headers too). Note: ~550 MB of ignored vendor clones in scratchpad/drafter/ma_inv (rm -rf is denied by settings; left in place, gitignored)

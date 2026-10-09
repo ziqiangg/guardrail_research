@@ -80,7 +80,7 @@ R.append(row([
 "Token definition used for billing and limits [Documented] (PRC)","Other",
 "Pricing page: 'four characters (using UTF-8 code points) per token excluding white space', the same definition as Gemini Enterprise Agent Platform [Documented] (PRC). OV and QUO say 'about 4 characters' per token [Documented] (OV; QUO)",
 "All prompts and responses screened by Model Armor [Documented] (PRC)",
-"Not applicable"]))
+"Not applicable [Inferred] (a definition, not a limit)"]))
 BLOCK_E=table(HE,R)
 if __name__=="__main__":
     print(len(R))

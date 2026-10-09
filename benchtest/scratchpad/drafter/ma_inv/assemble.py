@@ -50,6 +50,7 @@ NOTES="""## Reviewer notes
    - Block d shows both the template data-residency values and the Agent Platform floor-setting values, which differ in several regions.
 4. Not read or not reachable: the whitepaper linked from PROD; the Terraform resource page; the Model Armor findings detail in SCC beyond the table on SCCF; GoogleCloudPlatform/model-armor-samples and googleapis/python-modelarmor (not retried in this run; the clone form was refused by the permission layer; the brief records the clone asking for credentials at P1).
 5. No fact comes from a summarising fetch: pages were read with fetch_text.py; the OpenAI payload list on AGW and the link targets on OV, INT and MCPD were read from the raw HTML with curl; repository facts come from a shallow clone.
+6. Self-check: python benchtest/tools/check_drafts.py inventory run with and without a headers file built from the ten brief headers: 5 tables (10, 15, 16, 18, 16 rows), 0 errors, 0 warnings; every Covered by value is an exact brief header or the inventory-only marker; no pipe, backtick or double asterisk in any cell; every data cell carries a label.
 """
 def main():
     out=["# Model Armor inventory (draft for sheet 3x)","",SCOPE,"",

@@ -14,7 +14,7 @@ R.append(row([
 "Client libraries for C#, Go, Java, Node.js, PHP and Python, wrapping the same REST methods [Documented] (LIB)",
 "Go module 1.3.0, released 2026-09-23, after 1.0.0 on 2026-05-08 [Documented: repo googleapis/google-cloud-go@37f936ac] (GOCH; GOVER). C# package shown as pre-release 1.0.0-beta05 [Documented] (LIB). Versions of the Java, Node.js, PHP and Python libraries [Not disclosed] (LIB checked; install commands give no pin)",
 "Same as the REST API [Inferred] (premise: the libraries wrap the same service methods)",
-"API",
+"API: same detector mode as the REST API [Inferred] (premise: the libraries wrap the REST methods)",
 "Input and Output [Documented] (SAN has samples for sanitizing prompts and responses in each language)",
 "Template; the endpoint is set per client, for example modelarmor.LOCATION.rep.googleapis.com [Documented] (TPL)",
 "The Go apiv1 package defines the floor-setting integrated service AI_PLATFORM only; GOOGLE_MCP_SERVER appears in apiv1beta [Documented: repo googleapis/google-cloud-go@37f936ac] (GOPB1; GOPB1B). Docs samples import apiv1beta in one Go streaming sample and apiv1 elsewhere [Documented] (SAN)",
@@ -23,17 +23,17 @@ R.append(row([
 "Google Cloud CLI: gcloud model-armor templates create and gcloud model-armor floorsettings describe and update [Documented] (TPL; FLR)",
 "[Not disclosed] (no GA or Preview statement; checked TPL, FLR and RN)",
 "Not applicable: configuration commands [Documented] (TPL; FLR). Whether gcloud can sanitize content [Not disclosed] (checked SAN, TPL and FLR; only REST and library samples are shown)",
-"API (configuration only; no inline enforcement)",
-"Not applicable",
+"Configuration only, no inline enforcement [Inferred] (premise: the documented commands only create, describe and update templates and floor settings)",
+"Not applicable [Inferred] (configuration surface)",
 "Both: templates create flags such as --rai-settings-filters and --pi-and-jailbreak-filter-settings-enforcement, and floorsettings update flags such as --full-uri and --add-integrated-services [Documented] (TPL; FLR)",
 "Locations other than the default us multi-region need gcloud config set api_endpoint_overrides/modelarmor [Documented] (TPL)",
 MARK]))
 R.append(row([
 "Terraform resources for Model Armor floor settings and templates [Documented] (RN 2025-07-29)",
 "[Not disclosed] (the release note gives no GA or Preview label; the Terraform resource page was not read [To be verified])",
-"Not applicable: configuration",
-"API (infrastructure as code; no inline enforcement)",
-"Not applicable",
+"Not applicable [Inferred] (configuration surface)",
+"Configuration only, no inline enforcement [Inferred] (premise: the release note says Terraform manages floor settings and templates)",
+"Not applicable [Inferred] (configuration surface)",
 "Both: floor settings and templates [Documented] (RN)",
 "[To be verified] (resource page not read; fields and limits unknown)",
 MARK]))
@@ -44,7 +44,7 @@ R.append(row([
 "Inline: Agent Platform calls Model Armor and enforces INSPECT_ONLY or INSPECT_AND_BLOCK [Documented] (VTX)",
 "Input and Output: promptTemplateName for the prompt and responseTemplateName for the response [Documented] (VTX)",
 "Both: templates per request or floor settings per project; request templates take precedence over floor settings, and floor settings use the Stable filter version by default [Documented] (VTX; FLR)",
-"Gemini models, non-streaming [Documented] (INT). De-identified or masked data is not passed back; INSPECT_AND_BLOCK blocks instead [Documented] (VTX). Model Armor is skipped (fail-open) when it is unavailable, unreachable, errors, or is not present in the region [Documented] (VTX). Per-request template call supports europe-west1, europe-west2, europe-west3, asia-southeast1 and asia-south1 [Documented] (VTX)",
+"Gemini models, non-streaming [Documented] (INT). De-identified or masked data is not passed back; INSPECT_AND_BLOCK blocks instead [Documented] (VTX). Agent Platform skips the Model Armor step and continues the request when Model Armor is unavailable in the region, temporarily unreachable or returns an error, which can leave prompts or responses unscreened [Documented] (VTX). Per-request template call supports europe-west1, europe-west2, europe-west3, asia-southeast1 and asia-south1 [Documented] (VTX)",
 T18]))
 R.append(row([
 "Agent Gateway, Client-to-Agent (ingress) traffic to agents built with the Agent Development Kit (ADK) on Agent Runtime [Documented] (AGW)",
@@ -112,29 +112,29 @@ T18]))
 R.append(row([
 "Security Command Center findings from Model Armor [Documented] (INT; SCCF)",
 "[Not disclosed] (no GA or Preview label found on INT, SCCF or PRC)",
-"Not applicable: findings and pricing tier, not a screening path",
-"Reporting (not inline)",
-"Not applicable",
+"Not applicable [Inferred] (findings and pricing tier, not a screening path)",
+"Reporting, not inline [Inferred] (premise: findings are records of detections)",
+"Not applicable [Inferred] (reporting surface)",
 "Floor settings: INT says a violation of a configured floor setting is blocked and a finding is sent to Security Command Center [Documented] (INT). The SCC findings page lists FLOOR_SETTINGS_VIOLATION (a template that fails floor-setting conformance, class Misconfiguration, Premium tier) as the Model Armor finding [Documented] (SCCF; Security Command Center docs, not Model Armor docs). The two descriptions differ",
 "Model Armor is included in Security Command Center Enterprise and Premium tiers with a token allowance (see block e) [Documented] (PRC)",
 MARK]))
 R.append(row([
 "Google Cloud console, Model Armor page: create templates, floor settings tab, monitoring tab [Documented] (TPL; FLR; MON)",
 "[Not disclosed] (no GA or Preview label for the page). Console modality selection: Preview since 2026-07-01 [Documented] (RN)",
-"Not applicable: configuration",
-"API-side configuration (no inline enforcement)",
-"Not applicable",
+"Not applicable [Inferred] (configuration surface)",
+"Configuration only, no inline enforcement [Inferred] (premise: the console pages create templates and floor settings and show monitoring)",
+"Not applicable [Inferred] (configuration surface)",
 "Both: templates and floor settings. Floor settings UI is project-level only; organisation and folder floor settings need the API [Documented] (FLR)",
 "The Select modality field is disabled for regions other than the us and eu multi-regions [Documented] (TPL)",
 MARK]))
 R.append(row([
 "Monitoring dashboard (Cloud Monitoring) and Cloud Logging of sanitize and template operations [Documented] (MON; LOG)",
 "Monitoring dashboard: Preview 2025-09-08, GA 2025-12-04 [Documented] (RN). Logging status [Not disclosed] (LOG checked)",
-"Not applicable: reporting",
-"Reporting (not inline)",
+"Not applicable [Inferred] (reporting surface)",
+"Reporting, not inline [Inferred] (premise: dashboard and logs record detections)",
 "Input and Output counts [Documented] (MON)",
 "Template metadata flags logSanitizeOperations and logTemplateOperations; floor settings enableCloudLogging per integration [Documented] (LOG)",
-"Cloud Monitoring metric types are request_count, pi_jb_request_count, rai_request_count, sdp_request_count, malicious_uri_request_count and used_token_count [Documented] (MON); the list has no CSAM or antivirus metric [Documented] (MON). Inspect only mode is useful only with Cloud Logging enabled [Documented] (OV)",
+"Cloud Monitoring metric types are request_count, pi_jb_request_count, rai_request_count, sdp_request_count, malicious_uri_request_count and used_token_count [Documented] (MON); a CSAM or antivirus metric [Not disclosed] (checked the MON metric list). Inspect only mode is useful only with Cloud Logging enabled [Documented] (OV)",
 MARK]))
 BLOCK_B=table(HB,R)
 if __name__=="__main__":

@@ -35,7 +35,7 @@ for l in ORDER:
     filt=", ".join(f["filters"])
     filt_cell=f"{filt} [Documented] (FAR)"
     if l=="asia-southeast1":
-        filt_cell+=". Singapore is limited support: no malicious URL detection with enforcement on. With enforcement off in the template, cross-jurisdictional routing enables the other features, except image, which stays us and eu only [Documented] (FAR; TPL; RN 2026-08-27, 2026-06-22)"
+        filt_cell+=". Singapore is a limited-support region [Documented] (DR). With enforcement off in the template, cross-jurisdictional routing enables the other features, except image, which stays us and eu only [Documented] (FAR; TPL; RN 2026-08-27, 2026-06-22)"
     elif l=="asia-northeast3":
         filt_cell+=". Only Sensitive Data Protection is supported with enforcement on in Seoul [Documented] (FAR; RN 2026-09-04)"
     elif l=="australia-southeast2":

@@ -6,7 +6,7 @@ Detail:
 • Product page: Model Armor "helps prevent the leakage of personal identifiable information (PII), financial information, credentials, and custom-defined sensitive data types in both prompts and model responses" (product page, read 2026-10-09) **[Documented]**
 • The prompt-side use case is named "Mask or redact sensitive values: Automatically obscure identified personally identifiable information (PII) or secrets within prompts or responses." (sanitize page, read 2026-10-09) **[Documented]**
 • Two modes: basic "only supports inspection operations and doesn't support the use of Sensitive Data Protection templates"; advanced "supports both inspection and de-identification operations" (overview, read 2026-10-09) **[Documented]**
-• Overview scenario: a chatbot user types a credit card number and "Model Armor blocks the prompt containing the PII"; the block depends on the Inspect and block enforcement type and is carried out by the calling service (overview, read 2026-10-09) **[Documented]**
+• Overview scenario: a chatbot user types a credit card number and "Model Armor blocks the prompt containing the PII" (overview, read 2026-10-09) **[Documented]**
 • The filter's result key is `sdp` with `sdpFilterResult` (SanitizationResult reference, read 2026-10-09) **[Documented]**
 • Sensitive Data Protection is a separate Google Cloud service that Model Armor calls; the infoType catalogue, transformation types and likelihood meaning are defined there, so this column covers only how Model Armor invokes it (see the Sensitive Data Protection columns on sheet 3). The premise is that Model Armor docs link out to the Sensitive Data Protection documentation for these topics **[Inferred]**
 ### R2
@@ -57,12 +57,14 @@ Detail:
 • Gemini Enterprise Agent Platform route (GA 2025-12-03 per release notes): Model Armor "doesn't pass the de-identified data" back; with INSPECT_AND_BLOCK it issues a block verdict instead (Agent Platform integration page, read 2026-10-09) **[Documented]**
 • Gemini Enterprise route: it "blocks the request or response rather than de-identifying it" when an infoType detector fires (Gemini Enterprise integration page, read 2026-10-09) **[Documented]**
 • Apigee route: "Apigee allows, blocks, or redacts the request or response", and redacted data is extracted from flow variables and passed to the LLM; the pages read do not state GA or Preview (Apigee integration page, read 2026-10-09) **[Documented]**
-• Agent Gateway route (GA 2026-06-24 per release notes): a template can "block and redact content that violates policies"; the page does not say how redaction is returned (Agent Gateway page, read 2026-10-09) **[Documented]**
+• Agent Gateway route (GA 2026-06-24 per release notes): the intro says a template can "block and redact content that violates policies" (Agent Gateway page, read 2026-10-09) **[Documented]**
+• Agent Gateway traffic flow: "Model Armor screens the request. If blocked, the client receives an error." and responses are allowed or blocked on the verdict; the flow text mentions no redacted copy (Agent Gateway page, read 2026-10-09) **[Documented]**
 • Service Extensions route: Model Armor tells the networking service to "allow, block, or modify the traffic" (networking page, read 2026-10-09) **[Documented]**
-• Which integration actually forwards de-identified input text, other than Apigee, is not stated on the Agent Gateway and Service Extensions pages (checked both) **[Not disclosed]**
+• Whether Agent Gateway or Service Extensions forward de-identified input text to the model is not stated (checked both pages; only Apigee documents extracting redacted data) **[Not disclosed]**
 • Pricing: "When Sensitive Data Protection is enabled within Model Armor, there are no additional charges to use it." (pricing page, read 2026-10-09) **[Documented]**
 • Logging caveat: "Enabling logging in a template writes raw prompts and responses to Logging", so original sensitive text can appear in logs even when the API returns de-identified text (logging page, read 2026-10-09) **[Documented]**
-• Location support: Sensitive Data Protection is listed as a supported filter in every location row, including the limited-support regions; asia-northeast3 lists it as the only supported filter (feature availability page, read 2026-10-09) **[Documented]**
+• Location support: Sensitive Data Protection is listed as a supported filter in every location row of the supported-features table, including the limited-support regions (feature availability page, read 2026-10-09) **[Documented]**
+• Seoul (asia-northeast3) lists Sensitive Data Protection as its only supported filter when data residency is enforced (feature availability page, read 2026-10-09) **[Documented]**
 • A self-hosted or offline route is not described (checked the overview, product page, integrations page and client library page) **[Not disclosed]**
 ### R5
 Summary: **Match state plus findings or a de-identified copy.** The result holds an inspect, de-identify or redact result, each with execution and match state. Findings carry infoType, a likelihood word and a position. There is no numeric score and no published accuracy figure. **[Documented]**
@@ -99,7 +101,8 @@ Detail:
 • Earlier release note 2025-07-28 said the Sensitive Data Protection filter returns SKIP_DETECTION over the limit; the current quotas page says EXECUTION_SKIPPED (release notes and quotas page, read 2026-10-09) **[Documented]**
 • Quota: "1200 queries per minute (QPM) per project" for the Model Armor API (quotas page, read 2026-10-09) **[Documented]**
 • Whether Model Armor's calls to Sensitive Data Protection use up Sensitive Data Protection quota is not stated (checked the quotas page and integrations page) **[Not disclosed]**
-• Floor settings can enable the filter (the Agent Platform page example sets `sdpSettings.basicConfig`), and "Floor settings don't check templates for Sensitive Data Protection conformance" (floor settings page, read 2026-10-09) **[Documented]**
+• Floor settings can enable the filter: the Agent Platform page example sets `sdpSettings.basicConfig` with `filterEnforcement` ENABLED (Agent Platform integration page, read 2026-10-09) **[Documented]**
+• "Floor settings don't check templates for Sensitive Data Protection conformance." (floor settings page, read 2026-10-09) **[Documented]**
 • Language: English plus others depending on the chosen infoTypes (overview, read 2026-10-09) **[Documented]**
 • Multi-language detection is a template or per-request setting for the other filters; whether it affects this filter is not stated (checked the overview and templates page) **[Not disclosed]**
 ### R7
@@ -109,7 +112,7 @@ Detail:
 • Standalone use costs nothing up to 2 million tokens per month, then $0.10 per million tokens (Security Command Center pricing page, read 2026-10-09) **[Documented]**
 • Test data: labelled prompts with synthetic card numbers, US SSN and ITIN strings, Google Cloud keys, passwords, near misses, and for advanced mode the identifiers your own template defines; Google gives no labelled test set **[Inferred]**
 • Singapore (asia-southeast1) lists Sensitive Data Protection as supported, but basic mode names only US national identifiers, so a Singapore NRIC test needs an advanced template with a custom detector (see the Sensitive Data Protection columns) **[Inferred]**
-• When testing through an integration in Inspect only mode, the overview says to "check the SanitizeOperationLogEntry records in Cloud Logging rather than relying on the response body"; direct REST calls return the filter result in the response (overview, read 2026-10-09) **[Documented]**
+• When testing through an integration in Inspect only mode, the overview says to "check the SanitizeOperationLogEntry records in Cloud Logging rather than relying on the response body for proper validation" (overview, read 2026-10-09) **[Documented]**
 • No self-hosted or offline option is documented (checked the overview, product page and integrations page) **[Not disclosed]**
 ### R8
 Summary: **Key open questions.** Whether basic mode has six or seven infoTypes, which regions are US-based, what de-identified input looks like with positions, whether floor settings accept advanced templates, how quota and latency are affected, and what accuracy to expect.
@@ -183,9 +186,11 @@ Detail:
 • Apigee's SanitizeModelResponse policy lists read-only flow variables `SanitizeModelResponse.POLICY_NAME.sdpFilterResult.deidentifyResult.executionState` and `.matchState`, which shows the response path can carry a de-identify result (Apigee policy reference, read 2026-10-09) **[Documented]**
 • "Model Armor inspects each prompt and response independently as a single-turn request." (overview, read 2026-10-09) **[Documented]**
 • Streaming: `StreamSanitizeModelResponse` streams LLM text, and "Model Armor streaming methods don't support Sensitive Data Protection de-identification" (sanitize page, read 2026-10-09) **[Documented]**
-• Files: "Sensitive Data Protection de-identification is not supported for file-based prompts." The page says prompts; it shows no response-side file example (sanitize page, read 2026-10-09) **[Documented]**
-• Agent Platform route covers the `generateContent` method only; Model Armor "intercepts responses before your application receives them" (Agent Platform integration page, read 2026-10-09) **[Documented]**
-• Agent Gateway egress: Model Armor screens "the response payload" and also covers MCP, OpenAI-format and A2A payloads (Agent Gateway page, read 2026-10-09) **[Documented]**
+• Files: "Sensitive Data Protection de-identification is not supported for file-based prompts." (sanitize page, read 2026-10-09) **[Documented]**
+• The sanitize page words this limit for prompts and shows no response-side file example (checked the sanitize page and templates page) **[Not disclosed]**
+• Agent Platform route covers the `generateContent` method; Model Armor "intercepts responses before your application receives them" (Agent Platform integration page, read 2026-10-09) **[Documented]**
+• Agent Gateway ingress: "Model Armor screens the response, and Agent Gateway either allows or blocks it based on the verdict." (Agent Gateway page, read 2026-10-09) **[Documented]**
+• Agent Gateway egress: Model Armor screens incoming responses from external systems such as MCP servers and other agents before the agent receives them (Agent Gateway page, read 2026-10-09) **[Documented]**
 • LangChain (Preview): the response runnable "screens the output generated by the LLM before it is returned to the user", and "Any modifications that the user makes to the response after the primary security check are not filtered" (LangChain page, read 2026-10-09) **[Documented]**
 ### R4
 Summary: **The same managed call as for prompts, on the response path.** Basic and advanced settings, templates and roles are shared; only the method differs. Agent Platform and Gemini Enterprise block a flagged response instead of returning a de-identified one; Apigee exposes redacted data. **[Documented]**
@@ -201,8 +206,11 @@ Detail:
 • Gemini Enterprise Agent Platform route (GA 2025-12-03 per release notes): Model Armor "doesn't pass the de-identified data" back; with INSPECT_AND_BLOCK it blocks the response (Agent Platform integration page, read 2026-10-09) **[Documented]**
 • Gemini Enterprise route (GA 2025-09-16 per release notes): it "blocks the request or response rather than de-identifying it" (Gemini Enterprise integration page, read 2026-10-09) **[Documented]**
 • Apigee route: the SanitizeModelResponse policy sits in the response flow, and "If the request or response is redacted, extract the redacted data using flow variables"; GA or Preview is not stated (Apigee integration page, read 2026-10-09) **[Documented]**
-• Agent Gateway route (GA 2026-06-24 per release notes) and Service Extensions route (GKE integration GA 2025-09-15): both can "block and redact" or "modify" traffic by their own wording, but neither page says how a de-identified response is returned (Agent Gateway and networking pages, read 2026-10-09) **[Documented]**
-• Google and Google Cloud MCP servers route: floor settings only, no templates; release note 2026-04-22 says GA, while the floor settings page still labels it "(Preview)" (release notes and floor settings page, read 2026-10-09) **[Documented]**
+• Agent Gateway route (GA 2026-06-24 per release notes): its flow text says responses are allowed or blocked on the verdict, while its intro mentions "block and redact" (Agent Gateway page, read 2026-10-09) **[Documented]**
+• Service Extensions route (GKE integration GA 2025-09-15 per release notes): Model Armor tells the networking service to "allow, block, or modify the traffic" (networking page, read 2026-10-09) **[Documented]**
+• Google and Google Cloud MCP servers route: configured "Only using floor settings" (integrations page, read 2026-10-09) **[Documented]**
+• Status of the MCP route, source conflict (1): release note 2026-04-22 says "Model Armor integration with Google and Google Cloud MCP servers is in General Availability." (release notes, read 2026-10-09) **[Documented]**
+• Status of the MCP route, source conflict (2): the floor settings page links it as "Model Armor integration with Google Cloud MCP servers (Preview)" (floor settings page, read 2026-10-09) **[Documented]**
 • Pricing: "When Sensitive Data Protection is enabled within Model Armor, there are no additional charges to use it." (pricing page, read 2026-10-09) **[Documented]**
 • Logging caveat: "Enabling logging in a template writes raw prompts and responses to Logging", so an unredacted model response can be stored in logs (logging page, read 2026-10-09) **[Documented]**
 • Location support: Sensitive Data Protection is listed in every location row of the supported-features table, including limited-support regions (feature availability page, read 2026-10-09) **[Documented]**
@@ -229,13 +237,13 @@ Detail:
 • Request: template name in the path, `modelResponseData.text`, optional `userPrompt` and `multiLanguageDetectionMetadata` (sanitizeModelResponse reference, read 2026-10-09) **[Documented]**
 • Template settings: basic `--basic-config-filter-enforcement=enabled`, or advanced inspect and optional de-identify template resource names (sanitize page and templates page, read 2026-10-09) **[Documented]**
 • Cross-project: "the Model Armor service agent must be granted the DLP User role (roles/dlp.user) and DLP Reader role (roles/dlp.reader)" in the Sensitive Data Protection project (templates page, read 2026-10-09) **[Documented]**
-• Cross-project templates for responses: a service account in another project needs `roles/modelarmor.user` in the template project; Sensitive Data Protection templates can sit in the same central project (sanitize page, read 2026-10-09) **[Documented]**
+• Cross-project templates: a calling service account in another project needs `roles/modelarmor.user` in the template-hosting project (sanitize page, read 2026-10-09) **[Documented]**
 • Token limit: 130,000 for Sensitive Data Protection against 65,536 for the other filters; the limits "don't apply to the Model Armor integration with Gemini Enterprise" (quotas page, read 2026-10-09) **[Documented]**
 • Quota: "1200 queries per minute (QPM) per project" (quotas page, read 2026-10-09) **[Documented]**
 • Language: English plus others depending on the chosen infoTypes (overview, read 2026-10-09) **[Documented]**
 • Multi-language detection is available for responses via `multiLanguageDetectionMetadata`; whether it affects this filter is not stated (checked the sanitize page and templates page) **[Not disclosed]**
-• The documented IAM roles for callers are `roles/modelarmor.user` and, for template managers, `roles/modelarmor.admin` (sanitize page and templates page, read 2026-10-09) **[Documented]**
-• Google and Google Cloud MCP servers: configured only through floor settings; cross-project setups can run Model Armor twice (MCP integration page, read 2026-10-09) **[Documented]**
+• Callers use `roles/modelarmor.user`; template managers use `roles/modelarmor.admin` (sanitize page and templates page, read 2026-10-09) **[Documented]**
+• Google and Google Cloud MCP servers: if the agent and the MCP server are in different projects, floor settings in both projects mean Model Armor is invoked twice (MCP integration page, read 2026-10-09) **[Documented]**
 ### R7
 Summary: **Minimum setup:** the same project, Model Armor API, regional template and roles as the input-level column, with basic or advanced Sensitive Data Protection on. Call the regional response method with model outputs that contain synthetic card numbers, US identifiers or passwords. Advanced mode needs inspect and de-identify templates in the same location. **[Inferred]**
 Detail:
@@ -251,7 +259,7 @@ Detail:
 • Whether the basic infoType list is the same for responses as for prompts (checked the sanitize page, overview and REST reference; the lists say "scanned in the prompt")
 • A real response-side `deidentifyResult` and findings (needs testing; the sanitize page has no such example)
 • What the optional `userPrompt` field changes, if anything (checked the REST method reference and sanitize page, not stated)
-• Whether Agent Gateway and Service Extensions return de-identified response text, given the "redact" and "modify" wording (checked both pages, not stated)
+• Whether Agent Gateway and Service Extensions return de-identified response text, given the "block and redact" and "modify" wording (checked both pages, not stated)
 • Whether the Apigee integration is GA or Preview (checked the Apigee integration page and both policy reference pages, not stated)
 • Whether the MCP integration is GA (release note 2026-04-22) or Preview (floor settings page label); needs the owner to confirm
 • Whether Sensitive Data Protection quota use and latency change when Model Armor calls it (checked quotas, best practices and integrations pages, not stated)
@@ -293,8 +301,9 @@ Detail:
 • Overview: "Text extracted from supported files is subject to the token system limits." (overview, read 2026-10-09) **[Documented]**
 • The REST modality reference says the text modality will "sanitize text fields, and text extracted from rich text files (like PDFs, DOCs) and plain text files (like TXT)" (templates reference, read 2026-10-09) **[Documented]**
 • Vendor blog (supporting only): "Document screening: It can also screen text in documents, including PDFs and Microsoft Office files, for malicious and sensitive content." (Google Cloud blog 2025-10-22, read 2026-10-09) **[Documented]**
-• Release note 2025-06-08 first listed the Office types: "Model Armor supports screening text in the following document types for malicious content" (release notes, read 2026-10-09) **[Documented]**
-• Direct REST API supports "all modalities, including text, documents, and images"; in integrations "only the Gemini Enterprise integration supports documents. All other integrations scan and sanitize only text." (integrations page, read 2026-10-09) **[Documented]**
+• Release note 2025-06-08 lists the Office types: "Model Armor supports screening text in the following document types for malicious content" (release notes, read 2026-10-09) **[Documented]**
+• The direct REST API "supports all modalities, including text, documents, and images" (integrations page, read 2026-10-09) **[Documented]**
+• In integrations, "only the Gemini Enterprise integration supports documents. All other integrations scan and sanitize only text." (integrations page, read 2026-10-09) **[Documented]**
 • Product page: "Detects malicious files, malware, and unsafe URLs within AI prompts and responses." (product page, read 2026-10-09) **[Documented]**
 • The REST result schema has a `virusScanFilterResult` type whose scanned content type note reads "PDF Scanning for only PDF is supported." (SanitizationResult reference, read 2026-10-09) **[Documented]**
 • Antivirus scanning is covered only in the inventory sheet, not as a Table 3 column; its configuration (a template setting, enable flag or threshold) is not found in the template reference, manage-templates page or overview (checked all three) **[To be verified]**
@@ -304,7 +313,7 @@ Detail:
 • Overview example: "if a PDF contains an embedded malicious URL, it can be used to compromise any downstream systems processing LLM outputs" (overview, read 2026-10-09) **[Documented]**
 • Product page: "Stop embedded threats like indirect prompt injection where safe and legitimate prompts may be contaminated with malicious files and URLs." (product page, read 2026-10-09) **[Documented]**
 • Supported types: PDF; CSV; TXT; Word DOCX, DOCM, DOTX, DOTM; PowerPoint PPTX, PPTM, POTX, POTM, POT; Excel XLSX, XLSM, XLTX, XLTM (overview, read 2026-10-09) **[Documented]**
-• The REST enum for Excel lists "XLSX, XLSM, XLTX, XLYM" where the overview says XLTM, which looks like a typo in the enum description (DataItem reference and overview, read 2026-10-09) **[Documented]**
+• The REST enum description for Excel reads "XLSX, XLSM, XLTX, XLYM", while the overview and release notes say XLTM (DataItem reference and overview, read 2026-10-09) **[Documented]**
 • Older binary Office formats (DOC, XLS, PPT), RTF, HTML, JSON, Markdown and archives are not in the list; no statement that they are rejected or ignored (checked the overview, sanitize page and DataItem reference) **[Not disclosed]**
 • Filters that run on the extracted text: safety, prompt injection and jailbreak, sensitive data and malicious URLs, as listed in the overview sentence (overview, read 2026-10-09) **[Documented]**
 • Sensitive Data Protection de-identification does not work on files: "Sensitive Data Protection de-identification is not supported for file-based prompts." (sanitize page, read 2026-10-09) **[Documented]**
@@ -327,20 +336,20 @@ Detail:
 • Template modality must allow text: `TEXT` "Scans text strings and text embedded in the supported file formats" and an empty `modalities` field scans only text (templates page and templates reference, read 2026-10-09) **[Documented]**
 • With a single modality set, the other is skipped: "If you specify a single modality (IMAGE or TEXT), Model Armor skips the other and returns EXECUTION_SKIPPED." So an image-only template should skip documents (sanitize page, read 2026-10-09) **[Inferred]**
 • Streaming methods are text only: "Model Armor streaming methods support only textual input, not attachments like images and files." (sanitize page, read 2026-10-09) **[Documented]**
-• Integrations: Gemini Enterprise screens documents (such as PDFs) only when users upload them to the assistant; Agent Platform and Agent Gateway say documents or file uploads are not supported (integration pages, read 2026-10-09) **[Documented]**
+• Gemini Enterprise: the integration "screens the following files only when you upload them to the Gemini Enterprise assistant" (Gemini Enterprise integration page, read 2026-10-09) **[Documented]**
+• Agent Platform and Agent Gateway pages both say sanitizing prompts and responses that contain documents or file uploads (such as PDFs) isn't supported (Agent Platform and Agent Gateway pages, read 2026-10-09) **[Documented]**
 • LangChain (Preview): the runnables "are limited to text screening. If a prompt includes a document, the system scans only the extracted text." (LangChain page, read 2026-10-09) **[Documented]**
-• Model Armor inspects each file as a single-turn request, without history (overview, read 2026-10-09) **[Documented]**
 ### R4
 Summary: **Text extraction, then the ordinary filters.** Extraction runs inside the managed service on the direct API and Gemini Enterprise routes, and Gemini Enterprise discards a violating file whole. The extractor and its handling of scans and layout are not described. **[Documented]**
 Detail:
 • Extraction engine, parser identity and handling of tables, headers, comments, hidden text or embedded objects are not described (checked the overview, sanitize page, templates reference, product page and release notes) **[Not disclosed]**
-• Direct REST API and client libraries accept documents; the generated Go library defines the file types as enum values PDF, WORD_DOCUMENT, EXCEL_DOCUMENT, POWERPOINT_DOCUMENT, TXT, CSV, PLAINTEXT_UTF8 and IMAGE (service.pb.go@37f936ac:776) **[Documented: repo googleapis/google-cloud-go@37f936ac]**
+• The generated Go library defines the byte item types as enum values PDF, WORD_DOCUMENT, EXCEL_DOCUMENT, POWERPOINT_DOCUMENT, TXT, CSV, PLAINTEXT_UTF8 and IMAGE (service.pb.go@37f936ac:776) **[Documented: repo googleapis/google-cloud-go@37f936ac]**
 • GA or Preview status for document screening is not labelled on the overview or sanitize pages (checked both and the release notes; the image feature is labelled Preview, documents are not) **[Not disclosed]**
 • Gemini Enterprise route (GA 2025-09-16 per release notes): screens PDFs and other documents the user uploads; "If a file or an image inside a document violates your configured policies, the entire file or document is discarded and excluded from the request." (Gemini Enterprise integration page, read 2026-10-09) **[Documented]**
-• Gemini Enterprise screens only uploads to the assistant, employee-made and Google-made agents; "Interactions with custom agents from your organization (such as ADK, A2A, and Dialogflow) are not screened." (Gemini Enterprise integration page, read 2026-10-09) **[Documented]**
+• "Interactions with custom agents from your organization (such as ADK, A2A, and Dialogflow) are not screened." (Gemini Enterprise integration page, read 2026-10-09) **[Documented]**
 • Gemini Enterprise page: "There are no token limits when you use Model Armor with Gemini Enterprise." (Gemini Enterprise integration page, read 2026-10-09) **[Documented]**
 • Gemini Enterprise does not de-identify: it blocks the request instead of masking content that triggers a Sensitive Data Protection infoType (integrations page and Gemini Enterprise page, read 2026-10-09) **[Documented]**
-• Antivirus: the supported-features page lists "Antivirus scanning" as a filter in full-support regions and a column in the by-region table; the result type covers PDF only (feature availability page and SanitizationResult reference, read 2026-10-09) **[Documented]**
+• Antivirus: the feature availability page lists "Antivirus scanning" among the filters available in full-support regions and as a column in the by-region table (feature availability page, read 2026-10-09) **[Documented]**
 • Release note 2026-04-10 says the antivirus `virusDetails` field no longer includes security vendor names or threat signatures (release notes, read 2026-10-09) **[Documented]**
 • Pricing: the pricing page counts "the total number of tokens in AI prompts and responses"; how files and extracted text are counted is not stated (pricing page, read 2026-10-09) **[Not disclosed]**
 • Data handling: core data "includes prompts, responses, and input files", processed but not stored at rest (data residency page, read 2026-10-09) **[Documented]**
@@ -354,7 +363,8 @@ Detail:
 • Finding containers: "The top level name is the source file name or table name." (SanitizationResult reference, read 2026-10-09) **[Documented]**
 • Optional `fileLabel` on the byte item is "used to identify the file in the response" (DataItem reference, read 2026-10-09) **[Documented]**
 • Which response field returns the file label is not shown (checked the SanitizationResult reference and sanitize page) **[Not disclosed]**
-• Oversize file: "If a file exceeds this limit, Model Armor skips scanning the file." The result code or message for a skipped file is not stated (overview and quotas page, read 2026-10-09) **[Not disclosed]**
+• Oversize file: "If a file exceeds this limit, Model Armor skips scanning the file." (overview, read 2026-10-09) **[Documented]**
+• The result code or message returned for a skipped oversize file is not stated (checked the overview, quotas page and SanitizationResult reference) **[Not disclosed]**
 • Tiny file: requests for files under 69 bytes are rejected with an `InvalidDocumentInputException` error (overview and quotas page, read 2026-10-09) **[Documented]**
 • Token overflow in extracted text: the filter returns EXECUTION_SKIPPED with "Detection skipped as token limit exceeded." (quotas page, read 2026-10-09) **[Documented]**
 • Gemini Enterprise acts on the verdict by discarding the whole file (Gemini Enterprise integration page, read 2026-10-09) **[Documented]**
@@ -367,10 +377,10 @@ Detail:
 • `byteDataType` is required; the sanitize page lists PLAINTEXT_UTF8, PDF, WORD_DOCUMENT, EXCEL_DOCUMENT, POWERPOINT_DOCUMENT, TXT and CSV, and "If the field is missing or not specified, the request fails." (sanitize page, read 2026-10-09) **[Documented]**
 • The REST enum adds IMAGE and maps WORD_DOCUMENT to DOCX, DOCM, DOTX, DOTM; EXCEL_DOCUMENT to XLSX, XLSM, XLTX; POWERPOINT_DOCUMENT to PPTX, PPTM, POTX, POTM, POT (DataItem reference, read 2026-10-09) **[Documented]**
 • Size: "Supported files are limited to 4 MB in size." and the system limit table gives 4 MB for "All supported files and images" (overview and quotas page, read 2026-10-09) **[Documented]**
-• Release note 2025-09-27 first set the 4 MB limit for files and text (release notes, read 2026-10-09) **[Documented]**
+• Release note 2025-09-27: "Model Armor limits the maximum input size for files and text to 4 MB, automatically skipping any content that exceeds this threshold." (release notes, read 2026-10-09) **[Documented]**
 • Minimum size: files under 69 bytes are rejected "because such files are highly likely to be invalid" (overview, read 2026-10-09) **[Documented]**
 • Token limits on extracted text: 65,536 for prompt injection, responsible AI and CSAM, 130,000 for Sensitive Data Protection, no limit in the Gemini Enterprise integration (quotas page, read 2026-10-09) **[Documented]**
-• Malicious URL detection scans only the first 256 URLs in the extracted text (overview, read 2026-10-09) **[Documented]**
+• Malicious URL detection "scans only the first 256 URLs found in prompts and responses" (overview, read 2026-10-09) **[Documented]**
 • Example command: `base64 -w 0 -i sample.pdf` piped into `jq` to build the JSON body (sanitize page, read 2026-10-09) **[Documented]**
 • Roles: `roles/modelarmor.user` to sanitize; `roles/modelarmor.admin` to manage templates (sanitize page, read 2026-10-09) **[Documented]**
 • Quota: 1,200 queries per minute per project; each file is one request (quotas page, read 2026-10-09) **[Documented]**
@@ -440,7 +450,7 @@ Detail:
 Summary: **Sensitive content and text inside images.** Documented targets are embedded threats, infoType matches and policy violations in an image's pixels or its text. Only three formats are listed. The overview excludes images inside files, text-plus-image prompts, audio and video. **[Documented]**
 Detail:
 • Overview use case lists "embedded threats, sensitive information types (infoTypes), or policy violations" in "visual content and text within images" (overview, read 2026-10-09) **[Documented]**
-• Visual scanning uses "only" the advanced Sensitive Data Protection filter, so the visual route finds what the chosen inspect template defines (overview, read 2026-10-09) **[Documented]**
+• What visual scanning can find is set by the customer's Sensitive Data Protection inspect template, since the visual route uses only the advanced filter and that filter takes its detectors from the template (see the Sensitive Data Protection columns) **[Inferred]**
 • Because visual scanning is limited to that filter, safety, prompt injection and malicious URL checks probably run only on OCR text, not on pixels. The premise is the word "only" in the overview **[Inferred]**
 • Which filters examine the OCR text is not listed (checked the overview, templates page, sanitize page and REST references; the REST note says "depending on the filter configuration") **[Not disclosed]**
 • Formats: "Model Armor screens images only in the JPEG, PNG, and BMP formats." (overview, read 2026-10-09) **[Documented]**
@@ -462,9 +472,11 @@ Detail:
 • Response side, code: the generated Go types give `SanitizeModelResponseRequest.ModelResponseData` as `*DataItem` and define `ByteDataItem_IMAGE` (service.pb.go@37f936ac:2379 and :792) **[Documented: repo googleapis/google-cloud-go@37f936ac]**
 • The overview limitations name both methods: "Model Armor doesn't screen images provided along with text in prompts and responses if you're using the SanitizeUserPrompt and SanitizeModelResponse methods." (overview, read 2026-10-09) **[Documented]**
 • No page shows a request body that sends an image through `modelResponseData` (checked the sanitize page, overview, templates page and release notes) **[To be verified]**
-• Template modality: "To enable image screening, set the modality in the template metadata." and an empty `modalities` field scans text only (sanitize page and templates reference, read 2026-10-09) **[Documented]**
+• Template modality: "To enable image screening, set the modality in the template metadata." (sanitize page, read 2026-10-09) **[Documented]**
+• An empty `modalities` field scans text only (templates reference, read 2026-10-09) **[Documented]**
 • With one modality set, the other is skipped: "Model Armor skips the other and returns EXECUTION_SKIPPED." (sanitize page, read 2026-10-09) **[Documented]**
-• Regions: "Image screening is supported only in the us and eu multi-regions." and an image sent to another regional endpoint gives `invocation_result` FAILURE (overview, read 2026-10-09) **[Documented]**
+• Regions: "Image screening is supported only in the us and eu multi-regions." (overview, read 2026-10-09) **[Documented]**
+• An image sent to a regional endpoint without image screening gives `invocation_result` FAILURE (overview, read 2026-10-09) **[Documented]**
 • Streaming: "Model Armor streaming methods support only textual input, not attachments like images and files." (sanitize page, read 2026-10-09) **[Documented]**
 • Integrations, source conflict (1): the Gemini Enterprise page says it screens "Images that you upload directly" (Gemini Enterprise integration page, read 2026-10-09) **[Documented]**
 • Integrations, source conflict (2): the integrations options table lists the Gemini Enterprise integration's supported modalities as "Text, documents" with no images (integrations page, read 2026-10-09) **[Documented]**
@@ -482,7 +494,7 @@ Detail:
 • Serving route: the direct REST API supports "all modalities, including text, documents, and images" (integrations page, read 2026-10-09) **[Documented]**
 • Gemini Enterprise integration (GA 2025-09-16 per release notes): its own page says it screens images uploaded to the assistant (Gemini Enterprise integration page and release notes, read 2026-10-09) **[Documented]**
 • The Go library pins the `Modality` enum values MODALITY_UNSPECIFIED, MODALITY_TEXT and MODALITY_IMAGE (service.pb.go@37f936ac:454) **[Documented: repo googleapis/google-cloud-go@37f936ac]**
-• Pricing is by tokens in prompts and responses at about four characters per token; how an image is counted is not stated (pricing page, read 2026-10-09) **[Not disclosed]**
+• Pricing counts tokens, defined as "four characters (using UTF-8 code points) per token excluding white space"; how an image is counted is not stated (pricing page, read 2026-10-09) **[Not disclosed]**
 • Sensitive Data Protection use inside Model Armor carries no extra charge (pricing page, read 2026-10-09) **[Documented]**
 • Data handling: images are processed in memory with no durable storage unless Cloud Logging is enabled (overview, read 2026-10-09) **[Documented]**
 • Self-hosted or offline image screening is not described (checked the overview, product page and integrations page) **[Not disclosed]**
@@ -499,7 +511,7 @@ Detail:
 • Source conflict on box shape (1): the REST reference gives `imageFindingLocation.boundingBoxes[]`, a list (SanitizationResult reference, read 2026-10-09) **[Documented]**
 • Source conflict on box shape (2): the sanitize page example shows a single `boundingBox` object with top 16, left 121, width 620, height 90 (sanitize page, read 2026-10-09) **[Documented]**
 • The redaction example shows `redactedImage` as the placeholder "[REDACTED_IMAGE]", an infoType EMAIL_ADDRESS and likelihood LIKELY, so it shows no real image bytes (sanitize page, read 2026-10-09) **[Documented]**
-• Basic image example: a prompt image returns `filterMatchState` MATCH_FOUND with CSAM no match and sdp `inspectResult` MATCH_FOUND, and no other filters shown (sanitize page, read 2026-10-09) **[Documented]**
+• Image prompt example: a prompt image returns `filterMatchState` MATCH_FOUND with CSAM no match and sdp `inspectResult` MATCH_FOUND, and no other filters shown (sanitize page, read 2026-10-09) **[Documented]**
 • No numeric score field exists in the SanitizationResult reference (searched the page text for "score") **[Not disclosed]**
 • OCR accuracy, visual detection rates and false-positive figures are not given (checked the overview, product page, blog, release notes and best practices) **[Not disclosed]**
 ### R6
@@ -510,8 +522,9 @@ Detail:
 • "Model Armor screens only a single image per request." and multiple images at a time are unsupported with the two sanitize methods (overview, read 2026-10-09) **[Documented]**
 • Template field `modalities` (Preview): `MODALITY_IMAGE`, `MODALITY_TEXT`, or both; "If empty, only text modality will be scanned." (templates reference, read 2026-10-09) **[Documented]**
 • Console: "Select modality to specify whether you want to screen text, images, or both", and the field is disabled in regions other than us and eu (templates page, read 2026-10-09) **[Documented]**
-• Endpoint must be a us or eu location, for example `modelarmor.us.rep.googleapis.com` or `modelarmor.eu.rep.googleapis.com`, following the documented `modelarmor.LOCATION.rep.googleapis.com` pattern (templates page, read 2026-10-09) **[Documented]**
-• Advanced Sensitive Data Protection settings: `inspectTemplate` and, for redaction, `deidentifyTemplate` in the same location; cross-project use needs `roles/dlp.user` and `roles/dlp.reader` for the Model Armor service agent (sanitize page and templates page, read 2026-10-09) **[Documented]**
+• Image requests therefore go to a us or eu endpoint, for example `modelarmor.us.rep.googleapis.com` or `modelarmor.eu.rep.googleapis.com`, built from the documented `modelarmor.LOCATION.rep.googleapis.com` pattern (templates page, read 2026-10-09) **[Inferred]**
+• Advanced Sensitive Data Protection settings: `inspectTemplate` and, for redaction, `deidentifyTemplate`, in the same location as the Model Armor template (sanitize page, read 2026-10-09) **[Documented]**
+• Cross-project use needs `roles/dlp.user` and `roles/dlp.reader` for the Model Armor service agent in the project holding the Sensitive Data Protection templates (templates page, read 2026-10-09) **[Documented]**
 • Quota: "1200 queries per minute (QPM) per project" (quotas page, read 2026-10-09) **[Documented]**
 • How image content counts against token limits is not stated (checked the quotas page, overview and pricing page) **[Not disclosed]**
 • Callers need `roles/modelarmor.user`; template managers need `roles/modelarmor.admin` (sanitize page and templates page, read 2026-10-09) **[Documented]**
