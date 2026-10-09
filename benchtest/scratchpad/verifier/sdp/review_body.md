@@ -83,8 +83,8 @@ Leftovers on specific topics:
 | SD2 R5 | entailed by the new InspectContentResponse bullet |
 | SD2 R6 | entailed, verified at the limits page |
 | SD2 R8 | unlabelled, consistent with the R8 bullets |
-| SD3 R1 | entailed: "shown only on table fields" by the new samples bullet; "summary of changes" only in R5 (optional) |
-| SD3 R4 | entailed |
+| SD3 R1 | formally entailed by the new samples bullet, but that bullet is false at source, so the Summary is wrong (fix 7); "summary of changes" only in R5 (optional) |
+| SD3 R4 | same as SD3 R1 (fix 7) |
 | SD4 R4 | not entailed by a [Documented] bullet for its lead (fix 3) |
 | SD4 R5 | entailed |
 | SD5 R1 | entailed: release notes 2025-07-04, 2025-11-03, 2025-12-15, 2026-06-08 |
@@ -114,7 +114,7 @@ Leftovers on specific topics:
 | 8 | Surrogate detection description (merger split) | SD2 R1, SD4 R4 | https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/InspectConfig | surrogateType: "Message for detecting output from deidentification transformations that support reversing." | MATCH |
 | 9 | Regex syntax points to RE2 (T47) | SD2 R4, SD2 R8 | https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/Regex | "Its syntax (https://github.com/google/re2/wiki/Syntax) can be found under the google/re2 repository on GitHub." | MATCH |
 | 10 | Rule order: GA note versus REST "executed in the end" (T49) | SD2 R4 | release notes; REST InspectConfig | "Enhanced rule ordering, which lets you chain rules based on the order you specify them in the ruleset." (February 23, 2026) / "Exclusion rules, contained in the set are executed in the end" (page "Last updated 2026-09-05 UTC") | MATCH |
-| 11 | Bucketing, date shift and time part samples use record transformations (T12, changed Summaries) | SD3 R1, SD3 R4 | https://docs.cloud.google.com/sensitive-data-protection/docs/transformations-reference | Every date-shift, bucketing and time-part code sample builds `RecordTransformations` / `recordTransformations` (fetched lines 3638 to 6355) | MATCH |
+| 11 | "The date-shift, time-extraction and bucketing code samples ... use record (table) transformations" (T12, changed Summaries "shown only on table fields") | SD3 R1, SD3 R4 | https://docs.cloud.google.com/sensitive-data-protection/docs/transformations-reference | Bucketing section (fetched lines 7572 to 7655): no code sample, only a `"bucketingConfig":{` JSON fragment. Go date-shift sample: `Transformation: &dlppb.DeidentifyConfig_InfoTypeTransformations{` … `PrimitiveTransformation_DateShiftConfig` … `Name: "DATE"` … `DataItem: &dlppb.ContentItem_Value{` with `// input := "2016-01-10"` and `// Will print "2016-01-09"`. The other five date-shift samples and all time-part samples use record transformations | MISMATCH (fix 7) |
 | 12 | dateShiftConfig.cryptoKey table-only; bucketing allowed in PrimitiveTransformation (T12) | SD3 R4 | https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.deidentifyTemplates | "Causes the shift to be computed based on this key and the context. … Can only be applied to table items."; `"fixedSizeBucketingConfig": { object (FixedSizeBucketingConfig)` in PrimitiveTransformation (the discovery document itself not opened, by rule) | MATCH |
 | 13 | transformationErrorHandling documented in REST (T57) | SD3 R4, SD3 R8 | same | "Mode for handling transformation errors. If left unspecified, the default mode is TransformationErrorHandling.ThrowError." / LeaveUntransformed "Skips the data without modifying it if the requested transformation would cause an error." | MATCH |
 | 14 | Two findings for one string (T54) | SD3 R4 | https://docs.cloud.google.com/sensitive-data-protection/docs/concepts-infotypes | "then you get two findings for the same string—one for DRIVERS_LICENSE_NUMBER and one for GERMANY_DRIVERS_LICENSE_NUMBER" | MATCH |
@@ -138,7 +138,7 @@ Leftovers on specific topics:
 | 32 | Stored-infoType read permissions in Reader and Viewer, not in DLP User (T51) | SD2 R6 | https://docs.cloud.google.com/sensitive-data-protection/docs/access-control/roles-permissions | DLP Viewer (roles/dlp.viewer) and DLP Reader (roles/dlp.reader) list "dlp.storedInfoTypes.get" and "dlp.storedInfoTypes.list"; DLP User lists no dlp.storedInfoTypes permission | MATCH |
 | 33 | Conversation and batch notes say inspecting and de-identifying only (T60) | SD1 R1, SD3 R3, SD4 R3 | release notes | "Added support for inspecting and de-identifying conversational content." (June 03, 2026) / "Added support for inspecting and de-identifying batched content." (June 12, 2026) | MATCH |
 
-**Tally: 33 checked, 32 MATCH, 1 MISMATCH, 0 UNVERIFIABLE.**
+**Tally: 33 checked, 31 MATCH, 2 MISMATCH (rows 11 and 20), 0 UNVERIFIABLE.**
 
 Quote sweep (`quote_sweep.py`):
 - 523 quoted fragments from both final files were checked against the union of the 84 fetched official pages and the client files at the tag, after whitespace and curly-quote normalisation.
