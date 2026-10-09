@@ -25,6 +25,8 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| modelarmor P10 review Q1 (inventory_final line 24 "Gemini Enterprise Agent Platform" wrong; already in workbook 3h!A17) | post-P8 fix: gr-merger edits the final, then gr-xlsx-writer re-applies (3h only) and proves all else unchanged | main |
+| modelarmor P10 review Q2 (in-body link colour CSS on sdp/modelarmor pages) | allowed on all pages: one exact line in Additions block; diagrams/README.md §9 note | main |
 | presidio P10 review Q2 (reuse sibling-page NeMo/Llama Guard/Sentinel cells in positioning) | R027 (+ diagrams/README.md §10 exception) | main |
 | explorer/20261009_purplellama_q02 (merge 6→4: engine vs wrapper) | keep separate (R004; same as q15); AlignmentCheck header carries "Trace-level" direction label (R002 naming) | main |
 | explorer/20261009_purplellama_q04 (AlignmentCheck column vs inventory; external Together API key) | column (R004 names AlignmentCheck); R7 states external LLM/API key dependency | main |
