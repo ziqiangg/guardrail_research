@@ -1,0 +1,71 @@
+# status 200  final_url https://huggingface.co/collections/govtech/lionguard  content-type text/html; charset=utf-8
+Hugging Face
+Models
+Datasets
+Spaces
+Buckets new
+Docs
+Enterprise
+Pricing
+Website
+Tasks
+HuggingChat
+Collections
+Languages
+Organizations
+Community
+Blog
+Posts
+Daily Papers
+Hardware
+Learn
+Discord
+Forum
+GitHub
+Solutions
+Team & Enterprise
+Hugging Face PRO
+Enterprise Support
+Inference Providers
+Inference Endpoints
+Storage Buckets
+Log In
+Sign Up
+govtech 's Collections
+Benchmarks by GovTech 🏋️‍♀️
+Guardrails by GovTech🛡️
+Papers by GovTech 📝
+LionGuard 2 🦁 ✌️
+CIRCLE ⭕️
+RabakBench 🙊
+Know Or Not 🤔
+MinorBench 🍎
+SEA-Lionv2.1 SECURE 👮
+Off Topic Guardrail 🛡️
+LionGuard 🦁
+Kaleidoscope 🏵️
+LionGuard 🦁
+updated Aug 12
+A Singapore-contextualized moderation classifier.
+Upvote
+1
+Sort:
+Collection
+govtech/lionguard-v1
+Updated Nov 16, 2024 • 92 • 11
+LionGuard: Building a Contextualized Moderation Classifier to Tackle
+Localized Unsafe Content
+Paper • 2407.10995 • Published Jun 24, 2024 • 2
+Upvote
+1
+Sort:
+Collection
+Share collection
+View history
+Collection guide
+Browse collections
+System theme
+Company
+TOS Privacy About Careers
+Website
+Models Datasets Spaces Pricing Docs

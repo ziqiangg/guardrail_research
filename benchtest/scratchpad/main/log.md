@@ -80,3 +80,4 @@
 - 2026-10-09 purplellama P4 triager stopped by session limit (reset 22:50); partial triage (76 KB) committed as WIP; resumed
 - 2026-10-09 purplellama P4 done: 105 items (a 56, b 37, c 12), H 20; Q1–Q4 ruled by main; CP1 (Q-A..Q-D) + lionguard CP1 → user
 - 2026-10-09 CP1 (user) for B2: purplellama R030 (per-tool prefix, 7 cols, one column per scanner; negatives not decided), lionguard R031 (LN1, LionGuard:, keep all variants, decide test text later); R032 global: bench-design content reported as proposals, not decisions. P5 started.
+- 2026-10-09 lionguard P5 done: 39 items (33 resolved, 5 partly, 1 open T6 licence); corrections (4.19%+0.70%, test-set premise, Table 3/4, Gemma Appendix lists EmbeddingGemma, OpenAI /v1/embeddings 30-day abuse retention); 4 Summary changes + R032 rewording; 5 OpenAI policy pages 403; Q-A..Q-C ruled by main; P6 started

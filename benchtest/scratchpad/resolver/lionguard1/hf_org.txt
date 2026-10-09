@@ -1,0 +1,194 @@
+# status 200  final_url https://huggingface.co/govtech  content-type text/html; charset=utf-8
+Hugging Face
+Models
+Datasets
+Spaces
+Buckets new
+Docs
+Enterprise
+Pricing
+Website
+Tasks
+HuggingChat
+Collections
+Languages
+Organizations
+Community
+Blog
+Posts
+Daily Papers
+Hardware
+Learn
+Discord
+Forum
+GitHub
+Solutions
+Team & Enterprise
+Hugging Face PRO
+Enterprise Support
+Inference Providers
+Inference Endpoints
+Storage Buckets
+Log In
+Sign Up
+GovTech Singapore - AI Practice
+government
+https://tech.gov.sg
+Activity Feed
+Follow
+80
+AI & ML interests
+AI for Public Good
+Recent Activity
+leannetanyt published a dataset about 1 month ago
+govtech/veiled-sh
+leannetanyt updated a dataset about 1 month ago
+govtech/veiled-sh
+leannetanyt updated a Space about 2 months ago
+govtech/rai-bench
+View all activity
+Team members 12
+Collections 12
+Benchmarks by GovTech 🏋️‍♀️
+RabakBench 🙊
+Collection
+2 items • Updated Aug 12
+MinorBench 🍎
+Collection
+2 items • Updated Aug 12 • 1
+Know Or Not 🤔
+Collection
+2 items • Updated Aug 12
+CIRCLE ⭕️
+Collection
+2 items • Updated Aug 12
+Guardrails by GovTech🛡️
+LionGuard 2 🦁 ✌️
+Collection
+6 items • Updated Aug 12 • 1
+Off Topic Guardrail 🛡️
+Collection
+Fast, lightweight zero-shot classifiers for user prompt's relevance to the system prompt. • 5 items • Updated Aug 12 • 5
+Sleeping
+1
+System Prompt Leakage Demo
+🚰
+1
+Detect system prompt leakage in LLM output
+LionGuard 🦁
+Collection
+A Singapore-contextualized moderation classifier. • 2 items • Updated Aug 12 • 1
+Benchmarks by GovTech 🏋️‍♀️
+RabakBench 🙊
+Collection
+2 items • Updated Aug 12
+MinorBench 🍎
+Collection
+2 items • Updated Aug 12 • 1
+Know Or Not 🤔
+Collection
+2 items • Updated Aug 12
+CIRCLE ⭕️
+Collection
+2 items • Updated Aug 12
+Guardrails by GovTech🛡️
+LionGuard 2 🦁 ✌️
+Collection
+6 items • Updated Aug 12 • 1
+Off Topic Guardrail 🛡️
+Collection
+Fast, lightweight zero-shot classifiers for user prompt's relevance to the system prompt. • 5 items • Updated Aug 12 • 5
+Sleeping
+1
+System Prompt Leakage Demo
+🚰
+1
+Detect system prompt leakage in LLM output
+LionGuard 🦁
+Collection
+A Singapore-contextualized moderation classifier. • 2 items • Updated Aug 12 • 1
+View 12 collections
+spaces 5
+Sort:
+Recently updated
+Running
+6
+RAI Bench
+🛡
+Explore AI model safety, robustness and fairness scores
+govtech
+Aug 17
+Running
+4
+Off Topic Guardrail Demo
+🙅
+Detect off‑topic content in a conversation
+govtech
+Mar 26
+Sleeping
+1
+System Prompt Leakage Demo
+🚰
+Detect system prompt leakage in LLM output
+govtech
+Mar 20
+Running
+4
+LionGuard
+🦁
+Localised Multilingual Moderation Classifier for Singapore
+govtech
+Nov 19, 2025
+Paused
+Agents
+3
+Biome
+🍃
+Multimodal search & retrieval-based biodiversity recognition
+govtech
+Dec 10, 2024
+models 7
+Sort:
+Recently updated
+govtech/lionguard-2.1
+Text Classification • 849k • Updated Nov 18, 2025 • 37 • 2
+govtech/lionguard-2-lite
+Text Classification • 259k • Updated Nov 18, 2025 • 156 • 2
+govtech/lionguard-2
+Text Classification • 849k • Updated Nov 18, 2025 • 80 • 1
+govtech/llama3-8b-sea-lionv2.1-instruct-secure
+Text Generation • 8B • Updated Feb 20, 2025 • 18 • 2
+govtech/stsb-roberta-base-off-topic
+Updated Nov 25, 2024 • 1.36k • 4
+govtech/jina-embeddings-v2-small-en-off-topic
+Updated Nov 22, 2024 • 37 • 3
+govtech/lionguard-v1
+Updated Nov 16, 2024 • 92 • 11
+datasets 10
+Sort:
+Recently updated
+govtech/veiled-sh
+Viewer • Updated Aug 27 • 10k • 49 • 4
+govtech/SynthSite
+Preview • Updated Apr 9 • 528 • 1
+govtech/RubricBench
+Viewer • Updated Mar 12 • 108 • 39
+govtech/RabakBench-full
+Viewer • Updated Jan 5 • 5.36k • 1
+govtech/lionguard-2-synthetic-instruct
+Viewer • Updated Nov 18, 2025 • 2.1k • 22
+govtech/RabakBench
+Preview • Updated Nov 11, 2025 • 136 • 4
+govtech/CIRCLE
+Viewer • Updated Jul 28, 2025 • 1.26k • 25
+govtech/PolicyBenchFull
+Viewer • Updated Jun 20, 2025 • 3.31k • 9 • 2
+govtech/PolicyBench
+Preview • Updated Jun 12, 2025 • 31
+govtech/MinorBench
+Viewer • Updated Mar 14, 2025 • 299 • 108 • 8
+System theme
+Company
+TOS Privacy About Careers
+Website
+Models Datasets Spaces Pricing Docs

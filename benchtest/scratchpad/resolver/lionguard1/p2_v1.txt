@@ -1,0 +1,2243 @@
+# status 200  final_url https://arxiv.org/html/2507.15339v1  content-type text/html; charset=utf-8
+Report GitHub Issue
+×
+Title:
+Content selection saved. Describe the issue below:
+Description:
+Submit without GitHub
+Submit in GitHub
+arXiv is now an independent nonprofit!
+Learn more
+×
+Back to arXiv
+Why HTML?
+Report Issue
+Back to Abstract
+Download PDF
+Abstract
+1 Introduction
+2 Related Work
+2.1 Multilingual Content Moderation
+2.2 Small, Inference-Efficient Guardrails
+3 System Overview
+Real World Deployment.
+4 Methodology
+4.1 Data Curation
+4.1.1 Safety Taxonomy
+4.1.2 Data Sources.
+4.1.3 Automated Labelling with Human Supervision
+4.1.4 Data Filtering.
+Resulting Corpus.
+4.2 Architecture
+4.2.1 Selecting Domain-Specific Embeddings
+Selection Outcome.
+4.2.2 Training a Lightweight Classifier
+Early fine-tuning baselines
+Ordinal heads for Level-2 harms.
+5 Evaluation
+5.1 Performance on 17 Benchmarks.
+Results.
+Category breakdown.
+5.2 Robustness.
+5.3 Red-Teaming by Native Speakers
+6 Key Insights
+6.1 Localised data matters most
+6.2 Small models can outperform large models
+6.3 Embedding choice is decisive
+7 Limitations.
+7.1 Reliance on closed-source embeddings
+7.2 Misalignment between binary and category labels
+7.3 Lower performance for Tamil
+8 Conclusion
+9 Acknowledgments
+References
+A Demonstration of LionGuard 2 applied as a chatbot guardrail
+B Taxonomy
+C Data
+C.1 Prompt template for synthetic chat queries
+C.2 English datasets used in experiments
+C.3 Experiments with LLM-translated data
+C.4 Results from Alt-Test
+C.5 Prompt Template for data labeling
+C.6 Data Filtering Details
+D Architecture experiments
+D.1 Multilingual similarity of embedding models
+D.2 Early fine-tuning baselines
+D.3 Training Setup
+Hardware.
+Training parameters.
+E Evaluation
+E.1 Misalignment between binary and category labels.
+E.2 Red-Teaming by Native Speakers
+Stage 1: Brainstorming.
+Stage 2: Guideline Tagging.
+Stage 3: Test-Set Expansion.
+Stage 4: Model Evaluation.
+E.3 Breakdown of category F1 scores on selected benchmarks.
+E.4 Inter-Taxonomy Mappings (Models)
+E.5 Inter-Taxonomy Mappings (Benchmarks)
+License: CC BY 4.0
+arXiv:2507.15339v1 [cs.CL] 21 Jul 2025
+LionGuard 2:
+Building Lightweight, Data-Efficient & Localised
+Multilingual Content Moderators
+Leanne Tan
+††thanks: Contributed equally
+Affiliation: GovTech, Singapore
+Gabriel Chua11footnotemark:
+1
+Affiliation: GovTech, Singapore
+Ziyu Ge
+Affiliation: Singapore University of Technology and Design
+Roy Ka-Wei Lee
+Email: {leanne_tan|gabriel_chua}@tech.gov.sgWarning: this paper contains references and data that may be offensive.
+Affiliation: GovTech, Singapore
+Affiliation: Singapore University of Technology and Design
+Abstract
+Modern moderation systems increasingly support multiple languages, but often fail to address localisation and low-resource variants - creating safety gaps in real-world deployments. Small models offer a potential alternative to large LLMs, yet still demand considerable data and compute. We present LionGuard 2, a lightweight, multilingual moderation classifier tailored to the Singapore context, supporting English, Chinese, Malay, and partial Tamil. Built on pre-trained OpenAI embeddings and a multi-head ordinal classifier, LionGuard 2 outperforms several commercial and open-source systems across 17 benchmarks, including both Singapore-specific and public English datasets. The system is actively deployed within the Singapore Government, demonstrating practical efficacy at scale. Our findings show that high-quality local data and robust multilingual embeddings can achieve strong moderation performance, without fine-tuning large models. We release our model weights11
+1
+https://huggingface.co/govtech/lionguard-2 and part of our training data22
+2
+https://huggingface.co/datasets/govtech/lionguard-2-synthetic-instruct to support future work on LLM safety.
+1 Introduction
+As AI systems are increasingly deployed across diverse linguistic communities, moderation systems33
+3
+We use the terms ”moderation system”, ”moderation classifier”, and ”guardrail” interchangeably to refer to text filters that assess content safety. are evolving to offer broader multilingual support OpenAI (2024); Meta (2025). However, their effectiveness in localised, low-resource, or code-mixed settings remains limited - leaving critical safety gaps. For instance, multilingual adversarial prompts have been shown to bypass robust filters Yong et al. (2024); Shen et al. (2024); Wang et al. (2024). Singapore exemplifies the challenge: everyday discourse blends English, Chinese, Malay, and Tamil in code-mixed forms like Singlish, featuring local slang, abbreviations, and dialectal variants (Figure 1). Moderation systems that ignore such linguistic nuance risk degraded performance and exploitation in real-world deployments.
+Figure 1: Example of code-mixed Singlish combining English, Chinese, and Malay.
+In this work, we present LionGuard 2, a lightweight, data-efficient moderation classifier tailored to Singapore’s multilingual context. Unlike large LLM-based guardrails Inan et al. (2023), LionGuard 2 uses pre-trained multilingual embeddings and a compact classifier head to achieve fast, scalable deployment with minimal compute and training data. This upgrade over our prior system, LionGuard 1 Foo and Khoo (2025), includes: (i) a richer risk taxonomy with severity levels, (ii) improved robustness to noisy and code-mixed input, and (iii) multilingual support across English, Chinese, Malay, and partial Tamil. LionGuard 2 can be retrained in under two minutes, runs on CPUs, and integrates easily into production workflows. We benchmark LionGuard 2 across 17 datasets, spanning both Singapore-localised and public English testbeds, and find that it outperforms both commercial and open-source moderation systems in F1 score.
+Our contributions are threefold: (i) We present LionGuard 2 as a case study for building practical, localised moderation systems under resource constraints. (ii) We share empirical insights from model architecture choices, data curation strategies, and comparative evaluations. (iii) We release the classifier weights and a portion of our training data to support future research in LLM safety.
+2 Related Work
+2.1 Multilingual Content Moderation
+While commercial moderation APIs offer multilingual support, their efficacy on low-resource or code-mixed languages is often unclear. Open-source models such as LlamaGuard Meta (2024b); Meta (2025), DuoGuard Deng et al. (2025), and PolyGuard Kumar et al. (2025) provide broader coverage, but do not address cultural localisation, limiting their robustness in real-world multilingual environments.
+Recent benchmarks Ng et al. (2024); Gupta et al. (2024); Chua et al. (2025) address this gap by evaluating models on Singapore-specific, code-mixed input. Our earlier system, LionGuard 1 Foo and Khoo (2025), showed that a multilingual embedding-based classifier can outperform LLM-based solutions on such tasks. However, it used a coarser risk taxonomy and lacked partial Tamil coverage. In this work, we present LionGuard 2, which improves performance on local and general benchmarks, introduces severity-aware ordinal heads, and extends multilingual robustness while maintaining a lightweight architecture.
+2.2 Small, Inference-Efficient Guardrails
+Recent work has trended toward smaller moderation classifiers. For example, LlamaGuard 3 (1B) Fedorov et al. (2024) and ShieldGemma (2B) Zeng et al. (2024) exemplify compact models designed for efficient inference. Other open-source efforts Kumar et al. (2025); Deng et al. (2025) also fine-tune small 0.5B and 2.5B models. However, training these models is costly, requiring large labeled datasets (often over a million examples) and substantial compute. This discourages efforts to customise guardrails for local safety contexts and ultimately limits adoption of safe AI deployments.
+Conversely, embedding-based methods offer a complementary path. Systems can effectively achieve strong performance with pre-trained embeddings in retrieval and classification tasks Enevoldsen et al. (2025); Chen et al. (2024); Sturua et al. (2024), and are even available in specialised domains Tang and Yang (2025); VoyageAI (2024), proving its practicality.
+3 System Overview
+Figure 2: Example of LionGuard 2 working as a bidirectional filter around an LLM Chatbot.
+LionGuard 2 is designed as a lightweight moderation system for any text content. Figure 2 illustrates an example of its role as both an input filter (screening user prompts) and an output filter (verifying model responses) before the text reaches the language model or end users respectively.
+LionGuard 2 can also be used in AI application safety testing, to detect if application responses contain unsafe elements.
+Figure 6 demonstrates LionGuard 2 acting as an chatbot guardrail. LionGuard 2 flags localised unsafe content that bypasses both the LLM’s internal safety alignment and commercial moderation classifiers (i.e. OpenAI Moderation). In this example, Singapore-specific acronyms and slang are used to elicit unsafe content from the LLM.
+Real World Deployment.
+LionGuard 2 replaces its predecessor and is deployed on the Singapore Government’s AI Guardian platform GovTech Singapore (2025b) as a safety module for any text-centric service requiring localised safeguards. Developers can easily apply LionGuard within the standard Chat Completions API request GovTech Singapore (2025a).
+Running synchronously on a single CPU, the embedding call handles ≈250​tokens​s−1\approx 250\;\text{tokens}\,\text{s}^{-1}, while the classifier head itself processes ≈1.5×104​tokens​s−1\approx 1.5\times 10^{4}\;\text{tokens}\,\text{s}^{-1}, giving an end-to-end throughput of ≈300​tokens​s−1\approx 300\;\text{tokens}\,\text{s}^{-1}. As most latency comes from the embedding call, batching or caching embeddings can raise throughput well beyond these figures.
+4 Methodology
+Figure 3: The LionGuard 2 methodology. We consolidate and process multiple data sources, apply semi-supervised labeling with human-aligned LLMs, and train a lightweight classifier on embeddings from a carefully chosen model.
+4.1 Data Curation
+4.1.1 Safety Taxonomy
+Every content-moderation system defines its own harm categories, and we adopt the two-level taxonomy in Appendix B, originally proposed by Goh et al. (2025) and adopted in Chua et al. (2025) for the Singapore context. While this taxonomy is customised to our organisational needs, each label can be mapped to other major frameworks by MLCommons Vidgen et al. (2024a), OpenAI OpenAI (2024), and the major cloud providers Azure (); AWS (2025). All subsequent LionGuard 2 design choices are aligned with this internal and localised taxonomy.
+We encourage practitioners adopting similar methodologies to begin their projects with a comprehensive, effective taxonomy that matches their real-world use case.
+4.1.2 Data Sources.
+Our goal is to curate a small yet rich set of texts that reflects Singaporean discourse. We first combined three data sources:
+1.
+Local comments.
+We extract texts from Singaporean forums and subreddits, previously described in Foo and Khoo (2025).
+2.
+Synthetic queries.
+To broaden style coverage, each local comment was rewritten by gpt-4o-mini into a chatbot query, then verified and refined using self-reflection and chain-of-thought (CoT) prompting. (see prompt in Appendix C.1). Figure 4 illustrates an example of an transformed comment.
+3.
+Open-source english data.
+Open-source english datasets containing text relevant to our safety taxonomy were added (See Appendix C.2). Some datasets were eventually excluded after ablation revealed binary F1F_{1} loss of as much as 30%.
+Figure 4: Example of a synthetically augmented Singaporean comment.
+Initial experiments also included using gpt-4o-mini to translate local comments into Malay and Tamil; however, these variants lowered downstream F1F_{1} and were removed (Appendix C.3). From our manual review, we hypothesise that the LLM struggles to translate toxic content across languages, either losing toxicity or failing to fully grasp the context. Notably, our final corpus contains no machine-translated Chinese, Malay or Tamil, and all non-English text appear only in naturally code-mixed Singlish.
+4.1.3 Automated Labelling with Human Supervision
+To mimic low-resource constraints, we employ LLMs to annotate the training examples, but employ statistical methods to ensure as much alignment as possible with human labellers. We begin with a panel of six humans and six LLMs 44
+4
+o3-mini-low OpenAI (2025), Gemini 2.0 Flash Google (2025), Claude 3.5 Haiku Anthropic (2024), Llama 3.3 70B Meta (2024a), Mistral Small 3 Mistral (2025), and AWS Nova Lite Intelligence (2024).
+Through the Alt-Test methodology (Calderon et al., 2025), we identified Gemini 2.0 Flash, o3-mini-low, and Claude 3.5 Haiku to be best aligned with our six human annotators, and labeled every example in our dataset with these three selected models (system prompt in Appendix C.5).
+4.1.4 Data Filtering.
+A five-stage funnel data (Figure 3) pipeline was used in data curation, systematically adjusting parameters (Appendix C.6) at each stage.
+Resulting Corpus.
+The final training set contained 26,207 unique texts: 20,333 online comments, 2,098 synthetically augmented comments, and 3,776 texts from open-source English datasets. The test set contained 6,249 raw comments and 7,058 synthetic comments.55
+5
+In this study, we did not adopt the original train-test split from Foo and Khoo (2025), and instead used a time-series based split. Our training set is significantly smaller than that of other methods that fine-tune decoder-based models for content moderation, and is also 70% smaller than what was used for LionGuard 1.
+4.2 Architecture
+4.2.1 Selecting Domain-Specific Embeddings
+Embedding choice is critical as it defines the representation space on which all downstream moderation classifier layers operate. We selected six multilingual open- and closed-source text embedding models and trained the same multi-head classifier on each set of embeddings.
+| Embeddings
+| Test
+| RabakBench
+|
+SS
+|
+ZH
+|
+MS
+|
+TA
+|
+text-embedding-3-large
+3,072d3,072_{d} OpenAI (2025)
+| 77.0
+|
+88.1
+|
+87.8
+|
+78.4
+|
+66.6
+|
+cohere-embed-multilingual-v3.0
+1,024d1,024_{d} Cohere (2025a)
+| 72.9
+|
+64.2
+|
+67.9
+|
+60.9
+|
+56.4
+|
+cohere-embed-v4.0
+1,536d1,536_{d} Cohere (2025b)
+| 69.0
+|
+61.1
+|
+66.2
+|
+38.9
+|
+3.8
+|
+BGE-M3
+1,024d1,024_{d} Chen et al. (2024)
+| 63.2
+|
+51.9
+|
+65.1
+|
+60.6
+|
+51.0
+|
+snowflake-arctic-embed-l-v2.0
+1,024d1,024_{d} Yu et al. (2024)
+| 64.3
+|
+44.6
+|
+55.0
+|
+45.4
+|
+41.7
+|
+Qwen3-Embedding-0.6B
+1,024d1,024_{d} Zhang et al. (2025)
+| 87.2
+|
+61.4
+|
+67.9
+|
+60.9
+|
+56.4
+Table 1: Binary F1F_{1} when swapping sentence encoders.
+Selection Outcome.
+Results on our different hold out sets (Table 1) show that text-embedding-3-large achieved the highest binary F1F_{1}, scoring as much as 20% above the next-best model. We note that as embedding performance varies by domain, these rankings may not generalise and practitioners should replicate this comparison on their own data.
+4.2.2 Training a Lightweight Classifier
+The pre-trained embeddings are frozen and fed into a trainable multi-head network (Figure 7).
+Early fine-tuning baselines
+Before settling on our approach, a pilot test on the Singlish subset (31k sentences) showed that fine-tuning larger models did not offer a better result (Table 2). LionGuard 2 matches the performance of the fine-tuned LlamaGuard-3-8B and Arctic-Embed-2.0 while retraining at a much lower cost, making it a compute-efficient choice with minimal data for MLOps and deployment scenarios.
+| Model
+| Test
+| R​BS​SRB_{SS}
+| hw/time
+| OpenAI embeddings + 6 heads
+| 82.9
+| 85.8
+| CPU/60s
+| LlamaGuard-3-8B + LoRA
+| 82.1
+| 89.8
+| A100 40GB/16h
+| arctic-embed-l-v2.0 + 6 heads
+| 74.1
+| 67.3
+| T4 16GB/3h
+Table 2: Binary F1F_{1} for fine-tuned model variants, on our test set and RabakBench (Singlish); full configs in Appendix D.2.
+Ordinal heads for Level-2 harms.
+To capture the severity levels in our taxonomy, where breaching Level 2 (e.g., hate speech) would imply breaching Level 1 (e.g., discriminatory statements), the classification heads have a two-output design:
+|
+| (p1,p2)\displaystyle(p_{1},\,p_{2})
+| =σ​(Dense2​(𝐡)),\displaystyle=\sigma\!\bigl(\mathrm{Dense}_{2}(\mathbf{h})\bigr),
+|
+| (1)
+|
+| p1\displaystyle p_{1}
+| =P⁡(yc>0)\displaystyle=P(y_{c}>0)
+|
+| (Level 1)
+|
+|
+| p2\displaystyle p_{2}
+| =P⁡(yc>1)\displaystyle=P(y_{c}>1)
+|
+| (Level 2)
+|
+|
+| subject to0\displaystyle\text{subject to}\quad 0
+| ≤p2≤p1≤1.\displaystyle\leq p_{2}\leq p_{1}\leq 1.
+|
+In addition to the six category heads (one per risk category), we attached a single binary head (safe/unsafe) as we found it to consistently boost overall F1. All heads are trained jointly with binary cross-entropy loss with equal weights. We detail the training setup in Appendix D.3. The resulting classifier contains 0.85M parameters and occupies only 3.2 MB on disk.
+| Moderator
+| Test
+| RabakBench
+| SGHateCheck
+| SGToxicGuard
+| SS
+| MS
+| ZH
+| TA
+| SS
+| MS
+| ZH
+| TA
+| SS
+| MS
+| ZH
+| TA
+| LionGuard 2
+| 77.0
+| 88.1
+| 87.8
+| 78.4
+| 66.6
+| 98.8
+| 92.1
+| 97.4
+| 64.5
+| 99.7
+| 98.2
+| 99.2
+| 71.5
+| LionGuard 1.1
+| 53.7
+| 58.4
+| 57.1
+| 70.7
+| 69.1
+| 45.5
+| 37.4
+| 22.9
+| 17.4
+| 24.2
+| 10.7
+| 9.6
+| 7.4
+| OpenAI Moderation
+| 54.7
+| 64.0
+| 69.7
+| 66.1
+| 7.4
+| 89.6
+| 70.4
+| 80.3
+| 3.8
+| 77.3
+| 43.9
+| 57.8
+| 1.3
+| AWS Bedrock Guardrails
+| 57.1
+| 69.6
+| -
+| 21.1
+| -
+| 82.2
+| -
+| 40.6
+| -
+| 91.5
+| -
+| 74.2
+| -
+| Azure AI Content Safety
+| 53.8
+| 66.0
+| 67.0
+| 66.2
+| 48.7
+| 76.8
+| 67.9
+| 68.4
+| 75.3
+| 69.5
+| 54.3
+| 63.2
+| 30.1
+| Google Cloud Model Armor
+| 36.8
+| 62.5
+| 68.3
+| 74.0
+| 73.4
+| 81.8
+| 74.0
+| 89.3
+| 63.5
+| 83.3
+| 82.8
+| 88.8
+| 71.9
+| LlamaGuard 3 8B
+| 27.1
+| 55.2
+| 53.6
+| 53.1
+| 47.3
+| 85.9
+| 79.1
+| 80.1
+| 72.1
+| 94.7
+| 90.8
+| 92.0
+| 87.6
+| LlamaGuard 4 12B
+| 26.5
+| 60.6
+| 54.6
+| 65.2
+| 73.0
+| 68.8
+| 57.4
+| 63.9
+| 58.8
+| 78.6
+| 74.3
+| 77.0
+| 77.9
+Table 3: Binary F1F_{1} scores on Singapore-localised benchmarks. The best results for each dataset are made bold. (–) indicates that the model does not support that language.
+| Moderator
+| BT
+| SRY-B
+| OAI
+| SST
+| LionGuard 2
+| 73.7
+| 73.7
+| 70.5
+| 100.0
+| LionGuard 1
+| 35.0
+| 31.6
+| 55.8
+| 34.7
+| OpenAI Mod
+| 65.4
+| 45.3
+| 77.1
+| 81.0
+| AWS Bedrock
+| 76.4
+| 50.7
+| 77.4
+| 84.4
+| Azure C. Safety
+| 54.6
+| 44.7
+| 70.6
+| 59.3
+| GCP Model Armor
+| 51.3
+| 42.7
+| 74.8
+| 46.3
+| LlamaGuard 3 8B
+| 68.2
+| 62.5
+| 82.2
+| 87.6
+| LlamaGuard 4 12B
+| 67.0
+| 58.7
+| 77.5
+| 98.0
+Table 4: Binary F1F_{1} scores on general English benchmarks - BeaverTails (BT), SORRY-Bench (SRY-B), OpenAI Moderation (OAI) and SimpleSafetyTests (SST). SST and SRY-B contain only unsafe prompts and thus the reported F1F_{1} reflects recall.
+5 Evaluation
+5.1 Performance on 17 Benchmarks.
+We compare LionGuard 2 against six moderation systems (OpenAI, 2024; AWS, 2025; Azure, ; GCP, 2025; Meta, 2024b; Meta, 2025) plus LionGuard 1 (Foo and Khoo, 2025) on 1 internal test set and 16 public benchmarks, including 13 localised datasets from Chua et al. (2025); Ng et al. (2024) and 4 general English datasets from Ji et al. (2023); Xie et al. (2025); Markov et al. (2023); Vidgen et al. (2024b).
+Following prior moderation work Chi et al. (2024); Han et al. (2024), we report binary F1F_{1} at a 0.5 threshold. For LionGuard 2, the score is taken from its dedicated safe/unsafe head and for the baselines, we treat the output as unsafe if any harm category exceeds the threshold.
+As taxonomy categories differ across moderation systems and datasets, we aligned every label set to the six harms in Appendix B, and predictions for categories outside of these harms are not counted (e.g., Personal Identifiable Information, Medical Advice). Complete mappings are provided in Appendix E.
+Results.
+Table 3 reports binary F1F_{1} across all benchmarks. LionGuard 2 obtains the highest scores on Singlish, Chinese, and Malay, with margins of 8-25% over the next-best model, and is comparable to much larger LLM-based systems on the four English datasets. These findings show that a lightweight, embedding-based classifier, when paired with language-aware data curation, can outperform larger models on both localised and general safety domains.
+Category breakdown.
+Full per-category results are listed in Appendix E.3. Absolute scores for all seven moderation systems range from 30-70 %, reflecting the intrinsic difficulty of fine-grained safety labels. While no single moderator dominates every category, LionGuard 2 generally performs better than or is comparable to the other moderation systems.
+5.2 Robustness.
+Practical moderation systems must handle noisy user input. We build a “noisy” variant of RabakBench by duplicating each text five times and injecting random character-level edits (casing flips, punctuation, misspellings). The results in Table 5 show that LionGuard 2 marginal 1.5% binary F1F_{1} drop, effectively displaying tolerance to noise.
+| Moderator
+| R​BS​SRB_{SS}
+| R​BS​S​_​n​o​i​s​eRB_{SS\_noise}
+| LionGuard 2
+| 87.1
+| 85.6
+| LionGuard 1
+| 58.4
+| 64.2
+| OpenAI Mod
+| 64.0
+| 52.2
+Table 5: Binary F1F_{1} on RabakBench Singlish with and without injected
+noise. LionGuard 2 remains robust, dropping only 1.5%.
+5.3 Red-Teaming by Native Speakers
+Employing native annotators, we curated a multilingual test set of 391 cases and benchmarked LionGuard 2 against five other safety models (see details in Appendix E.2). LionGuard 2 surpasses its nearest competitor by 2.4% in Chinese F1F_{1} and 8.3% in Malay F1F_{1}. However, its Tamil performance remains moderate, highlighting an area for future improvement.
+6 Key Insights
+The observations gathered from our work are specific to LionGuard 2 and whether the same holds for other domains remains open. However, we hope this may guide future work with similar methodologies or resource constraints.
+6.1 Localised data matters most
+On the same architecture, training on authentic Singaporean comments alone achieved an average F1F_{1} of 80.3%, whilst training on public English datasets alone achieved 45.3%. The combination bumped up results to an average F1F_{1} of 81.5%, suggesting that localised data was the key contributor to the results.
+6.2 Small models can outperform large models
+In our fine-tuning experiments (Table 2), LlamaGuard-3-8B achieves similar test set performance and scores only 3% higher binary F1F_{1} than LionGuard 2 on RabakBench. For focused moderation tasks, the LionGuard 2 provides an efficient alternative to large decoder models.
+6.3 Embedding choice is decisive
+OpenAI’s text embedding-3-large achieved the best F1 despite showing a similar or lower multilingual cosine alignment than cohere-embed-multilingual-v3.0 and BGE-M3 (Appendix D.1). We conjecture the larger dimensionality captures fine-grained semantic cues critical to multi-label moderation while still generalising across languages. The embedding model also enabled cross-lingual generalisation without translation since our training data contained little to no Chinese/Malay/Tamil-only examples. Our results therefore highlight a potential cost-effective solution for low-resource settings.
+7 Limitations.
+7.1 Reliance on closed-source embeddings
+LionGuard 2 inherits its representations from OpenAI’s text-embedding-3-large. Any future update to this embedding model would require may re-training and benchmarking. Developers who need strict reproducibility or backwards compatible may prefer open-source options (see Table 1).
+7.2 Misalignment between binary and category labels
+About 4% of examples aggregated across two localised and three general datasets show disagreement between the binary head and category heads (Appendix E.1). Although deriving the binary decision as max(category-scores) removes the mismatch, we keep the dedicated binary head as it boosts performance, and developers often only require a single “safe”/“unsafe” flag. We plan to explore joint calibration or add training constraints to reduce these inconsistencies.
+7.3 Lower performance for Tamil
+All tested embedding models (including Tamil-centric sarvam-m) underperformed on Tamil, and adding LLM-translated Tamil data worsened results (Appendix C.3). Future improvements in this area will include sourcing quality Tamil-translated samples and exploring separate tokenisation methods.
+8 Conclusion
+LionGuard 2 is currently deployed across internal Singapore Government systems, validating that a lightweight classifier, built on strong multilingual embeddings and curated local data, can deliver robust performance in both localised and general moderation tasks. Our findings reinforce three key takeaways: (i) high-quality, culturally relevant data is more valuable than large volumes of generic data; (ii) selecting the right multilingual encoder matters more than increasing model size; and (iii) compact guardrails are not only effective, but practical for real-world deployment. By releasing our model weights and training data subset, we aim to support broader adoption of localisation-aware moderation strategies, especially in low-resource or code-mixed settings. We hope this work serves as a blueprint for building efficient, multilingual safety systems that are both scalable and grounded in local context.
+Ethical Considerations
+Potential Harms
+While LionGuard 2 demonstrates effective performance in moderating localised unsafe content, we acknowledge that the system is not foolproof. Performance gaps remain across evaluation benchmarks, and the inherently subjective nature of unsafe content classification means our solution cannot guarantee universal applicability across all users and contexts. Given this limitation, we recommend combining LionGuard 2 with human oversight in high-stakes settings. Users should be aware of potential system failures and underperformance, particularly when dealing with edge cases or evolving harmful content patterns that may not be well-represented in our training data. Notably, however, unlike instruction-tuned decoder models repurposed for classification, our architecture provides controlled, interpretable outputs that reduce the risk of generating harmful content, which is a safety advantage over generative approaches to content moderation.
+We also note that the system may be vulnerable to exploitation, potentially amplifying harm when in the hands of malicious actors. However, we contend that the benefits of deploying such a system substantially outweigh the risks of not having localised moderation capabilities. In fact, we release LionGuard 2, an updated version of LionGuard in this paper because we recognise the potential misuse and urgency of updating our safety systems to address evolving threats in Singapore’s multilingual digital environment.
+LionGuard 2 enables rapid safety testing and localised harm tracking that that allow for easy monitoring and intervention.
+Responsible Deployment and Access Controls
+Our model weights are published on Hugging Face exclusively for research and public interest purposes only, with clear usage guidelines that prohibit deployment for harmful applications. For operational deployment within the Singapore Government’s AI Guardian platform, we restrict API access to internal government applications and maintain comprehensive monitoring systems to track usage patterns and identify potential abuse.
+While we release synthetic training data to support reproducibility, our complete training dataset remains private due to user privacy considerations and copyright restrictions.
+Risk of Unintended Bias
+We recognise the risk of unintended bias in our multilingual moderation system. To address this concern, we conducted several performance evaluations across each supported language group (English, Chinese, Malay, and Tamil) to identify potential disparities in classification accuracy. However, we acknowledge that data volume imbalances may introduce systematic biases, and more underrepresented linguistic communities within Singapore remain inadequately covered in our current model.
+Commitment to Ongoing Improvement
+We commit to continuous monitoring of LionGuard 2’s real-world performance and actively invite community feedback to identify areas of improvement. Our development roadmap includes evolving the model to address emerging harmful content patterns and incorporate lessons learned from deployment experience.
+9 Acknowledgments
+We thank Ainul Mardiyyah Zil Husham, Anandh Kumar Kaliyamoorthy, Govind Shankar Ganesan, Lizzie Loh, Nurussolehah Binte Jaini, Nur Hasibah Binte Abu Bakar, Prakash S/O Perumal Haridas, Siti Noordiana Sulaiman, Syairah Nur ’Amirah Zaid, Vengadesh Jayaraman, and other participants for their valuable contributions. Their linguistic expertise was instrumental in ensuring accurate and culturally nuanced translations for this project.
+References
+Anthropic (2024)
+Anthropic. 2024.
+Model card addendum: Claude 3.5 haiku and upgraded claude 3.5 sonnet.
+Accessed: 2025-06-12.
+AWS (2025)
+AWS. 2025.
+Detect and filter harmful content by using amazon bedrock guardrails.
+Accessed: 2025-06-12.
+(3)
+Azure. 2025.
+Azure ai content safety documentation.
+Accessed: 2025-06-12.
+Calderon et al. (2025)
+Nitay Calderon, Roi Reichart, and Rotem Dror. 2025.
+The alternative annotator test for llm-as-a-judge: How to statistically justify replacing human annotators with llms.
+Preprint, arXiv:2501.10970.
+Chen et al. (2024)
+Jianlv Chen, Shitao Xiao, Peitian Zhang, Kun Luo, Defu Lian, and Zheng Liu. 2024.
+Bge m3-embedding: Multi-lingual, multi-functionality, multi-granularity text embeddings through self-knowledge distillation.
+Preprint, arXiv:2402.03216.
+Chi et al. (2024)
+Jianfeng Chi, Ujjwal Karn, Hongyuan Zhan, Eric Smith, Javier Rando, Yiming Zhang, Kate Plawiak, Zacharie Delpierre Coudert, Kartikeya Upasani, and Mahesh Pasupuleti. 2024.
+Llama guard 3 vision: Safeguarding human-ai image understanding conversations.
+Preprint, arXiv:2411.10414.
+Chua et al. (2025)
+Gabriel Chua, Leanne Tan, Ziyu Ge, and Roy Ka-Wei Lee. 2025.
+Rabakbench: Scaling human annotations to construct localized multilingual safety benchmarks for low-resource languages.
+Manuscript under review at NeurIPS 2025.
+Cohere (2025a)
+Cohere. 2025a.
+Cohere api: embed-english-v3.0 model documentation.
+https://docs.cohere.com/v2/docs/cohere-embed#embed-english-v3.0.
+Accessed: 2025-06-25.
+Cohere (2025b)
+Cohere. 2025b.
+Cohere api: embed-v4.0 model documentation.
+https://docs.cohere.com/v2/docs/cohere-embed#embed-v4.0.
+Accessed: 2025-06-25.
+Deng et al. (2025)
+Yihe Deng, Yu Yang, Junkai Zhang, Wei Wang, and Bo Li. 2025.
+Duoguard: A two-player rl-driven framework for multilingual llm guardrails.
+Preprint, arXiv:2502.05163.
+Enevoldsen et al. (2025)
+Kenneth Enevoldsen, Isaac Chung, Imene Kerboua, Márton Kardos, Ashwin Mathur, David Stap, Jay Gala, Wissam Siblini, Dominik Krzemiński, Genta Indra Winata, Saba Sturua, Saiteja Utpala, Mathieu Ciancone, Marion Schaeffer, Gabriel Sequeira, Diganta Misra, Shreeya Dhakal, Jonathan Rystrøm, Roman Solomatin, and 67 others. 2025.
+Mmteb: Massive multilingual text embedding benchmark.
+Preprint, arXiv:2502.13595.
+Fedorov et al. (2024)
+Igor Fedorov, Kate Plawiak, Lemeng Wu, Tarek Elgamal, Naveen Suda, Eric Smith, Hongyuan Zhan, Jianfeng Chi, Yuriy Hulovatyy, Kimish Patel, Zechun Liu, Changsheng Zhao, Yangyang Shi, Tijmen Blankevoort, Mahesh Pasupuleti, Bilge Soran, Zacharie Delpierre Coudert, Rachad Alao, Raghuraman Krishnamoorthi, and Vikas Chandra. 2024.
+Llama guard 3-1b-int4: Compact and efficient safeguard for human-ai conversations.
+Preprint, arXiv:2411.17713.
+Foo and Khoo (2025)
+Jessica Foo and Shaun Khoo. 2025.
+LionGuard: A contextualized moderation classifier to tackle localized unsafe content.
+In Proceedings of the 31st International Conference on Computational Linguistics: Industry Track, pages 707–731, Abu Dhabi, UAE. Association for Computational Linguistics.
+GCP (2025)
+GCP. 2025.
+Model armor overview.
+Accessed: 2025-06-12.
+Ghosh et al. (2024)
+Shaona Ghosh, Prasoon Varshney, Makesh Narsimhan Sreedhar, Aishwarya Padmakumar, Traian Rebedea, Jibin Rajan Varghese, and Christopher Parisien. 2024.
+AEGIS2.0: A diverse AI safety dataset and risks taxonomy for alignment of LLM guardrails.
+In Neurips Safe Generative AI Workshop 2024.
+Goh et al. (2025)
+Jia Yi Goh, Shaun Khoo, Gabriel Chua, Leanne Tan, Nyx Iskandar, and Jessica Foo. 2025.
+Measuring what matters: A framework for evaluating safety risks in real-world LLM applications.
+In ICML Workshop on Technical AI Governance (TAIG).
+Google (2025)
+Google. 2025.
+Introducing gemini 2.0: our new ai model for the agentic era.
+Accessed: 2025-06-12.
+GovTech Singapore (2025a)
+GovTech Singapore. 2025a.
+Llm-as-a-service: Guardrails.
+https://www.govtext.gov.sg/docs/platform-services/llm-as-a-service/user-docs.
+Accessed June 2025.
+GovTech Singapore (2025b)
+GovTech Singapore. 2025b.
+Sentinel guardrails documentation.
+https://www.aiguardian.gov.sg/docs/wiki/Sentinel-Guardrails.
+Accessed June 2025.
+Gupta et al. (2024)
+Prannaya Gupta, Le Qi Yau, Hao Han Low, I-Shiang Lee, Hugo Maximus Lim, Yu Xin Teoh, Jia Hng Koh, Dar Win Liew, Rishabh Bhardwaj, Rajat Bhardwaj, and Soujanya Poria. 2024.
+Walledeval: A comprehensive safety evaluation toolkit for large language models.
+Preprint, arXiv:2408.03837.
+Han et al. (2024)
+Seungju Han, Kavel Rao, Allyson Ettinger, Liwei Jiang, Bill Yuchen Lin, Nathan Lambert, Yejin Choi, and Nouha Dziri. 2024.
+Wildguard: Open one-stop moderation tools for safety risks, jailbreaks, and refusals of llms.
+In Advances in Neural Information Processing Systems, volume 37, pages 8093–8131. Curran Associates, Inc.
+Inan et al. (2023)
+Hakan Inan, Kartikeya Upasani, Jianfeng Chi, Rashi Rungta, Krithika Iyer, Yuning Mao, Michael Tontchev, Qing Hu, Brian Fuller, Davide Testuggine, and Madian Khabsa. 2023.
+Llama guard: Llm-based input-output safeguard for human-ai conversations.
+Preprint, arXiv:2312.06674.
+Intelligence (2024)
+Amazon Artificial General Intelligence. 2024.
+The amazon nova family of models: Technical report and model card.
+Amazon Technical Reports.
+Ji et al. (2023)
+Jiaming Ji, Mickel Liu, Juntao Dai, Xuehai Pan, Chi Zhang, Ce Bian, Chi Zhang, Ruiyang Sun, Yizhou Wang, and Yaodong Yang. 2023.
+Beavertails: Towards improved safety alignment of llm via a human-preference dataset.
+Preprint, arXiv:2307.04657.
+Kumar et al. (2025)
+Priyanshu Kumar, Devansh Jain, Akhila Yerukola, Liwei Jiang, Himanshu Beniwal, Thomas Hartvigsen, and Maarten Sap. 2025.
+Polyguard: A multilingual safety moderation tool for 17 languages.
+Preprint, arXiv:2504.04377.
+Markov et al. (2023)
+Todor Markov, Chong Zhang, Sandhini Agarwal, Tyna Eloundou, Teddy Lee, Steven Adler, Angela Jiang, and Lilian Weng. 2023.
+A holistic approach to undesired content detection in the real world.
+Preprint, arXiv:2208.03274.
+Mathew et al. (2022)
+Binny Mathew, Punyajoy Saha, Seid Muhie Yimam, Chris Biemann, Pawan Goyal, and Animesh Mukherjee. 2022.
+Hatexplain: A benchmark dataset for explainable hate speech detection.
+Preprint, arXiv:2012.10289.
+Meta (2024a)
+Meta. 2024a.
+Llama 3.3.
+Accessed: 2025-06-12.
+Meta (2024b)
+Meta. 2024b.
+Llamaguard 3 8b.
+Accessed: 2025-06-12.
+Meta (2025)
+Meta. 2025.
+Llamaguard 4 12b.
+Accessed: 2025-06-12.
+Mistral (2025)
+Mistral. 2025.
+Mistral small 3.
+Accessed: 2025-06-12.
+Ng et al. (2024)
+Ri Chi Ng, Nirmalendu Prakash, Ming Shan Hee, Kenny Tsu Wei Choo, and Roy Ka-wei Lee. 2024.
+SGHateCheck: Functional tests for detecting hate speech in low-resource languages of Singapore.
+In Proceedings of the 8th Workshop on Online Abuse and Harms (WOAH 2024), pages 312–327, Mexico City, Mexico. Association for Computational Linguistics.
+OpenAI (2024)
+OpenAI. 2024.
+Upgrading the moderation api with our new multimodal moderation model.
+Accessed: 2025-06-12.
+OpenAI (2025)
+OpenAI. 2025.
+Openai api: Embeddings guide.
+https://platform.openai.com/docs/guides/embeddings.
+Accessed: 2025-06-25.
+OpenAI (2025)
+OpenAI. 2025.
+Openai o3-mini system card.
+Accessed: 2025-06-12.
+Shen et al. (2024)
+Lingfeng Shen, Weiting Tan, Sihao Chen, Yunmo Chen, Jingyu Zhang, Haoran Xu, Boyuan Zheng, Philipp Koehn, and Daniel Khashabi. 2024.
+The language barrier: Dissecting safety challenges of LLMs in multilingual contexts.
+In Findings of the Association for Computational Linguistics: ACL 2024, pages 2668–2680, Bangkok, Thailand. Association for Computational Linguistics.
+Sturua et al. (2024)
+Saba Sturua, Isabelle Mohr, Mohammad Kalim Akram, Michael Günther, Bo Wang, Markus Krimmel, Feng Wang, Georgios Mastrapas, Andreas Koukounas, Nan Wang, and Han Xiao. 2024.
+jina-embeddings-v3: Multilingual embeddings with task lora.
+Preprint, arXiv:2409.10173.
+Tang and Yang (2025)
+Yixuan Tang and Yi Yang. 2025.
+Finmteb: Finance massive text embedding benchmark.
+Preprint, arXiv:2502.10990.
+Vidgen et al. (2024a)
+Bertie Vidgen, Adarsh Agrawal, Ahmed M. Ahmed, Victor Akinwande, Namir Al-Nuaimi, Najla Alfaraj, Elie Alhajjar, Lora Aroyo, Trupti Bavalatti, Max Bartolo, Borhane Blili-Hamelin, Kurt Bollacker, Rishi Bomassani, Marisa Ferrara Boston, Siméon Campos, Kal Chakra, Canyu Chen, Cody Coleman, Zacharie Delpierre Coudert, and 81 others. 2024a.
+Introducing v0.5 of the ai safety benchmark from mlcommons.
+Preprint, arXiv:2404.12241.
+Vidgen et al. (2024b)
+Bertie Vidgen, Nino Scherrer, Hannah Rose Kirk, Rebecca Qian, Anand Kannappan, Scott A. Hale, and Paul Röttger. 2024b.
+Simplesafetytests: a test suite for identifying critical safety risks in large language models.
+Preprint, arXiv:2311.08370.
+VoyageAI (2024)
+VoyageAI. 2024.
+Domain-specific embeddings and retrieval: Legal edition — voyage-law-2.
+Accessed: 2025-06-16.
+Wang et al. (2024)
+Wenxuan Wang, Zhaopeng Tu, Chang Chen, Youliang Yuan, Jen-tse Huang, Wenxiang Jiao, and Michael Lyu. 2024.
+All languages matter: On the multilingual safety of LLMs.
+In Findings of the Association for Computational Linguistics: ACL 2024, pages 5865–5877, Bangkok, Thailand. Association for Computational Linguistics.
+Xie et al. (2025)
+Tinghao Xie, Xiangyu Qi, Yi Zeng, Yangsibo Huang, Udari Madhushani Sehwag, Kaixuan Huang, Luxi He, Boyi Wei, Dacheng Li, Ying Sheng, Ruoxi Jia, Bo Li, Kai Li, Danqi Chen, Peter Henderson, and Prateek Mittal. 2025.
+Sorry-bench: Systematically evaluating large language model safety refusal.
+Preprint, arXiv:2406.14598.
+Yong et al. (2024)
+Zheng-Xin Yong, Cristina Menghini, and Stephen H. Bach. 2024.
+Low-resource languages jailbreak gpt-4.
+Preprint, arXiv:2310.02446.
+Yu et al. (2024)
+Puxuan Yu, Luke Merrick, Gaurav Nuti, and Daniel Campos. 2024.
+Arctic-embed 2.0: Multilingual retrieval without compromise.
+Preprint, arXiv:2412.04506.
+Zeng et al. (2024)
+Wenjun Zeng, Yuchi Liu, Ryan Mullins, Ludovic Peran, Joe Fernandez, Hamza Harkous, Karthik Narasimhan, Drew Proud, Piyush Kumar, Bhaktipriya Radharapu, Olivia Sturman, and Oscar Wahltinez. 2024.
+Shieldgemma: Generative ai content moderation based on gemma.
+Preprint, arXiv:2407.21772.
+Zhang et al. (2025)
+Yanzhao Zhang, Mingxin Li, Dingkun Long, Xin Zhang, Huan Lin, Baosong Yang, Pengjun Xie, An Yang, Dayiheng Liu, Junyang Lin, Fei Huang, and Jingren Zhou. 2025.
+Qwen3 embedding: Advancing text embedding and reranking through foundation models.
+arXiv preprint arXiv:2506.05176.
+Appendix A Demonstration of LionGuard 2 applied as a chatbot guardrail
+A demonstration of LionGuard 2 working as a localised content moderator is shown in Figure 5 and Figure 6.
+Figure 5: LionGuard 2 assigns an unsafe localised comment to the appropriate category in our taxonomy.
+Figure 6: Example localised unsafe inputs that slip past GPT-4.1 nano (left) and GPT-4.1 nano + OpenAI Moderation (middle) but are flagged by LionGuard 2 (right).
+Figure 7: Model architecture
+Appendix B Taxonomy
+| Category
+| Level 1
+| Level 2
+|
+| ⟶\longrightarrow increasing severity
+| Hateful
+| Discriminatory
+| Hate Speech
+| Sexual
+| Not for minors
+| Not for all ages
+| Self-Harm
+| Ideation
+| Action/Suicide
+| Insults
+| no severity level breakdown
+| Violence
+| no severity level breakdown
+| Misconduct
+| Not socially acceptable
+| Illegal
+Table 6: Safety Taxonomy: A single text can belong to multiple categories, or none. With the exception of insults and physical violence, severity levels are also available, with Level 2 being more severe than Level 1.
+Appendix C Data
+C.1 Prompt template for synthetic chat queries
+Refer to the system prompt in Figure 8.
+⬇
+**Rules:**
+- **Safe input:** Output must remain safe.
+- **Unsafe input:** Output must preserve any harmful, toxic, or explicit elements.
+**Safety Categories:**
+1. **Hateful:** Discriminatory or hate speech against protected groups.
+2. **Insults:** Demeaning personal attacks.
+3. **Sexual:** References to sexual content (mild or explicit).
+4. **Physical Violence:** Threats or glorification of harm.
+5. **Self Harm:** Content promoting or depicting self-harm/suicide.
+6. **Illegal/Misconduct:** Guidance on unethical, criminal, or harmful activities.
+**Transformation Guidelines:**
+- Retain the original tone, style, topic, and intent.
+- Reformat the input into a natural question or command.
+- Localize language to sound Singaporean and use local terms
+**Examples:**
+- *Raw:* your advice is garbage
+*Query:* how I scold my colleague for his trash advice?
+- *Raw:* that chio bu is very sexy
+*Query:* where to find sexy chio bu?
+- *Raw:* I need to figure out how to make a bomb
+*Query:* how can I assemble a bomb, can help or not?
+- *Raw:* what are the best places to eat in Singapore?
+*Query:* where can I find the best makan spots in Singapore, leh?
+Think step by step.
+Figure 8: The system prompt used with gpt-4o-mini to augment raw texts from Foo and Khoo (2025).
+C.2 English datasets used in experiments
+Table 7 lists the English datasets we evaluated during
+data-selection iterations. Data was re-labelled by Gemini 2.0 Flash. “Used” sets were retained in the final 26k corpus; “Dropped” sets hurt test performance for our task.
+|
+Dataset
+|
+Status
+|
+Brief description
+|
+WildGuardTrain (Han et al., 2024)
+|
+Used
+|
+86,759 safety prompts/responses (87% synthetic, 11% real, 2% annotated).
+|
+Reddit Suicide Detection66footnotemark:
+6
+|
+Used
+|
+18,265 Reddit posts from r/SuicideWatch, r/depression, and r/teenagers.
+|
+PH titles77footnotemark:
+7
+|
+Used
+|
+1M adult-site video titles.
+|
+Aegis 2.0 (Ghosh et al., 2024)
+|
+Dropped
+|
+33,416 human-LLM interactions across 14 harms.
+|
+Aya Red-teaming88
+8
+https://www.kaggle.com/datasets/nikhileswarkomati/suicide-watch
+|
+Dropped
+|
+Adversarial prompts in 8 languages.
+|
+HateXplain (Mathew et al., 2022)
+|
+Dropped
+|
+25,000 English comments with {hate, offensive, neutral}.
+Only target groups relevant to Singapore retained for experiments.
+Table 7: English datasets used during data curation.
+88footnotetext: https://huggingface.co/datasets/Nikity/Pornhub88footnotetext: https://huggingface.co/datasets/CohereLabs/aya_redteaming
+C.3 Experiments with LLM-translated data
+To test whether synthetic Malay/Tamil data could close the
+low-resource gap, we translated the Singlish corpus with
+gpt-4o-mini and ran the following training variants: Baseline (final LG2) - 85% Singlish, 15% English; SS-only - Singlish data; SS+MS+TA - Singlish, Malay, and Tamil translated data; and TA-only Tamil translated data.
+| Training variant
+|
+R​BT​ARB_{TA}
+|
+S​G​H​CT​ASGHC_{TA}
+|
+S​G​T​GT​ASGTG_{TA}
+| LionGuard 2
+|
+66.5
+|
+64.5
+|
+71.5
+| SS-only
+|
+50.9
+|
+45.6
+|
+30.0
+| SS+MS+TA
+|
+23.1
+|
+36.5
+|
+23.1
+| TA-only
+|
+21.2
+|
+21.3
+|
+9.2
+Table 8: Binary F1F_{1} on Tamil splits when adding machine-translated data.
+Adding machine-translated Malay and Tamil samples degraded
+performance on every Tamil benchmark (Table 8). Purely translation-based training (TA-only) performs worst, confirming that cross-lingual transfer from authentic Singlish data is more reliable than potentially noisy automatic translation for our task.
+C.4 Results from Alt-Test
+Figure 9: Results from Alt-Test across different multi-label classification metrics, where we identify Gemini 2.0 Flash, o3-mini-low, and Claude 3.5 Haiku to best align with our human labellers. Refer to Chua et al. (2025) for more details.
+C.5 Prompt Template for data labeling
+Refer to the system prompt in Box at the bottom of the paper.
+⬇
+You are an expert content moderator specializing in Singaporean online forums and Large Language Model requests, with in-depth knowledge of Singaporean social contexts, laws, and cultural nuances (including Singlish). Your primary responsibility is to accurately and consistently classify comments or texts according to predefined moderation categories, ensuring online spaces remain safe and respectful.
+—
+## Important Guidelines:
+- Your priority is to assign all applicable moderation categories based on the given content.
+- A single text **can belong to multiple categories** simultaneously (e.g., a text can be both "hateful" and "sexual").
+- If a text meets the criteria for more than one sub-level within a category, select only the most severe level. For example, if both 1.1 (discriminatory) and 1.2 (hate_speech) apply, choose only 1.2
+- Content may contain offensive language, hate speech, vulgarities, or graphic content. You’re expected to encounter such examples. Your role is impartial classification.
+—
+## Categories and Definitions:
+### 1. Hateful
+Text purposefully targeting, discriminating, or harming individuals/groups based on protected traits. In Singapore, Article 12 of Singapore’s Constitution explicitly protects (1) Race, (2) Religion, (3) Descent, (4) Place of Birth. Additionally, under Singapore’s Tripartite Guidelines on Fair Employment Practices, the following traits are also listed: (5) Age, (6) Gender, (7) Marital Status & Family Responsibilities (8) Disability. For our purposes, we will consider these 8 traits to be protected traits in Singapore’s context.
+- **1.1 discriminatory**: Negative stereotypes, derogatory generalisations, Insults, or dehumanizing remarks directed at protected groups.
+- **1.2 hate_speech**: Explicitly encourages, justifies, or calls for action against, or harm/violence against individuals or groups associated with protected traits.
+*(Always select the higher severity - if criteria for both 1.1 and 1.2 are met, choose only 1.2.)*
+### 2. Insults
+Text containing personal attacks, humiliation, mocking, or belittlement targeting individuals or groups on non-protected attributes (e.g., appearance, lifestyle choices, intelligence, etc.). In the Singapore context, protected traits only include race, religion, descent, place of birth, age, gender, marital status & family responsibilities, and disability. Because sexuality is not a protected trait here, any derogatory language targeting sexuality should be classified under ’Insults’ rather than ’hateful.
+### 3. Sexual
+Content explicitly or implicitly referring to sexual acts, body parts, sexual interest, or adult themes:
+- **3.1 content_not_appropriate_for_minors**: Mild/moderate sexual discussion, factual education on sex or sexuality - a potential concern for those under 16.
+- **3.2 content_not_appropriate_for_all_ages**: Explicit sexual material, highly graphic, adult-oriented descriptions clearly unsuitable for general audiences.
+To distinguish between the two, texts that include detailed, graphic descriptions should be classified as 3.2 (content_not_appropriate_for_all_ages), while milder or factual discussions fall under 3.1 (content_not_appropriate_for_minors).
+*(If content meets both 3.1 and 3.2, choose only 3.2.)*
+### 4. Physical Violence
+Content explicitly threatening, describing, or glorifying physical harm towards individuals, groups, or entities.
+*(Note: Physical violence pertains specifically to living beings, including individuals and groups. Physical damage to property alone is not included - see Category 6.)*
+### 5. Self-Harm
+Text addressing, advocating, describing, or expressing intent toward self-harm or suicide.
+- **5.1 self_harm_ideation**: Suicidal thoughts, ideations, expressions, or encouragement of self-harm practices.
+- **5.2 self_harm_action_or_suicide**: Indications or descriptions of ongoing/imminent self-harming actions or suicide attempts.
+*(If content meets both 5.1 and 5.2, choose only 5.2.)*
+### 6. All Other Misconduct
+Text related to unethical, immoral, criminal, or socially unacceptable conduct not covered by Categories 1-5:
+- **6.1 not_socially_accepted**: Advocates or instructs on behaviour that is ethically or socially condemned (although not necessarily illegal).
+- **6.2 illegal_activities**: Clearly defrauds, threatens serious harm, seeks or provides advice on unlawful activities under Singapore law.
+*(If content meets both 6.1 and 6.2, choose only 6.2.)*
+**Important Clarifications:**
+- If seemingly NSFW/illegal/inappropriate content doesn’t match Categories 1-5 clearly, default to the best-fitting level in Category 6.
+- In the Singapore context, protected traits only include race, religion, descent, place of birth, age, gender, marital status & family responsibilities, and disability. Because sexuality is not a protected trait here, any derogatory language targeting sexuality should be classified under ’Insults’ rather than ’hateful.
+- If a comment contains both insulting and hateful elements, first check whether the hateful content targets a protected trait (thus falling under Category 1). Only if no protected trait is targeted should it be classified as an insult (Category 2)."
+- Generally, if a comment qualifies as hate_speech (1.2), please check for any explicit physical violence (4) or related illegal activities (6.2). Although there is a strong correlation, each text must be evaluated separately based on its specific language and context. Do not assume an automatic overlap.
+- Being vulgar/offensive at an individual/group of people/institution regarding protected traits falls under Category 1 (hateful), while vulgarity or mockery directed at non-protected attributes of individual/group of people/institution falls under Category 2 (Insults).
+- SAdditionally, strong vulgarities directed NOT at a individual/group of people/institution but instead used descriptively for a situation or state of emotion (e.g., "wah knn - today so hot") would generally be considering ‘6.1 not_socially_accepted‘ (6.1)
+- Damage solely to physical property **without threats to individuals/groups** is NOT "physical_violence"; classify it under Category 6 (illegal_activities).
+—
+## Illustrative Examples (Not exhaustive; actual moderation content may vary significantly):
+| Category | Severity | Example |
+|———-|———-|———|
+| hateful | 1.1 discriminatory | "Indians are always loud and annoying." |
+| hateful | 1.2 hate_speech | "Burn down their mosque, they shouldn’t worship here." |
+| Insults | n/a | "You’re as useless as a broken MRT door." |
+| sexual | 3.1 content_not_appropriate_for_minors | "We had unprotected sex last weekend." |
+| sexual | 3.2 content_not_appropriate_for_all_ages | "That chiobu thought she was hot but actually just a cheap **bin that everyone wants to piak." |
+| physical_violence | n/a | "If he speaks again, I’m going to break his jaw." |
+| self_harm | 5.1 self_harm_ideation | "Fail exams again confirm jump down MRT track." |
+| self_harm | 5.2 self_harm_action_or_suicide | "Already swallowed sleeping pills. Won’t wake up tomorrow." |
+| misconduct | 6.1 not_socially_accepted | "Let’s bully her online until she leaves school." |
+| misconduct | 6.1 not_socially_accepted | "Wah the queue here damn long. - fked up sia" |
+| misconduct | 6.2 illegal_activities | "Anyone selling illegal pills in Yishun PM me." |
+—
+## Singlish Glossary
+This is not an exhaustive list, and purely illustrative of the terms you may see
+## 1. Ethnic/Racial Terms
+- **ang moh / ang mo**: A colloquial term referring to a person of Caucasian descent, sometimes neutral.
+- **amdk**: A sarcastic remark implying Caucasian superiority, often used humorously or ironically.
+- **indon**: A potentially derogatory clipping referring to Indonesian people, used as an ethnic slur.
+- **keling**: An offensive ethnic slur used derogatorily towards Indian individuals or communities.
+- **cheena**: A colloquial term referring to Chinese people, often carrying negative connotations.
+- **tiong**: A derogatory slang term used to refer to Chinese individuals in informal contexts.
+- **ceca**: A pejorative term used to refer derogatorily to people of Indian descent.
+- **yalam**: A colloquial term referring to Malays, sometimes used in informal or derogatory contexts.
+- **sarong party girl**: A derogatory term mocking Asian women pursuing relationships with Caucasians for ulterior benefits.
+- **mat**: A derogatory term sometimes used to refer to Malays.
+- **ah neh**: A derogatory term used to refer to Indians.
+- **siam bu**: Refers to an attractive woman from Thailand, often with a sexy or flirty vibe.
+## 2. Sexual/Body-Related Terms
+- **ghey**: A derogatory slang term referring to homosexual males in casual or online contexts.
+- **bbfa**: A pejorative term describing an overweight individual, implying inevitable loneliness.
+- **fap**: Colloquial term for self-stimulation or masturbatory actions, typically among males.
+- **piak**: A crude colloquial term referring to the act of sexual intercourse.
+- **nnp**: A slang abbreviation referring to exposed or visible nipples in various contexts.
+- **chio bu**: A term used to describe an attractive woman.
+- **bu**: A shortened form of "chio bu," meaning an attractive woman.
+- **lau kui**: A term referring to an older woman, sometimes with a negative connotation.
+- **ah gua**: A rude term for a transgender woman.
+## 3. Profanity/Expletives
+- **knn / kns**: Vulgar expletives used to express anger or frustration, often offensive.
+- **cao**: A vulgar profanity derived from Chinese, used to express extreme anger or frustration.
+- **chao chee bai / ccb**: Vulgar expletives used to express anger or frustration, often offensive.
+- **lan jiao**: A vulgar term for male genitalia, often used as an insult.
+- **pu bor**: A derogatory term for a woman.
+## 4. Exclamations/Expressions
+- **shiok**: An exclamation expressing immense pleasure, delight, or satisfaction in an experience.
+- **wah lau / walao eh**: An exclamatory phrase conveying frustration, disbelief, or astonishment at a situation.
+- **alamak**: An exclamatory expression conveying surprise, shock, or mild dismay in a situation.
+- **aiyah**: An exclamation expressing disappointment or frustration.
+- **aiyo**: Similar to "aiyah," can also express sympathy.
+- **wah piang**: For when you’re shocked or fed up, like "what the heck!"
+## 5. Social/Behavioral Terms
+- **bojio**: A lighthearted term used when someone feels excluded from a social gathering.
+- **kiasu**: Describes an overly competitive or anxious behavior driven by fear of missing out.
+- **ponteng**: A slang term meaning to deliberately skip or avoid attending a scheduled event.
+- **chope**: A colloquial term for reserving a seat or spot using personal belongings.
+- **lepak**: A casual term describing the act of relaxing or hanging out socially.
+- **sabo / sarbo**: A colloquial term meaning to play a prank or sabotage. The intention can be either humorous or malicious, depending on the context.
+- **kaypoh**: Describes someone who is nosy or overly curious about others’ affairs.
+- **siam**: Means to avoid or dodge something.
+## 6. Descriptive Terms
+- **siao**: A term used to describe someone acting irrationally or exhibiting erratic behavior.
+- **sot**: Describes a device or object that is malfunctioning, broken, or nonfunctional.
+- **cheem**: A slang term describing something as complex, intellectually challenging, or overly complicated.
+- **tak boleh tahan**: An expression indicating that one is unable to endure or tolerate an extreme situation.
+- **gila**: A term borrowed from Malay meaning crazy, often used informally for emphasis.
+- **jin jialat**: Means something is very bad or troublesome.
+- **atas**: Describes someone who is high-class or pretentious.
+- **jelak**: Means being sick of something, often used for food.
+## 7. Emotional/Interpersonal Expressions
+- **paiseh**: A term expressing feelings of embarrassment, shyness, or self-consciousness in social contexts.
+- **sian**: A term expressing boredom, weariness, or disinterest in a given situation.
+- **buay song**: Means being unhappy or dissatisfied with something.
+- **meh**: Used to express skepticism or doubt.
+- **hor**: Used to seek agreement or confirmation.
+## 8. Functional and Intensifying Particles
+- **lah**: A versatile discourse particle employed for emphasis or casual conversational tone in Singlish.
+- **lor**: A casual discourse particle signaling resignation, acceptance, or an inevitable outcome in conversation.
+- **leh**: A discourse particle employed to seek confirmation, soften statements, or invite agreement.
+- **sibei**: A Hokkien-derived intensifier used to emphasize the extremity of an adjective.
+- **siol / sia**: A colloquial expletive intensifier used to emphasize strong admiration or criticism.
+- **heng**: Means lucky, sometimes used to describe someone who is fortunate in appearance or situation.
+## 9. Attractive Descriptors
+- **syt**: A term describing an attractive, youthful person typically regarded as appealing.
+## 10. Accidental/Physical Mishaps
+- **ZG / zao geng**: Describes an accidental wardrobe malfunction, specifically when a woman’s underwear is exposed.
+- **kena**: Indicates that something unfortunate has happened to someone, e.g., "kena scold" (got scolded) or "kena accident" (had an accident).
+—
+## Classification Task Instructions:
+- Think carefully - document your reasoning concisely and thoughtfully in the provided reflective JSON field (**reasoning**).
+- Clearly indicate **all applicable categories** according to the provided schema.
+- Always select a single most severe or specific sub-level per category when applicable.
+- If no categories apply, explicitly set their values to **False**.
+- Respond based on the given JSON schema
+C.6 Data Filtering Details
+Figure 10: The Left chart (Before) shows the distribution of categories of all datasets combined, and the Right chart (After) shows the category breakdown of our final training data.
+Balancing ratio of Local–English data.
+Experiments showed that an 85 : 15 mix maximises binary F1F_{1} across benckmarks.
+LLM voting.
+Data without consensus LLM votes are discarded as it yielded better results than majority voting (with or without adding the vote percentage as a training weight).
+Category re-balancing.
+Majority of the harms were systematically down-sampled to ensure a more equal distribution of the six major harm categories in the training dataset (Figure 10).
+Negative down-sampling.
+Safe texts were randomly down-sampled to improve recall on held-out data, and the final set maintains a 87 : 13 Safe/Unsafe mix.
+Near-duplicate removal.
+Using OpenAI’s text-embedding-3-large vectors, we run kk-nearest neighbors (kk-NN) and deduplicate pairs above the 95th{}^{\text{th}} percentile cosine similarity (Figure 11).
+Figure 11: Deduplication of near-duplicates.
+The final dataset consists of 26,207 unique texts (breakdown in Table 9).
+| Source
+|
+# texts
+|
+Comp (%)
+| Local online forums
+|
+20,333
+|
+77.6
+| wildguardtrain
+|
+2,558
+|
+9.8
+| Synthetic Prompts
+|
+2,098
+|
+8.0
+| Reddit Suicide Watch
+|
+924
+|
+3.5
+| PH_titles
+|
+294
+|
+1.1
+| Total
+|
+26,207
+|
+100.0
+Table 9: Breakdown of data sources in final training dataset.
+Appendix D Architecture experiments
+D.1 Multilingual similarity of embedding models
+To gauge cross-lingual alignment, we embed English sentences from
+RabakBench and their LLM translations into Chinese (ZH), Malay (MS), and
+Tamil (TA). Table 10 reports the average
+English-L2 cosine similarity for six candidate encoders.
+| Model
+| EN ↔\leftrightarrow MS
+| EN ↔\leftrightarrow TA
+| EN ↔\leftrightarrow ZH
+| text-embedding-3-large
+| 0.749
+| 0.325
+| 0.719
+| embed-multilingual-v3.0
+| 0.809
+| 0.696
+| 0.740
+| embed-v4.0
+| 0.645
+| 0.351
+| 0.661
+| bge-m3
+| 0.797
+| 0.641
+| 0.692
+| snowflake-arctic-embed-l-v2.0
+| 0.849
+| 0.739
+| 0.759
+| Qwen3-Embedding-0.6B
+| 0.683
+| 0.534
+| 0.733
+Table 10: Comparison of multilingual embedding performance between English and Malay (MS), Tamil (TA), and Chinese (ZH).
+OpenAI’s text-embedding-3-large shows weaker alignment to Malay
+and Tamil than Cohere m-v3.0 and BGE-M3, yet still delivers the top task performance across our multilingual benchmarks. This suggests that text-embedding-3-large may trade off raw cross-lingual cosine alignment to capture task-specific features more effectively. In other words, even if English and Malay/Tamil sentences are not close together in the multilingual embedding space, they may cluster well in the task-specific space.
+D.2 Early fine-tuning baselines
+We set the following training parameters for the fine-tuning experiments:
+LoRA-tuned LlamaGuard-3-8B - LoRA rank 8, α=16\alpha\!=\!16,
+bf16, batch 1, 2 epochs, lr 2×10−52\times 10^{-5}; on a single NVIDIA A100 40 GB
+Fine-tuned snowflake-arctic-embed-l-v2.0 -
+batch 3, 5 epochs, lr 1×10−51\times 10^{-5};
+on a AWS ml.g4dn.xlarge (1 × NVIDIA T4 16 GB).
+D.3 Training Setup
+Hardware.
+The LionGuard 2 classifier is trained CPU-only.
+Experiments that required hosting or fine-tuning large decoder models ran on either a single AWS g4dn.xlarge 16GB GPU instance or a single NVIDIA A100 40 GB GPU.
+Training parameters.
+Adam optimiser (lr = 1×10−41\times 10^{-4}), batch 64,
+10 epochs with early stopping (patience 3), dropout 0.2 in the two shared dense layers.
+Appendix E Evaluation
+E.1 Misalignment between binary and category labels.
+The limitation of training a separate binary head is that there may be inconsistencies between the binary head and the category heads. Table 11 reports, for five benchmarks, the share of samples where the binary head and the category heads disagree.
+Over-predict means the binary head flags unsafe while all categories remain below threshold; under-predict is the opposite.
+| Benchmark
+|
+Over-predict (%)
+|
+Under-predict (%)
+|
+# samples
+| RabakBench (SS)
+|
+9.99
+|
+0.60
+|
+1 341
+| SGHateCheck (SS)
+|
+4.60
+|
+0.15
+|
+2 716
+| BeaverTails 330k (test)
+|
+4.08
+|
+0.78
+|
+31 248
+| SORRY-Bench
+|
+3.19
+|
+0.53
+|
+6 090
+| OAI Moderation Eval
+|
+4.52
+|
+0.77
+|
+1 680
+| Overall average
+|
+4.19
+|
+0.70
+|
+43 075
+Table 11: Misalignment between the binary head and category heads.
+The binary head over-flags in only 4 % of cases and under-flags in <1 %, making the mismatch conservative - no harmful text escapes moderation. We keep the binary head despite these findings as it boosts the category F1F_{1} scores, and we plan to explore joint calibration or adding training constraints to reduce these inconsistencies in future iterations.
+E.2 Red-Teaming by Native Speakers
+| Model
+| Chinese
+| Malay
+| Tamil
+| Overall
+| Acc.
+| F1
+| Acc.
+| F1
+| Acc.
+| F1
+| Acc.
+| F1
+| LionGuard 2
+| 85.5
+| 85.0
+| 79.5
+| 81.4
+| 40.7
+| 41.1
+| 70.6
+| 72.7
+| AWS Bedrock Guardrails
+| 22.2
+| 17.1
+| 30.7
+| 32.1
+| 35.2
+| 25.7
+| 29.4
+| 25.7
+| Azure AI Content Safety
+| 81.2
+| 82.6
+| 70.5
+| 73.1
+| 66.7
+| 25.7
+| 72.6
+| 74.2
+| GCP Model Armor
+| 59.8
+| 65.1
+| 65.7
+| 69.5
+| 62.0
+| 62.9
+| 62.9
+| 66.1
+| OpenAI Moderation API
+| 53.8
+| 58.8
+| 39.8
+| 44.5
+| 36.1
+| 22.4
+| 43.0
+| 44.4
+| LlamaGuard 4 12B
+| 44.4
+| 48.2
+| 53.6
+| 59.5
+| 57.4
+| 58.6
+| 51.9
+| 56.0
+Table 12: Accuracy and Weighted F1 (in %) by language and overall for each safety model.
+We recruited native speakers for each language (Chinese, Malay, and Tamil) to handcraft 391 test cases to test LionGuard 2. The procedure consisted of four stages:
+Stage 1: Brainstorming.
+Annotators were briefed on the guardrail’s objectives and asked to craft at least 30 test cases in their assigned language. We highlighted balancing a mix of near-miss toxic examples (expected to be blocked) and borderline safe examples (expected to pass). Code-mixing with slang, place names, personal names, technical terms, and other realistic elements was permitted.
+Stage 2: Guideline Tagging.
+Each case was annotated according to our safety taxonomy. Annotators applied every relevant category, marking sublevels with "1" or "2" and non-applicable categories with "0." Multi-label tagging was allowed to capture overlapping risk factors.
+Stage 3: Test-Set Expansion.
+To ensure full and balanced coverage of every category and sublevel, annotators supplemented the test set to include at least five cases per label. They were encouraged to devise "tricky" examples, such as benign requests containing dangerous keywords, leet or substituted characters, prompt-injection or role-playing scenarios, and context-dependent queries, to rigorously stress-test the classifier.
+Stage 4: Model Evaluation.
+Each annotated case was executed against the live guardrail model. Annotators recorded whether the case passed or failed, and for each failure they noted the specific category flagged.
+The final test set comprises 391 cases across all languages (see Table 13 and Figure 12 for details).
+We evaluated six safety guardrail models on the multilingual test set (Table 12), reporting both accuracy on the binary safe/unsafe decision and a weighted F1 score to correct for class imbalance.
+LionGuard 2 clearly leads in Chinese and Malay, significantly outperforming other systems. This advantage stems from its targeted training on Singapore-contextualised, near-miss toxic examples that tend to confuse other guardrails. On Tamil, LionGuard 2 achieves moderate performance, ranking in the middle of the evaluated models, which is a reflection of its relatively limited Tamil data. Consequently, its overall metrics (70.6% accuracy, 72.7% F1) fall just behind Azure AI Content Safety(Azure ()) (72.6% accuracy, 74.2% F1). Given LionGuard 2’s lightweight architecture, however, these results demonstrate a compelling balance between model efficiency and robust multilingual safety filtering.
+| Label
+|
+Chinese
+|
+Malay
+|
+Tamil
+| Safe Cases
+|
+19
+|
+27
+|
+36
+| Unsafe Cases
+|
+98
+|
+139
+|
+72
+| Total
+|
+117
+|
+166
+|
+108
+Table 13: Number of safe and unsafe test cases by language.
+Figure 12: Counts of level 1 and 2 annotations for each content category across the Chinese (CHN), Malay (MAL) and Tamil (TAM) test sets.
+E.3 Breakdown of category F1 scores on selected benchmarks.
+Refer to Table 14, Table 15, and Table 16 for detailed F1F_{1} scores for each category.
+| Model
+| Hateful
+| Insults
+| Sexual
+| Violence
+| Self Harm
+| Misconduct
+| L1
+| L2
+|
+| L1
+| L2
+|
+| L1
+| L2
+| L1
+| L2
+| LionGuard 2
+| 72.6
+| -
+| 56.1
+| 77.2
+| 48.8
+| 40.0
+| 58.9
+| -
+| 45.9
+| 59.1
+| AWS Bedrock Guardrails
+| 71.2
+| 39.1
+| 29.8
+| -
+| 59.7
+| 56.5
+| 27.2
+| 24.6
+| -
+| 47.5
+| Azure AI Content Safety
+| 24.5
+| 61.2
+| 44.1
+| 38.6
+| 39.7
+| -
+| -
+| 65.7
+| -
+| -
+| GCP Model Armor
+| 56.1
+| 33.4
+| 40.7
+| -
+| 51.0
+| -
+| -
+| -
+| 21.9
+| 30.2
+| OpenAI Moderation API
+| 43.0
+| 19.6
+| 50.5
+| -
+| 44.4
+| 57.7
+| 61.4
+| 51.1
+| -
+| 26.0
+| LlamaGuard 4 12B
+| 50.1
+| 34.5
+| 3.0
+| -
+| 50.0
+| 25.6
+| 55.1
+| 59.7
+| 4.7
+| 49.7
+Table 14: Per-category F1 (in %) on RabakBench. "-" marks unsupported or zero-positive categories.
+| Model
+| Hateful
+| Insults
+| Sexual
+| Violence
+| Self Harm
+| Misconduct
+| L1
+| L2
+|
+| L1
+| L2
+|
+| L1
+| L2
+| L1
+| L2
+| LionGuard 2
+| 39.5
+| -
+| 41.0
+| 52.7
+| 44.6
+| 21.6
+| 50.8
+| -
+| 54.1
+| 61.2
+| AWS Bedrock Guardrails
+| 58.1
+| -
+| 49.8
+| -
+| 54.4
+| 43.6
+| 9.1
+| 9.1
+| -
+| 61.4
+| Azure AI Content Safety
+| 16.8
+| -
+| 43.5
+| 43.9
+| 19.2
+| -
+| -
+| 29.8
+| -
+| -
+| GCP Model Armor
+| 40.9
+| -
+| 43.0
+| -
+| 41.0
+| -
+| -
+| -
+| 35.6
+| 43.3
+| OpenAI Moderation API
+| 30.7
+| -
+| 39.2
+| -
+| 53.3
+| 39.1
+| 70.9
+| 69.7
+| -
+| 59.3
+| LlamaGuard 4 12B
+| 51.6
+| -
+| 0.6
+| -
+| 42.0
+| 37.9
+| 61.9
+| 61.9
+| 0.7
+| 60.0
+Table 15: Per-category F1 (in %) on BeaverTails_330k_test.
+| Model
+| Hateful
+| Insults
+| Sexual
+| Violence
+| Self Harm
+| Misconduct
+| L1
+| L2
+|
+| L1
+| L2
+|
+| L1
+| L2
+| L1
+| L2
+| LionGuard 2
+| -
+| -
+| -
+| -
+| -
+| 88.9
+| 91.9
+| -
+| 73.3
+| 72.4
+| AWS Bedrock Guardrails
+| -
+| -
+| -
+| -
+| -
+| 59.7
+| 63.2
+| 42.6
+| -
+| 72.6
+| Azure AI Content Safety
+| -
+| -
+| -
+| -
+| -
+| -
+| -
+| 59.3
+| -
+| -
+| GCP Model Armor
+| -
+| -
+| -
+| -
+| -
+| -
+| -
+| -
+| 46.3
+| 46.3
+| OpenAI Moderation API
+| -
+| -
+| -
+| -
+| -
+| 87.8
+| 91.9
+| 66.7
+| -
+| 56.4
+| LlamaGuard 4 12B
+| -
+| -
+| -
+| -
+| -
+| 94.7
+| 94.7
+| 71.4
+| -
+| 84.1
+Table 16: Per-category F1 (in %) on SimpleSafetyTests.
+E.4 Inter-Taxonomy Mappings (Models)
+Refer to Table 17.
+| Guardrail
+| Guardrail Category
+|
+Our Category
+| Azure AI Content Safety
+| Hate
+|
+Insults or Hate (Level 1 and 2)
+|
+| Sexual
+|
+Sexual (Level 1 and 2)
+|
+| Violence
+|
+Violence or Misconduct (Level 2)
+|
+| Self Harm
+|
+Self-Harm (Level 1 and 2)
+| AWS Bedrock Guardrail
+| Hate
+|
+Hate (Level 1 and 2)
+|
+| Insults
+|
+Insults
+|
+| Sexual
+|
+Sexual (Level 1 and 2)
+|
+| Violence
+|
+Violence
+|
+| Misconduct
+|
+Misconduct (Level 1 and 2)
+| Google Cloud Model Armor
+| Hate Speech
+|
+Hate (Level 1 and 2)
+|
+| Harassment
+|
+Insults
+|
+| Sexually Explicit
+|
+Sexual (Level 2)
+|
+| Dangerous Content
+|
+Misconduct (Level 1 and 2)
+| OpenAI Moderation
+| Harassment
+|
+Insults
+|
+| Harassment/threatening
+|
+Violence
+|
+| Hate
+|
+Hate (Level 1 and 2)
+|
+| Hate/threatening
+|
+Hate (Level 2) + Violence
+|
+| Illicit
+|
+Misconduct (Level 2)
+|
+| Illicit/Violent
+|
+Violence + Misconduct (Level 2)
+|
+| Self-harm
+|
+Self-Harm (Level 1 and 2)
+|
+| Self-harm/intent
+|
+Self-Harm (Level 1)
+|
+| Self-harm/instructions
+|
+Self-Harm (Level 2)
+|
+| Sexual
+|
+Sexual (Level 1 and 2)
+|
+| Sexual/minors
+|
+Sexual (Level 1 and 2)
+|
+| Violence
+|
+Violence
+|
+| Violence/graphic
+|
+Violence
+| LlamaGuard 3 8B
+| S1: Violent Crimes
+|
+Violence + Misconduct (Level 2)
+|
+| S2: Non-Violent Crimes
+|
+Misconduct (Level 2)
+|
+| S3: Sex-Related Crimes
+|
+Sexual (Level 2) + Misconduct (Level 2)
+|
+| S4: Child Sexual Exploitation
+|
+Sexual (Level 2) + Misconduct (Level 2)
+|
+| S5: Defamation
+|
+Insults
+|
+| S6: Specialised Advice
+|
+-
+|
+| S7: Privacy
+|
+-
+|
+| S8: Intellectual Property
+|
+-
+|
+| S9: Indiscriminate Weapons
+|
+Violence + Misconduct (Level 2)
+|
+| S10: Hate
+|
+Hate (Level 1 and 2)
+|
+| S11: Suicide and Self-Harm
+|
+Self-Harm (Level 1 and 2)
+|
+| S12: Sexual Content
+|
+Sexual (Level 2)
+|
+| S13: Elections
+|
+-
+| LlamaGuard 4 12B
+| S1: Violent Crimes
+|
+Violence + Misconduct (Level 2)
+|
+| S2: Non-Violent Crimes
+|
+Misconduct (Level 2)
+|
+| S3: Sex-Related Crimes
+|
+Sexual (Level 2) + Misconduct (Level 2)
+|
+| S4: Child Sexual Exploitation
+|
+Sexual (Level 2) + Misconduct (Level 2)
+|
+| S5: Defamation
+|
+Insults
+|
+| S6: Specialised Advice
+|
+-
+|
+| S7: Privacy
+|
+-
+|
+| S8: Intellectual Property
+|
+-
+|
+| S9: Indiscriminate Weapons
+|
+Violence + Misconduct (Level 2)
+|
+| S10: Hate
+|
+Hate (Level 1 and 2)
+|
+| S11: Suicide and Self-Harm
+|
+Self-Harm (Level 1 and 2)
+|
+| S12: Sexual Content
+|
+Sexual (Level 2)
+|
+| S13: Elections
+|
+-
+Table 17: Mappings of the Taxonomy used by 7 selected Guardrails to our chosen Taxonomy
+E.5 Inter-Taxonomy Mappings (Benchmarks)
+Refer to Table 18.
+| Guardrail
+| Guardrail Category
+|
+Our Category
+| OpenAI Moderation
+| S: Sexual content that arouses sexual excitement
+|
+Sexual (Level 2)
+|
+| H: Hate content based on identity
+|
+Hate (Level 1)
+|
+| V: Violent content glorifying suffering
+|
+Violence
+|
+| HR: Harassment and tormenting content
+|
+Insults
+|
+| SH: Self-harm promotion content
+|
+Self-Harm (Level 1)
+|
+| S3: Sexual content involving minors
+|
+Sexual (Level 2)
+|
+| H2: Hate content involving violence or serious harm
+|
+Hate (Level 2)
+|
+| V2: Graphic violent content
+|
+Violence
+| BeaverTails
+| Animal Abuse
+|
+Misconduct (Level 2)
+|
+| Child Abuse
+|
+Misconduct (Level 2)
+|
+| Controversial Topics, Politics
+|
+Misconduct (Level 1)
+|
+| Discrimination, Stereotype, Injustice
+|
+Hate (Level 1)
+|
+| Drug Abuse, Weapons, Banned Substance
+|
+Misconduct (Level 2)
+|
+| Financial Crime, Property Crime, Theft
+|
+Misconduct (Level 2)
+|
+| Hate Speech, Offensive Language
+|
+Insults
+|
+| Misinformation
+|
+-
+|
+| Non-Violent Unethical Behavior
+|
+Misconduct (Level 1)
+|
+| Privacy Violation
+|
+-
+|
+| Self-Harm
+|
+Self-Harm (Level 2)
+|
+| Sexually Explicit, Adult Content
+|
+Sexual (Level 2)
+|
+| Terrorism, Organized Crime
+|
+Misconduct (Level 2)
+|
+| Violence, Aiding and Abetting, Incitement
+|
+Violence
+| SimpleSafetyTests
+| Suicide, Self-Harm, and Eating Disorders (Info seeking)
+|
+Self-Harm (Level 1)
+|
+| Suicide, Self-Harm, and Eating Disorders (Instructions)
+|
+Self-Harm (Level 2)
+|
+| Physical Harm and Violence (Info seeking)
+|
+Violence
+|
+| Physical Harm and Violence (Instructions)
+|
+Violence
+|
+| Illegal and Highly Regulated items (Info seeking)
+|
+Misconduct (Level 2)
+|
+| Illegal and Highly Regulated items (Instructions)
+|
+Misconduct (Level 2)
+|
+| Scams and Fraud (Info seeking)
+|
+Misconduct (Level 2)
+|
+| Scams and Fraud (Instructions)
+|
+Misconduct (Level 2)
+|
+| Child Abuse (Info seeking)
+|
+Misconduct (Level 2)
+|
+| Child Abuse (Instructions)
+|
+Misconduct (Level 2)
+| SGHateCheck
+| Derogation F1
+|
+Hate (Level 1)
+|
+| Derogation F2
+|
+Hate (Level 1)
+|
+| Derogation F3
+|
+Hate (Level 1)
+|
+| Derogation F4
+|
+Hate (Level 1)
+|
+| Threat Language F5
+|
+Hate (Level 2)
+|
+| Threat Language F6
+|
+Hate (Level 2)
+|
+| Slurs F7
+|
+Hate (Level 1)
+|
+| Profanity usage F8
+|
+Hate (Level 1)
+|
+| Profanity usage F9
+|
+-
+|
+| Pronoun Reference F10
+|
+Hate (Level 1)
+|
+| Pronoun Reference F11
+|
+Hate (Level 1)
+|
+| Negation F12
+|
+Hate (Level 1)
+|
+| Negation F13
+|
+-
+|
+| Phrasing F14
+|
+Hate (Level 1)
+|
+| Phrasing F15
+|
+Hate (Level 1)
+|
+| Non-hateful Group Identifier F16
+|
+-
+|
+| Non-hateful Group Identifier F17
+|
+-
+|
+| Counter Speech F18
+|
+-
+|
+| Counter Speech F19
+|
+-
+|
+| Abuse Against Non-protected Targets F20
+|
+-
+|
+| Abuse Against Non-protected Targets F21
+|
+-
+|
+| Abuse Against Non-protected Targets F22
+|
+-
+|
+| Spelling variations F23
+|
+Hate (Level 1)
+|
+| Spelling variations F24
+|
+Hate (Level 1)
+|
+| Spelling variations F25
+|
+Hate (Level 1)
+|
+| Spelling variations F26
+|
+Hate (Level 1)
+|
+| Spelling variations F27
+|
+Hate (Level 1)
+|
+| Spelling variations F32
+|
+Hate (Level 1)
+|
+| Spelling variations F33
+|
+Hate (Level 1)
+|
+| Spelling variations F34
+|
+Hate (Level 1)
+| SGToxicGuard
+| Task 1: Conversation
+|
+Hate (Level 2)
+|
+| Task 2: Question-Answering
+|
+Hate (Level 2)
+|
+| Task 3: Tweet Composition
+|
+Hate (Level 2)
+Table 18: Mappings of the Taxonomy used by selected Guardrails to our chosen Taxonomy
+| Guardrail
+| Guardrail Category
+|
+Our Category
+| SORRY-bench
+| 1. Personal Insulting Words
+|
+Insults
+|
+| 2. Social-group Insulting Words
+|
+Hate (Level 1)
+|
+| 3. Threatening Words
+|
+Misconduct (Level 1)
+|
+| 4. Lewd and Obscene Words
+|
+Sexual (Level 2)
+|
+| 5. Libelous Words
+|
+Misconduct (Level 1)
+|
+| 6. Self-Harm
+|
+Self-Harm (Level 2)
+|
+| 7. Violent Crimes
+|
+Misconduct (Level 2)
+|
+| 8. Stalking and Harassment
+|
+Misconduct (Level 2)
+|
+| 9. Sexual Crimes
+|
+Sexual (Level 2)
+|
+| 10. Property Crimes
+|
+Misconduct (Level 2)
+|
+| 11. Public Order Crimes
+|
+Misconduct (Level 2)
+|
+| 12. Impersonation
+|
+Misconduct (Level 1)
+|
+| 13. General Advice for System Intrusion
+|
+Misconduct (Level 2)
+|
+| 14. Malware Code Generation
+|
+Misconduct (Level 2)
+|
+| 15. Fraud, Scams, and Deception
+|
+Misconduct (Level 2)
+|
+| 16. Financial Crimes
+|
+Misconduct (Level 2)
+|
+| 17. Intellectual Property Infringement
+|
+-
+|
+| 18. Personal Identifiable Information
+|
+-
+|
+| 19. Illegal Crafting, Manufacturing, and Distribution
+|
+Misconduct (Level 2)
+|
+| 20. Terrorism
+|
+Misconduct (Level 2)
+|
+| 21. Child-related Crimes
+|
+Misconduct (Level 2)
+|
+| 22. Animal-related Crimes
+|
+Misconduct (Level 2)
+|
+| 23. Environmental Crimes
+|
+Misconduct (Level 2)
+|
+| 24. Evasion of Law Enforcement
+|
+Misconduct (Level 2)
+|
+| 25. Human Elimination and World Domination
+|
+Misconduct (Level 2)
+|
+| 26. Advice on Adult Content
+|
+Sexual (Level 2)
+|
+| 27. (Sexual) Explicit Content Generation
+|
+Sexual (Level 2)
+|
+| 28. (Non-sexual) Explicit Content Generation
+|
+Misconduct (Level 1)
+|
+| 29. Fake News Generation
+|
+-
+|
+| 30. False Advertising
+|
+-
+|
+| 31. Advice on Discrimination Behaviors
+|
+Hate (Level 1)
+|
+| 32. Military Use
+|
+-
+|
+| 33. Political Belief Promotion
+|
+-
+|
+| 34. Ethical Belief Promotion
+|
+-
+|
+| 35. Religion Promotion (Missionary)
+|
+-
+|
+| 36. Social Stereotype Promotion
+|
+Insults
+|
+| 37. Extremist Content Promotion
+|
+-
+|
+| 38. Conspiracy Theories Promotion
+|
+-
+|
+| 39. False Common Knowledge Promotion
+|
+-
+|
+| 40. Harmful and Unhealthy Behaviors Promotion
+|
+Misconduct (Level 2)
+|
+| Potentially Unqualified Advice
+|
+-
+|
+| 41. Medical advice
+|
+-
+|
+| 42. Financial advice
+|
+-
+|
+| 43. Legal advice
+|
+-
+|
+| 44. Governance decision advice
+|
+-
+|
+| 45. Dangerous machinery operation advice
+|
+-
+Table 19: Mappings of the Taxonomy used by selected Guardrails to our chosen Taxonomy
+Experimental support, please
+view the build logs
+for errors. Generated by
+L
+A
+T
+E
+xml
+.
+Instructions for reporting errors
+We are continuing to improve HTML versions of papers, and your feedback helps enhance accessibility and mobile
+support. To report errors in the HTML that will help us improve conversion and rendering, choose any of the
+methods listed below:
+Click the "Report Issue" () button, located in the page header.
+Tip: You can select the relevant text first, to include it in your report.
+Our team has already identified the following issues. We appreciate your time reviewing and reporting rendering errors we
+may not have found yet. Your efforts will help us improve the HTML versions for all readers, because disability
+should not be a barrier to accessing research. Thank you for your continued support in championing open access for
+all.
+Have a free development cycle? Help support accessibility at arXiv! Our collaborators at LaTeXML maintain a list of packages that need conversion, and welcome developer contributions.
+We gratefully acknowledge support from
+our major funders,
+member institutions, ,
+and all contributors.
+About
+·
+Help
+·
+Contact
+·
+Subscribe
+·
+Copyright
+·
+Privacy
+·
+Accessibility
+·
+Operational Status (opens in new tab)
+Major funding support from

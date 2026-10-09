@@ -27,6 +27,9 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| lionguard P5 Q-A (INV(d) 11th row arXiv 2507.05980 → BLOCKS 4/11/8/11/4) | yes; counts asserted at P8 from the final | main |
+| lionguard P5 Q-B (arXiv 2507.11966 translation paper) | not needed; optional suggestion dropped (auto-default) | main |
+| lionguard P5 Q-C (licence texts unreconciled, T6) | keep separate labelled bullets per R031; flag at CP2 summary, no user question now | main |
 | purplellama CP1 (Q-A per-tool prefix, Q-B 7 cols, Q-C one column per scanner; Q-D not decided) | R030 | user |
 | lionguard CP1 (one column LN1, prefix LionGuard:, keep all variants + state dependencies, decide test text later) | R031 | user |
 | bench-design wording (report sources and needs as proposals, never decided) | R032 | user |
