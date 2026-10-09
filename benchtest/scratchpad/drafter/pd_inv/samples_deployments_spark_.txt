@@ -1,0 +1,280 @@
+# status 200  final_url https://presidio.dataprivacystack.org/samples/deployments/spark/  content-type text/html; charset=utf-8
+Skip to content
+Presidio
+Anonymize PII using Presidio on Spark
+Search
+GitHub
+Presidio
+Quick start
+Learn Presidio
+Resources
+Recipes
+Samples
+Presidio
+GitHub
+Presidio
+Presidio
+Home
+Installation
+FAQ
+Quick start
+Quick start
+Home
+Text
+Images
+Semi/Structured data
+Learn Presidio
+Learn Presidio
+Home
+Concepts
+Tutorial
+Tutorial
+Home
+Getting started
+Deny-list recognizers
+Regex recognizers
+Rule-based recognizers
+Additional models/languages
+External services
+Context enhancement
+Decision process
+No-code recognizers
+Ad-hoc recognizers
+Simple anonymization
+Custom anonymization
+Encryption/Decryption
+Allow-lists
+Text de-identification
+Text de-identification
+Home
+Presidio Analyzer
+Presidio Analyzer
+Home
+Developing PII recognizers
+Developing PII recognizers
+Tutorial
+Best practices
+Recognizer registry from file
+Filtering recognizers by country
+Multi-language support
+Customizing the NLP model
+Customizing the NLP model
+Home
+Spacy/Stanza
+Transformers
+GPU Acceleration
+Tracing the decision process
+Configure from file
+Presidio Anonymizer
+Presidio Anonymizer
+Home
+Developing PII anonymization operators
+Azure Health Data Services de-identification service integration
+Image de-identification
+Image de-identification
+Home
+Evaluating DICOM redaction
+Structured and Semi-structured
+Structured and Semi-structured
+Home
+PII detection evaluation
+Resources
+Resources
+Supported entities
+Project transition update
+Community
+Change log
+Setting up a development environment
+Build and release process
+Changes from V1 to V2
+Python API reference
+Python API reference
+Home
+Presidio Analyzer Python API
+Presidio Anonymizer Python API
+Presidio Image Redactor Python API
+Presidio Structured Python API
+REST API reference
+Recipes
+Recipes
+Home
+Contributing
+Template
+Samples
+Samples
+Home
+Text
+Text
+Presidio Basic Usage Notebook
+Customizing Presidio Analyzer
+Configuring The NLP engine
+Encrypting and Decrypting identified entities
+Getting the identified entity value using a custom Operator
+Anonymizing known values
+Keeping some entities from being anonymized
+Integrating with external services
+Remote Recognizer
+Azure AI Language as a Remote Recognizer
+Azure Health DataServices De-identification as a Remote Recognizer
+Using Flair as an external PII model
+Using Span Marker as an external PII model
+Using Transformers as an external PII model
+Using GLiNER as an external PII model
+Pseudonymization (replace PII values using mappings)
+Passing a lambda as a Presidio anonymizer using Faker
+Synthetic data generation with OpenAI
+YAML based no-code configuration
+Data
+Data
+Analyzing structured / semi-structured data in batch
+Presidio Structured Basic Usage Notebook
+Analyze and Anonymize CSV file
+Images
+Images
+Redacting Text PII from DICOM images
+Using an allow list with image redaction
+Plot custom bounding boxes
+Example DICOM redaction evaluation
+PDF
+PDF
+Annotating PII in a PDF
+Deployment
+Deployment
+Presidio with App Service
+Presidio with Kubernetes
+Presidio with Spark
+Presidio with Spark
+On this page
+The basics of working with Presidio in Spark
+Pre-requisites
+Deploy Infrastructure
+Setup Databricks
+Configure an existing cluster
+Set up secret scope and secrets for storage account
+Upload or update cluster init scripts
+Upload presidio notebooks
+Update cluster environment
+Mount the storage container
+Running the sample
+Configure Presidio transformation notebook
+Run the notebook
+Presidio with Fabric
+Redacting Telemetry with Presidio
+Azure Data Factory
+Azure Data Factory
+ETL using AppService/Databricks
+Add Presidio as an HTTP service to your Azure Data Factory
+Add Presidio on Databricks to your Azure Data Factory
+PII Masking LLM calls using LiteLLM proxy
+Demo app
+Demo app
+Create a simple demo app using Streamlit
+On this page
+The basics of working with Presidio in Spark
+Pre-requisites
+Deploy Infrastructure
+Setup Databricks
+Configure an existing cluster
+Set up secret scope and secrets for storage account
+Upload or update cluster init scripts
+Upload presidio notebooks
+Update cluster environment
+Mount the storage container
+Running the sample
+Configure Presidio transformation notebook
+Run the notebook
+Anonymize PII using Presidio on Spark
+You can leverages presidio to perform data anonymization as part of spark notebooks.
+The following sample uses Azure Databricks and simple text files hosted on Azure Blob Storage. However, it can easily change to fit any other scenario which requires PII analysis or anonymization as part of spark jobs.
+Note that this code works for Databricks runtime 8.1 (spark 3.1.1) and the libraries described here.
+The basics of working with Presidio in Spark
+A typical use case of Presidio in Spark is transforming a text column in a data frame, by anonymizing its content. The following code sample, a part of transform presidio notebook, is the basis of the e2e sample which uses Azure Databricks as the Spark environment.
+anonymized_column = "value" # name of column to anonymize
+analyzer = AnalyzerEngine()
+anonymizer = AnonymizerEngine()
+# broadcast the engines to the cluster nodes
+broadcasted_analyzer = sc.broadcast(analyzer)
+broadcasted_anonymizer = sc.broadcast(anonymizer)
+# define a pandas UDF function and a series function over it.
+def anonymize_text(text: str) -> str:
+analyzer = broadcasted_analyzer.value
+anonymizer = broadcasted_anonymizer.value
+analyzer_results = analyzer.analyze(text=text, language="en")
+anonymized_results = anonymizer.anonymize(
+text=text,
+analyzer_results=analyzer_results,
+operators={
+"DEFAULT": OperatorConfig("replace", {"new_value": "<ANONYMIZED>"})
+},
+)
+return anonymized_results.text
+def anonymize_series(s: pd.Series) -> pd.Series:
+return s.apply(anonymize_text)
+# define a the function as pandas UDF
+anonymize = pandas_udf(anonymize_series, returnType=StringType())
+# apply the udf
+anonymized_df = input_df.withColumn(
+anonymized_column, anonymize(col(anonymized_column))
+)
+Pre-requisites
+If you do not have an instance of Azure Databricks, follow through with the following steps to provision and setup the required infrastructure.
+If you do have a Databricks workspace and a cluster you wish to configure to run Presidio, jump over to the Configure an existing cluster section.
+Deploy Infrastructure
+Provision the Azure resources by running the following script.
+export RESOURCE_GROUP=[resource group name]
+export STORAGE_ACCOUNT_NAME=[storage account name]
+export STORAGE_CONTAINER_NAME=[blob container name]
+export DATABRICKS_WORKSPACE_NAME=[databricks workspace name]
+export DATABRICKS_SKU=[basic/standard/premium]
+export LOCATION=[location]
+# Create the resource group
+az group create --name $RESOURCE_GROUP --location $LOCATION
+# Use ARM template to build the resources and get back the workspace URL
+deployment_response=$(az deployment group create -g $RESOURCE_GROUP --template-file ./docs/samples/deployments/spark/arm-template/databricks.json --parameters location=$LOCATION workspaceName=$DATABRICKS_WORKSPACE_NAME storageAccountName=$STORAGE_ACCOUNT_NAME containerName=$STORAGE_CONTAINER_NAME)
+export DATABRICKS_WORKSPACE_URL=$(echo $deployment_response | jq -r ".properties.outputs.workspaceUrl.value")
+export DATABRICKS_WORKSPACE_ID=$(echo $deployment_response | jq -r ".properties.outputs.workspaceId.value")
+Setup Databricks
+The following script will setup a new cluster in the databricks workspace and prepare it to run presidio anonymization jobs.
+Once finished, the script will output an access key which you can use when working with databricks cli.
+sh ./scripts/configure_databricks.sh
+Configure an existing cluster
+Only follow through with the steps in this section if you have an existing databricks workspace and clsuter you wish to configure to run presidio. If you've followed through with the "Deploy Infrastructure" and "Setup Databricks" sections you do not have to run the script in this section.
+Set up secret scope and secrets for storage account
+Add an Azure Storage account key to secret scope.
+STORAGE_PRIMARY_KEY=[Primary key of storage account]
+databricks secrets create-scope --scope storage_scope --initial-manage-principal users
+databricks secrets put --scope storage_scope --key storage_account_access_key --string-value "$STORAGE_PRIMARY_KEY"
+Upload or update cluster init scripts
+Presidio libraries are loaded to the cluster on init.
+Upload the cluster setup script or add its content to the existing cluster's init script.
+databricks fs cp "./setup/startup.sh" "dbfs:/FileStore/dependencies/startup.sh"
+Setup the cluster to run the init script.
+Upload presidio notebooks
+databricks workspace import_dir "./notebooks" "/notebooks" --overwrite
+Update cluster environment
+Add the following environment variables to your databricks cluster:
+"STORAGE_MOUNT_NAME": "/mnt/files"
+"STORAGE_CONTAINER_NAME": [Blob container name]
+"STORAGE_ACCOUNT_NAME": [Storage account name]
+Mount the storage container
+Run the notebook 00_setup to mount the storage account to databricks.
+Running the sample
+Configure Presidio transformation notebook
+From Databricks workspace, under notebooks folder, open the provided 01_transform_presidio notebook and attach it to the cluster preisidio_cluster.
+Run the first code-cell and note the following parameters on the top end of the notebook (notebook widgets) and set them accordingly
+Input File Format - text (selected).
+Input path - a folder on the container where input files are found.
+Output Folder - a folder on the container where output files will be written to.
+Column to Anonymize - value (selected).
+Run the notebook
+Upload a text file to the blob storage input folder, using any preferred method (Azure Portal, Azure Storage Explorer, Azure CLI).
+az storage blob upload --account-name $STORAGE_ACCOUNT_NAME --container $STORAGE_CONTAINER_NAME --file ./[file name] --name input/[file name]
+Run the notebook cells, the output should be csv files which contain two columns, the original file name, and the anonymized content of that file.
+Back to top
+Previous
+Presidio with Kubernetes
+Next
+Presidio with Fabric
+Data Privacy Stack
+Made with
+Zensical

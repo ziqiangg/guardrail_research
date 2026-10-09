@@ -26,17 +26,12 @@ Each entry gives the explorer a starting point. **UNVERIFIED** marks a starting 
 - **Caveats:** Vertex AI is now "Gemini Enterprise Agent Platform" in docs; release notes may carry next-day dates (C9); GoogleCloudPlatform GitHub samples 403 (R013).
 - **Cross-reference:** SDP (R012).
 
-## sdp (B1) — UNVERIFIED
-- **Owner:** Google Cloud Sensitive Data Protection, formerly Cloud DLP. Docs start: https://cloud.google.com/sensitive-data-protection/docs (UNVERIFIED).
-- **What to confirm:**
-  - inspection (infoTypes, custom infoTypes, likelihood);
-  - de-identification transformations (masking, tokenisation/FPE, date shifting, bucketing) and re-identification;
-  - content methods (`content:inspect` and `content:deidentify`) vs storage jobs (scope guide: storage scanning → inventory only);
-  - image redaction;
-  - Singapore infoTypes;
-  - client libraries;
-  - pricing and quotas.
-- **Cross-reference:** Model Armor; Presidio (PII); Sentinel AF (AWS PII).
+## sdp (B1) — VERIFIED at P0 2026-10-09
+- **Owner:** Google Cloud Sensitive Data Protection, formerly Cloud DLP (rename confirmed; API `dlp.googleapis.com`, IAM roles and PyPI `google-cloud-dlp` keep the DLP name). Docs: https://docs.cloud.google.com/sensitive-data-protection/docs (cloud.google.com/sensitive-data-protection/docs and cloud.google.com/dlp/docs 301 there). InfoTypes: /docs/infotypes-reference. Limits: https://docs.cloud.google.com/sensitive-data-protection/limits. Pricing: https://cloud.google.com/sensitive-data-protection/pricing; SLA: /sla.
+- **Code (supporting):** `googleapis/google-cloud-python` packages/google-cloud-dlp @ tag google-cloud-dlp-v3.40.0 (69401247a72c, 2026-10-01); `googleapis/python-dlp` archived. Read by shallow/sparse clone (R013).
+- **P0 note:** `scratchpad/explorer/20261009_sdp_p0.md` (E1–E26, 14 gaps, 5 conflicts). Proposes SD1–SD6 (+ SD7 content policy, conditional); q01 prefix, q02 content policy, q03 column split → CP1.
+- **Caveats:** image-format conflict for redaction (C1); content-policy "synchronous verdicts" not exposed in the REST resource (C2); no SG FIN/UEN/phone infoType documented; +65 phone handling to be verified.
+- **Cross-reference:** Model Armor (R012); Presidio (PII); Sentinel AF (AWS PII).
 
 ## purplellama (B2) — UNVERIFIED (see R004)
 - **Repo:** `meta-llama/PurpleLlama`. The baseline Llama Guard research pinned 172c1074; re-pin to the latest commit or tag. Sub-folders to confirm: Prompt Guard, LlamaFirewall, CodeShield, CyberSecEval.

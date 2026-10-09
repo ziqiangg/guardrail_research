@@ -1,0 +1,58 @@
+##### structured/ :: (?i)focusing on|might not be|Selection Strategy|Most Common|Highest Confidence|Mixed|not supported|Future work|PySpark|free text|sensitive column|mixed_strategy|selection_strategy|pip install|Initialize the engine
+87: Selection Strategy for Entity Detection in Tabular Data
+89: Future work
+175: Selection Strategy for Entity Detection in Tabular Data
+177: Future work
+182: This tool extends the capabilities of Presidio, focusing on structured data formats such as tabular formats and semi-structured formats (JSON).
+186: Note that sensitive data might not be automatically detected in some cases. Consequently, additional systems and protections should be employed.
+190: pip install presidio-structured
+197: # Initialize the engine with a Pandas data processor (default)
+216: # Initialize the engine with a JSON data processor
+243: # Nesting objects in lists is not supported in JsonAnalysisBuilder for now,
+254: Selection Strategy for Entity Detection in Tabular Data
+255: Most Common (default): Identifies the most frequently occurring PII entity in a data column or field.
+256: Highest Confidence: Selects PII entities based on the highest confidence scores, irrespective of their occurrence frequency.
+257: Mixed: Combines the strengths of both the above strategies. It selects the entity with the highest confidence score if that score exceeds a specified threshold (controlled by mixed_strategy_threshold); otherwise, it defaults to the most common entity.
+259: Specify the selection_strategy and optionally the mixed_strategy_threshold in the generate_analysis() method:
+260: # Generate a tabular analysis using the most common strategy
+262: # Generate a tabular analysis using the highest confidence strategy
+263: tabular_analysis = PandasAnalysisBuilder().generate_analysis(sample_df, selection_strategy="highest_confidence")
+264: # Generate a tabular analysis using the mixed strategy
+265: tabular_analysis = PandasAnalysisBuilder().generate_analysis(sample_df, selection_strategy="mixed", mixed_strategy_threshold=0.75)
+266: Future work
+267: Improve support for datasets with mixed free-text and structure data (e.g. some columns contain free text)
+268: Add support for the detection of sensitive column names
+269: PySpark implementation
+##### tutorial/09_ad_hoc/ :: (?i)ad-hoc recognizers via|only used in the context|already deployed|which could be either
+157: In addition to recognizers in code or in a YAML file, it is possible to create ad-hoc recognizers via the Presidio Analyzer API for regex and deny-list based logic.
+158: These recognizers, in JSON form, are added to the /analyze request and are only used in the context of this request.
+160: These ad-hoc recognizers could be useful if Presidio is already deployed, but requires additional detection logic to be added.
+200: In both examples, the /analyze request is extended with a list of ad_hoc_recognizers, which could be either patterns, deny_list or both.
+##### tutorial/13_allow_list/ :: (?i)allow_list|pass a short list|no longer
+158: In this example, we will pass a short list of tokens which should not be marked as PII even if detected by one of the recognizers.
+169: To specify an allow list we just pass a list of values we want to keep as a parameter to call to analyze. Now we can see that in the results, bing.com is no longer being recognized as a PII item, only microsoft.com is still recognized since we did include it in the allow list.
+170: result = analyzer.analyze(text = text1, language = 'en', allow_list = ["bing.com"] )
+##### tutorial/06_context/ :: (?i)LemmaContext|0.35|0.4|request level|metadata such as|surroundings
+163: Furthermore, it is possible to create your own context enhancer, if you require a different logic for identifying context terms. The default context-aware enhancer in Presidio is the LemmaContextAwareEnhancer which compares each recognizer's context terms with the lemma of each token in the sentence.
+195: AnalyzerEngine will create LemmaContextAwareEnhancer by default if not passed, which will enhance score of each matched result if its recognizer holds context words and the lemma of those words are found in the surroundings of the matched entity.
+205: The confidence score is now 0.4, instead of 0.01, since the LemmaContextAwareEnhancer default context similarity factor is 0.35 and default minimum score with context similarity is 0.4. We can change that by passing other values to the context_similarity_factor and min_score_with_context_similarity parameters of the LemmaContextAwareEnhancer object. For example:
+207: from presidio_analyzer.context_aware_enhancers import LemmaContextAwareEnhancer
+208: context_aware_enhancer = LemmaContextAwareEnhancer(
+209: context_similarity_factor=0.45, min_score_with_context_similarity=0.4
+220: The confidence score is now 0.46 because it got enhanced from 0.01 with 0.45 and is more than the minimum of 0.4.
+221: In addition to surrounding words, additional context words could be passed on the request level.
+222: This is useful when there is context coming from metadata such as column names or a specific user input.
+223: In the following example, notice how the "zip" context word doesn't appear in the text but still enhances the confidence score from 0.01 to 0.4:
+##### tutorial/01_deny_list/ :: (?i)deny_list|deny-list|both the name
+3: Example 1: Deny-list based PII recognition
+33: Deny-list recognizers
+156: Example 1: Deny-list based PII recognition
+170: Second, let's create a PatternRecognizer which would scan for those titles, by passing a deny_list:
+172: titles_recognizer = PatternRecognizer(supported_entity="TITLE", deny_list=titles_list)
+188: As expected, both the name "Plum" and the title were identified as PII:
+##### tutorial/08_no_code/ :: (?i)three scenarios|existing set|without writing code|default_score_threshold|enable and disable
+178: No-code configuration can be helpful in three scenarios:
+179: There's an existing set of regular expressions / deny-lists that should be leveraged within Presidio.
+180: As a simple way to configure which recognizers to enable and disable, and how to configure the NLP engine.
+181: For team members interested in changing the configuration without writing code.
+203: default_score_threshold: 0.4

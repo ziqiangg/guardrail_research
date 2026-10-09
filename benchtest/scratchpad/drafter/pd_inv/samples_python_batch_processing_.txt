@@ -1,0 +1,368 @@
+# status 200  final_url https://presidio.dataprivacystack.org/samples/python/batch_processing/  content-type text/html; charset=utf-8
+Skip to content
+Presidio
+Run Presidio on structured / semi-structured data
+Search
+GitHub
+Presidio
+Quick start
+Learn Presidio
+Resources
+Recipes
+Samples
+Presidio
+GitHub
+Presidio
+Presidio
+Home
+Installation
+FAQ
+Quick start
+Quick start
+Home
+Text
+Images
+Semi/Structured data
+Learn Presidio
+Learn Presidio
+Home
+Concepts
+Tutorial
+Tutorial
+Home
+Getting started
+Deny-list recognizers
+Regex recognizers
+Rule-based recognizers
+Additional models/languages
+External services
+Context enhancement
+Decision process
+No-code recognizers
+Ad-hoc recognizers
+Simple anonymization
+Custom anonymization
+Encryption/Decryption
+Allow-lists
+Text de-identification
+Text de-identification
+Home
+Presidio Analyzer
+Presidio Analyzer
+Home
+Developing PII recognizers
+Developing PII recognizers
+Tutorial
+Best practices
+Recognizer registry from file
+Filtering recognizers by country
+Multi-language support
+Customizing the NLP model
+Customizing the NLP model
+Home
+Spacy/Stanza
+Transformers
+GPU Acceleration
+Tracing the decision process
+Configure from file
+Presidio Anonymizer
+Presidio Anonymizer
+Home
+Developing PII anonymization operators
+Azure Health Data Services de-identification service integration
+Image de-identification
+Image de-identification
+Home
+Evaluating DICOM redaction
+Structured and Semi-structured
+Structured and Semi-structured
+Home
+PII detection evaluation
+Resources
+Resources
+Supported entities
+Project transition update
+Community
+Change log
+Setting up a development environment
+Build and release process
+Changes from V1 to V2
+Python API reference
+Python API reference
+Home
+Presidio Analyzer Python API
+Presidio Anonymizer Python API
+Presidio Image Redactor Python API
+Presidio Structured Python API
+REST API reference
+Recipes
+Recipes
+Home
+Contributing
+Template
+Samples
+Samples
+Home
+Text
+Text
+Presidio Basic Usage Notebook
+Customizing Presidio Analyzer
+Configuring The NLP engine
+Encrypting and Decrypting identified entities
+Getting the identified entity value using a custom Operator
+Anonymizing known values
+Keeping some entities from being anonymized
+Integrating with external services
+Remote Recognizer
+Azure AI Language as a Remote Recognizer
+Azure Health DataServices De-identification as a Remote Recognizer
+Using Flair as an external PII model
+Using Span Marker as an external PII model
+Using Transformers as an external PII model
+Using GLiNER as an external PII model
+Pseudonymization (replace PII values using mappings)
+Passing a lambda as a Presidio anonymizer using Faker
+Synthetic data generation with OpenAI
+YAML based no-code configuration
+Data
+Data
+Analyzing structured / semi-structured data in batch
+Analyzing structured / semi-structured data in batch
+On this page
+Path to notebook: https://www.github.com/data-privacy-stack/presidio/blob/main/docs/samples/python/batch_processing.ipynb
+Run Presidio on structured / semi-structured data
+Set up imports
+Example using sample tabular data
+Example using JSON
+Ignoring specific keys
+Ignoring nested keys
+Note!
+Multiprocessing
+Presidio Structured Basic Usage Notebook
+Analyze and Anonymize CSV file
+Images
+Images
+Redacting Text PII from DICOM images
+Using an allow list with image redaction
+Plot custom bounding boxes
+Example DICOM redaction evaluation
+PDF
+PDF
+Annotating PII in a PDF
+Deployment
+Deployment
+Presidio with App Service
+Presidio with Kubernetes
+Presidio with Spark
+Presidio with Fabric
+Redacting Telemetry with Presidio
+Azure Data Factory
+Azure Data Factory
+ETL using AppService/Databricks
+Add Presidio as an HTTP service to your Azure Data Factory
+Add Presidio on Databricks to your Azure Data Factory
+PII Masking LLM calls using LiteLLM proxy
+Demo app
+Demo app
+Create a simple demo app using Streamlit
+On this page
+Path to notebook: https://www.github.com/data-privacy-stack/presidio/blob/main/docs/samples/python/batch_processing.ipynb
+Run Presidio on structured / semi-structured data
+Set up imports
+Example using sample tabular data
+Example using JSON
+Ignoring specific keys
+Ignoring nested keys
+Note!
+Multiprocessing
+# download presidio
+#!pip install presidio_analyzer presidio_anonymizer
+#!python -m spacy download en_core_web_lg
+#!pip install pandas
+Path to notebook: https://www.github.com/data-privacy-stack/presidio/blob/main/docs/samples/python/batch_processing.ipynb
+Run Presidio on structured / semi-structured data
+This sample shows how Presidio could be potentially extended to handle the anonymization of a table or data frame.
+It introduces methods for the analysis and anonymization of both lists and dicts.
+Note: this sample input here is a Pandas DataFrame and a JSON file, but it can be used in other scenarios such as querying SQL data or using Spark DataFrames.
+Set up imports
+from typing import List, Optional, Dict, Union, Iterator, Iterable
+import collections
+from dataclasses import dataclass
+import pprint
+import pandas as pd
+from presidio_analyzer import AnalyzerEngine, BatchAnalyzerEngine, RecognizerResult, DictAnalyzerResult
+from presidio_anonymizer import AnonymizerEngine, BatchAnonymizerEngine
+from presidio_anonymizer.entities import EngineResult
+Example using sample tabular data
+columns = ["name phrase", "phone number phrase", "integer", "boolean" ]
+sample_data = [
+('Charlie likes this', 'Please call 212-555-1234 after 2pm', 1, True),
+('You should talk to Mike', 'his number is 978-428-7111', 2, False),
+('Mary had a little startup', 'Phone number: 202-342-1234', 3, False)
+]
+# Create Pandas DataFrame
+df = pd.DataFrame(sample_data,columns=columns)
+df
+|
+| name phrase
+| phone number phrase
+| integer
+| boolean
+| 0
+| Charlie likes this
+| Please call 212-555-1234 after 2pm
+| 1
+| True
+| 1
+| You should talk to Mike
+| his number is 978-428-7111
+| 2
+| False
+| 2
+| Mary had a little startup
+| Phone number: 202-342-1234
+| 3
+| False
+# DataFrame to dict
+df_dict = df.to_dict(orient="list")
+pprint.pprint(df_dict)
+{'boolean': [True, False, False],
+'integer': [1, 2, 3],
+'name phrase': ['Charlie likes this',
+'You should talk to Mike',
+'Mary had a little startup'],
+'phone number phrase': ['Please call 212-555-1234 after 2pm',
+'his number is 978-428-7111',
+'Phone number: 202-342-1234']}
+analyzer = AnalyzerEngine()
+batch_analyzer = BatchAnalyzerEngine(analyzer_engine=analyzer)
+batch_anonymizer = BatchAnonymizerEngine()
+analyzer_results = batch_analyzer.analyze_dict(df_dict, language="en")
+analyzer_results = list(analyzer_results)
+analyzer_results
+[DictAnalyzerResult(key='name phrase', value=['Charlie likes this', 'You should talk to Mike', 'Mary had a little startup'], recognizer_results=[[type: PERSON, start: 0, end: 7, score: 0.85], [type: PERSON, start: 19, end: 23, score: 0.85], [type: PERSON, start: 0, end: 4, score: 0.85]]),
+DictAnalyzerResult(key='phone number phrase', value=['Please call 212-555-1234 after 2pm', 'his number is 978-428-7111', 'Phone number: 202-342-1234'], recognizer_results=[[type: DATE_TIME, start: 31, end: 34, score: 0.85, type: PHONE_NUMBER, start: 12, end: 24, score: 0.75], [type: PHONE_NUMBER, start: 14, end: 26, score: 0.75], [type: PHONE_NUMBER, start: 14, end: 26, score: 0.75]]),
+DictAnalyzerResult(key='integer', value=[1, 2, 3], recognizer_results=[[], [], []]),
+DictAnalyzerResult(key='boolean', value=[True, False, False], recognizer_results=[[], [], []])]
+anonymizer_results = batch_anonymizer.anonymize_dict(analyzer_results)
+scrubbed_df = pd.DataFrame(anonymizer_results)
+scrubbed_df
+|
+| name phrase
+| phone number phrase
+| integer
+| boolean
+| 0
+| <PERSON> likes this
+| Please call <PHONE_NUMBER> after <DATE_TIME>
+| 1
+| True
+| 1
+| You should talk to <PERSON>
+| his number is <PHONE_NUMBER>
+| 2
+| False
+| 2
+| <PERSON> had a little startup
+| Phone number: <PHONE_NUMBER>
+| 3
+| False
+Example using JSON
+nested_dict = {
+"key_a": {"key_a1": "My phone number is 212-121-1424"},
+"key_b": {"www.abc.com"},
+"key_c": 3,
+"names": ["James Bond", "Clark Kent", "Hakeem Olajuwon", "No name here!"]
+}
+pprint.pprint(nested_dict)
+{'key_a': {'key_a1': 'My phone number is 212-121-1424'},
+'key_b': {'www.abc.com'},
+'key_c': 3,
+'names': ['James Bond', 'Clark Kent', 'Hakeem Olajuwon', 'No name here!']}
+# Analyze dict
+analyzer_results = batch_analyzer.analyze_dict(input_dict = nested_dict, language="en")
+# Anonymize dict
+anonymizer_results = batch_anonymizer.anonymize_dict(analyzer_results = analyzer_results)
+pprint.pprint(anonymizer_results)
+{'key_a': {'key_a1': 'My phone number is <PHONE_NUMBER>'},
+'key_b': ['<URL>'],
+'key_c': 3,
+'names': ['<PERSON>', '<PERSON>', '<PERSON>', 'No name here!']}
+Ignoring specific keys
+keys_to_skip=["key_a1", "names"]
+analyzer_results = batch_analyzer.analyze_dict(input_dict = nested_dict, language="en", keys_to_skip=keys_to_skip)
+# Anonymize dict
+anonymizer_results = batch_anonymizer.anonymize_dict(analyzer_results = analyzer_results)
+pprint.pprint(anonymizer_results)
+{'key_a': {'key_a1': 'My phone number is 212-121-1424'},
+'key_b': ['<URL>'],
+'key_c': 3,
+'names': ['James Bond', 'Clark Kent', 'Hakeem Olajuwon', 'No name here!']}
+Ignoring nested keys
+keys_to_skip = ["key_a.key_a1"]
+analyzer_results = batch_analyzer.analyze_dict(input_dict = nested_dict, language="en", keys_to_skip=keys_to_skip)
+# Anonymize dict
+anonymizer_results = batch_anonymizer.anonymize_dict(analyzer_results = analyzer_results)
+pprint.pprint(anonymizer_results)
+{'key_a': {'key_a1': 'My phone number is 212-121-1424'},
+'key_b': ['<URL>'],
+'key_c': 3,
+'names': ['<PERSON>', '<PERSON>', '<PERSON>', 'No name here!']}
+Note!
+JSON files with objects within lists, e.g.:
+{
+"key": [
+{
+"key2": "Peter Parker"
+},
+{
+"key3": "555-1234"
+}
+]
+}
+Are not yet supported. Consider breaking the JSON to parts if needed.
+Multiprocessing
+BatchAnalyzerEngine builds upon spaCy's pipelines. For more info about multiprocessing, see https://spacy.io/usage/processing-pipelines#multiprocessing.
+In Presidio, one can pass the n_process argument and the batch_size parameter to define how processing is done in parallel.
+import multiprocessing
+import psutil
+import time
+def analyze_batch_multiprocess(n_process=12, batch_size=4):
+"""Run BatchAnalyzer with `n_process` processes and batch size of `batch_size`."""
+list_of_texts = ["My name is mike"]*1000
+results = batch_analyzer.analyze_iterator(
+texts=list_of_texts,
+language="en",
+n_process=n_process,
+batch_size=batch_size
+)
+return list(results)
+def monitor_processes():
+"""Monitor all Python processes dynamically."""
+while True:
+processes = [p for p in psutil.process_iter(attrs=['pid', 'name']) if "python" in p.info['name']]
+print(f"[Monitor] Active Python processes: {len(processes)} - {[p.info['pid'] for p in processes]}")
+time.sleep(1)
+# Run interactive monitoring
+monitor_proc = multiprocessing.Process(target=monitor_processes, daemon=True)
+monitor_proc.start()
+# Run the batch analyzer process
+analyze_batch_multiprocess(n_process=4, batch_size=2)
+# Wait for everything to conclude
+time.sleep(1)
+# Clean up (not needed if daemon=True, but useful if stopping manually)
+monitor_proc.terminate()
+[Monitor] Active Python processes: 4 - [38773, 38774, 45860, 109966]
+[Monitor] Active Python processes: 8 - [38773, 38774, 45860, 109966, 109973, 109976, 109977, 109978]
+[Monitor] Active Python processes: 8 - [38773, 38774, 45860, 109966, 109973, 109976, 109977, 109978]
+[Monitor] Active Python processes: 8 - [38773, 38774, 45860, 109966, 109973, 109976, 109977, 109978]
+[Monitor] Active Python processes: 8 - [38773, 38774, 45860, 109966, 109973, 109976, 109977, 109978]
+[Monitor] Active Python processes: 4 - [38773, 38774, 45860, 109966]
+Back to top
+Previous
+YAML based no-code configuration
+Next
+Presidio Structured Basic Usage Notebook
+Data Privacy Stack
+Made with
+Zensical

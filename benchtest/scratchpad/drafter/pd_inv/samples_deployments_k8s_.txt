@@ -1,0 +1,220 @@
+# status 200  final_url https://presidio.dataprivacystack.org/samples/deployments/k8s/  content-type text/html; charset=utf-8
+Skip to content
+Presidio
+Deploy presidio to Kubernetes
+Search
+GitHub
+Presidio
+Quick start
+Learn Presidio
+Resources
+Recipes
+Samples
+Presidio
+GitHub
+Presidio
+Presidio
+Home
+Installation
+FAQ
+Quick start
+Quick start
+Home
+Text
+Images
+Semi/Structured data
+Learn Presidio
+Learn Presidio
+Home
+Concepts
+Tutorial
+Tutorial
+Home
+Getting started
+Deny-list recognizers
+Regex recognizers
+Rule-based recognizers
+Additional models/languages
+External services
+Context enhancement
+Decision process
+No-code recognizers
+Ad-hoc recognizers
+Simple anonymization
+Custom anonymization
+Encryption/Decryption
+Allow-lists
+Text de-identification
+Text de-identification
+Home
+Presidio Analyzer
+Presidio Analyzer
+Home
+Developing PII recognizers
+Developing PII recognizers
+Tutorial
+Best practices
+Recognizer registry from file
+Filtering recognizers by country
+Multi-language support
+Customizing the NLP model
+Customizing the NLP model
+Home
+Spacy/Stanza
+Transformers
+GPU Acceleration
+Tracing the decision process
+Configure from file
+Presidio Anonymizer
+Presidio Anonymizer
+Home
+Developing PII anonymization operators
+Azure Health Data Services de-identification service integration
+Image de-identification
+Image de-identification
+Home
+Evaluating DICOM redaction
+Structured and Semi-structured
+Structured and Semi-structured
+Home
+PII detection evaluation
+Resources
+Resources
+Supported entities
+Project transition update
+Community
+Change log
+Setting up a development environment
+Build and release process
+Changes from V1 to V2
+Python API reference
+Python API reference
+Home
+Presidio Analyzer Python API
+Presidio Anonymizer Python API
+Presidio Image Redactor Python API
+Presidio Structured Python API
+REST API reference
+Recipes
+Recipes
+Home
+Contributing
+Template
+Samples
+Samples
+Home
+Text
+Text
+Presidio Basic Usage Notebook
+Customizing Presidio Analyzer
+Configuring The NLP engine
+Encrypting and Decrypting identified entities
+Getting the identified entity value using a custom Operator
+Anonymizing known values
+Keeping some entities from being anonymized
+Integrating with external services
+Remote Recognizer
+Azure AI Language as a Remote Recognizer
+Azure Health DataServices De-identification as a Remote Recognizer
+Using Flair as an external PII model
+Using Span Marker as an external PII model
+Using Transformers as an external PII model
+Using GLiNER as an external PII model
+Pseudonymization (replace PII values using mappings)
+Passing a lambda as a Presidio anonymizer using Faker
+Synthetic data generation with OpenAI
+YAML based no-code configuration
+Data
+Data
+Analyzing structured / semi-structured data in batch
+Presidio Structured Basic Usage Notebook
+Analyze and Anonymize CSV file
+Images
+Images
+Redacting Text PII from DICOM images
+Using an allow list with image redaction
+Plot custom bounding boxes
+Example DICOM redaction evaluation
+PDF
+PDF
+Annotating PII in a PDF
+Deployment
+Deployment
+Presidio with App Service
+Presidio with Kubernetes
+Presidio with Kubernetes
+On this page
+Deploy locally with KIND
+Presidio As a Service with Kubernetes
+Prerequisites
+Step by step deployment with customizable parameters
+Presidio with Spark
+Presidio with Fabric
+Redacting Telemetry with Presidio
+Azure Data Factory
+Azure Data Factory
+ETL using AppService/Databricks
+Add Presidio as an HTTP service to your Azure Data Factory
+Add Presidio on Databricks to your Azure Data Factory
+PII Masking LLM calls using LiteLLM proxy
+Demo app
+Demo app
+Create a simple demo app using Streamlit
+On this page
+Deploy locally with KIND
+Presidio As a Service with Kubernetes
+Prerequisites
+Step by step deployment with customizable parameters
+Deploy presidio to Kubernetes
+You can install Presidio locally using KIND, as a service in Kubernetes or AKS.
+Deploy locally using KIND
+Deploy with Kubernetes
+Prerequisites
+Step by Step Deployment with customizable parameters
+Deploy locally with KIND
+KIND (Kubernetes IN Docker).
+Install Docker.
+Clone Presidio.
+Run the following script, which will use KIND (Kubernetes emulation in Docker)
+cd docs/samples/deployments/k8s/deployment/
+./run-with-kind.sh
+Wait and verify all pods are running:
+kubectl get pod -n presidio
+Port forwarding of HTTP requests to the API micro-service will be done automatically. In order to run manual:
+kubectl port-forward <presidio-analyzer-pod-name> 8080:8080 -n presidio
+Presidio As a Service with Kubernetes
+Prerequisites
+A Kubernetes 1.18+ cluster with RBAC enabled. If you are using AKS RBAC is enabled by default.
+!!! note: Note
+Note the pod's resource requirements (CPU and memory) and plan the cluster accordingly.
+kubectl installed. Verify you can communicate with the cluster by running:
+kubectl version
+Local helm client.
+Optional - Container Registry - such as ACR. Only needed if you are using your own Presidio images and not the default ones from GitHub Container Registry.
+Recent presidio repo is cloned on your local machine.
+Step by step deployment with customizable parameters
+Install Helm with RBAC.
+Optional - Ingress controller for presidio API, e.g., NGINX.
+NOTE:
+Presidio is deployed with an ingress controller by default, and uses nginx as ingress.class. To change
+this behavior, deploy the helm chart with ingress.enabled=false.
+Deploy from /docs/samples/deployments/k8s/charts/presidio
+# Choose a namespace and ensure it is created
+NAMESPACE=presidio
+# Choose the tag from ghcr.io/data-privacy-stack, e.g. `latest`
+TAG=latest
+# Choose a name for the deployment
+NAME=<name>
+# Use Helm to install all required components
+helm install $NAME . --set tag=$TAG --namespace $NAMESPACE
+# If you have your own images in a separate ACR, run
+DOCKER_REGISTRY=<your_registry>
+helm install $NAME . --set registry=$DOCKER_REGISTRY,tag=$TAG --namespace $NAMESPACE
+Back to top
+Previous
+Presidio with App Service
+Next
+Presidio with Spark
+Data Privacy Stack
+Made with
+Zensical

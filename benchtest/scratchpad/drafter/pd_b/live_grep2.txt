@@ -1,0 +1,118 @@
+##### analyzer/adding_recognizers/ :: (?i)via code|ad-hoc|PatternRecognizer is|abstract class|YAML|without writing code|global_regex_flags|remote|LangExtract|Ollama
+41: Ad-hoc recognizers
+62: Creating a remote recognizer
+67: Creating ad-hoc recognizers
+68: Reading pattern recognizers from YAML
+129: Remote Recognizer
+130: Azure AI Language as a Remote Recognizer
+131: Azure Health DataServices De-identification as a Remote Recognizer
+139: YAML based no-code configuration
+176: Creating a remote recognizer
+181: Creating ad-hoc recognizers
+182: Reading pattern recognizers from YAML
+185: These PII recognizers could be added via code or ad-hoc as part of the request.
+192: The EntityRecognizer is an abstract class for all recognizers.
+193: The RemoteRecognizer is an abstract class for calling external PII detectors.
+195: The abstract class LocalRecognizer is implemented by all recognizers running within the Presidio-analyzer process.
+196: The PatternRecognizer is an class for supporting regex and deny-list based recognition logic,
+229: For one recognizer, use the global_regex_flags parameter
+231: For all recognizers, use the global_regex_flags parameter in the RecognizerRegistry constructor:
+234: registry = RecognizerRegistry(global_regex_flags=re.DOTALL | re.MULTILINE | re.IGNORECASE)
+238: To create a new recognizer via code:
+253: Creating a remote recognizer
+254: A remote recognizer is an EntityRecognizer object interacting with an external service. The external service could be a 3rd party PII detection service or a custom service deployed in parallel to Presidio.
+255: Sample implementation of a RemoteRecognizer.
+256: In this example, an external PII detection service exposes two APIs: detect and supported_entities. The class implemented here, ExampleRemoteRecognizer, uses the requests package to call the external service via HTTP.
+258: For an example of integrating a RemoteRecognizer with Presidio-Analyzer, see this example.
+269: and a sample for a Text Analytics Remote Recognizer, refer to the
+273: and a sample for a ADHS Remote Recognizer, refer to the
+277: The current implementation uses LangExtract with Ollama (local models). For full setup instructions and usage examples,
+279: Creating ad-hoc recognizers
+280: In addition to recognizers in code, it is possible to create ad-hoc recognizers via the Presidio Analyzer API for regex and deny-list based logic.
+282: The json structure for a regex ad-hoc recognizer is the following:
+323: Reading pattern recognizers from YAML
+324: Recognizers can be loaded from a YAML file, which allows users to add recognition logic without writing code.
+325: An example YAML file can be found here.
+326: Once the YAML file is created, it can be loaded into the RecognizerRegistry instance.
+327: This example creates a RecognizerRegistry holding only the recognizers in the YAML file:
+340: yaml_file = "recognizers.yaml"
+343: registry.add_recognizers_from_yaml(yaml_file)
+##### analyzer/developing_recognizers/ :: (?i)100ms|false positives|three types|presidio-research|reproducibility
+184: Each recognizer, regardless of its complexity, could have false positives and false negatives. When adding new recognizers, we try to balance the effect of each recognizer on the entire system.
+185: A recognizer with many false positives would affect the system's usability, while a recognizer with many false negatives might require more work before it can be integrated. For reproducibility purposes, it is be best to note how the recognizer's accuracy was tested, and on which datasets.
+186: For tools and documentation on evaluating and analyzing recognizers, refer to the presidio-research GitHub repository.
+193: Make sure your recognizer doesn't take too long to process text. Anything above 100ms per request with 100 tokens is probably not good enough.
+198: Generally speaking, there are three types of recognizers:
+##### analyzer/ :: (?i)allow_list|allow-list|score_threshold|In its default|Each recognizer can support|language|context
+36: Additional models/languages
+38: Context enhancement
+45: Allow-lists
+65: Context Aware Enhancer
+67: Multi-language support
+78: Multi-language support
+136: Azure AI Language as a Remote Recognizer
+188: Context Aware Enhancer
+190: Multi-language support
+214: language='en')
+225: curl -d '{"text":"John Smith drivers license is AC432223", "language":"en"}' -H "Content-Type: application/json" -X POST http://localhost:3000/analyze
+250: +process_text(text, language) NlpArtifacts
+251: +process_batch(texts, language) Iterator[NlpArtifacts]
+253: class ContextAwareEnhancer {
+254: +enhance_using_context(text, recognizer_results) List[RecognizerResult]
+259: +ContextAwareEnhancer context_aware_enhancer
+260: +analyze(text: str, language) List[RecognizerResult]
+267: AnalyzerEngine *-- ContextAwareEnhancer
+269: ContextAwareEnhancer <|-- LemmaContextAwareEnhancer
+277: style ContextAwareEnhancer fill:#E6FFE6,stroke:#008000,stroke-width:2px
+278: style LemmaContextAwareEnhancer fill:#E6FFE6,stroke:#008000,stroke-width:2px
+287: A PatternRecognizer is a type of entity recognizer that uses regular expressions to detect entities in text. One can create new PatternRecognizer objects by providing a list of regular expressions, context words, validation and invalidation logic and additional parameters that facilitate the detection of entities.
+297: Context Aware Enhancer
+298: The ContextAwareEnhancer is a module that enhances the detection of entities by using the context of the text. The ContextAwareEnhancer can be used to improve the detection of entities that are dependent on the context of the text, such as dates, locations, and more. The default implementation is the LemmaContextAwareEnhancer which uses the lemmas of the tokens in the text to enhance the detection of entities. Note that it's possible (and sometimes recommended) to create custom ContextAwareEnhancer objects to fit the specific needs of the user, for example if the context should support more than one word, which is currently not supported by the default Lemma based enhancer.
+304: Multi-language support
+305: Presidio can be used to detect PII entities in multiple languages.
+306: Refer to the multi-language support for more information.
+##### / :: (?i)no guarantee|additional systems|open source|Image|guarantee
+33: Images
+82: Image de-identification
+83: Image de-identification
+104: Presidio Image Redactor Python API
+141: Images
+142: Images
+143: Redacting Text PII from DICOM images
+144: Using an allow list with image redaction
+180: modules for private entities in text and images such as
+196: Module for redacting PII text in images.
+198: Presidio can help identify sensitive/PII data in un/structured text. However, because it is using automated detection mechanisms, there is no guarantee that Presidio will find all sensitive information. Consequently, additional systems and protections should be employed.
+204: Presidio image redactor: Redact PII entities from images using OCR and PII identification
+218: Perform PII identification and redaction in images using presidio-image-redactor
+##### analyzer/decision_process/ :: (?i)return_decision_process|turned off|pattern_name|textual_explanation
+186: To enable it, call the analyze method with return_decision_process set as True.
+192: "return_decision_process": true}' -H "Content-Type: application/json" -X POST http://localhost:3000/analyze
+201: return_decision_process=True)
+205: Logging of the decision process is turned off by default. To turn it on, create the AnalyzerEngine object with log_decision_process=True.
+226: [2019-07-14 14:22:32,417][decision_process][INFO][00000000-0000-0000-0000-000000000000][["{'entity_type': 'CREDIT_CARD', 'start': 44, 'end': 63, 'score': 1.0, 'analysis_explanation': {'recognizer': 'CreditCardRecognizer', 'pattern_name': 'All Credit Cards (weak)', 'pattern': '\\\\b((4\\\\d{3})|(5[0-5]\\\\d{2})|(6\\\\d{3})|(1\\\\d{3})|(3\\\\d{3}))[- ]?(\\\\d{3,4})[- ]?(\\\\d{3,4})[- ]?(\\\\d{3,5})\\\\b', 'original_score': 0.3, 'score': 1.0, 'textual_explanation': None, 'score_context_improvement': 0.7, 'supportive_context_word': 'credit', 'validation_result': True}}", "{'entity_type': 'PERSON', 'start': 11, 'end': 23, 'score': 0.85, 'analysis_explanation': {'recognizer': 'SpacyRecognizer', 'pattern_name': None, 'pattern': None, 'original_score': 0.85, 'score': 0.85, 'textual_explanation': \"Identified as PERSON by Spacy's Named Entity Recognition\", 'score_context_improvement': 0, 'supportive_context_word': '', 'validation_result': None}}", "{'entity_type': 'PHONE_NUMBER', 'start': 78, 'end': 89, 'score': 0.85, 'analysis_explanation': {'recognizer': 'UsPhoneRecognizer', 'pattern_name': 'Phone (medium)', 'pattern': '\\\\b(\\\\d{3}[-\\\\.\\\\s]\\\\d{3}[-\\\\.\\\\s]??\\\\d{4})\\\\b', 'original_score': 0.5, 'score': 0.85, 'textual_explanation': None, 'score_context_improvement': 0.35, 'supportive_context_word': 'phone', 'validation_result': None}}"]]
+235: textual_explanation=SPACY_DEFAULT_EXPLANATION.format(entity))
+237: The textual_explanation field in AnalysisExplanation class allows you to add your own custom text into the final trace which will be written.
+##### analyzer/recognizer_registry_provider/ :: (?i)enabled|supported_language|deny_list|regex
+34: Regex recognizers
+178: global_regex_flags: 26
+179: supported_languages:
+184: global_regex_flags: regex flags to be used in regex matching (see regex flags).
+185: supported_languages: A list of supported languages that the registry will support.
+190: supported_languages must be identical to the same field in analyzer_engine
+195: supported_languages:
+204: supported_languages:
+212: regex: "(\\b\\d{5}(?:\\-\\d{4})?\\b)"
+214: supported_languages:
+221: enabled: true
+223: supported_language: "en"
+225: deny_list: [Mr., Mrs., Ms., Miss, Dr., Prof.]
+226: deny_list_score: 1
+231: supported_languages:
+237: supported_languages: A list of supported languages that the analyzer will support. In case this field is missing, a recognizer will be created for each supported language provided to the AnalyzerEngine.
+241: patterns: a list of objects of type Pattern that contains a name, score and regex that define matching patterns.
+242: enabled: enables or disables the recognizer.
+244: deny_list: A list of words to detect, in case the recognizer uses a predefined list of words.
+245: deny_list_score: confidence score for a term identified using a deny-list.
+251: supported_languages: ["ko"]
+252: enabled: false

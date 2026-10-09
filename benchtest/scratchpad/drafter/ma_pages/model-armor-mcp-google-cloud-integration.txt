@@ -1,0 +1,314 @@
+# status 200  final_url https://docs.cloud.google.com/model-armor/model-armor-mcp-google-cloud-integration  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Model Armor
+Start free
+Overview
+Guides
+Reference
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Resources
+Console
+Discover
+Product overview
+Data residency and endpoints
+Feature availability for templates by region
+Best practices for scaling and high traffic
+Retry strategy
+Configure Model Armor
+Create and manage templates
+Configure template-specific exclusion rules
+Set the filter version
+Filter version history
+Configure floor settings
+Sanitize prompts and responses
+Configure logging
+View the monitoring dashboard
+Control access
+Access control with IAM
+Roles and permissions
+Service accounts
+Integrate Model Armor with services or frameworks
+Overview
+Integrate with Agent Gateway
+Integrate with Apigee
+Integrate with Gemini Enterprise
+Integrate with Google and Google Cloud MCP servers
+Integrate with Google Cloud networking services
+Integrate with Agent Platform
+Integrate with LangChain
+Monitor
+Audit logging
+Troubleshoot
+Troubleshooting
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Home
+Documentation
+AI and ML
+Model Armor
+Guides
+Send feedback
+Integrate Model Armor with Google and Google Cloud MCP servers
+Stay organized with collections
+Save and categorize content based on your preferences.
+This document shows you how to configure Model Armor to help protect
+your data and secure content when sending requests to Google Cloud
+services that expose Model Context Protocol (MCP) tools and servers.
+Model Armor helps secure your agentic AI applications by
+sanitizing MCP tool calls and responses. This process mitigates risks such as
+prompt injection and sensitive data disclosure.
+Supported MCP servers
+For a list of supported Google and Google Cloud MCP servers,
+see Products with Model Armor support.
+Model Armor floor settings won't apply if you call
+unsupported Google and Google Cloud MCP servers.
+Data residency considerations
+Your data residency requirements might be impacted, depending whether the
+MCP-supported service uses cross-jurisdictional routing or data residency
+compliant routing. For more information, see Integration with Google and
+Google Cloud MCP servers.
+Before you begin
+Enable the API that you want to access through MCP. For more information, see
+Enable supported products.
+Enable the Model Armor API in your project. For more
+information, see Enable
+APIs.
+If you have data residency requirements, you must configure a log sink to
+route logs to a compliant storage location before you enable
+Cloud Logging in the next procedure. Configuring a log sink helps ensure
+that Model Armor logs are stored in buckets in the
+appropriate jurisdiction. For more information, see Regionalize your
+logs.
+Supported and unsupported MCP payloads
+Model Armor sanitizes only the following MCP payloads:
+tools/call request and response
+prompts/get request and response
+MCP tool execution errors
+(target for prompt injection by malicious MCP tools authors)
+Model Armor allows the following payloads without sanitization:
+tools/list
+resources/*
+notifications/*
+Streamable HTTP/SSE for MCP
+MCP protocol errors (for example, all errors other than tool
+execution errors)
+Configure protection for Google and Google Cloud remote MCP servers
+To help protect your MCP tool calls and responses you can use
+Model Armor floor settings. A floor setting defines the minimum
+security filters that apply across the project. This configuration applies a
+consistent set of filters to all MCP tool calls and responses within
+the project.
+Tip: Don't enable the prompt injection and jailbreak filter unless your MCP
+traffic carries natural language data.
+Set up a Model Armor floor setting with MCP sanitization
+enabled. For more information, see Configure Model Armor floor
+settings.
+Note: If the agent and the MCP server are in different projects, you can create
+floor settings in both projects (the client project and the resource project).
+In this case, Model Armor is invoked twice, once for each project.
+See the following example command:
+gcloud model-armor floorsettings update \
+--full-uri='projects/PROJECT_ID/locations/global/floorSetting' \
+--enable-floor-setting-enforcement=TRUE \
+--add-integrated-services=GOOGLE_MCP_SERVER \
+--google-mcp-server-enforcement-type=INSPECT_AND_BLOCK \
+--enable-google-mcp-server-cloud-logging \
+--malicious-uri-filter-settings-enforcement=ENABLED \
+--add-rai-settings-filters='[{"confidenceLevel": "MEDIUM_AND_ABOVE", "filterType": "DANGEROUS"}]'
+Replace PROJECT_ID with your Google Cloud project ID.
+Note the following settings:
+INSPECT_AND_BLOCK: The enforcement type that
+inspects content for the Google MCP server and blocks prompts and
+responses that match the filters.
+ENABLED: The setting that enables a filter or
+enforcement.
+MEDIUM_AND_ABOVE: The confidence level for the
+Responsible AI - Dangerous filter settings. You can modify this setting,
+though lower values might result in more false positives. For more
+information, see
+Model Armor confidence levels.
+Verify Model Armor protection
+After you configure Model Armor protection for MCP servers, you can
+verify that it's working by sending a request that contains content that should
+be blocked and checking that Model Armor blocks it. The following
+steps assume that you have enabled Logging for
+Model Armor as described in Configure protection for Google and Google Cloud MCP servers.
+In the project where you enabled Model Armor protection,
+call an MCP tool with a harmful value in one of its parameters.
+For example, if you enabled the malicious URI
+filter, include a phishing test URL in a parameter, such as
+http://testsafebrowsing.appspot.com/s/phishing.html.
+Verify that the MCP tool call is blocked. Depending on the MCP server and
+client, you might receive an error or an empty response, indicating that the
+request was blocked by a security policy.
+In the Google Cloud console, go to the Logs Explorer page.
+Go to Logs Explorer
+In the Query pane, enter the following query:
+resource.type="model-armor_managed_service"
+logName="projects/PROJECT_ID/logs/modelarmor.googleapis.com%2Fdetection"
+Replace PROJECT_ID with your project ID.
+Click Run query.
+Examine the results in the Query results section. If
+Model Armor blocked the request, you see a log entry detailing
+the detected threat, such as MALICIOUS_URI_DETECTED.
+Disable scanning MCP traffic with Model Armor
+To stop Model Armor from automatically scanning traffic to and
+from Google MCP servers based on the project's floor settings, run the following
+command:
+gcloud model-armor floorsettings update \
+--full-uri='projects/PROJECT_ID/locations/global/floorSetting' \
+--remove-integrated-services=GOOGLE_MCP_SERVER
+Replace PROJECT_ID with the Google Cloud project
+ID. Model Armor doesn't automatically apply the rules defined in
+this project's floor settings to any Google MCP server traffic.
+Model Armor floor settings and general configuration can impact
+more than just MCP. Because Model Armor integrates with services
+like Gemini Enterprise Agent Platform, any changes you make to floor settings can affect
+traffic scanning and safety behaviors across all integrated services, not just
+MCP.
+What's next
+Learn more about Model Armor.
+Learn more about Google Cloud MCP servers.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-06 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

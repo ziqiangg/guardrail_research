@@ -1,0 +1,210 @@
+# status 200  final_url https://presidio.dataprivacystack.org/evaluation/  content-type text/html; charset=utf-8
+Skip to content
+Presidio
+Evaluating PII detection with Presidio
+Search
+GitHub
+Presidio
+Quick start
+Learn Presidio
+Resources
+Recipes
+Samples
+Presidio
+GitHub
+Presidio
+Presidio
+Home
+Installation
+FAQ
+Quick start
+Quick start
+Home
+Text
+Images
+Semi/Structured data
+Learn Presidio
+Learn Presidio
+Home
+Concepts
+Tutorial
+Tutorial
+Home
+Getting started
+Deny-list recognizers
+Regex recognizers
+Rule-based recognizers
+Additional models/languages
+External services
+Context enhancement
+Decision process
+No-code recognizers
+Ad-hoc recognizers
+Simple anonymization
+Custom anonymization
+Encryption/Decryption
+Allow-lists
+Text de-identification
+Text de-identification
+Home
+Presidio Analyzer
+Presidio Analyzer
+Home
+Developing PII recognizers
+Developing PII recognizers
+Tutorial
+Best practices
+Recognizer registry from file
+Filtering recognizers by country
+Multi-language support
+Customizing the NLP model
+Customizing the NLP model
+Home
+Spacy/Stanza
+Transformers
+GPU Acceleration
+Tracing the decision process
+Configure from file
+Presidio Anonymizer
+Presidio Anonymizer
+Home
+Developing PII anonymization operators
+Azure Health Data Services de-identification service integration
+Image de-identification
+Image de-identification
+Home
+Evaluating DICOM redaction
+Structured and Semi-structured
+Structured and Semi-structured
+Home
+PII detection evaluation
+PII detection evaluation
+On this page
+Why evaluate PII detection?
+Common evaluation metrics
+How to evaluate PII detection with Presidio
+Evaluating the Presidio Analyzer using Presidio-Research
+Evaluating DICOM redaction with Presidio Image Redactor
+Resources
+Resources
+Supported entities
+Project transition update
+Community
+Change log
+Setting up a development environment
+Build and release process
+Changes from V1 to V2
+Python API reference
+Python API reference
+Home
+Presidio Analyzer Python API
+Presidio Anonymizer Python API
+Presidio Image Redactor Python API
+Presidio Structured Python API
+REST API reference
+Recipes
+Recipes
+Home
+Contributing
+Template
+Samples
+Samples
+Home
+Text
+Text
+Presidio Basic Usage Notebook
+Customizing Presidio Analyzer
+Configuring The NLP engine
+Encrypting and Decrypting identified entities
+Getting the identified entity value using a custom Operator
+Anonymizing known values
+Keeping some entities from being anonymized
+Integrating with external services
+Remote Recognizer
+Azure AI Language as a Remote Recognizer
+Azure Health DataServices De-identification as a Remote Recognizer
+Using Flair as an external PII model
+Using Span Marker as an external PII model
+Using Transformers as an external PII model
+Using GLiNER as an external PII model
+Pseudonymization (replace PII values using mappings)
+Passing a lambda as a Presidio anonymizer using Faker
+Synthetic data generation with OpenAI
+YAML based no-code configuration
+Data
+Data
+Analyzing structured / semi-structured data in batch
+Presidio Structured Basic Usage Notebook
+Analyze and Anonymize CSV file
+Images
+Images
+Redacting Text PII from DICOM images
+Using an allow list with image redaction
+Plot custom bounding boxes
+Example DICOM redaction evaluation
+PDF
+PDF
+Annotating PII in a PDF
+Deployment
+Deployment
+Presidio with App Service
+Presidio with Kubernetes
+Presidio with Spark
+Presidio with Fabric
+Redacting Telemetry with Presidio
+Azure Data Factory
+Azure Data Factory
+ETL using AppService/Databricks
+Add Presidio as an HTTP service to your Azure Data Factory
+Add Presidio on Databricks to your Azure Data Factory
+PII Masking LLM calls using LiteLLM proxy
+Demo app
+Demo app
+Create a simple demo app using Streamlit
+On this page
+Why evaluate PII detection?
+Common evaluation metrics
+How to evaluate PII detection with Presidio
+Evaluating the Presidio Analyzer using Presidio-Research
+Evaluating DICOM redaction with Presidio Image Redactor
+Evaluating PII detection with Presidio
+Why evaluate PII detection?
+No de-identification system is perfect.
+It is important to evaluate the performance of a PII detection system for your specific use case.
+This evaluation can help you understand where the system makes mistakes and how to iteratively improve the detection mechanisms,
+which recognizers and models to use, and how to configure them.
+Common evaluation metrics
+The most common evaluation metrics are precision, recall, and Fβ score, which is a combination of precision and recall.
+These metrics are calculated based on the number of true positives, false positives, and false negatives.
+For every use case, the false positive and false negative rates should be balanced to achieve the desired level of accuracy.
+Precision measures the proportion of true positive results among the positive results: TP / (TP + FP).
+Recall measures the proportion of true positive results among the actual positives: TP / (TP + FN).
+Fβ score is a weighted harmonic mean of precision and recall: (1 + β^2) * (precision * recall) / (β^2 * precision + recall).
+Click here for more definitions.
+Note
+In PII detection, recall is often more important than precision, as we'd like to avoid missing any PII.
+In such cases, we recommend to use the β=2 score, which gives more importance to recall.
+How to evaluate PII detection with Presidio
+Presidio provides a set of tools to evaluate the performance of the PII detection system.
+In addition, it provides simple data generation tools to help you create a dataset for evaluation.
+Evaluating the Presidio Analyzer using Presidio-Research
+Presidio-Research is a python package with a set of tools that help you evaluate the performance of the Presidio Analyzer.
+To get started, follow the instructions in the Presidio-Research repository.
+The easiest way to get started is by reviewing the notebooks:
+Notebook 1: Shows how to use the PII data generator.
+Notebook 2: Shows a simple analysis of the PII dataset.
+Notebook 3: Provides tools to split the dataset into train/test/validation sets while avoiding leakage due to the same pattern appearing in multiple folds (only applicable for synthetically generated data).
+Notebook 4: Shows how to use the evaluation tools to evaluate how well Presidio detects PII. Note that this is using the vanilla Presidio, and the results aren't very accurate.
+Notebook 5: Shows how one can configure Presidio to detect PII much more accurately, and boost the f score in ~30%.
+For more information and advanced usage, refer to the Presidio-Research repository.
+Evaluating DICOM redaction with Presidio Image Redactor
+See Evaluating DICOM redaction for more information.
+For a full demonstration, see the evaluation notebook.
+Back to top
+Previous
+Home
+Next
+Supported entities
+Data Privacy Stack
+Made with
+Zensical

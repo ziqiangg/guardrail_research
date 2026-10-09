@@ -1,0 +1,233 @@
+# status 200  final_url https://presidio.dataprivacystack.org/analyzer/nlp_engines/spacy_stanza/  content-type text/html; charset=utf-8
+Skip to content
+Presidio
+spaCy/Stanza NLP engine
+Search
+GitHub
+Presidio
+Quick start
+Learn Presidio
+Resources
+Recipes
+Samples
+Presidio
+GitHub
+Presidio
+Presidio
+Home
+Installation
+FAQ
+Quick start
+Quick start
+Home
+Text
+Images
+Semi/Structured data
+Learn Presidio
+Learn Presidio
+Home
+Concepts
+Tutorial
+Tutorial
+Home
+Getting started
+Deny-list recognizers
+Regex recognizers
+Rule-based recognizers
+Additional models/languages
+External services
+Context enhancement
+Decision process
+No-code recognizers
+Ad-hoc recognizers
+Simple anonymization
+Custom anonymization
+Encryption/Decryption
+Allow-lists
+Text de-identification
+Text de-identification
+Home
+Presidio Analyzer
+Presidio Analyzer
+Home
+Developing PII recognizers
+Developing PII recognizers
+Tutorial
+Best practices
+Recognizer registry from file
+Filtering recognizers by country
+Multi-language support
+Customizing the NLP model
+Customizing the NLP model
+Home
+Spacy/Stanza
+Spacy/Stanza
+On this page
+Using a public pre-trained spaCy/Stanza model
+Download the pre-trained model
+Configure Presidio to use the pre-trained model
+How NER results flow within Presidio
+Training your own model
+Using a previously loaded spaCy pipeline
+Transformers
+GPU Acceleration
+Tracing the decision process
+Configure from file
+Presidio Anonymizer
+Presidio Anonymizer
+Home
+Developing PII anonymization operators
+Azure Health Data Services de-identification service integration
+Image de-identification
+Image de-identification
+Home
+Evaluating DICOM redaction
+Structured and Semi-structured
+Structured and Semi-structured
+Home
+PII detection evaluation
+Resources
+Resources
+Supported entities
+Project transition update
+Community
+Change log
+Setting up a development environment
+Build and release process
+Changes from V1 to V2
+Python API reference
+Python API reference
+Home
+Presidio Analyzer Python API
+Presidio Anonymizer Python API
+Presidio Image Redactor Python API
+Presidio Structured Python API
+REST API reference
+Recipes
+Recipes
+Home
+Contributing
+Template
+Samples
+Samples
+Home
+Text
+Text
+Presidio Basic Usage Notebook
+Customizing Presidio Analyzer
+Configuring The NLP engine
+Encrypting and Decrypting identified entities
+Getting the identified entity value using a custom Operator
+Anonymizing known values
+Keeping some entities from being anonymized
+Integrating with external services
+Remote Recognizer
+Azure AI Language as a Remote Recognizer
+Azure Health DataServices De-identification as a Remote Recognizer
+Using Flair as an external PII model
+Using Span Marker as an external PII model
+Using Transformers as an external PII model
+Using GLiNER as an external PII model
+Pseudonymization (replace PII values using mappings)
+Passing a lambda as a Presidio anonymizer using Faker
+Synthetic data generation with OpenAI
+YAML based no-code configuration
+Data
+Data
+Analyzing structured / semi-structured data in batch
+Presidio Structured Basic Usage Notebook
+Analyze and Anonymize CSV file
+Images
+Images
+Redacting Text PII from DICOM images
+Using an allow list with image redaction
+Plot custom bounding boxes
+Example DICOM redaction evaluation
+PDF
+PDF
+Annotating PII in a PDF
+Deployment
+Deployment
+Presidio with App Service
+Presidio with Kubernetes
+Presidio with Spark
+Presidio with Fabric
+Redacting Telemetry with Presidio
+Azure Data Factory
+Azure Data Factory
+ETL using AppService/Databricks
+Add Presidio as an HTTP service to your Azure Data Factory
+Add Presidio on Databricks to your Azure Data Factory
+PII Masking LLM calls using LiteLLM proxy
+Demo app
+Demo app
+Create a simple demo app using Streamlit
+On this page
+Using a public pre-trained spaCy/Stanza model
+Download the pre-trained model
+Configure Presidio to use the pre-trained model
+How NER results flow within Presidio
+Training your own model
+Using a previously loaded spaCy pipeline
+spaCy/Stanza NLP engine
+Presidio can be loaded with pre-trained or custom models coming from spaCy or Stanza.
+Using a public pre-trained spaCy/Stanza model
+Download the pre-trained model
+To replace the default model with a different public model, first download the desired spaCy/Stanza NER models.
+To download a new model with spaCy:
+python -m spacy download es_core_news_md
+In this example we download the medium size model for Spanish.
+To download a new model with Stanza:
+import stanza
+stanza.download("en") # where en is the language code of the model.
+For the available models, follow these links: spaCy, stanza.
+Tip
+For Person, Location and Organization detection, it could be useful to try out the transformers based models (e.g. en_core_web_trf) which uses a more modern deep-learning architecture, but is generally slower than the default en_core_web_lg model.
+Configure Presidio to use the pre-trained model
+Once created, see the NLP configuration documentation for more information.
+How NER results flow within Presidio
+This diagram describes the flow of NER results within Presidio, and the relationship between the SpacyNlpEngine component and the SpacyRecognizer component:
+sequenceDiagram
+AnalyzerEngine->>SpacyNlpEngine: Call engine.process_text(text) <br>to get model results
+SpacyNlpEngine->>spaCy: Call spaCy pipeline
+spaCy->>SpacyNlpEngine: return entities and other attributes
+Note over SpacyNlpEngine: Map entity names to Presidio's, <BR>update scores, <BR>remove unwanted entities <BR> based on NerModelConfiguration
+SpacyNlpEngine->>AnalyzerEngine: Pass NlpArtifacts<BR>(Entities, lemmas, tokens, scores etc.)
+Note over AnalyzerEngine: Call all recognizers
+AnalyzerEngine->>SpacyRecognizer: Pass NlpArtifacts
+Note over SpacyRecognizer: Extract PII entities out of NlpArtifacts
+SpacyRecognizer->>AnalyzerEngine: Return List[RecognizerResult]
+Training your own model
+Note
+A labeled dataset containing text and labeled PII entities is required for training a new model.
+For more information on model training and evaluation for Presidio, see the Presidio-Research Github repository.
+To train your own model, see these links on spaCy and Stanza:
+Train your own spaCy model.
+Train your own Stanza model.
+Once models are trained, they should be installed locally in the same environment as Presidio Analyzer.
+Using a previously loaded spaCy pipeline
+If the app is already loading an existing spaCy NLP pipeline, it can be re-used to prevent presidio from loading it again by extending the relevant engine.
+from presidio_analyzer import AnalyzerEngine
+from presidio_analyzer.nlp_engine import SpacyNlpEngine
+import spacy
+# Create a class inheriting from SpacyNlpEngine
+class LoadedSpacyNlpEngine(SpacyNlpEngine):
+def __init__(self, loaded_spacy_model):
+super().__init__()
+self.nlp = {"en": loaded_spacy_model}
+# Load a model a-priori
+nlp = spacy.load("en_core_web_sm")
+# Pass the loaded model to the new LoadedSpacyNlpEngine
+loaded_nlp_engine = LoadedSpacyNlpEngine(loaded_spacy_model = nlp)
+# Pass the engine to the analyzer
+analyzer = AnalyzerEngine(nlp_engine = loaded_nlp_engine)
+# Analyze text
+analyzer.analyze(text="My name is Bob", language="en")
+Back to top
+Previous
+Home
+Next
+Transformers
+Data Privacy Stack
+Made with
+Zensical

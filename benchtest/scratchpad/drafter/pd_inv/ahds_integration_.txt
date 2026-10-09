@@ -1,0 +1,325 @@
+# status 200  final_url https://presidio.dataprivacystack.org/ahds_integration/  content-type text/html; charset=utf-8
+Skip to content
+Presidio
+Azure Health Data Services De-identification Service Integration
+Search
+GitHub
+Presidio
+Quick start
+Learn Presidio
+Resources
+Recipes
+Samples
+Presidio
+GitHub
+Presidio
+Presidio
+Home
+Installation
+FAQ
+Quick start
+Quick start
+Home
+Text
+Images
+Semi/Structured data
+Learn Presidio
+Learn Presidio
+Home
+Concepts
+Tutorial
+Tutorial
+Home
+Getting started
+Deny-list recognizers
+Regex recognizers
+Rule-based recognizers
+Additional models/languages
+External services
+Context enhancement
+Decision process
+No-code recognizers
+Ad-hoc recognizers
+Simple anonymization
+Custom anonymization
+Encryption/Decryption
+Allow-lists
+Text de-identification
+Text de-identification
+Home
+Presidio Analyzer
+Presidio Analyzer
+Home
+Developing PII recognizers
+Developing PII recognizers
+Tutorial
+Best practices
+Recognizer registry from file
+Filtering recognizers by country
+Multi-language support
+Customizing the NLP model
+Customizing the NLP model
+Home
+Spacy/Stanza
+Transformers
+GPU Acceleration
+Tracing the decision process
+Configure from file
+Presidio Anonymizer
+Presidio Anonymizer
+Home
+Developing PII anonymization operators
+Azure Health Data Services de-identification service integration
+Azure Health Data Services de-identification service integration
+On this page
+Resources
+Overview
+Benefits of Surrogation
+Installation
+For AHDS Recognizer
+For AHDS Surrogate Operator
+Prerequisites
+Complete Workflow Example
+Configuration Options
+AHDS Surrogate Operator Parameters
+Authentication
+Production Mode (Default)
+Development Mode
+Local Development Setup
+Production Deployment Recommendations
+Environment Variables Summary
+Troubleshooting
+Common Issues
+Testing without AHDS
+See Also
+Image de-identification
+Image de-identification
+Home
+Evaluating DICOM redaction
+Structured and Semi-structured
+Structured and Semi-structured
+Home
+PII detection evaluation
+Resources
+Resources
+Supported entities
+Project transition update
+Community
+Change log
+Setting up a development environment
+Build and release process
+Changes from V1 to V2
+Python API reference
+Python API reference
+Home
+Presidio Analyzer Python API
+Presidio Anonymizer Python API
+Presidio Image Redactor Python API
+Presidio Structured Python API
+REST API reference
+Recipes
+Recipes
+Home
+Contributing
+Template
+Samples
+Samples
+Home
+Text
+Text
+Presidio Basic Usage Notebook
+Customizing Presidio Analyzer
+Configuring The NLP engine
+Encrypting and Decrypting identified entities
+Getting the identified entity value using a custom Operator
+Anonymizing known values
+Keeping some entities from being anonymized
+Integrating with external services
+Remote Recognizer
+Azure AI Language as a Remote Recognizer
+Azure Health DataServices De-identification as a Remote Recognizer
+Using Flair as an external PII model
+Using Span Marker as an external PII model
+Using Transformers as an external PII model
+Using GLiNER as an external PII model
+Pseudonymization (replace PII values using mappings)
+Passing a lambda as a Presidio anonymizer using Faker
+Synthetic data generation with OpenAI
+YAML based no-code configuration
+Data
+Data
+Analyzing structured / semi-structured data in batch
+Presidio Structured Basic Usage Notebook
+Analyze and Anonymize CSV file
+Images
+Images
+Redacting Text PII from DICOM images
+Using an allow list with image redaction
+Plot custom bounding boxes
+Example DICOM redaction evaluation
+PDF
+PDF
+Annotating PII in a PDF
+Deployment
+Deployment
+Presidio with App Service
+Presidio with Kubernetes
+Presidio with Spark
+Presidio with Fabric
+Redacting Telemetry with Presidio
+Azure Data Factory
+Azure Data Factory
+ETL using AppService/Databricks
+Add Presidio as an HTTP service to your Azure Data Factory
+Add Presidio on Databricks to your Azure Data Factory
+PII Masking LLM calls using LiteLLM proxy
+Demo app
+Demo app
+Create a simple demo app using Streamlit
+On this page
+Resources
+Overview
+Benefits of Surrogation
+Installation
+For AHDS Recognizer
+For AHDS Surrogate Operator
+Prerequisites
+Complete Workflow Example
+Configuration Options
+AHDS Surrogate Operator Parameters
+Authentication
+Production Mode (Default)
+Development Mode
+Local Development Setup
+Production Deployment Recommendations
+Environment Variables Summary
+Troubleshooting
+Common Issues
+Testing without AHDS
+See Also
+Azure Health Data Services De-identification Service Integration
+Presidio supports integration with Azure Health Data Services (AHDS) de-identification service for both entity recognition and anonymization with realistic surrogate generation.
+Resources
+Azure Health Data Services Documentation
+Azure Health Deidentification Python SDK
+Overview
+The AHDS de-identification service integration provides two main capabilities:
+AHDS Recognizer (in presidio-analyzer): Detects PHI entities using the Azure Health Data Services de-identification service
+AHDS Surrogate Operator (in presidio-anonymizer): Replaces PHI entities with realistic surrogates using the de-identification service
+Benefits of Surrogation
+Maintains Data Utility: Preserves structure and format for downstream analytics
+Realistic Healthcare Context: Generates medically plausible names, dates, and identifiers
+Consistent Cross-References: Same entity gets same surrogate throughout document
+Format Preservation: Maintains original formatting and linguistic patterns
+Installation
+For AHDS Recognizer
+pip install presidio-analyzer[ahds]
+For AHDS Surrogate Operator
+pip install presidio-anonymizer[ahds]
+Prerequisites
+Azure Health Data Services de-identification service endpoint
+Azure role-based access control configured
+Environment variables:
+AHDS_ENDPOINT: Your AHDS de-identification service endpoint
+Complete Workflow Example
+import os
+from presidio_analyzer import AnalyzerEngine
+from presidio_anonymizer import AnonymizerEngine
+from presidio_anonymizer.entities import OperatorConfig
+# Set your AHDS endpoint
+os.environ["AHDS_ENDPOINT"] = "https://your-ahds-endpoint.api.eus001.deid.azure.com"
+# Initialize engines
+analyzer = AnalyzerEngine()
+anonymizer = AnonymizerEngine()
+# Medical text with PHI
+text = "Patient John Doe was seen by Dr. Smith on 2024-01-15 for diabetes treatment."
+# Step 1: Detect entities using AHDS recognizer
+analyzer_results = analyzer.analyze(
+text=text,
+entities=["PATIENT", "DOCTOR", "DATE"],
+language="en"
+)
+# Step 2: Anonymize using AHDS surrogate generation
+result = anonymizer.anonymize(
+text=text,
+analyzer_results=analyzer_results,
+operators={
+"DEFAULT": OperatorConfig("surrogate", {
+"entities": analyzer_results,
+"input_locale": "en-US",
+"surrogate_locale": "en-US"
+})
+},
+)
+print(f"Original: {text}")
+print(f"Anonymized: {result.text}")
+# Output: "Patient Michael Johnson was seen by Dr. Brown on 1987-06-23 for diabetes treatment."
+Note: This example uses the Azure Health Data Services de-identification service surrogation, which provides superior data utility by generating realistic, medically-appropriate surrogates while maintaining document structure and relationships.
+Configuration Options
+AHDS Surrogate Operator Parameters
+endpoint: AHDS de-identification service endpoint (optional, uses AHDS_ENDPOINT env var)
+entities: List of entities detected by analyzer
+input_locale: Input locale (default: "en-US")
+surrogate_locale: Surrogate locale (default: "en-US")
+Authentication
+The AHDS de-identification service integration uses Azure authentication with a secure-by-default approach:
+Production Mode (Default)
+By default, the integration uses a restricted credential chain that only includes:
+EnvironmentCredential: Service Principal via environment variables
+WorkloadIdentityCredential: Workload Identity (Kubernetes)
+ManagedIdentityCredential: Managed Identity (Azure services)
+This credential chain is more secure as it excludes interactive browser logins and developer credentials, making it suitable for production deployments.
+Development Mode
+For local development, you can enable DefaultAzureCredential by setting the environment variable:
+export ENV=development
+In development mode, the integration uses DefaultAzureCredential, which supports additional authentication methods:
+Environment variables (Service Principal)
+Workload Identity
+Managed Identity
+Azure CLI (az login)
+Azure PowerShell
+Visual Studio/VS Code credentials
+Interactive browser login
+Local Development Setup
+For local development with Azure CLI authentication:
+# Set development mode
+export ENV=development
+# Login with Azure CLI
+az login
+# Set your AHDS endpoint
+export AHDS_ENDPOINT="https://your-ahds-endpoint.api.eus001.deid.azure.com"
+# Now you can run Presidio with AHDS integration
+python your_script.py
+Production Deployment Recommendations
+For production deployments, we recommend:
+Do not set ENV=development (use default production mode)
+Use Managed Identity when running on Azure services (AKS, App Service, Functions, etc.)
+Use Workload Identity for Kubernetes deployments
+Use Service Principal with environment variables for other scenarios:
+export AZURE_CLIENT_ID="<client-id>"
+export AZURE_CLIENT_SECRET="<client-secret>"
+export AZURE_TENANT_ID="<tenant-id>"
+Environment Variables Summary
+AHDS_ENDPOINT: Your AHDS de-identification service endpoint (required)
+ENV: Set to development for local dev, omit for production (optional, default: production mode)
+Troubleshooting
+Common Issues
+ModuleNotFoundError: Install the AHDS optional dependencies
+pip install presidio-analyzer[ahds] presidio-anonymizer[ahds]
+Authentication errors: Ensure Azure credentials are properly configured
+az login # For local development
+Endpoint not found: Verify the AHDS_ENDPOINT environment variable is set correctly
+Testing without AHDS
+The AHDS operators gracefully handle missing dependencies and will be skipped if not available. Tests will be automatically skipped if the AHDS_ENDPOINT environment variable is not set.
+See Also
+Presidio Analyzer
+Presidio Anonymizer
+Azure Health Data Services de-identification service documentation
+Back to top
+Previous
+Developing PII anonymization operators
+Next
+Home
+Data Privacy Stack
+Made with
+Zensical

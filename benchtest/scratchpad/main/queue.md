@@ -11,6 +11,7 @@
 | explorer/20261009_presidio_q02.md: six single columns vs a merged set; recognizer-family granularity; + (i) PD5 column vs inventory-only, (ii) ~30 family rows vs ~120 per-entity rows (P1) | presidio | **user at presidio CP1** | open (non-blocking) | — |
 
 | explorer/20261009_modelarmor_q01.md: 10 columns (R002 split) vs 6 vs folding MA9/MA10; antivirus + MCP screening as inventory or MA11; prefix `Model Armor:` (Q03) | modelarmor | **user at modelarmor CP1** | open (non-blocking) | — |
+| explorer/20261009_sdp_q01–q03.md: prefix `Sensitive Data Protection:` vs `Google Cloud …`; content policy (SD7) column vs inventory; fold SD2→SD1, SD4→SD3 | sdp | **user at sdp CP1** | open (non-blocking; P1 drafts defaults) | — |
 
 ## Resolved questions
 | Q file | Ruling | Decided by |
