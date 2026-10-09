@@ -72,3 +72,4 @@
 - 2026-10-09 R028 applied to all 6 pages: scrollWidth 375 at 375 on all; 0 box changes at 1280; shared block lines 6-110 identical; README §3/§11 updated; build scripts synced. B1 diagram work complete.
 - 2026-10-09 lionguard P2 inventory done (4/11/8/10/4 = 37). P3: cols_a 0/0, inventory --headers cols_a 0/0. P4 started
 - 2026-10-09 purplellama P2 cols_b done (PL3, PL5, PL7): check 0/0; new: scan() overwrites ERROR status, AlignmentCheck fail-open on missing trace / fail-closed on LLM error, PIICheck fail-open, Maverick may not be on Together serverless [TBV], Together terms bar sensitive personal data; 8 conflicts
+- 2026-10-09 purplellama P2 eval_tooling done: 8 sections (13 tools, 16 datasets counted at pin, 10 results incl. CSE3 paper PG1 71.4%@1%FPR and CodeShield P96/R79 [Documented]); parse_md OK; 8 conflicts; CyberSOCEval arXiv 2509.20166; no CSE4 paper [ND]; Q2 → triage/CP1

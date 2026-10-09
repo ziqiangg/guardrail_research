@@ -10,6 +10,8 @@
 ## Open questions (from agents)
 | Q file | Product | Routed to | State | Ruling |
 |---|---|---|---|---|
+| purplellama P2 eval Q2: PL1/PL2 dataset reuse needs "injection-removed" negatives Meta does not ship — may the bench build its own negative set? | purplellama (bench design) | P4 triage → user at purplellama CP1 | open | |
+| purplellama P2 eval Q1: P8 eval builder MD/TITLE/NOTE; proposed "3j. CyberSecEval Eval Tooling" (letter assigned at P8, ≤31 chars) | purplellama | P8 xlsx-writer note | noted | |
 | explorer/20261009_lionguard_q01–q03: single column LN1 vs per-variant; prefix `LionGuard:` vs `GovTech LionGuard:`; "self-hosted" framing given OpenAI/Gemini embedder keys and gated Gemma (Lite) | lionguard | user at lionguard CP1 (brief records default + alternative) | open | |
 | explorer/20261009_lionguard_q04: licence conflict (MIT+SIAC vs paper "research and public interest purposes only") | lionguard | P4 triage (c) → P5 resolver; judgement to user at CP1/CP2 if unresolved | routed | |
 | explorer/20261009_purplellama_q01 + q03 + q11–q13 (brief Q-A prefix default per-tool / Q-B 7 cols default incl. provisional PL7 Hidden ASCII / Q-C one column per scanner default): header prefix (Purple Llama: vs per-tool); R002 direction for LlamaFirewall scanners (one column per scanner, roles in Detail); Hidden ASCII / PII / custom scanners as columns vs inventory | purplellama | user at purplellama CP1 | open | |
