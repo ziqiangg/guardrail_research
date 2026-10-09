@@ -23,6 +23,7 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| sdp P10 review Q1 (Retrieval Partly vs No consistency across pages) | R026 | main |
 | explorer/20261009_purplellama_q14 (no tag/release/CHANGELOG; pin form) | pin commit 172c1074 (2026-09-29) + PyPI versions (llamafirewall 1.0.3, codeshield 1.0.1) and HF revisions stated separately; release notes [Not disclosed] (R015 substitute unavailable, R020) | main |
 | explorer/20261009_purplellama_q15 (engine vs LlamaFirewall wrapper as separate columns) | yes, separate with cross-refs: R004 lists Prompt Guard 2 + PromptGuard scanner and Code Shield + CodeShield scanner as columns | main |
 | modelarmor P10 Q3 (reciprocal link sdp → modelarmor page) | yes: add in the sdp diagram fix loop where the sdp page names Model Armor (R012) | main |
