@@ -66,3 +66,4 @@
 - 2026-10-09 purplellama P1 done: brief PL1–PL7 (PL7 provisional, PL8 reserved), per-tool prefixes default (alt Purple Llama:), inventory (a)–(h) ~86 rows, CyberSecEval eval sheet 8 sections; conflicts C1–C10 resolved from code at 172c1074 (CodeShield 8 languages; PROMPT_GUARD live enum; AlignmentCheck never BLOCKs, Together Maverick default); Q1/Q2/Q5/Q6 ruled/routed by main; P2 started (cols_a, cols_b, inventory, eval)
 - 2026-10-09 modelarmor post-P8 re-apply: compare vs HEAD exactly 1 diff (3h!A17 value); verify_modelarmor 44/45 (only the one-shot 'only 3h new' check fails, lessons 16); URL files unchanged
 - 2026-10-09 modelarmor P10 fix loop done: 10 required + 8 optional; old strings gone; base CSS identical; awaiting user review
+- 2026-10-09 B1 CLOSED (R029): presidio, sdp, modelarmor done; CLAUDE.md Products table updated; R028 CSS pass on all 6 pages running
