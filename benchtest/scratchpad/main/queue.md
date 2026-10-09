@@ -10,6 +10,7 @@
 ## Open questions (from agents)
 | Q file | Product | Routed to | State | Ruling |
 |---|---|---|---|---|
+| sdp P10 Q1: base diagram CSS overflows at 375 px (scrollWidth 628, same on sentinel page); fix `.wrap > * { min-width: 0 }` would change the shared CSS on ALL pages incl. done products | all diagrams | user (batched with diagram review) | open | |
 | explorer/20261009_presidio_q01.md: official org after the transfer (data-privacy-stack vs Microsoft) and the header prefix | presidio | user at presidio CP1 | resolved | see CP1 ruling |
 | explorer/20261009_presidio_q02.md: six single columns vs a merged set; recognizer-family granularity; + (i) PD5 column vs inventory-only, (ii) ~30 family rows vs ~120 per-entity rows (P1) | presidio | user at presidio CP1 | resolved | see CP1 ruling |
 
@@ -21,6 +22,8 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| sdp P10 Q2 (add R025 AUP testing clause to sdp drafts/page) | no: R025 ruling 1 "no draft change"; SD6 R7/R8 AUP wording stands; page mirrors drafts | main |
+| sdp P10 Q3/Q4 (scorecard Partly/No/Yes calls; "our count" detector sums) | accepted provisionally; fresh diagram verifier challenges them | main |
 | sdp P8 Q1/Q2 (sheet name "3g. Sensitive Data Protection Inventory" is 39 chars > Excel 31) | accept "3g. SDP Inventory" (auto-default: naming); full name stays in A1 title; diagrams/docs cite the tab name; future inventory sheet names must be ≤31 chars | main |
 | modelarmor P8-prep R025 Q1 (bench-rule bullet in MA7/MA8, whose Detail names exclusion rules only as unsupported) | keep: R025 literal scope "any column whose Detail names exclusion rules" | main |
 | modelarmor P8-prep R025 Q2 (bench rule plain text vs checker's bold end-label) | accept: rule text plain, single [Documented] covers the terms quote (drafts README label convention) | main |
