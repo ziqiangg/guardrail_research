@@ -29,6 +29,9 @@ PRODUCTS = [
     dict(slug="sdp", name="Sensitive Data Protection", header_prefix="Sensitive Data Protection:",
          two_level_md=DRAFTS / "sdp_two_level.md", inventory_sheet="3g. SDP Inventory",
          inventory_builder_module="build_sdp_inventory", notes="inventory via inventory_sheet; SD1-SD6"),
+    dict(slug="modelarmor", name="Model Armor", header_prefix="Model Armor:",
+         two_level_md=DRAFTS / "modelarmor_two_level.md", inventory_sheet="3h. Model Armor Inventory",
+         inventory_builder_module="build_modelarmor_inventory", notes="inventory via inventory_sheet; MA1-MA10"),
 ]
 
 SHEET3 = "3. Guardrail Research Table"

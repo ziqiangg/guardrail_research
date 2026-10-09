@@ -1,0 +1,67 @@
+previous-commit sheet names: ['3. Guardrail Research Table', '3b. NeMo Rail Inventory', '3c. NeMo Evaluation Tooling', '3d. Llama Guard Inventory', '3e. GovTech Sentinel Inventory', '3f. Presidio Inventory', '3g. SDP Inventory', '4. Candidate Comparison Groups']
+PASS - sheet order ['3. Guardrail Research Table', '3b. NeMo Rail Inventory', '3c. NeMo Evaluation Tooling', '3d. Llama Guard Inventory', '3e. GovTech Sentinel Inventory', '3f. Presidio Inventory', '3g. SDP Inventory', '3h. Model Armor Inventory', '4. Candidate Comparison Groups']
+PASS - previous sheets all present, in order, plus only 3h 
+derived: old last col AS (45), Model Armor AT-BC (10), last col 55
+PASS - sheet 3: 55 columns (A-BC) 55
+PASS - sheet 3: max_row 21 21
+PASS - 27 merges equal to previous commit 
+PASS - outline levels (rows 5,7,..,21 level 1) [5, 7, 9, 11, 13, 15, 17, 19, 21]
+PASS - freeze panes E4 (as previous) 
+PASS - summaryBelow False 
+PASS - column widths 6/28/32/10 then 48 [48.0, 48.0, 48.0]
+PASS - old column widths A-AS identical to previous commit 
+PASS - AT3..BC3 are the 10 Model Armor headers in md order (prefix 'Model Armor:') ['Input-level responsible AI safet', 'Output-level responsible AI safe', 'Input-level prompt injection and', 'Output-level prompt injection an', 'Input-level sensitive data detec', 'Output-level sensitive data dete', 'Input-level malicious URL detect', 'Output-level malicious URL detec', 'Document screening (PDF, CSV, te', 'Image screening with OCR and vis']
+PASS - old header row identical (A3:AS3) 
+PASS - A-AS plain text vs previous commit: 0 diffs (0 diffs)
+PASS - F-AS rows 4-21 rich-text runs (text+bold) vs previous commit: 0 diffs (0 diffs)
+PASS - A-AS cell styles vs previous commit: 0 diffs (0 diffs)
+PASS - AT-BC plain text vs modelarmor_two_level.md parse: 0 mismatches (180 cells) (0)
+PASS - AT-BC Summary style checks (90 cells) (0 failing)
+PASS - AT-BC no ** or backticks (rows 4-21) []
+PASS - AT-BC non-Arial cells / rich runs: 0 ([], rich runs 0)
+PASS - AT-BC cell styles equal the AS styles row by row, all 10 columns (same house format) 
+PASS - 3b. NeMo Rail Inventory: values (incl. formulas), rich text, styles identical to previous commit (1430 cells, 0 diffs)
+PASS - 3b. NeMo Rail Inventory: merges, freeze, autofilter, widths, row heights/outline, extents identical 
+PASS - 3c. NeMo Evaluation Tooling: values (incl. formulas), rich text, styles identical to previous commit (760 cells, 0 diffs)
+PASS - 3c. NeMo Evaluation Tooling: merges, freeze, autofilter, widths, row heights/outline, extents identical 
+PASS - 3d. Llama Guard Inventory: values (incl. formulas), rich text, styles identical to previous commit (832 cells, 0 diffs)
+PASS - 3d. Llama Guard Inventory: merges, freeze, autofilter, widths, row heights/outline, extents identical 
+PASS - 3e. GovTech Sentinel Inventory: values (incl. formulas), rich text, styles identical to previous commit (1424 cells, 0 diffs)
+PASS - 3e. GovTech Sentinel Inventory: merges, freeze, autofilter, widths, row heights/outline, extents identical 
+PASS - 3f. Presidio Inventory: values (incl. formulas), rich text, styles identical to previous commit (776 cells, 0 diffs)
+PASS - 3f. Presidio Inventory: merges, freeze, autofilter, widths, row heights/outline, extents identical 
+PASS - 3g. SDP Inventory: values (incl. formulas), rich text, styles identical to previous commit (984 cells, 0 diffs)
+PASS - 3g. SDP Inventory: merges, freeze, autofilter, widths, row heights/outline, extents identical 
+PASS - 4. Candidate Comparison Groups: values (incl. formulas), rich text, styles identical to previous commit (544 cells, 0 diffs)
+PASS - 4. Candidate Comparison Groups: merges, freeze, autofilter, widths, row heights/outline, extents identical 
+PASS - 3h block row counts 10/15/16/20/16 [10, 15, 16, 20, 16]
+PASS - 3h every cell equals cleaned md text (727 cells) (0 mismatches)
+PASS - 3h autofilter = block (a) only A4:J14
+PASS - 3h Covered-by values valid (real sheet-3 header or legacy/inventory-only marker), blocks (a)-(b); (c)-(e) have none (95 values; bad [])
+PASS - 3h amber fill exactly on marker cells 
+PASS - 3h validator validate_markers | markers: 8 marker cells; invalid or mixed values: 0 []
+panel: title row 100 (last block row 97 + 3 = 2 blank rows), 40 cells, equal to the specified formulas: OK
+two rows above the title empty: True | non-Arial panel cells: 0
+Python mirror counts per Table 3 column ['Filters and detectors covering it', 'Integration paths covering it']
+    [2, 8] Model Armor: Input-level responsible AI safety filtering
+    [2, 8] Model Armor: Output-level responsible AI safety filtering
+    [1, 8] Model Armor: Input-level prompt injection and jailbreak detection
+    [1, 8] Model Armor: Output-level prompt injection and jailbreak detection
+    [3, 8] Model Armor: Input-level sensitive data detection and de-identification (Sensitive Data Protection)
+    [3, 8] Model Armor: Output-level sensitive data detection and de-identification (Sensitive Data Protection)
+    [1, 8] Model Armor: Input-level malicious URL detection
+    [1, 8] Model Armor: Output-level malicious URL detection
+    [1, 3] Model Armor: Document screening (PDF, CSV, text and Office files)
+    [2, 3] Model Armor: Image screening with OCR and visual scanning
+    total Rows marked inventory only                           8
+    total Rows marked legacy                                   0
+    total Rows marked planned                                  0
+Table 3 columns with a zero count: []
+PASS - 3h coverage panel equals spec; every Model Armor column covered; inventory-only 8, legacy 0, planned 0 {'Rows marked inventory only': 8, 'Rows marked legacy': 0, 'Rows marked planned': 0}
+PASS - 3h no ** or backticks []
+PASS - 3h all Arial (cells + raw XML <c> check) (openpyxl 0, raw XML 0 of 783)
+PASS - 3h A1 bold 13; A2 italic grey; freeze A4 
+PASS - XML hygiene (all parts well-formed; worksheets + sharedStrings) (unpreserved <t>=0, <r> without rPr=0, empty <t>=0, parts checked=9, well-formed=True)
+urls: 61 unique (46 from AT20:BC21, 15 new from 3h Source URL cells) -> C:\Users\cys-c\Desktop\gzqr\gitubrepo\misc\researchrail\guardrail_research\benchtest\drafts\modelarmor_urls.txt
+
+SUMMARY: 45/45 checks passed

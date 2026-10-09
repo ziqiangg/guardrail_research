@@ -14,3 +14,5 @@ benchtest/scratchpad/**/apsamples/
 benchtest/scratchpad/**/repo/
 # agent screenshots in scratch folders (keep local only)
 benchtest/scratchpad/**/*.png
+# workbook copies made by agents in scratch folders
+benchtest/scratchpad/**/*.xlsx

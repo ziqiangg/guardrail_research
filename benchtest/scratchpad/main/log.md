@@ -47,3 +47,4 @@
 - 2026-10-09 sdp P9 done: 95/95 URLs 200 (2 github 429 → 200 on retry; local network: github blob 200 directly, raw also 200); 0 broken
 - 2026-10-09 sdp P10 diagram written (12 SVGs, checklist all ticked except phone-width overflow = pre-existing base CSS, same on sentinel page → user); Q2–Q4 ruled by main; diagram verifier started
 - 2026-10-09 presidio P10 diagram written (12 SVGs; checklist all ticked; local min-width fix in Additions block; general-knowledge glosses UEN/NRIC/NINO flagged for verifier); Q2–Q4 ruled by main; scratch PNGs untracked + gitignored (sdp crops had been committed in 3930aea)
+- 2026-10-09 modelarmor P8 done: AT–BC (MA1–MA10) + '3h. Model Armor Inventory' (10/15/16/20/16; 8 inventory-only, 0 legacy, 0 planned); verify_modelarmor_apply 45/45; uncapped compare vs HEAD 1133 diffs, all AT–BC + sheet order + sheet-3 dims/col dims; recalc skipped; 61 URLs → P9

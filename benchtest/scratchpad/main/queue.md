@@ -5,7 +5,7 @@
 |---|---|---|---|---|
 | 1 | presidio | R022 | 2026-10-09 | 450e3d7 |
 | 2 | sdp | R023 | 2026-10-09 | 6710895 |
-| 3 | modelarmor | R024 (+ R025 pre-P8 merger edit first) | 2026-10-09 | |
+| 3 | modelarmor | R024 (+ R025 pre-P8 merger edit first) | 2026-10-09 | (modelarmor P8 commit) |
 
 ## Open questions (from agents)
 | Q file | Product | Routed to | State | Ruling |
