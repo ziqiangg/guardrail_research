@@ -25,3 +25,4 @@
 - 2026-10-09 modelarmor P4 done: 87 items (a 46, b 38, c 3), H 25; Q2–Q5 ruled/routed by main; D1–D7 → user at CP1. All B1 products at CP1.
 - 2026-10-09 CP1 (user) for all B1: presidio R016 (6 cols, data-privacy-stack official, prefix Presidio:), modelarmor R017 (10 cols, antivirus+tool-call inventory only), sdp R018 (6 cols, prefix Sensitive Data Protection:, content policy inventory only; re-asked in plain wording), R019 read-only + terms. P5 started.
 - 2026-10-09 sdp P5 r1 done: 26 items (17 resolved, 6 partly, 3 open); T9: no direct content-policy apply method (SD7 stays inventory, R018); 3 corrections (regex unit, 3,000 not hard cap, MEDICAL_ID stable/legacy); R020 ruled
+- 2026-10-09 modelarmor P5 r1 done: 22 a-items (7 resolved, 11 partly, 3 open, 1 correction T16 userPrompt documented in REST); 6 Summary changes; Apigee GA 2025-09-04; /model-armor/pricing 404; Q1–Q5 ruled by main

@@ -16,6 +16,11 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| modelarmor P5 r1 Q1 (pin google-cloud-go@37f936ac HEAD vs tag modelarmor/v1.3.0) | merger re-pins to `modelarmor/v1.3.0` (README rule 8; resolver showed service.pb.go identical) | main |
+| modelarmor P5 r1 Q2 (T25 other-language client versions) | INV(b) Client libraries only + one short R4 bullet | main |
+| modelarmor P5 r1 Q3 (T23 status for banner-free rows) | "GA [Inferred]" only where the page was read and shows no launch-stage banner; unread pages stay [Not disclosed]/[To be verified] | main |
+| modelarmor P5 r1 Q4 (T21 Service Extensions page empty via fetch_text) | summarising fetch can't carry a label (CLAUDE.md rule 4) → [To be verified]; P7 verifier may retry verbatim | main |
+| modelarmor P5 r1 Q5 (shared resolver scratch folder) | each agent uses its own subfolder `resolver/<slug><N>/` | main |
 | sdp P5 r1 Q1 (T5 marker on Model Armor/Gemini Enterprise rows; T7 Apigee/Data Fusion/BigQuery cross-refs) | T5: R011 + R012; T7: R007 item 1 (Google-authored pages official) | main |
 | sdp P5 r1 Q2/Q5 (clone denied → raw GitHub fallback; absence labels) | R020 | main |
 | sdp P5 r1 Q3/Q4 (T49 conflict stays two [Documented] bullets; T44 PERSON_NAME ~2026-11-02 and MEDICAL_ID legacy ~2026-10-11 dates) | merger keeps both; verifier re-reads release notes at P7, url-checker run at P9 | main |
