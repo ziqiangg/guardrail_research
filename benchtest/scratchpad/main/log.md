@@ -52,3 +52,4 @@
 - 2026-10-09 B2 P0 started: purplellama (docs + code explorers), lionguard (1 explorer), in parallel with B1 P10 reviews and modelarmor P9
 - 2026-10-09 session rate limit (reset 15:50 SGT) stopped 7 agents (modelarmor diagram + P9, presidio/sdp diagram reviews, purplellama P0 docs/code, lionguard P0); all resumed via SendMessage after reset; partial modelarmor-explained.html left uncommitted until done
 - 2026-10-09 modelarmor P10 diagram written (15 SVGs; checklist all ticked except shared 375 px overflow); diagram verifier started
+- 2026-10-09 modelarmor P9 done: 61/61 URLs 200 (4 github 429 → raw + recheck 200); 0 broken. All B1 P8/P9 complete.
