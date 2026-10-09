@@ -16,6 +16,12 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| sdp P4 Q5 / T19 ("out of purpose" label) | R015 ([Inferred] everywhere, premise named) | main |
+| sdp P4 Q6 (Apigee/Data Fusion/BigQuery/demo cross-refs; marker on Model Armor and Gemini Enterprise rows) | keep: Google-authored pages on docs.cloud.google.com/cloud.google.com are official (R007 item 1); R011 marker correct, Model Armor named in text only (R012) | main |
+| sdp P4 Q7 (Google API discovery doc + IAM permissions reference for T9) | yes: both Google-owned official pages (googleapis.com discovery, docs.cloud.google.com/iam) | main |
+| sdp P4 Q8 (re-add reviewer notes to cols A/B) | optional suggestion dropped (auto-default); P7 verifier spot-checks quotes | main |
+| sdp P4 Q9 (seeds host; inventory row counts) | seeds already on docs.cloud.google.com; counts asserted at P8 from final | main |
+| sdp P4 Q1–Q4 (prefix T1; SD7 + Gemini Enterprise access T2/T10; fold SD2/SD4, split SD5 T3/T4; terms pages + sensitive test data T92/T93) | user at sdp CP1 | user |
 | presidio P4 Q5 (vendor release notes/tags) | R015 (ls-remote + clone at tag; CHANGELOG at tag) | main |
 | presidio P4 Q6 / T57 ("out of purpose" label) | R015 ([Inferred] everywhere, premise named) | main |
 | presidio P4 Q7 (0.0.60 = image-redactor, structured = 0.0.8; NeMo `<ENTITY_TYPE>` note) | merger records in presidio_changes.md; seeds note added; NeMo sheets frozen (R001) | main |

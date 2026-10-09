@@ -38,7 +38,7 @@ Total {c['total']} deduplicated items (T1 to T{c['total']}), drawn from 69 R8 bu
 | Class | Count | of which H |
 |---|---|---|
 | a doc-answerable (incl. drafting fixes) | {c['cls']['a']} | {g('aH')} |
-| b needs testing or access | {c['cls']['b']} (honest gaps among them: GAP and SG items, T-ids {t('acc_text')} to {t('emul')}, {t('fin')} to {t('doctype')}, {t('localnorms')}) | {g('bH')} |
+| b needs testing or access | {c['cls']['b']} (honest gaps among them: GAP items {t('quotagap')} to {t('emul')} and {t('fin')} to {t('sgimg')}, {t('localnorms')}) | {g('bH')} |
 | c licensing / terms | {c['cls']['c']} ({t('benchterms')} is "suggested", not in the drafts) | {g('cH')} |
 | D CP1 decision (not a, b or c) | {c['cls']['D']} | {g('DH')} |
 | Total | {c['total']} | {c['prio']['H']} |
@@ -94,9 +94,9 @@ Non-standard bracket forms: one non-label pair in the inventory.
 | Empty table cell read as "No" labelled [Documented] | 18 cells: INV(c) Reversible and Referential integrity columns | [Inferred] (premise: empty cell) or neutral wording | {t('emptycell')} |
 | Same kind of statement, different labels across columns | out-of-purpose: INF x3, ND x3 (BR said Documented); docs-silent-and-test-needed: TBV in A (FIN, +65) versus ND in B (SD5 R2 Singapore passport detectors); "test your settings" quote: [Documented] in A SD2 R7 and SD3 R7, but [Not disclosed] (with the quote inside) in A SD1 R7; no-SLA-row: INF in B, ND in INV(e) | One pattern per kind: ND for vendor silence naming pages checked; TBV only for a checkable fact; a quote is its own [Documented] bullet | {t('oop')}, {t('slalabel')} |
 | Inference or second fact inside a [Documented] bullet (README rule 5: separate [Inferred] bullet) | A SD1 R4 ("so the default set has changed before"), A SD2 R1 (surrogate detectors "belong to the reversible-tokenisation column", a scope decision), B SD4 R1 (header spelling remark after a quote), B SD4 R4 ("so it cannot support later reversal"), B SD6 R5 ("so the caller maps findings to a decision"), B SD6 R2 ("text-side analogues ... they classify text, not pixels") | Split, or drop the clause | {t('doctype')}, {t('noverdict')} |
-| One bullet, two facts under one label | A SD1 R7 (absence of an evaluation toolkit plus a quoted recommendation, labelled [Not disclosed]) | Two bullets: [Not disclosed] absence; [Documented] quote | {t('oop')} |
+| One bullet, two facts under one label | A SD1 R7 (absence of an evaluation toolkit plus a quoted recommendation, labelled [Not disclosed]) | Two bullets: [Not disclosed] absence; [Documented] quote | {t('emul')} |
 | [Inferred] without a stated premise | B: 48 of 48 Detail bullets (premise only implicit in "so"/"because"); A: 10 of 43 (6 in SD1, 4 in SD3) | Add "(premise: ...)" as A mostly does | {t('premise')} |
-| Counts the drafters made | 6 in columns, 27 cells in INV | Correct: [Inferred] with the counting rule stated; keep, and re-count at P7 | {t('counts')} |
+| Counts the drafters made | 3 in A SD1 R2 (261, 51, 21), 27 "(my count ...)" cells in INV | Correct: [Inferred] with the counting rule stated; keep, and re-count at P7 | {t('counts')} |
 | Summary label stronger than its facts | SD3 R1 and R4, SD4 R4, SD6 R2, R4, R5, SD2 R5, SD4 R5, SD5 R1 and R2 | Relabel the Summary or move the weaker sentence to R8 | {t('sd3sum')}, {t('sd4sum')}, {t('sd6sum')}, {t('noverdict')}, {t('faceprev')} |
 | Wording "No other Singapore-named infoType exists" under [Not disclosed] | 1: A SD1 R2 | Say "none named in the reference" (an absence claim, not an existence claim) | {t('fin')} |
 | Conflict labelled but one side missing from the inventory | INV(a) image row carries 3 of the 6 format statements; INV(c) AES-SIV row omits the length conflict | Carry all statements in both places (README rule 4) | {t('fmt_a')}, {t('sd4len')} |
@@ -109,7 +109,7 @@ Rule of thumb: markup is clean (the checker passes) and the pins are uniform; th
 style = f"""
 ## Style issues in columns
 
-1. SD5 R3 Summary (reported at 46 words): now 44 words, within 45. SD5 R1 and SD5 R6 Summaries are exactly 45, so any added word breaks the limit. Largest R7 Summaries: SD6 56, SD1 47, SD4 47 of 60. No Summary has backticks, underscores, `$`, `%` or non-ASCII characters (scanned); every `**` pair balances; R8 Summaries start "**Key open questions.**" with no label; R9 Summaries are plain.
+1. SD5 R3 Summary (reported at 46 words): re-counted from the file at triage time as 44 words, within 45. SD5 R1 and SD5 R6 Summaries are exactly 45, so any added word breaks the limit. Largest R7 Summaries: SD6 56, SD1 47, SD4 47 of 60. No Summary has backticks, underscores, `$`, `%` or non-ASCII characters (scanned); every `**` pair balances; R8 Summaries start "**Key open questions.**" with no label; R9 Summaries are plain.
 2. SD1 R4 Summary ends "The service was formerly called Cloud DLP." BR says headers and Summaries use the new name and "formerly Cloud DLP" goes in R1 and R4 Detail (SD1 R1 and R4 Detail already do). Remove the sentence or accept it as a deliberate exception.
 3. Summary label versus facts (README section 3 rule 5): SD3 R1 and R4 ({t('sd3sum')}), SD4 R4 ({t('sd4sum')}), SD6 R2, R4, R5 ({t('sd6sum')}), SD2 R5 and SD4 R5 ({t('noverdict')}), SD5 R1 and R2 ({t('faceprev')}).
 4. Internal column pointers: A and B refer to other columns as "the detection column", "the SD5 column", "the SD1 and SD2 columns" (15 bullets: A SD2 R2, R3, R5, R6 x2, R7, SD3 R2, R7 x2; B SD4 R2, SD5 R1, SD6 R1, R3, R6, R8). Column ids are not visible on the sheet; use the header words ("the sensitive-data detection in text column") or "see the text detection column" consistently.
