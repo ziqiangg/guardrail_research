@@ -1,0 +1,128 @@
+{
+ "asia-northeast1": {
+  "jur": "Japan",
+  "rest": "Yes",
+  "use": "Yes",
+  "transit": "Yes",
+  "support": "Limited support"
+ },
+ "asia-northeast3": {
+  "jur": "South Korea",
+  "rest": "Yes",
+  "use": "Yes",
+  "transit": "Yes",
+  "support": "Limited support"
+ },
+ "asia-south1": {
+  "jur": "India",
+  "rest": "Yes",
+  "use": "Yes",
+  "transit": "Yes",
+  "support": "Limited support"
+ },
+ "asia-southeast1": {
+  "jur": "Singapore",
+  "rest": "Yes",
+  "use": "Yes",
+  "transit": "Yes",
+  "support": "Limited support"
+ },
+ "australia-southeast2": {
+  "jur": "Australia",
+  "rest": "Yes",
+  "use": "Yes",
+  "transit": "Yes",
+  "support": "Limited support"
+ },
+ "eu": {
+  "jur": "European Union",
+  "rest": "Yes",
+  "use": "Yes",
+  "transit": "Yes",
+  "support": "Full support"
+ },
+ "europe-southwest1": {
+  "jur": "European Union",
+  "rest": "Yes",
+  "use": "Yes",
+  "transit": "Yes",
+  "support": "Full support"
+ },
+ "europe-west1": {
+  "jur": "European Union",
+  "rest": "Yes",
+  "use": "Yes",
+  "transit": "Yes",
+  "support": "Full support"
+ },
+ "europe-west2": {
+  "jur": "United Kingdom",
+  "rest": "Yes",
+  "use": "Yes",
+  "transit": "Yes",
+  "support": "Limited support"
+ },
+ "europe-west3": {
+  "jur": "European Union",
+  "rest": "Yes",
+  "use": "Yes",
+  "transit": "Yes",
+  "support": "Full support"
+ },
+ "europe-west4": {
+  "jur": "European Union",
+  "rest": "Yes",
+  "use": "Yes",
+  "transit": "Yes",
+  "support": "Full support"
+ },
+ "europe-west9": {
+  "jur": "European Union",
+  "rest": "Yes",
+  "use": "Yes",
+  "transit": "Yes",
+  "support": "Full support"
+ },
+ "northamerica-northeast2": {
+  "jur": "Canada",
+  "rest": "Yes",
+  "use": "Yes",
+  "transit": "Yes",
+  "support": "Limited support"
+ },
+ "us": {
+  "jur": "United States",
+  "rest": "Yes",
+  "use": "Yes",
+  "transit": "Yes",
+  "support": "Full support"
+ },
+ "us-central1": {
+  "jur": "United States",
+  "rest": "Yes",
+  "use": "Yes",
+  "transit": "Yes",
+  "support": "Full support"
+ },
+ "us-east1": {
+  "jur": "United States",
+  "rest": "Yes",
+  "use": "Yes",
+  "transit": "Yes",
+  "support": "Full support"
+ },
+ "us-east4": {
+  "jur": "United States",
+  "rest": "Yes",
+  "use": "Yes",
+  "transit": "Yes",
+  "support": "Full support"
+ },
+ "us-west1": {
+  "jur": "United States",
+  "rest": "Yes",
+  "use": "Yes",
+  "transit": "Yes",
+  "support": "Full support"
+ }
+}

@@ -1,0 +1,493 @@
+# status 200  final_url https://docs.cloud.google.com/mcp/model-armor-supported-products  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español – América Latina
+Français
+Português – Brasil
+中文 – 简体
+日本語
+한국어
+Sign in
+Cloud APIs
+Google Cloud MCP servers
+Start free
+Overview
+Guides
+Reference
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Resources
+Console
+Google Cloud MCP servers
+All resources
+Stability commitment
+Model Armor supported products
+Quotas and system limits
+Release notes
+Deprecation
+Deprecations
+Organization policy control of MCP servers deprecation
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Home
+Documentation
+Developer tools
+Cloud APIs
+Google Cloud MCP servers
+Resources
+Send feedback
+Model Armor supported products
+Stay organized with collections
+Save and categorize content based on your preferences.
+Model Armor is a Google Cloud service that helps enhance
+the security and safety of AI applications. It proactively screens Model Context
+Protocol (MCP) tool calls and responses to help mitigate risks and support
+responsible AI practices. Whether you deploy AI in Google Cloud or on other
+cloud providers, Model Armor helps you protect against malicious input,
+verify content safety, and identify sensitive data. Use Model Armor to
+consistently apply safety policies and support compliance across your AI
+landscape.
+Model Armor is compliant with
+data residency requirements for at-rest data, but if you have
+requirements for data residency for in-use data, then different MCP servers
+might have different behavior as described in the following sections.
+MCP calls to Model Armor
+Model Armor is compliant with data residency requirements for at-rest
+data. To comply with data residency needs for in-use data and
+to ensure reliability, some MCP servers restrict MCP requests to
+Model Armor within the jurisdiction from which they are sent.
+The following sections describe the different types of behavior that are
+possible:
+Cross-jurisdictional routing
+MCP servers with cross-jurisdictional routing always send your MCP requests to
+Model Armor when it is enabled. If Model Armor isn't present
+in the jurisdiction where the MCP request is sent, then the request is sent to
+Model Armor in another jurisdiction. These cross-jurisdictional calls
+might impact your data residency compliance for in-use data.
+Data residency compliant routing
+MCP servers that comply with data residency requirements for in-use data skip
+Model Armor screening if Model Armor isn't available in the
+same jurisdiction as the MCP request. No errors or logs are written when
+Model Armor is skipped.
+If a service only offers MCP endpoints in jurisdictions that are
+supported by Model Armor, then Model Armor is always called.
+For more information, see
+Data residency and Endpoints.
+Jurisdictional routing
+MCP servers with jurisdictional routing keep MCP requests to
+Model Armor within the jurisdiction from which they are sent for
+reliability reasons but don't meet the requirements of data residency
+compliance for in-use data. This behavior has two sub-categories:
+Model Armor is always called: MCP calls are kept within the
+same jurisdiction and all MCP traffic is sent to Model Armor
+because Model Armor is present in all available jurisdictions of
+the MCP endpoint.
+Model Armor might be skipped: MCP calls are kept within the
+same jurisdiction and skip Model Armor if Model Armor
+isn't available in the same jurisdiction as the MCP request. No errors or
+logs are written when Model Armor is skipped.
+Products with Model Armor support
+The following table lists the Google and Google Cloud MCP servers that support
+Model Armor and the behavior and limitations of their integrations
+when Model Armor is enabled.
+| Product
+| Model Armor is always called
+| Model Armor might be skipped
+| Details
+| Agent Registry
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| AlloyDB for PostgreSQL
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| API keys
+|
+| check
+| Jurisdictional routing. Model Armor might be skipped if the MCP call is sent from an unsupported jurisdiction.
+| Apigee API hub
+|
+| check
+|
+Global endpoint: Cross-jurisdictional routing. Model Armor is always called when enabled.
+Regional endpoints: Data residency compliant for in-use data. Model Armor might be skipped if the MCP call is sent from an unsupported jurisdiction.
+| Audit Manager
+| check
+|
+|
+Global endpoint: Cross-jurisdictional routing. Model Armor is always called when enabled.
+Regional endpoints: Data residency compliant for in-use data. Model Armor is always called.
+Exception: The GenerateAuditScopeReport
+tool doesn't support scanning with Model Armor
+| App Topology
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Backup and DR Service
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| BigQuery
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| BigQuery Data Transfer Service
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| BigQuery Migration Service
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Bigtable
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Cloud Asset Inventory
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Cloud Billing
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Filestore
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Cloud Run
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Cloud Storage
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Cloud Support API
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Customer Experience Agent Studio
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Cloud SQL
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Cloud Logging
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Cloud Monitoring
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Organization Policy Service
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Cloud Trace
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Compute Engine
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Database Insights MCP server
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Database Center
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Datastream
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Database Migration Service
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Developer Knowledge API
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Error Reporting
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Firebase SQL Connect
+|
+| check
+|
+Jurisdictional routing. Model Armor might be skipped if the MCP call is sent from an unsupported jurisdiction.
+The following Firebase SQL Connect MCP tool types can't be scanned by
+Model Armor:
+Read-only administrative MCP tools
+Control plane MCP tools
+MCP tools that require support for HTTP streaming
+When Model Armor is enabled, the
+following MCP tools are scanned when the MCP request is in a
+jurisdiction that Model Armor supports:
+execute_graphql
+execute_graphql_read
+| Firestore
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Google Cloud CLI (Preview)
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| GKE
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Google Home
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Google Security Operations
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Knowledge Catalog
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Dataform
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Managed Service for Apache Spark
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Identity and Access Management (IAM)
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Managed Service for Apache Kafka
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Managed Service for Apache Airflow
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Memorystore
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Google Cloud NetApp Volumes
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Oracle Database@Google Cloud
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Personalized Service Health
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Policy Analyzer
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Policy Troubleshooter
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Pub/Sub
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Recommender
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Cloud Quotas
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Security Command Center
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Security Command Center Management
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Spanner
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Secure Source Manager
+| check
+|
+| Data residency compliant for in-use data. Model Armor is always called.
+| Unified Maintenance
+|
+| check
+| Jurisdictional routing. Model Armor might be skipped if the MCP call is sent from an unsupported jurisdiction.
+| Gemini Enterprise Agent Platform
+|
+| check
+|
+Global endpoint: Jurisdictional routing. Model Armor might be skipped if the MCP call is sent from an unsupported jurisdiction.
+Multi-regional endpoints: Data residency compliant for in-use data. Model Armor is always called.
+Regional endpoints: Data residency compliant for in-use data. Model Armor might be skipped if the MCP call is sent from an unsupported jurisdiction.
+Locational endpoints: Jurisdictional routing. Model Armor might be skipped if the MCP call is sent from an unsupported jurisdiction.
+| Agent Search
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Google Drive
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Gmail
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Google Calendar
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| Google Chat
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+| People API
+| check
+|
+| Cross-jurisdictional routing. Model Armor is always called when enabled.
+What's next
+Set up Model Armor for Google Cloud MCP servers
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-06 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español – América Latina
+Français
+Português – Brasil
+中文 – 简体
+日本語
+한국어

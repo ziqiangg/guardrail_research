@@ -21,7 +21,7 @@ Detail:
 • With no analyzer supplied, the engine builds a default `AnalyzerEngine()` (image_analyzer_engine.py@2.2.364:31-33), so the entity list is whatever the default recognizers detect (see the Analyzer column) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • Language defaults to English: `text_analyzer_kwargs["language"] = "en"` (image_analyzer_engine.py@2.2.364:74-75) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • The default NLP model is `en_core_web_lg` (conf/default.yaml@2.2.364:5) and the default analyzer configuration has `supported_languages` set to `en` only (conf/default_analyzer.yaml@2.2.364:1-2) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
-• Installation page: "Presidio image redactor uses the presidio-analyzer which requires a spaCy language model:" (Presidio docs, installation page) **[Documented]**
+• Installation page: "Presidio image redactor uses the presidio-analyzer … which requires a spaCy language model:" (Presidio docs, installation page) **[Documented]**
 • OCR keyword arguments are passed straight to Tesseract through `pytesseract.image_to_data(image, output_type=output_type, …)` (tesseract_ocr.py@2.2.364:18); the docs do not list which keys (such as an OCR language) are expected **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • DICOM scope: "This class only redacts pixel data and does not scrub text PII which may exist in the DICOM metadata." (Presidio docs, image-redactor page) **[Documented]**
 • The DICOM docs add: "We highly recommend using the DICOM image redactor engine to redact text from images BEFORE scrubbing metadata PII." (Presidio docs, image-redactor page) **[Documented]**
@@ -33,7 +33,7 @@ Summary: **Images, not text.** Takes a picture or DICOM file sent to or from a m
 Detail:
 • Python input is a PIL image: `redact(self, image: Image.Image, fill=..., ocr_kwargs=..., ad_hoc_recognizers=..., plus extra Analyzer keyword arguments)` (image_redactor_engine.py@2.2.364:83-89) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • Docs example opens the image with Pillow: `image = Image.open("./docs/image-redactor/ocr_text.png")` (Presidio docs, image-redactor page) **[Documented]**
-• REST service: "curl -XPOST "http://localhost:3000/redact" -H "content-type: multipart/form-data" -F "image=@ocr_test.png" -F "data=\"{'color_fill':'255'}\"" > out.png" (Presidio docs, image-redactor page) **[Documented]**
+• REST service example in the docs: `curl -XPOST "http://localhost:3000/redact" -H "content-type: multipart/form-data" -F "image=@ocr_test.png" -F "data=\"{'color_fill':'255'}\""` (Presidio docs, image-redactor page) **[Documented]**
 • The service has two input forms: a JSON body with a base64 `image` field and optional `analyzer_entities`, or a multipart upload with an `image` file (app.py@2.2.364:52-65) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • The service has only two routes, `/health` and `/redact` (POST), and no field for text, so it cannot be given a prompt string (app.py@2.2.364:42 and :47) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • There is no input or output flag; the caller chooses which image to send, so one column covers images attached to prompts and images in responses, retrieved documents or tool results (premise: routes and parameters above carry no direction) **[Inferred]**
@@ -72,8 +72,9 @@ Detail:
 • API reference: the docs say "the API Spec for the Image Redactor REST API reference details" (Presidio docs, image-redactor page) **[Documented]**
 • The OpenAPI file at the tag lists `/analyze`, `/recognizers`, `/supportedentities`, `/anonymize`, `/anonymizers`, `/deanonymize`, `/deanonymizers` and `/health` and has no `/redact` path (docs/api-docs/api-docs.yml@2.2.364:26-269) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • Ownership: "The Presidio project is in the process of transitioning from a Microsoft-owned project to an independent, community-governed open source project under the new GitHub organization Data Privacy Stack." (Presidio docs, project transition page) **[Documented]**
-• HTTP 301 from data-privacy-stack.github.io/presidio/ to presidio.dataprivacystack.org/ observed 2026-10-09; both hosts serve the same pages **[Documented]**
-• Licence: "Presidio will continue to be open source under the MIT license." (Presidio docs, project transition page); the repo LICENSE reads "The MIT License (MIT)" and "Copyright (c) Presidio Contributors." (LICENSE@2.2.364:1-3) **[Documented]**
+• HTTP 301 from data-privacy-stack.github.io/presidio/ to presidio.dataprivacystack.org/ observed 2026-10-09 on the image-redactor and structured pages; the new host answers 200 **[Documented]**
+• Licence: "Presidio will continue to be open source under the MIT license." (Presidio docs, project transition page) **[Documented]**
+• The repo LICENSE reads "The MIT License (MIT)" and "Copyright (c) Presidio Contributors." (LICENSE@2.2.364:1-3) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 ### R5
 Summary: **No verdict; an image comes back.** Python returns the redacted image and optionally one box per redacted word with entity type, offsets, score and pixel position. The REST service returns only the image. No threshold advice or accuracy figure is published for standard images. **[Documented]**
 Detail:
@@ -88,7 +89,8 @@ Detail:
 • So the two REST input forms probably redact different sets of words for the same image (premise: the lines above) **[Inferred]**
 • Recommended threshold for image redaction is not stated (checked the image-redactor, getting-started-images, FAQ and evaluation pages and the Python API page) **[Not disclosed]**
 • DICOM evaluation outputs are documented: precision, recall, all positives (true and false) and an image with boxes, via `DicomImagePiiVerifyEngine` (Presidio docs, evaluating DICOM redaction page) **[Documented]**
-• The repo's evaluation notebook reports precision and recall of 1.0 on its four sample DICOM files (19 labelled text items) at `padding_width=25` and `tolerance=50`: "In the case of these sample images, the precision and recall … is 1.0" (Presidio docs, DICOM evaluation notebook; docs/samples/python/sample_data/ground_truth.json@2.2.364) **[Documented]**
+• The DICOM evaluation notebook says: "In the case of these sample images, the precision and recall of the Presidio DicomImageRedactorEngine redact function is 1.0 when we use the default values padding_width=25 and tolerance=50." (Presidio docs, DICOM evaluation notebook) **[Documented]**
+• The sample set behind it, `ground_truth.json` at the tag, holds 4 DICOM files and 19 labelled text items (count made from the file) (docs/samples/python/sample_data/ground_truth.json@2.2.364) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • The same notebook shows recall 0.2 on one image when `padding_width=1`, so padding changes OCR coverage (Presidio docs, DICOM evaluation notebook) **[Documented]**
 • These notebook results are a demonstration on four sample files, not a benchmark; no accuracy, latency or throughput figure is published for standard images or for real scans (checked the image-redactor, evaluation, FAQ and home pages and `Evaluation_Approach.md`) **[Not disclosed]**
 ### R6
@@ -96,9 +98,11 @@ Summary: **An image plus optional fill, language and filters.** Needs the image,
 Detail:
 • Python parameters: `image`, `fill`, `ocr_kwargs`, `ad_hoc_recognizers` and extra keyword arguments (`text_analyzer_kwargs`), the last forwarded to `AnalyzerEngine.analyze` (image_redactor_engine.py@2.2.364:83-89 and :101-102) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • Analyzer options such as `entities`, `score_threshold`, `allow_list` and `language` pass through `text_analyzer_kwargs`; `language` defaults to `en` (image_analyzer_engine.py@2.2.364:74-76) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
-• Allow list: words in it get no box (`word not in allow_list`, image_analyzer_engine.py@2.2.364:174); the docs navigation lists a sample "Using an allow list with image redaction" (Presidio docs, image-redactor page) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Allow list: words in it get no box (`word not in allow_list`, image_analyzer_engine.py@2.2.364:174) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• The docs navigation lists a sample named "Using an allow list with image redaction" (Presidio docs, image-redactor page navigation) **[Documented]**
 • `ad_hoc_recognizers` must be a non-empty list of `PatternRecognizer` objects or the call raises `TypeError` (image_redactor_engine.py@2.2.364:117-147) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
-• OCR confidence filter: docs example `ocr_kwargs = {"ocr_threshold": 50}` (Presidio docs, image-redactor page); allowed range -1 to 100 (image_analyzer_engine.py@2.2.364:95-96) **[Documented]**
+• OCR confidence filter, docs example: `ocr_kwargs = {"ocr_threshold": 50}` (Presidio docs, image-redactor page) **[Documented]**
+• The allowed `ocr_threshold` range is -1 to 100 (image_analyzer_engine.py@2.2.364:95-96) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • REST multipart: form field `image` (file) and optional form field `data` holding `{'color_fill':'255'}` (Presidio docs, image-redactor page) **[Documented]**
 • Colour parsing: one integer gives a grey level, three comma-separated integers give RGB, anything else gives HTTP 422 (api_request_convertor.py@2.2.364:38-50) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • The REST code reads the fill colour from the form field `data` in both input forms, and a JSON body has no form field, so a JSON request is probably always filled black (premise: app.py@2.2.364:50-57) **[Inferred]**
@@ -144,6 +148,7 @@ Detail:
 • https://presidio.dataprivacystack.org/image-redactor/evaluating_dicom_redaction/
 • https://presidio.dataprivacystack.org/getting_started/getting_started_images/
 • https://presidio.dataprivacystack.org/installation/
+• https://presidio.dataprivacystack.org/api/image_redactor_python/
 • https://presidio.dataprivacystack.org/faq/
 • https://presidio.dataprivacystack.org/evaluation/
 • https://presidio.dataprivacystack.org/learn_presidio/concepts/
@@ -154,6 +159,7 @@ Detail:
 • https://github.com/data-privacy-stack/presidio/blob/2.2.364/docs/image-redactor/index.md
 • https://github.com/data-privacy-stack/presidio/blob/2.2.364/docs/api-docs/api-docs.yml
 • https://github.com/data-privacy-stack/presidio/blob/2.2.364/docs/samples/python/sample_data/ground_truth.json
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-image-redactor/Evaluation_Approach.md
 • https://github.com/data-privacy-stack/presidio/blob/2.2.364/LICENSE
 • https://github.com/data-privacy-stack/presidio/blob/2.2.364/e2e-tests/tests/test_api_image_redactor.py
 • https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-image-redactor/app.py
@@ -200,7 +206,8 @@ Detail:
 • Future work on the same page: "Improve support for datasets with mixed free-text and structure data (e.g. some columns contain free text)" and "Add support for the detection of sensitive column names" (Presidio docs, structured page) **[Documented]**
 • JSON key names are given to the Analyzer as context words (`context=[key]`), so a key such as "email" can raise scores; the table builder passes no context (batch_analyzer_engine.py@2.2.364:108-114; analysis_builder.py@2.2.364:255-260) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • Docs on context from metadata: "This is useful when there is context coming from metadata such as column names or a specific user input." (Presidio docs, context tutorial) **[Documented]**
-• Limit on lists: "Nesting objects in lists is not supported in JsonAnalysisBuilder for now," (Presidio docs, structured page); the batch engine raises "Lists of objects are not yet supported." (batch_analyzer_engine.py@2.2.364:148) **[Documented]**
+• Limit on lists: "Nesting objects in lists is not supported in JsonAnalysisBuilder for now," (Presidio docs, structured page) **[Documented]**
+• The batch engine raises "Lists of objects are not yet supported." (batch_analyzer_engine.py@2.2.364:148) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • Workaround in docs: write the mapping by hand, `StructuredAnalysis(entity_mapping={"users.name": "PERSON", "users.email": "EMAIL_ADDRESS"})` (Presidio docs, structured page) **[Documented]**
 • JSON analysis casts numbers and booleans to text before detection (`text=str(value)`) and keeps only the first recognizer result per key (batch_analyzer_engine.py@2.2.364:113-114; analysis_builder.py@2.2.364:149) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 ### R3
@@ -208,7 +215,7 @@ Summary: **Parsed tables and JSON, not raw prompts.** Takes a pandas DataFrame o
 Detail:
 • Engine input type: `data: Union[Dict, DataFrame]` (structured_engine.py@2.2.364:34); the pandas processor rejects anything but a DataFrame and the JSON processor accepts only a dict or list (data_processors.py@2.2.364:118-119 and :199-200) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • File helpers read a CSV into a DataFrame or a JSON file into a dict: `CsvReader`, `JsonReader` (data_reader.py@2.2.364:29-70) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
-• No REST route, Docker image or command-line entry for presidio-structured was found: the package folder has no `app.py` or Dockerfile and the installation page shows `pip` only (checked the repo tree at the tag, docker-compose.yml, docs installation and structured pages) **[Not disclosed]**
+• No REST route, Docker image or command-line entry for presidio-structured was found: the package folder has no `app.py` or Dockerfile, docker-compose.yml lists no structured service, and the structured page shows `pip install` only (checked the repo tree at the tag, docker-compose.yml and the structured page) **[Not disclosed]**
 • The package has no input or output flag and takes data objects, so one column covers retrieved records, tool-call arguments and tool results that are JSON or tabular, once parsed (premise: no direction parameter anywhere in the package) **[Inferred]**
 • A prompt or response that is plain text is not a valid input; it must first be parsed into a dict or DataFrame (premise: the type checks in the data processors) **[Inferred]**
 • No system or user prompt is needed (premise: no such parameter) **[Inferred]**
@@ -240,8 +247,10 @@ Detail:
 • Current maturity label for presidio-structured is not stated (checked the structured page, the package README, home page and FAQ) **[Not disclosed]**
 • Python versions conflict (three sources, none picked): package metadata lists 3.10 to 3.14 **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • The live installation page lists 3.10 to 3.13 (Presidio docs, installation page, read 2026-10-09) **[Documented]**
-• Ownership: "The Presidio project is in the process of transitioning from a Microsoft-owned project to an independent, community-governed open source project under the new GitHub organization Data Privacy Stack." (Presidio docs, project transition page); HTTP 301 from data-privacy-stack.github.io/presidio/ to presidio.dataprivacystack.org/ observed 2026-10-09 **[Documented]**
-• Licence: pyproject.toml declares `license = "MIT"` (presidio-structured/pyproject.toml@2.2.364:10) and the transition page says "Presidio will continue to be open source under the MIT license." **[Documented]**
+• Ownership: "The Presidio project is in the process of transitioning from a Microsoft-owned project to an independent, community-governed open source project under the new GitHub organization Data Privacy Stack." (Presidio docs, project transition page) **[Documented]**
+• HTTP 301 from data-privacy-stack.github.io/presidio/ to presidio.dataprivacystack.org/ observed 2026-10-09 on the image-redactor and structured pages **[Documented]**
+• Licence: the package declares `license = "MIT"` (presidio-structured/pyproject.toml@2.2.364:10) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• The transition page says "Presidio will continue to be open source under the MIT license." (Presidio docs, project transition page) **[Documented]**
 ### R5
 Summary: **A transformed table or object plus a column map.** Output is the anonymised DataFrame or dict; the analysis step returns a column-to-entity map with no per-cell findings or scores. No recommended threshold or accuracy figure is published. **[Documented]**
 Detail:
@@ -267,7 +276,6 @@ Detail:
 • The structured page's install block shows only `pip install presidio-structured`, so the spaCy model has to be downloaded separately (premise: the two lines above) **[Inferred]**
 • `analyze_iterator` accepts only int, float, bool and str values (batch_analyzer_engine.py@2.2.364:142-150) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • Dataset size, row limits and memory use are not stated (checked the structured page, package README and FAQ) **[Not disclosed]**
-• Authentication does not apply to the library; the FAQ says the Presidio REST endpoints have none (Presidio docs, FAQ) **[Documented]**
 ### R7
 Summary: **Minimum setup:** pip install presidio-structured and the English spaCy model, then run it on a small DataFrame and a JSON object with known PII columns and clean columns. No account is needed. Score the column map and the output cells separately against labels. **[Inferred]**
 Detail:
@@ -275,7 +283,7 @@ Detail:
 • Starter data exists in the repo: `docs/samples/python/sample_data/test_structured.json` and `test_structured_complex.json` (file listing at the tag) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • Table cases: clearly PII columns (names, emails, phones, IDs), clean columns (counts, codes), a free-text column with a name inside, a column with PII in only a few rows, and misleading column names **[Inferred]**
 • JSON cases: flat object, nested object, list of plain values, list of objects (expected to need a hand-written map), numbers stored as integers **[Inferred]**
-• Ground truth needed at two levels: column or key to entity, and per-cell PII spans or at least "cell contains PII" flags; the labelled set needs entity-level ground truth **[Inferred]**
+• Ground truth needed at two levels: column or key to entity, and per-cell PII spans or at least flags for whether a cell contains PII; the labelled set needs entity-level ground truth **[Inferred]**
 • Score separately: column-map precision and recall, and leaks (PII still visible in output cells) **[Inferred]**
 • Operator checks: run `replace`, `redact`, `mask`, `hash`, `custom` and `encrypt` on string, number and empty cells and confirm no errors and no input mutation surprises **[Inferred]**
 • presidio-research (R010): "Presidio-Research is a python package with a set of tools that help you evaluate the performance of the Presidio Analyzer." (Presidio docs, evaluation page); the FAQ adds that it "also features a simple PII data generator" (Presidio docs, FAQ) **[Documented]**
@@ -310,6 +318,8 @@ Detail:
 • https://github.com/data-privacy-stack/presidio/blob/2.2.364/CHANGELOG.md
 • https://github.com/data-privacy-stack/presidio/blob/2.2.364/docs/anonymizer/index.md
 • https://github.com/data-privacy-stack/presidio/blob/2.2.364/docs/samples/python/sample_data/test_structured.json
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/docs/samples/python/sample_data/test_structured_complex.json
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/docker-compose.yml
 • https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-structured/pyproject.toml
 • https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-structured/presidio_structured/__init__.py
 • https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-structured/presidio_structured/structured_engine.py
@@ -341,7 +351,8 @@ Detail:
 • Docs examples of custom entities: `TITLE` (word list), `ZIP` (regex with score 0.01 and context "zip", "code"), `MR_TITLE`, `MS_TITLE` (Presidio docs, adding recognizers page) **[Documented]**
 • The entity name is free text chosen by the author: `PatternRecognizer` requires `supported_entity` and holds exactly one entity (pattern_recognizer.py@2.2.364:63-64 and :73) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • A recognizer needs patterns or a deny list, otherwise `ValueError` (pattern_recognizer.py@2.2.364:66-70) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
-• Docs: "Each recognizer can support one language." (Presidio docs, languages page); `supported_language` defaults to `en` (pattern_recognizer.py@2.2.364:54) **[Documented]**
+• Docs: "Each recognizer can support one language." (Presidio docs, languages page) **[Documented]**
+• `supported_language` defaults to `en` in `PatternRecognizer` (pattern_recognizer.py@2.2.364:54) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • A request only uses recognizers whose `supported_language` equals the request language, ad-hoc ones included; if none match the entities, `ValueError("No matching recognizers were found to serve the request.")` (recognizer_registry.py@2.2.364:218-229 and :248) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • A YAML recognizer with several `supported_languages` creates one instance per language (conf/default_recognizers.yaml@2.2.364:28) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • Docs: "Many PII entities are undetectable using naive approaches like deny-lists or regular expressions." (Presidio docs, developing recognizers page) **[Documented]**
@@ -368,7 +379,8 @@ Detail:
 • Constructor: `PatternRecognizer(supported_entity, name, supported_language="en", patterns, deny_list, context, deny_list_score=1.0, global_regex_flags=DOTALL|MULTILINE|IGNORECASE, version, country_code)` (pattern_recognizer.py@2.2.364:50-62) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • A deny list becomes one regex of escaped words with word-boundary guards: `r"(?:^|(?<=\W))(" + "|".join(escaped_deny_list) + r")(?:(?=\W)|$)"` (pattern_recognizer.py@2.2.364:133) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • `Pattern` checks that the regex compiles and that the score is between 0 and 1 (pattern.py@2.2.364:26-39) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
-• Optional hooks `validate_result` and `invalidate_result`: a true validation sets the score to 1.0, false sets it to 0, invalidation sets 0, and results with score 0 are dropped (pattern_recognizer.py@2.2.364:136-156 and :257-268); overriding them needs a subclass **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Optional hooks `validate_result` and `invalidate_result`: a true validation sets the score to 1.0, false sets it to 0, invalidation sets 0, and results with score 0 are dropped (pattern_recognizer.py@2.2.364:136-156 and :257-268) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Supplying real validation logic therefore needs a subclass of `PatternRecognizer` that overrides the two hooks (premise: both hooks return `None` in the base class) **[Inferred]**
 • Regex timeout: `REGEX_TIMEOUT_SECONDS = int(os.environ.get("REGEX_TIMEOUT_SECONDS", 60))`, and a timed-out pattern is skipped with a warning (pattern_recognizer.py@2.2.364:21 and :217, :272-278) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • The changelog lists it: "Configurable regex execution timeout (default 60 seconds) via `REGEX_TIMEOUT_SECONDS` environment variable to prevent catastrophic backtracking" (CHANGELOG.md@2.2.364:161, under 2.2.362) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • Context boost: the default `LemmaContextAwareEnhancer` uses `context_similarity_factor=0.35`, `min_score_with_context_similarity=0.4`, `context_prefix_count=5`, `context_suffix_count=0`, substring matching (lemma_context_aware_enhancer.py@2.2.364:37-41) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
@@ -382,15 +394,17 @@ Detail:
 • Remote recognizers: "A remote recognizer is an EntityRecognizer object interacting with an external service." (Presidio docs, adding recognizers page) **[Documented]**
 • Per-recognizer score thresholds: the tagged docs say `score_thresholds` accepts a `default` and entity overrides, with precedence "analyzer.analyze(score_threshold=...) > an entity specific threshold > a recognizer default threshold (`default`) > the Presidio Analyzer `default_score_threshold`" (docs/analyzer/recognizer_registry_provider.md@2.2.364:113) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • The code at the tag implements it (analyzer_engine.py@2.2.364:357-414; score_thresholds.py@2.2.364:22-38), while `CHANGELOG.md` lists it under `[unreleased]` (CHANGELOG.md@2.2.364:10) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
-• Conflict: the live registry page (read 2026-10-09) lists the YAML recognizer parameters without `score_thresholds`, and the live Analyzer Python API text says "score_threshold: A minimum value for which to return an identified entity" **[Documented]**
-• Package `presidio-analyzer` version 2.2.364 (presidio-analyzer/pyproject.toml@2.2.364:7); MIT licence; ownership moving to the Data Privacy Stack organisation: "Presidio will continue to be open source under the MIT license." (Presidio docs, project transition page) **[Documented]**
+• Conflict, live API text: the live Analyzer Python API page describes the request parameter as "score_threshold: A minimum value for which to return an identified entity", with no mention of recognizer-level thresholds (Presidio docs, Analyzer Python API page, read 2026-10-09) **[Documented]**
+• The live registry page lists the YAML recognizer parameters without `score_thresholds` (checked the page text for "threshold", no hit, read 2026-10-09) **[Not disclosed]**
+• Package `presidio-analyzer` version 2.2.364 (presidio-analyzer/pyproject.toml@2.2.364:7) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Ownership and licence: "The Presidio project is in the process of transitioning from a Microsoft-owned project to an independent, community-governed open source project under the new GitHub organization Data Privacy Stack." and "Presidio will continue to be open source under the MIT license." (Presidio docs, project transition page) **[Documented]**
 • Related column on sheet 3: NeMo Guardrails: Regex pattern blocklist (input/output) decides to block a message; a Presidio custom recognizer instead returns spans and scores and leaves the decision to the caller (premise: R5 below and the NeMo column title) **[Inferred]**
 ### R5
 Summary: **Spans with the score you set.** A custom recognizer returns the usual Analyzer result: entity type, start, end and score. With the decision process on, the explanation names the pattern, regex, original score and context boost. No threshold advice or accuracy figure is published. **[Documented]**
 Detail:
 • Result fields: `entity_type`, `start`, `end`, `score`, `analysis_explanation`, `recognition_metadata` (recognizer_result.py@2.2.364:34-55) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • Explanation fields include `recognizer`, `pattern_name`, `pattern`, `original_score`, `score`, `score_context_improvement`, `supportive_context_word`, `validation_result`, `regex_flags` (analysis_explanation.py@2.2.364:18-37) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
-• Pattern hits get the text "Detected by `<recognizer>` using pattern `<pattern name>`" (pattern_recognizer.py@2.2.364:178-180) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Pattern hits get an explanation of the form Detected by `<recognizer name>` using pattern `<pattern name>` (pattern_recognizer.py@2.2.364:178-180) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • Docs: "To enable it, call the analyze method with return_decision_process set as True." (Presidio docs, decision process page) **[Documented]**
 • Otherwise the explanation is removed: `result.analysis_explanation = None` (analyzer_engine.py@2.2.364:508) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • The REST service also deletes `recognition_metadata` from every result before returning (app.py@2.2.364:168-175) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
@@ -408,7 +422,8 @@ Detail:
 • `/analyze` fields read by the service: `text`, `language`, `entities`, `correlation_id`, `score_threshold`, `return_decision_process`, `ad_hoc_recognizers`, `context`, `allow_list`, `allow_list_match`, `regex_flags` (analyzer_request.py@2.2.364:24-42) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • The OpenAPI schema for `AnalyzeRequest` omits `allow_list`, `allow_list_match` and `regex_flags` (docs/api-docs/api-docs.yml@2.2.364:392-436), so the spec and the code differ **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • `language` is required (`raise Exception("No language provided")`) (app.py@2.2.364:79-80) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
-• If `entities` is sent it must include the custom entity name, otherwise the custom recognizer is not selected; the docs example lists `"ZIP"` in `entities` (recognizer_registry.py@2.2.364:224-231; Presidio docs, ad-hoc recognizers tutorial) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• If `entities` is sent it must include the custom entity name, otherwise the custom recognizer is not selected (recognizer_registry.py@2.2.364:224-231) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• The docs ad-hoc example lists `"ZIP"` in `entities` next to the ad-hoc recognizer for `ZIP` (Presidio docs, ad-hoc recognizers tutorial) **[Documented]**
 • Default regex flags are `DOTALL | MULTILINE | IGNORECASE`, so matching is case-insensitive unless changed (pattern_recognizer.py@2.2.364:59; analyzer_engine.py@2.2.364:181) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • Regex flags for one recognizer: `global_regex_flags` in the constructor; for all: `global_regex_flags` on `RecognizerRegistry` or `global_regex_flags: 26` in YAML (Presidio docs, adding recognizers and registry pages) **[Documented]**
 • Context words: a `context` list on the recognizer, per language in YAML (`supported_languages: - language: en  context: [zip, code]`), and an optional request-level `context` list (Presidio docs, registry page and context tutorial) **[Documented]**
@@ -476,4 +491,14 @@ Detail:
 • https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-image-redactor/presidio_image_redactor/image_redactor_engine.py
 
 ## Reviewer notes
-• placeholder
+• Sources and method: code and repo docs were read in a shallow clone at /tmp/presidio_probe (tag 2.2.364, commit 779dbd286d5ef4d1fbe2514275fb1bce358f2417, `git describe` = 2.2.364, committed 2026-07-22); all line numbers refer to that checkout. Live docs pages were read as raw text with benchtest/tools/fetch_text.py on 2026-10-09 and saved under benchtest/scratchpad/drafter/pd_b/pages/. WebFetch was not used, so no number or quote comes from a summarising fetch.
+• Quotes and line cites were checked mechanically (scratchpad/drafter/pd_b/verify_quotes.py and verify_cites.py): every double-quoted passage of 12 characters or more was found in the fetched pages or in the clone, and every file@2.2.364:line cite exists. The one exception flagged by the quote script is the curl example with escaped quotes, which matches the live page.
+• Not read: the GitHub release page and notes for 2.2.364 (github.com returns 403 here), so no release-note fact is used; CHANGELOG.md [unreleased] is mentioned only as a flag. The data-privacy-stack/presidio-research repo (README, tags) was not readable; its facts rest on the Presidio docs evaluation, FAQ and developing-recognizers pages and are [To be verified] where they go further. The live OpenAPI page (api-docs.html) is rendered by script and returned no text, so the tagged docs/api-docs/api-docs.yml was used instead.
+• Corrections to the brief: (1) the brief says presidio-structured has release title "Release 2.2.364 / 0.0.60"; at the tag presidio-structured/pyproject.toml says version 0.0.8 and 0.0.60 is the presidio-image-redactor version (presidio-image-redactor/pyproject.toml line 7). (2) The brief's note that per-recognizer score thresholds sit only under CHANGELOG [unreleased] needs a qualifier: the code (score_thresholds.py, analyzer_engine.py) and docs/analyzer/recognizer_registry_provider.md at the tag already implement it, but the live registry and Python API pages do not mention it; written as two bullets in PD6 R4, labelled with the repo pin and not as develop/unreleased because the content is in tagged code.
+• Source conflicts carried (two bullets each): C3 Python versions (package metadata 3.10 to 3.14 versus live installation page 3.10 to 3.13; PD4 R4, PD5 R4); live Python API text for score_threshold versus tagged docstring (PD6 R4); live registry page without score_thresholds versus tagged docs (PD6 R4); Concepts page says StructuredEngine "is responsible for detecting PII entities" versus code where detection is in the analysis builders (PD5 R4); image-redactor page points to an API spec for the Image Redactor REST API versus the tagged OpenAPI file with no /redact path (PD4 R4); OpenAPI AnalyzeRequest omits allow_list, allow_list_match and regex_flags that the service reads (PD6 R6); REST image redactor uses score_threshold 0.4 on multipart uploads and no threshold on JSON (PD4 R5).
+• Inferences worth a second look: (a) PD4 R6, a JSON REST request probably cannot set the fill colour because colour is read from the form field `data`; (b) PD5 R4, `replace` with no `new_value` probably returns "<None>" inside presidio-structured because the entity type is not in the operator params; (c) PD4 R4, the image-redactor container sets analyzer config env vars that the package code never reads; (d) PD6 R8, HTTP 500 for invalid ad-hoc regex or language mismatch is read from app.py, not run. None was executed.
+• Applied the brief literally: the "out of purpose" bullets (prompt injection, harmful content, topics) are labelled [Documented] and rest on the home page module list; strictly this is a scope statement drawn from what the page lists, not a sentence that says "not a prompt-injection tool". Change to [Inferred] or [Not disclosed] if CP1 prefers.
+• Mixed-source facts were split into separate bullets (docs page versus repo file) so each carries one label; the 4 files and 19 labelled items in the DICOM sample set are my count from ground_truth.json, not a vendor figure.
+• Published numbers: the only figures found for any of PD4, PD5 or PD6 are the DICOM notebook results (precision and recall 1.0 on four sample files; recall 0.2 on one image with padding_width=1) and the 100 ms per 100 tokens guideline for recognizer authors. Both are written as demonstrations or advice, not as accuracy or latency claims. Notebook 4 and 5 statements from the evaluation page are PD1 material and were not used here.
+• CP1 question on PD5 (column or inventory only): facts for the decision. For a column: it reuses the Analyzer and Anonymizer on JSON and table data that can sit on the AI data path (retrieved records, tool-call arguments and results), and it adds logic not in PD1 or PD2 (per-column majority-vote entity mapping, JSON key names used as context). For inventory only: it is a Python package only with no REST service, Docker image or CLI at the tag (version 0.0.8, alpha in 2024, no current maturity label); the docs describe dataset de-identification and never mention LLM traffic; it transforms whole cell values, so it cannot edit PII inside free text; lists of objects in JSON need a hand-written map; the detection and operator behaviour it relies on is already covered by PD1 and PD2. Tests for it need only a small Python harness. No decision is taken here.
+• Other notes: DICOM docs say metadata is not scrubbed, while the code uses metadata values to build a PERSON deny list for the pixel text; these do not conflict but are easy to misread. The adding-recognizers page says the LLM-based recognizer "uses LangExtract with Ollama (local models)" while the brief lists Azure OpenAI as a provider; not used in these columns, left for PD1. The ellipsis character is used inside quotes for omissions, as the format allows; Summaries are ASCII.

@@ -1,0 +1,2644 @@
+[
+{
+"name": "FINANCIAL_ID",
+"loc": "GLOBAL",
+"ind": "FINANCE",
+"typ": [
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOCUMENT_TYPE/LEGAL/BRIEF",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DOCUMENT"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "FRANCE_DRIVERS_LICENSE_NUMBER",
+"loc": "FRANCE",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "MEXICO_CURP_NUMBER",
+"loc": "MEXICO",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "ORGANIZATION_NAME",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CONTEXTUAL_INFORMATION"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOD_ID_NUMBER",
+"loc": "UNITED_STATES",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "STORAGE_SIGNED_POLICY_DOCUMENT",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CREDENTIAL",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "KOREA_PASSPORT",
+"loc": "KOREA",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "OBJECT_TYPE/PERSON/FACE",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DEMOGRAPHIC",
+"PII",
+"SPII"
+],
+"av": "REGIONAL: asia asia-southeast1 europe europe-north1 global us us-central1 us-east4 us-west1"
+},
+{
+"name": "HONG_KONG_ID_NUMBER",
+"loc": "HONG_KONG",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "EMAIL_ADDRESS",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"PII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "IRELAND_EIRCODE",
+"loc": "IRELAND",
+"ind": "",
+"typ": [
+"PII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "CZECHIA_PASSPORT",
+"loc": "CZECHIA",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOCUMENT_TYPE/R&D/SOURCE_CODE/SHELL",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DOCUMENT"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "AUSTRIA_SOCIAL_SECURITY_NUMBER",
+"loc": "AUSTRIA",
+"ind": "HEALTH",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "TAIWAN_ID_NUMBER",
+"loc": "TAIWAN",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "ICD9_CODE",
+"loc": "GLOBAL",
+"ind": "HEALTH",
+"typ": [
+"CONTEXTUAL_INFORMATION"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "COUNTRY_DEMOGRAPHIC",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DEMOGRAPHIC"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "SPAIN_CIF_NUMBER",
+"loc": "SPAIN",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "US_ADOPTION_TAXPAYER_IDENTIFICATION_NUMBER",
+"loc": "UNITED_STATES",
+"ind": "FINANCE",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOCUMENT_TYPE/R&D/SOURCE_CODE/C",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DOCUMENT"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "RELIGIOUS_TERM",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CONTEXTUAL_INFORMATION",
+"DEMOGRAPHIC"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "SSL_CERTIFICATE",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CREDENTIAL",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "INDONESIA_NIK_NUMBER",
+"loc": "INDONESIA",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "BRAZIL_CPF_NUMBER",
+"loc": "BRAZIL",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "CRIME_STATUS",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DEMOGRAPHIC"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "HTTP_USER_AGENT",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [],
+"av": "ANY_LOCATION"
+},
+{
+"name": "AZURE_AUTH_TOKEN",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CREDENTIAL",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "STREET_ADDRESS",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"PII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "MEDICAL_DATA",
+"loc": "GLOBAL",
+"ind": "HEALTH",
+"typ": [
+"DEMOGRAPHIC"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "LOCATION",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CONTEXTUAL_INFORMATION"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "GCP_CREDENTIALS",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CREDENTIAL",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOCUMENT_TYPE/R&D/SOURCE_CODE/TYPESCRIPT",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DOCUMENT"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOCUMENT_TYPE/CONTEXT/SEXUAL",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CONTEXTUAL_INFORMATION",
+"DOCUMENT"
+],
+"av": "REGIONAL: europe global us"
+},
+{
+"name": "WEAK_PASSWORD_HASH",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CREDENTIAL"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "POLITICAL_TERM",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CONTEXTUAL_INFORMATION",
+"DEMOGRAPHIC"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "BLOOD_TYPE",
+"loc": "GLOBAL",
+"ind": "HEALTH",
+"typ": [],
+"av": "ANY_LOCATION"
+},
+{
+"name": "CANADA_QUEBEC_HIN",
+"loc": "CANADA",
+"ind": "HEALTH",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOCUMENT_TYPE/CONTEXT/HEALTH",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CONTEXTUAL_INFORMATION",
+"DOCUMENT"
+],
+"av": "REGIONAL: europe global us"
+},
+{
+"name": "PORTUGAL_NIB_NUMBER",
+"loc": "PORTUGAL",
+"ind": "FINANCE",
+"typ": [
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOCUMENT_TYPE/R&D/SOURCE_CODE/CS",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DOCUMENT"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "VEHICLE_IDENTIFICATION_NUMBER",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"PII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "CHILE_CDI_NUMBER",
+"loc": "CHILE",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "US_BANK_ROUTING_MICR",
+"loc": "UNITED_STATES",
+"ind": "FINANCE",
+"typ": [
+"CONTEXTUAL_INFORMATION"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "AUTH_TOKEN",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CREDENTIAL",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOCUMENT_TYPE/FINANCE/INVOICE",
+"loc": "GLOBAL",
+"ind": "FINANCE",
+"typ": [
+"DOCUMENT"
+],
+"av": "REGIONAL: asia europe global us"
+},
+{
+"name": "SINGAPORE_NATIONAL_REGISTRATION_ID_NUMBER",
+"loc": "SINGAPORE",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "PORTUGAL_SOCIAL_SECURITY_NUMBER",
+"loc": "PORTUGAL",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "UK_NATIONAL_INSURANCE_NUMBER",
+"loc": "UNITED_KINGDOM",
+"ind": "FINANCE\nHEALTH",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "CHINA_PASSPORT",
+"loc": "CHINA",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "ARGENTINA_DNI_NUMBER",
+"loc": "ARGENTINA",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "USER_NAME",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"PII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOCUMENT_TYPE/R&D/SOURCE_CODE",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DOCUMENT"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "AMERICAN_BANKERS_CUSIP_ID",
+"loc": "GLOBAL",
+"ind": "FINANCE",
+"typ": [
+"CONTEXTUAL_INFORMATION"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "AWS_CREDENTIALS",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CREDENTIAL",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "SCOTLAND_COMMUNITY_HEALTH_INDEX_NUMBER",
+"loc": "UNITED_KINGDOM",
+"ind": "HEALTH",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "ADVERTISING_ID",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"PII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "VAT_NUMBER",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "OAUTH_CLIENT_SECRET",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CREDENTIAL",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "MAC_ADDRESS_UNIVERSAL",
+"loc": "GLOBAL",
+"ind": "TELECOMMUNICATIONS",
+"typ": [
+"PII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "INDONESIA_PASSPORT",
+"loc": "INDONESIA",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOCUMENT_TYPE/CONTEXT/LEGAL",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CONTEXTUAL_INFORMATION",
+"DOCUMENT"
+],
+"av": "REGIONAL: europe global us"
+},
+{
+"name": "HTTP_COOKIE",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CREDENTIAL",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOCUMENT_TYPE/CONTEXT/OFFENSIVE",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CONTEXTUAL_INFORMATION",
+"DOCUMENT"
+],
+"av": "REGIONAL: europe global us"
+},
+{
+"name": "BELGIUM_NATIONAL_ID_CARD_NUMBER",
+"loc": "BELGIUM",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOCUMENT_TYPE/CONTEXT/RELIGION",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CONTEXTUAL_INFORMATION",
+"DOCUMENT"
+],
+"av": "REGIONAL: europe global us"
+},
+{
+"name": "ITALY_FISCAL_CODE",
+"loc": "ITALY",
+"ind": "FINANCE",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "OBJECT_TYPE/PERSON/SIGNATURE",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"PII",
+"SPII"
+],
+"av": "REGIONAL: asia asia-southeast1 europe europe-north1 global us us-central1 us-east4 us-west1"
+},
+{
+"name": "POLAND_PASSPORT",
+"loc": "POLAND",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "IMAGE_TYPE/CONTEXT/SEXUALLY_SUGGESTIVE",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CONTEXTUAL_INFORMATION"
+],
+"av": "REGIONAL: asia asia-southeast1 europe europe-north1 global us us-central1 us-east4 us-west1"
+},
+{
+"name": "OBJECT_TYPE/PERSON/PHOTO_ID_CARD",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DEMOGRAPHIC",
+"PII",
+"SPII"
+],
+"av": "REGIONAL: asia asia-southeast1 europe europe-north1 global us us-central1 us-east4 us-west1"
+},
+{
+"name": "DOCUMENT_TYPE/R&D/SOURCE_CODE/PHP",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DOCUMENT"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "MARITAL_STATUS",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DEMOGRAPHIC"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "OBJECT_TYPE/WHITEBOARD",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CONTEXTUAL_INFORMATION"
+],
+"av": "REGIONAL: asia asia-southeast1 europe europe-north1 global us us-central1 us-east4 us-west1"
+},
+{
+"name": "PARAGUAY_TAX_NUMBER",
+"loc": "PARAGUAY",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "SOUTH_AFRICA_ID_NUMBER",
+"loc": "SOUTH_AFRICA",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "MAC_ADDRESS",
+"loc": "GLOBAL",
+"ind": "TELECOMMUNICATIONS",
+"typ": [
+"PII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "OBJECT_TYPE/PERSON/PASSPORT",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "REGIONAL: asia asia-southeast1 europe europe-north1 global us us-central1 us-east4 us-west1"
+},
+{
+"name": "SEXUAL_ORIENTATION",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DEMOGRAPHIC"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "SWEDEN_PASSPORT",
+"loc": "SWEDEN",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "US_SOCIAL_SECURITY_NUMBER",
+"loc": "UNITED_STATES",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "US_STATE",
+"loc": "UNITED_STATES",
+"ind": "",
+"typ": [],
+"av": "ANY_LOCATION"
+},
+{
+"name": "ENCRYPTION_KEY",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CREDENTIAL",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOCUMENT_TYPE/HR/RESUME",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DOCUMENT"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "PORTUGAL_CDC_NUMBER",
+"loc": "PORTUGAL",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "UK_DRIVERS_LICENSE_NUMBER",
+"loc": "UNITED_KINGDOM",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "INDIA_AADHAAR_INDIVIDUAL",
+"loc": "INDIA",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOCUMENT_TYPE/R&D/SOURCE_CODE/CPP",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DOCUMENT"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "US_INDIVIDUAL_TAXPAYER_IDENTIFICATION_NUMBER",
+"loc": "UNITED_STATES",
+"ind": "FINANCE",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "OBJECT_TYPE/PERSON",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DEMOGRAPHIC",
+"PII"
+],
+"av": "REGIONAL: asia asia-southeast1 europe europe-north1 global us us-central1 us-east4 us-west1"
+},
+{
+"name": "DOCUMENT_TYPE/LEGAL/COURT_ORDER",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DOCUMENT"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "US_DEA_NUMBER",
+"loc": "UNITED_STATES",
+"ind": "HEALTH",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "TINK_KEYSET",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CREDENTIAL",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "IMSI_ID",
+"loc": "GLOBAL",
+"ind": "TELECOMMUNICATIONS",
+"typ": [
+"PII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "EMPLOYMENT_STATUS",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DEMOGRAPHIC"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "SWITZERLAND_SOCIAL_SECURITY_NUMBER",
+"loc": "SWITZERLAND",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "US_PASSPORT",
+"loc": "UNITED_STATES",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "CANADA_BANK_ACCOUNT",
+"loc": "CANADA",
+"ind": "FINANCE",
+"typ": [
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOCUMENT_TYPE/R&D/SOURCE_CODE/JSON",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DOCUMENT"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "US_HEALTHCARE_NPI",
+"loc": "UNITED_STATES",
+"ind": "HEALTH",
+"typ": [
+"GOVERNMENT_ID",
+"PII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "SECURITY_DATA",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CREDENTIAL",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "UK_ELECTORAL_ROLL_NUMBER",
+"loc": "UNITED_KINGDOM",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOCUMENT_TYPE/LEGAL/LAW",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DOCUMENT"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "NORWAY_NI_NUMBER",
+"loc": "NORWAY",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "KOREA_ARN",
+"loc": "KOREA",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "GERMANY_PASSPORT",
+"loc": "GERMANY",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "AUSTRALIA_DRIVERS_LICENSE_NUMBER",
+"loc": "AUSTRALIA",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "LOCATION_COORDINATES",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CONTEXTUAL_INFORMATION"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "IRELAND_DRIVING_LICENSE_NUMBER",
+"loc": "IRELAND",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "AGE",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DEMOGRAPHIC",
+"PII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "AUSTRALIA_MEDICARE_NUMBER",
+"loc": "AUSTRALIA",
+"ind": "HEALTH",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "URUGUAY_CDI_NUMBER",
+"loc": "URUGUAY",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "POLAND_PESEL_NUMBER",
+"loc": "POLAND",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOCUMENT_TYPE/R&D/SOURCE_CODE/PYTHON",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DOCUMENT"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "GOVERNMENT_ID",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOCUMENT_TYPE/FINANCE/SEC_FILING",
+"loc": "GLOBAL",
+"ind": "FINANCE",
+"typ": [
+"DOCUMENT"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "TIME",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [],
+"av": "ANY_LOCATION"
+},
+{
+"name": "SPAIN_NIE_NUMBER",
+"loc": "SPAIN",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "IMEI_HARDWARE_ID",
+"loc": "GLOBAL",
+"ind": "TELECOMMUNICATIONS",
+"typ": [
+"PII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "POLAND_NATIONAL_ID_NUMBER",
+"loc": "POLAND",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOCUMENT_TYPE/CONTEXT/FINANCE",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CONTEXTUAL_INFORMATION",
+"DOCUMENT"
+],
+"av": "REGIONAL: europe global us"
+},
+{
+"name": "NEW_ZEALAND_DRIVERS_LICENSE_NUMBER",
+"loc": "NEW_ZEALAND",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "JSON_WEB_TOKEN",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CREDENTIAL",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "ETHNIC_GROUP",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DEMOGRAPHIC"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOCUMENT_TYPE/LEGAL/PLEADING",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DOCUMENT"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "CREDIT_CARD_TRACK_NUMBER",
+"loc": "GLOBAL",
+"ind": "FINANCE",
+"typ": [
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "IMAGE_TYPE/CONTEXT/SEXUALLY_EXPLICIT",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CONTEXTUAL_INFORMATION"
+],
+"av": "REGIONAL: asia asia-southeast1 europe europe-north1 global us us-central1 us-east4 us-west1"
+},
+{
+"name": "DOCUMENT_TYPE/CONTEXT/POLITICS",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CONTEXTUAL_INFORMATION",
+"DOCUMENT"
+],
+"av": "REGIONAL: europe global us"
+},
+{
+"name": "GERMANY_DRIVERS_LICENSE_NUMBER",
+"loc": "GERMANY",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "FINLAND_BUSINESS_ID",
+"loc": "FINLAND",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "MAC_ADDRESS_LOCAL",
+"loc": "GLOBAL",
+"ind": "TELECOMMUNICATIONS",
+"typ": [
+"PII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "KOREA_BRN",
+"loc": "KOREA",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "FRANCE_PASSPORT",
+"loc": "FRANCE",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "CANADA_SOCIAL_INSURANCE_NUMBER",
+"loc": "CANADA",
+"ind": "HEALTH",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "FEMALE_NAME",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"PII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOCUMENT_TYPE/R&D/SOURCE_CODE/HTML",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DOCUMENT"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "ITALY_PASSPORT",
+"loc": "ITALY",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "US_EMPLOYER_IDENTIFICATION_NUMBER",
+"loc": "UNITED_STATES",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "KOREA_RRN",
+"loc": "KOREA",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOCUMENT_TYPE/R&D/PATENT",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DOCUMENT"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "KAZAKHSTAN_PASSPORT",
+"loc": "KAZAKHSTAN",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "IMAGE_TYPE/CONTEXT/VIOLENCE",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CONTEXTUAL_INFORMATION"
+],
+"av": "REGIONAL: asia asia-southeast1 europe europe-north1 global us us-central1 us-east4 us-west1"
+},
+{
+"name": "AUSTRALIA_PASSPORT",
+"loc": "AUSTRALIA",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "CREDIT_CARD_EXPIRATION_DATE",
+"loc": "GLOBAL",
+"ind": "FINANCE",
+"typ": [
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "PERU_DNI_NUMBER",
+"loc": "PERU",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "COLOMBIA_CDC_NUMBER",
+"loc": "COLOMBIA",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "GENERIC_ID",
+"loc": "GLOBAL",
+"ind": "FINANCE\nHEALTH\nTELECOMMUNICATIONS",
+"typ": [
+"DEMOGRAPHIC"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "SPAIN_NIF_NUMBER",
+"loc": "SPAIN",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DENMARK_CPR_NUMBER",
+"loc": "DENMARK",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "SPAIN_SOCIAL_SECURITY_NUMBER",
+"loc": "SPAIN",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "SPAIN_DRIVERS_LICENSE_NUMBER",
+"loc": "SPAIN",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "GEOGRAPHIC_DATA",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CONTEXTUAL_INFORMATION"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "US_DRIVERS_LICENSE_NUMBER",
+"loc": "UNITED_STATES",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "PHONE_NUMBER",
+"loc": "GLOBAL",
+"ind": "TELECOMMUNICATIONS",
+"typ": [
+"PII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "PASSPORT",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "IRELAND_PASSPORT",
+"loc": "IRELAND",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "GERMANY_SCHUFA_ID",
+"loc": "GERMANY",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "STORAGE_SIGNED_URL",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CREDENTIAL",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "MALE_NAME",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"PII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOCUMENT_TYPE/R&D/SOURCE_CODE/JAVASCRIPT",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DOCUMENT"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "MEDICAL_RECORD_NUMBER",
+"loc": "GLOBAL",
+"ind": "HEALTH",
+"typ": [
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "TRADE_UNION",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CONTEXTUAL_INFORMATION",
+"DEMOGRAPHIC"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "LAST_NAME",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"PII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "BRAZIL_RG_NUMBER",
+"loc": "BRAZIL",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "URL",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [],
+"av": "ANY_LOCATION"
+},
+{
+"name": "NEW_ZEALAND_IRD_NUMBER",
+"loc": "NEW_ZEALAND",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "ANTHROPIC_API_KEY",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CREDENTIAL",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "FINLAND_NATIONAL_ID_NUMBER",
+"loc": "FINLAND",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "SWIFT_CODE",
+"loc": "GLOBAL",
+"ind": "FINANCE",
+"typ": [
+"CONTEXTUAL_INFORMATION"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "SINGAPORE_PASSPORT",
+"loc": "SINGAPORE",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "JAPAN_CORPORATE_NUMBER",
+"loc": "JAPAN",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DEMOGRAPHIC_DATA",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CONTEXTUAL_INFORMATION",
+"DEMOGRAPHIC"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "THAILAND_NATIONAL_ID_NUMBER",
+"loc": "THAILAND",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "GEMINI_API_KEY",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CREDENTIAL",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "CANADA_OHIP",
+"loc": "CANADA",
+"ind": "HEALTH",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOCUMENT_TYPE/FINANCE/REGULATORY",
+"loc": "GLOBAL",
+"ind": "FINANCE",
+"typ": [
+"DOCUMENT"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "JAPAN_DRIVERS_LICENSE_NUMBER",
+"loc": "JAPAN",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "OBJECT_TYPE/BARCODE",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CONTEXTUAL_INFORMATION"
+],
+"av": "REGIONAL: asia asia-southeast1 europe europe-north1 global us us-central1 us-east4 us-west1"
+},
+{
+"name": "OBJECT_TYPE/LICENSE_PLATE",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII"
+],
+"av": "REGIONAL: asia asia-southeast1 europe europe-north1 global us us-central1 us-east4 us-west1"
+},
+{
+"name": "XSRF_TOKEN",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CREDENTIAL",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOMAIN_NAME",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOCUMENT_TYPE/R&D/SOURCE_CODE/SQL",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DOCUMENT"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "FRANCE_NIR",
+"loc": "FRANCE",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "NETHERLANDS_BSN_NUMBER",
+"loc": "THE_NETHERLANDS",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "FRANCE_TAX_IDENTIFICATION_NUMBER",
+"loc": "FRANCE",
+"ind": "FINANCE",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "AZERBAIJAN_PASSPORT",
+"loc": "AZERBAIJAN",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "KOREA_NHI_NUMBER",
+"loc": "KOREA",
+"ind": "HEALTH",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "INDIA_GST_INDIVIDUAL",
+"loc": "INDIA",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOCUMENT_TYPE/R&D/SOURCE_CODE/JAVA",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DOCUMENT"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "PERSON_NAME",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"PII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "CANADA_DRIVERS_LICENSE_NUMBER",
+"loc": "CANADA",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "CREDIT_CARD_DATA",
+"loc": "GLOBAL",
+"ind": "FINANCE",
+"typ": [
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "JAPAN_BANK_ACCOUNT",
+"loc": "JAPAN",
+"ind": "FINANCE",
+"typ": [
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOCUMENT_TYPE/R&D/SOURCE_CODE/POWERSHELL",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DOCUMENT"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "JAPAN_INDIVIDUAL_NUMBER",
+"loc": "JAPAN",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOCUMENT_TYPE/MEDICAL/RECORD",
+"loc": "GLOBAL",
+"ind": "HEALTH",
+"typ": [
+"DOCUMENT"
+],
+"av": "REGIONAL: asia europe global us"
+},
+{
+"name": "FDA_CODE",
+"loc": "GLOBAL",
+"ind": "HEALTH",
+"typ": [
+"CONTEXTUAL_INFORMATION"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "NEW_ZEALAND_NHI_NUMBER",
+"loc": "NEW_ZEALAND",
+"ind": "HEALTH",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "ICD10_CODE",
+"loc": "GLOBAL",
+"ind": "HEALTH",
+"typ": [
+"CONTEXTUAL_INFORMATION"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "UK_PASSPORT",
+"loc": "UNITED_KINGDOM",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "VENEZUELA_CDI_NUMBER",
+"loc": "VENEZUELA",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "SWITZERLAND_PASSPORT",
+"loc": "SWITZERLAND",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "PARAGUAY_CIC_NUMBER",
+"loc": "PARAGUAY",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOCUMENT_TYPE/CONTEXT/OBSCENE",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CONTEXTUAL_INFORMATION",
+"DOCUMENT"
+],
+"av": "REGIONAL: europe global us"
+},
+{
+"name": "JAPAN_PASSPORT",
+"loc": "JAPAN",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "MEDICAL_ID",
+"loc": "GLOBAL",
+"ind": "HEALTH",
+"typ": [
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOCUMENT_TYPE/R&D/DATABASE_BACKUP",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DOCUMENT"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "TAIWAN_PASSPORT",
+"loc": "TAIWAN",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "UK_TAXPAYER_REFERENCE",
+"loc": "UNITED_KINGDOM",
+"ind": "FINANCE",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "SPAIN_DNI_NUMBER",
+"loc": "SPAIN",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "INDIA_PAN_INDIVIDUAL",
+"loc": "INDIA",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DATE",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [],
+"av": "ANY_LOCATION"
+},
+{
+"name": "IRELAND_PPSN",
+"loc": "IRELAND",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "BASIC_AUTH_HEADER",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CREDENTIAL",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "ARMENIA_PASSPORT",
+"loc": "ARMENIA",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOCUMENT_TYPE/R&D/SYSTEM_LOG",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DOCUMENT"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "PASSWORD",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CREDENTIAL",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "FRANCE_CNI",
+"loc": "FRANCE",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "AUSTRALIA_TAX_FILE_NUMBER",
+"loc": "AUSTRALIA",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "US_PREPARER_TAXPAYER_IDENTIFICATION_NUMBER",
+"loc": "UNITED_STATES",
+"ind": "FINANCE",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "US_VEHICLE_IDENTIFICATION_NUMBER",
+"loc": "UNITED_STATES",
+"ind": "",
+"typ": [
+"PII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOCUMENT_TYPE/R&D/SOURCE_CODE/RUST",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DOCUMENT"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "US_TOLLFREE_PHONE_NUMBER",
+"loc": "UNITED_STATES",
+"ind": "TELECOMMUNICATIONS",
+"typ": [],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOCUMENT_TYPE/LEGAL/BLANK_FORM",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DOCUMENT"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "ICCID_NUMBER",
+"loc": "GLOBAL",
+"ind": "TELECOMMUNICATIONS",
+"typ": [
+"PII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "FIRST_NAME",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"PII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "UKRAINE_PASSPORT",
+"loc": "UKRAINE",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "MEXICO_PASSPORT",
+"loc": "MEXICO",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "NETHERLANDS_PASSPORT",
+"loc": "THE_NETHERLANDS",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "CHINA_RESIDENT_ID_NUMBER",
+"loc": "CHINA",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "GENDER",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DEMOGRAPHIC"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "CANADA_PASSPORT",
+"loc": "CANADA",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "UZBEKISTAN_PASSPORT",
+"loc": "UZBEKISTAN",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "CZECHIA_PERSONAL_ID_NUMBER",
+"loc": "CZECHIA",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DATE_OF_BIRTH",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DEMOGRAPHIC",
+"PII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DOCUMENT_TYPE/R&D/SOURCE_CODE/GO",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DOCUMENT"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "CREDIT_CARD_NUMBER",
+"loc": "GLOBAL",
+"ind": "FINANCE",
+"typ": [
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "TURKEY_ID_NUMBER",
+"loc": "TURKEY",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "CROATIA_PERSONAL_ID_NUMBER",
+"loc": "CROATIA",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "US_MEDICARE_BENEFICIARY_ID_NUMBER",
+"loc": "UNITED_STATES",
+"ind": "HEALTH",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "TECHNICAL_ID",
+"loc": "GLOBAL",
+"ind": "TELECOMMUNICATIONS",
+"typ": [
+"PII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "GERMANY_TAXPAYER_IDENTIFICATION_NUMBER",
+"loc": "GERMANY",
+"ind": "FINANCE",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "CANADA_BC_PHN",
+"loc": "CANADA",
+"ind": "HEALTH",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "BELARUS_PASSPORT",
+"loc": "BELARUS",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "KOREA_DRIVERS_LICENSE_NUMBER",
+"loc": "KOREA",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "GCP_API_KEY",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CREDENTIAL",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "ISRAEL_IDENTITY_CARD_NUMBER",
+"loc": "ISRAEL",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "INDIA_PASSPORT",
+"loc": "INDIA",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "CVV_NUMBER",
+"loc": "GLOBAL",
+"ind": "FINANCE",
+"typ": [
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "MEDICAL_TERM",
+"loc": "GLOBAL",
+"ind": "HEALTH",
+"typ": [
+"CONTEXTUAL_INFORMATION"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "DRIVERS_LICENSE_NUMBER",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "UK_NATIONAL_HEALTH_SERVICE_NUMBER",
+"loc": "UNITED_KINGDOM",
+"ind": "HEALTH",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "SPAIN_PASSPORT",
+"loc": "SPAIN",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "RUSSIA_PASSPORT",
+"loc": "RUSSIA",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "GERMANY_IDENTITY_CARD_NUMBER",
+"loc": "GERMANY",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "IMMIGRATION_STATUS",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"DEMOGRAPHIC"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "IP_ADDRESS",
+"loc": "GLOBAL",
+"ind": "TELECOMMUNICATIONS",
+"typ": [
+"PII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "SWEDEN_NATIONAL_ID_NUMBER",
+"loc": "SWEDEN",
+"ind": "",
+"typ": [
+"GOVERNMENT_ID",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "FINANCIAL_ACCOUNT_NUMBER",
+"loc": "GLOBAL",
+"ind": "FINANCE",
+"typ": [
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "OPENAI_API_KEY",
+"loc": "GLOBAL",
+"ind": "",
+"typ": [
+"CREDENTIAL",
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+},
+{
+"name": "IBAN_CODE",
+"loc": "GLOBAL",
+"ind": "FINANCE",
+"typ": [
+"PII",
+"SPII"
+],
+"av": "ANY_LOCATION"
+}
+]

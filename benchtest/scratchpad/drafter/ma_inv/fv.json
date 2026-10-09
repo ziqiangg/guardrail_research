@@ -1,0 +1,63 @@
+{
+ "v1": [
+  "australia-southeast2)",
+  "asia-northeast1",
+  "asia-northeast3 (Stable)",
+  "asia-south1",
+  "asia-southeast1",
+  "australia-southeast2 (Legacy from",
+  "europe-southwest1",
+  "europe-west9",
+  "northamerica-northeast2",
+  "us",
+  "us-central1",
+  "us-east4",
+  "us-west1"
+ ],
+ "v2": [
+  "eu",
+  "europe-west1",
+  "europe-west2",
+  "europe-west3",
+  "europe-west4",
+  "us-east1"
+ ],
+ "v3": [
+  "australia-southeast2)",
+  "asia-northeast1",
+  "asia-south1",
+  "asia-southeast1",
+  "australia-southeast2 (Stable from",
+  "eu",
+  "europe-southwest1",
+  "europe-west1",
+  "europe-west2",
+  "europe-west3",
+  "europe-west4",
+  "europe-west9",
+  "northamerica-northeast2",
+  "us",
+  "us-central1",
+  "us-east1",
+  "us-east4",
+  "us-west1"
+ ],
+ "v4": [
+  "asia-northeast1",
+  "asia-south1",
+  "asia-southeast1",
+  "eu",
+  "europe-southwest1",
+  "europe-west1",
+  "europe-west2",
+  "europe-west3",
+  "europe-west4",
+  "europe-west9",
+  "northamerica-northeast2",
+  "us",
+  "us-central1",
+  "us-east1",
+  "us-east4",
+  "us-west1"
+ ]
+}

@@ -23,7 +23,7 @@ Detail:
 • Out of the box the shipped file `default_recognizers.yaml` has 74 recognizer entries (73 distinct names, `UkPostcodeRecognizer` appears twice), of which 50 carry `enabled: false` (counted by parsing the YAML) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • Enabled entries (24, each with the suffix Recognizer): CreditCard, UsBank, UsLicense, UsItin, UsPassport, UsSsn, Nhs, EsNif, EsNie, ItDriverLicense, ItFiscalCode, ItVatCode, ItIdentityCard, ItPassport, PlPesel, Crypto, Date, Email, Iban, Ip, MedicalLicense, MacAddress, Phone, Url **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • Disabled entries include UK driving licence, NINO, passport, postcode and vehicle registration; US MBI and NPI; Singapore FIN (`SgFinRecognizer`, line 135); Australia (4); India (6); Korea (4); Sweden (2); Germany (13); Turkey (2); Thai, South Africa, Nigeria (2), Philippines (2) and Canada SIN identifiers; Spanish passport; `HuggingFaceNerRecognizer`; `BasicLangExtractRecognizer` **[Documented: repo data-privacy-stack/presidio@2.2.364]**
-• An executed presidio-research notebook shows the default English engine reporting 19 supported entities (the 16 pattern types plus `PERSON`, `LOCATION`, `NRP`, with `DATE_TIME` shared) and 17 loaded recognizers, the 16 pattern recognizers plus `SpacyRecognizer` (notebook 4, cells 10 output) **[Documented: repo data-privacy-stack/presidio-research@0.3.2]**
+• An executed presidio-research notebook shows the default English engine reporting 19 supported entities (16 pattern-based types, which include `DATE_TIME`, plus `PERSON`, `LOCATION` and `NRP`) and 17 loaded recognizers, the 16 pattern recognizers plus `SpacyRecognizer` (notebook 4, cell 10 output) **[Documented: repo data-privacy-stack/presidio-research@0.3.2]**
 • The Spanish, Italian and Polish entries are enabled in the YAML but the registry accepts English only, and the loader drops other languages with "Recognizer not added to registry because" (`recognizers_loader_utils.py@2.2.364:177`), so they are not active in a default setup; this reading matches the notebook output above **[Inferred]**
 • Source conflict C2: the entity page lists `SG_UEN`, `FI_PERSONAL_IDENTITY_CODE` and `KR_PASSPORT` with no default-off note (supported entities page) **[Documented]**
 • Source conflict C2: `default_recognizers.yaml` has no entry for `SgUenRecognizer`, `FiPersonalIdentityCodeRecognizer`, `KrPassportRecognizer` or `AbaRoutingRecognizer`, although all four are exported in `predefined_recognizers/__init__.py` (the `ABA_ROUTING_NUMBER` type is not on the entity page) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
@@ -78,7 +78,7 @@ Detail:
 • NeMo Guardrails runs Presidio as separate input and output rails; those are sheet 3 NeMo Guardrails columns E and F (NeMo Guardrails: Input-level PII detection & masking; NeMo Guardrails: Output-level PII detection & masking) and are not repeated here **[Inferred]**
 • Version: `presidio_analyzer` is `version = "2.2.364"` (`presidio-analyzer/pyproject.toml@2.2.364:7`); tag 2.2.364 is commit 779dbd28 dated 2026-07-22 (local clone log) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • Whether 2.2.364 is the latest GitHub release was not re-confirmed: github.com and the GitHub API returned HTTP 403 through the proxy on 2026-10-09, and the release-note text could not be read **[To be verified]**
-• The tagged code contains NoOpNlpEngine, per-recognizer `score_thresholds` and `BatchDeanonymizeEngine' while `CHANGELOG.md@2.2.364` still lists them under its unreleased heading, above 2.2.363 **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• The tagged code contains NoOpNlpEngine, per-recognizer `score_thresholds` and `BatchDeanonymizeEngine` while `CHANGELOG.md@2.2.364` still lists them under its unreleased heading, above 2.2.363 **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • Python: the live installation page lists 3.10, 3.11, 3.12 and 3.13 (Presidio docs, read 2026-10-09) **[Documented]**
 • Python: `docs/installation.md@2.2.364:24` also lists `* 3.14` (source conflict C3 with the live page) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • Python: `requires-python = ">=3.10,<3.15"` (`presidio-analyzer/pyproject.toml@2.2.364:25`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
@@ -126,7 +126,9 @@ Detail:
 • Config files are chosen by environment variables `ANALYZER_CONF_FILE`, `NLP_CONF_FILE` and `RECOGNIZER_REGISTRY_CONF_FILE` (`presidio-analyzer/app.py@2.2.364:46`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
 • Models: "When packaging the code into a Docker container, NLP models are automatically installed." and the models listed in `conf/default.yaml` are installed at build (Presidio docs, languages page) **[Documented]**
 • Install: `pip install presidio_analyzer` then `python -m spacy download en_core_web_lg` (Presidio docs, installation page) **[Documented]**
-• Extra services need credentials only if you enable them: Azure AI Language reads `AZURE_AI_ENDPOINT` (`azure_ai_language.py@2.2.364:89`), Azure OpenAI recognizers use `AZURE_OPENAI_ENDPOINT` and `AZURE_OPENAI_API_KEY` (analyzer README), the medical-health service uses `AHDS_ENDPOINT` (Presidio docs, AHDS page) **[Documented]**
+• Azure AI Language credentials: the recognizer reads `AZURE_AI_ENDPOINT` when no endpoint is passed (`azure_ai_language.py@2.2.364:89`); only needed if that recognizer is enabled **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Azure OpenAI recognizer credentials: "Or use environment variables (AZURE_OPENAI_ENDPOINT, AZURE_OPENAI_API_KEY)" (`presidio-analyzer/README.md@2.2.364`); only needed if that recognizer is enabled **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Azure Health Data Services credentials: the AHDS integration page lists the environment variable "AHDS_ENDPOINT: Your AHDS de-identification service endpoint" (Presidio docs, AHDS page) **[Documented]**
 • Cloud versus local for language-model recognizers: the Presidio table lists Azure OpenAI as "Cloud (Azure)" and Ollama as "Local (on-premises)", and advises Ollama "when data must stay on-premises" (Presidio docs, language-model recognizer page) **[Documented]**
 • Azure AI Language is described as "a cloud-based service that provides Natural Language Processing (NLP) features for detecting PII in text." (supported entities page) **[Documented]**
 • Enabling those recognizers means text leaves the Presidio process for the configured Azure endpoint; this follows from the endpoint and key parameters in the recognizer code **[Inferred]**
@@ -225,3 +227,303 @@ Detail:
 • https://github.com/data-privacy-stack/presidio-research/blob/0.3.2/notebooks/4_Evaluate_Presidio_Analyzer.ipynb
 • https://github.com/data-privacy-stack/presidio-research/blob/0.3.2/notebooks/5_Evaluate_Custom_Presidio_Analyzer.ipynb
 ## Column PD2: Presidio: PII anonymisation and masking in text (Anonymizer)
+### R1
+Summary: **Rewrites detected PII with a chosen operator.** The Anonymizer takes text plus the Analyzer's spans and replaces, redacts, hashes, masks or keeps each entity. It also returns a list of the changes with positions in the new text. **[Documented]**
+Detail:
+• The docs describe it as: "The Presidio anonymizer is a Python based module for anonymizing detected PII text entities with desired values." (Presidio docs, anonymizer page, read 2026-10-09) **[Documented]**
+• "Anonymizers are used to replace a PII entity text with some other value by applying a certain operator (e.g. replace, mask, redact, encrypt)" (Presidio docs, anonymizer page) **[Documented]**
+• Input comes from the Analyzer: "It uses the results from the AnalyzerEngine to perform the anonymization." (anonymizer page) **[Documented]**
+• Python entry point `AnonymizerEngine.anonymize(text, analyzer_results, operators, conflict_resolution, merge_entities_with_spaces)` (`anonymizer_engine.py@2.2.364:29`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• REST entry point `POST /anonymize` (`presidio-anonymizer/app.py@2.2.364:48`) with `GET /anonymizers` (line 89) listing the operators **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Batch use: "The BatchAnonymizerEngine is a class in Presidio that is responsible for anonymizing PII entities in a batch of texts." (anonymizer page) **[Documented]**
+• Built-in anonymize operators: `replace`, `redact`, `hash`, `mask`, `custom`, `keep`, `surrogate_ahds` and `encrypt`; `encrypt` is reversible and is covered by the reversible-anonymisation column (Presidio docs, operator table) **[Documented]**
+• Presidio returns rewritten text, not a verdict: the output carries no score or pass-fail value, so the Anonymizer is a transformation step rather than a guardrail check **[Inferred]**
+### R2
+Summary: **Hides whatever spans it is given.** Built-in one-way operators replace, redact, hash, mask, run custom code, keep a value, or, with an Azure extra, generate a realistic surrogate. The default is replace with the entity type in angle brackets. It acts only on the spans it receives. **[Documented]**
+Detail:
+• Default operator: `DEFAULT = "replace"` (`anonymizer_engine.py@2.2.364:16`); `__check_or_add_default_operator` adds it when the operator map is empty or lacks a `DEFAULT` entry (line 106 calls it) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Docs note: "The replacing value will be the entity type e.g.: <PHONE_NUMBER>" (Presidio docs, anonymizer page) **[Documented]**
+• Code: `Replace` returns `return f"<{params.get('entity_type')}>"` when `new_value` is empty (`replace.py@2.2.364:18`); this settles the default replacement string left open in the NeMo Guardrails PII columns **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• `redact`: "Remove the PII completely from text" (Presidio docs, operator table) **[Documented]**
+• Code: `Redact.operate` has `return ""` (`redact.py@2.2.364:13`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• `mask`: "Replace the PII with a given character" with `chars_to_mask`, `masking_char` and `from_end` (Presidio docs, operator table) **[Documented]**
+• Code: `masking_char` must be one character, "Invalid input, {self.MASKING_CHAR} must be a character" (`mask.py@2.2.364:50`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• `hash`: "Hashes the PII text using salted hashing for security"; `hash_type` is `sha256` by default or `sha512` (Presidio docs, operator table) **[Documented]**
+• Hash salt: "If not provided, a random salt is generated per entity to prevent brute-force attacks." and "Starting from version 2.2.361, the hash operator uses random salt by default for security." (anonymizer page) **[Documented]**
+• Code: no salt means `salt = os.urandom(32)` (`hash.py@2.2.364:54`), so the same value gets a different hash each time; a supplied salt shorter than 16 bytes is rejected (line 47) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Referential integrity needs a caller-held salt: "Presidio does not store or maintain stateful sessions. For referential integrity across records or calls, users must securely manage and provide their own salt." (anonymizer page) **[Documented]**
+• `custom`: "Replace the PII with the result of the function executed on the PII" and "The lambda return type must be a string." (Presidio docs, operator table) **[Documented]**
+• Code: `raise InvalidParamError("Function return type must be a str")` (`custom.py@2.2.364:23`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• `keep`: "Preserver the PII unmodified" (operator table, spelling as printed); the entity stays in the text but is still listed in the result items **[Documented]**
+• `surrogate_ahds`: "Generate realistic, medically-appropriate surrogates using Azure Health Data Services de-identification service surrogation"; "Requires: pip install presidio-anonymizer[ahds]" (operator table) **[Documented]**
+• Overlaps: "Full overlap of PII entity spans: When entities have overlapping substrings, the PII with the higher score will be taken." (anonymizer page) **[Documented]**
+• Overlaps: "One PII is contained in another: Presidio Anonymizer will use the PII with the larger text even if it's score is lower." (anonymizer page) **[Documented]**
+• Overlaps: "Partial intersection: Presidio Anonymizer will anonymize each individually and will return a concatenation of the anonymized text." (anonymizer page) **[Documented]**
+• Defaults in code: `ConflictResolutionStrategy.MERGE_SIMILAR_OR_CONTAINED` (`anonymizer_engine.py@2.2.364:35`) and `merge_entities_with_spaces: bool = True,` (line 37), whose helper "Merge adjacent entities of the same type separated by whitespace." (line 223) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• The enum has two members, `MERGE_SIMILAR_OR_CONTAINED` and `REMOVE_INTERSECTIONS = "remove_intersections"` (`conflict_resolution_strategy.py@2.2.364:19`), but its docstring also describes "NONE: No conflict resolution will be performed." (line 15), which has no member **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Docs versus code on names: the docs example calls the AHDS operator `"surrogate"` (Presidio docs, AHDS page) **[Documented]**
+• Docs versus code on names: the code registers it as `return "surrogate_ahds"` (`ahds_surrogate.py@2.2.364:366`) and the operator table also says `surrogate_ahds`; the code is the better guide **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Over REST, custom lambdas are refused: `raise BadRequest("Custom type anonymizer is not supported")` (`presidio-anonymizer/app.py@2.2.364:58`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• The Anonymizer does not detect PII: an entity the Analyzer misses stays in the text unchanged, so leakage depends on the Analyzer's recall (premise: the engine only operates on the spans passed in) **[Inferred]**
+• Out of purpose: it does not judge harmful content, injection attempts or topics, and it sees no model or policy context **[Inferred]**
+### R3
+Summary: **Text plus the Analyzer's spans, from any source.** The call needs the original string, entity spans with scores, and an operator per entity type. It has no direction flag and no prompt context, so it works on prompts, responses and other strings. **[Inferred]**
+Detail:
+• Signature: `anonymize(text, analyzer_results, operators=None, conflict_resolution=..., merge_entities_with_spaces=True)`; no argument names a role, direction or language (`anonymizer_engine.py@2.2.364:29-37`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Spans must fit the text: `start` and `end` must be non-negative integers and start must not exceed end, otherwise `InvalidParamError` (`pii_entity.py@2.2.364`, lines 50-56) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Result positions refer to the new text, not the original; the docs example lists items with their new `start` and `end` (keep-entities sample) **[Documented]**
+• Entity types are plain strings: the REST example uses `NAME`, `FIRST_NAME` and `LAST_NAME`, which the Analyzer does not emit (Presidio docs, anonymizer page) **[Documented]**
+• No direction flag, prompt role or conversation input exists, so one column covers prompts and responses and no system or user prompt is needed **[Inferred]**
+• Presidio's OpenAI sample uses it on chat input: the toolkit "anonymizes Personally Identifiable Information (PII) in the messages sent to the LLM" (Presidio docs, Data Protection toolkit for OpenAI page) **[Documented]**
+• LiteLLM: "This will mask the input going to the llm provider" (Presidio docs, not LiteLLM docs) **[Documented]**
+• LiteLLM can mask only the logged copy: "Only apply PII Masking before logging to Langfuse, etc." and "Not on the actual llm api request / response." (same page) **[Documented]**
+• Applying the Anonymizer to model replies, retrieved passages or tool results is the same call on a different string; no Presidio page shows it on replies **[Inferred]**
+• Images and tables have their own modules (image redaction column and structured-data column); this column is for text strings **[Documented]**
+### R4
+Summary: **Operators applied to detected spans.** A factory holds the built-in operators; the engine resolves overlaps, then applies the operator set for each entity type and falls back to replace. Python package or REST service on GHCR images. MIT licence, now under the Data Privacy Stack community. **[Documented]**
+Detail:
+• Operator list: `ANONYMIZERS = [Custom, Encrypt, Hash, Keep, Mask, Redact, Replace]` (`operators_factory.py@2.2.364:24`) plus the AHDS surrogate when its extra is installed (line 26) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Flow in `anonymize`: copy results, sort by `(start, end)` (`anonymizer_engine.py@2.2.364:93`), remove conflicts, merge spaced same-type entities, add the default operator (line 106), then operate **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Operators run over entities in reverse order, `sorted_pii_entities = sorted(pii_entities, reverse=True)` (`core/engine_base.py@2.2.364:45`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Extensible: "Presidio anonymizer can be easily extended to support additional operators." (Presidio docs, anonymizer page) **[Documented]**
+• Code: `def add_anonymizer(self, anonymizer_cls: Type[Operator]) -> None:` (`anonymizer_engine.py@2.2.364:115`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Dependencies: only `"cryptography (>=48.0.1,<49.0.0)"` (`presidio-anonymizer/pyproject.toml@2.2.364:26`) with extras `server` and `ahds`; the Anonymizer alone needs no spaCy model **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Serving: Flask app, `DEFAULT_PORT = "3000"` (`presidio-anonymizer/app.py@2.2.364:14`), gunicorn via `entrypoint.sh`, `ENV WORKERS=1` and `USER 1001` (`presidio-anonymizer/Dockerfile@2.2.364:8,26`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Images: `docker pull ghcr.io/data-privacy-stack/presidio-anonymizer` and `docker run -d -p 5001:3000 ghcr.io/data-privacy-stack/presidio-anonymizer:latest` (Presidio docs, installation page) **[Documented]**
+• Source conflict C4: the anonymizer page shows `docker run -p 5001:3000 presidio-anonymizer`, a locally built name, while the installation page uses the GHCR name; "The legacy Microsoft Container Registry images at mcr.microsoft.com/presidio-* are no longer updated." **[Documented]**
+• REST surface: `POST /anonymize`, `POST /deanonymize`, `GET /anonymizers`, `GET /deanonymizers`, `GET /health` (`presidio-anonymizer/app.py@2.2.364`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• REST cannot set the conflict strategy or the space-merge flag: the `anonymize` call passes only `text`, `analyzer_results` and `operators` (`presidio-anonymizer/app.py@2.2.364:63`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• The API spec lists five operator schemas for `/anonymize` (Replace, Redact, Mask, Hash, Encrypt) while the code accepts every registered operator except `custom` (`docs/api-docs/api-docs.yml@2.2.364`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Batch: `BatchAnonymizerEngine.anonymize_list` (line 19) and `anonymize_dict` (line 48) (`batch_anonymizer_engine.py@2.2.364`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Integrations: LiteLLM proxy callback (`PRESIDIO_ANONYMIZER_API_BASE="http://localhost:5001"`, Presidio docs, not LiteLLM docs) **[Documented]**
+• NeMo Guardrails masks with Presidio's default replace in its input and output rails; those are sheet 3 NeMo Guardrails columns E and F (NeMo Guardrails: Input-level PII detection & masking; NeMo Guardrails: Output-level PII detection & masking) and are not repeated here **[Inferred]**
+• Version: `presidio_anonymizer` is `version = "2.2.364"` (`presidio-anonymizer/pyproject.toml@2.2.364:7`); tag 2.2.364 is commit 779dbd28 dated 2026-07-22 **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Python: the live installation page lists 3.10 to 3.13 (read 2026-10-09) **[Documented]**
+• Python: `docs/installation.md@2.2.364:24` also lists `* 3.14`, and `requires-python = ">=3.10,<3.15"` (`presidio-anonymizer/pyproject.toml@2.2.364:24`); source conflict C3 with the live page **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Licence MIT (`LICENSE@2.2.364`); "Presidio will continue to be open source under the MIT license." (Presidio docs, transition page) **[Documented]**
+• Ownership: the project is moving from Microsoft to the community-governed Data Privacy Stack organisation; "Microsoft supports this transition" (Presidio docs, transition page) **[Documented]**
+### R5
+Summary: **Rewritten text plus a change list.** The result holds the new text and, for each entity, its type, start and end in the new text, the replacement and the operator used. There is no score or pass-fail field. **[Documented]**
+Detail:
+• Result classes in the docs: `EngineResult` holds `text` and `items`; each item is an `OperatorResult` with `start`, `end`, `entity_type`, `text` and `operator` (Presidio docs, anonymizer page, class diagram) **[Documented]**
+• Printed example: `{'start': 33, 'end': 43, 'entity_type': 'LOCATION', 'text': '<LOCATION>', 'operator': 'replace'}` (Presidio docs, keep-entities sample) **[Documented]**
+• `keep` leaves the value in the text but tracks it: "The person name is preserved in the result text, but remains tracked in the items list." (keep-entities sample) **[Documented]**
+• REST returns the result as JSON: `return Response(anoymizer_result.to_json(), mimetype="application/json")` (`presidio-anonymizer/app.py@2.2.364:68`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Errors: parameter problems return HTTP 422 (`presidio-anonymizer/app.py@2.2.364:104`), bad JSON or a custom operator returns 400, and other failures return `jsonify(error="Internal server error"), 500` (line 113) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Missing spans: the REST path raises "Invalid input, request must contain analyzer results" (`app_entities_convertor.py@2.2.364:23`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Output is deterministic except `hash` without a salt and `encrypt`, which draw random values (`hash.py@2.2.364:54`, `aes_cipher.py@2.2.364:24`) **[Inferred]**
+• Accuracy, latency or throughput figures for the Anonymizer (checked the anonymizer page, FAQ and evaluation page, which covers the Analyzer and DICOM redaction only) **[Not disclosed]**
+• presidio-research has no Anonymizer evaluator: only `presidio_pseudonymize.py` in the data generator imports `AnonymizerEngine` (searched the repository; README and docs/evaluation.md describe Analyzer evaluation) **[Not disclosed]**
+### R6
+Summary: **Text, spans and an operator map.** Required are the text and the Analyzer's spans with type, start, end and score; operators are optional, with a DEFAULT entry. Each operator has its own parameters, and hash salts are the caller's to manage. **[Documented]**
+Detail:
+• Operator parameters (Presidio docs, operator table): `replace` takes `new_value`; `redact` and `keep` take none; `hash` takes `hash_type` and `salt`; `mask` takes `chars_to_mask`, `masking_char`, `from_end`; `custom` takes `lambda`; `surrogate_ahds` takes `endpoint`, `entities`, `input_locale`, `surrogate_locale` **[Documented]**
+• REST payload: `text`, `anonymizers` (entity type or DEFAULT mapped to `{"type": ..., params}`) and `analyzer_results` with `start`, `end`, `score`, `entity_type` (Presidio docs, anonymizer page example) **[Documented]**
+• `anonymizers` is optional: "Object where the key is DEFAULT or the ENTITY_TYPE and the value is the anonymizer definition" (`docs/api-docs/api-docs.yml@2.2.364:449`); `analyzer_results` is required **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Validation: `mask` needs a one-character `masking_char`, an integer `chars_to_mask` and a boolean `from_end` (`mask.py@2.2.364:47`); `replace` needs a string `new_value` (`replace.py`); `hash` needs `sha256` or `sha512` (`hash.py`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Hash salt: at least 16 bytes, empty rejected: "Salt must be at least 16 bytes (128 bits)." (`hash.py@2.2.364:49`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Docs advice: "Never include the salt in anonymized output" (Presidio docs, anonymizer page) **[Documented]**
+• Salt handling advice: "Discard the salt after processing" and, if it must be kept, use "secure storage (e.g., key vault or secrets manager)" (Presidio docs, anonymizer page) **[Documented]**
+• AHDS surrogate needs `pip install presidio-anonymizer[ahds]`, an AHDS endpoint (`AHDS_ENDPOINT`) and Azure role-based access (Presidio docs, AHDS page) **[Documented]**
+• Install: `pip install presidio_anonymizer` (Presidio docs, installation page) **[Documented]**
+• Maximum text length or request size (checked `app.py`, the anonymizer page and FAQ; none stated or enforced) **[Not disclosed]**
+• Authentication: "Presidio API endpoints do not include built-in authentication by design." (Presidio docs, FAQ) **[Documented]**
+### R7
+Summary: **Minimum setup:** pip install the Analyzer, the Anonymizer and a spaCy model, or run both GHCR images; no account or key. Feed labelled texts with known PII through the Analyzer, anonymize with each operator, and check that no original value survives and that placeholders and offsets are right. **[Inferred]**
+Detail:
+• **Minimum setup:** `pip install presidio_analyzer presidio_anonymizer`, `python -m spacy download en_core_web_lg`, run the Analyzer on a labelled text, pass its results to `AnonymizerEngine().anonymize(text, results, operators)`, and inspect `result.text` and `result.items` **[Inferred]**
+• Install and run commands as documented, including `docker run -d -p 5001:3000 ghcr.io/data-privacy-stack/presidio-anonymizer:latest` (Presidio docs, installation page) **[Documented]**
+• Leak check: assert that every labelled PII value is absent from the output text; the `items` list holds replacements (except for `keep`), not originals **[Inferred]**
+• Per-operator cases: `replace` default `<ENTITY_TYPE>`, `redact` empty, `mask` with and without `from_end`, `hash` with and without a 16-byte salt (random versus repeatable), `custom` lambda, `keep` tracked in items **[Inferred]**
+• Overlap cases from the docs (full overlap, containment, partial intersection) with their documented outcomes as expected values **[Inferred]**
+• Measure end-to-end leakage, not the Anonymizer alone: Analyzer false negatives pass through untouched (R2) **[Inferred]**
+• Run on prompt strings and on reply strings, since the call has no direction **[Inferred]**
+• REST check: `curl -XPOST http://localhost:3000/anonymize -H "Content-Type: application/json" -d @payload` (Presidio docs, anonymizer page) **[Documented]**
+• presidio-research does not score the Anonymizer (R5), so build the leak check yourself; its data generator can supply texts with known spans **[Inferred]**
+• Leave the AHDS surrogate out of a minimum setup because it needs an Azure account **[Inferred]**
+### R8
+Summary: **Key open questions.** No accuracy or latency figures, unclear whether a NONE conflict strategy exists, REST gaps for some operators, and an unspecified data flow for the Azure surrogate operator.
+Detail:
+• Latency and throughput of the Anonymizer service (checked the anonymizer page, FAQ and evaluation page; not stated; needs testing)
+• Whether a no-conflict-resolution mode exists (the enum docstring names NONE, the enum has no such member; needs testing)
+• Whether `keep` and `surrogate_ahds` work over REST (the API spec lists five operator schemas; needs testing)
+• Effect of the default `merge_entities_with_spaces=True` on spans such as two names separated by a space (needs testing against expected output)
+• Offset behaviour on non-BMP characters and mixed scripts (not discussed in the docs; needs testing)
+• What the AHDS surrogate operator sends to Azure and retention there (checked the AHDS integration page; the endpoint is configurable but data flow is not described)
+• Which operator is best per entity type for LLM prompts (the docs give examples only; needs testing against model answer quality)
+• Whether the hash output length or format leaks anything useful to a model (needs testing)
+• Release notes for 2.2.364 could not be read (github.com returned 403)
+• Owner question Q01: official status of the Data Privacy Stack organisation (user ruling)
+### R9
+Summary: Presidio docs site pages and the Presidio repository at tag 2.2.364.
+Detail:
+• https://presidio.dataprivacystack.org/anonymizer/
+• https://presidio.dataprivacystack.org/installation/
+• https://presidio.dataprivacystack.org/faq/
+• https://presidio.dataprivacystack.org/project_transition/
+• https://presidio.dataprivacystack.org/ahds_integration/
+• https://presidio.dataprivacystack.org/samples/python/keep_entities/
+• https://presidio.dataprivacystack.org/samples/docker/litellm/
+• https://presidio.dataprivacystack.org/samples/deployments/openai-anonymaztion-and-deanonymaztion-best-practices/
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-anonymizer/app.py
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-anonymizer/pyproject.toml
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-anonymizer/Dockerfile
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-anonymizer/presidio_anonymizer/anonymizer_engine.py
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-anonymizer/presidio_anonymizer/batch_anonymizer_engine.py
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-anonymizer/presidio_anonymizer/core/engine_base.py
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-anonymizer/presidio_anonymizer/entities/conflict_resolution_strategy.py
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-anonymizer/presidio_anonymizer/entities/engine/pii_entity.py
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-anonymizer/presidio_anonymizer/services/app_entities_convertor.py
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-anonymizer/presidio_anonymizer/operators/operators_factory.py
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-anonymizer/presidio_anonymizer/operators/replace.py
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-anonymizer/presidio_anonymizer/operators/redact.py
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-anonymizer/presidio_anonymizer/operators/mask.py
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-anonymizer/presidio_anonymizer/operators/hash.py
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-anonymizer/presidio_anonymizer/operators/custom.py
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-anonymizer/presidio_anonymizer/operators/aes_cipher.py
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-anonymizer/presidio_anonymizer/operators/ahds_surrogate.py
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/docs/api-docs/api-docs.yml
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/docs/installation.md
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/LICENSE
+• https://github.com/data-privacy-stack/presidio-research/blob/0.3.2/README.md
+• https://github.com/data-privacy-stack/presidio-research/blob/0.3.2/presidio_evaluator/data_generator/presidio_pseudonymize.py
+• https://github.com/data-privacy-stack/presidio-research/blob/0.3.2/docs/evaluation.md
+## Column PD3: Presidio: Reversible anonymisation and deanonymisation (encrypt and decrypt)
+### R1
+Summary: **Encrypts PII in text so it can be restored later.** The encrypt operator swaps each entity for AES ciphertext, and the Deanonymize engine or the decrypt operator reverses it with the same key. Presidio stores nothing between calls. **[Documented]**
+Detail:
+• "Deanonymizers are used to revert the anonymization operation." (Presidio docs, anonymizer page, read 2026-10-09) **[Documented]**
+• "The DeanonymizerEngine is a class in Presidio that is responsible for deanonymizing text that has been anonymized by the AnonymizerEngine, given that the operation is reversible (e.g. encryption)." (anonymizer page) **[Documented]**
+• Tutorial: "The encryption is using AES cypher in CBC mode and requires a cryptographic key as an input for both the encryption and the decryption." (Presidio docs, encrypt and decrypt sample) **[Documented]**
+• Code: `ANONYMIZERS = [Custom, Encrypt, Hash, Keep, Mask, Redact, Replace]` (`operators_factory.py@2.2.364:24`) and `DEANONYMIZERS = [Decrypt, DeanonymizeKeep]` (line 28) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Entry points: `DeanonymizeEngine.deanonymize` (`deanonymize_engine.py@2.2.364:16`), `BatchDeanonymizeEngine` (exported at `presidio_anonymizer/__init__.py@2.2.364:29`), REST `POST /deanonymize` (`presidio-anonymizer/app.py@2.2.364:70`) and `GET /deanonymizers` (line 94) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• FAQ: "Pseudonymization is a de-identification technique in which the real data is replaced with fake data in a reversible way." and "we provide a simple sample which can be extended for more sophisticated usage." (Presidio docs, FAQ) **[Documented]**
+• Presidio returns restored text, not a verdict, so this column is a data-handling step rather than a guardrail check **[Inferred]**
+### R2
+Summary: **Lets the model see tokens, then restores the real values.** Presidio documents three routes: AES encryption, a client-held mapping in a pseudonymization sample, and LiteLLM's restore of masked tokens in replies. All start from what the Analyzer detected. **[Documented]**
+Detail:
+• LiteLLM page: "LLM responses can sometimes contain the masked tokens." and "For presidio 'replace' operations, LiteLLM can check the LLM response and replace the masked token with the user-submitted values." (Presidio docs, not LiteLLM docs) **[Documented]**
+• The same page switches this on with `output_parse_pii: true` under `litellm_settings`; the restoring is done by LiteLLM, not by the Presidio engines (Presidio docs, not LiteLLM docs) **[Documented]**
+• OpenAI sample question: "how can we ensure that the responses processed by OpenAI, which are also anonymized, remain meaningful to the user?" (Presidio docs, Data Protection toolkit for OpenAI page) **[Documented]**
+• Its core concept: "The core concept of the toolkit revolves around sessions, which encapsulate the anonymization context." and the toolkit "ensures that the LLM never has access to actual PII, while still facilitating meaningful conversations." **[Documented]**
+• That guarantee holds only for PII the Analyzer detects; the Home page says "there is no guarantee that Presidio will find all sensitive information." **[Inferred]**
+• Pseudonymization sample: "Since the user/client is holding the entity_mapping, it is possible to use it for de-anonymization as well." (Presidio docs, pseudonymization sample) **[Documented]**
+• Same sample warns: "The following logic is not thread-safe and may produce incorrect results if run concurrently in a multi-threaded environment, since the mapping has to be shared between threads/workers/processes." **[Documented]**
+• Encrypt gives each occurrence its own token: the IV is random per call (`iv = os.urandom(16)`, `aes_cipher.py@2.2.364:24`), so the same name encrypts differently each time and a model cannot tell that two tokens are the same person **[Inferred]**
+• For repeatable but irreversible tokens the hash operator with a caller-held salt is the documented route (anonymisation column); a mapping dictionary gives both repeatable and reversible tokens at the cost of storing the mapping **[Inferred]**
+• Ciphertext length tracks plaintext length in 16-byte blocks, so token length still hints at the original value's length (premise: AES-CBC with PKCS7 padding, `aes_cipher.py@2.2.364:22`) **[Inferred]**
+• Detecting the PII is the Analyzer column; one-way operators are the anonymisation column **[Documented]**
+### R3
+Summary: **Tokens plus their positions, wherever they reappear.** Deanonymize needs the text that holds the encrypted tokens, each token's start, end and entity type, and the key. It applies to model replies or any string that still carries the tokens. No prompt context is used. **[Inferred]**
+Detail:
+• Tutorial: "The output contains both the anonymized text, as well as the location of the encrypted entities. This is useful as we would need to decrypt only the entities and not the full text:" (Presidio docs, encrypt and decrypt sample) **[Documented]**
+• Signature: `deanonymize(text, entities: List[OperatorResult], operators)` (`deanonymize_engine.py@2.2.364:16`); the anonymizer page example passes `OperatorResult(start=11, end=55, entity_type="PERSON")` **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• The engine cuts each token by its given offsets: `text_to_operate_on = text_replace_builder.get_text_in_position(` (`core/engine_base.py@2.2.364:48`), so offsets must match the text being restored; a model reply that moves or edits tokens needs the offsets recomputed **[Inferred]**
+• A single token can be decrypted without offsets: "Alternatively, call the Decrypt operator directly" with `Decrypt().operate(text=encrypted_entity_value, params={"key": crypto_key})` (Presidio docs, encrypt and decrypt tutorial) **[Documented]**
+• The OpenAI sample rebuilds the offsets by searching the reply for each known token: `start_index = text.find(entity_id, start_index)` (`docs/samples/deployments/openai-anonymaztion-and-deanonymaztion-best-practices/index.md@2.2.364:157`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Encrypt runs before the model and decrypt after it; there is no direction flag or system-prompt input **[Inferred]**
+• The same restore step works on any returned string that still carries the tokens, such as retrieved passages or tool output **[Inferred]**
+### R4
+Summary: **AES-CBC with a random IV per entity.** Encrypt returns URL-safe base64 of the IV plus ciphertext; decrypt reverses it with the same 128, 192 or 256-bit key. Python engines, a batch engine and a REST route exist. MIT licence, now under the Data Privacy Stack community. **[Documented]**
+Detail:
+• Cipher: """Advanced Encryption Standard (aka Rijndael) en/decryption in CBC mode.""" (`aes_cipher.py@2.2.364:9`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Padding and IV: `padder = padding.PKCS7(algorithms.AES.block_size).padder()` (line 22) and `iv = os.urandom(16)` (line 24); the output is `base64.urlsafe_b64encode(` of the IV plus ciphertext (line 27) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Decrypt: `decoded_text = base64.urlsafe_b64decode(text)` (line 41) and `iv = decoded_text[:16]` (line 42) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Keys: "Invalid input, {self.KEY} must be of length 128, 192 or 256 bits" (`encrypt.py@2.2.364:43`); a string key is encoded with `key = key.encode("utf8")` (line 25) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• The cipher code uses plain CBC with no authentication tag or MAC, so altered ciphertext is not detected by the cipher itself (premise: `aes_cipher.py` has no integrity step) **[Inferred]**
+• `deanonymize_keep` is a second Deanonymize operator: "No-op deanonymizer that keeps the PII text unmodified." (`deanonymize_keep.py@2.2.364:6`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Docs versus code: the docs operator table lists `decrypt` as the only Deanonymize operator (Presidio docs, anonymizer page) **[Documented]**
+• Docs versus code: the API spec says the deanonymizer value "is decrypt since it is the only one supported" (`docs/api-docs/api-docs.yml@2.2.364:479`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Batch: `deanonymize_list` (`batch_deanonymize_engine.py@2.2.364:23`) and `deanonymize_dict` (line 54); items whose type is not str, bool, int or float are left unchanged (line 33) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• `CHANGELOG.md@2.2.364:38` lists `BatchDeanonymizeEngine` under its unreleased heading although the class is in the tagged code **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• No docs page describes the batch deanonymiser (searched `docs/` at the tag and the anonymizer page for its name) **[Not disclosed]**
+• Release-note wording for 2.2.364 could not be read because github.com returned HTTP 403 through the proxy on 2026-10-09 **[To be verified]**
+• Custom reversible route: the pseudonymization sample defines operators with an `entity_mapping` dictionary held by the client, registered with `add_anonymizer`, which output tokens like `<PERSON_1>` (Presidio docs, pseudonymization sample) **[Documented]**
+• The OpenAI sample lists its components as "Api (Deployed in AKS)", "Client" and "Redis" and keeps sessions in persistent storage (Presidio docs, Data Protection toolkit for OpenAI page) **[Documented]**
+• REST: the Flask service on port 3000 serves `POST /deanonymize`; the docs example sends the key in the JSON body, `"key": "WmZq4t7w!z%C&F)J"` (Presidio docs, anonymizer page) **[Documented]**
+• Dependency: `"cryptography (>=48.0.1,<49.0.0)"` (`presidio-anonymizer/pyproject.toml@2.2.364:26`); the changelog records "Bumped `cryptography` lower bound to `>=48.0.1` to resolve GHSA-537c-gmf6-5ccf" (`CHANGELOG.md@2.2.364:34`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Version: `presidio_anonymizer` is `version = "2.2.364"` (`presidio-anonymizer/pyproject.toml@2.2.364:7`); Python: live installation page 3.10 to 3.13 (read 2026-10-09) versus 3.14 added in `docs/installation.md@2.2.364:24` (source conflict C3) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Licence MIT, "Presidio will continue to be open source under the MIT license." (Presidio docs, transition page) **[Documented]**
+• Ownership: transition from Microsoft to the community-governed Data Privacy Stack organisation (Presidio docs, transition page) **[Documented]**
+• NeMo Guardrails columns E and F wrap Presidio detection and masking; they do not describe restoring values, so this column covers the reverse step (checked their text for restore, deanonymise, decrypt) **[Inferred]**
+### R5
+Summary: **Restored text and an item list, no verdict.** The result holds the text with tokens swapped back to the originals plus one item per restored entity, and the REST route returns the same as JSON. **[Documented]**
+Detail:
+• Return type: ":return: EngineResult - the new text and data about the deanonymized entities." (`deanonymize_engine.py@2.2.364:28`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• REST: `deanonymized_response.to_json()` is returned as `application/json` (`presidio-anonymizer/app.py@2.2.364:86`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Direct use of `Decrypt().operate(...)` returns the original entity string (Presidio docs, encrypt and decrypt tutorial) **[Documented]**
+• A key of the wrong length raises `InvalidParamError` (`encrypt.py@2.2.364:43`, reused by `decrypt.py@2.2.364:37`), returned as HTTP 422 (`presidio-anonymizer/app.py@2.2.364:104`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• A wrong key or damaged token probably fails inside `unpadder.finalize()` or the UTF-8 decode (`aes_cipher.py@2.2.364:46`) and, over REST, becomes `jsonify(error="Internal server error"), 500` (`presidio-anonymizer/app.py@2.2.364:113`); this is a reading of the code paths, not tested **[Inferred]**
+• Encrypting the same value twice gives different tokens (random IV), so outputs are not repeatable **[Inferred]**
+• Token size: the docs samples turn the 10-character name "James Bond" (start 11, end 21 in the encrypt tutorial) into a token spanning start 11 to end 55 (anonymizer page), 44 characters **[Inferred]**
+• Accuracy, latency or throughput figures for encrypt and decrypt (checked the anonymizer page, encrypt and decrypt tutorial and sample, FAQ and evaluation page) **[Not disclosed]**
+### R6
+Summary: **Key, token text and token offsets.** Required are the same AES key used to encrypt, the text holding the tokens, and each token's start, end and entity type. The REST route takes these as JSON. The caller supplies and holds the key. **[Documented]**
+Detail:
+• Python call: `engine.deanonymize(text=anonymized_text, entities=anonymized_entities, operators={"DEFAULT": OperatorConfig("decrypt", {"key": crypto_key})})` (Presidio docs, encrypt and decrypt tutorial) **[Documented]**
+• The entities come from the earlier anonymize result: "Fetch the anonynized entities from the result." (tutorial, spelling as printed) **[Documented]**
+• REST payload: `text`, `deanonymizers` (`{"PERSON": {"type": "decrypt", "key": ...}}`) and `anonymizer_results` with `start`, `end`, `entity_type` (Presidio docs, anonymizer page) **[Documented]**
+• The API spec marks `text`, `anonymizer_results` and `deanonymizers` as required (`docs/api-docs/api-docs.yml@2.2.364:470-480`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Key rules: the decrypt operator validates with `Encrypt().validate(params)` (`decrypt.py@2.2.364:37`), so a str or bytes key of 128, 192 or 256 bits is needed, the same key as for encryption **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• A str key is UTF-8 encoded, so 16, 24 or 32 ASCII characters give 128, 192 or 256 bits **[Inferred]**
+• Batch input: `deanonymize_list(texts, entities_list, operators)` and `deanonymize_dict(anonymizer_results, operators)` (`batch_deanonymize_engine.py@2.2.364:23,54`) **[Documented: repo data-privacy-stack/presidio@2.2.364]**
+• Mapping route input: a client-held `entity_mapping` dictionary shared across calls (Presidio docs, pseudonymization sample) **[Documented]**
+• Key generation, storage, rotation and access control (checked the anonymizer page, encrypt and decrypt tutorial and sample, and FAQ; the only secret-handling advice is for hash salt) **[Not disclosed]**
+• The key travels in the HTTP request body in the docs example, and the FAQ says "Presidio API endpoints do not include built-in authentication by design." **[Documented]**
+• TLS for the REST service (checked the FAQ, installation and anonymizer pages; not mentioned) **[Not disclosed]**
+• Install: `pip install presidio_anonymizer` (Presidio docs, installation page) **[Documented]**
+### R7
+Summary: **Minimum setup:** pip install the Anonymizer, make a 16, 24 or 32 character key, encrypt labelled entities, decrypt, and compare with the originals. Then replay a mock model reply that echoes, edits or drops tokens, and try a wrong key and a damaged token, to see what restores and what fails. **[Inferred]**
+Detail:
+• **Minimum setup:** `pip install presidio_analyzer presidio_anonymizer`, `python -m spacy download en_core_web_lg`, analyse a labelled text, call `AnonymizerEngine().anonymize` with `OperatorConfig("encrypt", {"key": key})`, then `DeanonymizeEngine().deanonymize` with the returned `items` and a `decrypt` operator **[Inferred]**
+• Documented commands and the full encrypt and decrypt example are in the encrypt and decrypt tutorial and the installation page (Presidio docs) **[Documented]**
+• Round trip: decrypted text must equal the original across entity types, lengths and non-ASCII names **[Inferred]**
+• Mock model replies: echo the token, change its case, split it, drop it, or move it; restore with offsets found by search (as in the OpenAI sample) or per token with `Decrypt().operate` **[Inferred]**
+• Error cases: wrong key, key of the wrong length, truncated or edited ciphertext; record the exception types and, over REST, the HTTP codes **[Inferred]**
+• Repeated entities: confirm that the same name gets different tokens and check whether the model's answers still make sense **[Inferred]**
+• Cost: compare token length with the original and count model tokens for the encrypted text **[Inferred]**
+• Compare with the mapping route from the pseudonymization sample, noting its thread-safety warning **[Inferred]**
+• presidio-research has no reversibility test (checked its README and `docs/evaluation.md`, which cover Analyzer evaluation), so these checks are hand-built **[Not disclosed]**
+• A LiteLLM proxy run is an optional extension, not part of a minimum setup, because it needs a separate product **[Inferred]**
+### R8
+Summary: **Key open questions.** What happens on a wrong key or a damaged token, how a real model treats the long tokens, no key-management guidance, and whether the batch deanonymiser and its REST coverage are release-ready.
+Detail:
+• Behaviour with a wrong key, a damaged token or non-UTF-8 plaintext (the code paths suggest an exception, the REST service a generic 500; needs testing)
+• Whether an LLM keeps 44-character base64 tokens intact, and what they cost in tokens (needs testing with a model)
+• Key generation, rotation and storage guidance (checked the anonymizer page, tutorials, samples and FAQ; only hash salt advice exists)
+• Whether authenticated encryption or a deterministic mode is planned (checked the changelog at the tag and the docs; nothing stated)
+• Whether `deanonymize_keep` works over REST (the API spec says `decrypt` is the only supported deanonymizer; needs testing)
+• Whether the batch deanonymiser is part of the 2.2.364 release notes (code is in the tag, the changelog lists it as unreleased, release notes could not be read)
+• Whether the NeMo Guardrails PII flows (sheet 3 NeMo columns E and F) can restore masked values in the reply (not described in those columns)
+• What LiteLLM does beyond the Presidio page (the LiteLLM behaviour is not Presidio evidence)
+• Owner question Q01: official status of the Data Privacy Stack organisation (user ruling)
+### R9
+Summary: Presidio docs site pages and the Presidio repository at tag 2.2.364.
+Detail:
+• https://presidio.dataprivacystack.org/anonymizer/
+• https://presidio.dataprivacystack.org/tutorial/12_encryption/
+• https://presidio.dataprivacystack.org/samples/python/encrypt_decrypt/
+• https://presidio.dataprivacystack.org/samples/python/pseudonymization/
+• https://presidio.dataprivacystack.org/samples/docker/litellm/
+• https://presidio.dataprivacystack.org/samples/deployments/openai-anonymaztion-and-deanonymaztion-best-practices/
+• https://presidio.dataprivacystack.org/faq/
+• https://presidio.dataprivacystack.org/installation/
+• https://presidio.dataprivacystack.org/project_transition/
+• https://presidio.dataprivacystack.org/
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-anonymizer/app.py
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-anonymizer/pyproject.toml
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-anonymizer/presidio_anonymizer/__init__.py
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-anonymizer/presidio_anonymizer/deanonymize_engine.py
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-anonymizer/presidio_anonymizer/batch_deanonymize_engine.py
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-anonymizer/presidio_anonymizer/core/engine_base.py
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-anonymizer/presidio_anonymizer/operators/operators_factory.py
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-anonymizer/presidio_anonymizer/operators/aes_cipher.py
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-anonymizer/presidio_anonymizer/operators/encrypt.py
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-anonymizer/presidio_anonymizer/operators/decrypt.py
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/presidio-anonymizer/presidio_anonymizer/operators/deanonymize_keep.py
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/docs/api-docs/api-docs.yml
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/docs/installation.md
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/docs/samples/deployments/openai-anonymaztion-and-deanonymaztion-best-practices/index.md
+• https://github.com/data-privacy-stack/presidio/blob/2.2.364/CHANGELOG.md
+• https://github.com/data-privacy-stack/presidio-research/blob/0.3.2/README.md
+• https://github.com/data-privacy-stack/presidio-research/blob/0.3.2/docs/evaluation.md

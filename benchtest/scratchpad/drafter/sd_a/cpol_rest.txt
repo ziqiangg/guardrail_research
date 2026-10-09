@@ -1,0 +1,689 @@
+# status 200  final_url https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/projects.locations.contentPolicies  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español – América Latina
+Français
+Português – Brasil
+中文 – 简体
+日本語
+한국어
+Sign in
+Sensitive Data Protection
+Start free
+Overview
+Guides
+Reference
+Samples
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Samples
+Resources
+Console
+Data Loss Prevention API
+All APIs & reference
+Client libraries
+REST reference
+Overview
+v2
+Overview
+REST Resources
+infoTypes
+Overview
+list
+locations.infoTypes
+Overview
+list
+organizations.locations.columnDataProfiles
+Overview
+get
+list
+organizations.locations.connections
+Overview
+create
+delete
+get
+list
+patch
+search
+organizations.locations.discoveryConfigs
+Overview
+create
+delete
+get
+list
+patch
+organizations.locations.fileStoreDataProfiles
+Overview
+delete
+get
+list
+organizations.locations.projectDataProfiles
+Overview
+get
+list
+organizations.locations.tableDataProfiles
+Overview
+delete
+get
+list
+projects.content
+Overview
+deidentify
+inspect
+reidentify
+projects.deidentifyTemplates
+Overview
+create
+delete
+get
+list
+patch
+projects.dlpJobs
+Overview
+cancel
+create
+delete
+get
+list
+projects.image
+Overview
+redact
+projects.inspectTemplates
+Overview
+create
+delete
+get
+list
+patch
+projects.jobTriggers
+Overview
+activate
+create
+delete
+get
+list
+patch
+projects.locations.columnDataProfiles
+Overview
+get
+list
+projects.locations.connections
+Overview
+create
+delete
+get
+list
+patch
+search
+projects.locations.content
+Overview
+deidentify
+inspect
+reidentify
+projects.locations.contentPolicies
+Overview
+create
+delete
+get
+list
+patch
+projects.locations.deidentifyTemplates
+Overview
+create
+delete
+get
+list
+patch
+projects.locations.discoveryConfigs
+Overview
+create
+delete
+get
+list
+patch
+projects.locations.dlpJobs
+Overview
+cancel
+create
+delete
+finish
+get
+hybridInspect
+list
+projects.locations.fileStoreDataProfiles
+Overview
+delete
+get
+list
+projects.locations.image
+Overview
+redact
+projects.locations.inspectTemplates
+Overview
+create
+delete
+get
+list
+patch
+projects.locations.jobTriggers
+Overview
+activate
+create
+delete
+get
+hybridInspect
+list
+patch
+projects.locations.projectDataProfiles
+Overview
+get
+list
+projects.locations.storedInfoTypes
+Overview
+create
+delete
+get
+list
+patch
+projects.locations.tableDataProfiles
+Overview
+delete
+get
+list
+projects.storedInfoTypes
+Overview
+create
+delete
+get
+list
+patch
+Types
+Action
+BigQueryTable
+ByteContentItem
+CloudStoragePath
+Code
+Container
+ContentItem
+ContentPolicyActionLog
+DataProfileAction
+DataProfileBigQueryRowSchema
+DataProfileConfigSnapshot
+DataProfileFinding
+DataProfilePubSubMessage
+DataRiskLevel
+DataSourceType
+DeidentifyContentResponse
+Dictionary
+Domain
+Error
+FallbackActionType
+FieldId
+FileType
+HybridContentItem
+HybridInspectResponse
+ImageRedactionConfig
+InfoType
+InfoTypeSummary
+InspectConfig
+InspectContentResponse
+InspectJobConfig
+InspectResult
+ListColumnDataProfilesResponse
+ListConnectionsResponse
+ListDeidentifyTemplatesResponse
+ListDiscoveryConfigsResponse
+ListDlpJobsResponse
+ListFileStoreDataProfilesResponse
+ListInfoTypesResponse
+ListInspectTemplatesResponse
+ListJobTriggersResponse
+ListProjectDataProfilesResponse
+ListStoredInfoTypesResponse
+ListTableDataProfilesResponse
+OtherCloudDiscoveryStartingLocation
+OtherInfoTypeSummary
+ProfileStatus
+RecordTransformation
+RedactImageResponse
+Regex
+ReidentifyContentResponse
+RelatedResource
+ResourceVisibility
+SaveToGcsFindingsOutput
+SearchConnectionsResponse
+SensitivityScore
+Status
+Tag
+TransformationContainerType
+TransformationDescription
+TransformationDetails
+TransformationOverview
+TransformationResultStatusType
+TransformationType
+Value
+WordList
+RPC reference
+Overview
+google.privacy.dlp.v2
+google.rpc
+google.type
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Cloud Data Loss Prevention (Cloud DLP) is now a part of Sensitive Data Protection. The API name remains the same: Cloud Data Loss Prevention API (DLP API). For information about the services that make up Sensitive Data Protection, see Sensitive Data Protection overview.
+Home
+Documentation
+Security
+Sensitive Data Protection
+Reference
+Send feedback
+REST Resource: projects.locations.contentPolicies
+Stay organized with collections
+Save and categorize content based on your preferences.
+Resource: ContentPolicy
+JSON representation
+PolicyRule
+JSON representation
+PolicyCondition
+JSON representation
+InfoTypeCondition
+JSON representation
+InfoTypes
+JSON representation
+PolicyAction
+JSON representation
+ContentPolicyVerdict
+LoggingConfig
+JSON representation
+LogToBigQuery
+JSON representation
+Methods
+Resource: ContentPolicy
+A policy to apply to content based on its inspection findings.
+| JSON representation
+|
+{
+"name": string,
+"createTime": string,
+"updateTime": string,
+"displayName": string,
+"inspectConfig": {
+object (InspectConfig)
+},
+"rules": [
+{
+object (PolicyRule)
+}
+],
+"unsupportedFileType": {
+object (PolicyAction)
+},
+"inputTooLarge": {
+object (PolicyAction)
+},
+"failedToScanSupportedFileType": {
+object (PolicyAction)
+},
+"defaultAction": {
+object (PolicyAction)
+},
+"loggingConfigs": [
+{
+object (LoggingConfig)
+}
+],
+"errors": [
+{
+object (Error)
+}
+]
+}
+| Fields
+| name
+|
+string
+Output only. Resource name of the policy.
+| createTime
+|
+string (Timestamp format)
+Output only. The creation timestamp of a contentPolicy; output-only field.
+Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: "2014-10-02T15:01:23Z", "2014-10-02T15:01:23.045123456Z" or "2014-10-02T15:01:23+05:30".
+| updateTime
+|
+string (Timestamp format)
+Output only. The last update timestamp of a contentPolicy; output-only field.
+Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: "2014-10-02T15:01:23Z", "2014-10-02T15:01:23.045123456Z" or "2014-10-02T15:01:23+05:30".
+| displayName
+|
+string
+Optional. Display name (max 63 chars)
+| inspectConfig
+|
+object (InspectConfig)
+Optional. InspectConfig to use to produce findings.
+| rules[]
+|
+object (PolicyRule)
+Required. Policies to apply, based on the findings returned by inspection. The first rule to match applies.
+| unsupportedFileType
+|
+object (PolicyAction)
+Optional. Action to take if the content is an unsupported file type.
+| inputTooLarge
+|
+object (PolicyAction)
+Optional. Action to take if the content is a supported file type but is too large to be scanned.
+| failedToScanSupportedFileType
+|
+object (PolicyAction)
+Optional. Action to take if the content is a supported file type and size but fails to be scanned, for example because the file is encrypted or corrupted.
+| defaultAction
+|
+object (PolicyAction)
+Action to take if the content is scanned and no rules match. Defaults to returning an ALLOW verdict if not set.
+| loggingConfigs[]
+|
+object (LoggingConfig)
+Optional. Log the actions taken by the content policy to external systems.
+| errors[]
+|
+object (Error)
+Output only. A stream of errors encountered when the policy was applied. Output only field. Will return the last 100 errors. Whenever the policy is modified this list will be cleared.
+PolicyRule
+A single policy rule. The first rule to match from the list above controls the result.
+| JSON representation
+|
+{
+"conditions": [
+{
+object (PolicyCondition)
+}
+],
+"action": {
+object (PolicyAction)
+}
+}
+| Fields
+| conditions[]
+|
+object (PolicyCondition)
+Optional. Conditions that must match for this rule to apply. All conditions must match (AND). For OR conditions, use multiple rules.
+| action
+|
+object (PolicyAction)
+Required. Action to take if this rule applies.
+PolicyCondition
+A condition that must match for this rule to apply.
+| JSON representation
+|
+{
+// The following is a list of mutually exclusive fields. At most one of the
+// fields will be set in a response:
+"infoTypeCondition": {
+object (InfoTypeCondition)
+}
+// End of mutually exclusive fields.
+}
+| Fields
+| A condition. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+| infoTypeCondition
+|
+object (InfoTypeCondition)
+A condition based on info types.
+| End of mutually exclusive fields.
+InfoTypeCondition
+A info type based condition.
+| JSON representation
+|
+{
+"minCount": string,
+// The following is a list of mutually exclusive fields. At most one of the
+// fields will be set in a response:
+"infoTypes": {
+object (InfoTypes)
+},
+"anyInfoType": {
+object
+}
+// End of mutually exclusive fields.
+}
+| Fields
+| minCount
+|
+string (int64 format)
+Optional. The minimum total number of findings of all matching info types required for this condition to evaluate to true. Defaults to 1 if unset.
+| A condition based on info types. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+| infoTypes
+|
+object (InfoTypes)
+match any of these info types.
+| anyInfoType
+|
+object
+match any info types.
+| End of mutually exclusive fields.
+InfoTypes
+Info types to match.
+| JSON representation
+|
+{
+"infoTypeNames": [
+string
+]
+}
+| Fields
+| infoTypeNames[]
+|
+string
+Required. A list of info types to match.
+PolicyAction
+A possible action to take when applying a content policy.
+| JSON representation
+|
+{
+// The following is a list of mutually exclusive fields. At most one of the
+// fields will be set in a response:
+"returnVerdict": enum (ContentPolicyVerdict)
+// End of mutually exclusive fields.
+}
+| Fields
+| The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+| returnVerdict
+|
+enum (ContentPolicyVerdict)
+Optional. If set, the verdict will be returned to the user.
+| End of mutually exclusive fields.
+ContentPolicyVerdict
+Possible results of applying a content policy. This may expand to include additional result types in the future.
+| Enums
+| CONTENT_POLICY_VERDICT_UNSPECIFIED
+| Not used.
+| ALLOW
+| The policy allows the provided content to be used.
+| BLOCK
+| The policy prevents the provided content from being used. This should result in a blocked file upload, exclusion from training dataset, or other similar block action. (specific action will depend on the caller).
+LoggingConfig
+A single logging configuration.
+| JSON representation
+|
+{
+// The following is a list of mutually exclusive fields. At most one of the
+// fields will be set in a response:
+"logToBigQuery": {
+object (LogToBigQuery)
+}
+// End of mutually exclusive fields.
+}
+| Fields
+| The destination for the action logs. The following is a list of mutually exclusive fields. At most one of the fields will be set in a response:
+| logToBigQuery
+|
+object (LogToBigQuery)
+Optional. Log the actions taken to a BigQuery table.
+| End of mutually exclusive fields.
+LogToBigQuery
+Configuration for logging content policy actions to BigQuery.
+| JSON representation
+|
+{
+"projectId": string,
+"datasetId": string,
+"tableId": string
+}
+| Fields
+| projectId
+|
+string
+Required. The ID of the project containing the BigQuery table to write to.
+| datasetId
+|
+string
+Required. The ID of the dataset containing the BigQuery table to write to.
+| tableId
+|
+string
+Required. The ID of the BigQuery table to write to.
+|
+Methods
+|
+create
+|
+Create a ContentPolicy.
+|
+delete
+|
+Delete a ContentPolicy.
+|
+get
+|
+Get a ContentPolicy.
+|
+list
+|
+Lists ContentPolicies in a parent.
+|
+patch
+|
+Update a ContentPolicy.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-09-05 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español – América Latina
+Français
+Português – Brasil
+中文 – 简体
+日本語
+한국어

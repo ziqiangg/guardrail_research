@@ -1,0 +1,233 @@
+{
+ "asia-northeast3": {
+  "filters": [
+   "Sensitive Data Protection"
+  ],
+  "ml": "No",
+  "csam": "No",
+  "img": "No",
+  "av": "No"
+ },
+ "asia-southeast1": {
+  "filters": [
+   "Responsible AI",
+   "Sensitive Data Protection",
+   "Prompt injection and jailbreak"
+  ],
+  "ml": "No",
+  "csam": "No",
+  "img": "No",
+  "av": "No"
+ },
+ "europe-west2": {
+  "filters": [
+   "Responsible AI",
+   "Sensitive Data Protection",
+   "Prompt injection and jailbreak"
+  ],
+  "ml": "No",
+  "csam": "No",
+  "img": "No",
+  "av": "No"
+ },
+ "asia-northeast1": {
+  "filters": [
+   "Responsible AI",
+   "Sensitive Data Protection",
+   "Prompt injection and jailbreak"
+  ],
+  "ml": "No",
+  "csam": "No",
+  "img": "No",
+  "av": "No"
+ },
+ "asia-south1": {
+  "filters": [
+   "Responsible AI",
+   "Sensitive Data Protection",
+   "Prompt injection and jailbreak"
+  ],
+  "ml": "No",
+  "csam": "No",
+  "img": "No",
+  "av": "No"
+ },
+ "australia-southeast2": {
+  "filters": [
+   "Responsible AI",
+   "Sensitive Data Protection",
+   "Prompt injection and jailbreak"
+  ],
+  "ml": "No",
+  "csam": "No",
+  "img": "No",
+  "av": "No"
+ },
+ "eu": {
+  "filters": [
+   "Responsible AI",
+   "Sensitive Data Protection",
+   "Prompt injection and jailbreak",
+   "Malicious URL"
+  ],
+  "ml": "Yes",
+  "csam": "Yes",
+  "img": "Yes",
+  "av": "Yes"
+ },
+ "europe-southwest1": {
+  "filters": [
+   "Responsible AI",
+   "Sensitive Data Protection",
+   "Prompt injection and jailbreak",
+   "Malicious URL"
+  ],
+  "ml": "Yes",
+  "csam": "Yes",
+  "img": "No",
+  "av": "Yes"
+ },
+ "europe-west1": {
+  "filters": [
+   "Responsible AI",
+   "Sensitive Data Protection",
+   "Prompt injection and jailbreak",
+   "Malicious URL"
+  ],
+  "ml": "Yes",
+  "csam": "Yes",
+  "img": "No",
+  "av": "Yes"
+ },
+ "europe-west3": {
+  "filters": [
+   "Responsible AI",
+   "Sensitive Data Protection",
+   "Prompt injection and jailbreak",
+   "Malicious URL"
+  ],
+  "ml": "Yes",
+  "csam": "Yes",
+  "img": "No",
+  "av": "Yes"
+ },
+ "europe-west4": {
+  "filters": [
+   "Responsible AI",
+   "Sensitive Data Protection",
+   "Prompt injection and jailbreak",
+   "Malicious URL"
+  ],
+  "ml": "Yes",
+  "csam": "Yes",
+  "img": "No",
+  "av": "Yes"
+ },
+ "europe-west9": {
+  "filters": [
+   "Responsible AI",
+   "Sensitive Data Protection",
+   "Prompt injection and jailbreak",
+   "Malicious URL"
+  ],
+  "ml": "Yes",
+  "csam": "Yes",
+  "img": "No",
+  "av": "Yes"
+ },
+ "northamerica-northeast2": {
+  "filters": [
+   "Responsible AI",
+   "Sensitive Data Protection",
+   "Prompt injection and jailbreak"
+  ],
+  "ml": "No",
+  "csam": "No",
+  "img": "No",
+  "av": "No"
+ },
+ "us": {
+  "filters": [
+   "Responsible AI",
+   "Sensitive Data Protection",
+   "Prompt injection and jailbreak",
+   "Malicious URL"
+  ],
+  "ml": "Yes",
+  "csam": "Yes",
+  "img": "Yes",
+  "av": "Yes"
+ },
+ "us-central1": {
+  "filters": [
+   "Responsible AI",
+   "Sensitive Data Protection",
+   "Prompt injection and jailbreak",
+   "Malicious URL"
+  ],
+  "ml": "Yes",
+  "csam": "Yes",
+  "img": "No",
+  "av": "Yes"
+ },
+ "us-east1": {
+  "filters": [
+   "Responsible AI",
+   "Sensitive Data Protection",
+   "Prompt injection and jailbreak",
+   "Malicious URL"
+  ],
+  "ml": "Yes",
+  "csam": "Yes",
+  "img": "No",
+  "av": "Yes"
+ },
+ "us-east4": {
+  "filters": [
+   "Responsible AI",
+   "Sensitive Data Protection",
+   "Prompt injection and jailbreak",
+   "Malicious URL"
+  ],
+  "ml": "Yes",
+  "csam": "Yes",
+  "img": "No",
+  "av": "Yes"
+ },
+ "us-east7": {
+  "filters": [
+   "Responsible AI",
+   "Sensitive Data Protection",
+   "Prompt injection and jailbreak",
+   "Malicious URL"
+  ],
+  "ml": "Yes",
+  "csam": "Yes",
+  "img": "No",
+  "av": "Yes"
+ },
+ "us-west1": {
+  "filters": [
+   "Responsible AI",
+   "Sensitive Data Protection",
+   "Prompt injection and jailbreak",
+   "Malicious URL"
+  ],
+  "ml": "Yes",
+  "csam": "Yes",
+  "img": "No",
+  "av": "Yes"
+ },
+ "global": {
+  "filters": [
+   "Responsible AI",
+   "Sensitive Data Protection",
+   "Prompt injection and jailbreak",
+   "Malicious URL"
+  ],
+  "ml": "Yes",
+  "csam": "Yes",
+  "img": "Yes",
+  "av": "Yes"
+ }
+}

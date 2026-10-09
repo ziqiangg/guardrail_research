@@ -1,0 +1,519 @@
+# status 200  final_url https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/TransformationOverview  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español – América Latina
+Français
+Português – Brasil
+中文 – 简体
+日本語
+한국어
+Sign in
+Sensitive Data Protection
+Start free
+Overview
+Guides
+Reference
+Samples
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Samples
+Resources
+Console
+Data Loss Prevention API
+All APIs & reference
+Client libraries
+REST reference
+Overview
+v2
+Overview
+REST Resources
+infoTypes
+Overview
+list
+locations.infoTypes
+Overview
+list
+organizations.locations.columnDataProfiles
+Overview
+get
+list
+organizations.locations.connections
+Overview
+create
+delete
+get
+list
+patch
+search
+organizations.locations.discoveryConfigs
+Overview
+create
+delete
+get
+list
+patch
+organizations.locations.fileStoreDataProfiles
+Overview
+delete
+get
+list
+organizations.locations.projectDataProfiles
+Overview
+get
+list
+organizations.locations.tableDataProfiles
+Overview
+delete
+get
+list
+projects.content
+Overview
+deidentify
+inspect
+reidentify
+projects.deidentifyTemplates
+Overview
+create
+delete
+get
+list
+patch
+projects.dlpJobs
+Overview
+cancel
+create
+delete
+get
+list
+projects.image
+Overview
+redact
+projects.inspectTemplates
+Overview
+create
+delete
+get
+list
+patch
+projects.jobTriggers
+Overview
+activate
+create
+delete
+get
+list
+patch
+projects.locations.columnDataProfiles
+Overview
+get
+list
+projects.locations.connections
+Overview
+create
+delete
+get
+list
+patch
+search
+projects.locations.content
+Overview
+deidentify
+inspect
+reidentify
+projects.locations.contentPolicies
+Overview
+create
+delete
+get
+list
+patch
+projects.locations.deidentifyTemplates
+Overview
+create
+delete
+get
+list
+patch
+projects.locations.discoveryConfigs
+Overview
+create
+delete
+get
+list
+patch
+projects.locations.dlpJobs
+Overview
+cancel
+create
+delete
+finish
+get
+hybridInspect
+list
+projects.locations.fileStoreDataProfiles
+Overview
+delete
+get
+list
+projects.locations.image
+Overview
+redact
+projects.locations.inspectTemplates
+Overview
+create
+delete
+get
+list
+patch
+projects.locations.jobTriggers
+Overview
+activate
+create
+delete
+get
+hybridInspect
+list
+patch
+projects.locations.projectDataProfiles
+Overview
+get
+list
+projects.locations.storedInfoTypes
+Overview
+create
+delete
+get
+list
+patch
+projects.locations.tableDataProfiles
+Overview
+delete
+get
+list
+projects.storedInfoTypes
+Overview
+create
+delete
+get
+list
+patch
+Types
+Action
+BigQueryTable
+ByteContentItem
+CloudStoragePath
+Code
+Container
+ContentItem
+ContentPolicyActionLog
+DataProfileAction
+DataProfileBigQueryRowSchema
+DataProfileConfigSnapshot
+DataProfileFinding
+DataProfilePubSubMessage
+DataRiskLevel
+DataSourceType
+DeidentifyContentResponse
+Dictionary
+Domain
+Error
+FallbackActionType
+FieldId
+FileType
+HybridContentItem
+HybridInspectResponse
+ImageRedactionConfig
+InfoType
+InfoTypeSummary
+InspectConfig
+InspectContentResponse
+InspectJobConfig
+InspectResult
+ListColumnDataProfilesResponse
+ListConnectionsResponse
+ListDeidentifyTemplatesResponse
+ListDiscoveryConfigsResponse
+ListDlpJobsResponse
+ListFileStoreDataProfilesResponse
+ListInfoTypesResponse
+ListInspectTemplatesResponse
+ListJobTriggersResponse
+ListProjectDataProfilesResponse
+ListStoredInfoTypesResponse
+ListTableDataProfilesResponse
+OtherCloudDiscoveryStartingLocation
+OtherInfoTypeSummary
+ProfileStatus
+RecordTransformation
+RedactImageResponse
+Regex
+ReidentifyContentResponse
+RelatedResource
+ResourceVisibility
+SaveToGcsFindingsOutput
+SearchConnectionsResponse
+SensitivityScore
+Status
+Tag
+TransformationContainerType
+TransformationDescription
+TransformationDetails
+TransformationOverview
+TransformationResultStatusType
+TransformationType
+Value
+WordList
+RPC reference
+Overview
+google.privacy.dlp.v2
+google.rpc
+google.type
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Cloud Data Loss Prevention (Cloud DLP) is now a part of Sensitive Data Protection. The API name remains the same: Cloud Data Loss Prevention API (DLP API). For information about the services that make up Sensitive Data Protection, see Sensitive Data Protection overview.
+Home
+Documentation
+Security
+Sensitive Data Protection
+Reference
+Send feedback
+TransformationOverview
+Stay organized with collections
+Save and categorize content based on your preferences.
+JSON representation
+TransformationSummary
+JSON representation
+SummaryResult
+JSON representation
+TransformationResultCode
+Overview of the modifications that occurred.
+| JSON representation
+|
+{
+"transformedBytes": string,
+"transformationSummaries": [
+{
+object (TransformationSummary)
+}
+]
+}
+| Fields
+| transformedBytes
+|
+string (int64 format)
+Total size in bytes that were transformed in some way.
+| transformationSummaries[]
+|
+object (TransformationSummary)
+Transformations applied to the dataset.
+TransformationSummary
+Summary of a single transformation. Only one of 'transformation', 'field_transformation', or 'recordSuppress' will be set.
+| JSON representation
+|
+{
+"infoType": {
+object (InfoType)
+},
+"field": {
+object (FieldId)
+},
+"transformation": {
+object (PrimitiveTransformation)
+},
+"fieldTransformations": [
+{
+object (FieldTransformation)
+}
+],
+"recordSuppress": {
+object (RecordSuppression)
+},
+"results": [
+{
+object (SummaryResult)
+}
+],
+"transformedBytes": string
+}
+| Fields
+| infoType
+|
+object (InfoType)
+Set if the transformation was limited to a specific InfoType.
+| field
+|
+object (FieldId)
+Set if the transformation was limited to a specific FieldId.
+| transformation
+|
+object (PrimitiveTransformation)
+The specific transformation these stats apply to.
+| fieldTransformations[]
+|
+object (FieldTransformation)
+The field transformation that was applied. If multiple field transformations are requested for a single field, this list will contain all of them; otherwise, only one is supplied.
+| recordSuppress
+|
+object (RecordSuppression)
+The specific suppression option these stats apply to.
+| results[]
+|
+object (SummaryResult)
+Collection of all transformations that took place or had an error.
+| transformedBytes
+|
+string (int64 format)
+Total size in bytes that were transformed in some way.
+SummaryResult
+A collection that informs the user the number of times a particular TransformationResultCode and error details occurred.
+| JSON representation
+|
+{
+"count": string,
+"code": enum (TransformationResultCode),
+"details": string
+}
+| Fields
+| count
+|
+string (int64 format)
+Number of transformations counted by this result.
+| code
+|
+enum (TransformationResultCode)
+Outcome of the transformation.
+| details
+|
+string
+A place for warnings or errors to show up if a transformation didn't work as expected.
+TransformationResultCode
+Possible outcomes of transformations.
+| Enums
+| TRANSFORMATION_RESULT_CODE_UNSPECIFIED
+| Unused
+| SUCCESS
+| Transformation completed without an error.
+| ERROR
+| Transformation had an error.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2025-04-30 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español – América Latina
+Français
+Português – Brasil
+中文 – 简体
+日本語
+한국어
