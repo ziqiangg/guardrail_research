@@ -76,3 +76,4 @@
 - 2026-10-09 purplellama P2 inventory done: 16/8/11/16/12/8/12/5 = 88 rows, check 0/0 (headers via brief option B); new: PG2 AUC .998 card vs .98 paper, PG2 licence link points to Llama 3.2 file, PHP Semgrep rules unused, Rust regex disabled
   (note: --headers vs cols_b alone flags PL1/2/4/6 Covered-by values as expected — those headers are in cols_a, pending; full cross-check at P3)
 - 2026-10-09 purplellama P2 cols_a done (PL1, PL2, PL6, PL4). P3: cols_a 0 err (1 warn multi-prefix, expected under option B), cols_b 0/0, combined 0 err, inventory --headers combined 0/0, eval parse OK. P4 started
+- 2026-10-09 lionguard P4 done: 59 items (a 34, b 20, c 5), H 10; Q1–Q3 + T5 ruled by main; CP1 decisions Q01–Q03 + T4 embedder terms → user (batched with purplellama CP1)

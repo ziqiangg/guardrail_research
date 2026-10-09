@@ -12,7 +12,7 @@
 |---|---|---|---|---|
 | purplellama P2 eval Q2: PL1/PL2 dataset reuse needs "injection-removed" negatives Meta does not ship — may the bench build its own negative set? | purplellama (bench design) | P4 triage → user at purplellama CP1 | open | |
 | purplellama P2 eval Q1: P8 eval builder MD/TITLE/NOTE; proposed "3j. CyberSecEval Eval Tooling" (letter assigned at P8, ≤31 chars) | purplellama | P8 xlsx-writer note | noted | |
-| explorer/20261009_lionguard_q01–q03: single column LN1 vs per-variant; prefix `LionGuard:` vs `GovTech LionGuard:`; "self-hosted" framing given OpenAI/Gemini embedder keys and gated Gemma (Lite) | lionguard | user at lionguard CP1 (brief records default + alternative) | open | |
+| explorer/20261009_lionguard_q01–q03 + triage T4 (embedder third-party terms vs harmful test text): single column LN1 vs per-variant; prefix `LionGuard:` vs `GovTech LionGuard:`; "self-hosted" framing given OpenAI/Gemini embedder keys and gated Gemma (Lite) | lionguard | user at lionguard CP1 (brief records default + alternative) | open | |
 | explorer/20261009_lionguard_q04: licence conflict (MIT+SIAC vs paper "research and public interest purposes only") | lionguard | P4 triage (c) → P5 resolver; judgement to user at CP1/CP2 if unresolved | routed | |
 | explorer/20261009_purplellama_q01 + q03 + q11–q13 (brief Q-A prefix default per-tool / Q-B 7 cols default incl. provisional PL7 Hidden ASCII / Q-C one column per scanner default): header prefix (Purple Llama: vs per-tool); R002 direction for LlamaFirewall scanners (one column per scanner, roles in Detail); Hidden ASCII / PII / custom scanners as columns vs inventory | purplellama | user at purplellama CP1 | open | |
 | ~~sdp P10 Q1~~ (resolved R028): base diagram CSS overflows at 375 px (scrollWidth 628, same on sentinel page); fix `.wrap > * { min-width: 0 }` would change the shared CSS on ALL pages incl. done products | all diagrams | user (batched with diagram review) | resolved | R028 |
@@ -27,6 +27,10 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| lionguard P4 Q1 (arXiv 2507.05980 RabakBench paper as official) | yes: GovTech-authored paper (CLAUDE.md rule 1); add to brief sources and inventory (d) | main |
+| lionguard P4 Q2 (third-party embedder behaviour facts in cells) | keep only embedder identity facts (model name, max input, output dimension) plus gating/licence/terms, each attributed "not GovTech docs"; drop other third-party behaviour (brief scope, R019) | main |
+| lionguard P4 Q3 (R8-Summary-only items priority) | M (Presidio/Sentinel convention) | main |
+| lionguard P4 T5 (demo Space writes submissions to a Google Sheet; chat calls OpenAI) | reference only, never a test target: submitting text = form submission (CLAUDE.md hard rule 5); add the data-flow fact to LN1 R5/R7 | main |
 | sdp/presidio/modelarmor P10 Q1 (shared CSS phone overflow) | R028: fix all pages | user |
 | B1 P10 user review | R029: approved, B1 closed | user |
 | purplellama P1 Q1 (CyberSecEval 4 row Covered-by) | `— (inventory only, not in Table 3)` (R011; evaluation tools are not Table 3 functions, R003) — same for Litmus | main |

@@ -1,0 +1,539 @@
+## Decisions, scope, licensing and terms
+---
+key: q01
+item: [CP1] Q01 column split: single LN1 (draft default), or three per-variant columns LN1 to LN3, or two columns (LN1 for the API-embedder variants 2 and 2.1, LN2 for Lite). Evidence: R1 to R3 and R8 are variant-neutral (9, 12, 18 and 13 bullets) while 55 of the 111 R4 to R7 bullets name one variant; R5 evidence differs (paper for 2, one blog table for 2.1, none for Lite); the external-embedding-call versus local boundary is visible only per variant.
+loc: BR Table 3 header and Open user questions Q01; LN1 all rows (variant bullets: R4 A:62-68, 75-77, 85-87; R5 A:99-105; R6 A:135-146; R7 A:158-165); INV Covered-by cells (21: (a) 3, (b) 11, (c) 7); A RN-1
+cls: b
+tag: CP1
+src: User decision at CP1 (closes when chosen, as NeMo b22 and Presidio T2). If split, the merger copies R1 to R3 into each column and rewrites the R4 to R7 Summaries and the 21 Covered-by cells
+prio: H
+files: ABI
+---
+key: q02
+item: [CP1] Q02 header prefix: `LionGuard:` (BR default; R009 owner's own name) versus `GovTech LionGuard:` (Sentinel precedent `GovTech Sentinel:`, CLAUDE.md product name). Evidence: cards, playbook, papers and blogs write "LionGuard"; `Llama Guard:` is already a prefix in the same sheet and the two names look alike; the Sentinel column AA header carries the same function wording.
+loc: BR Table 3 header, Q02; `## Column` line (A:5); INV Covered-by cells (21); the header text is identical in BR, A and INV (checker 0 errors)
+cls: b
+tag: CP1
+src: User decision at CP1; the prefix is frozen after CP2 (R009). Cost until then: the header in BR, A:5 and 21 INV cells
+prio: M
+files: ABI
+---
+key: q03
+item: [CP1] Q03 what "self-hosted" means: keep all three variants in one column and state the dependencies (draft default), or treat Lite as the self-host path and 2 and 2.1 as "needs external API" in R7 only, or exclude variants that need a paid third-party API. Evidence: only the 3.4 MB (2, 2.1) or 1.0 MB (Lite) head is GovTech's; 2 and 2.1 send every text to OpenAI or Google to be embedded; Lite is local but its embedder is gated behind Google's Gemma terms and a Hugging Face login; the playbook says "open-sourced for self-hosting"; R005 says "what you get when you run the models yourselves".
+loc: BR Scope and Q03; LN1 R1 Summary (A:7) and bullet A:12; R4 Summary (A:55), A:66-68, 72; R7 Summary (A:156), A:159-165; INV(a) rows 12-14 (lines 12-14); INV(c) rows 40-43; R8 A:192
+cls: b
+tag: CP1
+src: User decision at CP1. The R1 Summary currently says "you run it yourself" for all three variants (see {r1sum})
+prio: H
+files: ABI
+---
+key: terms
+item: [CP1, new] Embedder terms and test data: variants 2 and 2.1 send every test text to OpenAI or Google, and the bench will use harmful, explicit and self-harm texts. May such text be sent, and under which account tier (OpenAI abuse-monitoring retention; the Gemini unpaid tier says "Do not submit sensitive, confidential, or personal information")? R019 defers sensitive test data to bench design; R025 is the precedent for an AUP-versus-red-teaming question.
+loc: LN1 R7 Summary (A:156), bullets A:164-167; R8 A:187; INV(c) rows 40-41 (lines 40, 41); INV-RN 5
+cls: b
+tag: CP1
+src: Decision for the user (bench design or an R025-style ruling). Facts needed first: {gemma}, {openai}, {gemini}. Not testable now (R019 bars API calls)
+prio: H
+files: ABI
+---
+key: demo
+item: [CP1, new] Demo Space writes submissions: govtech/lionguard-demo appends submitted text and scores to a Google Sheet when one is configured, and the chat path calls OpenAI (code read at 4ade46d1). Is the hosted demo reference-only (never a test target) or usable for bench text? The R5 demo-band bullets (A:109-111) do not carry the data-flow fact; it sits only in INV(d).
+loc: INV(d) demo Space row (line 58); LN1 R5 A:109-111; INV-RN 7
+cls: b
+tag: CP1
+src: Decision for the user (main may rule under R019: no calls, no submissions). Whether the live Space has the Sheet configured is not visible from the repo ({democonf})
+prio: M
+files: AI
+---
+key: q04
+item: Q04 licence conflict (class c, routed by main): the repo LICENSE (MIT subject to Singapore law and SIAC arbitration; marks and assets identified by GovTech as not licensed excluded) and the card header (license other, govtech-singapore) versus the LionGuard 2 paper "exclusively for research and public interest purposes only", and the blog and playbook wording "open-sourced". Four texts, no GovTech page reconciles them. The R1 Summary calls the weights "open".
+loc: LN1 R1 Summary (A:7), A:17; R4 A:85-90; R8 A:186; INV(a) rows 11-14 Licence cells (lines 11-14); INV(c) licence row (line 47); BR Licensing item; A RN-1 (C2); INV-RN 1 (C2); queue (Q04 routed to P5)
+cls: c
+tag:
+src: P5 resolver quotes LICENSE, card metadata, paper ethics statement, playbook and the blog "Open-Sourced and Available Today" section, and any page that reconciles them; no conclusion on permitted use as fact. The user judges at CP1 or CP2 if still unreconciled. See {licsub} and {licdata}
+prio: H
+files: ABI
+---
+key: licsub
+item: Licence sub-items: (i) where are the "clear usage guidelines that prohibit deployment for harmful applications" named in the paper's ethics statement (not located in the LICENSE, cards or playbook as drafted; the drafts do not say they were looked for); (ii) the LICENSE exclusion for marks and assets "identified by GovTech as not licensed" appears in INV(a) row 12 and INV(c) row 47 but not in the R4 licence bullets; (iii) the card metadata bullet says "The cards'" (plural) but carries only the lionguard-2 label.
+loc: LN1 R4 A:85-89; INV(a) row 12 (line 12); INV(c) licence row (line 47)
+cls: a
+tag:
+src: Re-read LICENSE in full at the pin, the card sections after Usage, the paper Ethical Considerations and the blog; write [Not disclosed] naming what was checked if no guideline text exists; align R4 with INV; add the 2.1 and Lite card metadata labels
+prio: M
+files: AI
+---
+key: licdata
+item: Licences of the other GovTech artefacts a bench may use: RabakBench and the synthetic-instruct dataset (license other, govtech-singapore, same LICENSE), RabakBench-full (gated manual, no LICENSE file or licence metadata), the demo Space (no LICENSE or metadata). Terms for use of RabakBench as a test set are not discussed anywhere in the drafts.
+loc: INV(d) rows 55-58 (lines 55-58); LN1 R6 A:153, R7 A:175
+cls: c
+tag:
+src: Dataset cards and the LICENSE text (same file as in {q04}); no third-party source. RabakBench-full access terms are shown on the gated page only. User judgement if the bench plans to use these sets
+prio: M
+files: AI
+---
+key: gemma
+item: Gemma Terms of Use and EmbeddingGemma: the column says it is [To be verified] whether the terms page covers EmbeddingGemma (Appendix not read), while the inventory states the Appendix lists EmbeddingGemma [Documented]. The R7 Summary names "Google's Gemma terms" as a setup step.
+loc: LN1 R7 Summary (A:156), A:162-163; INV(c) Gemma row (line 43); INV(c) EmbeddingGemma row (line 42); A RN-8
+cls: a
+tag:
+src: Re-read https://ai.google.dev/gemma/terms Appendix (verbatim, fetch_text.py) and the EmbeddingGemma card licence field; settle the TBV in A:163 and align with INV
+prio: H
+files: AI
+---
+key: gemmader
+item: Gemma terms: whether the LionGuard 2 Lite classifier counts as a Model Derivative (section 3.1 distribution conditions), and whether the Gemma Prohibited Use Policy bears on embedding harmful test text (section 3.2). Not discussed by GovTech.
+loc: INV(c) Gemma row (line 43); LN1 R7 A:162
+cls: c
+tag:
+src: Terms text is Google's (R019: cite as "not GovTech docs"); the interpretation is a user judgement. GovTech silence is [Not disclosed] (checked Lite README, LICENSE, playbook)
+prio: M
+files: AI
+---
+key: openai
+item: OpenAI side of the terms question: the terms-of-use page returns HTTP 403 to the fetch tool; the inventory quotes the developer data-controls page (no training on API data unless opted in; abuse-monitoring logs up to 30 days) and marks "whether those logs apply to embeddings calls" [To be verified]; usage policies for harmful or explicit input are not read.
+loc: LN1 R7 A:166-167, R8 A:187; INV(c) OpenAI row (line 40); A RN-8
+cls: c
+tag:
+src: OpenAI usage policies, service terms and data-controls pages (reachable pages only; no workaround for the 403, R021). If unreadable, the TBV stays and the R019 bench-design route applies
+prio: M
+files: AI
+---
+key: gemini
+item: Gemini side of the terms question: which tier (Paid or Unpaid Services) an embedding call and the bench key fall under; the unpaid tier text says not to submit sensitive, confidential or personal information. The column says the Gemini terms were not read; the inventory quotes them.
+loc: LN1 R7 A:167, R8 A:187, A RN-8; INV(c) Gemini row (line 41); INV-RN 5
+cls: c
+tag:
+src: Gemini API Additional Terms and billing pages (Google). Tier applicability is a bench-design fact; [To be verified] stays unless a Google page states it for embeddings
+prio: M
+files: AI
+---
+key: termsalign
+item: Cross-draft: the column and the inventory disagree about what was read. A:163, A:167 and A RN-8 say the Gemma Appendix and Gemini terms were not read and the OpenAI terms returned 403; INV(c) quotes the Gemma Appendix, the Gemini terms and an OpenAI data-controls page. The column R9 lacks the Gemini terms and OpenAI data-controls URLs.
+loc: LN1 R7 A:162-167, R8 A:187, R9 A:215-219, A RN-8; INV(c) rows 40-43; INV-RN 5
+cls: a
+tag:
+src: Merger/resolver alignment after {gemma}, {openai} and {gemini} are read; add the missing R9 URLs; no new source beyond those
+prio: M
+files: AI
+---
+key: thirdparty
+item: Scope convention: third-party embedder behaviour facts appear in cells (OpenAI default dimension 3072 and max input 8192; Google default 3072 dimensions; EmbeddingGemma 2048-token context) although the brief allows third-party pages only for gating, licence, terms and embedder identity ("their own behaviour is not evidence"). The R6 max-input bullet stays [Not disclosed] while INV(c) and INV(e) give the embedders' limits.
+loc: LN1 R6 A:139, 141, 148-149; INV(c) rows 40, 42 (lines 40, 42); INV(e) row 75 (line 75); BR Official sources, Labels
+cls: a
+tag:
+src: Main ruling (no source needed): keep owner-stated limits attributed "not GovTech docs", or drop. Drives {maxdoc}
+prio: M
+files: ABI
+---
+key: arxiv2
+item: Source-list scope: the column cites arXiv 2507.05980 (the GovTech RabakBench paper, Table 4) as a third source for the Table 1 versus Table 3 order, but the brief's official list names only arXiv 2507.15339 and 2407.10995. Inventory block (d) has no row for it although R9 lists it.
+loc: LN1 R5 A:115-116, R9 A:210; A RN-1 (C3); BR Official sources; INV(d) (no row)
+cls: a
+tag:
+src: Main ruling that the paper is vendor-authored (author list on the arXiv page) and add it to the brief's list and to INV(d); otherwise drop A:115-116 and keep C3 as [To be verified]
+prio: M
+files: ABI
+## Pins, sources and provenance
+---
+key: playbookpin
+item: Playbook pin: all playbook labels use commit 45908b48 on the staging branch, while main is at 97338569; the site footer reads "Last updated on Jul 28, 2026". Which branch the live site is built from, and whether main differs for this page, is not stated. If the text exists only on staging, README section 3 asks for [Documented: develop/unreleased].
+loc: LN1 R1 A:9-12, R2 A:25-26, 29, R4 A:58, 72-73, 80; INV scope note and rows 12-14, 59 (lines 3, 12-14, 59); BR Official sources
+cls: a
+tag:
+src: Compare website/docs/tools/lionguard.md at staging and main, and the playbook deploy workflow or docusaurus config (README section 3 rule 8: pin to the branch the site is built from)
+prio: M
+files: ABI
+---
+key: sentineldocs
+item: Sentinel docs page (cross-reference facts) is an unpinned site read: ids, token limits 8192/2048/2048, "LionGuard Versions" table. Read once on 2026-10-09 (P0 had 403, P1 got 200); the Onboarding Guide link stays 403.
+loc: LN1 R3 A:53, R4 A:94-95, R6 A:154; INV(e) rows 72-75 (lines 72-75), INV(a) row 11
+cls: a
+tag:
+src: Label [Documented] without a pin and note the read date (README section 3 rule 8); P9 URL check records the 403 exception
+prio: L
+files: AI
+---
+key: provenance
+item: Provenance: the three blog posts, the Sentinel page and the playbook text were re-read from saved P1 raw copies, not re-fetched a second time (the playbook raw file was re-fetched at the pin). Quotes depend on those copies.
+loc: A RN-9; INV-RN 8; LN1 R1 to R6 blog and Sentinel quotes
+cls: a
+tag:
+src: P7 verifier spot-checks quotes with fetch_text.py at the live URL (R021: raw copies count as verbatim)
+prio: L
+files: AI
+---
+key: notebook
+item: map_benchmark_labels.ipynb in govtech/lionguard-2 was listed but not read; it maps benchmark labels and could state how binary or category outputs are thresholded for the paper's benchmarks.
+loc: INV(a) row 12 (line 12), INV-RN 5; LN1 R5 A:107, R8 A:180
+cls: a
+tag:
+src: Read the notebook at be4e38c9 (raw, code read not run); upgrade or keep [Not disclosed] for the threshold; may settle {threshdoc}
+prio: M
+files: AI
+---
+key: orglist
+item: Completeness of the model list: the org Hugging Face listing is said to hold 7 models, 10 datasets and 5 Spaces; the drafts name four LionGuard model repos, three datasets and one Space. Whether any other LionGuard-related repo exists (an ONNX, retrained or experimental variant) is not stated.
+loc: INV(d) intro (line 51); INV(a); BR Scope
+cls: a
+tag:
+src: Re-list https://huggingface.co/api/models?author=govtech (read-only API, as in P1); name the other 3 models in the inventory note
+prio: L
+files: ABI
+## Published numbers and paper tables
+---
+key: f1head
+item: R5 Summary headline number: "77.0 for LionGuard 2 on its own test set" at a 0.5 point. The test set is private; the drafts read html v2 of the paper only (v1 of 21 Jul 2025 was not compared). Table 1 and Table 3 are said to print the same values; the value should be confirmed in both tables and in v1.
+loc: LN1 R5 Summary (A:97), A:108, 112, 119, 126; INV(a) row 12 (line 12); BR paper facts
+cls: a
+tag:
+src: Re-read Table 1, Table 3 and section 5.1 in arXiv html v2 and v1 (/html/2507.15339v1); the premise "private test set" (A:126) is [Inferred]
+prio: H
+files: ABI
+---
+key: c3
+item: Conflict C3: paper Table 1 header order SS, ZH, MS, TA versus Table 3 order SS, MS, ZH, TA for the same four LionGuard 2 numbers (88.1, 87.8, 78.4, 66.6). The RabakBench paper Table 4 and the blog ("Chinese (88%) and Malay (78%)") support the Table 1 order. Label mismatch: [Inferred] in the column, [To be verified] in the inventory.
+loc: LN1 R5 A:112-116, R8 A:185; INV(a) row 12 (line 12), INV-RN 1 (C3); A RN-1
+cls: a
+tag:
+src: Re-read the Table 3 caption and text of the LionGuard 2 paper (and v1) and the RabakBench paper tables; keep two bullets, no silent pick (README rule 4); align the two labels
+prio: M
+files: AI
+---
+key: c3rerun
+item: Rerun of the Chinese and Malay split: only the authors or a rerun on the public RabakBench set (132 samples per language, not the paper's full set) could settle which column order is right.
+loc: LN1 R8 A:185; INV(d) RabakBench row (line 56)
+cls: b
+tag: GAP
+src: Rerun with the RabakBench public set; the paper's test set is private. Honest gap if the authors are not reachable
+prio: M
+files: AI
+---
+key: smallnum
+item: Smaller numeric inconsistencies in the paper: RabakBench Singlish 88.1 (Tables 1 and 3) versus 87.1 (Table 5); the brief's "Tamil 66.6 versus 66.5 in Table 8" claim was not re-verified and is not used; BeaverTails and SORRY-Bench both print 73.7 in one bullet (possible transcription slip).
+loc: LN1 R5 A:117-118, A RN-6; BR paper facts
+cls: a
+tag:
+src: Re-read Tables 3, 4, 5 and 8 of the html and compare each digit; no source beyond the paper
+prio: M
+files: AB
+---
+key: four
+item: Binary-head disagreement: the bullets say "about 4%" of examples disagree, but the same bullet gives over-predict 4.19% and under-predict 0.70% (sum about 4.9%), and R7 repeats "about 4%".
+loc: LN1 R5 A:123, R7 A:172, R8 A:181; INV(a) row 12 (line 12)
+cls: a
+tag:
+src: Re-read paper section 7.2 and Table 11 to see what "about 4%" counts
+prio: M
+files: AI
+---
+key: c4
+item: Conflict C4: abstract and playbook say 17 benchmarks; the blog says 16. Reconciled by paper section 5.1 ("1 internal test set and 16 public benchmarks"), written as an [Inferred] bullet.
+loc: LN1 R5 A:120-122; INV(a) row 12 (line 12)
+cls: a
+tag:
+src: No further source expected; keep the Inferred reconciliation and both quotes
+prio: L
+files: AI
+---
+key: c5
+item: Conflict C5 and the R2 Summary: the card says "Tamil" without a caveat, the playbook says "partial Tamil", the paper says Tamil performance "remains moderate". The R2 Summary states "partial Tamil" with a [Documented] label, which picks one side.
+loc: LN1 R2 Summary (A:19), A:28-30; INV(a) rows 12-14 Languages cells; A RN-1 (C5)
+cls: a
+tag:
+src: Drafting fix, no new source: state both sources in the Summary (for example "Tamil is weaker") or add the card side, then keep the three Detail bullets (README rule 4)
+prio: H
+files: AI
+---
+key: testsets
+item: Different test sets sit side by side without a note: Tamil F1 41.1 (native-speaker test set, Table 13) versus 66.6 (RabakBench, Table 1); Chinese 85.0 and Malay 81.4 versus 87.8 and 78.4.
+loc: LN1 R2 A:31 vs R5 A:112
+cls: a
+tag:
+src: Name the test set in each bullet; no new source
+prio: L
+files: A
+---
+key: tput
+item: Throughput: the paper says about 300 tokens/s end to end on one CPU, which the inventory describes as including the embedding call, while R8 asks whether it includes the OpenAI round trip; the paper's "embedding call" may mean the hosted OpenAI call.
+loc: LN1 R6 A:150, R8 A:184; INV(a) row 12 (line 12)
+cls: a
+tag:
+src: Re-read paper section 3 for what the embedding call is and any hardware line; the measured side is {latency}
+prio: M
+files: AI
+## Gaps, limits and bench tests
+---
+key: latency
+item: Latency, memory and GPU needs for 2.1 and Lite (and a latency of 2 on a named machine, with the embedder timed apart); the vendor gives one figure for 2 on one CPU and none for 2.1 or Lite.
+loc: LN1 R6 A:150-152, R8 A:184; INV(a) row 14 (line 14)
+cls: b
+tag: GAP
+src: Benchmark on bench hardware. Documentation side is closed: [Not disclosed] after cards, playbook, paper and three blogs. Honest gap
+prio: M
+files: AI
+---
+key: threshdoc
+item: No operating threshold ships; only the 0.5 evaluation point and demo bands exist. Residual document check for threshold, calibration or a recommended cut-off.
+loc: LN1 R5 A:107-111, R7 Summary (A:156), R8 A:180; INV(a) rows 12-14 (lines 12-14)
+cls: a
+tag:
+src: Grep the cards, playbook, dataset cards, notebook ({notebook}) and blogs for "threshold"; if nothing, the [Not disclosed] stands (sources already named in each bullet)
+prio: M
+files: AI
+---
+key: threshtest
+item: Best threshold per variant and per key, and whether the binary key or the maximum of the category keys is the better verdict given the binary-head disagreement; weight the answer by recall for a guardrail.
+loc: LN1 R5 A:107, 123, R7 A:173, R8 A:180-181
+cls: b
+tag:
+src: Threshold sweep on a labelled set in five languages with near-miss benign texts; stays open for the bench
+prio: M
+files: A
+---
+key: evalgap
+item: Evaluation of Lite: none in the cards, playbook, paper, three blogs or the demo; evaluation of 2.1 is one blog table on a private split plus RabakBench rows, with no per-category figures.
+loc: LN1 R5 A:124-130, R8 A:182; INV(a) rows 13-14 (lines 13-14)
+cls: b
+tag: GAP
+src: Evaluate on the bench; the vendor publishes nothing more. Honest gap
+prio: M
+files: AI
+---
+key: maxdoc
+item: Maximum input length per variant (documentation half): GovTech states none; the limit comes from the embedder. Owner pages state OpenAI 8192 and EmbeddingGemma 2048, and the hosted Sentinel service lists 8192, 2048, 2048. The Gemini embedding input limit is recorded nowhere in the drafts.
+loc: LN1 R6 A:148-149, 154, R8 A:183; INV(c) rows 40, 42; INV(e) row 75
+cls: a
+tag:
+src: Depends on the {thirdparty} ruling; add the Google page statement or [Not disclosed] naming what was checked
+prio: M
+files: AI
+---
+key: maxtest
+item: Maximum input length per variant (test half): what happens on over-length text (truncation or error) for each embedder, and whether Singlish, Chinese and Tamil token counts change the effective limit.
+loc: LN1 R8 A:183
+cls: b
+tag:
+src: Send long inputs through each variant; stays open (R019 bars API calls now)
+prio: M
+files: A
+---
+key: jailbreak
+item: Jailbreak and prompt-injection coverage: the column says no claim anywhere and that the model scores content harms only ([Inferred]); the paper's native-speaker annotators were asked to write prompt-injection and role-play cases for the test set, but no result by subset is given.
+loc: LN1 R2 A:36-38, R8 A:190; INV(a) row 12 (line 12)
+cls: b
+tag:
+src: Documentation half: look for per-subset results in paper appendix E.2. Test half: adversarial prompt set on the bench; stays open
+prio: M
+files: AI
+---
+key: calib
+item: Calibration: only one comparison exists (2.1 versus the Jev comparator on average calibration error); none for 2 or Lite.
+loc: LN1 R5 A:127
+cls: b
+tag: GAP
+src: Bench test with a labelled set; the vendor publishes nothing more. Honest gap
+prio: L
+files: A
+---
+key: retrain
+item: Retrained LionGuard 2: the 21 Aug 2026 blog says retrained models are available only to Sentinel users; the HF repos are unchanged since 2025-11-18. Whether a retrained model will be published is not stated.
+loc: LN1 R4 A:91-93, R8 A:188; INV(a) row 12 (line 12)
+cls: b
+tag: GAP
+src: Closed vendor plan; blog, playbook and repos checked. Honest gap
+prio: M
+files: AI
+---
+key: hostedweights
+item: Whether the Sentinel-hosted variants run the same weights as the Hugging Face repositories.
+loc: LN1 R8 A:189; INV(e) rows 72-73
+cls: b
+tag: GAP
+src: Closed hosted service (closed beta); Sentinel docs and playbook checked, not stated. A hosted-API question that stays under Sentinel. Honest gap
+prio: M
+files: AI
+---
+key: drift
+item: Embedder drift: the paper warns an OpenAI embedding update may need retraining; Google lists a newer gemini-embedding-2 and says gemini-embedding-001 "remains available". Whether GovTech will retrain, and how long each embedder stays available, is not stated.
+loc: LN1 R4 A:71, R8 A:191; INV(c) Gemini row (line 41)
+cls: b
+tag: GAP
+src: Vendor plan and third-party lifecycle policies; in no GovTech page. Honest gap
+prio: L
+files: AI
+---
+key: defaultvar
+item: Which variant is the bench default: the playbook recommends 2.1 for performance and Lite for local use, against the cost and data-handling of an external key.
+loc: LN1 R4 A:72, R8 A:192
+cls: b
+tag: CP1
+src: Bench-design choice for the user (with {q03} and {terms}); can follow the Q03 decision. Not an evidence question
+prio: M
+files: A
+---
+key: install
+item: Do the pinned requirements install together and run EmbeddingGemma: numpy 2.3.1, torch 2.3.1, transformers 4.50.3 and sentence-transformers 5.1.2 (Lite); a Python version is not stated. Compatibility is untested; nothing is asserted either way here.
+loc: LN1 R6 A:144-146, R7 A:158-159; INV(c) packages row (line 45)
+cls: b
+tag:
+src: Clean-environment install and a one-text smoke run on the bench (R019: no installs now); the requirements and the Python version stay [Not disclosed] as written
+prio: M
+files: AI
+---
+key: remotecode
+item: Remote code: the README loads each model with trust_remote_code=True and no revision argument, so repo code runs on load; the inventory advises pinning a revision for the bench ([Inferred]) but R7 does not.
+loc: LN1 R4 A:75-77, R7 Summary (A:156), A:158; INV(c) trust_remote_code row (line 46)
+cls: a
+tag:
+src: Alignment only: add the pinning advice (with its premise) to R7, or leave it inventory only
+prio: L
+files: AI
+---
+key: retrainclaim
+item: The playbook says the model "can be fully retrained within two minutes on standard CPUs", but no training code is published (checked the model repos, the dataset card and the GitHub org listing); the dataset is a subset of the training corpus.
+loc: LN1 R4 A:80-82; INV(d) intro (line 51)
+cls: b
+tag: GAP
+src: Retraining is a test only if training code exists; vendor internals and plans. Honest gap
+prio: L
+files: AI
+## Conflicts inside GovTech sources
+---
+key: c1
+item: Conflict C1: the lionguard2.py docstring says text-embedding-3-small (lines 97, 104) while the card, inference.py, config.json and the paper say text-embedding-3-large at 3072 dimensions. Whether the 2.1 and Lite model files carry the same stale docstring is not recorded.
+loc: LN1 R4 A:69; INV(a) row 12 (line 12); A RN-1 (C1); INV-RN 1 (C1)
+cls: a
+tag:
+src: Code beats docs for behaviour (R007 item 4); keep two bullets; read the docstrings of the 2.1 and Lite model files at their pins
+prio: M
+files: AI
+---
+key: c6
+item: Conflict C6: the Sentinel docs write "text-embedding-large-3"; the card, paper and playbook write text-embedding-3-large. Quoted as written and flagged as a conflict.
+loc: LN1 R4 A:95; INV(e) row 75 (line 75); A RN-1 (C6)
+cls: a
+tag:
+src: No further source (hosted docs wording); keep both
+prio: L
+files: AI
+---
+key: n1
+item: New conflict (A RN-2): the blog says "a shared representation feeding into 11 classification heads", the code has seven head modules with eleven output keys. The Detail bullet explains the blog as "counting output keys", which is an inference inside a [Documented] bullet.
+loc: LN1 R4 A:60-61; A RN-2; INV(a) row 12 (line 12)
+cls: a
+tag:
+src: Split the inference into an [Inferred] bullet with its premise; no new source
+prio: L
+files: AI
+---
+key: n2
+item: New conflict (A RN-3): the playbook says the paper and blog "describe how each version works", but the paper html names no Gemini or Gemma embedder (Gemini 2.0 Flash appears only as an annotator). Carried as a playbook bullet plus a [Not disclosed] bullet.
+loc: LN1 R4 A:73-74; A RN-3; INV(a) row 13 (line 13)
+cls: a
+tag:
+src: Re-read paper v1 and v2 and the 28 Sep 2026 blog for any 2.1 or Lite embedder description; if none, keep as written
+prio: M
+files: AI
+## Summary labels and entailment
+---
+key: r1sum
+item: R1 Summary: "you run it yourself from open Hugging Face weights" applies fully only to Lite (2 and 2.1 embed through OpenAI or Google), and "open" depends on the licence reading. [Documented] label.
+loc: LN1 R1 Summary (A:7), bullets A:12, 17
+cls: a
+tag:
+src: Drafting fix after the CP1 Q03 decision ({q03}) and {q04}: name the hosted embedding step or soften "open"; 37 of 45 words used
+prio: H
+files: A
+---
+key: r4sum
+item: R4 Summary: "GovTech publishes only the small classifier" but GovTech also publishes the inference code in the HF repos and a subset of the training data (dataset card; blog "part of the training data"); the "only" rests on [Not disclosed] bullets (A:74, A:82) while the Summary carries [Documented] (README section 4 rule 5).
+loc: LN1 R4 Summary (A:55) vs A:17, 74, 81-82
+cls: a
+tag:
+src: Reword to "GovTech publishes the small classifier and its code, not the embedder" (40 of 45 words used, room for five more) or relabel
+prio: H
+files: A
+---
+key: r7sum
+item: R7 Summary: "LionGuard 2 Lite ... but no API key" while Lite needs a Hugging Face login to accept the gate and download the embedder (INV(c) states this; R7 bullets A:159-161 omit it).
+loc: LN1 R7 Summary (A:156), A:159-161; INV(c) EmbeddingGemma row (line 42)
+cls: a
+tag:
+src: Add the login fact to R7 (INV(c) already quotes the page) and reword to "no embedder API key"; 50 of 60 words used
+prio: H
+files: AI
+## Inventory only
+---
+key: lg1dim
+item: LionGuard 1 row: the embedding dimension and parameter count are [Not disclosed] from the GovTech files; the BAAI model card (third-party) would give the dimension.
+loc: INV(a) LionGuard 1 row (line 11); INV(c) BAAI row (line 44)
+cls: a
+tag:
+src: BAAI/bge-large-en-v1.5 card (owner's page, marked "not GovTech docs"); optional
+prio: L
+files: I
+---
+key: rbfull
+item: RabakBench-full: card absent; whether it is the full 1,341-per-language set that the RabakBench card describes is [To be verified]; the files are gated and access was not requested.
+loc: INV(d) RabakBench-full row (line 57)
+cls: b
+tag: GAP
+src: Needs access (not requested, R019). Honest gap
+prio: L
+files: I
+---
+key: democonf
+item: Demo Space: live status [To be verified], and whether the live Space has the Google Sheet configured is not visible from the repo.
+loc: INV(d) demo row (line 58)
+cls: b
+tag: GAP
+src: Status is an HTTP fact the URL checker can read; the Sheet configuration is not public and testing it would submit text. Honest gap
+prio: L
+files: I
+---
+key: covered
+item: Covered-by convention: block (d) rows are marked inventory only although they source LN1 facts (INV-RN 7 says main may change this); block (c) third-party rows are covered by LN1; block (e) lists no Sentinel header on purpose.
+loc: INV(c) rows 40-47; INV(d) rows 55-64; INV(e) rows 72-75; INV-RN 7
+cls: a
+tag:
+src: Main convention, no source needed; the marker check passes either way (21 header cells, 2 legacy, 14 inventory only)
+prio: L
+files: I
+---
+key: sentfyi
+item: FYI, frozen Sentinel sheet: the Sentinel final cited paper section 7.2 for the binary-head description (this draft finds it in 4.2.2), and its "Tamil 66.6 versus 66.5 in Table 8" is not re-verified here. No edit to frozen sheets.
+loc: A RN-7, A RN-6; BR paper facts
+cls: a
+tag:
+src: Note in the change log only
+prio: L
+files: AB
+## Label hygiene and process language
+---
+key: hygA
+item: Inference or interpretation inside [Documented] or [Not disclosed] bullets: A:90 ("not obviously reconcilable and neither is a legal opinion" plus "how they relate is not stated" in one bullet); A:92 ("so no retrained model is published there" from a repository-level lastModified date, A RN-10); A:61 ("counting output keys").
+loc: LN1 R4 A:61, 90, 92; A RN-2, RN-10
+cls: a
+tag:
+src: Split into a labelled fact and a separate [Inferred] bullet with its premise (README section 3 rule 5)
+prio: M
+files: A
+---
+key: hygB
+item: One label for facts from two sources, or for a computation: A:62 (HF API sizes and the paper's 0.85M/3.2 MB under one repo label); A:86-87 (the md5 comparison is our own check under [Documented: repo]); A:88 ("The cards'" plural under the lionguard-2 label only).
+loc: LN1 R4 A:62, 86-88; INV(a) rows 11-14 Licence cells
+cls: a
+tag:
+src: Split the paper figure into its own [Documented] bullet; label the md5 comparison [Inferred] with the premise or write it as plain text "(checked by md5, 2026-10-09)"; add per-repo labels for the 2.1 and Lite card metadata
+prio: L
+files: AI
+---
+key: proc
+item: Process language and ruling ids in deliverable text: "(R019)" in A:176 and in the INV scope note and (c) intro; "routed as a licensing item" (A:186); "a bench-design choice for the user" (A:192); "see R7" (A:90, 143); "covered under the Sentinel column" (A:53); "This is a licensing item for the user ..." (INV(c) row 47); "was not read" / "was not worked around" in A:163, 166, 167; two HTTP facts in one bullet (A:166).
+loc: LN1 R3 A:53, R4 A:90, R6 A:143, R7 A:163, 166-167, 176, R8 A:186, 192; INV scope, INV(c) intro and licence row (lines 3, 36, 47)
+cls: a
+tag:
+src: Merger rewrites as product-neutral open items once {gemma}, {openai} and {gemini} resolve the TBV bullets (Presidio T9 precedent); finals must not carry process language
+prio: L
+files: AI
