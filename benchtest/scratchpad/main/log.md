@@ -86,3 +86,4 @@
 - 2026-10-10 purplellama P5 r1 done: 41 items (29 resolved, 9 partly, 2 corrections T42 README offline weights, T24 577×6 not 600); Maverick removed from Together serverless 2026-03-31; AUP clause is 1.h; Together API slip disclosed, evidence removed; Q2/Q3 ruled by main
 - 2026-10-10 purplellama P5 r2 done: 36 resolved, 8 partly, 3 corrections (T19 PyPI codeshield ≠ pin, 30/168 files differ; T24 577 vs 600; T67 CWE counts −1), 20 open (class b); ~25 Summaries to change; Q1–Q5 ruled by main; P6 started
 - 2026-10-10 weekly usage limit (reset 03:00 SGT) stopped both P6 mergers; lionguard finals written (in final sweeps) committed as WIP; purplellama merger had written nothing; both resumed 07:00
+- 2026-10-10 lionguard P6 done: 100 edits (68 col, 32 inv), 7/9 Summaries changed, BLOCKS 4/11/8/11/4 = 38; R032 + process sweeps 0 hits; checks 0/0; P7 started (fresh verifier)

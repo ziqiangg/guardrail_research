@@ -162,7 +162,7 @@ Entries are listed in the order the edits were applied. Several bullets in one '
 - Logged edits: 68 in the columns, 32 in the inventory (100 in total).
 - Columns by kind: add 7, delete 1, edit 11, replace 32, style 1, summary 7, url 9. All in LN1.
 - Inventory by kind: add 4, edit 25, url 3.
-- Summaries changed: 7 of 9 (LN1 R1, LN1 R2, LN1 R3, LN1 R4, LN1 R6, LN1 R7, LN1 R8). R5 (77.0, confirmed by T21) and R9 are unchanged in wording class; R9 Summary text unchanged.
+- Summaries changed: 7 of 9 (LN1 R1, LN1 R2, LN1 R3, LN1 R4, LN1 R6, LN1 R7, LN1 R8). R5 (77.0, confirmed by T21) and R9 and R9 Summaries are unchanged.
 - Resolution items handled: 39 (T6 to T13, T14 to T22, T24 to T29, T31, T34, T43, T45 to T52, T55 to T59). Items with no text change by design: T18 (quotes re-read live, no differences), T46 (kept as written), T55 (Covered-by convention kept), T56 (FYI, section 6c); T47 is handled with T57.
 - **P8 config (gr-xlsx-writer).** Inventory sheet for slug lionguard; Covered-by column name 'Covered by Table 3 column'; BLOCKS (marker, expected rows): (a) Variant table 4, (b) Output keys and taxonomy 11, (c) Dependencies and access 8, (d) Artefacts and references 11, (e) Cross-reference to Sentinel 4, that is **4/11/8/11/4** (38 rows; table widths 12, 7, 7, 7, 6 cells).
 - Markers tuple: legacy '— (legacy, not in Table 3)' (2 cells: the LionGuard 1 row and the BAAI embedder row) and inventory only '— (inventory only, not in Table 3)' (15 cells: block (d) 11, block (e) 4); 'planned' is not used. Every other Covered-by cell equals the exact header 'LionGuard: Localised harmful-content classification' (21 cells: (a) 3, (b) 11, (c) 7).
