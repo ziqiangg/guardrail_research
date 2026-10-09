@@ -12,7 +12,7 @@
 |---|---|---|---|---|
 | explorer/20261009_lionguard_q01–q03: single column LN1 vs per-variant; prefix `LionGuard:` vs `GovTech LionGuard:`; "self-hosted" framing given OpenAI/Gemini embedder keys and gated Gemma (Lite) | lionguard | user at lionguard CP1 (brief records default + alternative) | open | |
 | explorer/20261009_lionguard_q04: licence conflict (MIT+SIAC vs paper "research and public interest purposes only") | lionguard | P4 triage (c) → P5 resolver; judgement to user at CP1/CP2 if unresolved | routed | |
-| explorer/20261009_purplellama_q01 + q03 + q11–q13: header prefix (Purple Llama: vs per-tool); R002 direction for LlamaFirewall scanners (one column per scanner, roles in Detail); Hidden ASCII / PII / custom scanners as columns vs inventory | purplellama | user at purplellama CP1 | open | |
+| explorer/20261009_purplellama_q01 + q03 + q11–q13 (brief Q-A prefix default per-tool / Q-B 7 cols default incl. provisional PL7 Hidden ASCII / Q-C one column per scanner default): header prefix (Purple Llama: vs per-tool); R002 direction for LlamaFirewall scanners (one column per scanner, roles in Detail); Hidden ASCII / PII / custom scanners as columns vs inventory | purplellama | user at purplellama CP1 | open | |
 | sdp P10 Q1: base diagram CSS overflows at 375 px (scrollWidth 628, same on sentinel page); fix `.wrap > * { min-width: 0 }` would change the shared CSS on ALL pages incl. done products | all diagrams | user (batched with diagram review) | open | |
 | explorer/20261009_presidio_q01.md: official org after the transfer (data-privacy-stack vs Microsoft) and the header prefix | presidio | user at presidio CP1 | resolved | see CP1 ruling |
 | explorer/20261009_presidio_q02.md: six single columns vs a merged set; recognizer-family granularity; + (i) PD5 column vs inventory-only, (ii) ~30 family rows vs ~120 per-entity rows (P1) | presidio | user at presidio CP1 | resolved | see CP1 ruling |
@@ -25,6 +25,9 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| purplellama P1 Q1 (CyberSecEval 4 row Covered-by) | `— (inventory only, not in Table 3)` (R011; evaluation tools are not Table 3 functions, R003) — same for Litmus | main |
+| purplellama P1 Q2 (sheet letters 3i/3j) | not fixed now: letters assigned at P8 in queue order (R003); names must be ≤31 chars (lessons 15) | main |
+| purplellama P1 Q5/Q6 (Llama AUP for red-teaming PG2; Together API terms for AlignmentCheck traces) | → P4 triage class (c) licensing → P5 resolver; judgement to user at CP1/CP2 | main |
 | modelarmor P10 review Q1 (inventory_final line 24 "Gemini Enterprise Agent Platform" wrong; already in workbook 3h!A17) | post-P8 fix: gr-merger edits the final, then gr-xlsx-writer re-applies (3h only) and proves all else unchanged | main |
 | modelarmor P10 review Q2 (in-body link colour CSS on sdp/modelarmor pages) | allowed on all pages: one exact line in Additions block; diagrams/README.md §9 note | main |
 | presidio P10 review Q2 (reuse sibling-page NeMo/Llama Guard/Sentinel cells in positioning) | R027 (+ diagrams/README.md §10 exception) | main |
