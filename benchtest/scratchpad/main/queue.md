@@ -6,7 +6,7 @@
 | 1 | presidio | R022 | 2026-10-09 | 450e3d7 |
 | 2 | sdp | R023 | 2026-10-09 | 6710895 |
 | 3 | modelarmor | R024 (+ R025 pre-P8 merger edit first) | 2026-10-09 | bf4a66d |
-| 4 | lionguard | R033 | 2026-10-10 | |
+| 4 | lionguard | R033 | 2026-10-10 | 45f47e2 |
 
 ## Open questions (from agents)
 | Q file | Product | Routed to | State | Ruling |

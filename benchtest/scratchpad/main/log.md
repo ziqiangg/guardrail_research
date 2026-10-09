@@ -91,3 +91,4 @@
 - 2026-10-10 lionguard P7 fix loop done: 5 required + api-URL ruling + 13 optional; 138 edits logged; checks 0/0; ready for CP2
 - 2026-10-10 CP2 (user): lionguard approved (R033) → P8 queue #4
 - 2026-10-10 lionguard P8 done: BD (LN1) + '3i. LionGuard Inventory' (4/11/8/11/4); verify_lionguard_apply 47/47; uncapped compare vs HEAD 116 diffs, all BD + sheet order + dims; recalc skipped; 45 URLs → P9
+- 2026-10-10 lionguard P9 done: 43 ok + 2 expected-403 (OpenAI policy pages); 0 broken
