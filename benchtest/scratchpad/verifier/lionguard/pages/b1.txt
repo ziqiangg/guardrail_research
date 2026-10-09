@@ -1,0 +1,87 @@
+# status 200  final_url https://blog.ai.gov.sg/introducing-lionguard-2-multilingual-llm-guardrail-for-singapore/  content-type text/html; charset=utf-8
+Skip to content
+ai@govtech
+Home
+About
+The Lab
+The Studio
+The People
+Subscribe
+The Studio
+Responsible AI
+Introducing LionGuard 2: Multilingual LLM Guardrail for Singapore
+We improved its coverage and robustness.
+Leanne Tan
+29 Jul 2025
+• 4 min read
+Share
+tldr: open-sourced on Hugging Face, and available via API for Public Sector devs on Sentinel/GovText. Check out our web demo and technical report.
+By: Leanne Tan (GovTech), Gabriel Chua (GovTech), Ziyu Ge (SUTD), Roy Lee(SUTD)
+🚨🚨🚨 Warning: This article contains material that could be deemed highly offensive. Such material is presented here solely for educational and research purposes. These examples do not reflect the opinions of the author or any affiliated organisations.
+LionGuard 2 — Developed by GovTech AI Practice and supported by SUTD Social AI Studio
+Last year, our Responsible AI team introduced LionGuard, a content moderation guardrail designed specifically for Singapore’s linguistic landscape. Singapore’s unique mix of multilingual communication, colloquial Singlish, and frequent code-switching presents unique challenges unmet for content moderation systems typically trained by Western AI companies.
+Today, we launch LionGuard 2 — which leverages recent AI advances for improved moderation accuracy, broader multilingual support (Chinese, Malay, and partially Tamil), and enhanced resilience.
+LionGuard 2 as an input and output guardrail
+Outstanding Performance Across Singapore and General Benchmarks
+LionGuard 2 consistently matches or outperforms commercial and open-source systems like OpenAI Moderation API and AWS Bedrock Guardrails across 16 benchmarks:
+Localised Benchmarks: RabakBench, SGHateCheck, SGToxicGuard
+General English Benchmarks: BeaverTails, SORRY-Bench, OpenAI Moderation Evaluation, SimpleSafetyTests
+On localised content, LionGuard 2 achieved an F1 score of 87% on RabakBench, significantly surpassing LionGuard 1’s 58.4%. Performance remains robust for Chinese (88%) and Malay (78%), though slightly behind popular solutions like LlamaGuard 4 for Tamil.
+Despite being specifically trained for Singapore’s context, our careful dataset curation and robust base-model selection enable LionGuard 2 to excel even in general English moderation tasks. This makes LionGuard 2 a suitable general guardrail for both English and multilingual toxicity.
+Comparison of LionGuard 2 against seven other commercial and open-source guardrails on various localised and general English safety benchmarks (Note: LionGuard is an improved internal version of the original LionGuard 1)
+Examples
+Demo of LionGuard 2 as a classifier/evaluator on Chinese text containing potential self-harm elementsDemo of LionGuard 2 as a chatbot guardrail
+What’s New in LionGuard 2?
+Expanded Multilingual Coverage: Enhanced proficiency in English, Chinese, Malay, and partial Tamil moderation.
+Refined Risk Taxonomy: Simplified categorisation with clear severity levels, including Hateful, Insults, Sexual Content, Violence, Self-Harm, and Misconduct.
+Greater Robustness to Noise: Maintains high accuracy against real-world inputs featuring typos, inconsistent casing, punctuation irregularities, and spelling errors, with minimal (~1.5%) accuracy impact.
+Building LionGuard 2
+Keeping deployment accessible, LionGuard 2 prioritises low-resource training and inference. Following LionGuard 1’s successful method, we paired a pre-trained embedding model with a classifier. For LionGuard 2, we adopt an ordinal multi-head classifier, ideal for this multi-label, multi-level classification task.
+LionGuard 2 architecture: Combining OpenAI embeddings with an ordinal multi-head classifier
+Here we highlight some key steps and learnings from building LionGuard 2
+Careful Data Curation
+LionGuard 2 blends original LionGuard 1 data with synthetic and curated English moderation datasets. Early tests revealed that adding LLM-translated data reduced accuracy and were excluded. Our iterations ledus to a compact yet effective 26k-example training set — 70% smaller than LionGuard 1 and substantially smaller than typical datasets for fine-tuning decoder-type models.
+Semi-Supervised Labeling
+Consistent with LionGuard 1, we leveraged leading LLMs for annotation. Using the Alt-Test methodology, we selected Gemini 2.0 Flash, o3-mini-low, and Claude 3.5 Haiku for balanced annotation quality.
+Optimal Embedding Selection
+After evaluating multiple embedding models — including Cohere’s Text Embed models, BGE-M3, Arctic Embed v2, and Qwen 3 Embeddings — we selected OpenAI’s text-embedding-3-large. Although it didn’t top general leaderboards, it delivered superior performance tailored to our moderation context, underscoring the importance of use-case specific evaluations.
+Small models can outperform large models
+A common question we have gotten since the release of LionGuard 1 was whether we considered fine-tuning the embedding layers or to fine-tune a LLM. In building LionGuard 2, we investigated this and found that fine-tuning larger models like LlamaGuard-3–8B and Arctic-Embed-2.0 provided minimal gains, insufficient to justify their greater computational requirements.
+Open-Sourced and Available Today 🎉
+LionGuard 2 is open-sourced, including model weights and part of the training data. For a deeper dive into our benchmarking, development process and experiments, please do explore our technical report.
+For developers in the Singapore Public Service, you can also access LionGuard 2 through Sentinel or GovText.
+# Sentinel
+import requests
+import json
+url = "https://sentinel.stg.aiguardian.gov.sg/api/v1/validate"
+payload = json.dumps({
+"text": "What is LionGuard?",
+"guardrails": {
+"lionguard-2": {},
+}
+})
+headers = {
+'x-api-key': '{{SENTINEL_API_KEY}}',
+'Content-Type': 'application/json'
+}
+response = requests.request("POST", url, headers=headers, data=payload)
+print(response.text)
+Try LionGuard 2 today here at this demo, and we welcome your feedback and suggestions!
+Acknowledgements
+We thank Ainul Mardiyyah Zil Husham, Anandh Kumar Kaliyamoorthy, Govind Shankar Ganesan, Lizzie Loh, Nurussolehah Binte Jaini, Nur Hasibah Binte Abu Bakar, Prakash S/O Perumal Haridas, Siti Noordiana Sulaiman, Syairah Nur ‘Amirah Zaid, Vengadesh Jayaraman, and other participants for their valuable contributions. Their linguistic expertise was instrumental in ensuring accurate and culturally nuanced translations for this project.
+Like what you read? Check out some of our recent posts!
+Leading AI Engineering in Government
+Reflections on building reusable capabilities, empowering teams and staying relevant in a fast-moving field
+09 Oct 2026
+5 min read
+Strengthening Chatbot Safeguards with Red-Teaming Agents
+How we used agentic AI to proactively test and strengthen chatbot safeguards for chat.gov.sg
+02 Oct 2026
+10 min read
+Decision Models for Guardrails: Exploring Jev and Kev for Moderation
+A closer look at the new paradigm of frontier models, and how we explored Jev and adapted its open-source interpretation - Kev, for Singapore-context moderation.
+28 Sep 2026
+7 min read
+All Articles
+Contributors
+GovTech Singapore © 2026

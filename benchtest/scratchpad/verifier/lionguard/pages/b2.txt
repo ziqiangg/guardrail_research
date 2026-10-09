@@ -1,0 +1,104 @@
+# status 200  final_url https://blog.ai.gov.sg/guardrails-in-the-wild-closing-the-retraining-loop-for-lionguard-2/  content-type text/html; charset=utf-8
+Skip to content
+ai@govtech
+Home
+About
+The Lab
+The Studio
+The People
+Subscribe
+The Lab
+Responsible AI
+Guardrails in the Wild: Closing the Retraining Loop for LionGuard 2
+Operationalising MLOps with production feedback to continuously evaluate, retrain, and improve our guardrails.
+Jia Yi Goh, Hugh Le
+21 Aug 2026
+• 11 min read
+Share
+Written by Jia Yi Goh, based on work developed with Hugh Le Xuan Hieu
+☰ Table of Contents
+Types of Guardrail Implementation
+The Importance of MLOps for Guardrails
+Why Retraining LionGuard 2 Is Not So Simple
+Designing the Retraining Strategy
+Evaluating and Promoting Retrained Models
+A Platform for Feedback, Retraining, and Redeployment
+What Comes Next for Sentinel
+A guardrail that works well today may not work as well tomorrow. Language shifts, new attack patterns, and edge cases unbeknownst during development become apparent. Deploying a guardrail is never the end, but rather the start of a constant battle to keep it effective.
+GovTech’s Sentinel is a Guardrails-as-a-Service platform for Singapore government AI applications. It gives government teams access to both in-house and commercial guardrails through a common platform, while addressing security and data-sensitivity requirements. This makes it easier for product teams to integrate guardrails and build safer, more secure AI applications.
+In a single week, millions of chat messages pass through our guardrails. At this scale, manually reviewing and addressing guardrail misclassifications becomes increasingly intractable. In this article, we share how we built a repeatable retraining loop for Sentinel, turning real-world failures into a continuous feedback cycle for improving our guardrails, with LionGuard 2 as a case study.
+Types of Guardrail Implementation
+Guardrails can be implemented in many ways, ranging from deterministic rules and regex checks, to specialised ML classifiers, to LLM judges. Sentinel supports this mix as well. Most of our guardrails are ML classifiers, alongside several LLM-based guardrails and managed services, where external guardrails are invoked through Sentinel's API and treated as black boxes.
+Types of Guardrails on Sentinel
+These different implementations also give us different levels of control over how a guardrail can be improved. For ML classifiers, we own the full lifecycle, from data collection and model training to evaluation and deployment. This makes them the natural starting point for closing the retraining loop, and they are therefore the focus of this first part of our journey.
+However, the feedback loop itself should extend beyond ML classifiers. User-reported false positives and false negatives provide high-quality, human-labelled production data that can support different improvement mechanisms depending on the guardrail. For LLM-based guardrails that we manage, this data can support retraining or fine-tuning of the underlying model, or prompt optimisation where the guardrail is implemented through prompting. For managed services, the available actions depend on the provider: some accept misclassified examples for potential further improvement on their end, while others instead rely on users to tune configuration controls such as thresholds or policies.
+Regardless of the implementation, having a consistent mechanism to capture and retain these failures ensures that valuable production feedback is available when opportunities to improve, evaluate, benchmark, or replace a guardrail arise.
+The Importance of MLOps for Guardrails
+MLOps, or Machine Learning Operations, is not a new concept. Previous articles on this blog have shared practical guidance on adopting MLOps, as well as real-world implementation examples like how SkillsFuture Singapore applied MLOps to its Skills Extraction Algorithm. A recurring principle is that deploying a ML model is not the end of its lifecycle. Models need to be monitored in production, failures need to be captured as feedback, and that feedback needs to make its way back into model improvement.
+For guardrails, closing this loop is particularly important because the risks they need to detect continue to evolve. New terminology can emerge faster than a guardrail’s training data can keep up. In Singapore, for example, “Kpods” became a common shorthand for drug-laced vapes as discussion of their dangers grew in 2025. A guardrail trained before the term became prevalent may not recognise it as referring to a drug-related risk. This creates a potential blind spot: the underlying model may understand and respond to a harmful request involving Kpods if its built-in safety mechanisms are insufficient, while the guardrail layered on top fails to recognise and block the risk.
+This mismatch can become more pronounced when applications rely on externally managed proprietary LLMs, a common deployment pattern today. The models themselves are often updated independently and as it evolves, the gap between what the model understands and what the guardrail can detect may widen.
+Many of these failures happening in production are not just one-off isolated incidents, they typically provide signals about where a guardrail is underperforming, whether certain failure patterns are recurring, and where updates may be needed.
+Why Retraining LionGuard 2 Is Not So Simple
+If you have been following the Responsible AI team’s work, you may already be familiar with LionGuard 2, our moderation classifier developed by GovTech to detect unsafe content in Singapore’s local context. LionGuard 2’s risk taxonomy covers six types of undesirable content: Hateful, Insults, Sexual Content, Violence, Self-Harm, and Misconduct. Some of these risks are further divided into different severity levels.
+LionGuard 2 architecture: Combining OpenAI embeddings with an ordinal multi-head classifier
+Architecturally, LionGuard 2 uses a shared representation feeding into 11 classification heads. Each head is responsible for a different classification objective, allowing the model to make multiple predictions for the same input while learning across a common representation of the underlying text. This is particularly useful for LionGuard 2 because an input may fall under multiple risk categories, while some categories also require predictions at different severity levels.
+However, this shared architecture introduces several challenges when the model needs to be retrained.
+Changes to one category can affect the rest of the model. Because all 11 classification heads depend on the same encoder, retraining the model to address failures in one category can also change the representations used by every other head. A targeted improvement can therefore lead to unexpected changes in categories that were not part of the original retraining objective.
+There is no single definition of a “better” model. Performance has to be considered across multiple heads and metrics. For instance, a retrained model might improve PRAUC for one risk while reducing F1 for another at its optimal calibrated threshold. This makes model selection a multi-objective problem: we need to decide which improvements matter, how much regression is acceptable, and when the overall trade-off is good enough for deployment.
+Production feedback is often skewed towards more prevalent categories, increasing the risk of catastrophic forgetting. Categories that appear more frequently in production are naturally more likely to generate failures, whether through user reports or automated production checks. As a result, retraining data may overrepresent a few common risk categories, causing the model to optimise more strongly for these categories while degrading performance on less frequently represented ones.
+Well… things just got complicated!
+One might argue that the solution is simply to train a separate classifier for each risk category. However, LionGuard 2’s training data is highly imbalanced at the individual risk-category level. Training independent classifiers would therefore leave some categories with relatively few positive examples, likely resulting in significant performance degradation relative to the existing model.
+That said, this experience offers a useful lesson for us when building joint multi-task models in the future. As the landscape evolved and retraining LionGuard 2 became a more important capability, it became clear that alternative task-design choices could better support this workflow. With that context, we may structure similar models differently in the future to better accommodate repeated retraining.
+Designing the Retraining Strategy
+Retraining LionGuard 2 required us to solve two related problems: how to make a relatively small set of user-reported failures meaningfully influence training, and how to improve those failures without introducing unacceptable regressions elsewhere.
+Making a Small Feedback Set Count
+Over the past year, users have manually reported more than 200 false positives and false negatives encountered while using LionGuard 2. Because reporting has so far relied largely on informal channels, this likely represents only a subset of the failures users encounter in practice. These reports are particularly valuable because they reflect real issues surfaced through actual use. We want retraining to directly address the failures our users encounter, so every validated reported case is added into the training dataset before we retrain the model from scratch.
+However, the volume of reported cases remains small relative to LionGuard 2’s existing training dataset; the reports amounted to less than 1% of its current size. The challenge is therefore not that 200 examples is inherently small, but that their signal can easily be diluted when added to a much larger dataset. In the initial stages, we noticed that not all of the reported cases were being resolved despite adding them into the training dataset.
+To give these failure cases greater weight during training, we oversample them by synthetically generating two paraphrased variants of each reported sample. These variants are added alongside the original examples, amplifying known failure patterns. With this approach, the proportion of previously reported failure cases classified correctly across all classification heads increased from 81% to 95%.
+Retraining Under Performance Constraints
+Improving performance on known failures is only one side of the problem. LionGuard 2 uses a shared encoder across its classification heads, so updates intended to improve one risk category can also shift the shared representation and affect performance elsewhere.
+This makes retraining a multi-objective optimisation problem. We do not want to fix reported failures at the expense of broader model performance, nor do we expect every evaluation slice to improve simultaneously. Instead, we define acceptable degradation constraints across the dimensions that matter to the product. Ideally, these constraints should reflect product priorities. If most LionGuard 2 traffic is in English, for example, we may impose tighter limits on English performance than on languages with a substantially smaller user base.
+For example, using PR-AUC as the constraint metric, we may allow the English Binary classification head to degrade by no more than 1% on the validation dataset, while a less-used slice such as the Chinese Misconduct head may be given a larger allowance of up to 5%.
+Retraining is therefore not about maximising a single aggregate metric. Instead, we optimise within a set of performance boundaries that allow the model to improve on known failures while preserving the behaviours and performance characteristics that matter most to the product.
+Evaluating and Promoting Retrained Models
+Once retraining produces a candidate model, the next question is whether it is actually better enough to deploy. This requires a broader evaluation than simply checking whether reported failures have been fixed.
+Defining the Evaluation Benchmarks
+We evaluate each candidate model against three benchmarks.
+The first is the original LionGuard 2 test set, which provides a stable reference for measuring whether the model continues to perform well on the distribution it was originally developed against. The second is RabakBench, an external benchmark that was also used to evaluate the original LionGuard 2 model. Together, these two static benchmarks provide a consistent basis for comparing retrained candidates against both the original model and previous retraining runs.
+The third is a regression test set consisting of validated user-reported failures. For this benchmark, a case is considered correct only when all classification heads produce the expected prediction. We use this set to track whether known failures are resolved during retraining and to catch cases where previously fixed issues reappear in later model versions.
+This is important because adding reported failures back into the training data does not guarantee that the model will learn or retain the intended behaviour. Keeping them as a dedicated regression benchmark therefore gives us a consistent way to verify that retraining is actually addressing the issues surfaced by our users.
+Deciding When a Model Should Be Promoted
+Typically, evaluating a guardrail requires looking across several dimensions rather than relying on a single score. For LionGuard 2, this includes performance across different risk categories, evaluation benchmarks, and metrics such as PR-AUC and F1, which capture different aspects of classifier performance. Because LionGuard 2 is also multilingual, language adds a fourth dimension, as overall performance can mask regressions in specific languages.
+Taken together, this leaves us evaluating each candidate across risk category, benchmark, metric, and language.
+No single metric or dataset determines whether a retrained model should be deployed. The decision requires balancing these dimensions and deciding whether the improvements and regressions represent an acceptable trade-off. The retraining constraints described earlier help define the boundaries of what we consider acceptable, while the final decision should also account for product priorities and ultimately rest with the relevant product owner or decision-maker.
+A Platform for Feedback, Retraining, and Redeployment
+The Guardrail Retraining Lifecycle: from Feedback to Redeployment
+By this point, retraining LionGuard 2 had become more than just running another training job. We needed a repeatable way to capture production failures, review and clean their labels, retrain and evaluate new candidates, and surface the results to the stakeholders responsible for deciding whether a model should be promoted.
+Keeping this as an offline workflow would make retraining dependent on individual data scientists and separate model development from the decision-makers assessing its trade-offs. We therefore built the Sentinel MLOps Platform to bring this lifecycle into one place.
+Reporting Guardrail Issues through the Sentinel MLOps Platform
+Through the platform, users can report guardrail issues, while authorised users can review feedback, manage retraining, evaluate new model candidates, and make promotion decisions. The examples here use illustrative data.
+Viewing Retraining Statistics through the Sentinel MLOps Platform
+Under the hood, the platform uses a React-based frontend and is backed primarily by AWS: RDS supports application data, S3 stores versioned dataset exports and model artefacts, and SageMaker handles model retraining and evaluation.
+That’s not all. A model update is only useful if users can adopt it safely and easily. Rolling out evolving guardrails therefore also requires product and change-management decisions around how new versions are introduced.
+For Sentinel, we aim to make adoption the path of least resistance. The latest model becomes the default while rollback options remain available, changes are communicated clearly, and feedback mechanisms are embedded into the interfaces users already work with. In this way, adopting improved models and reporting new failures become a natural part of the product experience.
+What Comes Next for Sentinel
+For Sentinel users, we’ll be rolling out the first retrained LionGuard 2 model, incorporating your feedback, very soon.
+We are only at the start of improving how our guardrails evolve in production. Our next step is to extend the same retraining pipeline to other eligible ML classifier guardrails that we own. Over time, we also plan to complement this workflow with broader production monitoring, so that recurring failure patterns or signs of degradation can be surfaced even when they are not reported directly, and used to inform when retraining should be triggered.
+In the meantime, real-world user feedback remains an important part of helping us improve our guardrails. If you come across a case where a Sentinel guardrail could have responded better, we encourage you to share it with us through Sentinel. Your feedback helps us better understand how our guardrails perform in practice and where we can continue improving them.
+Reporting and access to retrained models are currently only available to Sentinel users within the Singapore Government. For teams outside the Government, we hope the approach shared in this article still offers a practical starting point for building your own guardrail MLOps workflows.
+Like what you read? Check out some of our recent posts!
+Leading AI Engineering in Government
+Reflections on building reusable capabilities, empowering teams and staying relevant in a fast-moving field
+09 Oct 2026
+5 min read
+Strengthening Chatbot Safeguards with Red-Teaming Agents
+How we used agentic AI to proactively test and strengthen chatbot safeguards for chat.gov.sg
+02 Oct 2026
+10 min read
+Decision Models for Guardrails: Exploring Jev and Kev for Moderation
+A closer look at the new paradigm of frontier models, and how we explored Jev and adapted its open-source interpretation - Kev, for Singapore-context moderation.
+28 Sep 2026
+7 min read
+All Articles
+Contributors
+GovTech Singapore © 2026

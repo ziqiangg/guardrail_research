@@ -27,6 +27,7 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| lionguard P7 Q (verifier GETs to huggingface.co/api/models URLs in R9) | GETs covered by the P4 Hub-metadata ruling; but R9/Source URL cells cite public model pages at the pinned revision, not api paths (same as purplellama P5 Q4) → added to the fix loop | main |
 | purplellama P5 r2 Q1 (label for PyPI sdist facts) | `[Documented]` + plain-text source "(PyPI sdist <name>-<ver>, sha256 <short>, read <date>)" with the PyPI project URL in R9; sdist-vs-pin comparisons `[Inferred]` | main |
 | purplellama P5 r2 Q2 (INV(g) CSE3 latency statement) | merge into the existing "statement 3" row, both sources cited; keep 12 rows | main |
 | purplellama P5 r2 Q3 (per-language values read by eye from a bar chart) | not allowed (hard rule 4: numbers verbatim); keep axis labels / language list only | main |

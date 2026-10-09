@@ -1,0 +1,5 @@
+# status 200  final_url https://huggingface.co/govtech/lionguard-2.1/raw/1c3a9ea7718f81ea32e6688c0ff18ac8866525e8/requirements.txt  content-type text/plain; charset=utf-8
+numpy==2.3.1
+transformers==4.50.3
+torch==2.3.1
+google-genai==1.50.1
