@@ -1,0 +1,62 @@
+{
+ "nemo-rails|light|1280": {
+  "scrollW": 1280,
+  "innerW": 1280,
+  "svg_text_issues": 0
+ },
+ "nemo-rails|light|375": {
+  "scrollW": 628,
+  "innerW": 375,
+  "svg_text_issues": 0
+ },
+ "llama-guard|light|1280": {
+  "scrollW": 1280,
+  "innerW": 1280,
+  "svg_text_issues": 0
+ },
+ "llama-guard|light|375": {
+  "scrollW": 628,
+  "innerW": 375,
+  "svg_text_issues": 0
+ },
+ "sentinel|light|1280": {
+  "scrollW": 1280,
+  "innerW": 1280,
+  "svg_text_issues": 0
+ },
+ "sentinel|light|375": {
+  "scrollW": 628,
+  "innerW": 375,
+  "svg_text_issues": 0
+ },
+ "presidio|light|1280": {
+  "scrollW": 1280,
+  "innerW": 1280,
+  "svg_text_issues": 0
+ },
+ "presidio|light|375": {
+  "scrollW": 375,
+  "innerW": 375,
+  "svg_text_issues": 0
+ },
+ "sdp|light|1280": {
+  "scrollW": 1280,
+  "innerW": 1280,
+  "svg_text_issues": 0
+ },
+ "sdp|light|375": {
+  "scrollW": 628,
+  "innerW": 375,
+  "svg_text_issues": 0
+ },
+ "modelarmor|light|1280": {
+  "scrollW": 1280,
+  "innerW": 1280,
+  "svg_text_issues": 0
+ },
+ "modelarmor|light|375": {
+  "scrollW": 628,
+  "innerW": 375,
+  "svg_text_issues": 0
+ }
+}

@@ -1,0 +1,70 @@
+# status 200  final_url https://huggingface.co/datasets/govtech/RabakBench-full  content-type text/html; charset=utf-8
+Hugging Face
+Models
+Datasets
+Spaces
+Buckets new
+Docs
+Enterprise
+Pricing
+Website
+Tasks
+HuggingChat
+Collections
+Languages
+Organizations
+Community
+Blog
+Posts
+Daily Papers
+Hardware
+Learn
+Discord
+Forum
+GitHub
+Solutions
+Team & Enterprise
+Hugging Face PRO
+Enterprise Support
+Inference Providers
+Inference Endpoints
+Storage Buckets
+Log In
+Sign Up
+Datasets:
+govtech
+/
+RabakBench-full
+Like 0
+Follow
+GovTech Singapore - AI Practice 80
+Modalities:
+Tabular
+Text
+Formats:
+csv
+Size:
+1K - 10K
+Libraries:
+Datasets
+Dask
+Polars
++ 1
+Dataset card Data Studio Files Files and versions
+xet
+Community
+1
+You need to agree to share your contact information to access this dataset
+This repository is publicly accessible, but you have to accept the conditions to access its files and content.
+Log in or Sign Up to review the conditions and access this dataset content.
+No dataset card yet
+Copy to bucket new
+Downloads last month
+1
+Total file size:
+1.65 MB
+System theme
+Company
+TOS Privacy About Careers
+Website
+Models Datasets Spaces Pricing Docs

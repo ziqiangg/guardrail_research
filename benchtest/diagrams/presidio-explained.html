@@ -88,6 +88,7 @@ mark { background: var(--edit-soft); color: var(--edit); padding: 0 3px; border-
 .know { font-size: 15px; color: var(--muted); border-left: 3px solid var(--line); padding-left: 12px; }
 .know b { color: var(--ink); }
 .grid2 { display: grid; gap: 22px; }
+.wrap > *, .stage > *, .grid2 > * { min-width: 0; }
 footer { font-size: 14px; color: var(--muted); display: grid; gap: 6px; }
 footer a { color: var(--accent); }
 /* Additions for this page: partly / not supported, tables, verdict pills */
@@ -107,9 +108,8 @@ table.cats td.code { font-family: var(--f-mono); font-size: 14px; white-space: n
 .pill.no { color: var(--muted); background: var(--bg); border-color: var(--line); border-style: dashed; }
 ul.limits { margin: 0; padding-left: 20px; display: grid; gap: 8px; max-width: 70ch; }
 ul.limits b { color: var(--ink); }
-/* Additions for this page: tick marks on the score scale; let grid children shrink so only figures and tables scroll sideways on phones */
+/* Additions for this page: tick marks on the score scale */
 .tick { stroke: var(--ink); stroke-width: 1.5; }
-.wrap > *, .stage > *, .grid2 > * { min-width: 0; }
 </style>
 
 <div class="wrap">

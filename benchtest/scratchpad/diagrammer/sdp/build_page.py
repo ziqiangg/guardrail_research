@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """Builds benchtest/diagrams/sdp-explained.html (gr-diagrammer, sdp P10).
 
-Base CSS (sentinel-explained.html lines 6-109) is copied byte for byte; everything else is generated here
+Base CSS (sentinel-explained.html lines 6-110) is copied byte for byte; everything else is generated here
 so fork and linear diagrams share the README coordinates exactly.
 """
 import io
@@ -14,7 +14,7 @@ OUT = os.path.join(ROOT, "benchtest", "diagrams", "sdp-explained.html")
 
 with io.open(SENTINEL, encoding="utf-8", newline="") as f:
     lines = f.read().split("\n")
-base_css = "\n".join(lines[5:109])  # lines 6..109, 1-based
+base_css = "\n".join(lines[5:110])  # lines 6..110, 1-based (R028 added line 91)
 fonts_line = lines[2]
 preconnect = lines[1]
 

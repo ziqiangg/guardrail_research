@@ -1,0 +1,132 @@
+# status 200  final_url https://arxiv.org/abs/2404.13161  content-type text/html; charset=utf-8
+Skip to main content
+Search
+Submit
+Donate
+Log in
+Search arXiv
+Press Enter to search · Advanced search
+Computer Science > Cryptography and Security
+arXiv:2404.13161 (cs)
+[Submitted on 19 Apr 2024]
+Title:CyberSecEval 2: A Wide-Ranging Cybersecurity Evaluation Suite for Large Language Models
+Authors:Manish Bhatt, Sahana Chennabasappa, Yue Li, Cyrus Nikolaidis, Daniel Song, Shengye Wan, Faizan Ahmad, Cornelius Aschermann, Yaohui Chen, Dhaval Kapil, David Molnar, Spencer Whitman, Joshua Saxe
+View a PDF of the paper titled CyberSecEval 2: A Wide-Ranging Cybersecurity Evaluation Suite for Large Language Models, by Manish Bhatt and 12 other authors
+View PDF
+HTML (experimental)
+Abstract:Large language models (LLMs) introduce new security risks, but there are few comprehensive evaluation suites to measure and reduce these risks. We present BenchmarkName, a novel benchmark to quantify LLM security risks and capabilities. We introduce two new areas for testing: prompt injection and code interpreter abuse. We evaluated multiple state-of-the-art (SOTA) LLMs, including GPT-4, Mistral, Meta Llama 3 70B-Instruct, and Code Llama. Our results show that conditioning away risk of attack remains an unsolved problem; for example, all tested models showed between 26% and 41% successful prompt injection tests. We further introduce the safety-utility tradeoff: conditioning an LLM to reject unsafe prompts can cause the LLM to falsely reject answering benign prompts, which lowers utility. We propose quantifying this tradeoff using False Refusal Rate (FRR). As an illustration, we introduce a novel test set to quantify FRR for cyberattack helpfulness risk. We find many LLMs able to successfully comply with "borderline" benign requests while still rejecting most unsafe requests. Finally, we quantify the utility of LLMs for automating a core cybersecurity task, that of exploiting software vulnerabilities. This is important because the offensive capabilities of LLMs are of intense interest; we quantify this by creating novel test sets for four representative problems. We find that models with coding capabilities perform better than those without, but that further work is needed for LLMs to become proficient at exploit generation. Our code is open source and can be used to evaluate other LLMs.
+| Subjects:
+|
+Cryptography and Security (cs.CR); Machine Learning (cs.LG)
+| Cite as:
+| arXiv:2404.13161 [cs.CR]
+|
+| (or
+arXiv:2404.13161v1 [cs.CR] for this version)
+|
+| https://doi.org/10.48550/arXiv.2404.13161
+Focus to learn more
+arXiv-issued DOI via DataCite
+Submission history
+From: Joshua Saxe [view email]
+[v1]
+Fri, 19 Apr 2024 20:11:12 UTC (12,125 KB)
+Full-text links:
+Access Paper:
+View a PDF of the paper titled CyberSecEval 2: A Wide-Ranging Cybersecurity Evaluation Suite for Large Language Models, by Manish Bhatt and 12 other authors
+View PDF
+HTML (experimental)
+TeX Source
+view license
+Current browse context:
+cs.CR
+< prev
+|
+next >
+new
+|
+recent
+| 2024-04
+Change to browse by:
+cs
+cs.LG
+References & Citations
+NASA ADS
+Google Scholar
+Semantic Scholar
+export BibTeX citation
+Loading...
+BibTeX formatted citation
+×
+loading...
+Data provided by:
+Bookmark
+Bibliographic Tools
+Bibliographic and Citation Tools
+Bibliographic Explorer Toggle
+Bibliographic Explorer (What is the Explorer?)
+Connected Papers Toggle
+Connected Papers (What is Connected Papers?)
+Litmaps Toggle
+Litmaps (What is Litmaps?)
+scite.ai Toggle
+scite Smart Citations (What are Smart Citations?)
+Code, Data, Media
+Code, Data and Media Associated with this Article
+alphaXiv Toggle
+alphaXiv (What is alphaXiv?)
+Links to Code Toggle
+CatalyzeX Code Finder for Papers (What is CatalyzeX?)
+DagsHub Toggle
+DagsHub (What is DagsHub?)
+GotitPub Toggle
+Gotit.pub (What is GotitPub?)
+Huggingface Toggle
+Hugging Face (What is Huggingface?)
+ScienceCast Toggle
+ScienceCast (What is ScienceCast?)
+Demos
+Demos
+Replicate Toggle
+Replicate (What is Replicate?)
+Spaces Toggle
+Hugging Face Spaces (What is Spaces?)
+Spaces Toggle
+TXYZ.AI (What is TXYZ.AI?)
+Related Papers
+Recommenders and Search Tools
+Link to Influence Flower
+Influence Flower (What are Influence Flowers?)
+Core recommender toggle
+CORE Recommender (What is CORE?)
+Author
+Venue
+Institution
+Topic
+About arXivLabs
+arXivLabs: experimental projects with community collaborators
+arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website.
+Both individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them.
+Have an idea for a project that will add value for arXiv's community? Learn more about arXivLabs.
+Which authors of this paper are endorsers? |
+Disable MathJax (What is MathJax?)
+We gratefully acknowledge support from
+our major funders,
+member institutions, ,
+and all contributors.
+About
+·
+Help
+·
+Contact
+·
+Subscribe
+·
+Copyright
+·
+Privacy
+·
+Accessibility
+·
+Operational Status (opens in new tab)
+Major funding support from

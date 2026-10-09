@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """Generator for benchtest/diagrams/modelarmor-explained.html (scratch tool, not committed).
-Reads the shared CSS (lines 6-109) byte for byte from sentinel-explained.html and emits the page.
+Reads the shared CSS (lines 6-110) byte for byte from sentinel-explained.html and emits the page.
 """
 import io, os, sys
 
@@ -10,7 +10,7 @@ OUT = os.path.join(ROOT, "benchtest", "diagrams", "modelarmor-explained.html")
 
 with io.open(SENTINEL, encoding="utf-8", newline="") as f:
     s_lines = f.read().split("\n")
-base_css = "\n".join(s_lines[5:109])  # lines 6..109
+base_css = "\n".join(s_lines[5:110])  # lines 6..110 (R028 added line 91)
 
 # ---------- SVG helpers ----------
 

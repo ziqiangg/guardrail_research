@@ -1,0 +1,5 @@
+# status 200  final_url https://huggingface.co/api/resolve-cache/models/govtech/lionguard-2-lite/d56c17a08a937f2591a906fb5c8ec699a844c422/requirements.txt?%2Fgovtech%2Flionguard-2-lite%2Fresolve%2Fd56c17a0%2Frequirements.txt=&etag=%227dff80e3bb21cc21449f99a2b7d164294ad21aee%22  content-type text/plain; charset=utf-8
+numpy==2.3.1
+transformers==4.50.3
+torch==2.3.1
+sentence-transformers==5.1.2

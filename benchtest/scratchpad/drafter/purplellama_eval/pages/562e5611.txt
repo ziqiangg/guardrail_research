@@ -1,0 +1,20 @@
+# status 200  final_url https://meta-llama.github.io/PurpleLlama/CyberSecEval/  content-type text/html; charset=utf-8
+Skip to main content
+CyberSecEvalDocumentation
+CyberSecEval 4
+Advancing the Evaluation of Cybersecurity Risks and Capabilities in Large Language Models
+Get Started
+CyberSecEval 4
+This version introduces AutoPatchBench, a benchmark that measures an LLM agent's capability to automatically patch security vulnerabilities in native code.
+Prompt Guard
+Prompt Guard is a new model for guardrailing LLM inputs against prompt attacks - in particular jailbreaking techniques and indirect injections embedded into third party data. For more information, see our Model card.
+Docs
+Documentation
+Community
+Twitter
+More
+GitHub
+Legal
+Privacy
+Terms
+Copyright © 2026 Meta Platforms, Inc. Built with Docusaurus.

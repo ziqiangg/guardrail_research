@@ -7,13 +7,12 @@ OUT = os.path.join(ROOT, "benchtest", "diagrams", "presidio-explained.html")
 
 with io.open(SENT, encoding="utf-8", newline="") as f:
     sent = f.read().split("\n")
-base_css = "\n".join(sent[5:109])  # lines 6-109, byte for byte
+base_css = "\n".join(sent[5:110])  # lines 6-110, byte for byte (R028 added line 91)
 assert base_css.startswith(":root {") and base_css.endswith("ul.limits b { color: var(--ink); }")
 
 line5 = "/* Layout: one reading column; overview map, parts and positioning, how it works, then checkpoints (input, output, reversible masking, images, your own patterns, retrieval, execution), a scorecard and limits */"
-additions = """/* Additions for this page: tick marks on the score scale; let grid children shrink so only figures and tables scroll sideways on phones */
-.tick { stroke: var(--ink); stroke-width: 1.5; }
-.wrap > *, .stage > *, .grid2 > * { min-width: 0; }"""
+additions = """/* Additions for this page: tick marks on the score scale */
+.tick { stroke: var(--ink); stroke-width: 1.5; }"""
 
 # ---------- SVG helpers ----------
 def marker(i, cls):
