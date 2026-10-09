@@ -1,0 +1,269 @@
+# status 200  final_url https://docs.cloud.google.com/model-armor/model-armor-apigee-integration  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Model Armor
+Start free
+Overview
+Guides
+Reference
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Resources
+Console
+Discover
+Product overview
+Data residency and endpoints
+Feature availability for templates by region
+Best practices for scaling and high traffic
+Retry strategy
+Configure Model Armor
+Create and manage templates
+Configure template-specific exclusion rules
+Set the filter version
+Filter version history
+Configure floor settings
+Sanitize prompts and responses
+Configure logging
+View the monitoring dashboard
+Control access
+Access control with IAM
+Roles and permissions
+Service accounts
+Integrate Model Armor with services or frameworks
+Overview
+Integrate with Agent Gateway
+Integrate with Apigee
+Integrate with Gemini Enterprise
+Integrate with Google and Google Cloud MCP servers
+Integrate with Google Cloud networking services
+Integrate with Agent Platform
+Integrate with LangChain
+Monitor
+Audit logging
+Troubleshoot
+Troubleshooting
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Home
+Documentation
+AI and ML
+Model Armor
+Guides
+Send feedback
+Integrate Model Armor with Apigee
+Stay organized with collections
+Save and categorize content based on your preferences.
+You can enhance the security of your AI applications by integrating
+Model Armor with Apigee.
+By using Apigee as an API gateway in front of your AI applications,
+you can use the capabilities of Model Armor to screen and sanitize
+both the inputs sent to your application and the responses received.
+Overview
+You can integrate Model Armor policies into your Apigee
+API proxies to provide enhanced control and protection for your AI applications.
+For example, you can use Apigee to enforce token-level quotas to limit
+a user or application to a maximum number of tokens per day. Use
+LLMTokenQuota
+and PromptTokenLimit
+for precise control over token usage. These policies help manage costs, stop
+abuse, and stabilize traffic by preventing sudden spikes in consumption.
+Limitations
+Consider the following limitations when integrating Model Armor
+with Apigee:
+Regional availability:
+Model Armor isn't available in all regions. Ensure that
+Apigee and Model Armor are configured in the same
+region. Although it is possible to configure Apigee and
+Model Armor in different regions, using different regions
+might introduce additional latency due to cross-region network traversal.
+For optimal performance, configure them in the exact same region.
+Quota: High volume traffic may require a quota increase
+for Model Armor. To request an adjustment, see
+Request a quota adjustment.
+If you need more than the default quota, contact Cloud Customer Care.
+For information on quotas related to Model Armor integrations
+with other services, see Manage quota.
+Token limits: Model Armor has token limits
+for processing prompts and responses, which vary by filter. Content exceeding
+these limits might not be fully scanned.
+Before you begin
+Enable the Model Armor API
+in your project.
+Verify that billing is enabled for your Google Cloud project.
+Confirm that you have an Intermediate or Comprehensive environment
+available in your Apigee instance. You can deploy Model Armor
+policies in Intermediate and Comprehensive environments.
+Confirm that you have an active Apigee organization provisioned.
+To create and use Model Armor policies with Apigee,
+you must have specific roles. For the required roles, see
+Apigee roles.
+Set the Model Armor regional endpoint.
+Create a Model Armor template.
+How it works
+The integration uses two main Apigee policies:
+SanitizeUserPrompt: Add this policy to the request flow of your
+API proxy. It intercepts all incoming requests and sends them to
+Model Armor for inspection before they reach your AI application.
+For more information, see SanitizeUserPrompt policy.
+SanitizeModelResponse: Add this policy to the response flow. It
+intercepts the response from the AI application and sends it to
+Model Armor for inspection before sending the response
+to the client. For more information, see
+SanitizeModelResponse policy.
+Model Armor evaluates the content against the rules defined in
+your active Model Armor template. Based on the findings and the
+enforcement type set,
+Apigee allows, blocks, or redacts the request or response.
+If the request or response is redacted, extract the redacted data using
+flow variables
+and pass it to the LLM.
+To get started, use the built-in Proxy with Model Armor proxy template in
+the Apigee console. This template automatically adds optional
+SanitizeUserPrompt and SanitizeModelResponse configurations.
+Create an Apigee API proxy with Model Armor policies
+Create a service account to deploy the API proxy.
+Create an Apigee API proxy.
+Edit the SanitizeUserPrompt and SanitizeModelResponse XML.
+You must edit the XML of these policies for Model Armor to work.
+Add Google authentication to the API proxy.
+Deploy the API proxy.
+Test the Model Armor policies.
+For more details on configuration and usage, see
+Get started with Apigee Model Armor policies.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-06 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

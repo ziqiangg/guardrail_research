@@ -1,0 +1,1812 @@
+# status 200  final_url https://docs.cloud.google.com/model-armor/manage-templates  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Model Armor
+Start free
+Overview
+Guides
+Reference
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Resources
+Console
+Discover
+Product overview
+Data residency and endpoints
+Feature availability for templates by region
+Best practices for scaling and high traffic
+Retry strategy
+Configure Model Armor
+Create and manage templates
+Configure template-specific exclusion rules
+Set the filter version
+Filter version history
+Configure floor settings
+Sanitize prompts and responses
+Configure logging
+View the monitoring dashboard
+Control access
+Access control with IAM
+Roles and permissions
+Service accounts
+Integrate Model Armor with services or frameworks
+Overview
+Integrate with Agent Gateway
+Integrate with Apigee
+Integrate with Gemini Enterprise
+Integrate with Google and Google Cloud MCP servers
+Integrate with Google Cloud networking services
+Integrate with Agent Platform
+Integrate with LangChain
+Monitor
+Audit logging
+Troubleshoot
+Troubleshooting
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Home
+Documentation
+AI and ML
+Model Armor
+Guides
+Send feedback
+Create and manage templates
+Stay organized with collections
+Save and categorize content based on your preferences.
+You use Model Armor templates to configure the screening of
+prompts and responses for your AI applications. The templates provide
+customized filters and thresholds for multiple safety and security categories.
+This document explains how to create and manage Model Armor templates.
+For more information, see Model Armor templates.
+Use a regional or multi-regional endpoint
+When working with a Model Armor template, you must use a
+regional or
+multi-regional endpoint
+(modelarmor.LOCATION.rep.googleapis.com) that matches
+the template's location. For information about how data residency is enforced for each
+region or multi-region, see Data
+residency enforcement for templates.
+The global endpoint (modelarmor.googleapis.com) doesn't support
+managing Model Armor templates or sanitizing prompts and
+responses.
+When to use Model Armor templates
+The following are some common use cases:
+Standardize screening across applications: Define centralized filtering
+configurations and threshold levels that multiple workloads can reference.
+Customize detection thresholds and configurations: Adjust filter
+sensitivity—such as setting low, medium, or high confidence thresholds—and
+filter configurations for distinct use cases or environments.
+Configure multi-category defense: Combine Sensitive Data Protection,
+jailbreak detection, malicious URI inspection, and prompt injection filters
+into a single policy.
+Isolate development and production policies: Maintain separate
+templates to test stricter filtering rules in staging before rolling them
+out to production services.
+Before you begin
+Before you begin, complete the following tasks.
+Obtain the required permissions
+To get the permissions that
+you need to manage Model Armor templates,
+ask your administrator to grant you the
+Model Armor Admin (roles/modelarmor.admin) IAM role on the project that contains the Model Armor template.
+For more information about granting roles, see Manage access to projects, folders, and organizations.
+You might also be able to get
+the required permissions through custom
+roles or other predefined
+roles.
+Enable APIs
+You must enable the Model Armor API before you can use Model Armor.
+Console
+Enable the Model Armor API, if it is not already enabled.
+Roles required to enable APIs
+To enable APIs, you need the serviceusage.services.enable permission. If you
+created the project, then you likely already have this permission through the
+Owner role (roles/owner). Otherwise, you can get this permission through the
+Service Usage Admin role (roles/serviceusage.serviceUsageAdmin).
+Learn how to grant roles.
+Enable the API
+Select the project where you want to activate Model Armor.
+gcloud
+Before you begin, follow these steps using the Google Cloud CLI with the
+Model Armor API:
+In the Google Cloud console, activate Cloud Shell.
+Activate Cloud Shell
+At the bottom of the Google Cloud console, a
+Cloud Shell
+session starts and displays a command-line prompt. Cloud Shell is a shell environment
+with the Google Cloud CLI
+already installed and with values already set for
+your current project. It can take a few seconds for the session to initialize.
+Enable the Model Armor API, if it is not already enabled:
+Roles required to enable APIs
+To enable APIs, you need the serviceusage.services.enable permission. If you
+created the project, then you likely already have this permission through the
+Owner role (roles/owner). Otherwise, you can get this permission through the
+Service Usage Admin role (roles/serviceusage.serviceUsageAdmin).
+Learn how to grant roles.
+gcloud services enable modelarmor.googleapis.com
+Set the API endpoint override using the
+gcloud CLI.
+Set the API endpoint override using the gcloud CLI
+This step is only required if you use the gcloud CLI with
+Model Armor and want to use a region or multi-region other than
+the default us multi-region. You must manually set the API endpoint override
+to ensure the gcloud CLI correctly routes requests to the
+Model Armor service.
+Run the following command to set the API endpoint for the
+Model Armor service.
+gcloud config set api_endpoint_overrides/modelarmor "https://modelarmor.LOCATION.rep.googleapis.com/"
+Replace LOCATION with the region or multi-region where
+you want to use Model Armor.
+Create a Model Armor template
+Model Armor templates define the specific filters and thresholds
+that Model Armor uses to screen prompts
+and responses for safety and security risks. To create a Model Armor
+template, follow these steps:
+Console
+In the Google Cloud console, go to the Model Armor page.
+Go to Model Armor
+Verify that you are viewing the project that you activated
+Model Armor on.
+On the Model Armor page, click Create Template.
+The Create Template page is displayed.
+Specify the Template ID. The template ID can contain letters, digits,
+underscores, or hyphens. It cannot exceed 63 characters, contain spaces,
+or start with a hyphen.
+In the Location type section, select a region or multi-region where
+the Model Armor operations will run. You cannot change the
+location later.
+Optional: In the Data residency compliance section, choose whether to
+enable data residency enforcement. By default, any
+Model Armor feature that isn't locally hosted in your
+selected location is disabled to prevent your data from crossing to other
+jurisdictions. The disabled features are listed in this section.
+You can enable the features that are restricted by data residency
+enforcement by disabling the Enforce data residency option. This
+action allows cross-jurisdictional routing of your data.
+Caution: Cross-jurisdictional routing of your data
+can impact your data residency compliance.
+Optional: In the Labels section, add any key-value pairs that you want
+to use to group related templates.
+In the Filter version section, select either the filter version number or the filter version alias.
+Select modality to specify whether you want to screen
+text, images, or both.
+Note: Only us and eu multi-regions support image modality. Selecting any
+other region disables the Select modality field.
+In the Detections section, configure the detection settings.
+Optional: If you select Sensitive Data Protection detection, you need
+to configure the Sensitive Data Protection settings.
+In the Responsible AI section, set the confidence level for each content filter.
+Note: If you don't specify a confidence level, it is set to
+High by default.
+Optional: Expand the Additional configurations (optional) section,
+and configure any of the following settings:
+In the Configure logging section, select the operations that you
+want to configure logging
+for.
+In the Multi-language support section, select Enable
+Multi-language support to use
+multi-language detection.
+In the Enforcement mode section, select an
+enforcement type.
+Click Create.
+gcloud
+Run the following command:
+gcloud model-armor templates create TEMPLATE_ID --project=PROJECT_ID --location=LOCATION \
+--rai-settings-filters='[{ "filterType": "HATE_SPEECH", "confidenceLevel": "MEDIUM_AND_ABOVE" },{ "filterType": "HARASSMENT", "confidenceLevel": "MEDIUM_AND_ABOVE" },{ "filterType": "SEXUALLY_EXPLICIT", "confidenceLevel": "MEDIUM_AND_ABOVE" }]' \
+--basic-config-filter-enforcement=enabled \
+--pi-and-jailbreak-filter-settings-enforcement=enabled \
+--pi-and-jailbreak-filter-settings-confidence-level=HIGH \
+--malicious-uri-filter-settings-enforcement=enabled \
+--template-metadata-custom-llm-response-safety-error-code=798 \
+--template-metadata-custom-llm-response-safety-error-message="test template llm response evaluation failed" \
+--template-metadata-custom-prompt-safety-error-code=799 \
+--template-metadata-custom-prompt-safety-error-message="test template prompt evaluation failed" \
+--template-metadata-ignore-partial-invocation-failures \
+--template-metadata-log-operations \
+--template-metadata-log-sanitize-operations
+Replace the following:
+LOCATION: the location of the template.
+TEMPLATE_ID: the ID of the template.
+PROJECT_ID: the ID of the project that the template belongs to.
+REST
+Use the following command to create a new Model Armor template.
+curl -X POST \
+-d "FILTER_CONFIG" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+"https://modelarmor.LOCATION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/templates?template_id=TEMPLATE_ID"
+Replace the following:
+FILTER_CONFIG: the filter configuration for the
+template in JSON format.
+PROJECT_ID: the ID of the project that the template belongs to.
+TEMPLATE_ID: the ID of the template to be created.
+LOCATION: the location of the template.
+The following example shows the Model Armor filter
+configuration
+(FilterConfig),
+where you define what you want to detect. In this example, the Responsible
+AI filters are
+configured for hate speech, harassment, dangerous content, and sexually
+explicit content with varying confidence
+levels. The prompt injection
+and jailbreak detection filter
+is enabled with a HIGH confidence level, which means only content with a
+high likelihood will be flagged. The malicious
+URI filter is enabled.
+export FILTER_CONFIG='{
+"filterConfig": {
+"raiSettings": {
+"raiFilters": [{
+"filterType": "HATE_SPEECH",
+"confidenceLevel": "MEDIUM_AND_ABOVE"
+}, {
+"filterType": "HARASSMENT",
+"confidenceLevel": "HIGH"
+}, {
+"filterType": "DANGEROUS",
+"confidenceLevel": "MEDIUM_AND_ABOVE"
+},{
+"filterType": "SEXUALLY_EXPLICIT",
+"confidenceLevel": "MEDIUM_AND_ABOVE"
+}]
+},
+"piAndJailbreakFilterSettings": {
+"filterEnforcement": "ENABLED",
+"confidenceLevel": "HIGH"
+},
+"maliciousUriFilterSettings": {
+"filterEnforcement": "ENABLED"
+}
+}
+}'
+curl -X POST \
+-d "$FILTER_CONFIG" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+"https://modelarmor.LOCATION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/templates?template_id=TEMPLATE_ID"
+To define how Model Armor handles operations, errors, and
+logs, set the template metadata
+(TemplateMetadata)
+in your command. The template metadata includes settings for language
+detection, modalities, and data residency
+compliance.
+The following example creates a Model Armor template
+configuration that has multi-language detection and modalities (image and
+text) enabled.
+export TEMPLATE_CONFIG='{
+"filterConfig": {
+"raiSettings": {
+"raiFilters": [{
+"filterType": "HATE_SPEECH",
+"confidenceLevel": "MEDIUM_AND_ABOVE"
+}, {
+"filterType": "HARASSMENT",
+"confidenceLevel": "HIGH"
+}, {
+"filterType": "DANGEROUS",
+"confidenceLevel": "MEDIUM_AND_ABOVE"
+},{
+"filterType": "SEXUALLY_EXPLICIT",
+"confidenceLevel": "MEDIUM_AND_ABOVE"
+}]
+},
+"piAndJailbreakFilterSettings": {
+"filterEnforcement": "ENABLED",
+"confidenceLevel": "HIGH"
+},
+"maliciousUriFilterSettings": {
+"filterEnforcement": "ENABLED"
+}
+},
+"templateMetadata": {
+"multiLanguageDetection": {
+"enableMultiLanguageDetection": true
+},
+"modalities": ["MODALITY_IMAGE", "MODALITY_TEXT"]
+}
+}'
+curl -X POST \
+-d "$TEMPLATE_CONFIG" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+"https://modelarmor.LOCATION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/templates?template_id=TEMPLATE_ID"
+C#
+To run this code, first set up a C# development environment
+and install the Model Armor C# SDK.
+using Google.Api.Gax.ResourceNames;
+using Google.Cloud.ModelArmor.V1;
+using System.Collections.Generic;
+public class CreateTemplateSample
+{
+public Template CreateTemplate(
+string projectId = "my-project",
+string locationId = "us-central1",
+string templateId = "my-template"
+)
+{
+ModelArmorClient client = new ModelArmorClientBuilder
+{
+Endpoint = $"modelarmor.{locationId}.rep.googleapis.com",
+}.Build();
+// Build the Model Armor template with your preferred filters.
+// For more details on filters, please refer to the following doc:
+// https://cloud.google.com/security-command-center/docs/key-concepts-model-armor#ma-filters
+// Configure Responsible AI filter with multiple categories and their confidence
+// levels.
+RaiFilterSettings raiFilterSettings = new RaiFilterSettings();
+List<RaiFilterSettings.Types.RaiFilter> filters =
+new List<RaiFilterSettings.Types.RaiFilter>
+{
+new RaiFilterSettings.Types.RaiFilter
+{
+FilterType = RaiFilterType.Dangerous,
+ConfidenceLevel = DetectionConfidenceLevel.High,
+},
+new RaiFilterSettings.Types.RaiFilter
+{
+FilterType = RaiFilterType.HateSpeech,
+ConfidenceLevel = DetectionConfidenceLevel.High,
+},
+new RaiFilterSettings.Types.RaiFilter
+{
+FilterType = RaiFilterType.SexuallyExplicit,
+ConfidenceLevel = DetectionConfidenceLevel.LowAndAbove,
+},
+new RaiFilterSettings.Types.RaiFilter
+{
+FilterType = RaiFilterType.Harassment,
+ConfidenceLevel = DetectionConfidenceLevel.MediumAndAbove,
+},
+};
+raiFilterSettings.RaiFilters.Add(filters);
+Template template = new Template
+{
+FilterConfig = new FilterConfig { RaiSettings = raiFilterSettings },
+};
+CreateTemplateRequest request = new CreateTemplateRequest
+{
+ParentAsLocationName = LocationName.FromProjectLocation(projectId, locationId),
+TemplateId = templateId,
+Template = template,
+};
+Template createdTemplate = client.CreateTemplate(request);
+System.Console.WriteLine($"Created template: {createdTemplate.Name}");
+return createdTemplate;
+}
+}
+Go
+To run this code, first set up a Go development environment
+and install the Model Armor Go SDK.
+import (
+"context"
+"fmt"
+"io"
+modelarmor "cloud.google.com/go/modelarmor/apiv1"
+modelarmorpb "cloud.google.com/go/modelarmor/apiv1/modelarmorpb"
+"google.golang.org/api/option"
+)
+// createModelArmorTemplate method creates a new
+// Model Armor template with the provided settings.
+//
+// w io.Writer: The writer to use for logging.
+// projectID string: The ID of the Google Cloud project.
+// locationID string: The ID of the Google Cloud location.
+// templateID string: The ID of the template to create.
+func createModelArmorTemplate(w io.Writer, projectID, locationID, templateID string) error {
+ctx := context.Background()
+// Create the call options
+opts := option.WithEndpoint(fmt.Sprintf("modelarmor.%s.rep.googleapis.com:443", locationID))
+// Create the Model Armor client.
+client, err := modelarmor.NewClient(ctx, opts)
+if err != nil {
+return fmt.Errorf("failed to create client for project %s, location %s: %w", projectID, locationID, err)
+}
+defer client.Close()
+// Build the Model Armor template with your preferred filters.
+// For more details on filters, please refer to the following doc:
+// [https://cloud.google.com/security-command-center/docs/key-concepts-model-armor#ma-filters](https://cloud.google.com/security-command-center/docs/key-concepts-model-armor#ma-filters)
+template := &modelarmorpb.Template{
+FilterConfig: &modelarmorpb.FilterConfig{
+PiAndJailbreakFilterSettings: &modelarmorpb.PiAndJailbreakFilterSettings{
+FilterEnforcement: modelarmorpb.PiAndJailbreakFilterSettings_ENABLED,
+ConfidenceLevel: modelarmorpb.DetectionConfidenceLevel_MEDIUM_AND_ABOVE,
+},
+MaliciousUriFilterSettings: &modelarmorpb.MaliciousUriFilterSettings{
+FilterEnforcement: modelarmorpb.MaliciousUriFilterSettings_ENABLED,
+},
+},
+}
+parent := fmt.Sprintf("projects/%s/locations/%s", projectID, locationID)
+// Prepare the request for creating the template.
+req := &modelarmorpb.CreateTemplateRequest{
+Parent: parent,
+TemplateId: templateID,
+Template: template,
+}
+// Create the template.
+response, err := client.CreateTemplate(ctx, req)
+if err != nil {
+return fmt.Errorf("failed to create template: %v", err)
+}
+// Print the new template name using fmt.Fprintf with the io.Writer.
+fmt.Fprintf(w, "Created template: %s\n", response.Name)
+return err
+}
+Java
+To run this code, first set up a Java development environment
+and install the Model Armor Java SDK.
+import com.google.cloud.modelarmor.v1.CreateTemplateRequest;
+import com.google.cloud.modelarmor.v1.DetectionConfidenceLevel;
+import com.google.cloud.modelarmor.v1.FilterConfig;
+import com.google.cloud.modelarmor.v1.LocationName;
+import com.google.cloud.modelarmor.v1.ModelArmorClient;
+import com.google.cloud.modelarmor.v1.ModelArmorSettings;
+import com.google.cloud.modelarmor.v1.RaiFilterSettings;
+import com.google.cloud.modelarmor.v1.RaiFilterSettings.RaiFilter;
+import com.google.cloud.modelarmor.v1.RaiFilterType;
+import com.google.cloud.modelarmor.v1.Template;
+import java.io.IOException;
+import java.util.List;
+public class CreateTemplate {
+public static void main(String[] args) throws IOException {
+// TODO(developer): Replace these variables before running the sample.
+// Specify the Google Project ID.
+String projectId = "your-project-id";
+// Specify the location ID. For example, us-central1.
+String locationId = "your-location-id";
+// Specify the template ID.
+String templateId = "your-template-id";
+createTemplate(projectId, locationId, templateId);
+}
+public static Template createTemplate(String projectId, String locationId, String templateId)
+throws IOException {
+// Construct the API endpoint URL.
+String apiEndpoint = String.format("modelarmor.%s.rep.googleapis.com:443", locationId);
+ModelArmorSettings modelArmorSettings = ModelArmorSettings.newBuilder().setEndpoint(apiEndpoint)
+.build();
+// Initialize the client that will be used to send requests. This client
+// only needs to be created once, and can be reused for multiple requests.
+try (ModelArmorClient client = ModelArmorClient.create(modelArmorSettings)) {
+String parent = LocationName.of(projectId, locationId).toString();
+// Build the Model Armor template with your preferred filters.
+// For more details on filters, please refer to the following doc:
+// https://cloud.google.com/security-command-center/docs/key-concepts-model-armor#ma-filters
+// Configure Responsible AI filter with multiple categories and their confidence
+// levels.
+RaiFilterSettings raiFilterSettings = RaiFilterSettings.newBuilder()
+.addAllRaiFilters(
+List.of(
+RaiFilter.newBuilder()
+.setFilterType(RaiFilterType.DANGEROUS)
+.setConfidenceLevel(DetectionConfidenceLevel.HIGH)
+.build(),
+RaiFilter.newBuilder()
+.setFilterType(RaiFilterType.HATE_SPEECH)
+.setConfidenceLevel(DetectionConfidenceLevel.HIGH)
+.build(),
+RaiFilter.newBuilder()
+.setFilterType(RaiFilterType.SEXUALLY_EXPLICIT)
+.setConfidenceLevel(DetectionConfidenceLevel.LOW_AND_ABOVE)
+.build(),
+RaiFilter.newBuilder()
+.setFilterType(RaiFilterType.HARASSMENT)
+.setConfidenceLevel(DetectionConfidenceLevel.MEDIUM_AND_ABOVE)
+.build()))
+.build();
+FilterConfig modelArmorFilter = FilterConfig.newBuilder()
+.setRaiSettings(raiFilterSettings)
+.build();
+Template template = Template.newBuilder()
+.setFilterConfig(modelArmorFilter)
+.build();
+CreateTemplateRequest request = CreateTemplateRequest.newBuilder()
+.setParent(parent)
+.setTemplateId(templateId)
+.setTemplate(template)
+.build();
+Template createdTemplate = client.createTemplate(request);
+System.out.println("Created template: " + createdTemplate.getName());
+return createdTemplate;
+}
+}
+}
+Node.js
+To run this code, first set up a Node.js development environment
+and install the Model Armor Node.js SDK.
+/**
+* TODO(developer): Uncomment these variables before running the sample.
+*/
+// const projectId = 'your-project-id';
+// const locationId = 'us-central1';
+// const templateId = 'your-template-id';
+const parent = `projects/${projectId}/locations/${locationId}`;
+// Imports the Model Armor library
+const modelarmor = require('@google-cloud/modelarmor');
+const {ModelArmorClient} = modelarmor.v1;
+const {protos} = modelarmor;
+// Instantiates a client
+const client = new ModelArmorClient({
+apiEndpoint: `modelarmor.${locationId}.rep.googleapis.com`,
+});
+/** Build the Model Armor template with your preferred filters.
+For more details on filters, please refer to the following doc:
+https://cloud.google.com/security-command-center/docs/key-concepts-model-armor#ma-filters
+*/
+const templateConfig = {
+filterConfig: {
+raiSettings: {
+raiFilters: [
+{
+filterType:
+protos.google.cloud.modelarmor.v1.RaiFilterType.HATE_SPEECH,
+confidenceLevel:
+protos.google.cloud.modelarmor.v1.DetectionConfidenceLevel.HIGH,
+},
+{
+filterType:
+protos.google.cloud.modelarmor.v1.RaiFilterType.SEXUALLY_EXPLICIT,
+confidenceLevel:
+protos.google.cloud.modelarmor.v1.DetectionConfidenceLevel
+.MEDIUM_AND_ABOVE,
+},
+],
+},
+},
+};
+// Construct request
+const request = {
+parent,
+templateId,
+template: templateConfig,
+};
+// Create the template
+const [response] = await client.createTemplate(request);
+return response;
+PHP
+To run this code, first set up a PHP development environment
+and install the Model Armor PHP SDK.
+use Google\Cloud\ModelArmor\V1\Client\ModelArmorClient;
+use Google\Cloud\ModelArmor\V1\Template;
+use Google\Cloud\ModelArmor\V1\CreateTemplateRequest;
+use Google\Cloud\ModelArmor\V1\FilterConfig;
+use Google\Cloud\ModelArmor\V1\RaiFilterType;
+use Google\Cloud\ModelArmor\V1\RaiFilterSettings;
+use Google\Cloud\ModelArmor\V1\RaiFilterSettings\RaiFilter;
+use Google\Cloud\ModelArmor\V1\DetectionConfidenceLevel;
+/**
+* Create a Model Armor template.
+*
+* @param string $projectId The ID of the project (e.g. 'my-project').
+* @param string $locationId The ID of the location (e.g. 'us-central1').
+* @param string $templateId The ID of the template (e.g. 'my-template').
+*/
+function create_template(string $projectId, string $locationId, string $templateId): void
+{
+$options = ['apiEndpoint' => "modelarmor.$locationId.rep.googleapis.com"];
+$client = new ModelArmorClient($options);
+$parent = $client->locationName($projectId, $locationId);
+/**
+* Build the Model Armor template with preferred filters.
+* For more details on filters, refer to:
+* https://cloud.google.com/security-command-center/docs/key-concepts-model-armor#ma-filters
+*/
+$raiFilters = [
+(new RaiFilter())
+->setFilterType(RaiFilterType::DANGEROUS)
+->setConfidenceLevel(DetectionConfidenceLevel::HIGH),
+(new RaiFilter())
+->setFilterType(RaiFilterType::HATE_SPEECH)
+->setConfidenceLevel(DetectionConfidenceLevel::HIGH),
+(new RaiFilter())
+->setFilterType(RaiFilterType::SEXUALLY_EXPLICIT)
+->setConfidenceLevel(DetectionConfidenceLevel::LOW_AND_ABOVE),
+(new RaiFilter())
+->setFilterType(RaiFilterType::HARASSMENT)
+->setConfidenceLevel(DetectionConfidenceLevel::MEDIUM_AND_ABOVE),
+];
+$raiFilterSetting = (new RaiFilterSettings())->setRaiFilters($raiFilters);
+$templateFilterConfig = (new FilterConfig())->setRaiSettings($raiFilterSetting);
+$template = (new Template())->setFilterConfig($templateFilterConfig);
+$request = (new CreateTemplateRequest)
+->setParent($parent)
+->setTemplateId($templateId)
+->setTemplate($template);
+$response = $client->createTemplate($request);
+printf('Template created: %s' . PHP_EOL, $response->getName());
+}
+Python
+To run this code, first set up a Python development environment
+and install the Model Armor Python SDK.
+from google.api_core.client_options import ClientOptions
+from google.cloud import modelarmor_v1
+# TODO(Developer): Uncomment these variables.
+# project_id = "your-google-cloud-project-id"
+# location_id = "us-central1"
+# template_id = "template_id"
+# Create the Model Armor client.
+client = modelarmor_v1.ModelArmorClient(
+transport="rest",
+client_options=ClientOptions(
+api_endpoint=f"modelarmor.{location_id}.rep.googleapis.com"
+),
+)
+# Build the Model Armor template with your preferred filters.
+# For more details on filters, please refer to the following doc:
+# https://cloud.google.com/security-command-center/docs/key-concepts-model-armor#ma-filters
+template = modelarmor_v1.Template(
+filter_config=modelarmor_v1.FilterConfig(
+pi_and_jailbreak_filter_settings=modelarmor_v1.PiAndJailbreakFilterSettings(
+filter_enforcement=modelarmor_v1.PiAndJailbreakFilterSettings.PiAndJailbreakFilterEnforcement.ENABLED,
+confidence_level=modelarmor_v1.DetectionConfidenceLevel.MEDIUM_AND_ABOVE,
+),
+malicious_uri_filter_settings=modelarmor_v1.MaliciousUriFilterSettings(
+filter_enforcement=modelarmor_v1.MaliciousUriFilterSettings.MaliciousUriFilterEnforcement.ENABLED,
+),
+),
+)
+# Prepare the request for creating the template.
+request = modelarmor_v1.CreateTemplateRequest(
+parent=f"projects/{project_id}/locations/{location_id}",
+template_id=template_id,
+template=template,
+)
+# Create the template.
+response = client.create_template(request=request)
+# Print the new template name.
+print(f"Created template: {response.name}")
+Set data residency compliance
+By default, any template that you create strictly enforces data
+residency compliance. That is, any Model Armor feature that isn't
+hosted within the jurisdiction covering the template's
+region is disabled. Data
+residency compliance enforcement prevents your data from leaving its
+jurisdiction.
+For templates that prioritize comprehensive security filtering over strict data
+residency, you can disable data residency enforcement for in-use and in-transit
+data. To do so, you disable the Enforce data residency option through the
+Google Cloud console or set data_residency_compliant to false through the
+Model Armor API. Your data at rest remains to be data-residency compliant
+regardless of the state of this option.
+When you disable data residency compliance in a template, you allow
+cross-jurisdictional routing of your data. That is, Model Armor
+might route requests to other jurisdictions when specific features aren't
+locally available in the jurisdiction of the template.
+Disabling data residency compliance enables all Model Armor
+features except for image modality, which remains restricted to the us and
+eu multi-regions.
+Caution: Cross-jurisdictional routing of your data
+can impact your data residency compliance.
+Select a filter version
+Model Armor filter versions provide a balance between stability
+for production workloads and access to the updated threat detection models.
+You configure the filter version at the template level. The filter version
+applies to all filters within that template except those listed in
+Filters that don't use filter versions.
+For more information, see Set the filter version for a template.
+Select modality
+Preview
+This feature is
+subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the
+Service Specific
+Terms.
+Pre-GA features are available "as is" and might have limited support.
+For more information, see the
+launch stage descriptions.
+Use modality to specify whether you want to scan the following:
+All: Scans text and images.
+Specific modalities:
+Text: Scans text strings and text embedded in the supported file
+formats.
+Image: Scans images.
+For more information, see Image screening
+and Sanitize prompts containing images.
+Configure detections
+Detections are the specific checks
+that Model Armor performs on prompts and responses. Model Armor
+offers a flexible system for configuring detections, allowing you to tailor the
+level of protection for your AI applications. You configure
+detections when creating templates. Model Armor performs the following detection checks on prompts and responses:
+Malicious URL detection: Identifies web addresses (URLs) that are
+designed to harm users or systems. These URLs might lead to phishing
+sites, malware downloads, or other cyberattacks. For more information,
+see Malicious URL detection.
+Prompt injection and jailbreak detection: Detects malicious content and
+jailbreak attempts in a prompt. We recommend that you set the confidence level
+to High to minimize false positives and ensure consistent detection behavior.
+Even though setting the confidence level to High reduces the false-positive
+rate, you might still observe false positives in rare cases. For more
+information, see Prompt injection and jailbreak detection.
+Sensitive Data Protection: Detects sensitive data and helps prevent its
+accidental exposure from attacks like prompt injection. For more information, see
+Sensitive Data Protection.
+Set Sensitive Data Protection settings
+Model Armor leverages Sensitive Data Protection to identify and
+prevent the exposure of sensitive information in your LLM interactions. For more
+information, see Sensitive Data Protection.
+Model Armor offers two modes for configuring Sensitive Data Protection:
+Basic: A simpler approach that uses predefined infoTypes to detect sensitive
+data. For more information about the predefined infoType, see
+Basic Sensitive Data Protection configuration.
+Advanced: A more configurable option that uses an inspection template defined
+in the Sensitive Data Protection service as a single source for sensitive
+data infoTypes.
+If you select the Advanced mode, you need to specify the
+following parameters:
+Inspect template:
+Templates for saving configuration information for inspection
+scan jobs, including what predefined or custom detectors to use.
+Enter the template name in the following format:
+projects/projectId/locations/locationId/inspectTemplates/templateName
+Optional: De-identify template:
+Templates for saving configuration information
+for de-identification jobs, including both infoType
+and structured dataset transformations. Enter an identifier for
+the de-identification template in the following format:
+projects/projectId/locations/locationId/deidentifyTemplates/templateName
+Verify that the Inspect template and De-identify template exist
+in Sensitive Data Protection. If the template resides in a
+different project, the Model Armor service agent must be
+granted the DLP User role
+(roles/dlp.user) and DLP Reader role
+(roles/dlp.reader) for that project.
+Note: If you specify only Inspect template, Model Armor
+reports the filter matches if sensitive data is detected. If
+you specify Inspect template and De-identify template, Model Armor
+returns the de-identified sensitive data and sanitized version
+of prompts or responses in the deidentifyResult.data.text
+field of the finding.
+Set confidence level
+Confidence level represents how
+likely the findings match a content filter type. You can set the confidence level
+for each content filter. The possible values are as follows:
+None: No content is detected.
+Low and above: Content is detected with a low, medium, or high confidence level.
+Medium and above: Content is detected with a medium or high confidence level.
+High: Content is detected with a high confidence level.
+For stricter enforcement, set the confidence level to Low and above to
+detect most content that falls into a content filter type.
+To enable comprehensive logging on a template, see Model Armor
+audit and platform logging.
+Define the enforcement type for templates
+To configure how Model Armor handles detections, set the
+enforcement type.
+In the template_metadata field of the template configuration, set
+enforcement_type to INSPECT_ONLY or INSPECT_AND_BLOCK.
+export TEMPLATE_CONFIG='{
+"filter_config": {
+"rai_settings": {
+"rai_filters": [{
+"filter_type": "HATE_SPEECH",
+"confidence_level": "MEDIUM_AND_ABOVE"
+}, {
+"filter_type": "HARASSMENT",
+"confidence_level": "MEDIUM_AND_ABOVE"
+}, {
+"filter_type": "DANGEROUS",
+"confidence_level": "MEDIUM_AND_ABOVE"
+},{
+"filter_type": "SEXUALLY_EXPLICIT",
+"confidence_level": "MEDIUM_AND_ABOVE"
+}]
+},
+"pi_and_jailbreak_filter_settings": {
+"filter_enforcement": "ENABLED",
+"confidence_level": "HIGH"
+},
+"malicious_uri_filter_settings": {
+"filter_enforcement": "ENABLED"
+}
+},
+"template_metadata": {
+"enforcement_type": "INSPECT_ONLY",
+"multi_language_detection": {
+"enableMultiLanguageDetection": true
+}
+}
+}'
+curl -X POST \
+-d "$TEMPLATE_CONFIG" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+"https://modelarmor.LOCATION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/templates?template_id=TEMPLATE_ID"
+Replace the following:
+PROJECT_ID: the ID of the project that the template belongs to.
+TEMPLATE_ID: the ID of the template to be created.
+LOCATION: the
+location of the template.
+Configure template-specific exclusion rules
+Preview
+This feature is
+subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the
+Service Specific
+Terms.
+Pre-GA features are available "as is" and might have limited support.
+For more information, see the
+launch stage descriptions.
+Model Armor exclusion rules help mitigate false-positive
+detections for approved domain-specific terms, unique business contexts, or
+temporary operational workarounds. You configure these rules at the template
+level for supported filters to exclude benign content from triggering
+detections. For more information, see Configure template-specific exclusion
+rules.
+View a Model Armor template
+View existing templates to understand what configurations are available and to
+troubleshoot and resolve problems with screening prompts and responses.
+Console
+In the Google Cloud console, go to the Model Armor page.
+Go to Model Armor
+Verify that you are viewing the project that you activated
+Model Armor on. The Model Armor page is displayed
+listing the templates created for your project.
+Click any template from the list to view its details.
+gcloud
+Run the following command:
+gcloud model-armor templates describe TEMPLATE_ID --project=PROJECT_ID --location=LOCATION
+Replace the following:
+LOCATION: the location of the template.
+TEMPLATE_ID: the ID of the template.
+PROJECT_ID: the ID of the project that the template belongs to.
+REST
+Run the following command:
+curl -X GET \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+"https://modelarmor.LOCATION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/templates/TEMPLATE_ID"
+Replace the following:
+PROJECT_ID: the ID of the project that the template belongs to.
+TEMPLATE_ID: the ID of the template to be viewed.
+LOCATION: the location of the template.
+C#
+To run this code, first set up a C# development environment
+and install the Model Armor C# SDK.
+using Google.Cloud.ModelArmor.V1;
+using System;
+public class GetTemplateSample
+{
+public Template GetTemplate(
+string projectId = "my-project",
+string locationId = "us-central1",
+string templateId = "my-template"
+)
+{
+ModelArmorClient client = new ModelArmorClientBuilder
+{
+Endpoint = $"modelarmor.{locationId}.rep.googleapis.com",
+}.Build();
+GetTemplateRequest request = new GetTemplateRequest
+{
+TemplateName = TemplateName.FromProjectLocationTemplate(projectId, locationId, templateId),
+};
+Template template = client.GetTemplate(request);
+Console.WriteLine($"Retrieved template: {template.Name}");
+return template;
+}
+}
+Go
+To run this code, first set up a Go development environment
+and install the Model Armor Go SDK.
+import (
+"context"
+"fmt"
+"io"
+modelarmor "cloud.google.com/go/modelarmor/apiv1"
+modelarmorpb "cloud.google.com/go/modelarmor/apiv1/modelarmorpb"
+"google.golang.org/api/option"
+)
+// getModelArmorTemplate method retrieves a Model Armor template.
+//
+// w io.Writer: The writer to use for logging.
+// projectID string: The ID of the project.
+// locationID string: The location of the template.
+// templateID string: The ID of the template.
+func getModelArmorTemplate(w io.Writer, projectID, locationID, templateID string) error {
+ctx := context.Background()
+// Create options for the Model Armor client
+opts := option.WithEndpoint(fmt.Sprintf("modelarmor.%s.rep.googleapis.com:443", locationID))
+// Create the Model Armor client.
+client, err := modelarmor.NewClient(ctx, opts)
+if err != nil {
+return fmt.Errorf("failed to create client for project %s, location %s: %w", projectID, locationID, err)
+}
+defer client.Close()
+// Initialize request arguments.
+req := &modelarmorpb.GetTemplateRequest{
+Name: fmt.Sprintf("projects/%s/locations/%s/templates/%s", projectID, locationID, templateID),
+}
+// Get the template.
+response, err := client.GetTemplate(ctx, req)
+if err != nil {
+return fmt.Errorf("failed to get template: %w", err)
+}
+// Print the template name using fmt.Fprintf with the io.Writer.
+fmt.Fprintf(w, "Retrieved template: %s\n", response.Name)
+return nil
+}
+Java
+To run this code, first set up a Java development environment
+and install the Model Armor Java SDK.
+import com.google.cloud.modelarmor.v1.ModelArmorClient;
+import com.google.cloud.modelarmor.v1.ModelArmorSettings;
+import com.google.cloud.modelarmor.v1.Template;
+import com.google.cloud.modelarmor.v1.TemplateName;
+import java.io.IOException;
+public class GetTemplate {
+public static void main(String[] args) throws IOException {
+// TODO(developer): Replace these variables before running the sample.
+String projectId = "your-project-id";
+String locationId = "your-location-id";
+String templateId = "your-template-id";
+getTemplate(projectId, locationId, templateId);
+}
+public static Template getTemplate(String projectId, String locationId, String templateId)
+throws IOException {
+// Construct the API endpoint URL.
+String apiEndpoint = String.format("modelarmor.%s.rep.googleapis.com:443", locationId);
+ModelArmorSettings modelArmorSettings = ModelArmorSettings.newBuilder().setEndpoint(apiEndpoint)
+.build();
+// Initialize the client that will be used to send requests. This client
+// only needs to be created once, and can be reused for multiple requests.
+try (ModelArmorClient client = ModelArmorClient.create(modelArmorSettings)) {
+// Build the template name.
+String name = TemplateName.of(projectId, locationId, templateId).toString();
+// Get the template.
+Template template = client.getTemplate(name);
+// Find more details about Template object here:
+// https://cloud.google.com/security-command-center/docs/reference/model-armor/rest/v1/projects.locations.templates#Template
+System.out.printf("Retrieved template: %s\n", template.getName());
+return template;
+}
+}
+}
+Node.js
+To run this code, first set up a Node.js development environment
+and install the Model Armor Node.js SDK.
+/**
+* TODO(developer): Uncomment these variables before running the sample.
+*/
+// const projectId = 'my-project';
+// const locationId = 'my-location';
+// const templateId = 'my-template';
+const name = `projects/${projectId}/locations/${locationId}/templates/${templateId}`;
+// Imports the Model Armor library
+const {ModelArmorClient} = require('@google-cloud/modelarmor').v1;
+// Instantiates a client
+const client = new ModelArmorClient({
+apiEndpoint: `modelarmor.${locationId}.rep.googleapis.com`,
+});
+const request = {
+name: name,
+};
+// Run request
+const [response] = await client.getTemplate(request);
+return response;
+PHP
+To run this code, first set up a PHP development environment
+and install the Model Armor PHP SDK.
+use Google\Cloud\ModelArmor\V1\Client\ModelArmorClient;
+use Google\Cloud\ModelArmor\V1\GetTemplateRequest;
+/**
+* Gets a Model Armor template.
+*
+* @param string $projectId The ID of your Google Cloud Platform project (e.g. 'my-project').
+* @param string $locationId The ID of the location where the template is stored (e.g. 'us-central1').
+* @param string $templateId The ID of the template (e.g. 'my-template').
+*/
+function get_template(string $projectId, string $locationId, string $templateId): void
+{
+$options = ['apiEndpoint' => "modelarmor.$locationId.rep.googleapis.com"];
+$client = new ModelArmorClient($options);
+$name = sprintf('projects/%s/locations/%s/templates/%s', $projectId, $locationId, $templateId);
+$getTemplateRequest = (new GetTemplateRequest())->setName($name);
+$response = $client->getTemplate($getTemplateRequest);
+printf('Template retrieved: %s' . PHP_EOL, $response->getName());
+}
+Python
+To run this code, first set up a Python development environment
+and install the Model Armor Python SDK.
+from google.api_core.client_options import ClientOptions
+from google.cloud import modelarmor_v1
+# TODO(Developer): Uncomment these variables.
+# project_id = "YOUR_PROJECT_ID"
+# location_id = "us-central1"
+# template_id = "template_id"
+# Create the Model Armor client.
+client = modelarmor_v1.ModelArmorClient(
+transport="rest",
+client_options=ClientOptions(
+api_endpoint=f"modelarmor.{location_id}.rep.googleapis.com"
+),
+)
+# Initialize request arguments.
+request = modelarmor_v1.GetTemplateRequest(
+name=f"projects/{project_id}/locations/{location_id}/templates/{template_id}",
+)
+# Get the template.
+response = client.get_template(request=request)
+print(response.name)
+Update a Model Armor template
+Regularly update your templates to maintain a robust and
+effective security posture for your AI applications.
+Console
+In the Google Cloud console, go to the Model Armor page.
+Go to Model Armor
+Verify that you are viewing the project that you activated
+Model Armor on. The Model Armor page is displayed
+listing the templates created for your organization.
+Click the template that you want to update from the list. The Template
+details page is displayed.
+Click Edit.
+Update the required parameters and click Save.
+Note: You cannot update the template ID and location.
+gcloud
+To update a template, run the
+gcloud model-armor templates update
+command and include the flags for the settings that you want to modify.
+For example, the following command updates the filter settings and metadata
+of a template:
+gcloud model-armor templates update TEMPLATE_ID \
+--project=PROJECT_ID \
+--location=LOCATION \
+--rai-settings-filters='[{ "filterType": "HATE_SPEECH", "confidenceLevel": "MEDIUM_AND_ABOVE" },{ "filterType": "HARASSMENT", "confidenceLevel": "MEDIUM_AND_ABOVE" },{ "filterType": "DANGEROUS", "confidenceLevel": "MEDIUM_AND_ABOVE" },{ "filterType": "SEXUALLY_EXPLICIT", "confidenceLevel": "MEDIUM_AND_ABOVE" }]' \
+--basic-config-filter-enforcement=enabled \
+--pi-and-jailbreak-filter-settings-enforcement=enabled \
+--pi-and-jailbreak-filter-settings-confidence-level=HIGH \
+--malicious-uri-filter-settings-enforcement=enabled \
+--template-metadata-custom-llm-response-safety-error-code=798 \
+--template-metadata-custom-llm-response-safety-error-message="test template llm response evaluation failed" \
+--template-metadata-custom-prompt-safety-error-code=799 \
+--template-metadata-custom-prompt-safety-error-message="test template prompt evaluation failed" \
+--template-metadata-ignore-partial-invocation-failures \
+--template-metadata-log-operations \
+--template-metadata-log-sanitize-operations
+Replace the following:
+TEMPLATE_ID: the ID of the template.
+PROJECT_ID: the ID of the project that the
+template belongs to.
+LOCATION: the location
+of the template.
+REST
+Run the following command:
+curl -X PATCH \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+-d "$FILTER_CONFIG" \
+"https://modelarmor.LOCATION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/templates/TEMPLATE_ID?updateMask=UPDATE_MASK"
+Replace the following:
+PROJECT_ID: the ID of the project that the
+template belongs to.
+LOCATION: the
+location of the template.
+TEMPLATE_ID: the ID of the template.
+UPDATE_MASK: the fields that you want to update,
+such as filterConfig, filterConfig.piAndJailbreakFilterSettings, or
+filterConfig.filterRuleSettings. For more information, see
+Update exclusion rules in a
+template.
+Leaving this field empty updates the entire filter configuration.
+All other fields are immutable. Attempts made to update other fields (for
+example, attempts to update the template name) result in an error.
+C#
+To run this code, first set up a C# development environment
+and install the Model Armor C# SDK.
+using Google.Cloud.ModelArmor.V1;
+using Google.Protobuf.WellKnownTypes;
+using System;
+using System.Collections.Generic;
+namespace ModelArmor.Samples
+{
+public class UpdateTemplateSample
+{
+public Template UpdateTemplate(
+string projectId = "my-project",
+string locationId = "us-central1",
+string templateId = "my-template"
+)
+{
+// Construct the API endpoint URL.
+ModelArmorClientBuilder clientBuilder = new ModelArmorClientBuilder
+{
+Endpoint = $"modelarmor.{locationId}.rep.googleapis.com",
+};
+// Create the client.
+ModelArmorClient client = clientBuilder.Build();
+// Get the template name.
+TemplateName name = TemplateName.FromProjectLocationTemplate(projectId, locationId, templateId);
+// Build the updated Model Armor template with modified filters.
+// For more details on filters, please refer to the following doc:
+// https://cloud.google.com/security-command-center/docs/key-concepts-model-armor#ma-filters
+RaiFilterSettings raiFilterSettings = new RaiFilterSettings();
+List<RaiFilterSettings.Types.RaiFilter> filters =
+new List<RaiFilterSettings.Types.RaiFilter>
+{
+new RaiFilterSettings.Types.RaiFilter
+{
+FilterType = RaiFilterType.Dangerous,
+ConfidenceLevel = DetectionConfidenceLevel.High,
+},
+new RaiFilterSettings.Types.RaiFilter
+{
+FilterType = RaiFilterType.HateSpeech,
+ConfidenceLevel = DetectionConfidenceLevel.MediumAndAbove,
+},
+new RaiFilterSettings.Types.RaiFilter
+{
+FilterType = RaiFilterType.SexuallyExplicit,
+ConfidenceLevel = DetectionConfidenceLevel.MediumAndAbove,
+},
+new RaiFilterSettings.Types.RaiFilter
+{
+FilterType = RaiFilterType.Harassment,
+ConfidenceLevel = DetectionConfidenceLevel.MediumAndAbove,
+},
+};
+raiFilterSettings.RaiFilters.Add(filters);
+Template template = new Template
+{
+TemplateName = name,
+FilterConfig = new FilterConfig { RaiSettings = raiFilterSettings },
+};
+// Create a field mask to specify which fields to update.
+// Ref: https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask
+FieldMask updateMask = new FieldMask { Paths = { "filter_config.rai_settings" } };
+// Prepare the request.
+UpdateTemplateRequest request = new UpdateTemplateRequest
+{
+Template = template,
+UpdateMask = updateMask,
+};
+// Send the request.
+Template updatedTemplate = client.UpdateTemplate(request);
+Console.WriteLine($"Updated template: {updatedTemplate.Name}");
+return updatedTemplate;
+}
+}
+}
+Go
+To run this code, first set up a Go development environment
+and install the Model Armor Go SDK.
+import (
+"context"
+"fmt"
+"io"
+modelarmor "cloud.google.com/go/modelarmor/apiv1"
+modelarmorpb "cloud.google.com/go/modelarmor/apiv1/modelarmorpb"
+"google.golang.org/api/option"
+)
+// updateModelArmorTemplate updates a Model Armor template.
+//
+// updateModelArmorTemplate method updates a Model Armor template.
+//
+// w io.Writer: The writer to use for logging.
+// projectID string: The ID of the project.
+// locationID string: The ID of the location.
+// templateID string: The ID of the template.
+func updateModelArmorTemplate(w io.Writer, projectID, locationID, templateID string) error {
+ctx := context.Background()
+// Create options for Model Armor client.
+opts := option.WithEndpoint(fmt.Sprintf("modelarmor.%s.rep.googleapis.com:443", locationID))
+// Create the Model Armor client.
+client, err := modelarmor.NewClient(ctx, opts)
+if err != nil {
+return fmt.Errorf("failed to create client for project %s, location %s: %w", projectID, locationID, err)
+}
+defer client.Close()
+// Build the Model Armor template with your preferred filters.
+// For more details on filters, please refer to the following doc:
+// [https://cloud.google.com/security-command-center/docs/key-concepts-model-armor#ma-filters](https://cloud.google.com/security-command-center/docs/key-concepts-model-armor#ma-filters)
+updatedTemplate := &modelarmorpb.Template{
+Name: fmt.Sprintf("projects/%s/locations/%s/templates/%s", projectID, locationID, templateID),
+FilterConfig: &modelarmorpb.FilterConfig{
+PiAndJailbreakFilterSettings: &modelarmorpb.PiAndJailbreakFilterSettings{
+FilterEnforcement: modelarmorpb.PiAndJailbreakFilterSettings_ENABLED,
+ConfidenceLevel: modelarmorpb.DetectionConfidenceLevel_LOW_AND_ABOVE,
+},
+MaliciousUriFilterSettings: &modelarmorpb.MaliciousUriFilterSettings{
+FilterEnforcement: modelarmorpb.MaliciousUriFilterSettings_ENABLED,
+},
+},
+}
+// Initialize request argument(s).
+req := &modelarmorpb.UpdateTemplateRequest{
+Template: updatedTemplate,
+}
+// Update the template.
+response, err := client.UpdateTemplate(ctx, req)
+if err != nil {
+return fmt.Errorf("failed to update template: %w", err)
+}
+// Print the updated filters in the template.
+fmt.Fprintf(w, "Updated Filter Config: %+v\n", response.FilterConfig)
+return nil
+}
+Java
+To run this code, first set up a Java development environment
+and install the Model Armor Java SDK.
+import com.google.cloud.modelarmor.v1.DetectionConfidenceLevel;
+import com.google.cloud.modelarmor.v1.FilterConfig;
+import com.google.cloud.modelarmor.v1.ModelArmorClient;
+import com.google.cloud.modelarmor.v1.ModelArmorSettings;
+import com.google.cloud.modelarmor.v1.RaiFilterSettings;
+import com.google.cloud.modelarmor.v1.RaiFilterSettings.RaiFilter;
+import com.google.cloud.modelarmor.v1.RaiFilterType;
+import com.google.cloud.modelarmor.v1.Template;
+import com.google.cloud.modelarmor.v1.TemplateName;
+import com.google.cloud.modelarmor.v1.UpdateTemplateRequest;
+import com.google.protobuf.FieldMask;
+import java.io.IOException;
+import java.util.List;
+public class UpdateTemplate {
+public static void main(String[] args) throws IOException {
+// TODO(developer): Replace these variables before running the sample.
+// Specify the Google Project ID.
+String projectId = "your-project-id";
+// Specify the location ID. For example, us-central1.
+String locationId = "your-location-id";
+// Specify the template ID.
+String templateId = "your-template-id";
+updateTemplate(projectId, locationId, templateId);
+}
+public static Template updateTemplate(String projectId, String locationId, String templateId)
+throws IOException {
+// Construct the API endpoint URL.
+String apiEndpoint = String.format("modelarmor.%s.rep.googleapis.com:443", locationId);
+ModelArmorSettings modelArmorSettings = ModelArmorSettings.newBuilder().setEndpoint(apiEndpoint)
+.build();
+// Initialize the client that will be used to send requests. This client
+// only needs to be created once, and can be reused for multiple requests.
+try (ModelArmorClient client = ModelArmorClient.create(modelArmorSettings)) {
+// Get the template name.
+String name = TemplateName.of(projectId, locationId, templateId).toString();
+// Build the updated Model Armor template with modified filters.
+// For more details on filters, please refer to the following doc:
+// https://cloud.google.com/security-command-center/docs/key-concepts-model-armor#ma-filters
+RaiFilterSettings raiFilterSettings =
+RaiFilterSettings.newBuilder()
+.addAllRaiFilters(
+List.of(
+RaiFilter.newBuilder()
+.setFilterType(RaiFilterType.DANGEROUS)
+.setConfidenceLevel(DetectionConfidenceLevel.HIGH)
+.build(),
+RaiFilter.newBuilder()
+.setFilterType(RaiFilterType.HATE_SPEECH)
+.setConfidenceLevel(DetectionConfidenceLevel.MEDIUM_AND_ABOVE)
+.build(),
+RaiFilter.newBuilder()
+.setFilterType(RaiFilterType.HARASSMENT)
+.setConfidenceLevel(DetectionConfidenceLevel.MEDIUM_AND_ABOVE)
+.build(),
+RaiFilter.newBuilder()
+.setFilterType(RaiFilterType.SEXUALLY_EXPLICIT)
+.setConfidenceLevel(DetectionConfidenceLevel.MEDIUM_AND_ABOVE)
+.build()))
+.build();
+FilterConfig modelArmorFilter = FilterConfig.newBuilder()
+.setRaiSettings(raiFilterSettings)
+.build();
+Template template = Template.newBuilder()
+.setName(name)
+.setFilterConfig(modelArmorFilter)
+.build();
+// Create a field mask to specify which fields to update.
+// Ref: https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask
+FieldMask updateMask = FieldMask.newBuilder()
+.addPaths("filter_config.rai_settings")
+.build();
+UpdateTemplateRequest request = UpdateTemplateRequest.newBuilder()
+.setTemplate(template)
+.setUpdateMask(updateMask)
+.build();
+Template updatedTemplate = client.updateTemplate(request);
+System.out.println("Updated template: " + updatedTemplate.getName());
+return updatedTemplate;
+}
+}
+}
+Node.js
+To run this code, first set up a Node.js development environment
+and install the Model Armor Node.js SDK.
+/**
+* TODO(developer): Uncomment these variables before running the sample.
+*/
+// const projectId = 'your-project-id';
+// const locationId = 'us-central1';
+// const templateId = 'template-id';
+const modelarmor = require('@google-cloud/modelarmor');
+const {ModelArmorClient} = modelarmor.v1;
+const {protos} = modelarmor;
+const DetectionConfidenceLevel =
+protos.google.cloud.modelarmor.v1.DetectionConfidenceLevel;
+const PiAndJailbreakFilterEnforcement =
+protos.google.cloud.modelarmor.v1.PiAndJailbreakFilterSettings
+.PiAndJailbreakFilterEnforcement;
+const MaliciousUriFilterEnforcement =
+protos.google.cloud.modelarmor.v1.MaliciousUriFilterSettings
+.MaliciousUriFilterEnforcement;
+// Instantiates a client
+const client = new ModelArmorClient({
+apiEndpoint: `modelarmor.${locationId}.rep.googleapis.com`,
+});
+// Build the updated template configuration
+const updatedTemplate = {
+name: `projects/${projectId}/locations/${locationId}/templates/${templateId}`,
+filterConfig: {
+piAndJailbreakFilterSettings: {
+filterEnforcement: PiAndJailbreakFilterEnforcement.ENABLED,
+confidenceLevel: DetectionConfidenceLevel.LOW_AND_ABOVE,
+},
+maliciousUriFilterSettings: {
+filterEnforcement: MaliciousUriFilterEnforcement.ENABLED,
+},
+},
+};
+const request = {
+template: updatedTemplate,
+};
+const [response] = await client.updateTemplate(request);
+return response;
+PHP
+To run this code, first set up a PHP development environment
+and install the Model Armor PHP SDK.
+use Google\Cloud\ModelArmor\V1\Client\ModelArmorClient;
+use Google\Cloud\ModelArmor\V1\DetectionConfidenceLevel;
+use Google\Cloud\ModelArmor\V1\PiAndJailbreakFilterSettings\PiAndJailbreakFilterEnforcement;
+use Google\Cloud\ModelArmor\V1\PiAndJailbreakFilterSettings;
+use Google\Cloud\ModelArmor\V1\MaliciousUriFilterSettings;
+use Google\Cloud\ModelArmor\V1\UpdateTemplateRequest;
+use Google\Cloud\ModelArmor\V1\FilterConfig;
+use Google\Cloud\ModelArmor\V1\Template;
+/**
+* Updates a Model Armor template with the specified configuration.
+*
+* @param string $projectId The ID of the project (e.g. 'my-project').
+* @param string $locationId The ID of the location (e.g. 'us-central1').
+* @param string $templateId The ID of the template (e.g. 'my-template').
+*/
+function update_template(string $projectId, string $locationId, string $templateId): void
+{
+$options = ['apiEndpoint' => "modelarmor.$locationId.rep.googleapis.com"];
+$client = new ModelArmorClient($options);
+$templateFilterConfig = (new FilterConfig())
+->setPiAndJailbreakFilterSettings(
+(new PiAndJailbreakFilterSettings())
+->setFilterEnforcement(PiAndJailbreakFilterEnforcement::ENABLED)
+->setConfidenceLevel(DetectionConfidenceLevel::LOW_AND_ABOVE)
+)
+->setMaliciousUriFilterSettings(
+(new MaliciousUriFilterSettings())
+->setFilterEnforcement(PiAndJailbreakFilterEnforcement::ENABLED)
+);
+$template = (new Template())
+->setFilterConfig($templateFilterConfig)
+->setName("projects/$projectId/locations/$locationId/templates/$templateId");
+$updateTemplateRequest = (new UpdateTemplateRequest())->setTemplate($template);
+$response = $client->updateTemplate($updateTemplateRequest);
+printf('Template updated: %s' . PHP_EOL, $response->getName());
+}
+Python
+To run this code, first set up a Python development environment
+and install the Model Armor Python SDK.
+from google.api_core.client_options import ClientOptions
+from google.cloud import modelarmor_v1
+# TODO(Developer): Uncomment these variables.
+# project_id = "YOUR_PROJECT_ID"
+# location_id = "us-central1"
+# template_id = "template_id"
+# Create the Model Armor client.
+client = modelarmor_v1.ModelArmorClient(
+transport="rest",
+client_options=ClientOptions(
+api_endpoint=f"modelarmor.{location_id}.rep.googleapis.com"
+),
+)
+# Build the Model Armor template with your preferred filters.
+# For more details on filters, please refer to the following doc:
+# https://cloud.google.com/security-command-center/docs/key-concepts-model-armor#ma-filters
+updated_template = modelarmor_v1.Template(
+name=f"projects/{project_id}/locations/{location_id}/templates/{template_id}",
+filter_config=modelarmor_v1.FilterConfig(
+pi_and_jailbreak_filter_settings=modelarmor_v1.PiAndJailbreakFilterSettings(
+filter_enforcement=modelarmor_v1.PiAndJailbreakFilterSettings.PiAndJailbreakFilterEnforcement.ENABLED,
+confidence_level=modelarmor_v1.DetectionConfidenceLevel.LOW_AND_ABOVE,
+),
+malicious_uri_filter_settings=modelarmor_v1.MaliciousUriFilterSettings(
+filter_enforcement=modelarmor_v1.MaliciousUriFilterSettings.MaliciousUriFilterEnforcement.ENABLED,
+),
+),
+)
+# Initialize request argument(s).
+request = modelarmor_v1.UpdateTemplateRequest(template=updated_template)
+# Update the template.
+response = client.update_template(request=request)
+# Print the updated filters in the template.
+print(response.filter_config)
+Delete a Model Armor template
+Delete a template when it's no longer being used, is replaced by a new
+template, or when the security policies change.
+Console
+In the Google Cloud console, go to the Model Armor page.
+Go to Model Armor
+Verify that you are viewing the project that you activated
+Model Armor on. The Model Armor page is displayed
+listing the templates created for your organization.
+Click the template that you want to delete from the list. The Template
+details page is displayed.
+Click Delete. A confirmation dialog is displayed.
+Enter the template name to confirm the deletion and click Delete.
+Note: Ensure that the template you are deleting isn't used by any models.
+gcloud
+Run the following command:
+gcloud model-armor templates delete TEMPLATE_ID --project=PROJECT_ID --location=LOCATION
+Replace the following:
+LOCATION: the location of the template.
+TEMPLATE_ID: the ID of the template.
+PROJECT_ID: the ID of the project that the template belongs to.
+REST
+Run the following command:
+curl -X DELETE \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+"https://modelarmor.LOCATION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/templates/TEMPLATE_ID"
+Replace the following:
+PROJECT_ID: the ID of the project that the template belongs to.
+LOCATION: the location of the template.
+TEMPLATE_ID: the ID of the template.
+C#
+To run this code, first set up a C# development environment
+and install the Model Armor C# SDK.
+using Google.Cloud.ModelArmor.V1;
+using System;
+public class DeleteTemplateSample
+{
+public void DeleteTemplate(
+string projectId = "my-project",
+string locationId = "us-central1",
+string templateId = "my-template"
+)
+{
+ModelArmorClient client = new ModelArmorClientBuilder
+{
+Endpoint = $"modelarmor.{locationId}.rep.googleapis.com",
+}.Build();
+DeleteTemplateRequest request = new DeleteTemplateRequest
+{
+TemplateName = TemplateName.FromProjectLocationTemplate(projectId, locationId, templateId),
+};
+client.DeleteTemplate(request);
+Console.WriteLine($"Deleted template: {templateId}");
+}
+}
+Go
+To run this code, first set up a Go development environment
+and install the Model Armor Go SDK.
+import (
+"context"
+"fmt"
+"io"
+modelarmor "cloud.google.com/go/modelarmor/apiv1"
+modelarmorpb "cloud.google.com/go/modelarmor/apiv1/modelarmorpb"
+"google.golang.org/api/option"
+)
+// deleteModelArmorTemplate method deletes a Model Armor template with the provided ID.
+//
+// w io.Writer: The writer to use for logging.
+// projectID string: The ID of the Google Cloud project.
+// locationID string: The ID of the Google Cloud location.
+// templateID string: The ID of the template to delete.
+func deleteModelArmorTemplate(w io.Writer, projectID, locationID, templateID string) error {
+ctx := context.Background()
+// Create option for Model Armor client.
+opts := option.WithEndpoint(fmt.Sprintf("modelarmor.%s.rep.googleapis.com:443", locationID))
+// Create the Model Armor client.
+client, err := modelarmor.NewClient(ctx, opts)
+if err != nil {
+return fmt.Errorf("failed to create client for project %s, location %s: %w", projectID, locationID, err)
+}
+defer client.Close()
+// Build the request for deleting the template.
+req := &modelarmorpb.DeleteTemplateRequest{
+Name: fmt.Sprintf("projects/%s/locations/%s/templates/%s", projectID, locationID, templateID),
+}
+// Delete the template.
+if err := client.DeleteTemplate(ctx, req); err != nil {
+return fmt.Errorf("failed to delete template: %w", err)
+}
+// Print the success message using fmt.Fprintf with the io.Writer.
+fmt.Fprintf(w, "Successfully deleted Model Armor template: %s\n", req.Name)
+return err
+}
+Java
+To run this code, first set up a Java development environment
+and install the Model Armor Java SDK.
+import com.google.cloud.modelarmor.v1.ModelArmorClient;
+import com.google.cloud.modelarmor.v1.ModelArmorSettings;
+import com.google.cloud.modelarmor.v1.TemplateName;
+import java.io.IOException;
+public class DeleteTemplate {
+public static void main(String[] args) throws IOException {
+// TODO(developer): Replace these variables before running the sample.
+// Specify the Google Project ID.
+String projectId = "your-project-id";
+// Specify the location ID. For example, us-central1.
+String locationId = "your-location-id";
+// Specify the template ID.
+String templateId = "your-template-id";
+deleteTemplate(projectId, locationId, templateId);
+}
+public static void deleteTemplate(String projectId, String locationId, String templateId)
+throws IOException {
+// Construct the API endpoint URL.
+String apiEndpoint = String.format("modelarmor.%s.rep.googleapis.com:443", locationId);
+ModelArmorSettings modelArmorSettings = ModelArmorSettings.newBuilder().setEndpoint(apiEndpoint)
+.build();
+// Initialize the client that will be used to send requests. This client
+// only needs to be created once, and can be reused for multiple requests.
+try (ModelArmorClient client = ModelArmorClient.create(modelArmorSettings)) {
+String name = TemplateName.of(projectId, locationId, templateId).toString();
+// Note: Ensure that the template you are deleting isn't used by any models.
+client.deleteTemplate(name);
+System.out.println("Deleted template: " + name);
+}
+}
+}
+Node.js
+To run this code, first set up a Node.js development environment
+and install the Model Armor Node.js SDK.
+/**
+* TODO(developer): Uncomment these variables before running the sample.
+*/
+// const projectId = 'my-project';
+// const locationId = 'us-central1';
+// const templateId = 'my-template';
+const name = `projects/${projectId}/locations/${locationId}/templates/${templateId}`;
+// Imports the Model Armor library
+const {ModelArmorClient} = require('@google-cloud/modelarmor');
+// Instantiates a client
+const client = new ModelArmorClient({
+apiEndpoint: `modelarmor.${locationId}.rep.googleapis.com`,
+});
+const response = await client.deleteTemplate({
+name: name,
+});
+return response;
+PHP
+To run this code, first set up a PHP development environment
+and install the Model Armor PHP SDK.
+use Google\Cloud\ModelArmor\V1\Client\ModelArmorClient;
+use Google\Cloud\ModelArmor\V1\DeleteTemplateRequest;
+/**
+* Deletes a Model Armor template.
+*
+* @param string $projectId The ID of the project (e.g. 'my-project').
+* @param string $locationId The ID of the location (e.g. 'us-central1').
+* @param string $templateId The ID of the template (e.g. 'my-template').
+*/
+function delete_template(string $projectId, string $locationId, string $templateId): void
+{
+$options = ['apiEndpoint' => "modelarmor.$locationId.rep.googleapis.com"];
+$client = new ModelArmorClient($options);
+$templateName = sprintf('projects/%s/locations/%s/templates/%s', $projectId, $locationId, $templateId);
+$dltTemplateRequest = (new DeleteTemplateRequest())->setName($templateName);
+$client->deleteTemplate($dltTemplateRequest);
+printf('Deleted template: %s' . PHP_EOL, $templateName);
+}
+Python
+To run this code, first set up a Python development environment
+and install the Model Armor Python SDK.
+from google.api_core.client_options import ClientOptions
+from google.cloud import modelarmor_v1
+# TODO(Developer): Uncomment these variables.
+# project_id = "YOUR_PROJECT_ID"
+# location_id = "us-central1"
+# template_id = "template_id"
+# Create the Model Armor client.
+client = modelarmor_v1.ModelArmorClient(
+transport="rest",
+client_options=ClientOptions(
+api_endpoint=f"modelarmor.{location_id}.rep.googleapis.com"
+),
+)
+# Build the request for deleting the template.
+request = modelarmor_v1.DeleteTemplateRequest(
+name=f"projects/{project_id}/locations/{location_id}/templates/{template_id}",
+)
+# Delete the template.
+client.delete_template(request=request)
+Template metadata
+Model Armor template metadata helps you configure
+the behavior of Model Armor, including safety and security checks handling,
+error handling, and logging behavior.
+The template metadata for Model Armor includes the following fields:
+| Metadata
+| Type
+| Default value
+| Description
+| enforcement_type
+| Enum
+| INSPECT_AND_BLOCK
+|
+Defines the enforcement type. Use one of the following values:
+INSPECT_ONLY: Model Armor inspects requests that violate the configured settings, but it doesn't block them.
+INSPECT_AND_BLOCK: Model Armor blocks requests that violate the configured settings.
+| log_template_operations
+| Boolean
+| False
+| Enables logging of template operations.
+| log_sanitize_operations
+| Boolean
+| False
+| Enables logging of sanitize operations.
+| multiLanguageDetection
+| Boolean
+| False
+| Enables multi-language detection.
+| modalities (Preview)
+| Enum
+| Empty
+| Determines whether to scan text, images, or both. Leaving this field
+empty scans only text.
+Use one of the following values:
+TEXT: Scans text strings and text embedded in the supported file formats.
+IMAGE: Scans images.
+| data_residency_compliant
+| Boolean
+| True
+|
+Indicates whether the template is subject to strict data residency
+compliance (in-jurisdiction processing).
+True: Disables features that aren't locally supported
+within the jurisdiction of your template's region to prevent data from
+leaving the local jurisdiction.
+False: Disables data residency compliance checks and
+allows cross-jurisdictional routing of your data when a feature isn't
+locally available in the jurisdiction.
+For more information about this field, see
+Set data residency compliance
+in this document.
+For more information about data residency for templates, see
+Data
+residency enforcement for templates.
+What's next
+Learn about Model Armor overview.
+Learn about Model Armor floor settings.
+Sanitize prompts and responses.
+Troubleshoot Model Armor issues.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-06 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

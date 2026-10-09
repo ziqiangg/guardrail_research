@@ -1,0 +1,851 @@
+# status 200  final_url https://docs.cloud.google.com/model-armor/configure-exclusion-rules  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Model Armor
+Start free
+Overview
+Guides
+Reference
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Resources
+Console
+Discover
+Product overview
+Data residency and endpoints
+Feature availability for templates by region
+Best practices for scaling and high traffic
+Retry strategy
+Configure Model Armor
+Create and manage templates
+Configure template-specific exclusion rules
+Set the filter version
+Filter version history
+Configure floor settings
+Sanitize prompts and responses
+Configure logging
+View the monitoring dashboard
+Control access
+Access control with IAM
+Roles and permissions
+Service accounts
+Integrate Model Armor with services or frameworks
+Overview
+Integrate with Agent Gateway
+Integrate with Apigee
+Integrate with Gemini Enterprise
+Integrate with Google and Google Cloud MCP servers
+Integrate with Google Cloud networking services
+Integrate with Agent Platform
+Integrate with LangChain
+Monitor
+Audit logging
+Troubleshoot
+Troubleshooting
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Home
+Documentation
+AI and ML
+Model Armor
+Guides
+Send feedback
+Configure template-specific exclusion rules
+Stay organized with collections
+Save and categorize content based on your preferences.
+Preview
+This feature is
+subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the
+Service Specific
+Terms.
+Pre-GA features are available "as is" and might have limited support.
+For more information, see the
+launch stage descriptions.
+You can configure template-specific exclusion rules in Model Armor to
+mitigate false-positive detections. Exclusion rules are template-specific rules
+that contain regular expressions or phrases to exclude from detection.
+Supported filters
+You can use exclusion rules for the following filters:
+Prompt injection and jailbreak
+detection
+(PROMPT_INJECTION_AND_JAILBREAK)
+Responsible AI safety
+filters
+(RESPONSIBLE_AI)
+When to use exclusion rules
+Use template-specific exclusion rules when you need to suppress known
+false-positive detections for specific workloads without disabling a filter
+entirely:
+Domain-specific or technical terminology: Your application processes
+specialized vocabulary—such as system administration commands (kill process,
+abort transaction), security testing terminology (penetration testing),
+scientific terms (blast search), or industry idioms—that overlaps with
+Responsible AI safety categories.
+Benign operational or formatting instructions: Your users or prompt
+templates include legitimate instructions that use imperative verbs (such as
+"ignore case when sorting this list", "ignore empty rows", or
+"Summarize my inbox and ignore the emails from the marketing vendor.") that
+trigger false positives in
+prompt injection and jailbreak detection.
+Targeted mitigation while awaiting model updates: You need an immediate
+workaround for a verified false positive in a specific application workflow
+while keeping the filter active for all other inputs.
+The following table describes when to use each combination of rule type and
+matching scope. For more information about how dictionary and regular
+expression matching work, see Dictionary and regular expression
+rules and How matching works.
+| Rule configuration
+| When to use
+| Example
+|
+Dictionary rule with partial match
+(MATCHING_SCOPE_PARTIAL_MATCH)
+|
+You have a fixed list of static words or phrases that can appear
+anywhere within a prompt or response. For more information about
+dictionary matching behavior, see Dictionary and regular expression
+rules.
+|
+Dictionary contains the phrase
+ignore empty rows
+Matches:
+ignore empty rows
+ignore EMPTY-rows
+please ignore empty rows
+Doesn't match:
+ignore rows
+ignore the empty rows
+|
+Dictionary rule with full match
+(MATCHING_SCOPE_FULL_MATCH)
+|
+Your application uses predefined prompt options (such as UI quick-reply
+buttons or canned commands) where the entire input matches a known
+phrase, and you want to prevent additional unscreened text from
+bypassing the filter. For more information about dictionary matching
+behavior, see Dictionary and regular
+expression rules.
+|
+Dictionary contains the phrase
+ignore empty rows
+Matches:
+ignore empty rows
+ignore EMPTY-rows
+Doesn't match:
+please ignore empty rows
+ignore rows
+|
+Regular expression rule with partial match
+(MATCHING_SCOPE_PARTIAL_MATCH)
+|
+You need to exclude structured patterns, dynamic identifiers, or
+specific verb-and-noun combinations within larger prompts or responses.
+For more information, see Example
+regular expression exclusion patterns.
+|
+Regular expression pattern:
+(?i)kill process [0-9]+
+Matches:
+kill process 1234
+How do I Kill Process 99?
+Doesn't match:
+kill process abc
+kill the process 1234
+|
+Regular expression rule with full match
+(MATCHING_SCOPE_FULL_MATCH)
+|
+The entire input payload follows a strict structural format (such as an
+automated test identifier or structured command).
+|
+Regular expression pattern:
+(?i)^test_case_[0-9]+$
+Matches:
+test_case_42
+TEST_CASE_001
+Doesn't match:
+run test_case_42
+test_case_alpha
+Use a regional or multi-regional endpoint
+When working with a Model Armor template, you must use a
+regional or
+multi-regional endpoint
+(modelarmor.LOCATION.rep.googleapis.com) that matches
+the template's location. For information about how data residency is enforced for each
+region or multi-region, see Data
+residency enforcement for templates.
+The global endpoint (modelarmor.googleapis.com) doesn't support
+managing Model Armor templates or sanitizing prompts and
+responses.
+Before you begin
+Before you begin, complete the following tasks.
+Obtain the required permissions
+To get the permissions that
+you need to configure exclusion rules in Model Armor templates,
+ask your administrator to grant you the
+Model Armor Admin (roles/modelarmor.admin) IAM role on Model Armor the project that contains the Model Armor template.
+For more information about granting roles, see Manage access to projects, folders, and organizations.
+You might also be able to get
+the required permissions through custom
+roles or other predefined
+roles.
+Enable APIs
+You must enable the Model Armor API before you can use Model Armor.
+Console
+Enable the Model Armor API, if it is not already enabled.
+Roles required to enable APIs
+To enable APIs, you need the serviceusage.services.enable permission. If you
+created the project, then you likely already have this permission through the
+Owner role (roles/owner). Otherwise, you can get this permission through the
+Service Usage Admin role (roles/serviceusage.serviceUsageAdmin).
+Learn how to grant roles.
+Enable the API
+Select the project where you want to activate Model Armor.
+gcloud
+Before you begin, follow these steps using the Google Cloud CLI with the
+Model Armor API:
+In the Google Cloud console, activate Cloud Shell.
+Activate Cloud Shell
+At the bottom of the Google Cloud console, a
+Cloud Shell
+session starts and displays a command-line prompt. Cloud Shell is a shell environment
+with the Google Cloud CLI
+already installed and with values already set for
+your current project. It can take a few seconds for the session to initialize.
+Enable the Model Armor API, if it is not already enabled:
+Roles required to enable APIs
+To enable APIs, you need the serviceusage.services.enable permission. If you
+created the project, then you likely already have this permission through the
+Owner role (roles/owner). Otherwise, you can get this permission through the
+Service Usage Admin role (roles/serviceusage.serviceUsageAdmin).
+Learn how to grant roles.
+gcloud services enable modelarmor.googleapis.com
+Set the API endpoint override using the
+gcloud CLI.
+Set the API endpoint override using the gcloud CLI
+This step is only required if you use the gcloud CLI with
+Model Armor and want to use a region or multi-region other than
+the default us multi-region. You must manually set the API endpoint override
+to ensure the gcloud CLI correctly routes requests to the
+Model Armor service.
+Run the following command to set the API endpoint for the
+Model Armor service.
+gcloud config set api_endpoint_overrides/modelarmor "https://modelarmor.LOCATION.rep.googleapis.com/"
+Replace LOCATION with the region or multi-region where
+you want to use Model Armor.
+How exclusion rules work
+You configure exclusion rules by using the Model Armor API.
+Dictionary and regular expression rules
+You can define two types of exclusion rules within a Model Armor
+template:
+Dictionary rules: Specify a list of words or phrases (wordList, up to
+128 KB per dictionary) to exclude. A dictionary
+must contain at least one phrase, and each phrase must contain at least two
+characters that are letters or digits. Dictionary matching works as follows:
+Case insensitivity: Dictionary words and phrases are case-insensitive.
+Non-alphanumeric characters: When scanning for matches, all characters
+other than letters and digits in the Unicode
+Basic Multilingual Plane
+are replaced with whitespace. For example, the dictionary phrase
+Sam Johnson matches sam johnson, Sam, Johnson, and Sam (Johnson).
+Dictionary phrases that contain many characters that aren't letters or
+digits might produce unexpected matches because those characters are
+treated as whitespace.
+Character boundaries: The characters surrounding a match must be of a
+different character type than the adjacent characters within the dictionary
+word. Letters must be adjacent to non-letters, and digits must be adjacent
+to non-digits. For example, the dictionary word jen matches the first
+three letters of jen123, but doesn't match jennifer.
+Regular expression rules: Specify a regular expression pattern (up to
+1,000 characters) to match and exclude. Regular
+expression matches are case-sensitive by default. To perform a
+case-insensitive match, include the (?i) flag in your pattern. For example,
+(?i)kill process [0-9]+ matches both kill process 1234 and
+Kill Process 1234.
+How matching works
+Each exclusion rule supports the matchingScope field, which specifies how
+Model Armor matches input content against the rule:
+Partial match (MATCHING_SCOPE_PARTIAL_MATCH, default):
+Dictionary rules: Matches when a word or phrase in the dictionary
+matches a substring in the input content, subject to dictionary
+character-boundary rules. For example, the dictionary phrase
+ignore empty rows matches ignore empty rows,
+ignore EMPTY-rows, and Please ignore empty rows and
+summarize this table, but doesn't match ignore rows or ignore the empty
+rows.
+Regular expression rules: Matches when any substring in the input
+content matches the regular expression pattern.
+Full match (MATCHING_SCOPE_FULL_MATCH):
+Dictionary rules: Matches only when the dictionary entry covers the
+entire input content. For example, the dictionary phrase
+ignore empty rows matches ignore empty rows
+and ignore EMPTY-rows, but doesn't match please
+ignore empty rows or ignore rows.
+Regular expression rules: Matches only when the regular expression
+pattern matches the entire input content.
+Exclusion rule overrides during sanitization
+If a template includes exclusion rules, Model Armor evaluates
+those rules during prompt and model response sanitization whenever a prompt
+injection and jailbreak detection (PROMPT_INJECTION_AND_JAILBREAK) or
+responsible AI (RESPONSIBLE_AI) filter identifies a potential match:
+Rule matches the input: If an exclusion rule matches a substring
+(MATCHING_SCOPE_PARTIAL_MATCH, default) or the entire input from start to
+end (MATCHING_SCOPE_FULL_MATCH), Model Armor overrides a
+MATCH_FOUND or EXECUTION_SKIPPED filter result and sets matchState to
+NO_MATCH_FOUND for that entire supported filter type
+(including all responsible AI safety categories for RESPONSIBLE_AI), rather
+than excluding individual phrases or spans within the input.
+In the sanitization response,
+filterMatchState is NO_MATCH_FOUND when nothing
+malicious is detected or when exclusion rules override filter results. For
+troubleshooting, enable Cloud Logging for sanitize operations
+(logSanitizeOperations) in the template and filter on the
+modelarmor.googleapis.com/exclusion_rule_overridden_filters or
+modelarmor.googleapis.com/exclusion_rule_skipped_filters labels.
+Model Armor logs these labels when exclusion rules override
+filter results or when a filter's executionState is
+EXECUTION_SKIPPED. For more information, see
+View
+exclusion rule logs.
+Rule doesn't match the full input (MATCHING_SCOPE_FULL_MATCH): If the
+input contains additional text beyond the configured phrase or pattern, the
+rule doesn't match and the filter retains MATCH_FOUND.
+Input exceeds 130,000 tokens (0.5 MB): Exclusion rules evaluate only
+the initial 130,000 tokens (0.5 MB) of input text. If an input exceeds
+130,000 tokens (0.5 MB) and a filter detects a match outside the initial
+scanned portion, the filter returns EXECUTION_SKIPPED. For details about
+messageItems values and payload limits, see Exclusion rules system
+limits.
+For examples of sanitizing prompts and model responses with exclusion rules, see
+Sanitize a prompt with an exclusion
+rule and Sanitize a
+response with an exclusion
+rule.
+Considerations
+When you configure exclusion rules, consider the following:
+Exclusion rules apply only to the template where you define them. You can't
+share exclusion rules across templates.
+You can configure exclusion rules for a supported filter
+type only when that filter is enabled in the template.
+For prompt injection and jailbreak detection
+(PROMPT_INJECTION_AND_JAILBREAK), set filterEnforcement to ENABLED in
+piAndJailbreakFilterSettings. To enable responsible AI safety filters
+(RESPONSIBLE_AI), configure at least one responsible AI safety category
+in raiSettings.raiFilters.
+Model Armor doesn't support exclusion rules in streaming APIs
+or floor settings.
+Model Armor evaluates exclusion rules against raw input text
+before performing text transformations such as de-identification or
+translation. Exclusion rules don't support multi-language detection or
+automatic translation; to exclude content across multiple languages, add
+language-specific phrases or regular expression patterns for each target
+language.
+Exclusion rules have limited support for non-Latin script languages and
+multi-byte UTF-8 characters. In particular, dictionary rules (wordList)
+might not match as expected for scripts that use combining marks (such as
+Indic scripts) or scripts without spaces between words (such as Chinese and
+Japanese). Full-match rules (MATCHING_SCOPE_FULL_MATCH) don't match
+inputs containing multi-byte UTF-8 characters. When excluding content in
+non-Latin scripts or inputs with multi-byte characters, use regular expression
+rules (regex) with MATCHING_SCOPE_PARTIAL_MATCH.
+Exclusion rules are subject to system limits. For more information, see
+Exclusion rules system limits.
+Create a template with exclusion rules
+To create a template with exclusion rules, include the filterRuleSettings
+object within filterConfig in a POST request.
+The following example creates a template that enables prompt injection and
+jailbreak detection and responsible AI safety filters, and configures two
+exclusion rules with partial matching (MATCHING_SCOPE_PARTIAL_MATCH):
+Prompt injection and jailbreak detection
+(PROMPT_INJECTION_AND_JAILBREAK): Uses a dictionary rule to exclude inputs
+containing specified phrases, such as ignore case when sorting this list or
+ignore empty rows, from prompt injection and jailbreak
+detections.
+Responsible AI (RESPONSIBLE_AI): Uses a regular expression rule to
+exclude inputs matching a specified pattern, such as
+(?i)kill process [0-9]+, from responsible AI safety detections.
+export TEMPLATE_WITH_EXCLUSIONS='{
+"filterConfig": {
+"piAndJailbreakFilterSettings": {
+"filterEnforcement": "ENABLED",
+"confidenceLevel": "LOW_AND_ABOVE"
+},
+"raiSettings": {
+"raiFilters": [
+{
+"filterType": "DANGEROUS",
+"confidenceLevel": "LOW_AND_ABOVE"
+},
+{
+"filterType": "HARASSMENT",
+"confidenceLevel": "LOW_AND_ABOVE"
+},
+{
+"filterType": "HATE_SPEECH",
+"confidenceLevel": "LOW_AND_ABOVE"
+},
+{
+"filterType": "SEXUALLY_EXPLICIT",
+"confidenceLevel": "LOW_AND_ABOVE"
+}
+]
+},
+"filterRuleSettings": {
+"ruleSets": [
+{
+"filterTypes": [
+"PROMPT_INJECTION_AND_JAILBREAK"
+],
+"rules": [
+{
+"exclusionRule": {
+"dictionary": {
+"wordList": {
+"words": [
+"EXCLUDED_PHRASE_1",
+"EXCLUDED_PHRASE_2"
+]
+}
+},
+"matchingScope": "MATCHING_SCOPE_PARTIAL_MATCH"
+}
+}
+]
+},
+{
+"filterTypes": [
+"RESPONSIBLE_AI"
+],
+"rules": [
+{
+"exclusionRule": {
+"regex": {
+"pattern": "EXCLUDED_REGEX_PATTERN"
+},
+"matchingScope": "MATCHING_SCOPE_PARTIAL_MATCH"
+}
+}
+]
+}
+]
+}
+}
+}'
+curl -X POST \
+-d "$TEMPLATE_WITH_EXCLUSIONS" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+"https://modelarmor.LOCATION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/templates?template_id=TEMPLATE_ID"
+Replace the following:
+EXCLUDED_PHRASE_1 and
+EXCLUDED_PHRASE_2: the dictionary words or phrases
+to exclude from prompt injection and jailbreak detection—for example,
+ignore case when sorting this list and
+ignore empty rows.
+EXCLUDED_REGEX_PATTERN: the regular expression
+pattern to exclude from responsible AI safety detection—for example,
+(?i)kill process [0-9]+.
+PROJECT_ID: the ID of the project that the template
+belongs to.
+LOCATION: the
+location of the template.
+TEMPLATE_ID: the ID of the template.
+This command returns a response similar to the following:
+{
+"filterConfig": {
+"raiSettings": {
+"raiFilters": [
+{
+"filterType": "DANGEROUS",
+"confidenceLevel": "LOW_AND_ABOVE"
+},
+{
+"filterType": "HARASSMENT",
+"confidenceLevel": "LOW_AND_ABOVE"
+},
+{
+"filterType": "HATE_SPEECH",
+"confidenceLevel": "LOW_AND_ABOVE"
+},
+{
+"filterType": "SEXUALLY_EXPLICIT",
+"confidenceLevel": "LOW_AND_ABOVE"
+}
+]
+},
+"piAndJailbreakFilterSettings": {
+"filterEnforcement": "ENABLED",
+"confidenceLevel": "LOW_AND_ABOVE"
+},
+"filterRuleSettings": {
+"ruleSets": [
+{
+"filterTypes": [
+"PROMPT_INJECTION_AND_JAILBREAK"
+],
+"rules": [
+{
+"exclusionRule": {
+"dictionary": {
+"wordList": {
+"words": [
+"ignore case when sorting this list",
+"ignore empty rows"
+]
+}
+},
+"matchingScope": "MATCHING_SCOPE_PARTIAL_MATCH"
+}
+}
+]
+},
+{
+"filterTypes": [
+"RESPONSIBLE_AI"
+],
+"rules": [
+{
+"exclusionRule": {
+"regex": {
+"pattern": "(?i)kill process [0-9]+"
+},
+"matchingScope": "MATCHING_SCOPE_PARTIAL_MATCH"
+}
+}
+]
+}
+]
+}
+},
+"templateMetadata": {
+"dataResidencyCompliant": true
+}
+}
+Update exclusion rules in a template
+To update the exclusion rules in an existing template, send a PATCH request
+with updateMask set to filterConfig.filterRuleSettings. Because the update
+replaces the entire filterRuleSettings field, include all rules that you want
+to retain along with your modifications.
+The following example updates the exclusion rules from the preceding example by
+adding a regular expression rule to the PROMPT_INJECTION_AND_JAILBREAK rule
+set and removing the RESPONSIBLE_AI rule set:
+export EXCLUSION_RULES_UPDATE='{
+"filterConfig": {
+"filterRuleSettings": {
+"ruleSets": [
+{
+"filterTypes": [
+"PROMPT_INJECTION_AND_JAILBREAK"
+],
+"rules": [
+{
+"exclusionRule": {
+"dictionary": {
+"wordList": {
+"words": [
+"EXCLUDED_PHRASE_1",
+"EXCLUDED_PHRASE_2"
+]
+}
+},
+"matchingScope": "MATCHING_SCOPE_PARTIAL_MATCH"
+}
+},
+{
+"exclusionRule": {
+"regex": {
+"pattern": "EXCLUDED_REGEX_PATTERN"
+},
+"matchingScope": "MATCHING_SCOPE_FULL_MATCH"
+}
+}
+]
+}
+]
+}
+}
+}'
+curl -X PATCH \
+-d "$EXCLUSION_RULES_UPDATE" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+"https://modelarmor.LOCATION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/templates/TEMPLATE_ID?updateMask=filterConfig.filterRuleSettings"
+Replace the following:
+EXCLUDED_PHRASE_1 and
+EXCLUDED_PHRASE_2: the dictionary words or phrases
+to exclude from prompt injection and jailbreak detection—for example,
+ignore case when sorting this list and
+ignore empty rows.
+EXCLUDED_REGEX_PATTERN: the regular expression
+pattern to exclude from prompt injection and jailbreak detection—for
+example, (?i)\\b(?:ignore\\s+(?:the\\s+)?(?:emails?|spams?|warnings?|drafts?|typos?|duplicates?|noise))\\b.
+PROJECT_ID: the ID of the project that the template
+belongs to.
+LOCATION: the
+location of the template.
+TEMPLATE_ID: the ID of the template.
+Example regular expression exclusion patterns
+When you write regular expression exclusion rules, scope your patterns to
+specific domain terms or target nouns so that Model Armor
+excludes known false positives without ignoring genuine security or safety
+violations. When passing regular expression patterns inside JSON request bodies
+("pattern"), escape each backslash with a second backslash (for example, use
+\\b and \\s).
+Prompt injection and jailbreak detection examples
+Imperative verbs such as ignore, disregard, bypass, or override
+frequently appear in both adversarial prompt injections and legitimate
+instructions for email triage, data formatting, error handling, or system
+configuration. To avoid excluding broad categories of prompts, combine word
+boundaries (\\b), non-capturing groups ((?:...)), and the case-insensitive
+flag ((?i)) with MATCHING_SCOPE_PARTIAL_MATCH to anchor your regular
+expression to specific operational target nouns.
+The following table provides example partial-match regular expression pattern
+(with JSON-escaped backslashes) and example prompt for common prompt injection
+and jailbreak false-positive scenario.
+| Instruction category
+| Trigger terms
+| False-positive scenarios
+| Example partial-match regular expression pattern
+| Example prompt
+| Content triage and filtering
+| ignore, disregard
+|
+Email triage, error handling, and draft review
+|
+(?i)\\b(?:ignore\\s+(?:the\\s+)?(?:emails?|spams?|warnings?|drafts?|typos?|duplicates?|noise))\\b
+|
+Summarize my inbox and ignore the emails from the marketing vendor.
+Responsible AI safety filter examples
+Technical documentation, system administration commands, and common idioms often
+contain words that overlap with responsible AI safety categories. To mitigate
+false positives across larger prompts or responses, combine word boundaries
+(\\b), non-capturing groups ((?:...)), and the case-insensitive flag
+((?i)) with MATCHING_SCOPE_PARTIAL_MATCH.
+The following table provides example partial-match regular expression patterns
+(with JSON-escaped backslashes) and example prompts for common responsible AI
+false-positive scenarios.
+| Risk category
+| Trigger terms
+| False-positive scenarios
+| Example partial-match regular expression pattern
+| Example prompt
+| Violence or harm
+| kill
+|
+Process termination, electrical or HVAC switches, and common idioms
+|
+(?i)\\b(?:kill\\s+(?:-9|all|process(?:es)?|switch(?:es)?|jobs?|pods?|sessions?|bill|lights?)|time\\s+to\\s+kill|dressed\\s+to\\s+kill)\\b
+| Please kill all pods in the namespace.
+| Toxicity or offensive language
+| abort, terminate
+|
+Database transactions, mission lifecycle, and employment or contract
+terms
+|
+(?i)\\b(?:abort\\s+(?:transactions?|missions?|requests?|connections?|retry|retries)|terminate\\s+(?:contracts?|sessions?|threads?|instances?|connections?))\\b
+| Abort retry.
+| Substring matches in domain terms
+| Overlapping character substrings
+|
+Academic terms, botany, ornithology, aviation, and proper names
+|
+(?i)\\b(?:class(?:room|ic)?|assess(?:ment)?|associate|passive|peacock|cockpit|cocktail|dickens)\\b
+| I love reading Dickens.
+| Weapons or explosives
+| bomb, blast, detonate
+|
+Bioinformatics, entertainment idioms, and industrial equipment or
+cleaning
+|
+(?i)\\b(?:blast\\s+(?:search|alignment|radius|furnace)|box\\s+office\\s+bomb|had\\s+a\\s+blast)\\b
+| Run a blast search on the genetic sequence.
+View exclusion rule logs
+To log exclusion rule evaluation outcomes, set logSanitizeOperations to true
+when you configure logging in
+templates. When
+logging is enabled, Model Armor writes
+SanitizeOperationLogEntry log entries for the
+modelarmor.googleapis.com/SanitizeOperation monitored resource to
+Cloud Logging.
+For more information about enabling and querying sanitization logs, see
+Configure logging.
+Best practices for configuring exclusion rules
+Follow these best practices to minimize false positives without weakening your
+template's security posture:
+Scope rules narrowly to specific contexts: Avoid excluding single verbs
+or broad terms (such as ignore, kill, or abort) or using unconstrained
+wildcards (such as .*ignore.*). Because MATCHING_SCOPE_PARTIAL_MATCH
+overrides the matchState to NO_MATCH_FOUND for the entire filter whenever
+a substring matches, overly broad rules can mask genuine violations elsewhere
+in the same prompt or response. Always pair trigger verbs with specific
+target nouns (for example, ignore case when sorting this list or
+(?i)kill process [0-9]+).
+Use word boundaries and consolidate patterns: In regular expression rules,
+use word boundaries (\b) to prevent accidental substring matches inside
+unrelated words. Consolidate related phrases into a single regular expression
+by using non-capturing groups ((?:...)) and alternation (|) to stay
+within the system limit of 10 rules per rule
+set.
+Prefer MATCHING_SCOPE_FULL_MATCH for predictable inputs: When excluding
+predefined UI prompts, canned commands, or automated test payloads, set
+matchingScope to MATCHING_SCOPE_FULL_MATCH (or anchor regular expressions
+with ^ and $). Full-match scoping prevents users from appending
+adversarial instructions to an excluded phrase to bypass detection.
+Write rules for raw, untransformed text: Model Armor
+evaluates exclusion rules before de-identification or translation. Ensure
+that your patterns match the original format before de-identification, and
+add language-specific phrases or regular expression patterns for each
+language that your application supports.
+Review and retire temporary rules after filter upgrades: When you upgrade
+a template to a newer filter version,
+re-evaluate your false-positive test cases and remove exclusion rules that
+are resolved by the updated detection models.
+What's next
+See examples of how to sanitize
+prompts and
+sanitize model
+responses with
+exclusion rules.
+Review exclusion rules system
+limits.
+Learn how to configure logging for
+Model Armor.
+Learn how to create and manage Model Armor
+templates.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-06 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

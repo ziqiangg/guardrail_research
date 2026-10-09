@@ -13,9 +13,14 @@
 | explorer/20261009_modelarmor_q01.md: 10 columns (R002 split) vs 6 vs folding MA9/MA10; antivirus + MCP screening as inventory or MA11; prefix `Model Armor:` (Q03); P1 adds alt (e) 14 cols if response-side file/image evidence appears, MA11 = tool-call screening (MCP and Agent Gateway) | modelarmor | user at modelarmor CP1 | resolved | see CP1 ruling |
 | explorer/20261009_sdp_q01–q03.md: prefix `Sensitive Data Protection:` vs `Google Cloud …`; content policy (SD7) column vs inventory; fold SD2→SD1, SD4→SD3 | sdp | user at sdp CP1 | resolved | see CP1 ruling |
 
+| modelarmor P5 r2 Q1/Q2: Google Cloud AUP forbids using Services "to test … to find limitations or vulnerabilities, or to evade filtering capabilities, except as expressly permitted" — does red-team testing of Model Armor fall under it? Synthetic data only for Preview features (Pre-GA terms: no personal data)? | modelarmor (+ bench design) | **user at modelarmor CP2** | open (non-blocking for research; recorded as [Documented] clause + [Not disclosed] permission) | — |
+
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| modelarmor P5 r2 Q3 (T41 range) | covered by resolutions_1 (PARTLY RESOLVED) + r2 cross-range note; merger uses both | main |
+| modelarmor P5 r2 Q4 (T78 date 2026-10-09, T80 page footers) | merger records in modelarmor_changes.md | main |
+| modelarmor P5 r2 Q6 (Pre-GA suffix) | intro sentence only; Preview rows keep Status "Preview" (auto-default: equivalent wordings) | main |
 | sdp P5 r2 Q1 (Google sample repos dlp-dataflow-deidentification, community) | yes, as "supporting only" with [Documented: repo …@sha] (R013: Google sample repos are supporting) | main |
 | sdp P5 r2 Q2 (T65 drop SD4 from hash row) | yes: hashing is one-way, SD4 is reversible tokenisation (R018 keeps SD4) | main |
 | sdp P5 r2 Q3/Q4 (T92/T93 terms facts) | accept resolver's text: general Google Cloud terms [Documented] + [Inferred] applicability; benchmarking/AUP in SD6 R7/R8 and INV(f) (R019) | main |
