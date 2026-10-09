@@ -21,7 +21,7 @@ One row per filter or detector that Model Armor runs. Each filter has the same s
 
 ## (b) Integration paths
 
-One row per way to reach or manage Model Armor, including configuration and reporting surfaces. Agent Gateway has two rows because the ingress path screens ordinary agent prompts and responses while the egress path screens tool, MCP, A2A and external LLM traffic. Per INT, only the Gemini Enterprise integration supports documents ('only the Gemini Enterprise integration supports documents. All other integrations scan and sanitize only text.') [Documented] (INT). INT also says the Gemini Enterprise Agent Platform, Agent Runtime and Apigee integrations sanitize the initial prompt, the final response and intermediate steps such as grounding data and web-search results [Documented] (INT).
+One row per way to reach or manage Model Armor, including configuration and reporting surfaces. Agent Gateway has two rows because the ingress path screens ordinary agent prompts and responses while the egress path screens tool, MCP, A2A and external LLM traffic. Per INT, only the Gemini Enterprise integration supports documents ('only the Gemini Enterprise integration supports documents. All other integrations scan and sanitize only text.') [Documented] (INT). INT also says the Gemini Enterprise, Agent Runtime and Apigee integrations sanitize the initial prompt, the final response and intermediate steps such as grounding data and web-search results [Documented] (INT).
 
 | Path | Status (GA/Preview) | Modalities | Mode (inline/API) | Direction | Config route (template/floor setting) | Limitations | Covered by Table 3 column | Source URL |
 |---|---|---|---|---|---|---|---|---|

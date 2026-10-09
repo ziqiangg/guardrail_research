@@ -684,3 +684,15 @@ Re-checks after the CP2 edits (repo-root paths):
 
 - python benchtest/tools/check_drafts.py columns benchtest/drafts/modelarmor_two_level.md --final --expect 10: RESULT: 0 errors, 0 warnings
 - python benchtest/tools/check_drafts.py inventory benchtest/drafts/modelarmor_inventory_final.md --headers benchtest/drafts/modelarmor_two_level.md: RESULT: 0 errors, 0 warnings
+
+## Post-P8 fixes
+
+Source: P10 diagram verifier review, benchtest/scratchpad/verifier/20261009_modelarmor_diagram-review.md (Q1), relayed by main.
+
+| Location | Before | After | Reason |
+|---|---|---|---|
+| INV (b) block intro paragraph (line 24) | "INT also says the Gemini Enterprise Agent Platform, Agent Runtime and Apigee integrations sanitize the initial prompt, the final response and intermediate steps …" | "INT also says the Gemini Enterprise, Agent Runtime and Apigee integrations sanitize …" | the integrations page (INT) and the two-level drafts name three integrations, Gemini Enterprise, Agent Runtime and Apigee; "Agent Platform" had been merged into the first name |
+
+Other occurrences of "Gemini Enterprise Agent Platform" in the two finals, checked and left unchanged because they are a different sense (the Vertex AI product name, not the integration list): inventory scope paragraph (line 3, naming note on Vertex AI renaming) and (e) pricing row (line 115, token definition 'the same definition as Gemini Enterprise Agent Platform'). modelarmor_two_level.md has none.
+
+Re-checks (repo-root paths): columns --final --expect 10: RESULT: 0 errors, 0 warnings; inventory --headers: RESULT: 0 errors, 0 warnings; block counts 10/15/16/20/16.
