@@ -1,0 +1,7 @@
+## Column PL1: Prompt Guard 2: Input-level prompt-attack detection (jailbreak and injection)
+## Column PL2: LlamaFirewall: Input-level prompt-attack detection (PromptGuard scanner)
+## Column PL3: LlamaFirewall: Trace-level agent goal-hijacking detection (AlignmentCheck)
+## Column PL4: LlamaFirewall: Output-level insecure-code detection (CodeShield scanner)
+## Column PL5: LlamaFirewall: Regex pattern blocking and custom scanners (Regex scanner)
+## Column PL6: Code Shield: Output-level insecure-code detection (LLM-generated code)
+## Column PL7: LlamaFirewall: Hidden Unicode tag-character detection (Hidden ASCII scanner)
