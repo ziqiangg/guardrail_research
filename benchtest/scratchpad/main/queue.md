@@ -6,6 +6,7 @@
 | 1 | presidio | R022 | 2026-10-09 | 450e3d7 |
 | 2 | sdp | R023 | 2026-10-09 | 6710895 |
 | 3 | modelarmor | R024 (+ R025 pre-P8 merger edit first) | 2026-10-09 | bf4a66d |
+| 4 | lionguard | R033 | 2026-10-10 | |
 
 ## Open questions (from agents)
 | Q file | Product | Routed to | State | Ruling |
@@ -27,6 +28,7 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| lionguard CP2 | R033 approved | user |
 | lionguard P7 Q (verifier GETs to huggingface.co/api/models URLs in R9) | GETs covered by the P4 Hub-metadata ruling; but R9/Source URL cells cite public model pages at the pinned revision, not api paths (same as purplellama P5 Q4) → added to the fix loop | main |
 | purplellama P5 r2 Q1 (label for PyPI sdist facts) | `[Documented]` + plain-text source "(PyPI sdist <name>-<ver>, sha256 <short>, read <date>)" with the PyPI project URL in R9; sdist-vs-pin comparisons `[Inferred]` | main |
 | purplellama P5 r2 Q2 (INV(g) CSE3 latency statement) | merge into the existing "statement 3" row, both sources cited; keep 12 rows | main |
