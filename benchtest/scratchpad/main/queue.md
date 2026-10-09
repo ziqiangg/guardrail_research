@@ -28,6 +28,8 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| lionguard P10 Q2 (eyebrow wording) | "GovTech LionGuard · LionGuard 2, 2.1 and 2 Lite on Hugging Face" (auto-default: equivalent wordings) | main |
+| lionguard P10 Q1 (LN1 R5 "cannot be compared directly" [Inferred] vs blog "same benchmarks") | post-P8 fix: merger rewords neutrally, then xlsx-writer re-applies BD (modelarmor A17 precedent) | main |
 | purplellama P6 Q1–Q4 (PL6 R4 Summary [Inferred]; HF api URLs removed in all columns; block (c) heading without ruling id; PL2 R6 support bullet) | confirmed (label rules, lessons 12, process-text rule, Summary entailment) | main |
 | purplellama P6 Q5 (brief says CSE4 paper TBV; finals ND) | brief is a historical P1 file; finals govern | main |
 | lionguard P8 (coverage panel counts blocks (a)–(c) only; (d)/(e) are all inventory-only) | accepted; no shared-module change | main |
