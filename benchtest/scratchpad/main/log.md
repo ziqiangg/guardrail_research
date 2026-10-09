@@ -10,3 +10,4 @@
 - 2026-10-09 presidio P1 done: brief with PD1–PD6 (prefix provisional). R011 (inventory-only marker) ruled by main; check_drafts.py + drafts README updated; seeds.md corrected (NeMo PII = two_level_v2 Column E/F, not K/L; docs host 301 chain; github.com 403 via fetch_text)
 - 2026-10-09 modelarmor P0 done: MA1–MA10 proposed (R002 split); 12 gaps, 9 conflicts; R012 (MA↔SDP wrapping) and R013 (GitHub via shallow clone) ruled by main; seeds updated; P1 started
 - 2026-10-09 sdp P0 done: SD1–SD6 + conditional SD7 (content policy); 14 gaps, 5 conflicts; q01–q03 → CP1 (q03 not blocking: brief records default + alternative, as for presidio Q02); P1 started
+- 2026-10-09 modelarmor P1 done: brief MA1–MA10 (MA9/MA10 headers reworded, Preview dropped), inventory (a)–(e) 72 rows, 89 quotes re-matched; new conflicts C10–C13; P2 started (cols_a MA1–4,7,8; cols_b MA5,6,9,10; inventory)

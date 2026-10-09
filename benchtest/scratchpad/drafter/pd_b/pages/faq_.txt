@@ -1,0 +1,307 @@
+# status 200  final_url https://presidio.dataprivacystack.org/faq/  content-type text/html; charset=utf-8
+Skip to content
+Presidio
+Frequently Asked Questions (FAQ)
+Search
+GitHub
+Presidio
+Quick start
+Learn Presidio
+Resources
+Recipes
+Samples
+Presidio
+GitHub
+Presidio
+Presidio
+Home
+Installation
+FAQ
+FAQ
+On this page
+General
+What is Presidio?
+Why was Presidio created?
+Who owns and maintains Presidio?
+What is the difference between Presidio and different PII detection services like Azure AI Language, Azure Health Data Services, and Amazon Comprehend?
+Using Presidio
+How can I start using Presidio?
+What are the main building blocks in Presidio?
+Customizing Presidio
+How can Presidio be customized to my needs?
+What NLP frameworks does Presidio support?
+Can Presidio be used for Pseudonymization?
+Does Presidio work on structured/tabular data?
+Improving detection accuracy
+What can I do if Presidio does not detect some of the PII entities in my data (False Negatives)?
+What can I do if Presidio falsely detects text as PII entities (False Positives)?
+How can I evaluate the performance of my Presidio instance?
+Deployment
+How can I deploy Presidio into my environment?
+Contributing
+How can I contribute to Presidio?
+How can I report security vulnerabilities?
+Quick start
+Quick start
+Home
+Text
+Images
+Semi/Structured data
+Learn Presidio
+Learn Presidio
+Home
+Concepts
+Tutorial
+Tutorial
+Home
+Getting started
+Deny-list recognizers
+Regex recognizers
+Rule-based recognizers
+Additional models/languages
+External services
+Context enhancement
+Decision process
+No-code recognizers
+Ad-hoc recognizers
+Simple anonymization
+Custom anonymization
+Encryption/Decryption
+Allow-lists
+Text de-identification
+Text de-identification
+Home
+Presidio Analyzer
+Presidio Analyzer
+Home
+Developing PII recognizers
+Developing PII recognizers
+Tutorial
+Best practices
+Recognizer registry from file
+Filtering recognizers by country
+Multi-language support
+Customizing the NLP model
+Customizing the NLP model
+Home
+Spacy/Stanza
+Transformers
+GPU Acceleration
+Tracing the decision process
+Configure from file
+Presidio Anonymizer
+Presidio Anonymizer
+Home
+Developing PII anonymization operators
+Azure Health Data Services de-identification service integration
+Image de-identification
+Image de-identification
+Home
+Evaluating DICOM redaction
+Structured and Semi-structured
+Structured and Semi-structured
+Home
+PII detection evaluation
+Resources
+Resources
+Supported entities
+Project transition update
+Community
+Change log
+Setting up a development environment
+Build and release process
+Changes from V1 to V2
+Python API reference
+Python API reference
+Home
+Presidio Analyzer Python API
+Presidio Anonymizer Python API
+Presidio Image Redactor Python API
+Presidio Structured Python API
+REST API reference
+Recipes
+Recipes
+Home
+Contributing
+Template
+Samples
+Samples
+Home
+Text
+Text
+Presidio Basic Usage Notebook
+Customizing Presidio Analyzer
+Configuring The NLP engine
+Encrypting and Decrypting identified entities
+Getting the identified entity value using a custom Operator
+Anonymizing known values
+Keeping some entities from being anonymized
+Integrating with external services
+Remote Recognizer
+Azure AI Language as a Remote Recognizer
+Azure Health DataServices De-identification as a Remote Recognizer
+Using Flair as an external PII model
+Using Span Marker as an external PII model
+Using Transformers as an external PII model
+Using GLiNER as an external PII model
+Pseudonymization (replace PII values using mappings)
+Passing a lambda as a Presidio anonymizer using Faker
+Synthetic data generation with OpenAI
+YAML based no-code configuration
+Data
+Data
+Analyzing structured / semi-structured data in batch
+Presidio Structured Basic Usage Notebook
+Analyze and Anonymize CSV file
+Images
+Images
+Redacting Text PII from DICOM images
+Using an allow list with image redaction
+Plot custom bounding boxes
+Example DICOM redaction evaluation
+PDF
+PDF
+Annotating PII in a PDF
+Deployment
+Deployment
+Presidio with App Service
+Presidio with Kubernetes
+Presidio with Spark
+Presidio with Fabric
+Redacting Telemetry with Presidio
+Azure Data Factory
+Azure Data Factory
+ETL using AppService/Databricks
+Add Presidio as an HTTP service to your Azure Data Factory
+Add Presidio on Databricks to your Azure Data Factory
+PII Masking LLM calls using LiteLLM proxy
+Demo app
+Demo app
+Create a simple demo app using Streamlit
+On this page
+General
+What is Presidio?
+Why was Presidio created?
+Who owns and maintains Presidio?
+What is the difference between Presidio and different PII detection services like Azure AI Language, Azure Health Data Services, and Amazon Comprehend?
+Using Presidio
+How can I start using Presidio?
+What are the main building blocks in Presidio?
+Customizing Presidio
+How can Presidio be customized to my needs?
+What NLP frameworks does Presidio support?
+Can Presidio be used for Pseudonymization?
+Does Presidio work on structured/tabular data?
+Improving detection accuracy
+What can I do if Presidio does not detect some of the PII entities in my data (False Negatives)?
+What can I do if Presidio falsely detects text as PII entities (False Positives)?
+How can I evaluate the performance of my Presidio instance?
+Deployment
+How can I deploy Presidio into my environment?
+Contributing
+How can I contribute to Presidio?
+How can I report security vulnerabilities?
+Frequently Asked Questions (FAQ)
+General
+What is Presidio?
+Why was Presidio created?
+Who owns and maintains Presidio?
+What is the difference between Presidio and different PII detection services like Azure AI Language, Azure Health Data Services, and Amazon Comprehend?
+Using Presidio
+How can I start using Presidio?
+What are the main building blocks in Presidio?
+Customizing Presidio
+How can Presidio be customized to my needs?
+What NLP frameworks does Presidio support?
+Can Presidio be used for Pseudonymization?
+Does Presidio work on structured/tabular data?
+Improving detection accuracy
+What can I do if Presidio does not detect some of the PII entities in my data (False Negatives)?
+What can I do if Presidio falsely detects text as PII entities (False Positives)?
+How can I evaluate the performance of my Presidio instance?
+Deployment
+How can I deploy Presidio into my environment?
+Contributing
+How can I contribute to Presidio?
+How can I report security vulnerabilities?
+General
+What is Presidio?
+Presidio (Origin from Latin praesidium ‘protection, garrison’) helps to ensure sensitive data is properly managed and governed. It provides fast identification and anonymization modules for private entities in text and images. It is fully customizable and pluggable, can be adapted to your needs and be deployed into various environments.
+Note
+Presidio is a library or SDK rather than a service. It is meant to be customized to the user's or organization's specific needs.
+Warning
+Presidio can help identify sensitive/PII data in un/structured text. However, because it is using automated detection mechanisms, there is no guarantee that Presidio will find all sensitive information. Consequently, additional systems and protections should be employed.
+Why was Presidio created?
+By developing Presidio, our goals are:
+Allow organizations to preserve privacy in a simpler way by democratizing de-identification technologies and introducing transparency in decisions.
+Embrace extensibility and customizability to a specific business need.
+Facilitate both fully automated and semi-automated PII de-identification flows on multiple platforms.
+Who owns and maintains Presidio?
+Presidio is a community-governed open source project under the Data Privacy Stack organization. It was originally created at Microsoft and has since transitioned to an independent, vendor-neutral project maintained by contributors and volunteers from across the community. See the project transition update for more details.
+Note
+Presidio is not an official product of any company and comes with no warranty or SLA. Usage terms are defined in the repository's license.
+What is the difference between Presidio and different PII detection services like Azure AI Language, Azure Health Data Services, and Amazon Comprehend?
+In a nutshell, Presidio is a library which is meant to be customized, whereas different SaaS tools for PII detection have less customization capabilities. Most of these SaaS offerings use dedicated ML models and other logic for PII detection and often have better entity coverage or accuracy than Presidio.
+Based on our internal research, leveraging Presidio in parallel to 3rd party PII detection services like Azure AI Language can bring optimal results mainly when the data in hand has entity types or values not supported by the 3rd party service. (see example here).
+Using Presidio
+How can I start using Presidio?
+Check out the installation docs.
+Take a look at the different samples.
+Try the demo website.
+What are the main building blocks in Presidio?
+Presidio is a suite built of several packages and building blocks:
+Presidio Analyzer: a package for detecting PII entities in natural language.
+Presidio Anonymizer: a package for manipulating PII entities in text (e.g. remove, redact, hash, encrypt).
+Presidio Image Redactor: A package for detecting PII entities in image using OCR.
+Presidio Structured: A package for detecting PII entities in structured/semi-structured data.
+A set of sample deployments as Python packages or Docker containers for Kubernetes, Azure Data Factory, Spark and more.
+Customizing Presidio
+How can Presidio be customized to my needs?
+Users can customize Presidio in multiple ways:
+Create new or updated PII recognizers (docs).
+Adapt Presidio to new languages (docs).
+Leverage state of the art Named Entity Recognition models (docs).
+Add new types of anonymizers (docs).
+Create PII analysis and anonymization pipelines on different environments using Docker or Python (samples).
+And more.
+What NLP frameworks does Presidio support?
+Presidio supports spaCy version 3+ for Named Entity Recognition, tokenization, lemmatization and more. We also support Stanza using the spacy-stanza package, and it is further possible to create PII recognizers leveraging other frameworks like transformers or Flair.
+For more information, see the docs.
+Can Presidio be used for Pseudonymization?
+Pseudonymization is a de-identification technique in which the real data is replaced with fake data in a reversible way. Since there are various ways and approaches for this, we provide a simple sample which can be extended for more sophisticated usage. If you have a question or a request on this topic, please open an issue on the repo.
+Does Presidio work on structured/tabular data?
+Presidio-structured is a capability in Presidio for detecting PII entities in structured/semi-structured data. It scans datasets for PII using Presidio Analyzer, and supports the redaction of text, cells, or columns in a tabular dataset.
+Improving detection accuracy
+What can I do if Presidio does not detect some of the PII entities in my data (False Negatives)?
+Presidio comes loaded with several PII recognizers (see list here),
+however its main strength lies in its customization capabilities to new entities, specific datasets, file types, languages or use cases.
+What can I do if Presidio falsely detects text as PII entities (False Positives)?
+Some PII recognizers are less specific than others. A driver's license number, for example, could be any 9-digit number.
+While Presidio leverages context words and other logic to improve the detection quality,
+it could still falsely detect non-entity values as PII entities.
+In order to avoid false positives, one could try to:
+Change the acceptance threshold, which defines what is the minimum confidence value for a detected entity to be returned.
+Remove unnecessary PII recognizers, if the dataset does not contain these entities.
+Update/replace the logic of specific recognizers to better suit a specific dataset or use case.
+Replace PII recognizers with those coming from 3rd party services.
+Every PII identification logic would have its errors, and there is a trade-off between false positives (falsely detected text) and false negatives (PII entities which are not detected).
+How can I evaluate the performance of my Presidio instance?
+In addition to Presidio, we maintain a repo focused on evaluation of models and PII recognizers here. It also features a simple PII data generator.
+Deployment
+How can I deploy Presidio into my environment?
+The main Presidio modules (analyzer, anonymizer, image-redactor) can be used both as a Python package and as a dockerized REST API. See the different deployment samples for example deployments.
+Authentication and Authorization
+Presidio API endpoints do not include built-in authentication by design. The containers are intentionally kept lean to allow flexibility for different deployment scenarios. Authentication and authorization should be implemented at a separate infrastructure layer (e.g., an API gateway, reverse proxy, or service mesh) according to your specific use case and security requirements. It is strongly recommended not to expose Presidio services directly to untrusted networks without an authentication layer in front of them.
+Contributing
+How can I contribute to Presidio?
+First, review the contribution guidelines, and feel free to reach out by opening an issue, posting a discussion or emailing us at presidio@dataprivacystack.org
+How can I report security vulnerabilities?
+Please see the security information.
+Back to top
+Previous
+Installation
+Next
+Home
+Data Privacy Stack
+Made with
+Zensical

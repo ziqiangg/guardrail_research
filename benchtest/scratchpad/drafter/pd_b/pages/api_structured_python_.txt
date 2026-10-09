@@ -1,0 +1,1806 @@
+# status 200  final_url https://presidio.dataprivacystack.org/api/structured_python/  content-type text/html; charset=utf-8
+Skip to content
+Presidio
+Presidio Structured API Reference
+Search
+GitHub
+Presidio
+Quick start
+Learn Presidio
+Resources
+Recipes
+Samples
+Presidio
+GitHub
+Presidio
+Presidio
+Home
+Installation
+FAQ
+Quick start
+Quick start
+Home
+Text
+Images
+Semi/Structured data
+Learn Presidio
+Learn Presidio
+Home
+Concepts
+Tutorial
+Tutorial
+Home
+Getting started
+Deny-list recognizers
+Regex recognizers
+Rule-based recognizers
+Additional models/languages
+External services
+Context enhancement
+Decision process
+No-code recognizers
+Ad-hoc recognizers
+Simple anonymization
+Custom anonymization
+Encryption/Decryption
+Allow-lists
+Text de-identification
+Text de-identification
+Home
+Presidio Analyzer
+Presidio Analyzer
+Home
+Developing PII recognizers
+Developing PII recognizers
+Tutorial
+Best practices
+Recognizer registry from file
+Filtering recognizers by country
+Multi-language support
+Customizing the NLP model
+Customizing the NLP model
+Home
+Spacy/Stanza
+Transformers
+GPU Acceleration
+Tracing the decision process
+Configure from file
+Presidio Anonymizer
+Presidio Anonymizer
+Home
+Developing PII anonymization operators
+Azure Health Data Services de-identification service integration
+Image de-identification
+Image de-identification
+Home
+Evaluating DICOM redaction
+Structured and Semi-structured
+Structured and Semi-structured
+Home
+PII detection evaluation
+Resources
+Resources
+Supported entities
+Project transition update
+Community
+Change log
+Setting up a development environment
+Build and release process
+Changes from V1 to V2
+Python API reference
+Python API reference
+Home
+Presidio Analyzer Python API
+Presidio Anonymizer Python API
+Presidio Image Redactor Python API
+Presidio Structured Python API
+Presidio Structured Python API
+On this page
+presidio_structured
+JsonAnalysisBuilder
+generate_analysis
+PandasAnalysisBuilder
+generate_analysis
+StructuredAnalysis
+CsvReader
+read
+JsonDataProcessor
+operate
+JsonReader
+read
+PandasDataProcessor
+operate
+StructuredEngine
+anonymize
+REST API reference
+Recipes
+Recipes
+Home
+Contributing
+Template
+Samples
+Samples
+Home
+Text
+Text
+Presidio Basic Usage Notebook
+Customizing Presidio Analyzer
+Configuring The NLP engine
+Encrypting and Decrypting identified entities
+Getting the identified entity value using a custom Operator
+Anonymizing known values
+Keeping some entities from being anonymized
+Integrating with external services
+Remote Recognizer
+Azure AI Language as a Remote Recognizer
+Azure Health DataServices De-identification as a Remote Recognizer
+Using Flair as an external PII model
+Using Span Marker as an external PII model
+Using Transformers as an external PII model
+Using GLiNER as an external PII model
+Pseudonymization (replace PII values using mappings)
+Passing a lambda as a Presidio anonymizer using Faker
+Synthetic data generation with OpenAI
+YAML based no-code configuration
+Data
+Data
+Analyzing structured / semi-structured data in batch
+Presidio Structured Basic Usage Notebook
+Analyze and Anonymize CSV file
+Images
+Images
+Redacting Text PII from DICOM images
+Using an allow list with image redaction
+Plot custom bounding boxes
+Example DICOM redaction evaluation
+PDF
+PDF
+Annotating PII in a PDF
+Deployment
+Deployment
+Presidio with App Service
+Presidio with Kubernetes
+Presidio with Spark
+Presidio with Fabric
+Redacting Telemetry with Presidio
+Azure Data Factory
+Azure Data Factory
+ETL using AppService/Databricks
+Add Presidio as an HTTP service to your Azure Data Factory
+Add Presidio on Databricks to your Azure Data Factory
+PII Masking LLM calls using LiteLLM proxy
+Demo app
+Demo app
+Create a simple demo app using Streamlit
+On this page
+presidio_structured
+JsonAnalysisBuilder
+generate_analysis
+PandasAnalysisBuilder
+generate_analysis
+StructuredAnalysis
+CsvReader
+read
+JsonDataProcessor
+operate
+JsonReader
+read
+PandasDataProcessor
+operate
+StructuredEngine
+anonymize
+Presidio Structured API Reference
+presidio_structured
+presidio-structured root module.
+JsonAnalysisBuilder
+Bases: AnalysisBuilder
+Concrete configuration generator for JSON data.
+| METHOD
+| DESCRIPTION
+| generate_analysis
+|
+Generate a configuration from the given JSON data.
+Source code in presidio_structured/analysis_builder.py
+|
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+|
+class JsonAnalysisBuilder(AnalysisBuilder):
+"""Concrete configuration generator for JSON data."""
+def generate_analysis(
+self,
+data: Dict,
+language: str = "en",
+) -> StructuredAnalysis:
+"""
+Generate a configuration from the given JSON data.
+:param data: The input JSON data.
+:return: The generated configuration.
+"""
+logger.debug("Starting JSON BatchAnalyzer analysis")
+analyzer_results = self.batch_analyzer.analyze_dict(
+input_dict=data,
+language=language,
+n_process=self.n_process,
+batch_size=self.batch_size
+)
+key_recognizer_result_map = self._generate_analysis_from_results_json(
+analyzer_results
+)
+key_entity_map = {
+key: result.entity_type for key, result in key_recognizer_result_map.items()
+}
+return StructuredAnalysis(entity_mapping=key_entity_map)
+def _generate_analysis_from_results_json(
+self, analyzer_results: Iterator[DictAnalyzerResult], prefix: str = ""
+) -> Dict[str, RecognizerResult]:
+"""
+Generate a configuration from the given analyzer results. Always uses the first recognizer result if there are more than one.
+:param analyzer_results: The analyzer results.
+:param prefix: The prefix for the configuration keys.
+:return: The generated configuration.
+""" # noqa: E501
+key_recognizer_result_map = {}
+if not isinstance(analyzer_results, Iterable):
+logger.debug(
+"No analyzer results found, returning empty StructuredAnalysis"
+)
+return key_recognizer_result_map
+for result in analyzer_results:
+current_key = prefix + result.key
+if isinstance(result.value, dict) and isinstance(
+result.recognizer_results, Iterator
+):
+nested_mappings = self._generate_analysis_from_results_json(
+result.recognizer_results, prefix=current_key + "."
+)
+key_recognizer_result_map.update(nested_mappings)
+first_recognizer_result = next(iter(result.recognizer_results), None)
+if isinstance(first_recognizer_result, RecognizerResult):
+logger.debug(
+f"Found result with entity {first_recognizer_result.entity_type} \
+in {current_key}"
+)
+key_recognizer_result_map[current_key] = first_recognizer_result
+return key_recognizer_result_map
+generate_analysis
+generate_analysis(data: Dict, language: str = 'en') -> StructuredAnalysis
+Generate a configuration from the given JSON data.
+| PARAMETER
+| DESCRIPTION
+|
+data
+|
+The input JSON data.
+TYPE:
+Dict
+| RETURNS
+| DESCRIPTION
+|
+StructuredAnalysis
+|
+The generated configuration.
+Source code in presidio_structured/analysis_builder.py
+|
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+|
+def generate_analysis(
+self,
+data: Dict,
+language: str = "en",
+) -> StructuredAnalysis:
+"""
+Generate a configuration from the given JSON data.
+:param data: The input JSON data.
+:return: The generated configuration.
+"""
+logger.debug("Starting JSON BatchAnalyzer analysis")
+analyzer_results = self.batch_analyzer.analyze_dict(
+input_dict=data,
+language=language,
+n_process=self.n_process,
+batch_size=self.batch_size
+)
+key_recognizer_result_map = self._generate_analysis_from_results_json(
+analyzer_results
+)
+key_entity_map = {
+key: result.entity_type for key, result in key_recognizer_result_map.items()
+}
+return StructuredAnalysis(entity_mapping=key_entity_map)
+PandasAnalysisBuilder
+Bases: TabularAnalysisBuilder
+Concrete configuration generator for tabular data.
+| METHOD
+| DESCRIPTION
+| generate_analysis
+|
+Generate a configuration from the given tabular data.
+Source code in presidio_structured/analysis_builder.py
+|
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+|
+class PandasAnalysisBuilder(TabularAnalysisBuilder):
+"""Concrete configuration generator for tabular data."""
+entity_selection_strategies = {"highest_confidence", "mixed", "most_common"}
+def generate_analysis(
+self,
+df: DataFrame,
+n: Optional[int] = None,
+language: str = "en",
+selection_strategy: str = "most_common",
+mixed_strategy_threshold: float = 0.5,
+) -> StructuredAnalysis:
+"""
+Generate a configuration from the given tabular data.
+:param df: The input tabular data (dataframe).
+:param n: The number of samples to be taken from the dataframe.
+:param language: The language to be used for analysis.
+:param selection_strategy: A string that specifies the entity selection strategy
+('highest_confidence', 'mixed', or default to most common).
+:param mixed_strategy_threshold: A float value for the threshold to be used in
+the entity selection mixed strategy.
+:return: A StructuredAnalysis object containing the analysis results.
+"""
+if not n:
+n = len(df)
+elif n > len(df):
+logger.debug(
+f"Number of samples ({n}) is larger than the number of rows \
+({len(df)}), using all rows"
+)
+n = len(df)
+df = df.sample(n, random_state=123)
+key_recognizer_result_map = self._generate_key_rec_results_map(
+df, language, selection_strategy, mixed_strategy_threshold
+)
+key_entity_map = {
+key: result.entity_type
+for key, result in key_recognizer_result_map.items()
+if result.entity_type != NON_PII_ENTITY_TYPE
+}
+return StructuredAnalysis(entity_mapping=key_entity_map)
+def _generate_key_rec_results_map(
+self,
+df: DataFrame,
+language: str,
+selection_strategy: str = "most_common",
+mixed_strategy_threshold: float = 0.5,
+) -> Dict[str, RecognizerResult]:
+"""
+Find the most common entity in a dataframe column.
+If more than one entity is found in a cell, the first one is used.
+:param df: The dataframe where entities will be searched.
+:param language: Language to be used in the analysis engine.
+:param selection_strategy: A string that specifies the entity selection strategy
+('highest_confidence', 'mixed', or default to most common).
+:param mixed_strategy_threshold: A float value for the threshold to be used in
+the entity selection mixed strategy.
+:return: A dictionary mapping column names to the most common RecognizerResult.
+"""
+column_analyzer_results_map = self._batch_analyze_df(df, language)
+key_recognizer_result_map = {}
+for column, analyzer_result in column_analyzer_results_map.items():
+key_recognizer_result_map[column] = self._find_entity_based_on_strategy(
+analyzer_result, selection_strategy, mixed_strategy_threshold
+)
+return key_recognizer_result_map
+def _batch_analyze_df(
+self, df: DataFrame, language: str
+) -> Dict[str, List[List[RecognizerResult]]]:
+"""
+Analyze each column in the dataframe for entities using the batch analyzer.
+:param df: The dataframe to be analyzed.
+:param language: The language configuration for the analyzer.
+:return: A dictionary mapping each column name to a \
+list of lists of RecognizerResults.
+"""
+column_analyzer_results_map = {}
+for column in df.columns:
+logger.debug(f"Finding most common PII entity for column {column}")
+analyzer_results = self.batch_analyzer.analyze_iterator(
+[val for val in df[column]],
+language=language,
+n_process=self.n_process,
+batch_size=self.batch_size
+)
+column_analyzer_results_map[column] = analyzer_results
+return column_analyzer_results_map
+def _find_entity_based_on_strategy(
+self,
+analyzer_results: List[List[RecognizerResult]],
+selection_strategy: str,
+mixed_strategy_threshold: float,
+) -> RecognizerResult:
+"""
+Determine the most suitable entity based on the specified selection strategy.
+:param analyzer_results: A nested list of RecognizerResult objects from the
+analysis results.
+:param selection_strategy: A string that specifies the entity selection strategy
+('highest_confidence', 'mixed', or default to most common).
+:return: A RecognizerResult object representing the selected entity based on the
+given strategy.
+"""
+if selection_strategy not in self.entity_selection_strategies:
+raise ValueError(
+f"Unsupported entity selection strategy: {selection_strategy}."
+)
+if not any(analyzer_results):
+return RecognizerResult(
+entity_type=NON_PII_ENTITY_TYPE, start=0, end=1, score=1.0
+)
+flat_results = self._flatten_results(analyzer_results)
+# Select the entity based on the desired strategy
+if selection_strategy == "highest_confidence":
+return self._select_highest_confidence_entity(flat_results)
+elif selection_strategy == "mixed":
+return self._select_mixed_strategy_entity(
+flat_results, mixed_strategy_threshold
+)
+return self._select_most_common_entity(flat_results)
+def _select_most_common_entity(self, flat_results):
+"""
+Select the most common entity from the flattened analysis results.
+:param flat_results: A list of tuples containing index and RecognizerResult
+objects from the flattened analysis results.
+:return: A RecognizerResult object for the most commonly found entity type.
+"""
+# Count occurrences of each entity type
+type_counter = Counter(res.entity_type for _, res in flat_results)
+most_common_type, most_common_count = type_counter.most_common(1)[0]
+# Calculate the score as the proportion of occurrences
+score = most_common_count / len(flat_results)
+return RecognizerResult(
+entity_type=most_common_type, start=0, end=1, score=score
+)
+def _select_highest_confidence_entity(self, flat_results):
+"""
+Select the entity with the highest confidence score.
+:param flat_results: A list of tuples containing index and RecognizerResult
+objects from the flattened analysis results.
+:return: A RecognizerResult object for the entity with the highest confidence
+score.
+"""
+score_aggregator = self._aggregate_scores(flat_results)
+# Find the highest score across all entities
+highest_score = max(
+max(scores) for scores in score_aggregator.values() if scores
+)
+# Find the entities with the highest score and count their occurrences
+entities_highest_score = {
+entity: scores.count(highest_score)
+for entity, scores in score_aggregator.items()
+if highest_score in scores
+}
+# Find the entity(ies) with the most number of high scores
+max_occurrences = max(entities_highest_score.values())
+highest_confidence_entities = [
+entity
+for entity, count in entities_highest_score.items()
+if count == max_occurrences
+]
+return RecognizerResult(
+entity_type=highest_confidence_entities[0],
+start=0,
+end=1,
+score=highest_score,
+)
+def _select_mixed_strategy_entity(self, flat_results, mixed_strategy_threshold):
+"""
+Select an entity using a mixed strategy.
+Chooses an entity based on the highest confidence score if it is above the
+threshold. Otherwise, it defaults to the most common entity.
+:param flat_results: A list of tuples containing index and RecognizerResult
+objects from the flattened analysis results.
+:return: A RecognizerResult object selected based on the mixed strategy.
+"""
+# Check if mixed strategy threshold is within the valid range
+if not 0 <= mixed_strategy_threshold <= 1:
+raise ValueError(
+f"Invalid mixed strategy threshold: {mixed_strategy_threshold}."
+)
+score_aggregator = self._aggregate_scores(flat_results)
+# Check if the highest score is greater than threshold and select accordingly
+highest_score = max(
+max(scores) for scores in score_aggregator.values() if scores
+)
+if highest_score > mixed_strategy_threshold:
+return self._select_highest_confidence_entity(flat_results)
+else:
+return self._select_most_common_entity(flat_results)
+@staticmethod
+def _aggregate_scores(flat_results):
+"""
+Aggregate the scores for each entity type from the flattened analysis results.
+:param flat_results: A list of tuples containing index and RecognizerResult
+objects from the flattened analysis results.
+:return: A dictionary with entity types as keys and lists of scores as values.
+"""
+score_aggregator = {}
+for _, res in flat_results:
+if res.entity_type not in score_aggregator:
+score_aggregator[res.entity_type] = []
+score_aggregator[res.entity_type].append(res.score)
+return score_aggregator
+@staticmethod
+def _flatten_results(analyzer_results):
+"""
+Flattens a nested lists of RecognizerResult objects into a list of tuples.
+:param analyzer_results: A nested list of RecognizerResult objects from
+the analysis results.
+:return: A flattened list of tuples containing index and RecognizerResult
+objects.
+"""
+return [
+(cell_idx, res)
+for cell_idx, cell_results in enumerate(analyzer_results)
+for res in cell_results
+]
+generate_analysis
+generate_analysis(
+df: DataFrame,
+n: Optional[int] = None,
+language: str = "en",
+selection_strategy: str = "most_common",
+mixed_strategy_threshold: float = 0.5,
+) -> StructuredAnalysis
+Generate a configuration from the given tabular data.
+| PARAMETER
+| DESCRIPTION
+|
+df
+|
+The input tabular data (dataframe).
+TYPE:
+DataFrame
+|
+n
+|
+The number of samples to be taken from the dataframe.
+TYPE:
+Optional[int]
+DEFAULT:
+None
+|
+language
+|
+The language to be used for analysis.
+TYPE:
+str
+DEFAULT:
+'en'
+|
+selection_strategy
+|
+A string that specifies the entity selection strategy
+('highest_confidence', 'mixed', or default to most common).
+TYPE:
+str
+DEFAULT:
+'most_common'
+|
+mixed_strategy_threshold
+|
+A float value for the threshold to be used in
+the entity selection mixed strategy.
+TYPE:
+float
+DEFAULT:
+0.5
+| RETURNS
+| DESCRIPTION
+|
+StructuredAnalysis
+|
+A StructuredAnalysis object containing the analysis results.
+Source code in presidio_structured/analysis_builder.py
+|
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+|
+def generate_analysis(
+self,
+df: DataFrame,
+n: Optional[int] = None,
+language: str = "en",
+selection_strategy: str = "most_common",
+mixed_strategy_threshold: float = 0.5,
+) -> StructuredAnalysis:
+"""
+Generate a configuration from the given tabular data.
+:param df: The input tabular data (dataframe).
+:param n: The number of samples to be taken from the dataframe.
+:param language: The language to be used for analysis.
+:param selection_strategy: A string that specifies the entity selection strategy
+('highest_confidence', 'mixed', or default to most common).
+:param mixed_strategy_threshold: A float value for the threshold to be used in
+the entity selection mixed strategy.
+:return: A StructuredAnalysis object containing the analysis results.
+"""
+if not n:
+n = len(df)
+elif n > len(df):
+logger.debug(
+f"Number of samples ({n}) is larger than the number of rows \
+({len(df)}), using all rows"
+)
+n = len(df)
+df = df.sample(n, random_state=123)
+key_recognizer_result_map = self._generate_key_rec_results_map(
+df, language, selection_strategy, mixed_strategy_threshold
+)
+key_entity_map = {
+key: result.entity_type
+for key, result in key_recognizer_result_map.items()
+if result.entity_type != NON_PII_ENTITY_TYPE
+}
+return StructuredAnalysis(entity_mapping=key_entity_map)
+StructuredAnalysis
+dataclass
+Dataclass containing entity analysis from structured data.
+Currently, this class only contains entity mapping.
+param entity_mapping : dict. Mapping column/key names to entity types, e.g., {
+"person.name": "PERSON",
+"person.address": "LOCATION"
+}
+Source code in presidio_structured/config/structured_analysis.py
+|
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+|
+@dataclass
+class StructuredAnalysis:
+"""
+Dataclass containing entity analysis from structured data.
+Currently, this class only contains entity mapping.
+param entity_mapping : dict. Mapping column/key names to entity types, e.g., {
+"person.name": "PERSON",
+"person.address": "LOCATION"
+}
+"""
+entity_mapping: Dict[str, str]
+CsvReader
+Bases: ReaderBase
+Reader for reading csv files.
+Usage::
+reader = CsvReader()
+data = reader.read(path="filepath.csv")
+| METHOD
+| DESCRIPTION
+| read
+|
+Read csv file to pandas dataframe.
+Source code in presidio_structured/data/data_reader.py
+|
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+|
+class CsvReader(ReaderBase):
+"""
+Reader for reading csv files.
+Usage::
+reader = CsvReader()
+data = reader.read(path="filepath.csv")
+"""
+def read(self, path: Union[str, Path], **kwargs) -> pd.DataFrame:
+"""
+Read csv file to pandas dataframe.
+:param path: String defining the location of the csv file to read.
+:return: Pandas DataFrame with the data read from the csv file.
+"""
+return pd.read_csv(path, **kwargs)
+read
+read(path: Union[str, Path], **kwargs) -> pd.DataFrame
+Read csv file to pandas dataframe.
+| PARAMETER
+| DESCRIPTION
+|
+path
+|
+String defining the location of the csv file to read.
+TYPE:
+Union[str, Path]
+| RETURNS
+| DESCRIPTION
+|
+DataFrame
+|
+Pandas DataFrame with the data read from the csv file.
+Source code in presidio_structured/data/data_reader.py
+|
+40
+41
+42
+43
+44
+45
+46
+47
+|
+def read(self, path: Union[str, Path], **kwargs) -> pd.DataFrame:
+"""
+Read csv file to pandas dataframe.
+:param path: String defining the location of the csv file to read.
+:return: Pandas DataFrame with the data read from the csv file.
+"""
+return pd.read_csv(path, **kwargs)
+JsonDataProcessor
+Bases: DataProcessorBase
+JSON Data Processor, Supports arbitrary nesting of dictionaries and lists.
+| METHOD
+| DESCRIPTION
+| operate
+|
+Perform operations over the text using the operators, as per the structured analysis.
+Source code in presidio_structured/data/data_processors.py
+|
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+|
+class JsonDataProcessor(DataProcessorBase):
+"""JSON Data Processor, Supports arbitrary nesting of dictionaries and lists."""
+@staticmethod
+def _get_nested_value(data: Union[Dict, List, None], path: List[str]) -> Any:
+"""
+Recursively retrieves the value from nested data using a given path.
+:param data: Nested data (list or dictionary).
+:param path: List of keys/indexes representing the path.
+:return: Retrieved value.
+"""
+for i, key in enumerate(path):
+if isinstance(data, list):
+if key.isdigit():
+data = data[int(key)]
+else:
+return [
+JsonDataProcessor._get_nested_value(item, path[i:])
+for item in data
+]
+elif isinstance(data, dict):
+data = data.get(key)
+else:
+return data
+return data
+@staticmethod
+def _set_nested_value(data: Union[Dict, List], path: List[str], value: Any) -> None:
+"""
+Recursively sets a value in nested data using a given path.
+:param data: Nested data (JSON-like).
+:param path: List of keys/indexes representing the path.
+:param value: Value to be set.
+"""
+for i, key in enumerate(path):
+if isinstance(data, list):
+if i + 1 < len(path) and path[i + 1].isdigit():
+idx = int(path[i + 1])
+while len(data) <= idx:
+data.append({})
+data = data[idx]
+continue
+else:
+for item in data:
+JsonDataProcessor._set_nested_value(item, path[i:], value)
+return
+elif isinstance(data, dict):
+if i == len(path) - 1:
+data[key] = value
+else:
+data = data.setdefault(key, {})
+def _process(
+self,
+data: Union[Dict, List],
+key_to_operator_mapping: Dict[str, Callable],
+) -> Union[Dict, List]:
+"""
+Operates on the given JSON-like data based on the provided configuration.
+:param data: JSON-like data to be operated on.
+:param key_to_operator_mapping: maps keys to Callable operators.
+:return: JSON-like data after the operation.
+"""
+if not isinstance(data, (dict, list)):
+raise ValueError("Data must be a JSON-like object")
+for key, operator_callable in key_to_operator_mapping.items():
+self.logger.debug(f"Operating on key {key}")
+keys = key.split(".")
+if isinstance(data, list):
+for item in data:
+self._process(item, key_to_operator_mapping)
+else:
+text_to_operate_on = self._get_nested_value(data, keys)
+if text_to_operate_on:
+if isinstance(text_to_operate_on, list):
+for text in text_to_operate_on:
+operated_text = self._operate_on_text(
+text, operator_callable
+)
+self._set_nested_value(data, keys, operated_text)
+else:
+operated_text = self._operate_on_text(
+text_to_operate_on, operator_callable
+)
+self._set_nested_value(data, keys, operated_text)
+return data
+operate
+operate(
+data: Any,
+structured_analysis: StructuredAnalysis,
+operators: Dict[str, OperatorConfig],
+) -> Any
+Perform operations over the text using the operators, as per the structured analysis.
+| PARAMETER
+| DESCRIPTION
+|
+data
+|
+Data to be operated on.
+TYPE:
+Any
+|
+structured_analysis
+|
+Analysis schema as per the structured data.
+TYPE:
+StructuredAnalysis
+|
+operators
+|
+Dictionary containing operator configuration objects.
+TYPE:
+Dict[str, OperatorConfig]
+| RETURNS
+| DESCRIPTION
+|
+Any
+|
+Data after being operated upon.
+Source code in presidio_structured/data/data_processors.py
+|
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+|
+def operate(
+self,
+data: Any,
+structured_analysis: StructuredAnalysis,
+operators: Dict[str, OperatorConfig],
+) -> Any:
+"""
+Perform operations over the text using the operators, as per the structured analysis.
+:param data: Data to be operated on.
+:param structured_analysis: Analysis schema as per the structured data.
+:param operators: Dictionary containing operator configuration objects.
+:return: Data after being operated upon.
+""" # noqa: E501
+key_to_operator_mapping = self._generate_operator_mapping(
+structured_analysis, operators
+)
+return self._process(data, key_to_operator_mapping)
+JsonReader
+Bases: ReaderBase
+Reader for reading json files.
+Usage::
+reader = JsonReader()
+data = reader.read(path="filepath.json")
+| METHOD
+| DESCRIPTION
+| read
+|
+Read json file to dict.
+Source code in presidio_structured/data/data_reader.py
+|
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+|
+class JsonReader(ReaderBase):
+"""
+Reader for reading json files.
+Usage::
+reader = JsonReader()
+data = reader.read(path="filepath.json")
+"""
+def read(self, path: Union[str, Path], **kwargs) -> Dict[str, Any]:
+"""
+Read json file to dict.
+:param path: String defining the location of the json file to read.
+:return: dictionary with the data read from the json file.
+"""
+with open(path) as f:
+data = json.load(f, **kwargs)
+return data
+read
+read(path: Union[str, Path], **kwargs) -> Dict[str, Any]
+Read json file to dict.
+| PARAMETER
+| DESCRIPTION
+|
+path
+|
+String defining the location of the json file to read.
+TYPE:
+Union[str, Path]
+| RETURNS
+| DESCRIPTION
+|
+Dict[str, Any]
+|
+dictionary with the data read from the json file.
+Source code in presidio_structured/data/data_reader.py
+|
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+|
+def read(self, path: Union[str, Path], **kwargs) -> Dict[str, Any]:
+"""
+Read json file to dict.
+:param path: String defining the location of the json file to read.
+:return: dictionary with the data read from the json file.
+"""
+with open(path) as f:
+data = json.load(f, **kwargs)
+return data
+PandasDataProcessor
+Bases: DataProcessorBase
+Pandas Data Processor.
+| METHOD
+| DESCRIPTION
+| operate
+|
+Perform operations over the text using the operators, as per the structured analysis.
+Source code in presidio_structured/data/data_processors.py
+|
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+|
+class PandasDataProcessor(DataProcessorBase):
+"""Pandas Data Processor."""
+def _process(
+self, data: DataFrame, key_to_operator_mapping: Dict[str, Callable]
+) -> DataFrame:
+"""
+Operates on the given pandas DataFrame based on the provided operators.
+:param data: DataFrame to be operated on.
+:param key_to_operator_mapping: Mapping of keys to operator callables.
+:return: DataFrame after the operation.
+"""
+if not isinstance(data, DataFrame):
+raise ValueError("Data must be a pandas DataFrame")
+for key, operator_callable in key_to_operator_mapping.items():
+self.logger.debug(f"Operating on column {key}")
+for row in data.itertuples(index=True):
+text_to_operate_on = getattr(row, key)
+operated_text = self._operate_on_text(
+text_to_operate_on, operator_callable
+)
+data.at[row.Index, key] = operated_text
+return data
+operate
+operate(
+data: Any,
+structured_analysis: StructuredAnalysis,
+operators: Dict[str, OperatorConfig],
+) -> Any
+Perform operations over the text using the operators, as per the structured analysis.
+| PARAMETER
+| DESCRIPTION
+|
+data
+|
+Data to be operated on.
+TYPE:
+Any
+|
+structured_analysis
+|
+Analysis schema as per the structured data.
+TYPE:
+StructuredAnalysis
+|
+operators
+|
+Dictionary containing operator configuration objects.
+TYPE:
+Dict[str, OperatorConfig]
+| RETURNS
+| DESCRIPTION
+|
+Any
+|
+Data after being operated upon.
+Source code in presidio_structured/data/data_processors.py
+|
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+|
+def operate(
+self,
+data: Any,
+structured_analysis: StructuredAnalysis,
+operators: Dict[str, OperatorConfig],
+) -> Any:
+"""
+Perform operations over the text using the operators, as per the structured analysis.
+:param data: Data to be operated on.
+:param structured_analysis: Analysis schema as per the structured data.
+:param operators: Dictionary containing operator configuration objects.
+:return: Data after being operated upon.
+""" # noqa: E501
+key_to_operator_mapping = self._generate_operator_mapping(
+structured_analysis, operators
+)
+return self._process(data, key_to_operator_mapping)
+StructuredEngine
+Class to implement methods for anonymizing tabular data.
+| METHOD
+| DESCRIPTION
+| anonymize
+|
+Anonymize the given data using the given configuration.
+Source code in presidio_structured/structured_engine.py
+|
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+|
+class StructuredEngine:
+"""Class to implement methods for anonymizing tabular data."""
+def __init__(self, data_processor: Optional[DataProcessorBase] = None) -> None:
+"""
+Initialize the class with a data processor.
+:param data_processor: Instance of DataProcessorBase.
+"""
+if data_processor is None:
+self.data_processor = PandasDataProcessor()
+else:
+self.data_processor = data_processor
+self.logger = logging.getLogger("presidio-structured")
+def anonymize(
+self,
+data: Union[Dict, DataFrame],
+structured_analysis: StructuredAnalysis,
+operators: Union[Dict[str, OperatorConfig], None] = None,
+) -> Union[Dict, DataFrame]:
+"""
+Anonymize the given data using the given configuration.
+:param data: input data as dictionary or pandas DataFrame.
+:param structured_analysis: structured analysis configuration.
+:param operators: a dictionary of operator configurations, optional.
+:return: Anonymized dictionary or DataFrame.
+"""
+self.logger.debug("Starting anonymization")
+operators = self.__check_or_add_default_operator(operators)
+return self.data_processor.operate(data, structured_analysis, operators)
+def __check_or_add_default_operator(
+self, operators: Union[Dict[str, OperatorConfig], None]
+) -> Dict[str, OperatorConfig]:
+"""
+Check if the provided operators dictionary has a default operator. If not, add a default operator.
+:param operators: dictionary of operator configurations.
+:return: operators dictionary with the default operator added \
+if it was not initially present.
+""" # noqa: E501
+default_operator = OperatorConfig(DEFAULT)
+if not operators:
+self.logger.debug("No operators provided, using default operator")
+return {"DEFAULT": default_operator}
+if not operators.get("DEFAULT"):
+self.logger.debug("No default operator provided, using default operator")
+operators["DEFAULT"] = default_operator
+return operators
+anonymize
+anonymize(
+data: Union[Dict, DataFrame],
+structured_analysis: StructuredAnalysis,
+operators: Union[Dict[str, OperatorConfig], None] = None,
+) -> Union[Dict, DataFrame]
+Anonymize the given data using the given configuration.
+| PARAMETER
+| DESCRIPTION
+|
+data
+|
+input data as dictionary or pandas DataFrame.
+TYPE:
+Union[Dict, DataFrame]
+|
+structured_analysis
+|
+structured analysis configuration.
+TYPE:
+StructuredAnalysis
+|
+operators
+|
+a dictionary of operator configurations, optional.
+TYPE:
+Union[Dict[str, OperatorConfig], None]
+DEFAULT:
+None
+| RETURNS
+| DESCRIPTION
+|
+Union[Dict, DataFrame]
+|
+Anonymized dictionary or DataFrame.
+Source code in presidio_structured/structured_engine.py
+|
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+|
+def anonymize(
+self,
+data: Union[Dict, DataFrame],
+structured_analysis: StructuredAnalysis,
+operators: Union[Dict[str, OperatorConfig], None] = None,
+) -> Union[Dict, DataFrame]:
+"""
+Anonymize the given data using the given configuration.
+:param data: input data as dictionary or pandas DataFrame.
+:param structured_analysis: structured analysis configuration.
+:param operators: a dictionary of operator configurations, optional.
+:return: Anonymized dictionary or DataFrame.
+"""
+self.logger.debug("Starting anonymization")
+operators = self.__check_or_add_default_operator(operators)
+return self.data_processor.operate(data, structured_analysis, operators)
+handler: python
+Back to top
+Previous
+Presidio Image Redactor Python API
+Next
+REST API reference
+Data Privacy Stack
+Made with
+Zensical

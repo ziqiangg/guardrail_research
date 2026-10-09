@@ -1,0 +1,205 @@
+# status 200  final_url https://presidio.dataprivacystack.org/project_transition/  content-type text/html; charset=utf-8
+Skip to content
+Presidio
+Presidio is transitioning to a community-owned project
+Search
+GitHub
+Presidio
+Quick start
+Learn Presidio
+Resources
+Recipes
+Samples
+Presidio
+GitHub
+Presidio
+Presidio
+Home
+Installation
+FAQ
+Quick start
+Quick start
+Home
+Text
+Images
+Semi/Structured data
+Learn Presidio
+Learn Presidio
+Home
+Concepts
+Tutorial
+Tutorial
+Home
+Getting started
+Deny-list recognizers
+Regex recognizers
+Rule-based recognizers
+Additional models/languages
+External services
+Context enhancement
+Decision process
+No-code recognizers
+Ad-hoc recognizers
+Simple anonymization
+Custom anonymization
+Encryption/Decryption
+Allow-lists
+Text de-identification
+Text de-identification
+Home
+Presidio Analyzer
+Presidio Analyzer
+Home
+Developing PII recognizers
+Developing PII recognizers
+Tutorial
+Best practices
+Recognizer registry from file
+Filtering recognizers by country
+Multi-language support
+Customizing the NLP model
+Customizing the NLP model
+Home
+Spacy/Stanza
+Transformers
+GPU Acceleration
+Tracing the decision process
+Configure from file
+Presidio Anonymizer
+Presidio Anonymizer
+Home
+Developing PII anonymization operators
+Azure Health Data Services de-identification service integration
+Image de-identification
+Image de-identification
+Home
+Evaluating DICOM redaction
+Structured and Semi-structured
+Structured and Semi-structured
+Home
+PII detection evaluation
+Resources
+Resources
+Supported entities
+Project transition update
+Project transition update
+On this page
+What this means
+Microsoft and Azure users
+Why this change
+What to expect during the transition
+Maintainers and contributors
+Community
+Change log
+Setting up a development environment
+Build and release process
+Changes from V1 to V2
+Python API reference
+Python API reference
+Home
+Presidio Analyzer Python API
+Presidio Anonymizer Python API
+Presidio Image Redactor Python API
+Presidio Structured Python API
+REST API reference
+Recipes
+Recipes
+Home
+Contributing
+Template
+Samples
+Samples
+Home
+Text
+Text
+Presidio Basic Usage Notebook
+Customizing Presidio Analyzer
+Configuring The NLP engine
+Encrypting and Decrypting identified entities
+Getting the identified entity value using a custom Operator
+Anonymizing known values
+Keeping some entities from being anonymized
+Integrating with external services
+Remote Recognizer
+Azure AI Language as a Remote Recognizer
+Azure Health DataServices De-identification as a Remote Recognizer
+Using Flair as an external PII model
+Using Span Marker as an external PII model
+Using Transformers as an external PII model
+Using GLiNER as an external PII model
+Pseudonymization (replace PII values using mappings)
+Passing a lambda as a Presidio anonymizer using Faker
+Synthetic data generation with OpenAI
+YAML based no-code configuration
+Data
+Data
+Analyzing structured / semi-structured data in batch
+Presidio Structured Basic Usage Notebook
+Analyze and Anonymize CSV file
+Images
+Images
+Redacting Text PII from DICOM images
+Using an allow list with image redaction
+Plot custom bounding boxes
+Example DICOM redaction evaluation
+PDF
+PDF
+Annotating PII in a PDF
+Deployment
+Deployment
+Presidio with App Service
+Presidio with Kubernetes
+Presidio with Spark
+Presidio with Fabric
+Redacting Telemetry with Presidio
+Azure Data Factory
+Azure Data Factory
+ETL using AppService/Databricks
+Add Presidio as an HTTP service to your Azure Data Factory
+Add Presidio on Databricks to your Azure Data Factory
+PII Masking LLM calls using LiteLLM proxy
+Demo app
+Demo app
+Create a simple demo app using Streamlit
+On this page
+What this means
+Microsoft and Azure users
+Why this change
+What to expect during the transition
+Maintainers and contributors
+Presidio is transitioning to a community-owned project
+We want to share an important update regarding the future of Presidio.
+The Presidio project is in the process of transitioning from a Microsoft-owned project to an independent, community-governed open source project under the new GitHub organization Data Privacy Stack. Its new URL is: https://github.com/data-privacy-stack/presidio
+Microsoft supports this transition and the continued success of the Presidio project as an open source community initiative.
+Our goal is to ensure Presidio continues to serve the privacy engineering and data protection community as an open, transparent, and vendor-neutral project.
+What this means
+Presidio will continue to be open source under the MIT license.
+Existing functionality, APIs, and documentation will remain available.
+The project will continue to be maintained by contributors and volunteers from the community.
+The project will not be owned or operated by a commercial entity.
+The focus on privacy, responsible AI, and data protection tooling remains unchanged.
+Microsoft and Azure users
+This transition does not change the experience for existing users of Presidio, including organizations using Presidio alongside Microsoft and Azure services.
+Existing integrations, dependencies, and usage patterns are expected to continue working as they do today.
+Why this change
+Over the years, Presidio has grown beyond its original scope and has been adopted by organizations, researchers, and developers across industries. We believe the project is best positioned for long-term sustainability, broader collaboration, and open governance as an independent community initiative.
+What to expect during the transition
+During the migration process:
+Repositories, documentation links, and package references may gradually change.
+Some GitHub URLs and documentation pages may redirect temporarily.
+New Docker image releases are published to GitHub Container Registry under the Data Privacy Stack organization. Legacy Microsoft Container Registry (MCR) images remain available for older tags but are no longer updated; update mcr.microsoft.com/presidio-* image references to ghcr.io/data-privacy-stack/presidio-*.
+Contribution and governance processes will evolve and become more community-driven.
+The technical steering committee (TSC) will expand to include maintainers and contributors from outside Microsoft.
+We will do our best to keep the transition smooth and minimize disruption for users and contributors.
+Maintainers and contributors
+Many of the current maintainers and contributors intend to remain involved during and after the transition. We also welcome new contributors who care about privacy-preserving technologies and responsible data handling.
+More details regarding governance, contribution guidelines, maintainership, Docker image publishing, and roadmap planning will be shared as the transition progresses.
+Thank you to everyone who has supported Presidio so far and helped make it a valuable resource for the broader privacy engineering community.
+Back to top
+Previous
+Supported entities
+Next
+Community
+Data Privacy Stack
+Made with
+Zensical

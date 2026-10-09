@@ -1,0 +1,216 @@
+# status 200  final_url https://presidio.dataprivacystack.org/getting_started/getting_started_images/  content-type text/html; charset=utf-8
+Skip to content
+Presidio
+Getting started with image de-identification with Presidio
+Search
+GitHub
+Presidio
+Quick start
+Learn Presidio
+Resources
+Recipes
+Samples
+Presidio
+GitHub
+Presidio
+Presidio
+Home
+Installation
+FAQ
+Quick start
+Quick start
+Home
+Text
+Images
+Images
+On this page
+Simple flow - Python package
+Simple flow - Docker container
+Read more
+Semi/Structured data
+Learn Presidio
+Learn Presidio
+Home
+Concepts
+Tutorial
+Tutorial
+Home
+Getting started
+Deny-list recognizers
+Regex recognizers
+Rule-based recognizers
+Additional models/languages
+External services
+Context enhancement
+Decision process
+No-code recognizers
+Ad-hoc recognizers
+Simple anonymization
+Custom anonymization
+Encryption/Decryption
+Allow-lists
+Text de-identification
+Text de-identification
+Home
+Presidio Analyzer
+Presidio Analyzer
+Home
+Developing PII recognizers
+Developing PII recognizers
+Tutorial
+Best practices
+Recognizer registry from file
+Filtering recognizers by country
+Multi-language support
+Customizing the NLP model
+Customizing the NLP model
+Home
+Spacy/Stanza
+Transformers
+GPU Acceleration
+Tracing the decision process
+Configure from file
+Presidio Anonymizer
+Presidio Anonymizer
+Home
+Developing PII anonymization operators
+Azure Health Data Services de-identification service integration
+Image de-identification
+Image de-identification
+Home
+Evaluating DICOM redaction
+Structured and Semi-structured
+Structured and Semi-structured
+Home
+PII detection evaluation
+Resources
+Resources
+Supported entities
+Project transition update
+Community
+Change log
+Setting up a development environment
+Build and release process
+Changes from V1 to V2
+Python API reference
+Python API reference
+Home
+Presidio Analyzer Python API
+Presidio Anonymizer Python API
+Presidio Image Redactor Python API
+Presidio Structured Python API
+REST API reference
+Recipes
+Recipes
+Home
+Contributing
+Template
+Samples
+Samples
+Home
+Text
+Text
+Presidio Basic Usage Notebook
+Customizing Presidio Analyzer
+Configuring The NLP engine
+Encrypting and Decrypting identified entities
+Getting the identified entity value using a custom Operator
+Anonymizing known values
+Keeping some entities from being anonymized
+Integrating with external services
+Remote Recognizer
+Azure AI Language as a Remote Recognizer
+Azure Health DataServices De-identification as a Remote Recognizer
+Using Flair as an external PII model
+Using Span Marker as an external PII model
+Using Transformers as an external PII model
+Using GLiNER as an external PII model
+Pseudonymization (replace PII values using mappings)
+Passing a lambda as a Presidio anonymizer using Faker
+Synthetic data generation with OpenAI
+YAML based no-code configuration
+Data
+Data
+Analyzing structured / semi-structured data in batch
+Presidio Structured Basic Usage Notebook
+Analyze and Anonymize CSV file
+Images
+Images
+Redacting Text PII from DICOM images
+Using an allow list with image redaction
+Plot custom bounding boxes
+Example DICOM redaction evaluation
+PDF
+PDF
+Annotating PII in a PDF
+Deployment
+Deployment
+Presidio with App Service
+Presidio with Kubernetes
+Presidio with Spark
+Presidio with Fabric
+Redacting Telemetry with Presidio
+Azure Data Factory
+Azure Data Factory
+ETL using AppService/Databricks
+Add Presidio as an HTTP service to your Azure Data Factory
+Add Presidio on Databricks to your Azure Data Factory
+PII Masking LLM calls using LiteLLM proxy
+Demo app
+Demo app
+Create a simple demo app using Streamlit
+On this page
+Simple flow - Python package
+Simple flow - Docker container
+Read more
+Getting started with image de-identification with Presidio
+Presidio provides a simple way to de-identify image data by detecting and anonymizing personally identifiable information (PII). This guide shows you how to get started with image de-identification using Presidio's Python packages.
+Presidio has two main modules for image de-identification: General purpose, and specifically for DICOM (medical) images.
+Simple flow - Python package
+Anonymize PII in imagesRedact text PII in DICOM images
+Install presidio-image-redactor
+pip install presidio-image-redactor
+Redact PII from image
+from presidio_image_redactor import ImageRedactorEngine
+from PIL import Image
+image = Image.open(path_to_image_file)
+redactor = ImageRedactorEngine()
+redactor.redact(image=image)
+Install presidio-image-redactor
+pip install presidio-image-redactor
+Redact text PII from DICOM image
+import pydicom
+from presidio_image_redactor import DicomImageRedactorEngine
+# Set input and output paths
+input_path = "path/to/your/dicom/file.dcm"
+output_dir = "./output"
+# Initialize the engine
+engine = DicomImageRedactorEngine()
+# Option 1: Redact from a loaded DICOM image
+dicom_image = pydicom.dcmread(input_path)
+redacted_dicom_image = engine.redact(dicom_image, fill="contrast")
+# Option 2: Redact from DICOM file
+engine.redact_from_file(input_path, output_dir, padding_width=25, fill="contrast")
+# Option 3: Redact from directory
+engine.redact_from_directory("path/to/your/dicom", output_dir, padding_width=25, fill="contrast")
+Simple flow - Docker container
+Presidio provides a Docker containers that you can use to de-identify image data.
+Download Docker image
+docker pull ghcr.io/data-privacy-stack/presidio-image-redactor
+Run container
+docker run -d -p 5003:3000 ghcr.io/data-privacy-stack/presidio-image-redactor:latest
+Use the API
+curl -XPOST "http://localhost:5003/redact" -H "content-type: multipart/form-data" -F "image=@img.png" -F "data=\"{'color_fill':'255'}\"" > out.png
+Read more
+Installing Presidio
+PII detection in images
+Samples
+Python API reference - Image Redactor
+Back to top
+Previous
+Text
+Next
+Semi/Structured data
+Data Privacy Stack
+Made with
+Zensical

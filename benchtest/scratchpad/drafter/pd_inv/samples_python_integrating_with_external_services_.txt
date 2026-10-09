@@ -1,0 +1,230 @@
+# status 200  final_url https://presidio.dataprivacystack.org/samples/python/integrating_with_external_services/  content-type text/html; charset=utf-8
+Skip to content
+Presidio
+Integrating external models/services with Presidio
+Search
+GitHub
+Presidio
+Quick start
+Learn Presidio
+Resources
+Recipes
+Samples
+Presidio
+GitHub
+Presidio
+Presidio
+Home
+Installation
+FAQ
+Quick start
+Quick start
+Home
+Text
+Images
+Semi/Structured data
+Learn Presidio
+Learn Presidio
+Home
+Concepts
+Tutorial
+Tutorial
+Home
+Getting started
+Deny-list recognizers
+Regex recognizers
+Rule-based recognizers
+Additional models/languages
+External services
+Context enhancement
+Decision process
+No-code recognizers
+Ad-hoc recognizers
+Simple anonymization
+Custom anonymization
+Encryption/Decryption
+Allow-lists
+Text de-identification
+Text de-identification
+Home
+Presidio Analyzer
+Presidio Analyzer
+Home
+Developing PII recognizers
+Developing PII recognizers
+Tutorial
+Best practices
+Recognizer registry from file
+Filtering recognizers by country
+Multi-language support
+Customizing the NLP model
+Customizing the NLP model
+Home
+Spacy/Stanza
+Transformers
+GPU Acceleration
+Tracing the decision process
+Configure from file
+Presidio Anonymizer
+Presidio Anonymizer
+Home
+Developing PII anonymization operators
+Azure Health Data Services de-identification service integration
+Image de-identification
+Image de-identification
+Home
+Evaluating DICOM redaction
+Structured and Semi-structured
+Structured and Semi-structured
+Home
+PII detection evaluation
+Resources
+Resources
+Supported entities
+Project transition update
+Community
+Change log
+Setting up a development environment
+Build and release process
+Changes from V1 to V2
+Python API reference
+Python API reference
+Home
+Presidio Analyzer Python API
+Presidio Anonymizer Python API
+Presidio Image Redactor Python API
+Presidio Structured Python API
+REST API reference
+Recipes
+Recipes
+Home
+Contributing
+Template
+Samples
+Samples
+Home
+Text
+Text
+Presidio Basic Usage Notebook
+Customizing Presidio Analyzer
+Configuring The NLP engine
+Encrypting and Decrypting identified entities
+Getting the identified entity value using a custom Operator
+Anonymizing known values
+Keeping some entities from being anonymized
+Integrating with external services
+Integrating with external services
+On this page
+# Path to notebook: https://www.github.com/data-privacy-stack/presidio/blob/main/docs/samples/python/integrating_with_external_services.ipynb
+Integrating external models/services with Presidio
+Azure Text Analytics
+Supported entity categories in the Text Analytics API
+Prerequisites
+Text Analytics Recognizer
+Remote Recognizer
+Azure AI Language as a Remote Recognizer
+Azure Health DataServices De-identification as a Remote Recognizer
+Using Flair as an external PII model
+Using Span Marker as an external PII model
+Using Transformers as an external PII model
+Using GLiNER as an external PII model
+Pseudonymization (replace PII values using mappings)
+Passing a lambda as a Presidio anonymizer using Faker
+Synthetic data generation with OpenAI
+YAML based no-code configuration
+Data
+Data
+Analyzing structured / semi-structured data in batch
+Presidio Structured Basic Usage Notebook
+Analyze and Anonymize CSV file
+Images
+Images
+Redacting Text PII from DICOM images
+Using an allow list with image redaction
+Plot custom bounding boxes
+Example DICOM redaction evaluation
+PDF
+PDF
+Annotating PII in a PDF
+Deployment
+Deployment
+Presidio with App Service
+Presidio with Kubernetes
+Presidio with Spark
+Presidio with Fabric
+Redacting Telemetry with Presidio
+Azure Data Factory
+Azure Data Factory
+ETL using AppService/Databricks
+Add Presidio as an HTTP service to your Azure Data Factory
+Add Presidio on Databricks to your Azure Data Factory
+PII Masking LLM calls using LiteLLM proxy
+Demo app
+Demo app
+Create a simple demo app using Streamlit
+On this page
+# Path to notebook: https://www.github.com/data-privacy-stack/presidio/blob/main/docs/samples/python/integrating_with_external_services.ipynb
+Integrating external models/services with Presidio
+Azure Text Analytics
+Supported entity categories in the Text Analytics API
+Prerequisites
+Text Analytics Recognizer
+# download presidio
+!pip install presidio_analyzer presidio_anonymizer
+!python -m spacy download en_core_web_lg
+# Path to notebook: https://www.github.com/data-privacy-stack/presidio/blob/main/docs/samples/python/integrating_with_external_services.ipynb
+Integrating external models/services with Presidio
+Presidio analyzer is comprised of a set of PII recognizers which can run local or remotely.
+In this notebook we'll give an example of integrating an external service into Presidio-Analyzer.
+Azure Text Analytics
+Azure Text Analytics is a cloud-based service that provides advanced natural
+language processing over raw text. One of its main functions includes
+Named Entity Recognition (NER), which has the ability to identify different
+entities in text and categorize them into pre-defined classes or types.
+Supported entity categories in the Text Analytics API
+Text Analytics supports multiple PII entity categories. The Text Analytics service
+runs a predictive model to identify and categorize named entities from an input
+document. The service's latest version includes the ability to detect personal (PII)
+and health (PHI) information. A list of all supported entities can be found in the
+official documentation.
+Prerequisites
+To use Text Analytics with Preisido, an Azure Text Analytics resource should
+first be created under an Azure subscription. Follow the official documentation
+for instructions. The key and endpoint, generated once the resource is created, should replace the placeholders <YOUR_TEXT_ANALYTICS_KEY> and <YOUR_TEXT_ANALYTICS_ENDPOINT> in this notebook, respectively.
+Text Analytics Recognizer
+In this example we will use the TextAnalyticsRecognizer sample implementation. This class extends Presidio's Remote Recognizer for calling the Text Analytics service REST API. For additional information of a remote recognizer, see the ExampleRemoteRecognizer sample.
+from presidio_analyzer import AnalyzerEngine
+from text_analytics.example_text_analytics_recognizer import TextAnalyticsEntityCategory, TextAnalyticsRecognizer
+Define which entities to get from Text Analytics
+ta_entities = [
+TextAnalyticsEntityCategory(name="Person",
+entity_type="NAME",
+supported_languages=["en"]),
+TextAnalyticsEntityCategory(name="Age",
+entity_type="AGE",
+subcategory = "Age",
+supported_languages=["en"]),
+TextAnalyticsEntityCategory(name="InternationlBankingAccountNumber",
+entity_type="IBAN",
+supported_languages=["en"])]
+For a full list of entities: https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/named-entity-types?tabs=personal
+Instantiate the remote recognizer object (In this case TextAnalyticsRecognizer)
+text_analytics_recognizer = TextAnalyticsRecognizer(
+text_analytics_key="<YOUR_TEXT_ANALYTICS_KEY>",
+text_analytics_endpoint="<YOUR_TEXT_ANALYTICS_ENDPOINT>",
+text_analytics_categories = ta_entities)
+Add the new recognizer to the list of recognizers and run the PresidioAnalyzer
+analyzer = AnalyzerEngine()
+analyzer.registry.add_recognizer(text_analytics_recognizer)
+results = analyzer.analyze(
+text="David is 30 years old. His IBAN: IL150120690000003111111", language="en"
+)
+print(results)
+Back to top
+Previous
+Keeping some entities from being anonymized
+Next
+Remote Recognizer
+Data Privacy Stack
+Made with
+Zensical

@@ -1,0 +1,282 @@
+# status 200  final_url https://presidio.dataprivacystack.org/analyzer/nlp_engines/gpu_usage/  content-type text/html; charset=utf-8
+Skip to content
+Presidio
+GPU Acceleration
+Search
+GitHub
+Presidio
+Quick start
+Learn Presidio
+Resources
+Recipes
+Samples
+Presidio
+GitHub
+Presidio
+Presidio
+Home
+Installation
+FAQ
+Quick start
+Quick start
+Home
+Text
+Images
+Semi/Structured data
+Learn Presidio
+Learn Presidio
+Home
+Concepts
+Tutorial
+Tutorial
+Home
+Getting started
+Deny-list recognizers
+Regex recognizers
+Rule-based recognizers
+Additional models/languages
+External services
+Context enhancement
+Decision process
+No-code recognizers
+Ad-hoc recognizers
+Simple anonymization
+Custom anonymization
+Encryption/Decryption
+Allow-lists
+Text de-identification
+Text de-identification
+Home
+Presidio Analyzer
+Presidio Analyzer
+Home
+Developing PII recognizers
+Developing PII recognizers
+Tutorial
+Best practices
+Recognizer registry from file
+Filtering recognizers by country
+Multi-language support
+Customizing the NLP model
+Customizing the NLP model
+Home
+Spacy/Stanza
+Transformers
+GPU Acceleration
+GPU Acceleration
+On this page
+Environment Variable Override
+Prerequisites
+Hardware Requirements
+Software Dependencies
+Verifying GPU Usage
+GPU-Enabled NLP Engines
+Troubleshooting
+GPU not detected
+Out of memory errors
+CPU fallback
+Additional Resources
+Tracing the decision process
+Configure from file
+Presidio Anonymizer
+Presidio Anonymizer
+Home
+Developing PII anonymization operators
+Azure Health Data Services de-identification service integration
+Image de-identification
+Image de-identification
+Home
+Evaluating DICOM redaction
+Structured and Semi-structured
+Structured and Semi-structured
+Home
+PII detection evaluation
+Resources
+Resources
+Supported entities
+Project transition update
+Community
+Change log
+Setting up a development environment
+Build and release process
+Changes from V1 to V2
+Python API reference
+Python API reference
+Home
+Presidio Analyzer Python API
+Presidio Anonymizer Python API
+Presidio Image Redactor Python API
+Presidio Structured Python API
+REST API reference
+Recipes
+Recipes
+Home
+Contributing
+Template
+Samples
+Samples
+Home
+Text
+Text
+Presidio Basic Usage Notebook
+Customizing Presidio Analyzer
+Configuring The NLP engine
+Encrypting and Decrypting identified entities
+Getting the identified entity value using a custom Operator
+Anonymizing known values
+Keeping some entities from being anonymized
+Integrating with external services
+Remote Recognizer
+Azure AI Language as a Remote Recognizer
+Azure Health DataServices De-identification as a Remote Recognizer
+Using Flair as an external PII model
+Using Span Marker as an external PII model
+Using Transformers as an external PII model
+Using GLiNER as an external PII model
+Pseudonymization (replace PII values using mappings)
+Passing a lambda as a Presidio anonymizer using Faker
+Synthetic data generation with OpenAI
+YAML based no-code configuration
+Data
+Data
+Analyzing structured / semi-structured data in batch
+Presidio Structured Basic Usage Notebook
+Analyze and Anonymize CSV file
+Images
+Images
+Redacting Text PII from DICOM images
+Using an allow list with image redaction
+Plot custom bounding boxes
+Example DICOM redaction evaluation
+PDF
+PDF
+Annotating PII in a PDF
+Deployment
+Deployment
+Presidio with App Service
+Presidio with Kubernetes
+Presidio with Spark
+Presidio with Fabric
+Redacting Telemetry with Presidio
+Azure Data Factory
+Azure Data Factory
+ETL using AppService/Databricks
+Add Presidio as an HTTP service to your Azure Data Factory
+Add Presidio on Databricks to your Azure Data Factory
+PII Masking LLM calls using LiteLLM proxy
+Demo app
+Demo app
+Create a simple demo app using Streamlit
+On this page
+Environment Variable Override
+Prerequisites
+Hardware Requirements
+Software Dependencies
+Verifying GPU Usage
+GPU-Enabled NLP Engines
+Troubleshooting
+GPU not detected
+Out of memory errors
+CPU fallback
+Additional Resources
+GPU Acceleration
+Presidio supports GPU acceleration for NLP models, which can significantly improve performance when processing large volumes of text. GPU is automatically detected and used when available—no code changes required.
+Environment Variable Override
+You can explicitly control device selection using the PRESIDIO_DEVICE environment variable. Any valid PyTorch device string is accepted:
+# Force CPU usage
+export PRESIDIO_DEVICE=cpu
+# Force GPU usage
+export PRESIDIO_DEVICE=cuda
+# Use a specific GPU
+export PRESIDIO_DEVICE=cuda:0
+export PRESIDIO_DEVICE=cuda:1
+# Or when running Docker containers
+docker run -e PRESIDIO_DEVICE=cuda ghcr.io/data-privacy-stack/presidio-analyzer:latest
+Priority
+When PRESIDIO_DEVICE is set, it takes priority over automatic detection. If not set (or empty), Presidio will auto-detect available hardware.
+Prerequisites
+Hardware Requirements
+| Hardware
+| Requirement
+| NVIDIA GPU
+| CUDA Toolkit 11.x or 12.x
+| Apple Silicon
+| MPS (Metal Performance Shaders) on M1/M2/M3
+| CPU
+| Automatic fallback when GPU is unavailable
+Software Dependencies
+NVIDIA GPUApple Silicon
+Install the appropriate CUDA library matching your CUDA version:
+pip install "spacy[cuda12x]" # For CUDA 12.x
+# or
+pip install "spacy[cuda11x]" # For CUDA 11.x
+Silent Fallback
+If cupy is not installed or the version mismatches your CUDA driver, spaCy will silently fall back to CPU. Always verify your setup using the methods below.
+No additional dependencies required. MPS is detected automatically.
+Verifying GPU Usage
+To check if GPU is available and being used:
+import torch
+if torch.cuda.is_available():
+print(f"GPU available: CUDA ({torch.cuda.get_device_name(0)})")
+elif hasattr(torch.backends, 'mps') and torch.backends.mps.is_available():
+print("GPU available: MPS (Apple Silicon)")
+else:
+print("Using CPU")
+You can also monitor GPU usage during processing:
+# For NVIDIA GPUs
+watch -n 1 nvidia-smi
+# For Apple Silicon
+sudo powermetrics --samplers gpu_power
+GPU-Enabled NLP Engines
+| Engine
+| GPU Support
+| TransformersNlpEngine
+| ✅ Full
+| GLiNER
+| ✅ Full
+| Stanza
+| ✅ Full
+| spaCy (transformer models)
+| ✅ Full
+| spaCy (standard models)
+| ⚠️ Not recommended
+Standard spaCy Models
+GPU is recommended for Transformers, Stanza, and GLiNER workloads. Standard spaCy models (e.g., en_core_web_lg) may be slower on GPU due to data transfer overhead.
+Troubleshooting
+GPU not detected
+Check CUDA is installed:
+nvidia-smi
+nvcc --version
+Verify cupy can see your GPU:
+import cupy as cp
+print(cp.cuda.runtime.getDeviceCount()) # Should be > 0
+Reinstall cupy with correct CUDA version:
+pip uninstall cupy cupy-cuda11x cupy-cuda12x
+pip install cupy-cuda12x # Match your CUDA version
+Out of memory errors
+If you see RuntimeError: CUDA out of memory:
+Use a smaller transformer model (e.g., dslim/bert-base-NER instead of larger models)
+Split longer texts into smaller chunks before processing
+Reduce the maximum sequence length if using Hugging Face transformers
+CPU fallback
+Presidio automatically uses CPU if:
+No GPU is detected
+CUDA or cupy are not installed
+GPU initialization fails
+This ensures code portability across different environments.
+Additional Resources
+spaCy: GPU Usage
+NVIDIA CUDA Installation Guide
+cupy Documentation
+Related Presidio documentation:
+Transformer Models
+spaCy and Stanza Models
+Customizing NLP Models
+Back to top
+Previous
+Transformers
+Next
+Tracing the decision process
+Data Privacy Stack
+Made with
+Zensical

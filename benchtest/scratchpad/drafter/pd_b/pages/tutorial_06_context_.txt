@@ -1,0 +1,249 @@
+# status 200  final_url https://presidio.dataprivacystack.org/tutorial/06_context/  content-type text/html; charset=utf-8
+Skip to content
+Presidio
+Example 6: Leveraging context words
+Search
+GitHub
+Presidio
+Quick start
+Learn Presidio
+Resources
+Recipes
+Samples
+Presidio
+GitHub
+Presidio
+Presidio
+Home
+Installation
+FAQ
+Quick start
+Quick start
+Home
+Text
+Images
+Semi/Structured data
+Learn Presidio
+Learn Presidio
+Home
+Concepts
+Tutorial
+Tutorial
+Home
+Getting started
+Deny-list recognizers
+Regex recognizers
+Rule-based recognizers
+Additional models/languages
+External services
+Context enhancement
+Context enhancement
+On this page
+Example: Adding context words support to recognizers
+Decision process
+No-code recognizers
+Ad-hoc recognizers
+Simple anonymization
+Custom anonymization
+Encryption/Decryption
+Allow-lists
+Text de-identification
+Text de-identification
+Home
+Presidio Analyzer
+Presidio Analyzer
+Home
+Developing PII recognizers
+Developing PII recognizers
+Tutorial
+Best practices
+Recognizer registry from file
+Filtering recognizers by country
+Multi-language support
+Customizing the NLP model
+Customizing the NLP model
+Home
+Spacy/Stanza
+Transformers
+GPU Acceleration
+Tracing the decision process
+Configure from file
+Presidio Anonymizer
+Presidio Anonymizer
+Home
+Developing PII anonymization operators
+Azure Health Data Services de-identification service integration
+Image de-identification
+Image de-identification
+Home
+Evaluating DICOM redaction
+Structured and Semi-structured
+Structured and Semi-structured
+Home
+PII detection evaluation
+Resources
+Resources
+Supported entities
+Project transition update
+Community
+Change log
+Setting up a development environment
+Build and release process
+Changes from V1 to V2
+Python API reference
+Python API reference
+Home
+Presidio Analyzer Python API
+Presidio Anonymizer Python API
+Presidio Image Redactor Python API
+Presidio Structured Python API
+REST API reference
+Recipes
+Recipes
+Home
+Contributing
+Template
+Samples
+Samples
+Home
+Text
+Text
+Presidio Basic Usage Notebook
+Customizing Presidio Analyzer
+Configuring The NLP engine
+Encrypting and Decrypting identified entities
+Getting the identified entity value using a custom Operator
+Anonymizing known values
+Keeping some entities from being anonymized
+Integrating with external services
+Remote Recognizer
+Azure AI Language as a Remote Recognizer
+Azure Health DataServices De-identification as a Remote Recognizer
+Using Flair as an external PII model
+Using Span Marker as an external PII model
+Using Transformers as an external PII model
+Using GLiNER as an external PII model
+Pseudonymization (replace PII values using mappings)
+Passing a lambda as a Presidio anonymizer using Faker
+Synthetic data generation with OpenAI
+YAML based no-code configuration
+Data
+Data
+Analyzing structured / semi-structured data in batch
+Presidio Structured Basic Usage Notebook
+Analyze and Anonymize CSV file
+Images
+Images
+Redacting Text PII from DICOM images
+Using an allow list with image redaction
+Plot custom bounding boxes
+Example DICOM redaction evaluation
+PDF
+PDF
+Annotating PII in a PDF
+Deployment
+Deployment
+Presidio with App Service
+Presidio with Kubernetes
+Presidio with Spark
+Presidio with Fabric
+Redacting Telemetry with Presidio
+Azure Data Factory
+Azure Data Factory
+ETL using AppService/Databricks
+Add Presidio as an HTTP service to your Azure Data Factory
+Add Presidio on Databricks to your Azure Data Factory
+PII Masking LLM calls using LiteLLM proxy
+Demo app
+Demo app
+Create a simple demo app using Streamlit
+On this page
+Example: Adding context words support to recognizers
+Example 6: Leveraging context words
+Presidio has an internal mechanism for leveraging context words. This mechanism would increase the detection confidence of a PII entity in case a specific word appears before or after it.
+Furthermore, it is possible to create your own context enhancer, if you require a different logic for identifying context terms. The default context-aware enhancer in Presidio is the LemmaContextAwareEnhancer which compares each recognizer's context terms with the lemma of each token in the sentence.
+In this example we would first implement a zip code recognizer without context, and then add context to see how the confidence changes. Zip regex patterns (essentially 5 digits) are very weak, so we would want the initial confidence to be low, and increased with the existence of context words.
+Example: Adding context words support to recognizers
+First, let's create a simple US_ZIP_CODE recognizer:
+from presidio_analyzer import (
+Pattern,
+PatternRecognizer,
+RecognizerRegistry,
+AnalyzerEngine,
+)
+# Define the regex pattern
+regex = r"(\b\d{5}(?:\-\d{4})?\b)" # very weak regex pattern
+zipcode_pattern = Pattern(name="zip code (weak)", regex=regex, score=0.01)
+# Define the recognizer with the defined pattern
+zipcode_recognizer = PatternRecognizer(
+supported_entity="US_ZIP_CODE", patterns=[zipcode_pattern]
+)
+registry = RecognizerRegistry()
+registry.add_recognizer(zipcode_recognizer)
+analyzer = AnalyzerEngine(registry=registry)
+# Test
+results = analyzer.analyze(text="My zip code is 90210", language="en")
+print(f"Result:\n {results}")
+So this is working, but would catch any 5 digit string. This is why we set the score to 0.01. Let's use context words to increase score:
+from presidio_analyzer import PatternRecognizer
+# Define the recognizer with the defined pattern and context words
+zipcode_recognizer_w_context = PatternRecognizer(
+supported_entity="US_ZIP_CODE",
+patterns=[zipcode_pattern],
+context=["zip", "zipcode"],
+)
+When creating an AnalyzerEngine we can provide our own context enhancement logic by passing it to context_aware_enhancer parameter.
+AnalyzerEngine will create LemmaContextAwareEnhancer by default if not passed, which will enhance score of each matched result if its recognizer holds context words and the lemma of those words are found in the surroundings of the matched entity.
+Creating the AnalyzerEngine and adding the new recognizer:
+from presidio_analyzer import AnalyzerEngine, RecognizerRegistry
+registry = RecognizerRegistry()
+registry.add_recognizer(zipcode_recognizer_w_context)
+analyzer = AnalyzerEngine(registry=registry)
+# Test
+results = analyzer.analyze(text="My zip code is 90210", language="en")
+print("Result:")
+print(results)
+The confidence score is now 0.4, instead of 0.01, since the LemmaContextAwareEnhancer default context similarity factor is 0.35 and default minimum score with context similarity is 0.4. We can change that by passing other values to the context_similarity_factor and min_score_with_context_similarity parameters of the LemmaContextAwareEnhancer object. For example:
+from presidio_analyzer import AnalyzerEngine, RecognizerRegistry
+from presidio_analyzer.context_aware_enhancers import LemmaContextAwareEnhancer
+context_aware_enhancer = LemmaContextAwareEnhancer(
+context_similarity_factor=0.45, min_score_with_context_similarity=0.4
+)
+registry = RecognizerRegistry()
+registry.add_recognizer(zipcode_recognizer_w_context)
+analyzer = AnalyzerEngine(
+registry=registry, context_aware_enhancer=context_aware_enhancer
+)
+# Test
+results = analyzer.analyze(text="My zip code is 90210", language="en")
+print("Result:")
+print(results)
+The confidence score is now 0.46 because it got enhanced from 0.01 with 0.45 and is more than the minimum of 0.4.
+In addition to surrounding words, additional context words could be passed on the request level.
+This is useful when there is context coming from metadata such as column names or a specific user input.
+In the following example, notice how the "zip" context word doesn't appear in the text but still enhances the confidence score from 0.01 to 0.4:
+from presidio_analyzer import AnalyzerEngine, RecognizerRegistry, PatternRecognizer
+# Define the recognizer with the defined pattern and context words
+zipcode_recognizer = PatternRecognizer(
+supported_entity="US_ZIP_CODE",
+patterns=[zipcode_pattern],
+context=["zip", "zipcode"],
+)
+registry = RecognizerRegistry()
+registry.add_recognizer(zipcode_recognizer)
+analyzer = AnalyzerEngine(registry=registry)
+# Test with an example record having a column name which could be injected as context
+record = {"column_name": "zip", "text": "My code is 90210"}
+result = analyzer.analyze(
+text=record["text"], language="en", context=[record["column_name"]]
+)
+print("Result:")
+print(result)
+Back to top
+Previous
+External services
+Next
+Decision process
+Data Privacy Stack
+Made with
+Zensical

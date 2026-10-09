@@ -1,0 +1,271 @@
+# status 200  final_url https://presidio.dataprivacystack.org/getting_started/getting_started_text/  content-type text/html; charset=utf-8
+Skip to content
+Presidio
+Getting started with text de-identification with Presidio
+Search
+GitHub
+Presidio
+Quick start
+Learn Presidio
+Resources
+Recipes
+Samples
+Presidio
+GitHub
+Presidio
+Presidio
+Home
+Installation
+FAQ
+Quick start
+Quick start
+Home
+Text
+Text
+On this page
+Simple flow - Python package
+Simple flow - Docker container
+Read more
+Images
+Semi/Structured data
+Learn Presidio
+Learn Presidio
+Home
+Concepts
+Tutorial
+Tutorial
+Home
+Getting started
+Deny-list recognizers
+Regex recognizers
+Rule-based recognizers
+Additional models/languages
+External services
+Context enhancement
+Decision process
+No-code recognizers
+Ad-hoc recognizers
+Simple anonymization
+Custom anonymization
+Encryption/Decryption
+Allow-lists
+Text de-identification
+Text de-identification
+Home
+Presidio Analyzer
+Presidio Analyzer
+Home
+Developing PII recognizers
+Developing PII recognizers
+Tutorial
+Best practices
+Recognizer registry from file
+Filtering recognizers by country
+Multi-language support
+Customizing the NLP model
+Customizing the NLP model
+Home
+Spacy/Stanza
+Transformers
+GPU Acceleration
+Tracing the decision process
+Configure from file
+Presidio Anonymizer
+Presidio Anonymizer
+Home
+Developing PII anonymization operators
+Azure Health Data Services de-identification service integration
+Image de-identification
+Image de-identification
+Home
+Evaluating DICOM redaction
+Structured and Semi-structured
+Structured and Semi-structured
+Home
+PII detection evaluation
+Resources
+Resources
+Supported entities
+Project transition update
+Community
+Change log
+Setting up a development environment
+Build and release process
+Changes from V1 to V2
+Python API reference
+Python API reference
+Home
+Presidio Analyzer Python API
+Presidio Anonymizer Python API
+Presidio Image Redactor Python API
+Presidio Structured Python API
+REST API reference
+Recipes
+Recipes
+Home
+Contributing
+Template
+Samples
+Samples
+Home
+Text
+Text
+Presidio Basic Usage Notebook
+Customizing Presidio Analyzer
+Configuring The NLP engine
+Encrypting and Decrypting identified entities
+Getting the identified entity value using a custom Operator
+Anonymizing known values
+Keeping some entities from being anonymized
+Integrating with external services
+Remote Recognizer
+Azure AI Language as a Remote Recognizer
+Azure Health DataServices De-identification as a Remote Recognizer
+Using Flair as an external PII model
+Using Span Marker as an external PII model
+Using Transformers as an external PII model
+Using GLiNER as an external PII model
+Pseudonymization (replace PII values using mappings)
+Passing a lambda as a Presidio anonymizer using Faker
+Synthetic data generation with OpenAI
+YAML based no-code configuration
+Data
+Data
+Analyzing structured / semi-structured data in batch
+Presidio Structured Basic Usage Notebook
+Analyze and Anonymize CSV file
+Images
+Images
+Redacting Text PII from DICOM images
+Using an allow list with image redaction
+Plot custom bounding boxes
+Example DICOM redaction evaluation
+PDF
+PDF
+Annotating PII in a PDF
+Deployment
+Deployment
+Presidio with App Service
+Presidio with Kubernetes
+Presidio with Spark
+Presidio with Fabric
+Redacting Telemetry with Presidio
+Azure Data Factory
+Azure Data Factory
+ETL using AppService/Databricks
+Add Presidio as an HTTP service to your Azure Data Factory
+Add Presidio on Databricks to your Azure Data Factory
+PII Masking LLM calls using LiteLLM proxy
+Demo app
+Demo app
+Create a simple demo app using Streamlit
+On this page
+Simple flow - Python package
+Simple flow - Docker container
+Read more
+Getting started with text de-identification with Presidio
+Presidio provides a simple way to de-identify text data by detecting and anonymizing personally identifiable information (PII). This guide shows you how to get started with text de-identification using Presidio's Python packages.
+Note that Presidio can leverage different NLP packages to analyze text data. The default engine is based on spaCy, but you can also use others. This guide shows two examples: one using spaCy and the other using transformers.
+Simple flow - Python package
+Using Presidio's modules as Python packages to get started:
+Anonymize PII in text (Default spaCy model)Anonymize PII in text (transformers)GPU Acceleration (Optional)
+Install Presidio
+pip install presidio-analyzer
+pip install presidio-anonymizer
+python -m spacy download en_core_web_lg
+Analyze + Anonymize
+from presidio_analyzer import AnalyzerEngine
+from presidio_anonymizer import AnonymizerEngine
+text="My phone number is 212-555-5555"
+# Set up the engine, loads the NLP module (spaCy model by default)
+# and other PII recognizers
+analyzer = AnalyzerEngine()
+# Call analyzer to get results
+results = analyzer.analyze(text=text,
+entities=["PHONE_NUMBER"],
+language='en')
+print(results)
+# Analyzer results are passed to the AnonymizerEngine for anonymization
+anonymizer = AnonymizerEngine()
+anonymized_text = anonymizer.anonymize(text=text,analyzer_results=results)
+print(anonymized_text)
+Install Presidio
+pip install "presidio-analyzer[transformers]"
+pip install presidio-anonymizer
+python -m spacy download en_core_web_sm
+Analyze + Anonymize
+from presidio_analyzer import AnalyzerEngine
+from presidio_analyzer.nlp_engine import TransformersNlpEngine
+from presidio_anonymizer import AnonymizerEngine
+text = "My name is Don and my phone number is 212-555-5555"
+# Define which transformers model to use
+model_config = [{"lang_code": "en", "model_name": {
+"spacy": "en_core_web_sm", # use a small spaCy model for lemmas, tokens etc.
+"transformers": "dslim/bert-base-NER"
+}
+}]
+nlp_engine = TransformersNlpEngine(models=model_config)
+# Set up the engine, loads the NLP module (spaCy model by default)
+# and other PII recognizers
+analyzer = AnalyzerEngine(nlp_engine=nlp_engine)
+# Call analyzer to get results
+results = analyzer.analyze(text=text, language='en')
+print(results)
+# Analyzer results are passed to the AnonymizerEngine for anonymization
+anonymizer = AnonymizerEngine()
+anonymized_text = anonymizer.anonymize(text=text, analyzer_results=results)
+print(anonymized_text)
+Tip: Downloading models
+If not available, the transformers model and the spacy model would be downloaded on the first call to the AnalyzerEngine. To pre-download, see this doc.
+For GPU acceleration, install the appropriate dependencies for your hardware:
+Linux with NVIDIA GPU: cupy-cuda12x (or the version matching your CUDA installation)
+macOS with Apple Silicon: MPS (Metal Performance Shaders) is currently not supported. The analyzer will use CPU for PyTorch operations.
+Simple flow - Docker container
+Presidio provides Docker containers that you can use to de-identify text data. Each module, analyzer, and anonymizer, has its own Docker container. New releases are available on GitHub Container Registry; the legacy Microsoft Container Registry images are no longer updated.
+Download Docker images
+docker pull ghcr.io/data-privacy-stack/presidio-analyzer
+docker pull ghcr.io/data-privacy-stack/presidio-anonymizer
+Run containers
+docker run -d -p 5002:3000 ghcr.io/data-privacy-stack/presidio-analyzer:latest
+docker run -d -p 5001:3000 ghcr.io/data-privacy-stack/presidio-anonymizer:latest
+Use the API
+curl -X POST http://localhost:5002/analyze \
+-H "Content-Type: application/json" \
+-d '{
+"text": "My phone number is 555-123-4567.",
+"language": "en"
+}'
+curl -X POST http://localhost:5001/anonymize -H "Content-Type: application/json" -d '
+{
+"text": "My phone number is 555-123-4567",
+"anonymizers": {
+"PHONE_NUMBER": {
+"type": "replace",
+"new_value": "--Redacted phone number--"
+}
+},
+"analyzer_results": [
+{
+"start": 19,
+"end": 31,
+"score": 0.95,
+"entity_type": "PHONE_NUMBER"
+}
+]}'
+Read more
+Installing Presidio
+PII detection in text
+PII anonymization in text
+Tutorial
+Samples
+Python API reference - Analyzer
+Python API reference - Anonymizer
+REST API reference
+Back to top
+Previous
+Home
+Next
+Images
+Data Privacy Stack
+Made with
+Zensical

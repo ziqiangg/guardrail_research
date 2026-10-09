@@ -1,0 +1,200 @@
+# status 200  final_url https://presidio.dataprivacystack.org/tutorial/01_deny_list/  content-type text/html; charset=utf-8
+Skip to content
+Presidio
+Example 1: Deny-list based PII recognition
+Search
+GitHub
+Presidio
+Quick start
+Learn Presidio
+Resources
+Recipes
+Samples
+Presidio
+GitHub
+Presidio
+Presidio
+Home
+Installation
+FAQ
+Quick start
+Quick start
+Home
+Text
+Images
+Semi/Structured data
+Learn Presidio
+Learn Presidio
+Home
+Concepts
+Tutorial
+Tutorial
+Home
+Getting started
+Deny-list recognizers
+Regex recognizers
+Rule-based recognizers
+Additional models/languages
+External services
+Context enhancement
+Decision process
+No-code recognizers
+Ad-hoc recognizers
+Simple anonymization
+Custom anonymization
+Encryption/Decryption
+Allow-lists
+Text de-identification
+Text de-identification
+Home
+Presidio Analyzer
+Presidio Analyzer
+Home
+Developing PII recognizers
+Developing PII recognizers
+Tutorial
+Best practices
+Recognizer registry from file
+Filtering recognizers by country
+Multi-language support
+Customizing the NLP model
+Customizing the NLP model
+Home
+Spacy/Stanza
+Transformers
+GPU Acceleration
+Tracing the decision process
+Configure from file
+Presidio Anonymizer
+Presidio Anonymizer
+Home
+Developing PII anonymization operators
+Azure Health Data Services de-identification service integration
+Image de-identification
+Image de-identification
+Home
+Evaluating DICOM redaction
+Structured and Semi-structured
+Structured and Semi-structured
+Home
+PII detection evaluation
+Resources
+Resources
+Supported entities
+Project transition update
+Community
+Change log
+Setting up a development environment
+Build and release process
+Changes from V1 to V2
+Python API reference
+Python API reference
+Home
+Presidio Analyzer Python API
+Presidio Anonymizer Python API
+Presidio Image Redactor Python API
+Presidio Structured Python API
+REST API reference
+Recipes
+Recipes
+Home
+Contributing
+Template
+Samples
+Samples
+Home
+Text
+Text
+Presidio Basic Usage Notebook
+Customizing Presidio Analyzer
+Configuring The NLP engine
+Encrypting and Decrypting identified entities
+Getting the identified entity value using a custom Operator
+Anonymizing known values
+Keeping some entities from being anonymized
+Integrating with external services
+Remote Recognizer
+Azure AI Language as a Remote Recognizer
+Azure Health DataServices De-identification as a Remote Recognizer
+Using Flair as an external PII model
+Using Span Marker as an external PII model
+Using Transformers as an external PII model
+Using GLiNER as an external PII model
+Pseudonymization (replace PII values using mappings)
+Passing a lambda as a Presidio anonymizer using Faker
+Synthetic data generation with OpenAI
+YAML based no-code configuration
+Data
+Data
+Analyzing structured / semi-structured data in batch
+Presidio Structured Basic Usage Notebook
+Analyze and Anonymize CSV file
+Images
+Images
+Redacting Text PII from DICOM images
+Using an allow list with image redaction
+Plot custom bounding boxes
+Example DICOM redaction evaluation
+PDF
+PDF
+Annotating PII in a PDF
+Deployment
+Deployment
+Presidio with App Service
+Presidio with Kubernetes
+Presidio with Spark
+Presidio with Fabric
+Redacting Telemetry with Presidio
+Azure Data Factory
+Azure Data Factory
+ETL using AppService/Databricks
+Add Presidio as an HTTP service to your Azure Data Factory
+Add Presidio on Databricks to your Azure Data Factory
+PII Masking LLM calls using LiteLLM proxy
+Demo app
+Demo app
+Create a simple demo app using Streamlit
+Example 1: Deny-list based PII recognition
+In this example, we will pass a short list of tokens which should be marked as PII if detected.
+First, let's define the tokens we want to treat as PII. In this case it would be a list of titles:
+titles_list = [
+"Sir",
+"Ma'am",
+"Madam",
+"Mr.",
+"Mrs.",
+"Ms.",
+"Miss",
+"Dr.",
+"Professor",
+]
+Second, let's create a PatternRecognizer which would scan for those titles, by passing a deny_list:
+from presidio_analyzer import PatternRecognizer
+titles_recognizer = PatternRecognizer(supported_entity="TITLE", deny_list=titles_list)
+At this point we can call our recognizer directly:
+from presidio_analyzer import PatternRecognizer
+text1 = "I suspect Professor Plum, in the Dining Room, with the candlestick"
+result = titles_recognizer.analyze(text1, entities=["TITLE"])
+print(f"Result:\n {result}")
+Finally, let's add this new recognizer to the list of recognizers used by the Presidio AnalyzerEngine:
+from presidio_analyzer import AnalyzerEngine
+analyzer = AnalyzerEngine()
+analyzer.registry.add_recognizer(titles_recognizer)
+When initializing the AnalyzerEngine, Presidio loads all available recognizers,
+including the NlpEngine used to detect entities, and extract tokens, lemmas and other linguistic features.
+Let's run the analyzer with the new recognizer in place:
+results = analyzer.analyze(text=text1, language="en")
+print("Results:")
+print(results)
+As expected, both the name "Plum" and the title were identified as PII:
+print("Identified these PII entities:")
+for result in results:
+print(f"- {text1[result.start:result.end]} as {result.entity_type}")
+Back to top
+Previous
+Getting started
+Next
+Regex recognizers
+Data Privacy Stack
+Made with
+Zensical
