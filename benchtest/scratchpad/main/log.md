@@ -77,3 +77,4 @@
   (note: --headers vs cols_b alone flags PL1/2/4/6 Covered-by values as expected — those headers are in cols_a, pending; full cross-check at P3)
 - 2026-10-09 purplellama P2 cols_a done (PL1, PL2, PL6, PL4). P3: cols_a 0 err (1 warn multi-prefix, expected under option B), cols_b 0/0, combined 0 err, inventory --headers combined 0/0, eval parse OK. P4 started
 - 2026-10-09 lionguard P4 done: 59 items (a 34, b 20, c 5), H 10; Q1–Q3 + T5 ruled by main; CP1 decisions Q01–Q03 + T4 embedder terms → user (batched with purplellama CP1)
+- 2026-10-09 purplellama P4 triager stopped by session limit (reset 22:50); partial triage (76 KB) committed as WIP; resumed
