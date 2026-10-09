@@ -12,7 +12,7 @@
 |---|---|---|---|---|
 | explorer/20261009_lionguard_q01–q03: single column LN1 vs per-variant; prefix `LionGuard:` vs `GovTech LionGuard:`; "self-hosted" framing given OpenAI/Gemini embedder keys and gated Gemma (Lite) | lionguard | user at lionguard CP1 (brief records default + alternative) | open | |
 | explorer/20261009_lionguard_q04: licence conflict (MIT+SIAC vs paper "research and public interest purposes only") | lionguard | P4 triage (c) → P5 resolver; judgement to user at CP1/CP2 if unresolved | routed | |
-| explorer/20261009_purplellama_q11–q13: header prefix (Purple Llama: vs per-tool); R002 direction for LlamaFirewall scanners (one column per scanner, roles in Detail); Hidden ASCII / PII / custom scanners as columns vs inventory | purplellama | user at purplellama CP1 | open | |
+| explorer/20261009_purplellama_q01 + q03 + q11–q13: header prefix (Purple Llama: vs per-tool); R002 direction for LlamaFirewall scanners (one column per scanner, roles in Detail); Hidden ASCII / PII / custom scanners as columns vs inventory | purplellama | user at purplellama CP1 | open | |
 | sdp P10 Q1: base diagram CSS overflows at 375 px (scrollWidth 628, same on sentinel page); fix `.wrap > * { min-width: 0 }` would change the shared CSS on ALL pages incl. done products | all diagrams | user (batched with diagram review) | open | |
 | explorer/20261009_presidio_q01.md: official org after the transfer (data-privacy-stack vs Microsoft) and the header prefix | presidio | user at presidio CP1 | resolved | see CP1 ruling |
 | explorer/20261009_presidio_q02.md: six single columns vs a merged set; recognizer-family granularity; + (i) PD5 column vs inventory-only, (ii) ~30 family rows vs ~120 per-entity rows (P1) | presidio | user at presidio CP1 | resolved | see CP1 ruling |
@@ -25,6 +25,9 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| explorer/20261009_purplellama_q02 (merge 6→4: engine vs wrapper) | keep separate (R004; same as q15); AlignmentCheck header carries "Trace-level" direction label (R002 naming) | main |
+| explorer/20261009_purplellama_q04 (AlignmentCheck column vs inventory; external Together API key) | column (R004 names AlignmentCheck); R7 states external LLM/API key dependency | main |
+| explorer/20261009_purplellama_q05 (CodeShield languages/latency, scanner enum) | → P1 drafter re-verifies in code at 172c1074 (code note C1–C5 already has the code side) | main |
 | sdp P10 review Q1 (Retrieval Partly vs No consistency across pages) | R026 | main |
 | explorer/20261009_purplellama_q14 (no tag/release/CHANGELOG; pin form) | pin commit 172c1074 (2026-09-29) + PyPI versions (llamafirewall 1.0.3, codeshield 1.0.1) and HF revisions stated separately; release notes [Not disclosed] (R015 substitute unavailable, R020) | main |
 | explorer/20261009_purplellama_q15 (engine vs LlamaFirewall wrapper as separate columns) | yes, separate with cross-refs: R004 lists Prompt Guard 2 + PromptGuard scanner and Code Shield + CodeShield scanner as columns | main |
