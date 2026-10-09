@@ -1,0 +1,576 @@
+# status 200  final_url https://docs.cloud.google.com/model-armor/feature-availability-by-region  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Model Armor
+Start free
+Overview
+Guides
+Reference
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Resources
+Console
+Discover
+Product overview
+Data residency and endpoints
+Feature availability for templates by region
+Best practices for scaling and high traffic
+Retry strategy
+Configure Model Armor
+Create and manage templates
+Configure template-specific exclusion rules
+Set the filter version
+Filter version history
+Configure floor settings
+Sanitize prompts and responses
+Configure logging
+View the monitoring dashboard
+Control access
+Access control with IAM
+Roles and permissions
+Service accounts
+Integrate Model Armor with services or frameworks
+Overview
+Integrate with Agent Gateway
+Integrate with Apigee
+Integrate with Gemini Enterprise
+Integrate with Google and Google Cloud MCP servers
+Integrate with Google Cloud networking services
+Integrate with Agent Platform
+Integrate with LangChain
+Monitor
+Audit logging
+Troubleshoot
+Troubleshooting
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Home
+Documentation
+AI and ML
+Model Armor
+Guides
+Send feedback
+Feature availability for templates by region
+Stay organized with collections
+Save and categorize content based on your preferences.
+Model Armor feature availability varies by region due to
+dependencies on services that could process data outside the location. As a
+result, some regions have limited feature support when you configure
+Model Armor using templates in order to maintain strict
+data residency. This page provides a breakdown of
+supported features across all available regions.
+Note: For Model Armor configurations that use floor settings, all
+features are available, but data residency enforcement for data in use and in
+transit varies by region.
+Full-support regions
+If you create a Model Armor template in a full-support region,
+you have access to all of the following filters. All underlying dependency
+services are available in the jurisdictional boundary.
+Prompt injection and
+jailbreak detection
+Responsible AI
+Sensitive Data Protection
+Malicious URL detection
+Child sexual abuse material (CSAM) detection
+Multi-language detection
+Antivirus scanning
+The following table shows the locations with full feature support.
+The Jurisdiction column indicates the geographical boundary (for example, a
+country or a multi-region like eu or us) within which
+Model Armor ensures data residency compliance for the supported
+states (at rest, in use, and in transit) as indicated in the table.
+The Region/multi-region column lists the specific Google Cloud region or
+multi-region identifier.
+When data residency is enforced for a region in Model Armor, it
+helps ensure that data remains within a specified jurisdiction while in at least
+one of the following states:
+At rest: Stored data remains within the specific Google Cloud region listed.
+In use and In transit: Data residency enforcement for these states
+within the specified jurisdiction depends on the values in the In use and
+In transit columns:
+Yes: Data residency is enforced for the In use and In transit
+states within the listed jurisdiction. This means that the data remains
+within the boundaries of the listed jurisdiction while being processed or
+transmitted (not necessarily within that single region).
+No: Data residency is not enforced for the In use and In transit
+states within the listed jurisdiction. This means that the data might be
+processed or transmitted outside of the jurisdiction.
+Note: For Assured Workloads, Model Armor maintains data
+residency within the selected jurisdiction for
+supported locations for data in use. For more
+information, see Assured Workloads Service Specific Terms.
+| Region/multi-region
+| Jurisdiction
+| At rest
+| In use
+| In transit
+| eu
+|
+European Union
+| Yes
+| Yes
+| Yes
+| europe-southwest1
+|
+European Union
+| Yes
+| Yes
+| Yes
+| europe-west1
+|
+European Union
+| Yes
+| Yes
+| Yes
+| europe-west3
+|
+European Union
+| Yes
+| Yes
+| Yes
+| europe-west4
+|
+European Union
+| Yes
+| Yes
+| Yes
+| europe-west9
+|
+European Union
+| Yes
+| Yes
+| Yes
+| us
+|
+United States
+| Yes
+| Yes
+| Yes
+| us-central1
+|
+United States
+| Yes
+| Yes
+| Yes
+| us-east1
+|
+United States
+| Yes
+| Yes
+| Yes
+| us-east4
+|
+United States
+| Yes
+| Yes
+| Yes
+| us-west1
+|
+United States
+| Yes
+| Yes
+| Yes
+For a list of features that are available for each region or multi-region, see
+Supported features by region in this document.
+Limited-support regions
+By default, if you create a Model Armor template in a
+limited-support region and your template has data residency compliance
+enabled, some
+Model Armor features are unavailable because they rely on
+services that might process data outside the jurisdiction of your chosen
+Model Armor
+region.
+If you must use a limited-support region but you want to prioritize
+comprehensive security filtering over strict data residency, you can disable
+data residency
+enforcement for
+in-use and in-transit data in your Model Armor template.
+The following are the regions with limited feature support:
+| Region/multi-region
+| Jurisdiction
+| At rest
+| In use
+| In transit
+| asia-northeast1
+|
+Japan
+| Yes
+| Yes
+| Yes
+| asia-northeast3
+|
+South Korea
+| Yes
+| Yes
+| Yes
+| asia-south1
+|
+India
+| Yes
+| Yes
+| Yes
+| asia-southeast1
+|
+Singapore
+| Yes
+| Yes
+| Yes
+| australia-southeast2
+|
+Australia
+| Yes
+| Yes
+| Yes
+| europe-west2
+|
+United Kingdom
+| Yes
+| Yes
+| Yes
+| northamerica-northeast2
+|
+Canada
+| Yes
+| Yes
+| Yes
+For a list of features that are available for each region or multi-region, see
+Supported features by region in this document.
+Supported features by region
+This section shows the regional capabilities and supported filters for each
+region or multi-region when you configure Model Armor using a
+template that has data residency enforcement
+enabled.
+| Region/multi-region
+| Supported filters
+| Multi-language detection
+| CSAM support
+| Image support
+| Antivirus scanning
+| asia-northeast1
+|
+Responsible AI
+Sensitive Data Protection
+Prompt injection and jailbreak
+| No
+| No
+| No
+| No
+| asia-northeast3
+|
+Sensitive Data Protection
+| No
+| No
+| No
+| No
+| asia-south1
+|
+Responsible AI
+Sensitive Data Protection
+Prompt injection and jailbreak
+| No
+| No
+| No
+| No
+| asia-southeast1
+|
+Responsible AI
+Sensitive Data Protection
+Prompt injection and jailbreak
+| No
+| No
+| No
+| No
+| australia-southeast2
+|
+Responsible AI
+Sensitive Data Protection
+Prompt injection and jailbreak
+| No
+| No
+| No
+| No
+| eu
+|
+Responsible AI
+Sensitive Data Protection
+Prompt injection and jailbreak
+Malicious URL
+| Yes
+| Yes
+| Yes
+| Yes
+| europe-southwest1
+|
+Responsible AI
+Sensitive Data Protection
+Prompt injection and jailbreak
+Malicious URL
+| Yes
+| Yes
+| No
+| Yes
+| europe-west1
+|
+Responsible AI
+Sensitive Data Protection
+Prompt injection and jailbreak
+Malicious URL
+| Yes
+| Yes
+| No
+| Yes
+| europe-west2
+|
+Responsible AI
+Sensitive Data Protection
+Prompt injection and jailbreak
+| No
+| No
+| No
+| No
+| europe-west3
+|
+Responsible AI
+Sensitive Data Protection
+Prompt injection and jailbreak
+Malicious URL
+| Yes
+| Yes
+| No
+| Yes
+| europe-west4
+|
+Responsible AI
+Sensitive Data Protection
+Prompt injection and jailbreak
+Malicious URL
+| Yes
+| Yes
+| No
+| Yes
+| europe-west9
+|
+Responsible AI
+Sensitive Data Protection
+Prompt injection and jailbreak
+Malicious URL
+| Yes
+| Yes
+| No
+| Yes
+| northamerica-northeast2
+|
+Responsible AI
+Sensitive Data Protection
+Prompt injection and jailbreak
+| No
+| No
+| No
+| No
+| us
+|
+Responsible AI
+Sensitive Data Protection
+Prompt injection and jailbreak
+Malicious URL
+| Yes
+| Yes
+| Yes
+| Yes
+| us-central1
+|
+Responsible AI
+Sensitive Data Protection
+Prompt injection and jailbreak
+Malicious URL
+| Yes
+| Yes
+| No
+| Yes
+| us-east1
+|
+Responsible AI
+Sensitive Data Protection
+Prompt injection and jailbreak
+Malicious URL
+| Yes
+| Yes
+| No
+| Yes
+| us-east4
+|
+Responsible AI
+Sensitive Data Protection
+Prompt injection and jailbreak
+Malicious URL
+| Yes
+| Yes
+| No
+| Yes
+| us-east7
+|
+Responsible AI
+Sensitive Data Protection
+Prompt injection and jailbreak
+Malicious URL
+| Yes
+| Yes
+| No
+| Yes
+| us-west1
+|
+Responsible AI
+Sensitive Data Protection
+Prompt injection and jailbreak
+Malicious URL
+| Yes
+| Yes
+| No
+| Yes
+| global
+|
+Responsible AI
+Sensitive Data Protection
+Prompt injection and jailbreak
+Malicious URL
+| Yes
+| Yes
+| Yes
+| Yes
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-06 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

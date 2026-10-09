@@ -1,0 +1,491 @@
+# status 200  final_url https://docs.cloud.google.com/model-armor/model-armor-agent-gateway-integration  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español – América Latina
+Français
+Português – Brasil
+中文 – 简体
+日本語
+한국어
+Sign in
+Model Armor
+Start free
+Overview
+Guides
+Reference
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Resources
+Console
+Discover
+Product overview
+Data residency and endpoints
+Feature availability for templates by region
+Best practices for scaling and high traffic
+Retry strategy
+Configure Model Armor
+Create and manage templates
+Configure template-specific exclusion rules
+Set the filter version
+Filter version history
+Configure floor settings
+Sanitize prompts and responses
+Configure logging
+View the monitoring dashboard
+Control access
+Access control with IAM
+Roles and permissions
+Service accounts
+Integrate Model Armor with services or frameworks
+Overview
+Integrate with Agent Gateway
+Integrate with Apigee
+Integrate with Gemini Enterprise
+Integrate with Google and Google Cloud MCP servers
+Integrate with Google Cloud networking services
+Integrate with Agent Platform
+Integrate with LangChain
+Monitor
+Audit logging
+Troubleshoot
+Troubleshooting
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Home
+Documentation
+AI and ML
+Model Armor
+Guides
+Send feedback
+Integrate Model Armor with Agent Gateway
+Stay organized with collections
+Save and categorize content based on your preferences.
+Gemini Enterprise Agent Platform is a platform for building and
+managing enterprise-grade AI agents. Agent Gateway
+serves as a control plane that manages, secures, and governs how AI agents
+connect and interact within the Google Cloud environment and with external
+agents, AI applications, and LLMs. The integration of Model Armor
+and Agent Gateway embeds Model Armor's screening
+capabilities directly into the communication pathways
+Gemini Enterprise Agent Platform manages. When content passes through
+Agent Gateway, it invokes Model Armor to enforce your
+predefined security templates. You can configure your template to either block
+and redact content that violates policies, or to only inspect content and log
+any violations that are detected. This mitigates risks such as prompt injection,
+jailbreaks, exposure to harmful content, and sensitive data leakage.
+When Model Armor detects policy violations in content passing
+through Agent Gateway, it can be configured to log these events. You
+can view these findings on the Model Armor page in the Google Cloud console (Go
+to Model Armor). These findings are also
+surfaced in Security Command Center. For more information, see Review findings in the
+Google Cloud console.
+When using the real-time streaming mode, Model Armor supports
+unlimited tokens in the stream, making it suitable for long-running interactions
+and model responses.
+Limitations
+Consider the following limitations when integrating Model Armor
+with Agent Gateway:
+Streaming support for agents: Model Armor only
+supports streaming sanitization using the streamQuery method for agents
+built with the Agent Development Kit.
+Cross-project template usage: When using a Model Armor
+template in one project to sanitize requests for a service, like
+Agent Gateway, in a different project, the API quota for
+Model Armor needs to be sufficient in both the project
+hosting the template and the project hosting the calling service. For more
+information, see Manage quota.
+Regional alignment: Model Armor and the services it
+integrates with must be deployed within the same Google Cloud region.
+Cross-region calls to Model Armor are not supported.
+Egress integration compatibility: Model Armor's inline
+protection on egress traffic is limited to integrations with MCP servers,
+services following the OpenAI
+format, and A2A through
+Agent Gateway.
+Ingress integration compatibility: Inline ingress protection with
+Model Armor is only supported for agents built using ADK.
+No document support: Sanitizing prompts and responses that contain
+documents or file uploads (such as PDFs) isn't supported in this integration.
+To screen documents, call the Model Armor REST API
+directly.
+Supported payloads: For a list of supported payloads, see Supported and unsupported
+payloads in this document.
+Configure Model Armor on a gateway
+To configure Model Armor on a gateway, follow these steps:
+Enable the Model Armor API
+in the project where you want to create the Model Armor
+templates.
+Create one or more Model Armor
+templates in the same
+region where you plan to add the gateway. You can use the same template
+for both ingress and egress traffic.
+Take note of the template names. To copy the name of a template in the
+Google Cloud console, view the template's
+details and click content_copy Copy to clipboard next to
+the template name.
+Set up Agent Gateway in the same region where the
+Model Armor templates are stored. For the Client-to-Agent
+(ingress)
+gateway,
+specify the
+Model Armor templates that you created for ingress traffic.
+For the Agent-to-Anywhere (egress)
+gateway,
+specify the Model Armor templates that you created for egress
+traffic. You can use the same template for both traffic flows.
+Grant the required IAM roles to the
+appropriate service agents:
+Client-to-Agent (ingress): Grant the AI Platform Reasoning Engine
+Service
+Agent
+service agent the following roles:
+The Model Armor Callout User (roles/modelarmor.calloutUser) role in
+the project that
+contains the AI agent.
+The Model Armor User (roles/modelarmor.user) role in the
+project that contains the Model Armor template.
+gcloud projects add-iam-policy-binding AGENT_RUNTIME_PROJECT_ID \
+--member=serviceAccount:service-AGENT_RUNTIME_PROJECT_NUMBER@gcp-sa-aiplatform-re.iam.gserviceaccount.com \
+--role=roles/modelarmor.calloutUser
+gcloud projects add-iam-policy-binding MODEL_ARMOR_PROJECT_ID \
+--member=serviceAccount:service-AGENT_RUNTIME_PROJECT_NUMBER@gcp-sa-aiplatform-re.iam.gserviceaccount.com \
+--role=roles/modelarmor.user
+Replace the following:
+AGENT_RUNTIME_PROJECT_ID: The project ID of the
+project where you created the agent.
+AGENT_RUNTIME_PROJECT_NUMBER: The project number of
+the project where you created the agent.
+MODEL_ARMOR_PROJECT_ID: The project ID of the
+project that contains the Model Armor template.
+Agent-to-Anywhere (egress): Grant the Service Extensions
+service agent the following roles:
+The Model Armor Callout User (roles/modelarmor.calloutUser) and
+Service Usage Consumer (roles/serviceusage.serviceUsageConsumer) roles
+in the project that contains the gateway.
+The Model Armor User (roles/modelarmor.user) role in the project
+that contains the Model Armor template.
+gcloud projects add-iam-policy-binding GATEWAY_PROJECT_ID \
+--member=serviceAccount:service-GATEWAY_PROJECT_NUMBER@gcp-sa-dep.iam.gserviceaccount.com \
+--role=roles/modelarmor.calloutUser
+gcloud projects add-iam-policy-binding GATEWAY_PROJECT_ID \
+--member=serviceAccount:service-GATEWAY_PROJECT_NUMBER@gcp-sa-dep.iam.gserviceaccount.com \
+--role=roles/serviceusage.serviceUsageConsumer
+gcloud projects add-iam-policy-binding MODEL_ARMOR_PROJECT_ID \
+--member=serviceAccount:service-GATEWAY_PROJECT_NUMBER@gcp-sa-dep.iam.gserviceaccount.com \
+--role=roles/modelarmor.user
+Replace the following:
+GATEWAY_PROJECT_ID: The project ID of the
+project where you created the gateway.
+GATEWAY_PROJECT_NUMBER: The project number of
+the project where you created the gateway.
+MODEL_ARMOR_PROJECT_ID: The project ID of the
+project that contains the Model Armor template.
+For instructions, see Delegate authorization to
+Model Armor.
+For general information about how to grant a role, see Grant a single
+IAM
+role.
+Ingress and egress traffic
+In the context of Agent Gateway and Model Armor
+integration, the terms ingress and egress are used from the perspective of
+the AI agent's interactions:
+Ingress Traffic (Client-to-Agent): Refers to the communication flow
+between a client and the agent. Model Armor can protect both
+the incoming requests from the client to the agent and the outgoing
+responses from the agent back to the client.
+Egress Traffic (Agent-to-Anywhere): Refers to the communication flow
+between the agent and an external system. Model Armor can
+protect both the outgoing requests from the agent to the external system
+and the incoming responses from the external system back to the agent.
+Client-to-Agent (ingress) protection
+You define templates that Model Armor uses to evaluate:
+Incoming requests from the client (end users or calling applications) to
+your AI agent.
+Outgoing responses from the AI agent back to the client.
+You can apply a single template to both directions or configure different
+templates for each.
+Traffic flow for Client-to-Agent
+A client sends a prompt to the agent. Agent Gateway intercepts the
+request and sends the payload to Model Armor.
+Model Armor screens the request. If blocked, the client
+receives an error.
+If allowed, the request reaches the AI agent.
+The AI agent generates a response. Agent Gateway intercepts this
+response before it reaches the client.
+Model Armor screens the response, and Agent Gateway
+either allows or blocks it based on the verdict.
+Agent-to-Anywhere (egress) protection
+You define templates that Model Armor uses to evaluate:
+Outgoing requests from your AI agent to external systems.
+Incoming responses from external systems back to your AI agent.
+This protection applies to communications with systems including:
+External LLMs and third-party AI agents
+Model Context Protocol (MCP) servers
+Other AI agents
+Traffic flow for Agent-to-Anywhere
+The AI agent initiates a request to an external system.
+Agent Gateway intercepts the outgoing traffic.
+Model Armor screens the outgoing payload. If blocked, the
+connection is terminated.
+If allowed, the request is sent to the external system.
+The external system sends a response back. Agent Gateway intercepts
+this incoming response.
+Model Armor screens the response payload, and
+Agent Gateway either allows it to reach the agent or blocks it.
+For more information, see Configure Model Armor on a gateway.
+Track and debug streaming requests
+To facilitate tracking and debugging of streaming requests,
+Model Armor uses a correlation ID and a trace ID.
+Use a trace ID
+A trace ID connects all events for a single request as it travels across
+multiple services in a distributed system. This includes the security
+enforcements that Model Armor applies within the request path of
+the Agent Gateway resource.
+Each trace contains one or more spans, where each span ID represents a specific
+operation or unit of work within the trace. Logs generated during the execution
+of a request are associated with the specific span ID of the operation performing
+the work.
+A trace ID is handled in two ways:
+Automatic: When Google Cloud Observability is enabled, Agent Gateway
+automatically generates a trace ID and propagates it through the system.
+User-provided: You can override the system-generated trace ID by providing
+your own using the traceparent HTTP header in your requests.
+The following code sample shows how to pass a custom trace ID in a request to
+the streamQuery method:
+curl -X POST \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+-H "traceparent: 00-98adffecc8dd095968a06c44216190f6-5b565a8342378cd7-01" \
+"https://LOCATION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/reasoningEngines/REASONING_ENGINE_ID:streamQuery?alt=sse"
+Replace the following:
+LOCATION: the region where the reasoning engine is
+located.
+PROJECT_ID: the ID of your Google Cloud project.
+REASONING_ENGINE_ID: the ID of your reasoning engine.
+Using a trace ID is the recommended method to correlate logs and traces
+end-to-end from the caller through Agent Gateway to
+Model Armor and any downstream agents. This is essential for
+debugging, understanding security actions, and monitoring performance. For more
+information, see View Model Armor trace
+spans.
+To view sanitization operation logs for a specific trace ID, use the following
+query in the Logs Explorer:
+jsonPayload.@type="type.googleapis.com/google.cloud.modelarmor.logging.v1.SanitizeOperationLogEntry"
+trace:TRACE_ID
+Replace TRACE_ID with the trace ID of your request.
+Use a correlation ID
+A correlation ID links together all log entries in Cloud Logging that
+pertain to a single streaming sanitization session, from the initial request to
+the final response. It is an internal identifier primarily used within
+Model Armor logs, specifically for ingress streaming sessions.
+For more information, see Correlate logs and related
+events.
+Supported and unsupported payloads
+This section lists the types of payloads that Model Armor
+sanitizes.
+Client-to-Agent (ingress) traffic
+For Client-to-Agent (ingress) traffic using the ADK protocol,
+Model Armor sanitizes only
+reasoningEngines.streamQuery
+requests and responses for agents that were built using
+Agent Development Kit (ADK) and are running on Agent Runtime.
+All other
+ReasoningEngine
+payloads and ReasoningEngine error responses aren't sent to
+Model Armor. Non-ADK payloads (such as Langchain payloads) are
+also not sent to Model Armor.
+Agent-to-Anywhere (egress) traffic
+For Agent-to-Anywhere (egress) traffic, the following payloads are supported.
+A2A payloads
+Model Armor sanitizes only the following payloads of the A2A
+v1 protocol:
+Send
+Message
+operations
+Agent Card
+Get Extended Agent
+Card
+operations
+JSON-RPC
+protocol bindings
+HTTP+JSON/REST
+protocol bindings
+Model Armor allows the following A2A payloads without
+sanitization:
+Payloads from A2A versions earlier than v1
+SendStreamingMessage
+GetTask
+ListTasks
+CancelTask
+SubscribeToTask
+CRUD
+methods
+on TaskPushNotificationConfig
+Payloads using A2A
+gRPC
+protocol binding (protobuf on the wire)
+A2A error payloads
+MCP payloads
+Model Armor sanitizes only the following MCP payloads:
+tools/call request and response
+prompts/get request and response
+MCP tool execution errors
+(target for prompt injection by malicious MCP tools authors)
+Model Armor allows the following payloads without sanitization:
+tools/list
+resources/*
+notifications/*
+Streamable HTTP/SSE for MCP
+MCP protocol errors (for example, all errors other than tool
+execution errors)
+External LLM payloads
+Model Armor sanitizes only the following payloads of the
+OpenAI API protocol (egress), which includes GPT models on openai.com as well
+as any other models through OpenAI API-compatible LLM servers (such as
+vLLM).
+Payloads that aren't listed here are allowed without sanitization.
+Chat
+completions:
+Create, Delete, Get, List, and Update (non-streaming variants only)
+Get chat
+messages
+Responses:
+Create, Get, and Delete (non-streaming variants only)
+OpenAI API
+errors
+(including vLLM's
+variant)
+Legacy
+Completions
+Legacy
+Assistants:
+Create, Delete, List, Modify, and Retrieve
+Legacy
+Messages:
+Create, Delete, List, Modify, and Retrieve
+Legacy Threads:
+Create, Delete, Modify, and Retrieve
+Embeddings:
+Create
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-06 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español – América Latina
+Français
+Português – Brasil
+中文 – 简体
+日本語
+한국어

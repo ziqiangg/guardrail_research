@@ -1,0 +1,657 @@
+# status 200  final_url https://docs.cloud.google.com/model-armor/set-filter-version  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Model Armor
+Start free
+Overview
+Guides
+Reference
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Resources
+Console
+Discover
+Product overview
+Data residency and endpoints
+Feature availability for templates by region
+Best practices for scaling and high traffic
+Retry strategy
+Configure Model Armor
+Create and manage templates
+Configure template-specific exclusion rules
+Set the filter version
+Filter version history
+Configure floor settings
+Sanitize prompts and responses
+Configure logging
+View the monitoring dashboard
+Control access
+Access control with IAM
+Roles and permissions
+Service accounts
+Integrate Model Armor with services or frameworks
+Overview
+Integrate with Agent Gateway
+Integrate with Apigee
+Integrate with Gemini Enterprise
+Integrate with Google and Google Cloud MCP servers
+Integrate with Google Cloud networking services
+Integrate with Agent Platform
+Integrate with LangChain
+Monitor
+Audit logging
+Troubleshoot
+Troubleshooting
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Home
+Documentation
+AI and ML
+Model Armor
+Guides
+Send feedback
+Set the filter version
+Stay organized with collections
+Save and categorize content based on your preferences.
+This document describes how Model Armor filter versions work and how to
+instruct Model Armor to use a specific filter version or filter
+version alias in operations.
+Model Armor uses filters to detect and block harmful content,
+sensitive data, malicious URLs, and prompt injection attacks in LLM prompts
+and responses. For more information, see
+Model Armor filters.
+Model Armor filter versions provide stability for production
+workloads and access to the latest threat detection models. You configure a
+single filter version at the template level. You can't specify different
+versions for individual filters.
+When to configure filter versions and aliases
+The following are some common use cases:
+Lock deterministic filtering behavior: Set templates to a specific
+filter version to prevent changes in threat detection logic in
+mission-critical systems.
+Receive automatic security updates: Use the Stable alias to adopt
+updated threat detection models automatically as they pass validation.
+Test upcoming detection capabilities: Use the Latest alias in
+pre-production environments to evaluate new filter rules against real-world
+traffic patterns.
+Enable predictable rollout cycles: Validate workloads against newly
+released filter versions before manually updating production templates.
+Version aliases
+In a Model Armor template, you can use an alias to specify your
+preferred filter version. An alias represents a stage in the version lifecycle.
+Each alias is set to the appropriate version as the lifecycle progresses.
+If you select an alias, the template uses the version that the alias is set to.
+When the underlying version for that alias is updated (for example, when a new
+version is promoted to Stable), templates that use the alias automatically
+use the new version. If you don't want the filter version to change, point the
+template to a specific filter version.
+You can choose from the following aliases:
+Latest: The alias with the latest models and protections, with frequent
+updates against emerging threats. This alias offers standard service-level
+objectives (SLOs) but stability might vary across versions. It's suitable for
+testing, staging, and workloads that prioritize recent detection models over
+consistent filter behavior.
+Stable: The default alias for versions with available templates. This
+alias delivers reliable, unchanging detection logic, and is suitable for
+production environments and workloads that require unchanged filter behavior.
+When a new version becomes Stable, the previous Stable version becomes
+Legacy.
+Legacy: The alias for an earlier Stable version that remains available
+for 90 days after a new Stable version is released. You can migrate your
+production systems to the new Stable version anytime during this period. You
+cannot create new templates by using a Legacy version.
+Retired: The alias for a version that surpassed the 90-day legacy period
+and is no longer available. Model Armor uses the Stable
+version to sanitize calls to templates that are still using a Retired
+version.
+Filters that don't use filter versions
+The filter version setting doesn't affect the Sensitive Data Protection and
+malicious URL filters.
+Version lifecycle
+Google Cloud provides notifications about version lifecycle changes,
+including when a version becomes Legacy and its upcoming retirement date in
+every sanitize API response. You must migrate any
+templates that use a Legacy version to Stable or Latest within the
+90-day period.
+The following example describes the version lifecycle:
+Release (Latest): Google releases a new filter version (v2) as
+Latest.
+Promotion (Latest to Stable): When Google promotes the Latest
+version to Stable (v2 becomes Stable), the following occurs:
+Google moves the previous Stable version (v1) to Legacy.
+A new version (v3) becomes the new Latest. Google promotes a version
+after it undergoes rigorous testing, demonstrates consistent daily
+usage, and has minimal customer issues, or when critical threat
+protection becomes necessary.
+Retirement (Legacy to Retired): After a filter version remains in
+the Legacy state for 90 days, Google retires it, and it is no longer
+available.
+Version release timeline
+The following table shares details about filter versions including aliases,
+release dates, retirement dates, and supported regions.
+| Version
+| Alias
+| Release date
+| Retirement date
+| Supported region
+| v1
+| Legacy
+(Stable in asia-northeast3;
+Legacy from September 25, 2026 in
+australia-southeast2)
+| 2025-01-30
+| 2026-12-17
+|
+asia-northeast1
+asia-northeast3 (Stable)
+asia-south1
+asia-southeast1
+australia-southeast2 (Legacy from
+September 25, 2026)
+europe-southwest1
+europe-west9
+northamerica-northeast2
+us
+us-central1
+us-east4
+us-west1
+| v2
+| Legacy
+| 2025-06-19
+| 2026-12-17
+|
+eu
+europe-west1
+europe-west2
+europe-west3
+europe-west4
+us-east1
+| v3
+| Stable
+(Stable from September 25, 2026 in
+australia-southeast2)
+| 2026-05-25
+| —
+|
+asia-northeast1
+asia-south1
+asia-southeast1
+australia-southeast2 (Stable from
+September 25, 2026)
+eu
+europe-southwest1
+europe-west1
+europe-west2
+europe-west3
+europe-west4
+europe-west9
+northamerica-northeast2
+us
+us-central1
+us-east1
+us-east4
+us-west1
+| v4
+| Latest
+| 2026-09-18
+| —
+|
+asia-northeast1
+asia-south1
+asia-southeast1
+eu
+europe-southwest1
+europe-west1
+europe-west2
+europe-west3
+europe-west4
+europe-west9
+northamerica-northeast2
+us
+us-central1
+us-east1
+us-east4
+us-west1
+For information about what's changed in each version, see
+Filter version history.
+Template behavior
+Template behavior depends on the filter version that's used and follows these
+characteristics:
+Templates without a version: Templates without a specified version,
+whether new or existing, default to the Stable version.
+Templates with Latest or Stable aliases: These templates automatically
+use the version assigned to these aliases. For example, when a new filter
+version becomes the Stable version, templates using the Stable alias move
+to the new version without requiring any template changes.
+Note: You can't set the filter version in a template to Legacy or Retired.
+Templates using a specific version:
+If the version corresponds to a Latest or Stable version, the template
+behaves as expected.
+If the version corresponds to a Legacy version, the template behaves as
+expected when used for sanitize operations for a 90-day period. After 90
+days, the version moves to the Retired phase. During this phase, you must
+migrate your templates to either the Latest or Stable version.
+Override the default filter version for floor settings
+Floor settings use the Stable
+filter version by default. For the
+Gemini Enterprise Agent Platform integration,
+if you want to override this setting, specify a template in the
+generateContent call to the Gemini model. To do that, create a
+template with a specific filter version or alias in the same region where you
+plan to send the Gemini request.
+export TEMPLATE_CONFIG='{
+"filterConfig": {
+"piAndJailbreakFilterSettings": {
+"filterEnforcement": "ENABLED"
+}
+},
+"templateMetadata": {
+"filterVersionSelector": {
+"alias": "FILTER_VERSION_ALIAS"
+}
+}
+}'
+curl -X POST \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+-d "$TEMPLATE_CONFIG" \
+"https://modelarmor.LOCATION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/templates?template_id=TEMPLATE_ID"
+Replace the following:
+FILTER_VERSION_ALIAS: your preferred filter version
+alias. Use either FILTER_VERSION_ALIAS_STABLE or
+FILTER_VERSION_ALIAS_LATEST.
+PROJECT_ID: the ID of the project that the template
+belongs to.
+TEMPLATE_ID: the ID of the template to create.
+LOCATION: the region to store the
+Model Armor template. This region must be the same region
+where you plan to send the Gemini request; otherwise,
+Agent Platform receives a Template not found
+error. For a list of regions supported for this integration,
+see
+Integration with Gemini Enterprise Agent Platform.
+Provide the template ID in the model_armor_config object in your
+Gemini call. The filter configuration specified in the template applies
+instead of the project-level floor setting.
+curl -X POST \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+"https://REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/REGION/publishers/google/models/gemini-2.5-flash:generateContent" \
+-d '{
+"contents": [
+{
+"role": "user",
+"parts": [
+{
+"text": "Your prompt here"
+}
+]
+}
+],
+"model_armor_config": {
+"prompt_template_name": "projects/PROJECT_ID/locations/LOCATION/templates/TEMPLATE_ID",
+"response_template_name": "projects/PROJECT_ID/locations/LOCATION/templates/TEMPLATE_ID"
+}
+}'
+Replace the following:
+PROJECT_ID: the Google Cloud project ID.
+REGION: the
+Google Cloud region
+of the Gemini endpoint.
+LOCATION: the region where the
+Model Armor template is stored. This must be the same region
+specified for REGION.
+TEMPLATE_ID: the Model Armor template ID.
+Configure a filter version for a template
+You can configure the filter version for a template in one of two ways:
+By using an alias: Use dynamic aliases like Stable or Latest to have
+the template automatically use a version number that corresponds to your
+preferred alias. Doing so eliminates the need for manual updates when the
+underlying version changes.
+By using a version number: Use a version number such as v1 to ensure
+that a template is set to a specified version, ensuring fixed, unchanged
+behavior even when aliases are updated.
+Create a template by using a version alias
+To create a template by using a specific version alias, run the following command:
+export TEMPLATE_CONFIG='{
+"filterConfig": {
+"piAndJailbreakFilterSettings": {
+"filterEnforcement": "ENABLED"
+}
+},
+"templateMetadata": {
+"filterVersionSelector": {
+"alias": "FILTER_VERSION_ALIAS"
+}
+}
+}'
+curl -X POST \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+-d "$TEMPLATE_CONFIG" \
+"https://modelarmor.LOCATION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/templates?template_id=TEMPLATE_ID"
+Replace the following:
+FILTER_VERSION_ALIAS: your preferred filter version alias. Use
+either FILTER_VERSION_ALIAS_STABLE or FILTER_VERSION_ALIAS_LATEST.
+PROJECT_ID: the ID of the project that the template belongs to.
+TEMPLATE_ID: the ID of the template to be created.
+LOCATION: the
+location of the template.
+The response is similar to the following:
+{
+"name": "projects/PROJECT_ID/locations/LOCATION/templates/TEMPLATE_ID",
+"createTime": "2026-04-05T17:57:46.976854398Z",
+"updateTime": "2026-04-05T17:57:46.976854398Z",
+"filterConfig": {
+"piAndJailbreakFilterSettings": {
+"filterEnforcement": "ENABLED"
+}
+},
+"templateMetadata": {
+"filterVersionSelector": {
+"alias": "FILTER_VERSION_ALIAS"
+}
+}
+}
+Create a template by using a specific filter version
+If you require filter immutability, you can create a template that corresponds
+to a specific version. To do this, run the following command:
+export TEMPLATE_CONFIG='{
+"filterConfig": {
+"piAndJailbreakFilterSettings": {
+"filterEnforcement": "ENABLED"
+}
+},
+"templateMetadata": {
+"filterVersionSelector": {
+"version": "FILTER_VERSION_NUMBER"
+}
+}
+}'
+curl -X POST \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+-d "$TEMPLATE_CONFIG" \
+"https://modelarmor.LOCATION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/templates?template_id=TEMPLATE_ID"
+Replace the following:
+PROJECT_ID: the ID of the project that the template belongs to.
+TEMPLATE_ID: the ID of the template to be created.
+LOCATION: the
+location of the template.
+FILTER_VERSION_NUMBER: your preferred filter version
+number (for example, v1).
+The response is similar to the following:
+{
+"name": "projects/PROJECT_ID/locations/LOCATION/templates/TEMPLATE_ID",
+"createTime": "2026-04-05T18:03:29.134974974Z",
+"updateTime": "2026-04-05T18:03:29.134974974Z",
+"filterConfig": {
+"piAndJailbreakFilterSettings": {
+"filterEnforcement": "ENABLED"
+}
+},
+"templateMetadata": {
+"filterVersionSelector": {
+"version": "FILTER_VERSION_NUMBER"
+}
+}
+}
+Update the filter version of a template
+To update the filter version or alias for an existing template, run the
+following command:
+export TEMPLATE_CONFIG='{
+"templateMetadata": {
+"filterVersionSelector": {
+"alias": "FILTER_VERSION_ALIAS"
+}
+}
+}'
+curl -X PATCH \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+-d "$TEMPLATE_CONFIG" \
+"https://modelarmor.LOCATION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/templates/TEMPLATE_ID?updateMask=templateMetadata.filterVersionSelector"
+Replace the following:
+FILTER_VERSION_ALIAS: your preferred filter version alias. Use
+either FILTER_VERSION_ALIAS_STABLE or FILTER_VERSION_ALIAS_LATEST.
+PROJECT_ID: the ID of the project that the template belongs to.
+TEMPLATE_ID: the ID of the template to be created.
+LOCATION: the
+location of the template.
+The response is similar to the following:
+{
+"name": "projects/PROJECT_ID/locations/LOCATION/templates/TEMPLATE_ID",
+"createTime": "2026-04-05T18:03:29.134974974Z",
+"updateTime": "2026-04-05T18:04:07.711205953Z",
+"filterConfig": {
+"piAndJailbreakFilterSettings": {
+"filterEnforcement": "ENABLED"
+}
+},
+"templateMetadata": {
+"filterVersionSelector": {
+"alias": "FILTER_VERSION_ALIAS"
+}
+}
+}
+View the filter version used in sanitize operations
+The Sanitize API response
+metadata includes
+information about the filter version that's used during sanitization. You
+receive a deprecation warning in the sanitize API response 30 days before Google
+retires the version.
+The following example shows an API response that includes the filter version:
+"sanitizationResult": {
+"filterMatchState": "NO_MATCH_FOUND",
+"invocationResult": "SUCCESS",
+"filterResults": {
+"csam": {
+"csamFilterFilterResult": {
+"executionState": "EXECUTION_SUCCESS",
+"matchState": "NO_MATCH_FOUND"
+}
+},
+"malicious_uris": {
+"maliciousUriFilterResult": {
+"executionState": "EXECUTION_SUCCESS",
+"matchState": "NO_MATCH_FOUND"
+}
+},
+"rai": {
+"raiFilterResult": {
+"executionState": "EXECUTION_SUCCESS",
+"matchState": "NO_MATCH_FOUND",
+"raiFilterTypeResults": {
+"sexually_explicit": {
+"matchState": "NO_MATCH_FOUND"
+},
+"hate_speech": {
+"matchState": "NO_MATCH_FOUND"
+},
+"harassment": {
+"matchState": "NO_MATCH_FOUND"
+}
+}
+}
+},
+"pi_and_jailbreak": {
+"piAndJailbreakFilterResult": {
+"executionState": "EXECUTION_SUCCESS",
+"matchState": "NO_MATCH_FOUND"
+}
+},
+"sdp": {
+"sdpFilterResult": {
+"inspectResult": {
+"executionState": "EXECUTION_SUCCESS",
+"matchState": "NO_MATCH_FOUND"
+}
+}
+}
+},
+"sanitizationMetadata": {
+"filterVersionConfig": {
+"filterVersion": "v2",
+"filterVersionAlias": "FILTER_VERSION_ALIAS_LEGACY",
+"releaseDate": {
+"year": 2025,
+"month": 6,
+"day": 19
+},
+"projectedDeprecationDate": {
+"year": 2026,
+"month": 12,
+"day": 17
+},
+"messageItems": [
+{
+"messageType": "WARNING",
+"message": "This filter version (v2) is in LEGACY state and will be
+RETIRED on 2026-12-17. Please migrate your template to the STABLE or
+LATEST version to ensure continued protection."
+}
+]
+}
+},
+}
+Model Armor generates platform logs for sanitization requests and
+their responses in Cloud Logging. For more information about the
+auto-generated audit logs, see Model Armor audit
+logging.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-06 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

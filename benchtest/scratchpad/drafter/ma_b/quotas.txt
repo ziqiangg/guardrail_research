@@ -1,0 +1,362 @@
+# status 200  final_url https://docs.cloud.google.com/model-armor/quotas  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Model Armor
+Start free
+Overview
+Guides
+Reference
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Resources
+Console
+Model Armor
+All resources
+Pricing
+Quotas and limits
+Release notes
+Locations
+Compliance and security controls
+Billing questions
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Home
+Documentation
+AI and ML
+Model Armor
+Resources
+Send feedback
+Quotas and system limits
+Stay organized with collections
+Save and categorize content based on your preferences.
+This document lists the quotas and system limits that apply to
+Model Armor.
+Quotas have default values, but you can typically request
+adjustments.
+System limits are fixed values that can't be changed.
+Google Cloud uses quotas to help ensure fairness and reduce
+spikes in resource use and availability. A quota restricts how much of a
+Google Cloud resource your Google Cloud project can use. Quotas
+apply to a range of resource types, including hardware, software, and network
+components. For example, quotas can restrict the number of API calls to a
+service, the number of load balancers used concurrently by your project, or the
+number of projects that you can create. Quotas protect the community of
+Google Cloud users by preventing the overloading of services. Quotas also
+help you to manage your own Google Cloud resources.
+The Cloud Quotas system does the following:
+Monitors your consumption of Google Cloud products and services
+Restricts your consumption of those resources
+Provides a way to
+request changes to the quota value
+and automate quota adjustments
+In most cases, when you attempt to consume more of a resource than its quota
+allows, the system blocks access to the resource, and the task that
+you're trying to perform fails.
+Quotas generally apply at the Google Cloud project
+level. Your use of a resource in one project doesn't affect
+your available quota in another project. Within a Google Cloud project, quotas
+are shared across all applications and IP addresses.
+For more information, see the
+Cloud Quotas overview.
+Model Armor API quotas
+The following table specifies the quotas for the Model Armor API.
+| Quota
+| Value
+| API queries
+| 1200 queries per minute (QPM) per project
+| Requests to ExternalProcessor
+| 600 QPM per project 1
+You can apply a value between 0 to 1,200 QPM per project. To request an adjustment,
+see Request a quota adjustment.
+If you need more than the default quota, contact Cloud Customer Care.
+For information on quotas related to Model Armor integrations with
+other services, see Manage quota.
+1 Relevant if you integrate Model Armor with other Google Cloud services.
+File size system limit
+The following table specifies the system limit on the size of input files and
+images. If a file or image exceeds this limit, Model Armor skips scanning
+it.
+| System limit
+| Value
+| All
+supported files and
+images
+| 4 MB
+Note:
+Text extracted from supported files is subject to the
+token system limits. Model Armor
+rejects requests to scan files that are smaller than 69 bytes and returns an
+InvalidDocumentInputException error because such files are highly likely to
+be invalid.
+Token system limits
+Model Armor has varying system limits on tokens
+depending on the specific filter. These limits apply to direct text in prompts
+and responses, as well as text extracted from supported files.
+Model Armor screens text up to 65,536 tokens
+(approximately 262,144 characters) for prompt injection and jailbreak
+detection, responsible AI, and child sexual abuse material (CSAM) filters.
+A token is equivalent to about 4 characters. For more information about how
+tokens are counted, see the
+Gemini API tokens guide.
+Token system limits don't apply to malicious URL detection. Instead,
+Model Armor enforces a limit on the number of URLs scanned.
+Model Armor extracts URLs until it reaches 256
+URLs or the end of the payload, and scans only the first 256 URLs
+found in prompts and responses.
+Note:
+For prompt injection and jailbreak detection, if the word count is fewer
+than three words, Model Armor returns NO_MATCH_FOUND
+because such inputs lack enough information to constitute an attack.
+Note: These token limits don't apply to the Model Armor
+integration with
+Gemini Enterprise.
+| Filter
+| System limit
+|
+Prompt injection and jailbreak detection
+| 65,536
+|
+Responsible AI
+| 65,536
+| Child sexual abuse material
+| 65,536
+|
+Sensitive Data Protection
+| 130,000
+If a filter detects a match, it returns
+MATCH_FOUND. If a filter doesn't detect a match, the value it returns depends
+on whether the prompt or response exceeds the filter's token limit:
+If the prompt or response is within the filter's token limit, the filter
+returns NO_MATCH_FOUND.
+If the prompt or response exceeds the filter's token limit, the filter returns
+EXECUTION_SKIPPED and includes Detection skipped as token limit exceeded.
+in the filter result's messageItems field.
+Unlimited tokens for real-time streaming mode
+When you sanitize streaming
+text in real-time
+mode, Model Armor supports unlimited tokens. In contrast,
+buffered streaming mode is subject to the token limits listed in the preceding
+table.
+Exclusion rules system limits
+Preview
+This feature is
+subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the
+Service Specific
+Terms.
+Pre-GA features are available "as is" and might have limited support.
+For more information, see the
+launch stage descriptions.
+The following table specifies the system limits for template-specific
+exclusion rules.
+| Limit
+| Value
+| Maximum rule sets per filter configuration
+| 10
+| Maximum rules per rule set
+| 10
+| Maximum dictionaries per template request
+| 10
+| Maximum size of word list per dictionary
+| 128 KB
+| Maximum regular expression pattern length
+| 1,000 characters
+| Maximum input text scanned for exclusion rules
+| 130,000 tokens (0.5 MB)
+Exclusion rules evaluate only the initial
+130,000 tokens (0.5 MB) of input text. If an input exceeds 130,000 tokens (0.5 MB) and a
+filter detects a match that an exclusion rule doesn't cover in the initial scanned portion, the
+filter returns EXECUTION_SKIPPED. To determine whether a payload was skipped due to
+the exclusion payload limit or a token limit,
+inspect the messageItems field in piAndJailbreakFilterResult
+or raiFilterResult:
+Exclusion payload limit exceeded:
+Detection skipped as exclusion rules evaluation failed with reason: Input size exceeded max
+supported size of 0.5 MB. Exclusion rules execution could not be confirmed on full text.
+Token limit exceeded: Detection skipped as token limit exceeded.
+Returning EXECUTION_SKIPPED helps ensure safety when
+Model Armor can't evaluate the full content against exclusion
+rules.
+Get quota and system limit metric names
+Quotas and system limits have two types of names: display names and metric
+names. Display names have spaces and capitalization that make them easier for
+humans to read. Metric names are more likely to be lowercase and delimited by
+underscores instead of spaces; the exact format depends on the service.
+The following instructions show how to get metric names for quotas and system
+limits by using either the Google Cloud console or the
+gcloud CLI.
+Console
+In the Google Cloud console, go to the
+IAM & Admin >
+Quotas & System Limits page:
+Go to Quotas & System Limits
+The table on this page displays quotas and system limits that have usage or
+have adjusted values, and a reference entry for other quotas. The reference
+entry has the word "default" in parentheses at the end of the listing in
+the Name column. For example, SetIAMPolicy requests per minute per
+region (default) is the reference entry for the quota
+SetIamPolicyRequestsPerMinutePerProject.
+If you don't see the Metric column, take the following steps.
+Click view_column
+Column display options.
+Select Metric.
+Click OK. The Metric column appears in the table.
+The Metric column shows the metric names. To filter the results, enter a
+property name or value in the field next to
+filter_list Filter.
+gcloud
+To get the metric names for a Google Cloud service by
+using the gcloud CLI, run the quotas info list
+command. To skip lines that don't list metric names, pass the output to a
+command such as grep with metric: as the search term, or use the
+gcloud CLI
+--format flag:
+gcloud beta quotas info list --project=PROJECT_ID_OR_NUMBER \
+--service=SERVICE_NAME --format="value(metric)"
+Replace the following:
+PROJECT_ID_OR_NUMBER: the project ID or project
+number.
+SERVICE_NAME: the name of the service whose quota
+metrics you want to see—for example, the service name for
+Compute Engine is compute.googleapis.com. Include the
+googleapis.com portion of the service name.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-06 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

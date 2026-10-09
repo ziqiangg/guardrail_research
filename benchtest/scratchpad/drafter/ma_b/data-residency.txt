@@ -1,0 +1,550 @@
+# status 200  final_url https://docs.cloud.google.com/model-armor/data-residency  content-type text/html; charset=utf-8
+Skip to main content
+Documentation
+close
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+/
+Console
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Model Armor
+Start free
+Overview
+Guides
+Reference
+Resources
+Documentation
+More
+Overview
+Guides
+Reference
+Resources
+Console
+Discover
+Product overview
+Data residency and endpoints
+Feature availability for templates by region
+Best practices for scaling and high traffic
+Retry strategy
+Configure Model Armor
+Create and manage templates
+Configure template-specific exclusion rules
+Set the filter version
+Filter version history
+Configure floor settings
+Sanitize prompts and responses
+Configure logging
+View the monitoring dashboard
+Control access
+Access control with IAM
+Roles and permissions
+Service accounts
+Integrate Model Armor with services or frameworks
+Overview
+Integrate with Agent Gateway
+Integrate with Apigee
+Integrate with Gemini Enterprise
+Integrate with Google and Google Cloud MCP servers
+Integrate with Google Cloud networking services
+Integrate with Agent Platform
+Integrate with LangChain
+Monitor
+Audit logging
+Troubleshoot
+Troubleshooting
+Get Started
+Get Started with Google Cloud
+Product List
+Cloud Customer Care
+Featured Products
+Agent Platform
+Apigee API Management
+BigQuery
+Compute Engine
+Cloud CDN
+Cloud Run
+Cloud Storage
+Cloud SQL
+Gemini Enterprise
+Google Kubernetes Engine
+Looker
+Cross-product Tools
+Access and resources management
+Costs and usage management
+Infrastructure as code
+SDK, languages, frameworks, and tools
+Technology Areas
+AI and ML
+Application development
+Application hosting
+Compute
+Data analytics and pipelines
+Databases
+Distributed, hybrid, and multicloud
+Industry solutions
+Migration
+Networking
+Observability and monitoring
+Security
+Storage
+Home
+Documentation
+AI and ML
+Model Armor
+Guides
+Send feedback
+Data residency and endpoints
+Stay organized with collections
+Save and categorize content based on your preferences.
+This document explains when data residency is enforced in each location where
+Model Armor is available. Data residency lets you specify a
+geographic region where your data is stored and processed, which helps ensure
+that your data remains in that location. Model Armor helps
+provide control over where your data is handled, supporting compliance with
+various regulations.
+Model Armor processes the following types of data:
+Core data: The primary data that Model Armor processes,
+most relevant to data residency, which includes prompts, responses, and input
+files. Model Armor processes core data but doesn't store it at
+rest. For more information, see Data handling and storage.
+Configuration data: Template and floor setting configurations such as
+rules, filters, and thresholds that Model Armor uses to scan
+prompts and responses. Model Armor processes and stores
+configuration data at rest.
+Data residency enforcement for templates
+This section indicates the data residency controls enforced by
+Model Armor templates for each supported Google Cloud location.
+Model Armor maintains data residency at the
+jurisdiction level, for example, a specific country like India, or a
+multi-region like eu.
+Note: The information in this section also applies to all
+Model Armor
+integrations—except for the integration with
+Google and Google Cloud MCP servers, which doesn't support
+Model Armor templates.
+Model Armor works in the following regions and multi-regions.
+However, by default, Model Armor has limited feature support in
+some regions to maintain strict data residency, including in-jurisdiction data
+processing. For information about the regions with full and limited support, see
+Feature availability by region.
+If you must use a limited-support region but you want to prioritize
+comprehensive security filtering over strict data residency, you can
+disable data residency
+enforcement in
+your Model Armor template.
+| Region/multi-region
+| Jurisdiction
+| At rest
+| In use
+| In transit
+| Feature support1
+| asia-northeast1
+| Japan
+| Yes
+| Yes
+| Yes
+| Limited support
+| asia-northeast3
+| South Korea
+| Yes
+| Yes
+| Yes
+| Limited support
+| asia-south1
+| India
+| Yes
+| Yes
+| Yes
+| Limited support
+| asia-southeast1
+| Singapore
+| Yes
+| Yes
+| Yes
+| Limited support
+| australia-southeast2
+| Australia
+| Yes
+| Yes
+| Yes
+| Limited support
+| eu
+| European Union
+| Yes
+| Yes
+| Yes
+| Full support
+| europe-southwest1
+| European Union
+| Yes
+| Yes
+| Yes
+| Full support
+| europe-west1
+| European Union
+| Yes
+| Yes
+| Yes
+| Full support
+| europe-west2
+| United Kingdom
+| Yes
+| Yes
+| Yes
+| Limited support
+| europe-west3
+| European Union
+| Yes
+| Yes
+| Yes
+| Full support
+| europe-west4
+| European Union
+| Yes
+| Yes
+| Yes
+| Full support
+| europe-west9
+| European Union
+| Yes
+| Yes
+| Yes
+| Full support
+| northamerica-northeast2
+| Canada
+| Yes
+| Yes
+| Yes
+| Limited support
+| us
+| United States
+| Yes
+| Yes
+| Yes
+| Full support
+| us-central1
+| United States
+| Yes
+| Yes
+| Yes
+| Full support
+| us-east1
+| United States
+| Yes
+| Yes
+| Yes
+| Full support
+| us-east4
+| United States
+| Yes
+| Yes
+| Yes
+| Full support
+| us-west1
+| United States
+| Yes
+| Yes
+| Yes
+| Full support
+1The Feature support column is relevant only to
+Model Armor configurations that use templates. For
+Model Armor configurations that use floor settings, all features
+are available but data residency enforcement for data in use and in transit
+varies by location.
+The Jurisdiction column indicates the geographical boundary (for example, a
+country or a multi-region like eu or us) within which
+Model Armor ensures data residency compliance for the supported
+states (at rest, in use, and in transit) as indicated in the table.
+The Region/multi-region column lists the specific Google Cloud region or
+multi-region identifier.
+When data residency is enforced for a region in Model Armor, it
+helps ensure that data remains within a specified jurisdiction while in at least
+one of the following states:
+At rest: Stored data remains within the specific Google Cloud region listed.
+In use and In transit: Data residency enforcement for these states
+within the specified jurisdiction depends on the values in the In use and
+In transit columns:
+Yes: Data residency is enforced for the In use and In transit
+states within the listed jurisdiction. This means that the data remains
+within the boundaries of the listed jurisdiction while being processed or
+transmitted (not necessarily within that single region).
+No: Data residency is not enforced for the In use and In transit
+states within the listed jurisdiction. This means that the data might be
+processed or transmitted outside of the jurisdiction.
+Note: For Assured Workloads, Model Armor maintains data
+residency within the selected jurisdiction for
+supported locations for data in use. For more
+information, see Assured Workloads Service Specific Terms.
+Data residency for Model Armor integrations using floor settings
+The following sections explain how data residency is enforced for
+Model Armor floor settings across integrations.
+Integration with Gemini Enterprise Agent Platform
+If you use floor settings for the
+Agent Platform
+integration, all
+Model Armor features are available in the following locations.
+However, data residency enforcement for data in use and in transit varies by
+region.
+Note: Floor settings for the Agent Platform
+integration don't apply to requests sent to
+Agent Platform
+multi-regional endpoints,
+such as aiplatform.us.rep.googleapis.com or
+aiplatform.eu.rep.googleapis.com.
+Show supported regions
+| Region
+| Jurisdiction
+| At rest
+| In use
+| In transit
+| asia-northeast1
+|
+Japan
+| Yes
+| No
+| No
+| asia-northeast3
+|
+South Korea
+| Yes
+| No
+| No
+| asia-south1
+|
+India
+| Yes
+| No
+| No
+| asia-southeast1
+|
+Singapore
+| Yes
+| No
+| No
+| australia-southeast2
+|
+Australia
+| Yes
+| No
+| No
+| europe-southwest1
+|
+European Union
+| Yes
+| Yes
+| Yes
+| europe-west1
+|
+European Union
+| Yes
+| Yes
+| Yes
+| europe-west2
+|
+United Kingdom
+| Yes
+| No
+| No
+| europe-west3
+|
+European Union
+| Yes
+| Yes
+| Yes
+| europe-west4
+|
+European Union
+| Yes
+| Yes
+| Yes
+| europe-west9
+|
+European Union
+| Yes
+| Yes
+| Yes
+| northamerica-northeast2
+|
+Canada
+| Yes
+| No
+| No
+| us-central1
+|
+United States
+| Yes
+| Yes
+| Yes
+| us-east1
+|
+United States
+| Yes
+| Yes
+| Yes
+| us-east4
+|
+United States
+| Yes
+| Yes
+| Yes
+| us-west1
+|
+United States
+| Yes
+| Yes
+| Yes
+Integration with Google and Google Cloud MCP servers
+Model Armor is a regionalized service, but it's not available
+in every Google Cloud region where Google and Google Cloud MCP servers operate.
+If you enable
+Model Armor for an MCP-supported service in a jurisdiction
+where Model Armor isn't present, Model Armor is
+called depending on whether the MCP-supported service uses cross-jurisdictional
+routing or data residency compliant routing.
+Google and Google Cloud MCP servers with cross-jurisdictional routing
+For Google and Google Cloud MCP
+servers with
+cross-jurisdictional
+routing,
+Model Armor is always called if enabled. Cross-jurisdictional
+calls might impact data residency compliance for in-use and in-transit data.
+To see which Google and Google Cloud MCP servers use cross-jurisdictional
+routing, see Products with Model Armor
+support.
+Google and Google Cloud MCP servers with data residency compliant routing
+For Google and Google Cloud MCP servers with data residency compliant
+routing,
+Model Armor can be called in any region or multi-region within
+the European Union and the United States jurisdictions. Data residency is
+enforced for data at rest, in use, and in transit.
+To see which Google and Google Cloud MCP servers use data residency
+compliant routing, see Products with Model Armor
+support.
+Regional and multi-regional endpoints
+Regional and multi-regional endpoints provide access to resources in a specific
+location. When you use a regional or multi-regional endpoint, your request is
+routed directly to the endpoint's location.
+Each regional or multi-regional endpoint uses the following format:
+modelarmor.LOCATION.rep.googleapis.com
+Replace LOCATION with a supported
+Model Armor region or multi-region.
+To create, update, or use templates to sanitize content, you must use a regional
+or multi-regional endpoint that matches the template's location.
+Regional and multi-regional Model Armor endpoints don't support
+managing floor settings.
+For general information about using regional and multi-regional endpoints, see
+Google Cloud API endpoint overview.
+VPC network requirements
+To access Model Armor regional endpoints from within a VPC
+network, you must
+create a Private Service Connect endpoint to the Model Armor APIs. This is required to prevent certificate
+errors when regional endpoints are accessed using Private Google Access or
+VPC Service Controls. For more information, see
+Troubleshoot Model Armor issues
+and About accessing regional endpoints through Private Service Connect endpoints.
+Global endpoint
+The global endpoint (modelarmor.googleapis.com) is supported only for managing
+Model Armor floor
+settings.
+The global Model Armor endpoint doesn't support managing
+Model Armor templates or sanitizing prompts and responses.
+For general information about global endpoints, see
+Google Cloud API endpoint overview.
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-10-06 UTC.
+Products and pricing
+See all products
+Google Cloud pricing
+Google Cloud Marketplace
+Contact sales
+Support
+Community forums
+Support
+Release Notes
+System status
+Resources
+GitHub
+Getting Started with Google Cloud
+Code samples
+Cloud Architecture Center
+Training and Certification
+Engage
+Blog
+Events
+X (Twitter)
+Google Cloud on YouTube
+Google Cloud Tech on YouTube
+Android
+Chrome
+Firebase
+Google AI
+About Google
+Privacy
+Site terms
+Google Cloud terms
+Manage cookies
+Our third decade of climate action: join us
+Sign up for the Google Cloud newsletter
+Subscribe
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

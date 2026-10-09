@@ -22,3 +22,4 @@
 | modelarmor P0 Q02 (MA5/MA6 vs SDP) | R012 | main |
 | modelarmor P0 Q04 / presidio P1 (vendor GitHub access) | R013 | main |
 | modelarmor P1 Q-D (inventory sheet letter) | rule: R003 — letter assigned at P8 in workbook order; brief's `3f` is provisional | main |
+| sdp P1 Q04 (sheet letter) / Q05 (seeds host) | R003 (letter at P8); seeds already on docs.cloud.google.com | main |
