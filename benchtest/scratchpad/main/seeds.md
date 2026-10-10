@@ -50,7 +50,7 @@ Each entry gives the explorer a starting point. **UNVERIFIED** marks a starting 
 - **Owner:** GovTech, a PII service. Known mention: the playbook privacy-improvements page says the Sentinel integration is "coming soon" (`sentinel_resolutions_2.md` T59).
 - **What to confirm:** whether any public docs exist (developer.tech.gov.sg product pages, aiguardian.gov.sg, the playbook). Expect sparse docs; honest gaps (R007 item 6).
 
-## litmus (B3) — UNVERIFIED (R003: eval sheet only)
+## litmus (B3) — VERIFIED at P0 2026-10-10 (R003: eval sheet only): www.aiguardian.gov.sg/docs/wiki/Litmus-Overview, Litmus-Getting-Started, Test-Information-Documentation; developer.tech.gov.sg/products/categories/cybersecurity/litmus/*; one-pager PDF on isomer-user-content.by.gov.sg; sample Action dsaidgovsg/aiguardian-test-action (archived, v0.0.1). aiguardian.gov.sg without www does not resolve
 - **Owner:** GovTech, described in Sentinel's docs as the "WOG AI Testing product" paired with Sentinel. Start from aiguardian.gov.sg (the Litmus pages next to the Sentinel docs; the Sentinel getting-started page mentions the "Litmus and Sentinel interest form") and developer.tech.gov.sg.
 - **Expected outcome:** sparse public docs; honest gaps. Sheet format follows `drafts/eval_tooling.md`.
 - presidio note (P4 T10): image-redactor = 0.0.60, presidio-structured = 0.0.8 at 2.2.364 (code); P0 note reading 0.0.60 as structured is wrong.

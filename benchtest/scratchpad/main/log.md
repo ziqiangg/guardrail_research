@@ -109,3 +109,4 @@
 - 2026-10-10 purplellama P10 fix loop done: RF1–RF8 + 13 optional; base CSS identical; awaiting user review
 - 2026-10-10 B2 CLOSED (R036): purplellama done; lionguard done (R035); CLAUDE.md Products table, status, handover updated. Next: B3 (cloak, litmus).
 - 2026-10-10 B3 started (user: 'continue with B3'): cloak and litmus P0 explorers running
+- 2026-10-10 litmus P0 done: hosted TaaS (PoC label), 14 tests in 4 categories (Baseline 6 / Baseline+ 14), pass/fail, web app + API + GitHub Action; no published results; 10 gaps, 5 conflicts; q02/q03 ruled by main; q01 (inventory sheet) → CP1; P1 started

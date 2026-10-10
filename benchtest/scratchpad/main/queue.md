@@ -12,6 +12,7 @@
 ## Open questions (from agents)
 | Q file | Product | Routed to | State | Ruling |
 |---|---|---|---|---|
+| explorer/20261010_litmus_q01: separate small 3x inventory sheet (~13 rows: access paths, test suites, integration parameters) vs fold into eval sheet | litmus | user at litmus CP1 (brief records default + alternative) | open | |
 | purplellama P2 eval Q2: PL1/PL2 dataset reuse needs "injection-removed" negatives Meta does not ship — may the bench build its own negative set? | purplellama (bench design) | P4 triage → user at purplellama CP1 | resolved | |
 | purplellama P2 eval Q1: P8 eval builder MD/TITLE/NOTE; proposed "3j. CyberSecEval Eval Tooling" (letter assigned at P8, ≤31 chars) | purplellama | P8 xlsx-writer note | noted | |
 | explorer/20261009_lionguard_q01–q03 + triage T4 (embedder third-party terms vs harmful test text): single column LN1 vs per-variant; prefix `LionGuard:` vs `GovTech LionGuard:`; "self-hosted" framing given OpenAI/Gemini embedder keys and gated Gemma (Lite) | lionguard | user at lionguard CP1 (brief records default + alternative) | resolved | |
@@ -29,6 +30,8 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| explorer/20261010_litmus_q02 (Moonshot link from the sample Action) | record as [Inferred] with premise; engine stays [Not disclosed] (CLAUDE.md rule 2/3) | main |
+| explorer/20261010_litmus_q03 (3 aiguardian pages 403) | retry at P1 via WebFetch verbatim or archived official page (auto-default); else "checked, not reachable" | main |
 | purplellama P10 user review | R036 approved; B2 closed | user |
 | purplellama P10 Q1/Q2 (Retrieval Partly; AlignmentCheck own section) | Partly stands under R026 (Meta documents untrusted web content / PDF hidden-text example); section order accepted; Q3/Q4 → diagram verifier | main |
 | purplellama P8 Q1 (BG16 PL3 R7 Summary 61 words incl. label) | trim one word via gr-merger, rebuild before commit (word-limit auto-default); no new known non-failure | main |
