@@ -31,6 +31,7 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| cloak P5 Q1–Q5 | accept 3 INV(e) Terms/Privacy rows (blocks 10/8/26/9/28/4 = 85); presidio.dataprivacystack.org URLs official (R016), Cloak's own 404 link kept as HTTP fact; Sentinel PII column = AF (sheet 3); T66 default-on rows stay [Inferred] (page shows SG_ADDRESS_STREET off, so "all available" is loose); local PyMuPDF install to render a vendor PDF logged as acceptable (third-party tool, scratch only, deleted) | main |
 | cloak CP1 (three columns; CK3 one column) | R037 | user |
 | litmus CP1 (small inventory sheet; Kaleidoscope one Tools row) | R038 | user |
 | cloak P4 Q2–Q6 | Pseudonymise row stays CK1; CK3 (salt bullets in CK3); Inclusion row CK1; CK2; P5 may read Terms 4.2, 6.1, definitions and Privacy Statement (R019); login-gated pages keep [Not disclosed] + HTTP fact (R007 item 6) uniformly; list-limit Summary "500 (words or entries; the docs differ)" with the R8 question open | main |
