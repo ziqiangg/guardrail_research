@@ -31,6 +31,7 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| cloak P2 inventory Q1–Q4 | counts fixed by finals (draft 10/7/26/9/25/4); Decrypt row Covered-by CK3 only (restore side); add a planned "Sentinel integration" row to block (b) with `— (planned, not in Table 3)` marker (cross-ref Sentinel AF); Terms 3.3/3.4.7/3.4.9/3.4.11/Sched 2.2 → triage class (c) | main |
 | cloak P2 cols_b Q1–Q3 (Terms clauses; 500 words/entries and "documents" wording; tabular contrast bullet) | clauses verbatim, decided before bench testing (R025 pattern); limit wording stays R8 (triage: needs-testing); tabular bullet as contrast only, confirmed | main |
 | cloak P2 cols_b note (unauthenticated GitHub search API for org repo search) | acceptable: GitHub is not the vendor and code search is a sanctioned locator (CLAUDE.md tool bootstrap); not a hard-rule-5 vendor API call | main |
 | cloak P2 cols_a (Inclusion list bullet CK1 vs CK2; R2 Summary 17 groups vs 20+) | Inclusion list: triage checks against inventory mapping, merger reconciles; R2 keeps documented 17 groups, 20+/17+ stay two bullets | main |
