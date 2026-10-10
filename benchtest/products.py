@@ -42,6 +42,9 @@ PRODUCTS = [
          two_level_md=DRAFTS / "purplellama_two_level.md", inventory_sheet="3j. Purple Llama Inventory",
          inventory_builder_module="build_purplellama_inventory",
          notes="inventory via inventory_sheet; PL1-PL7; eval sheet 3k via build_purplellama_eval"),
+    dict(slug="cloak", name="Cloak", header_prefix="Cloak:",  # R037; CK1-CK3
+         two_level_md=DRAFTS / "cloak_two_level.md", inventory_sheet="3l. Cloak Inventory",
+         inventory_builder_module="build_cloak_inventory", notes="inventory via inventory_sheet; CK1-CK3"),
 ]
 
 SHEET3 = "3. Guardrail Research Table"
