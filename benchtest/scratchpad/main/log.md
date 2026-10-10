@@ -98,3 +98,4 @@
 - 2026-10-10 session limit (reset 11:50 SGT) stopped purplellama P7 verifier, lionguard post-P8 merger fix and lionguard diagram fix loop; WIP committed; resumed
 - 2026-10-10 lionguard post-P8 draft fix: R5 comparability [Inferred] → blog quote [Documented] + test-set identity [Not disclosed]; inventory (a) 2.1 threshold cell aligned; checks 0/0 (in 8ae4df7); xlsx re-apply next
 - 2026-10-10 lionguard P10 fix loop done: RF1–RF6 + O1–O10; old strings gone; base CSS identical; awaiting user review
+- 2026-10-10 lionguard post-P8 re-apply: compare vs HEAD exactly BD13 (value, runs) + 3i!I7 (value); verify 46/47 (one-shot check only); lionguard URLs file unchanged in content

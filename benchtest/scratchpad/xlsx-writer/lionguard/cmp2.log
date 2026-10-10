@@ -1,0 +1,5 @@
+sheets: ['3. Guardrail Research Table', '3b. NeMo Rail Inventory', '3c. NeMo Evaluation Tooling', '3d. Llama Guard Inventory', '3e. GovTech Sentinel Inventory', '3f. Presidio Inventory', '3g. SDP Inventory', '3h. Model Armor Inventory', '3i. LionGuard Inventory', '4. Candidate Comparison Groups']
+TOTAL DIFFS: 3
+('3. Guardrail Research Table', 'BD13', 'value')
+('3. Guardrail Research Table', 'BD13', 'runs')
+('3i. LionGuard Inventory', 'I7', 'value')

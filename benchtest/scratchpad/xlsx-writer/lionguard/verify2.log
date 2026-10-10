@@ -1,0 +1,59 @@
+previous-commit sheet names: ['3. Guardrail Research Table', '3b. NeMo Rail Inventory', '3c. NeMo Evaluation Tooling', '3d. Llama Guard Inventory', '3e. GovTech Sentinel Inventory', '3f. Presidio Inventory', '3g. SDP Inventory', '3h. Model Armor Inventory', '3i. LionGuard Inventory', '4. Candidate Comparison Groups']
+PASS - sheet order ['3. Guardrail Research Table', '3b. NeMo Rail Inventory', '3c. NeMo Evaluation Tooling', '3d. Llama Guard Inventory', '3e. GovTech Sentinel Inventory', '3f. Presidio Inventory', '3g. SDP Inventory', '3h. Model Armor Inventory', '3i. LionGuard Inventory', '4. Candidate Comparison Groups']
+FAIL - previous sheets all present, in order, plus only 3i 
+derived: old last col BC (55), LionGuard BD-BD (1), last col 56
+PASS - sheet 3: 56 columns (A-BD) 56
+PASS - sheet 3: max_row 21 21
+PASS - 27 merges equal to previous commit 
+PASS - outline levels (rows 5,7,..,21 level 1) [5, 7, 9, 11, 13, 15, 17, 19, 21]
+PASS - freeze panes E4 (as previous) 
+PASS - summaryBelow False 
+PASS - column widths 6/28/32/10 then 48 [48.0, 48.0, 48.0]
+PASS - old column widths A-BC identical to previous commit 
+PASS - BD3 is the LionGuard header in md order (prefix 'LionGuard:') ['calised harmful-content classifi']
+PASS - old header row identical (A3:BC3) 
+PASS - A-BC plain text vs previous commit: 0 diffs (0 diffs)
+PASS - F-BC rows 4-21 rich-text runs (text+bold) vs previous commit: 0 diffs (0 diffs)
+PASS - A-BC cell styles vs previous commit: 0 diffs (0 diffs)
+PASS - BD plain text vs lionguard_two_level.md parse: 0 mismatches (18 cells) (0)
+PASS - BD Summary style checks (9 cells) (0 failing)
+PASS - BD no ** or backticks (rows 4-21) []
+PASS - BD non-Arial cells / rich runs: 0 ([], rich runs 0)
+PASS - BD cell styles equal the BC styles row by row, 1 column (same house format) 
+PASS - 3b. NeMo Rail Inventory: values (incl. formulas), rich text, styles identical to previous commit (1430 cells, 0 diffs)
+PASS - 3b. NeMo Rail Inventory: merges, freeze, autofilter, widths, row heights/outline, extents identical 
+PASS - 3c. NeMo Evaluation Tooling: values (incl. formulas), rich text, styles identical to previous commit (760 cells, 0 diffs)
+PASS - 3c. NeMo Evaluation Tooling: merges, freeze, autofilter, widths, row heights/outline, extents identical 
+PASS - 3d. Llama Guard Inventory: values (incl. formulas), rich text, styles identical to previous commit (832 cells, 0 diffs)
+PASS - 3d. Llama Guard Inventory: merges, freeze, autofilter, widths, row heights/outline, extents identical 
+PASS - 3e. GovTech Sentinel Inventory: values (incl. formulas), rich text, styles identical to previous commit (1424 cells, 0 diffs)
+PASS - 3e. GovTech Sentinel Inventory: merges, freeze, autofilter, widths, row heights/outline, extents identical 
+PASS - 3f. Presidio Inventory: values (incl. formulas), rich text, styles identical to previous commit (776 cells, 0 diffs)
+PASS - 3f. Presidio Inventory: merges, freeze, autofilter, widths, row heights/outline, extents identical 
+PASS - 3g. SDP Inventory: values (incl. formulas), rich text, styles identical to previous commit (984 cells, 0 diffs)
+PASS - 3g. SDP Inventory: merges, freeze, autofilter, widths, row heights/outline, extents identical 
+PASS - 3h. Model Armor Inventory: values (incl. formulas), rich text, styles identical to previous commit (1368 cells, 0 diffs)
+PASS - 3h. Model Armor Inventory: merges, freeze, autofilter, widths, row heights/outline, extents identical 
+PASS - 4. Candidate Comparison Groups: values (incl. formulas), rich text, styles identical to previous commit (544 cells, 0 diffs)
+PASS - 4. Candidate Comparison Groups: merges, freeze, autofilter, widths, row heights/outline, extents identical 
+PASS - 3i block row counts 4/11/8/11/4 [4, 11, 8, 11, 4]
+PASS - 3i every cell equals cleaned md text (321 cells) (0 mismatches)
+PASS - 3i autofilter = block (a) only A4:L8
+PASS - 3i Covered-by values valid (real sheet-3 header or legacy/inventory-only marker), all five blocks (38 values; bad [])
+PASS - 3i amber fill exactly on marker cells 
+PASS - 3i validator validate_markers | markers: 17 marker cells; invalid or mixed values: 0 []
+panel: title row 61 (last block row 58 + 3 = 2 blank rows), 13 cells, equal to the specified formulas: OK
+two rows above the title empty: True | non-Arial panel cells: 0
+Python mirror counts per Table 3 column ['Variants covering it', 'Output keys covering it', 'Dependencies covering it']
+    [3, 11, 7] LionGuard: Localised harmful-content classification
+    total Rows marked inventory only                           15
+    total Rows marked legacy                                   2
+Table 3 columns with a zero count: []
+PASS - 3i coverage panel equals spec; LionGuard column covered; inventory-only 15, legacy 2 {'Rows marked inventory only': 15, 'Rows marked legacy': 2}
+PASS - 3i no ** or backticks []
+PASS - 3i all Arial (cells + raw XML <c> check) (openpyxl 0, raw XML 0 of 352)
+PASS - 3i A1 bold 13; A2 italic grey; freeze A4 
+PASS - XML hygiene (all parts well-formed; worksheets + sharedStrings) (unpreserved <t>=0, <r> without rPr=0, empty <t>=0, parts checked=10, well-formed=True)
+urls: 45 unique (31 from BD20:BD21, 14 new from 3i Source URL cells) -> C:\Users\cys-c\Desktop\gzqr\gitubrepo\misc\researchrail\guardrail_research\benchtest\drafts\lionguard_urls.txt
+
+SUMMARY: 46/47 checks passed
