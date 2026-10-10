@@ -128,3 +128,9 @@ VFIX_NOTES = (
     "the scope paragraph sentence 'nothing was installed, run or downloaded ...' is kept as the read-date and method statement of the Presidio precedent (the two sentences the reviewer named, in the (c) intro and the demo row, were removed). "
     "R1 now has 12 top-level Detail bullets (was 9) and R4 52 (was 50), R8 14 (was 13), R9 31 (was 33); see section 8b."
 )
+
+
+POST_INTRO = (
+    "Source: the P10 diagram verifier's question Q1 (benchtest/scratchpad/verifier/20261010_lionguard_diagram-review.md), routed by main. The 28 Sep 2026 blog says it used 'the same benchmarks used in our earlier LionGuard experiments' and calls the set 'the original LionGuard 2 Test set', which contradicts the [Inferred] claim that the 2.1 figure 0.7318 cannot be compared directly with the paper's 77.0. "
+    "Neutral wording applied to the column and the inventory; the workbook was not touched. Both checks re-run on the regenerated finals (section 8f); BLOCKS stay 4/11/8/11/4."
+)

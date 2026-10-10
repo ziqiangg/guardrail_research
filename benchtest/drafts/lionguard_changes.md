@@ -134,6 +134,7 @@ Entries are listed in the order the edits were applied. Several bullets in one '
 | LN1 R8 (edit) | • Whether OpenAI's usage policies and service terms (the pages returned HTTP 403) and Google's Gemini and Gemma terms allow sending harmful or explicit test text to the embedding services, and which account tier would apply (the… | • Whether OpenAI's usage policies and service terms (the pages returned HTTP 403) and Google's Gemini and Gemma terms allow sending harmful or explicit test text to the embedding services, and which account tier would apply (whic… | P7 optional: internal cross-reference 'quoted in R7' dropped |
 | LN1 R8 (add) | (anchor: • Which of the paper's Table 1 and Table 3 column orders is right for Chinese and Malay, a) | • Table 1 of the LionGuard 2 paper prints Test 87.2 for Qwen3-Embedding-0.6B, above 77.0 for text-embedding-3-large, while section 4.2.1 says text-embedding-3-large "achieved the highest binary F1" (checked the paper html; not ex… | P7 optional: a clash between Table 1 and the section 4.2.1 claim, recorded as an R8 question (no label) |
 | LN1 R9 Summary (summary) | Summary: GovTech Hugging Face model repos, dataset and demo Space, the Responsible AI playbook, GovTech blog posts and papers, Sentinel docs for cross-references, and the embedder owners' pages. | Summary: GovTech Hugging Face model repos, datasets and demo Space, the Responsible AI playbook, GovTech blog posts and papers, Sentinel docs for cross-references, and the embedder owners' pages. | P7 optional: R9 cites two datasets |
+| LN1 R5 (replace) | • The original test split is private, so the 0.7318 figure for LionGuard 2.1 cannot be compared directly with the paper's 77.0 for LionGuard 2 (premise: the blog calls its split "a held-out private LionGuard test split", and the… | • The blog says it used "the same benchmarks used in our earlier LionGuard experiments: a held-out private LionGuard test split and RabakBench", and elsewhere calls the set "the original LionGuard 2 Test set" and "our private Lio… | Post-P8 fix (P10 verifier Q1): the [Inferred] claim that 0.7318 'cannot be compared directly' with 77.0 is contradicted by the blog's own wording; replaced by the blog's description quoted [Documented] and a [Not disclosed] bullet |
 
 ## 3. Inventory changes
 
@@ -176,6 +177,7 @@ Entries are listed in the order the edits were applied. Several bullets in one '
 | INV intro (line 36) (edit) | are not GovTech docs. No embedding service was called and no weights were downloaded. | are not GovTech docs. | P7 optional: research-method sentence removed from a built block intro |
 | INV (d) govtech/lionguard-demo: / Licence or access (edit) | Public, not gated. No LICENSE file or licence metadata [Not disclosed] (file list and Hub metadata checked). Live status: the Hub API reports runtime stage RUNNING [Documented] (HFAPI, read 2026-10-09). Reference only; no text wa… | Public, not gated. No LICENSE file or licence metadata [Not disclosed] (file list and Hub metadata checked). Live status: the Hub API reports runtime stage RUNNING [Documented] (HFAPI, read 2026-10-09). Reference only | P7 optional: research-method statement removed from a built cell |
 | INV (d) arXiv 2507.15339 LionGuard 2: / Artefact (edit) | arXiv 2507.15339 LionGuard 2: Building Lightweight, Data-Efficient and Localised Multilingual Content Moderators [Documented] (arXiv abstract page). Authors Leanne Tan, Gabriel Chua, Ziyu Ge, Roy Ka-Wei Lee [Documented] (arXiv ab… | arXiv 2507.15339 LionGuard 2: Building Lightweight, Data-Efficient & Localised Multilingual Content Moderators [Documented] (arXiv abstract page). Authors Leanne Tan, Gabriel Chua, Ziyu Ge, Roy Ka-Wei Lee [Documented] (arXiv abst… | P7 optional: arXiv title verbatim ('&' is allowed in cells) |
+| INV (a) =LionGuard 2.1 / Operating threshold (edit) | No operating threshold is shipped [Not disclosed] (README, config.json, inference.py, lionguard2.py, PB and B1 to B3 checked). B3 uses "the same 0.5 threshold" for all models [Documented] (B3). Binary F1 at 0.5: original private… | No operating threshold is shipped [Not disclosed] (README, config.json, inference.py, lionguard2.py, PB and B1 to B3 checked). B3 uses "the same 0.5 threshold" for all models [Documented] (B3). Binary F1 at 0.5: original private… | Post-P8 fix (P10 verifier Q1): inventory aligned with the column; the blog's own description and a Not disclosed statement on whether the split is the paper's test set |
 
 ## 4. Conflict decisions
 
@@ -197,9 +199,9 @@ Entries are listed in the order the edits were applied. Several bullets in one '
 
 ## 5. Change counts and P8 config notes
 
-- Logged edits: 101 in the columns, 37 in the inventory (138 in total); of these 33 columns and 5 inventory edits are P7 verifier fixes (section 9).
-- Columns by kind: add 11, delete 4, edit 30, replace 37, style 1, summary 8, url 10. All in LN1.
-- Inventory by kind: add 4, edit 30, url 3.
+- Logged edits: 102 in the columns, 38 in the inventory (140 in total); of these 33 columns and 5 inventory edits are P7 verifier fixes (section 9).
+- Columns by kind: add 11, delete 4, edit 30, replace 38, style 1, summary 8, url 10. All in LN1.
+- Inventory by kind: add 4, edit 31, url 3.
 - Summaries changed: 8 of 9 (LN1 R1, LN1 R2, LN1 R3, LN1 R4, LN1 R6, LN1 R7, LN1 R8, LN1 R9). R5 (77.0, confirmed by T21) is unchanged; the R9 Summary changed by one word (datasets) in the P7 fix loop.
 - Resolution items handled: 39 (T6 to T13, T14 to T22, T24 to T29, T31, T34, T43, T45 to T52, T55 to T59). Items with no text change by design: T18 (quotes re-read live, no differences), T46 (kept as written), T55 (Covered-by convention kept), T56 (FYI, section 6c); T47 is handled with T57.
 - **P8 config (gr-xlsx-writer).** Inventory sheet for slug lionguard; Covered-by column name 'Covered by Table 3 column'; BLOCKS (marker, expected rows): (a) Variant table 4, (b) Output keys and taxonomy 11, (c) Dependencies and access 8, (d) Artefacts and references 11, (e) Cross-reference to Sentinel 4, that is **4/11/8/11/4** (38 rows; table widths 12, 7, 7, 7, 6 cells).
@@ -209,7 +211,7 @@ Entries are listed in the order the edits were applied. Several bullets in one '
 
 ## 6. Remaining open items
 
-Counts in the finals: [To be verified] 0 in the column and 2 in the inventory; [Not disclosed] 13 in the column and 23 in the inventory. The column has no [To be verified] bullet: its open terms question is an unlabelled R8 bullet.
+Counts in the finals: [To be verified] 0 in the column and 2 in the inventory; [Not disclosed] 14 in the column and 24 in the inventory. The column has no [To be verified] bullet: its open terms question is an unlabelled R8 bullet.
 
 ### 6a. Class b items (needs testing or honest gap), unchanged in the finals
 
@@ -298,13 +300,13 @@ Status of the moved notes after P5: column notes 6 and 9 and inventory notes 5 a
 
 | Column | R1 | R2 | R3 | R4 | R5 | R6 | R7 | R8 | R9 | Total |
 |---|---|---|---|---|---|---|---|---|---|---|
-| LN1 | 12 | 20 | 12 | 52 | 36 | 24 | 32 | 14 | 31 | 233 |
+| LN1 | 12 | 20 | 12 | 52 | 37 | 24 | 32 | 14 | 31 | 234 |
 
 ### 8c. Labels on R1 to R7 Detail bullets
 
 | Column | Documented | Documented: repo | Inferred | To be verified | Not disclosed | R1-R7 bullets without a label | R8 bullets with a label |
 |---|---|---|---|---|---|---|---|
-| LN1 | 70 | 76 | 29 | 0 | 13 | 0 | 0 |
+| LN1 | 71 | 76 | 28 | 0 | 14 | 0 | 0 |
 
 ### 8d. Structure
 
@@ -414,3 +416,14 @@ Source: lionguard_review.md (gr-verifier, 2026-10-10), verdict PASS WITH FIXES, 
 Not done and why: the reviewer's optional note on the Table 1 Qwen3 row is recorded as an unlabelled R8 question only (the draft does not assert a typo in the paper); the scope paragraph sentence 'nothing was installed, run or downloaded ...' is kept as the read-date and method statement of the Presidio precedent (the two sentences the reviewer named, in the (c) intro and the demo row, were removed). R1 now has 12 top-level Detail bullets (was 9) and R4 52 (was 50), R8 14 (was 13), R9 31 (was 33); see section 8b.
 
 Checks after the fix loop: see section 8f (both RESULT lines are from the regenerated finals). BLOCKS counts are unchanged at 4/11/8/11/4.
+
+## 10. Post-P8 fixes
+
+Source: the P10 diagram verifier's question Q1 (benchtest/scratchpad/verifier/20261010_lionguard_diagram-review.md), routed by main. The 28 Sep 2026 blog says it used 'the same benchmarks used in our earlier LionGuard experiments' and calls the set 'the original LionGuard 2 Test set', which contradicts the [Inferred] claim that the 2.1 figure 0.7318 cannot be compared directly with the paper's 77.0. Neutral wording applied to the column and the inventory; the workbook was not touched. Both checks re-run on the regenerated finals (section 8f); BLOCKS stay 4/11/8/11/4.
+
+| Location | Before | After | Reason |
+|---|---|---|---|
+| LN1 R5 | • The original test split is private, so the 0.7318 figure for LionGuard 2.1 cannot be compared directly with the paper's 77.0 for LionGuard 2 (premise: the blog calls its split "a held-out private LionGuard test split", and the paper does not say its internal test set is released) [Inferred] | • The blog says it used "the same benchmarks used in our earlier LionGuard experiments: a held-out private LionGuard test split and RabakBench", and elsewhere calls the set "the original LionGuard 2 Test set" and "our private LionGuard 2 Test dataset" (GovTech AI blog, 28 Sep 2026) [Documented] // • Whether the blog's held-out private test split is the test set behind the paper's 77.0 for LionGuard 2 (checked the blog, the paper and the playbook; not stated) [Not disclosed] | Post-P8 fix (P10 verifier Q1): the [Inferred] claim that 0.7318 'cannot be compared directly' with 77.0 is contradicted by the blog's own wording; replaced by the blog's description quoted [Documented] and a [Not disclosed] bullet |
+| INV (a) =LionGuard 2.1 / Operating threshold | No operating threshold is shipped [Not disclosed] (README, config.json, inference.py, lionguard2.py, PB and B1 to B3 checked). B3 uses "the same 0.5 threshold" for all models [Documented] (B3). Binary F1 at 0.5: original private test split 0.7318; RabakBench English/Singlish 0.8618, Malay 0.8420, Tamil 0.7267, Chinese 0.8688; SimpleSafetyTests 1.0000; OpenAI Moderation 0.7397 [Documented] (B3 Moderation Performance table; comparator columns omitted). A dedicated LionGuard 2.1 paper [Not disclosed] (README, PB and G checked). PB says the LionGuard 2 paper and blog "describe how each version wo… | No operating threshold is shipped [Not disclosed] (README, config.json, inference.py, lionguard2.py, PB and B1 to B3 checked). B3 uses "the same 0.5 threshold" for all models [Documented] (B3). Binary F1 at 0.5: original private test split 0.7318; RabakBench English/Singlish 0.8618, Malay 0.8420, Tamil 0.7267, Chinese 0.8688; SimpleSafetyTests 1.0000; OpenAI Moderation 0.7397 [Documented] (B3 Moderation Performance table; comparator columns omitted). B3 says it used "the same benchmarks used in our earlier LionGuard experiments" and calls the set the original LionGuard 2 Test set [Documented] (B3). Whether that private split is the test set behind the paper's 77.0 for LionGuard 2 [Not disclosed] (B3, P2 and PB checked). A dedicated LionGuard 2.1 paper [Not disclosed] (README, PB and G checked). PB says the LionGuard 2 paper and blog "describe how each version works" [Documented: repo go… | Post-P8 fix (P10 verifier Q1): inventory aligned with the column; the blog's own description and a Not disclosed statement on whether the split is the paper's test set |
+
+The R5 Summary does not depend on the replaced bullet (it states the 0.5 point and 77.0 for LionGuard 2 on its own test set), so no Summary changed; R5 now has one more bullet (37).

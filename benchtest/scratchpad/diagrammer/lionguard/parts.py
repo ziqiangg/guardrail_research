@@ -69,9 +69,9 @@ HEADER = '''
 <div class="wrap">
 
 <header>
-  <div class="eyebrow">GovTech LionGuard · open models: LionGuard 2, 2.1 and 2 Lite</div>
+  <div class="eyebrow">GovTech LionGuard · LionGuard 2, 2.1 and 2 Lite on Hugging Face</div>
   <h1>How GovTech LionGuard scores a conversation</h1>
-  <p class="lede">LionGuard is a small scoring model from Singapore's GovTech that looks for harmful content in English, Singlish, Chinese, Malay and Tamil. GovTech publishes it on Hugging Face, a public site for sharing AI models, and you run it yourself. Only the small classifier is GovTech's: LionGuard 2 and 2.1 send each text to OpenAI or Google Gemini to be turned into numbers first, and only Lite does that step on your own machine. For each text your app gets back a probability from 0 to 1 for every harm category, with no verdict and no cut-off supplied. This page shows how that works, where it fits in a chat, and what it leaves to your app.</p>
+  <p class="lede">LionGuard is a small scoring model from Singapore's GovTech that looks for harmful content in English, Singlish, Chinese, Malay and Tamil. GovTech publishes it on Hugging Face, a public site for sharing AI models, for you to run, but only the small classifier is GovTech's: by our reading of GovTech's code, LionGuard 2 and 2.1 send each text to OpenAI or Google Gemini to be turned into numbers first, and only Lite does that step on your own machine. For each text your app gets back a probability from 0 to 1 for every harm category, with no verdict and no cut-off supplied. This page shows how that works, where it fits in a chat, and what it leaves to your app.</p>
   <div class="legend" aria-label="Colour key">
     <span><i class="sw gate"></i>Check done by LionGuard</span>
     <span><i class="sw dev"></i>Your app's job (not LionGuard)</span>
@@ -157,7 +157,7 @@ OVERVIEW = '''
       <text class="tb" x="635" y="340" text-anchor="middle">Your app</text>
       <text class="ts" x="635" y="360" text-anchor="middle">discards the draft</text>
     </svg>
-    <figcaption>LionGuard can score what the user sends and what the AI answers, one text at a time, after an embedding step that another company runs (OpenAI or Google) or, for Lite, that runs on your own machine. It has no dedicated check for documents fetched for the AI, and none for actions the AI takes. At every point it returns probabilities only; your app decides the cut-off and what happens next.</figcaption>
+    <figcaption>LionGuard can score what the user sends and what the AI answers, one text at a time, after an embedding step (turning the text into numbers) that another company runs (OpenAI or Google) or, for Lite, that runs on your own machine. It has no dedicated check for documents fetched for the AI, and none for actions the AI takes. At every point it returns probabilities only; your app decides the cut-off and what happens next.</figcaption>
   </figure>
 </section>
 '''
@@ -231,7 +231,7 @@ POSITION = '''
           <tr><td>Your own rules and fixed replies</td><td>Yes</td><td>No</td><td>No</td><td>No</td></tr>
           <tr><td>Edits text</td><td>Masks personal data</td><td>No</td><td>Returns a masked copy (personal data, via AWS)</td><td>No, it returns probabilities only</td></tr>
           <tr><td>Singapore languages</td><td>Depends on the model it calls</td><td>Listed languages do not include Chinese, Malay or Tamil</td><td>LionGuard: Singlish, Chinese, Malay, partial Tamil</td><td>English, Singlish, Chinese, Malay and Tamil; the paper calls Tamil performance moderate</td></tr>
-          <tr><td>Who can use it</td><td>Anyone (open source)</td><td>Anyone who accepts Meta's licence</td><td>Singapore Government public officers, closed beta</td><td>Model files are public on Hugging Face under a GovTech licence text; Lite also needs a Hugging Face login and acceptance of Google's Gemma terms</td></tr>
+          <tr><td>Who can use it</td><td>Anyone (open source)</td><td>Anyone who accepts Meta's licence</td><td>Singapore Government public officers, closed beta</td><td>Model files are public on Hugging Face under a GovTech licence text; Lite also needs a Hugging Face login and acceptance of Google's Gemma terms; the paper says the weights are for research and public interest purposes only</td></tr>
         </tbody>
       </table>
     </div>
@@ -279,7 +279,7 @@ HOW = '''
         <rect class="gate" x="386" y="70" width="140" height="110" rx="8"/>
         <text class="tb" x="456" y="102" text-anchor="middle">LionGuard</text>
         <text class="ts" x="456" y="122" text-anchor="middle">GovTech's classifier</text>
-        <text class="ts" x="456" y="140" text-anchor="middle">a file of about 3 MB</text>
+        <text class="ts" x="456" y="140" text-anchor="middle">a file of 1 to 3 MB</text>
         <text class="ts" x="456" y="158" text-anchor="middle">no cut-off built in</text>
         <line class="ln" x1="526" y1="125" x2="550" y2="125" marker-end="url(#a2)"/>
 
@@ -292,10 +292,10 @@ HOW = '''
         <text class="t" x="570" y="180">Six harm categories</text>
         <text class="ts" x="570" y="199">four with Level 1 and 2</text>
       </svg>
-      <figcaption>The first step is the only part that differs between versions, and it is not GovTech's work (diagram 3). Your app can take the overall flag as its verdict, or the highest of the category probabilities. The paper keeps the overall flag because it boosts accuracy, and reports that about 4 in 100 examples show the flag and the categories disagreeing.</figcaption>
+      <figcaption>GovTech says the versions differ only in the first step, which is not GovTech's work (diagram 3). Your app can take the overall flag as its verdict, or the highest of the category probabilities. The paper keeps the overall flag because it boosts accuracy, and reports that about 4 in 100 examples show the flag and the categories disagreeing.</figcaption>
     </figure>
     <figure>
-      <svg viewBox="0 0 760 110" role="img" aria-label="A score scale from 0 to 1 showing the bands on GovTech's public demo page. Below 0.40 passes, from 0.40 to below 0.70 warns, and 0.70 or above fails. The paper reports accuracy at a 0.5 point. GovTech ships no cut-off with the models.">
+      <svg viewBox="0 0 760 110" role="img" aria-label="A score scale from 0 to 1 showing the bands that GovTech's public demo page applies to the overall flag. Below 0.40 passes, from 0.40 to below 0.70 warns, and 0.70 or above fails. The paper reports accuracy at a 0.5 point. GovTech ships no cut-off with the models.">
         <rect class="bar-ok" x="40" y="30" width="272" height="26" rx="4"/>
         <rect class="bar-ed" x="312" y="30" width="204" height="26"/>
         <rect class="bar-no" x="516" y="30" width="204" height="26" rx="4"/>
@@ -313,9 +313,9 @@ HOW = '''
         <text class="ted" x="414" y="84" text-anchor="middle">warn</text>
         <text class="tno" x="618" y="84" text-anchor="middle">fail</text>
       </svg>
-      <figcaption>LionGuard ships no cut-off. These bands come from GovTech's public demo page and are demo behaviour, not a recommendation; the paper reports its accuracy at 0.5. Your app chooses and tests its own cut-off, and could set one for each category.</figcaption>
+      <figcaption>LionGuard ships no cut-off. These bands, applied to the overall flag, come from GovTech's public demo page and are demo behaviour, not a recommendation; the paper reports its accuracy at 0.5. Your app chooses and tests its own cut-off, and could set one for each category.</figcaption>
     </figure>
-    <p class="know"><b>Good to know:</b> GovTech states no maximum text length, so any limit comes from the embedding model: its owners list 8,192 tokens (short pieces of words) for OpenAI's and 2,048 for each of Google's two. What happens on longer text is not stated. For LionGuard 2 the paper reports about 300 tokens a second on one CPU, without saying whether that includes the call to OpenAI.</p>
+    <p class="know"><b>Good to know:</b> GovTech states no maximum text length, so any limit comes from the embedding model: its owners list 8,192 for OpenAI's and 2,048 tokens (short pieces of words) for each of Google's two. What happens on longer text is not stated. For LionGuard 2 the paper reports about 300 tokens a second on one CPU, without saying whether that includes the call to OpenAI.</p>
   </article>
 
   <article class="rail">
@@ -349,9 +349,9 @@ HOW = '''
       <table class="cats">
         <thead><tr><th>Version</th><th>Embedding step</th><th>Where your text goes</th><th>What you need</th><th>Published accuracy</th></tr></thead>
         <tbody>
-          <tr><td>LionGuard 2</td><td>OpenAI's text-embedding-3-large</td><td>To OpenAI, to be embedded (our reading of the code)</td><td>Your own OpenAI key</td><td>Paper: F1 of 77 on GovTech's own test set</td></tr>
+          <tr><td>LionGuard 2</td><td>OpenAI's text-embedding-3-large</td><td>To OpenAI, to be embedded (our reading of the code)</td><td>Your own OpenAI key</td><td>Paper: F1 (a 0 to 100 accuracy measure) of 77 on GovTech's own test set</td></tr>
           <tr><td>LionGuard 2.1</td><td>Google's gemini-embedding-001</td><td>To Google, to be embedded (our reading of the code)</td><td>Your own Gemini key</td><td>Blog: F1 of 73 on a private GovTech test split</td></tr>
-          <tr><td>LionGuard 2 Lite</td><td>Google's embeddinggemma-300m, run locally</td><td>Stays on your machine; the card says it "runs fully locally, with no external API calls"</td><td>A Hugging Face login and acceptance of Google's Gemma terms; no API key</td><td>None published</td></tr>
+          <tr><td>LionGuard 2 Lite</td><td>Google's embeddinggemma-300m, run locally</td><td>Stays on your machine; the card says it "runs fully locally, with no external API calls"</td><td>A Hugging Face login and acceptance of Google's Gemma terms; no key needed</td><td>None published</td></tr>
         </tbody>
       </table>
     </div>
@@ -375,14 +375,14 @@ MAKERS = '''
       <span class="tag">Grouped by who supplies the part; dashed boxes mean not disclosed or not yet available</span>
     </div>
     <figure>
-      <svg viewBox="0 0 760 370" role="img" aria-label="Five rows. GovTech, published: the small classifier in three versions, with weights and code on Hugging Face, and open data, meaning a training-data subset and a public test set. Another company, hosted embedding step: OpenAI for LionGuard 2 and Google Gemini for 2.1, each needing your own key. Google, local embedding step: EmbeddingGemma for Lite, a gated download that needs a Hugging Face login and acceptance of Google's terms. Not disclosed or not published: training code, any accuracy for Lite, and an operating cut-off. Planned: a retrained LionGuard 2 for Sentinel users first, with no statement on whether it will be published on Hugging Face.">
+      <svg viewBox="0 0 760 370" role="img" aria-label="Five rows. GovTech, published: the small classifier in three versions, with weights and code on Hugging Face, and public data, meaning a training-data subset and a public test set. Another company, hosted embedding step: OpenAI for LionGuard 2 and Google Gemini for 2.1, each needing your own key. Google, local embedding step: EmbeddingGemma for Lite, a gated download that needs a Hugging Face login and acceptance of Google's terms. Not disclosed or not published: training code, any accuracy for Lite, and an operating cut-off. Planned: a retrained LionGuard 2 for Sentinel users only, with no statement on whether it will be published on Hugging Face.">
         <text class="tb" x="10" y="44">GovTech</text>
         <text class="ts" x="10" y="62">published</text>
         <rect class="mk-gov" x="190" y="20" width="275" height="56" rx="8"/>
         <text class="tb" x="327" y="44" text-anchor="middle">Small classifier, 3 versions</text>
         <text class="ts" x="327" y="63" text-anchor="middle">weights and code on Hugging Face</text>
         <rect class="mk-gov" x="475" y="20" width="275" height="56" rx="8"/>
-        <text class="tb" x="612" y="44" text-anchor="middle">Open data</text>
+        <text class="tb" x="612" y="44" text-anchor="middle">Public data</text>
         <text class="ts" x="612" y="63" text-anchor="middle">training subset, public test set</text>
 
         <text class="tb" x="10" y="114">Another company</text>
@@ -419,7 +419,7 @@ MAKERS = '''
         <text class="ts" x="10" y="342">not yet available</text>
         <rect class="mk-plan" x="190" y="300" width="275" height="56" rx="8"/>
         <text class="tb" x="327" y="324" text-anchor="middle">Retrained LionGuard 2</text>
-        <text class="ts" x="327" y="343" text-anchor="middle">first for Sentinel users</text>
+        <text class="ts" x="327" y="343" text-anchor="middle">for Sentinel users only</text>
         <rect class="mk-nd" x="475" y="300" width="275" height="56" rx="8"/>
         <text class="tb" x="612" y="324" text-anchor="middle">Public release of it</text>
         <text class="ts" x="612" y="343" text-anchor="middle">not stated</text>
@@ -453,7 +453,7 @@ INPUT = '''
            "all low", "a score high",
            "Continues to the AI model", "nothing changed",
            "Your app sends a refusal", "category tells you why", pad=6) + '''
-      <figcaption>The scoring is the same for every language it covers: English, Singlish, Chinese, Malay and Tamil. Your app picks the cut-off and writes the refusal; LionGuard never blocks anything. The same model can score the AI's answer (diagram 5).</figcaption>
+      <figcaption>One model scores every language it covers: English, Singlish, Chinese, Malay and Tamil, though less well in Tamil. Your app picks the cut-off and writes the refusal; LionGuard never blocks anything. The same model can score the AI's answer (diagram 5).</figcaption>
     </figure>
     <dl class="example">
       <dt>In</dt><dd>Give me step-by-step instructions to hurt my neighbour. (illustrative)</dd>
@@ -505,7 +505,7 @@ LANG = '''
   <div class="stage-head">
     <div class="eyebrow">Input and output · Languages and accuracy</div>
     <h2>Five languages, with Tamil the weakest</h2>
-    <p>LionGuard is tuned for English, Singlish, Chinese, Malay and Tamil. The published scores below are GovTech's own, on its own test data.</p>
+    <p>LionGuard is tuned for English, Singlish, Chinese, Malay and Tamil. The published scores below are GovTech's own, on its own test data; RabakBench is GovTech's own multilingual test set.</p>
   </div>
 
   <article class="rail">
@@ -517,15 +517,15 @@ LANG = '''
       <table class="cats">
         <thead><tr><th>Test</th><th>LionGuard 2 (paper)</th><th>LionGuard 2.1 (blog)</th></tr></thead>
         <tbody>
-          <tr><td>GovTech's own test set</td><td>77</td><td>73 (a private split, so not directly comparable with 77)</td></tr>
-          <tr><td>Singlish (RabakBench)</td><td>88</td><td>86</td></tr>
+          <tr><td>GovTech's own test set</td><td>77</td><td>73 (on what the blog calls a held-out private test split)</td></tr>
+          <tr><td>Singlish (RabakBench; the blog says English/Singlish)</td><td>88</td><td>86</td></tr>
           <tr><td>Chinese (RabakBench)</td><td>88</td><td>87</td></tr>
           <tr><td>Malay (RabakBench)</td><td>78</td><td>84</td></tr>
           <tr><td>Tamil (RabakBench)</td><td>67</td><td>73</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="know"><b>Good to know:</b> RabakBench is GovTech's own multilingual test set. The paper prints Chinese and Malay in a different order in two tables; this page follows the order that matches GovTech's blog. No figure is published for LionGuard 2 Lite. The paper says its training data had little to no Chinese, Malay or Tamil-only examples, so those languages rely on the embedding model carrying meaning across languages, and all the embedding models it tested did worse on Tamil.</p>
+    <p class="know"><b>Good to know:</b> the paper prints Chinese and Malay in a different order in two tables; this page follows the order that matches GovTech's blog. No figure is published for LionGuard 2 Lite. The paper says its training data had little to no Chinese, Malay or Tamil-only examples, so those languages rely on the embedding model carrying meaning across languages, and all the embedding models it tested did worse on Tamil.</p>
   </article>
 </section>
 '''
@@ -565,7 +565,7 @@ LIMITS = '''
       <li><b>It never acts.</b> You get probabilities, not decisions, and there is no official cut-off. Your app refuses, discards and replies.</li>
       <li><b>Only the small classifier is GovTech's.</b> LionGuard 2 and 2.1 depend on OpenAI's and Google's embedding services and your own key for each; Lite runs locally but needs a Hugging Face login and acceptance of Google's Gemma terms. Whether those companies' terms allow harmful test text is still to be verified.</li>
       <li><b>The licence texts are recorded, but how they relate is not stated.</b> The repository file says MIT licence subject to further conditions (Singapore law, arbitration, GovTech marks excluded); the paper says weights are published "exclusively for research and public interest purposes only".</li>
-      <li><b>Little published accuracy.</b> LionGuard 2 has a paper; 2.1 has one blog table on a private test split; Lite has no figure. No operating threshold, maximum text length or Lite speed is stated.</li>
+      <li><b>Little published accuracy.</b> LionGuard 2 has a paper; 2.1 has one blog table, on a private test split and RabakBench; Lite has no figure. No operating threshold, maximum text length, or speed for 2.1 or Lite is stated.</li>
       <li><b>It scores harmful content only.</b> No result or claim is reported for jailbreaks or prompt injection, and there is no topic, document or tool check.</li>
       <li><b>Language limits.</b> Tamil is the weakest language, and the paper recommends human oversight in high-stakes settings.</li>
       <li><b>Its own sources disagree in places.</b> One code comment names a different OpenAI model than the card, the paper's two tables order Chinese and Malay differently, and the Sentinel docs spell the OpenAI model differently from the card.</li>

@@ -1,0 +1,87 @@
+added 376 removed 206 unmatched 43
+PL1 R4 + • In the cookbook, inference.py defines get_jailbreak_score(model, tokenizer, text, temperature), so the one-argument call in the docs example matches the helper defined in the tutorial notebook (cell 7) and not inference.py (inference.py:89-94) **[Documented: repo meta-llama/llama-cookbook@2f22a9eb]**
+
+PL1 R4 + • The README link target ../LICENSE is the repository root file, which is the Llama 3.2 Community License Agreement (LICENSE@172c1074:1), not the Llama 4 text of the folder LICENSE files **[Documented: repo meta-llama/PurpleLlama@172c1074]**
+
+PL1 R4 + • The root README licence table has no Prompt Guard 2 row; its Prompt Guard row names the Llama 3.2 Community License (README.md@172c1074:42) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
+
+PL1 R4 + • No clause of the Llama 4 licence or the Acceptable Use Policy names testing, evaluation, research or red-teaming (searched 86M/LICENSE and 86M/USE_POLICY.md for test, evaluat, research, benchmark and red-team; the only security wording is a bug-reporting address) **[Not disclosed]**
+
+PL1 R4 + • The form fields are first name, last name, date of birth, country, affiliation, job title and an IP-location field, plus a checkbox that accepts the licence and the Meta Privacy Policy **[Documented: repo meta-llama/Llama-Prompt-Guard-2-86M@a8ded8e6]**
+
+PL1 R4 + • Approval time and criteria (checked the gate pages and the metadata of the 86M, 22M and v1 repos; not stated) **[Not disclosed]**
+
+PL1 R8 + • Which licence text governs a Prompt Guard 2 download: the Llama 4 text on the gate and in the folder LICENSE files, or the Llama 3.2 text the README link reaches (legal reading; Meta's gate shows the Llama 4 text)
+
+PL2 R2 + • Scanning of function-call arguments by any LlamaFirewall scanner (searched LlamaFirewall/src, README, docs pages and paper; no scanner or page describes it) **[Not disclosed]**
+
+PL2 R3 + • Scanning of function-call arguments by any LlamaFirewall scanner (searched LlamaFirewall/src, README, docs pages and paper; no scanner or page describes it) **[Not disclosed]**
+
+PL2 R3 + • So a malicious function-call argument is seen only if it also appears in the message content (premise: the scanner reads message.content only) **[Inferred]**
+
+PL2 R4 + • Reuse of one loaded model across scan calls (searched LlamaFirewall/src for cache, lru_cache, singleton and instance-level reuse; none found) **[Not disclosed]**
+
+PL2 R4 + • Model loading from disk may therefore happen on every scan call (premise: the construction chain above) **[Inferred]**
+
+PL2 R6 + • The model folder the code checks is $HF_HOME/meta-llama--Llama-Prompt-Guard-2-86M, written by save_pretrained; with that folder present and no token the login() call is not reached (premise: promptguard_utils.py lines 53-61) **[Inferred]**
+
+PL2 R6 + • The line is probably out of date for the Llama 4 licensed Prompt Guard 2 model (premise: the collection predates it) **[Inferred]**
+
+PL2 R8 + • Whether the Llama 4 licence and Acceptable Use Policy that govern the model this scanner downloads (see the Prompt Guard 2 column) limit testing with attack prompts (licensing question)
+
+PL3 R6 + • Together's serverless chat-model table (not Meta docs, read 2026-10-09) lists `meta-llama/Llama-3.3-70B-Instruct-Turbo` and has no Llama 4 Maverick row **[Documented]**
+
+PL3 R6 + • So the default judge model of AlignmentCheck and CustomCheckScanner is not available on Together's serverless service; a replacement model or a dedicated endpoint would be needed (premise: the Together pages above) **[Inferred]**
+
+PL3 R6 + • Retention period of stored prompts and responses without ZDR (checked the Together terms section 3, privacy policy sections 2.2, 2.4 and 2.6 and the docs ZDR page; only "as long as is necessary" is stated) **[Not disclosed]**
+
+PL3 R7 + • A bench could use synthetic (made-up) traces without real personal or financial data, because the terms bar transmitting such data to Together; whether made-up values in the listed shapes count is a legal reading (suggested; premise: the section 4 restriction) **[Inferred]**
+
+PL4 R2 + • The CyberSecEval 3 paper says "7 programming languages" (arXiv 2408.01605 section 5.2) **[Documented]**
+
+PL4 R2 + • The eight figure languages equal the eight languages the code scans (premise: comparison of the figure labels with languages.py@172c1074:72-82) **[Inferred]**
+
+PL4 R3 + • So code placed in function-call arguments is not scanned unless it also appears in the message content (premise: this scanner reads `message.content` only, code_shield_scanner.py@172c1074:56) **[Inferred]**
+
+PL4 R5 + • The generated Semgrep rule files use upper-case severities, so the engine's treatment for a Semgrep finding may never be BLOCK (premise: Semgrep echoes the rule severity string, which was not read) **[Inferred]**
+
+PL4 R5 + • The block reason is built as "(CWE-{issue.cwe_id})" (code_shield_scanner.py@172c1074:78-79) and rule files store ids such as "CWE-120" (rules/regex/c.yaml@172c1074:12), so the printed text may read "CWE-CWE-120" (premise: the two quoted lines) **[Inferred]**
+
+PL4 R6 + • So the temporary file may remain on disk after those scans (premise: the quoted order of statements; no other deletion in the file) **[Inferred]**
+
+PL5 R4 + • The licence of the Together-served Turbo build is not stated by Together (checked the Together Llama 3.3 70B model page and the terms; they say only that models may come with their own terms) **[Not disclosed]**
+
+PL5 R6 + • Scanning of function-call arguments by any LlamaFirewall scanner (searched LlamaFirewall/src, README, docs pages and paper; no scanner or page describes it) **[Not disclosed]**
+
+PL5 R6 + • Numeric serverless rate limits (checked Together's rate-limits, serverless models and pricing pages; the rate-limits page names 429 and 503 responses and no figure) **[Not disclosed]**
+
+PL5 R6 + • Retention period of stored prompts and responses without ZDR (checked the Together terms section 3, privacy policy sections 2.2, 2.4 and 2.6 and the docs ZDR page; only "as long as is necessary" is stated) **[Not disclosed]**
+
+PL6 R2 + • The generated C Semgrep rule vulnerable-strcpy has no cwe_id and severity WARNING (rules/semgrep/_generated_/c_codeshield.json@172c1074) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
+
+PL6 R2 + • The CyberSecEval 3 paper says "7 programming languages" (arXiv 2408.01605 section 5.2) **[Documented]**
+
+PL6 R2 + • The eight figure languages equal the eight languages the code scans (premise: comparison of the figure labels with languages.py@172c1074:72-82) **[Inferred]**
+
+PL6 R4 + • The regex rule YAML files and rules/config.yaml in the sdist are identical to the pinned files, and the generated Semgrep JSON files hold the same rule counts per language (premise: the same comparison) **[Inferred]**
+
+PL6 R4 + • Kotlin analysers, PyPI 1.0.1: regex only (sdist insecure_code_detector.py:60) **[Documented]**
+
+PL6 R4 + • Semgrep job cap, PyPI 1.0.1: none; SEMGREP_COMMAND in the sdist oss.py has no jobs option **[Documented]**
+
+PL6 R4 + • Semgrep job cap, pin: --jobs limited to 16 (oss.py@172c1074:57-62,74) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
+
+PL6 R4 + • Enum bases, PyPI 1.0.1: Severity and Treatment are string enums (sdist issues.py:20, codeshield.py:26) **[Documented]**
+
+PL6 R4 + • Enum bases, pin: plain enums (issues.py@172c1074:18, codeshield.py@172c1074:24) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
+
+PL6 R4 + • So Semgrep Registry rules are not loaded by this route (premise: the config argument is a local path) **[Inferred]**
+
+PL6 R4 + • Semgrep's separate rules licence says "You may use the rules only for your own internal business purposes." (semgrep.dev/legal/rules-license, not Meta docs, read 2026-10-09) **[Documented]**
+
+PL6 R5 + • The generated Semgrep rule files use upper-case severities (for example 6 ERROR rules in java_codeshield.json), so a Semgrep finding of severity ERROR may never produce BLOCK (premise: Semgrep echoes the rule severity string, which was not read; the PyPI 1.0.1 package has the same comparison) **[Inferred]**
+
+PL6 R5 + • At the pin Treatment is a plain enum, so that comparison is false; in the PyPI 1.0.1 package Treatment is a string enum, so it is true (premise: the two class definitions quoted above) **[Inferred]**
+
+PL6 R6 + • So the temporary file may remain on disk after those scans (premise: the quoted order of statements; no other deletion in the file) **[Inferred]**
+

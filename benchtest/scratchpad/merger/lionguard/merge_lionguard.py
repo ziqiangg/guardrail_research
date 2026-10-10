@@ -9,6 +9,7 @@ def run():
     ops_cols.apply(C)
     ops_inv.apply(V)
     ops_fix.apply(C, V)
+    ops_fix.apply_post_p8(C, V)
     return C, V
 if __name__ == "__main__":
     C, V = run()

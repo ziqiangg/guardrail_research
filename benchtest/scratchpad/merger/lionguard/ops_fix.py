@@ -99,3 +99,14 @@ def apply(K, V):
         "P7 optional: research-method statement removed from a built cell")
     V.sub("d", "arXiv 2507.15339 LionGuard 2:", "Artefact", "Data-Efficient and Localised", "Data-Efficient & Localised",
         "P7 optional: arXiv title verbatim ('&' is allowed in cells)")
+
+
+def apply_post_p8(K, V):
+    K.repl(C, 5, "The original test split is private, so the 0.7318 figure", [
+        '• The blog says it used "the same benchmarks used in our earlier LionGuard experiments: a held-out private LionGuard test split and RabakBench", and elsewhere calls the set "the original LionGuard 2 Test set" and "our private LionGuard 2 Test dataset" (GovTech AI blog, 28 Sep 2026) ' + DOC,
+        "• Whether the blog's held-out private test split is the test set behind the paper's 77.0 for LionGuard 2 (checked the blog, the paper and the playbook; not stated) **[Not disclosed]**"],
+        "Post-P8 fix (P10 verifier Q1): the [Inferred] claim that 0.7318 'cannot be compared directly' with 77.0 is contradicted by the blog's own wording; replaced by the blog's description quoted [Documented] and a [Not disclosed] bullet")
+    V.sub("a", "=LionGuard 2.1", "Operating threshold",
+        "(B3 Moderation Performance table; comparator columns omitted).",
+        "(B3 Moderation Performance table; comparator columns omitted). B3 says it used \"the same benchmarks used in our earlier LionGuard experiments\" and calls the set the original LionGuard 2 Test set [Documented] (B3). Whether that private split is the test set behind the paper's 77.0 for LionGuard 2 [Not disclosed] (B3, P2 and PB checked).",
+        "Post-P8 fix (P10 verifier Q1): inventory aligned with the column; the blog's own description and a Not disclosed statement on whether the split is the paper's test set")
