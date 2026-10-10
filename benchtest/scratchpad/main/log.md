@@ -101,3 +101,4 @@
 - 2026-10-10 lionguard post-P8 re-apply: compare vs HEAD exactly BD13 (value, runs) + 3i!I7 (value); verify 46/47 (one-shot check only); lionguard URLs file unchanged in content
 - 2026-10-10 purplellama P7: PASS WITH FIXES (7 required: PL7 threshold logic, PL3 R4 support, INV(b) REGEX, INV(g) labels, PL1 languages conflict, eval line ref, label leftovers); 30/32 MATCH; 186 URLs 0 real failures; fix loop sent to same merger
 - 2026-10-10 purplellama P7 fix loop done: 7 required + 11 optional; 486 edits; 31/63 Summaries changed; checks 0 err; ready for CP2
+- 2026-10-10 user: purplellama CP2 approved (R034) → P8 #5; lionguard diagram approved (R035) → lionguard DONE

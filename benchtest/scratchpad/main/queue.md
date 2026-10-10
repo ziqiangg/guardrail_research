@@ -6,7 +6,8 @@
 | 1 | presidio | R022 | 2026-10-09 | 450e3d7 |
 | 2 | sdp | R023 | 2026-10-09 | 6710895 |
 | 3 | modelarmor | R024 (+ R025 pre-P8 merger edit first) | 2026-10-09 | bf4a66d |
-| 4 | lionguard | R033 | 2026-10-10 | 45f47e2 |
+| 4 | lionguard | R033 | 2026-10-10 | 45f47e2 (+ fix 7078fa3) |
+| 5 | purplellama | R034 | 2026-10-10 | |
 
 ## Open questions (from agents)
 | Q file | Product | Routed to | State | Ruling |
@@ -28,6 +29,8 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| purplellama CP2 | R034 approved | user |
+| lionguard P10 user review | R035 approved, done | user |
 | lionguard P10 Q2 (eyebrow wording) | "GovTech LionGuard · LionGuard 2, 2.1 and 2 Lite on Hugging Face" (auto-default: equivalent wordings) | main |
 | lionguard P10 Q1 (LN1 R5 "cannot be compared directly" [Inferred] vs blog "same benchmarks") | post-P8 fix: merger rewords neutrally, then xlsx-writer re-applies BD (modelarmor A17 precedent) | main |
 | purplellama P6 Q1–Q4 (PL6 R4 Summary [Inferred]; HF api URLs removed in all columns; block (c) heading without ruling id; PL2 R6 support bullet) | confirmed (label rules, lessons 12, process-text rule, Summary entailment) | main |
