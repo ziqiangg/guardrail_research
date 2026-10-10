@@ -60,8 +60,8 @@ The source brief is `benchtest/AI Guardrails Research and Comparison.docx`. Its 
 | sdp | Google Cloud Sensitive Data Protection (Cloud DLP) | done (AN–AS, 3g, diagram) |
 | purplellama | Meta Purple Llama: Prompt Guard 2, LlamaFirewall, Code Shield (columns); CyberSecEval (eval sheet); Llama Guard (existing, cross-referenced) | done (BE–BK, 3j, 3k eval, diagram) |
 | lionguard | GovTech LionGuard (self-hosted models; cross-ref Sentinel AA) | done (BD, 3i, diagram) |
-| cloak | GovTech Cloak | in progress (B3) |
-| litmus | GovTech Litmus (evaluation tool → eval sheet only, no Table 3 columns) | in progress (B3) |
+| cloak | GovTech Cloak | done (BL–BN, 3l, diagram) |
+| litmus | GovTech Litmus (evaluation tool → eval sheet only, no Table 3 columns) | done (3m, 3n eval, diagram) |
 
 The live phase of each product is in `benchtest/scratchpad/main/status.md`.
 

@@ -142,3 +142,4 @@
 - 2026-10-11 litmus P10 review: PASS WITH FIXES (8 required: title/h1/legend per ruling, Kaleidoscope status, advice item, test case quote, footer source); 20/20 MATCH; fix loop → diagrammer
 - 2026-10-11 cloak P10 review: PASS WITH FIXES (7 required); 25/25 MATCH; fix loop → diagrammer
 - 2026-10-11 B3 P10 fix loops done: litmus 8 required + 9 optional (+ hedged Edits text cell); cloak 7 required + 12 optional; base CSS identical; awaiting user review
+- 2026-10-11 B3 CLOSED (R041): cloak and litmus done; ALL TEN PRODUCTS DONE. Next: sheet-4 regroup (needs user go-ahead)
