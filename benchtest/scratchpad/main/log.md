@@ -129,3 +129,4 @@
 - 2026-10-10 cloak P7: PASS WITH FIXES (14 required, mostly Summary entailment + T60 leftover, v2.1.0 salt, score vs no-score); 43/46 MATCH; 84 URLs 0 unexpected; fix loop sent to same merger
 - 2026-10-10 cloak P7 fix loop done: 14 required + all optional; checks 0/0; BLOCKS 10/8/26/9/28/4; ready for CP2
 - 2026-10-10 litmus P7: PASS WITH FIXES (4 required: repo count 12, Engine tail, inventory intro wording, endpoint label split); 43/44 MATCH; github 503/504 transients (raw 200); fix loop sent to same merger
+- 2026-10-10 litmus P7 fix loop done: 4 required + all optional (26 edits); checks pass; ready for CP2

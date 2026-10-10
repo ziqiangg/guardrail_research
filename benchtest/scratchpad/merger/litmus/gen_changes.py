@@ -5,6 +5,7 @@ import build_eval_sheet as BES
 D = "benchtest/drafts/"
 log = json.load(open("benchtest/scratchpad/merger/litmus/log.json", encoding="utf-8"))
 EV, INV, CONF = log["ev"], log["inv"], log["conf"]
+VF = log["vfix"]
 evt = open(D + "litmus_eval_tooling_final.md", encoding="utf-8").read()
 invt = open(D + "litmus_inventory_final.md", encoding="utf-8").read()
 ev0 = open(D + "litmus_eval_tooling.md", encoding="utf-8").read().split("\n")
@@ -177,7 +178,7 @@ for p in ("litmus_eval_tooling_final.md", "litmus_inventory_final.md"):
         if u not in urls:
             urls.append(u)
 NOREQ = [u for u in urls if re.search(r"form\.gov\.sg|litmus\.(stg\.|dev\.)?aiguardian\.gov\.sg", u)]
-EXPECT = [u for u in urls if re.search(r"aiguardian-litmus-test$|aiguardian\.gov\.sg/litmus$|Litmus-Onboarding-Guide$|one%20pager\.pdf", u)]
+EXPECT = [u for u in urls if re.search(r"aiguardian-litmus-test$|aiguardian\.gov\.sg/litmus$|Litmus-Onboarding-Guide$|aiguardian\.gov\.sg/docs/wiki/$|one%20pager\.pdf", u)]
 
 # ------------------------------------------------------------------ write
 L = []
@@ -271,8 +272,8 @@ a("")
 a("- **Inventory sheet:** name '3x. Litmus Inventory' (20 characters; the letter is assigned at P8 in queue order, R003; Cloak is merged in parallel, so the letters may shift). New config module for the inventory (md = benchtest/drafts/litmus_inventory_final.md). BLOCKS (marker, bold title or None, expected rows): ('## (a) Access paths', 'Access paths', 4), ('## (b) Test suites', 'Test suites', 5), ('## (c) Integration parameters', 'Integration parameters', 6); 15 rows. Covered-by column name 'Covered by Table 3 column' in all three tables (the last-but-one column of each). Short-name legend is in the unparsed paragraph before block (a) and in the block (a) intro (parsed).")
 a("- **Markers tuple:** only '— (inventory only, not in Table 3)' (R011), on all 15 rows; legacy and planned are not used. **Panel:** there are no Table 3 columns, so the panel must not require a non-zero Table 3 count or a COUNTIF against Table 3 headers (queue: litmus P1 Q-C); suggested panel items are row counts per block and the number of inventory-only rows (15 of 15). No validators are needed (no crosswalk blocks). No registry prefix, no column IDs, nothing added to products.py MDS or HDR_RE for Table 3.")
 a("- **Eval sheet:** sheet name '3x. Litmus Eval Tooling' (23 characters with a one-letter prefix, at most 31), inserted right after the Litmus inventory sheet (R003). The builder needs MD = benchtest/drafts/litmus_eval_tooling_final.md, TITLE and NOTE; proposed TITLE '3x. GovTech Litmus Evaluation Tooling (hosted service, no release; playbook@45908b48)', proposed NOTE 'Evaluation-tool facts, the test list, published results and reuse assessment for the test bench (possible sources and suggestions, not decisions). Labels as in sheet 3.' SECTION_ORDER is unchanged; the file parses to 8 sections; the widest table has 8 columns (Tools). Notes under the Tools and Datasets headings carry the short-name legend and the Table 3 headers named.")
-a("- **Sheet 3e cross-reference:** the Overview bullet names 'sheet 3e, columns AA to AG' in plain text (sheet 3e is the Sentinel inventory; the Sentinel columns on sheet 3 are AA to AG). If the P8 writer renumbers sheets, only that plain-text mention changes.")
-a("- **URL check (P9):** %d distinct URLs in the two finals (litmus_urls.txt is not written by the merger). Do NOT request (hard rule 5, R019, lessons 12): %s. Expected non-200 by design: %s (HTTP facts kept in the text; the one-pager PDF answers 403 to plain curl and 200 to a browser User-Agent; aiguardian-litmus-test is a missing repository). github.com blob pages answer 403 from the session proxy: check the raw.githubusercontent.com equivalent at the same ref. The unpinned live URLs https://govtech-responsibleai.github.io/playbook/tools/wog-safety-testing/ and https://govtech-responsibleai.github.io/kaleidoscope/ are plain-text references." % (len(urls), "; ".join(NOREQ), "; ".join(EXPECT)))
+a("- **Sheet 3e cross-reference:** the Overview bullet names 'sheet 3 columns AA to AG and inventory sheet 3e' in plain text (the Sentinel columns are on sheet 3; 3e is the Sentinel inventory sheet). If the P8 writer renumbers sheets, only that plain-text mention changes.")
+a("- **URL check (P9):** %d distinct URLs in the two finals (litmus_urls.txt is not written by the merger). Do NOT request (hard rule 5, R019, lessons 12): %s. Expected non-200 by design: %s (HTTP facts kept in the text; the one-pager PDF answers 403 to plain curl and 200 to a browser User-Agent; aiguardian-litmus-test is a missing repository). github.com blob pages answered 403 from the session proxy in earlier products and 503 or 504 intermittently in the P7 verifier session (transient, not dead links): check the raw.githubusercontent.com equivalent at the same ref and re-run. https://www.aiguardian.gov.sg/docs/wiki/ (the DOCS short-name base) answers HTTP 403 AccessDenied (no index object at that path); it is not a page. The unpinned live URLs https://govtech-responsibleai.github.io/playbook/tools/wog-safety-testing/ and https://govtech-responsibleai.github.io/kaleidoscope/ are plain-text references." % (len(urls), "; ".join(NOREQ), "; ".join(EXPECT)))
 a("- **Checker lines (inventory):** table '(a) Access paths': 4 rows x 8 cols; '(b) Test suites': 5 rows x 7 cols; '(c) Integration parameters': 6 rows x 7 cols.")
 a("")
 a("## 6. Remaining open items")
@@ -355,7 +356,7 @@ a("")
 for s in [
     "T16: one unauthenticated GET to https://huggingface.co/api/datasets outside the brief (nothing used or cited; covered by main's P4 Hub-metadata ruling); a browser User-Agent was needed only to download the one-pager PDF (md5 6423235d77ce909ea5742e52d41d7c92); every docs, portal, playbook and AI Guardian page answered plain curl with HTTP 200 (main P4 Q1: acceptable, logged, not repeated).",
     "T9: link targets (https://litmus.aiguardian.gov.sg/api/v1/, https://litmus.stg.aiguardian.gov.sg/login, the Onboarding Guide link, the playbook login link, the AI Guardian home page 'Try Litmus Now' link) were read from raw page HTML fetched with plain curl and the Python standard-library HTML parser, 2026-10-10 (R021); none was visited or called.",
-    "T8 method: GitHub MCP repository search 2026-10-10 (litmus org:dsaidgovsg returns only dsaidgovsg/aiguardian-test-action, archived; litmus org:govtech-responsibleai returns 0; the govtech-responsibleai organisation lists 11 repositories, none a docs site for AI Guardian). The docs pages carry no edit link and no editUrl; Last-Modified Thu, 08 Oct 2026 08:42:14 GMT on all five docs pages.",
+    "T8 method: GitHub MCP repository search 2026-10-10 (litmus org:dsaidgovsg returns only dsaidgovsg/aiguardian-test-action, archived; litmus org:govtech-responsibleai returns 0; the govtech-responsibleai organisation lists 12 public repositories per GitHub's organisation listing (corrected at P7 from the 11 of the MCP search result), none a docs site for AI Guardian). The docs pages carry no edit link and no editUrl; Last-Modified Thu, 08 Oct 2026 08:42:14 GMT on all five docs pages.",
     "T10: no GovTech page read links the one-pager PDF (searched anchors for 'isomer' and '.pdf' on the AI Guardian home and docs pages, the five portal pages and the playbook Litmus page). PDF metadata CreationDate 2025-09-16, classification label 'Official (Open)'.",
     "T11 corrections: the triage premise 'line 46 cited for three different quotes' is accurate and not a defect (all three quotes are on line 46 of PB tools/litmus.md); the real defects were the safety.mdx range (429-441, comment 429-431), the action.yml body range (31-44, headers 45), benchmark_runner_dto.py@0.7.6 line 10, and the brief's '432-440' and the INV legend's '427 to 440' (brief and INV legend not carried into the finals).",
     "T19 / A1: the playbooks.aip.gov.sg host named in the LitmusClient code comment is the playbook's production site (README.md@45908b48:13 and :73-74); EV RN-8 and INV RN-5(vi) are dropped; no sheet text uses the host as a source.",
@@ -412,6 +413,17 @@ a("```")
 a("")
 a("The columns checker (check_drafts.py columns ... --final --expect N) is not run: Litmus has no Table 3 columns (R003) and no litmus_two_level.md exists. The inventory checker was run without --headers for the same reason (no Table 3 headers to compare; the Covered-by cells are markers only).")
 a("")
+a("## 9. Verifier fixes (P7, litmus_review.md: PASS WITH FIXES, 4 required; main accepted all optional suggestions)")
+a("")
+a("Applied by script after the merge (scratchpad/merger/litmus/vfix.py). No Summary row count, block row count or headline fact changed; one Summary word changed (Engine coverage, 43 words excluding the label as before).")
+a("")
+a("| Location | Before (shortened) | After (shortened) | Reason |")
+a("|---|---|---|---|")
+for e in VF:
+    a("| %s %s | %s | %s | %s (%s) |" % (e["file"], esc(e["loc"]), esc(e["before"]), esc(e["after"]), esc(e["why"]), e["kind"]))
+a("")
+cvf = collections.Counter(e["kind"] for e in VF)
+a("Verifier-fix edits: %d (%s); required fixes 1 to 4 and 10 optional groups. Also corrected in this log: the T8 line in section 7c (11 to 12 public repositories), the section 5b URL notes (docs/wiki base path 403; github.com 503 or 504 transients) and the sheet 3e wording. Main ruling recorded: absence checks that quote an organisation size cite GitHub's organisation listing. Re-run after the fixes: see section 8e." % (len(VF), ", ".join("%s %d" % (k, cvf[k]) for k in sorted(cvf))))
 open(D + "litmus_changes.md", "w", encoding="utf-8", newline="\n").write("\n".join(L) + "\n")
 
 # ------------------------------------------------------------------ summaries preview
