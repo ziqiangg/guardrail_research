@@ -110,7 +110,7 @@ RES = [
 ]
 
 FYI = [
-    "**Brief not edited (T3).** The brief still has the old CK2 and CK3 header wording at lines 24, 25, 34, 180 and 183. The resolver proposed replacing lines 24 and 25 and adding one line under the heading 'Table 3 headers (exact)': 'CK2 and CK3 wording as ruled by main (queue.md, cloak P1 Q4) and R037; the older wording in the Why-the-header-wording paragraph and in Q01 and Q04 is superseded.' The merger may write only the P6 outputs and its scratchpad, so main (or the drafter role) can apply it. Not a build input.",
+    "**Brief not edited (T3).** The brief still has the old CK2 and CK3 header wording at lines 24, 25, 34, 180 and 183. The merger may write only the P6 outputs and its scratchpad. Main ruled (queue, cloak P6 Q1) that the brief is a historical P1 file, so no action is needed; it is not a build input.",
     "**Optional Source URL not added (T20).** https://go.gov.sg/cloak-open-source (HTTP 302 to the Credits page) is named in the block (f) intro only; it is not added to the Presidio or spaCy Source cells, because the Credits URL is already there.",
     "**Deck date (T56).** CK1 A:49 and the 'may have changed' bullets already carry the deck date; no other bullet was changed.",
     "**No text change by design:** T16 (the Terms 9.1 bullet was added; the block (e) row already quoted both), T17 (block (e) row matches the PDF), T61 (counts re-run: no Summary above limit minus 1), T68 (pins confirmed as the latest tags), T40, T62, T65.",
@@ -125,4 +125,18 @@ NOTES_STATUS = (
     "- CK2/CK3 note 6a (LLM limit per dataset against per project) is now an R8 bullet in CK2 and a block (e) fact (T43). Note 6b (500 words against entries): see conflict 12.\n"
     "- Inventory note 1 (Decrypt under both CK1 and CK3): Decrypt is now CK3 only (main). Note 2 (row counts): now 10, 8, 26, 9, 28, 4 = 85. Note 4 (C3 not in the inventory): C3 is now in block (b). Note 5 ('a planned Sentinel row would need the planned marker'): the row and the marker are in (b).\n"
     "- Inventory self-check line ('tables 10, 7, 26, 9, 25 and 4 rows (81 rows)') is superseded by section 8f of this file."
+)
+
+VFIX_INTRO = (
+    "Source: cloak_review.md (gr-verifier, 2026-10-10), verdict PASS WITH FIXES, 14 required fixes. Main ruled that the entailment fixes stay required (README section 4, lionguard precedent) and that fix 14 follows R020 (an absence is [Not disclosed]); main accepted all optional suggestions. "
+    "All 14 required fixes and every accepted optional suggestion were applied by the scripts ops_fix.py and merge_cloak.py. The cloak_brief.md suggestion needs no action (main: the brief is a historical P1 file). "
+    "Summaries changed in this loop: CK1 R1 (42 words, one word replaced) and CK2 R2 (33 words, one phrase replaced), plus CK2 R5 (optional, 38 words); no headline number changed. "
+    "Bullet counts after the loop: CK1 R1 13 (from 10: 12 from fix 1 and the optional split of the verdict bullet), CK2 R1 13 (from 11), CK2 R4 21 (from 20), CK3 R1 11 (from 9), CK3 R2 11 (from 10), CK3 R3 14 (from 13), CK3 R4 23 (from 22: the optional Secrets Manager bullet); section 8b has the final counts. BLOCKS counts are unchanged at 10/8/26/9/28/4."
+)
+VFIX_NOTES = (
+    "Notes: (1) fix 1 adds the intro-to-FTA caption quote to CK1 R1 and the pasted-text and file input quote; the quotes were re-read by the verifier in intro-to-fta.md. "
+    "(2) Fix 13 and fix 14 are inventory cells: the Presidio row in block (f) now carries the [Not disclosed] statement before the [Inferred] reuse reading, and the FTA row in block (a) and the scope paragraph now name the documented per-entity confidence score. "
+    "(3) The scope paragraph is not built, but the diagrammer reads it. "
+    "(4) The preview file cloak_summaries_preview.md was regenerated from the fixed final. "
+    "Checks after the fix loop: see section 8f (both RESULT lines are from the regenerated finals)."
 )

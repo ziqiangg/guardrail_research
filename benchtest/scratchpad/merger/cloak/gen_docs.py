@@ -110,6 +110,7 @@ KNOWN = [
     ("learns from", "not entailed (T59)"),
     ("R0[0-9][0-9]|CP1|CP2|lessons|Reviewer notes|reviewer", "ruling ids and process terms"),
     ("bench will|we use|bench rule|this is the plan", "R032 decided-plan wording"),
+    ("aliases, hashes|not an inline reply|custom salts in v2.1.0|built on Presidio \[Inferred\]|does not return a score|not re-read here|neither is chosen here|HTTP 200 after redirect", "strings removed in the P7 fix loop"),
     ("microsoft.github.io/presidio/tutorial/12_encryption/", "the 404 URL: only in the CK3 R4 HTTP-fact bullet and the PRESENC short-name definition, never as a Source URL"),
 ]
 both = txt + "\n" + inv_txt
@@ -186,6 +187,8 @@ w("")
 w("- Logged edits: %d in the columns (CK1 %d, CK2 %d, CK3 %d), %d in the inventory; %d in total." % (len(colE), per_col["CK1"], per_col["CK2"], per_col["CK3"], len(invE), len(colE) + len(invE)))
 w("- Columns by kind: " + ", ".join("%s %d" % (k, cnt_c[k]) for k in sorted(cnt_c)) + ".")
 w("- Inventory by kind: " + ", ".join("%s %d" % (k, cnt_i[k]) for k in sorted(cnt_i)) + ".")
+p7c = [e for e in colE if e["reason"].startswith("P7")]; p7i = [e for e in invE if e["reason"].startswith("P7")]
+w("- Of these, %d column edits and %d inventory edits are P7 verifier fixes (section 9)." % (len(p7c), len(p7i)))
 w("- Summaries changed: %d of 27 (%s)." % (len(changed), ", ".join(c[0] for c in changed)))
 w(T.HANDLED)
 w("")
@@ -298,7 +301,21 @@ w(c2)
 w("```")
 w("")
 w("Exit codes: columns %d, inventory %d." % (rc1, rc2))
-open(D + "cloak_changes.md", "w", encoding="utf-8").write("\n".join(W) + "\n")
+w("")
+w("## 9. Verifier fixes")
+w("")
+w(T.VFIX_INTRO)
+w("")
+w("| Fix | Location | Before | After | Reason |")
+w("|---|---|---|---|---|")
+for e in colE + invE:
+    if e["reason"].startswith("P7"):
+        m = re.match(r"P7 (fix \d+|optional)", e["reason"])
+        w("| %s | %s | %s | %s | %s |" % (m.group(1), e["loc"], short(e["before"], 300), short(e["after"], 420), e["reason"].replace("|", "/")))
+w("")
+w(T.VFIX_NOTES)
+txtW = "\n".join(W).replace("\n## Self-check\n", "\n#### Inventory draft self-check\n")
+open(D + "cloak_changes.md", "w", encoding="utf-8").write(txtW + "\n")
 print("written", len(colE), len(invE), [c[0] for c in changed], rc1, rc2)
 print(c1.splitlines()[-1], "|", c2.splitlines()[-1])
 print("labels", {i: dict(labs[i]) for i in IDS}, nolab, r8lab)

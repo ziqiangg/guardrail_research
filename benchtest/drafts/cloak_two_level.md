@@ -1,15 +1,18 @@
 ## Column CK1: Cloak: Free-text PII detection and anonymisation
 ### R1
-Summary: **Finds personal data in text and rewrites it.** Cloak's free-text tool detects entities such as names, NRICs and addresses in pasted text or uploaded files, then replaces, redacts, masks, aliases, hashes or encrypts them. The result is rewritten text or a file. **[Documented]**
+Summary: **Finds personal data in text and rewrites it.** Cloak's free-text tool detects entities such as names, NRICs and addresses in pasted text or uploaded files, then replaces, redacts, masks, aliases, pseudonymises or encrypts them. The result is rewritten text or a file. **[Documented]**
 Detail:
 • Cloak is GovTech's whole-of-government anonymisation service: "Cloak offers tabular and free-text anonymisation to enable agencies to anonymise data safely before data sharing and utilisation." (Cloak Guide, home page, read 2026-10-10) **[Documented]**
 • Free-text anonymisation (FTA) "automatically detects and redacts/transforms sensitive information within unstructured text" (Cloak Guide, intro to FTA) **[Documented]**
+• Inputs: "The tool supports pasted text input as well as file uploads (.csv, .pdf, .docx)." (Cloak Guide, intro to FTA) **[Documented]**
+• Baseline entities: "Cloak detects and transforms 20+ baseline entity types (names, NRICs, addresses, dates, phone numbers, etc.)" (Cloak Guide, intro to FTA, image caption) **[Documented]**
 • By default "Cloak scans your text for all available Entity Types and Replaces them with their data type", and the user can toggle each entity type and choose a technique per type (Cloak Guide, usage guide) **[Documented]**
 • Techniques named in the guide: Replace, Replace (Unique), Redact, Mask, Alias, Pseudonymise and Encrypt (Cloak Guide, anonymisation techniques pages) **[Documented]**
 • The vendor names a use on AI traffic: "Anonymise before sending to LLMs | Strip PII in real-time via API before data reaches external LLMs or other WOG products" (Cloak Guide, home page) **[Documented]**
 • Portal use case: "Agencies integrate Cloak via API into chatbot services and WOG AI platforms to strip PII from user prompts in real-time before they reach external LLMs." (Developer Portal, use cases, last updated 21 Aug 2026) **[Documented]**
 • FAQ: anonymising before sending data to GenAI "is a common use pattern, provided anonymisation happens before the data leaves the approved environment and the output is validated" (Cloak Guide, key FAQs) **[Documented]**
-• The documented output is transformed text or files (text, .csv, .docx formats in the FAQ file-format table); no safe or unsafe verdict, risk label or content classification is described (checked the FTA guide pages, FAQs, home page and portal pages; not stated) **[Not disclosed]**
+• The documented output is transformed text or files (text, .csv, .docx formats in the FAQ file-format table) **[Documented]**
+• No safe or unsafe verdict, risk label or content classification is described (checked the FTA guide pages, FAQs, home page and portal pages; not stated) **[Not disclosed]**
 • Custom entities are a separate function, covered in the column Cloak: Custom entity detection in free text (lists, regex and LLM): the FTA caption says Cloak also handles "custom entities defined via pattern matching, inclusion lists, or privately-hosted LLMs" (Cloak Guide, intro to FTA) **[Documented]**
 • Cloak also has a tabular anonymisation tool and a Secrets Manager; they are separate tools from free-text anonymisation (Cloak Guide, home page) **[Documented]**
 ### R2
@@ -19,7 +22,7 @@ Detail:
 • The Address page says "Cloak provides 4 address-related recognisers for Singapore addresses": SG_ADDRESS, SG_ADDRESS_POSTAL_CODE and SG_ADDRESS_UNIT_NUMBER are on by default and SG_ADDRESS_STREET is "OFF (advanced)" (Cloak Guide, Address page) **[Documented]**
 • Counting one tag for each of the 16 groups other than Address, plus the 4 address tags, gives 20 baseline tags (PERSON, SG_NRIC_FIN, EMAIL_ADDRESS, PHONE_NUMBER, NRP, 4 address tags, LOCATION, SG_PASSPORT, CURRENCY, CREDIT_CARD, SG_BANK_ACCOUNT_NUMBER, IBAN_CODE, IP_ADDRESS, URL, DATE_TIME, SG_UEN, ORGANIZATION); the count is a tally of the entity pages, not a vendor figure **[Inferred]**
 • Vendor count, version one: "Cloak detects and transforms 20+ baseline entity types" (Cloak Guide, intro to FTA; Developer Portal, features page, "Auto-detection of 20+ entity types") **[Documented]**
-• Vendor count, version two: "Cloak detects 17+ entity types out of the box" (Developer Portal, FAQs, last updated 21 Aug 2026); the two counts conflict in wording, and the entity pages give 17 groups and 20 tags **[Documented]**
+• Vendor count, version two: "Cloak detects 17+ entity types out of the box" (Developer Portal, FAQs, last updated 21 Aug 2026); the wording differs from the "20+" of version one **[Documented]**
 • Singapore optimisation: "Singapore-optimised detection … (NRICs, local phone numbers, UENs, addresses, postal codes)" (cloak.gov.sg home page, read 2026-10-10) **[Documented]**
 • NRIC page: covers "S", "T" (citizens, permanent residents) and "F", "G", "M" (long-term pass holders), with "Validation disabled: Both real and fake NRIC numbers following the format … are detected" (Cloak Guide, NRIC page) **[Documented]**
 • Phone page: "Global coverage disabled: Only Singapore numbers are detected by default."; "Validation check is not included. Both real and fake phone numbers may be detected." (Cloak Guide, phone number page) **[Documented]**
@@ -42,7 +45,7 @@ Detail:
 • The Web UI takes a job, shows an Original and an Anonymised preview, then prepares a download request; text and PDF projects "typically have a fast processing time" (Cloak Guide, usage guide) **[Documented]**
 • "Real-time" use is documented for the API: "Strip PII in real-time via API before data reaches external LLMs" (Cloak Guide, home page); the API "gives you the same anonymisation capabilities as the Web UI" (Cloak Guide, API guide) **[Documented]**
 • No input-or-output or prompt-or-response flag appears on any public page (checked all Cloak Guide pages, the Developer Portal pages and cloak.gov.sg for direction, inbound, outbound and response settings); the API schema is behind a login, so an API flag is not ruled out **[Not disclosed]**
-• The API Guide and OpenAPI pages redirect to the docs login page: https://docs.developer.tech.gov.sg/docs/cloak-api-guide/ and https://docs.developer.tech.gov.sg/docs/cloak-api-specifications-openapi/ both end at "auth/otp-login" with redirect_reason=not_logged_in (HTTP 200 after redirect, observed 2026-10-10) **[Documented]**
+• The API Guide and OpenAPI pages redirect to the docs login page: https://docs.developer.tech.gov.sg/docs/cloak-api-guide/ and https://docs.developer.tech.gov.sg/docs/cloak-api-specifications-openapi/ both end at "auth/otp-login" with redirect_reason=not_logged_in (HTTP 302 then a 200 login page, observed 2026-10-10) **[Documented]**
 • The tool works on whatever string or file reaches it, so it would apply to prompts, responses, retrieved text and tool output; premise: text and files in, the vendor's LLM use case, and no direction flag found **[Inferred]**
 • No system prompt, user prompt or conversation history is a documented input; the usage guide shows only text or files plus anonymisation settings (checked the usage guide and FTA pages; API schema not readable) **[Inferred]**
 • Playbook, PII protection page, "Where PII can appear": "User prompts.", "Model outputs.", "Retrieved documents.", "Tool arguments and tool results." (a bulleted list); the page lists Cloak under "Detection tools" **[Documented: repo govtech-responsibleai/playbook@45908b48]**
@@ -59,7 +62,7 @@ Detail:
 • Scoring: Confidence Level "denotes the level of certainty / probability that a particular entity type is accurately detected by the algorithm" (Cloak Guide, confidence level page) **[Documented]**
 • Hosting: "users pass data transiently to Cloak's Government Commercial Cloud (GCC) environment"; the portal tech stack lists "AWS GCC 2.0" (Cloak Guide, key FAQs; Developer Portal, features page) **[Documented]**
 • Routes: Web UI, and API at L2 (Analytics.gov), L3 (GCC) and L4 (internet); a Python package exists but is "Tabular only; provided as-is with no active maintenance" (Cloak Guide, home page) **[Documented]**
-• No self-hosting route for free-text anonymisation is documented: no repository, Hugging Face entry or free-text package turned up (checked the Cloak Guide, cloak.gov.sg, the portal, and GitHub searches of GovTechSG, govtech-responsibleai and opengovsg on 2026-10-10) **[Not disclosed]**
+• No self-hosting route for free-text anonymisation is documented: no repository, Hugging Face entry or free-text package turned up (checked the Cloak Guide, cloak.gov.sg, the portal, and GitHub searches of GovTechSG, opengovsg, govtech-responsibleai and datagovsg on 2026-10-10) **[Not disclosed]**
 • LLM-enabled custom entity (Beta; see Cloak: Custom entity detection in free text (lists, regex and LLM)): "Cloak privately hosts a language model within our own secure environment on the Government Commercial Cloud (GCC) on AWS. No data is sent to external parties" (Cloak Guide, unstructured custom entities intro) **[Documented]**
 • Encrypt technique (see Cloak: Reversible anonymisation and decryption (encrypt and restore)): "The encryption uses AES cypher in CBC mode"; "we have restricted encryption to only AES-256 CBC Mode Encryption" (Cloak Guide, Encrypt page) **[Documented]**
 • Release notes: the highest version is v2.2.2 (4 August 2024) and the latest dated entry is v2.2.1 (28 August 2024) (Cloak Guide, release notes) **[Documented]**
@@ -83,7 +86,7 @@ Detail:
 • The slider range and default come from image captions: "adjustment of the detection threshold from 0 to 1" (usage guide) and "set to the default value of 0.30" (confidence level page) **[Documented]**
 • Developer Portal Features page: "Adjust detection sensitivity per entity type to balance recall and precision for your dataset" (Developer Portal, features page) **[Documented]**
 • Cloak Guide: the Anonymisation Settings drawer has one "Adjust Confidence level" dropdown with a slider "set to the default value of 0.30" (Cloak Guide, confidence level page, captions) **[Documented]**
-• Accuracy claim: ">97% recall for key PIIs like Name, NRIC and Email" (Cloak Guide, home page; Developer Portal, overview page); a vendor claim with no method, dataset or precision figure **[Documented]**
+• Accuracy claim: ">97% recall for key PIIs like Name, NRIC and Email" (Cloak Guide, home page); a vendor claim with no method, dataset or precision figure **[Documented]**
 • Terms clause 9.1 says the Service is provided "on an 'as is' and 'as available' basis without warranties of any kind", and 9.1.1 lists accuracy, completeness and correctness among the warranties disclaimed (Terms of Use dated 24 July 2024) **[Documented]**
 • Method, test data, precision, F-score, per-entity or per-language figures for any recall number (checked the home page, FAQs, portal pages, release notes and the 2023 deck; none stated) **[Not disclosed]**
 • Usage figures are not accuracy: "Currently processing >5 million PIIs removed per month across WOG" (Developer Portal, overview page, last updated 26 Aug 2026; vendor statistic) **[Documented]**
@@ -209,14 +212,16 @@ Detail:
 • Fixed list route: "If you have a known, finite list of words or phrases to detect (e.g. hospital names, school names, or organisation acronyms), you can use the Inclusion Feature together with a Custom Entity to anonymise them." (Cloak Guide, fixed-list page) **[Documented]**
 • Regex route: "Custom Entities are used to define entities with structured data patterns specific to your needs." (Cloak Guide, structured page) **[Documented]**
 • LLM route: "Cloak allows you to add such custom entities through few-shot prompting, which allows the LLM to detect new entities without fine-tuning." (Cloak Guide, unstructured intro) **[Documented]**
+• LLM route inputs: for the LLM-based approach the Custom page lists "Define your custom entity" and "Give some examples" (Cloak Guide, entity types, Custom) **[Documented]**
+• LLM route status: the unstructured intro marks the feature "[Beta Feature]" (Cloak Guide, unstructured intro) **[Documented]**
 • Inclusion list on a built-in entity is a related control, not a new entity: "specify additional words or phrases that should be detected and anonymised under an existing entity type" (Cloak Guide, Inclusion Feature page) **[Documented]**
 • The result is transformed text: "Click Start anonymisation. Your text is now transformed with the new custom entity applied." (fixed-list page) **[Documented]**
 • Cloak's home page describes the LLM entity as: "Define custom sensitive entities using LLM-powered detection — add organisation-specific terms or domain-specific identifiers without re-training a model" (www.cloak.gov.sg home page) **[Documented]**
 • GovTech's playbook says: "Cloak also offers LLM-enabled custom entity detection to protect custom, domain-specific or localised entities unique to your use case." (Responsible AI playbook, privacy improvements page) **[Documented: repo govtech-responsibleai/playbook@45908b48]**
 • Exceptions is the opposite control, "used to manually exclude words from being detected and anonymised"; it is covered in the column Cloak: Free-text PII detection and anonymisation (Cloak Guide, Exceptions page) **[Documented]**
-• No page describes a safe or unsafe verdict or score for a custom entity; the documented result is transformed text and a Findings table (premise: the custom entity pages and the FTA usage guide show only transformed output) **[Inferred]**
+• A safe or unsafe verdict, or a score, for a custom entity (checked the custom entity pages and the FTA usage guide: they show only transformed output, and whether custom matches appear in the Findings table is not stated) **[Not disclosed]**
 ### R2
-Summary: **Domain terms the built-in entities miss.** Documented examples are hospital names, car licence numbers, unusual date formats, usernames and disease names. Free-text detection is probabilistic, so full recall should not be assumed. **[Documented]**
+Summary: **Domain terms the built-in entities miss.** Documented examples are hospital case numbers, car licence numbers, unusual date formats, usernames and disease names. Free-text detection is probabilistic, so full recall should not be assumed. **[Documented]**
 Detail:
 • Fixed list fits when "You have a predefined list of terms that Cloak's analyser does not recognise by default" and "The terms do not follow a predictable pattern; regular expressions are not suitable" (fixed-list page) **[Documented]**
 • Regex sample use cases named on the structured page: "Car license number", "Unusual date format" and "Username", each with a sample regular expression (Cloak Guide, structured page) **[Documented]**
@@ -237,7 +242,7 @@ Detail:
 • Where it is defined: the Anonymisation Settings button, then the Custom entities tab, then "+ Add a custom entity" (fixed-list page, steps 1 and 2; Cloak Guide) **[Documented]**
 • Input forms: pasted text, "Maximum 20,000 characters (approx. 3,000 words) per submission", or files (.csv, .pdf, .docx) (Cloak Guide, usage guide) **[Documented]**
 • Scope of a setting: "The anonymisation techniques selected will be implemented across all cells in CSV files and on all pages for both PDF and Word files." (usage guide) **[Documented]**
-• The Web UI returns a download, not an inline reply: "click on Download to proceed with the download request" (usage guide) **[Documented]**
+• Output delivery: "Once you are done with your transformations, click on Download to proceed with the download request." (usage guide) **[Documented]**
 • Vendor use on AI traffic: "Strip PII in real-time via API before data reaches external LLMs or other WOG products" (Cloak Guide, home page, use cases table) **[Documented]**
 • Prompts, responses, retrieved text and tool output can all be sent as a string or file, so a custom entity applies to each (premise: string or file input and the vendor's LLM use case above) **[Inferred]**
 • Direction: no input or output flag, role or setting appears on the custom entity pages, the FTA usage guide, the public API guide page or the portal pages (searched for direction, inbound, outbound, input type, response); the API schema is behind login **[Not disclosed]**
@@ -258,6 +263,7 @@ Detail:
 • Pattern-matching entity fields: "Fill in the regular expression representing your custom entity", "Select your anonymisation technique of choice" and "Fill in the word(s) or phase(s) which you wish to detect" (Custom page, spelling as printed) **[Documented]**
 • Inclusion bulk upload: v2.1.4, 4 June 2024, "[FTA] Allow bulk upload of inclusion/ exclusion list (e.g. txt or csv file)" (release notes) **[Documented]**
 • LLM hosting: "Cloak privately hosts a language model within our own secure environment on the Government Commercial Cloud (GCC) on AWS. No data is sent to external parties" (unstructured intro) **[Documented]**
+• LLM method: "Cloak allows you to add such custom entities through few-shot prompting, which allows the LLM to detect new entities without fine-tuning. This approach only needs a small set of 3-5 examples (labelled data)" (unstructured intro) **[Documented]**
 • LLM status and limit: "[Beta Feature] Currently, only 1 LLM-enabled custom entity is supported per dataset (up to 5,000 documents)." (unstructured intro) **[Documented]**
 • LLM roadmap wording: "We're working to expand support to larger datasets, multiple entities, and shorter processing times." (unstructured intro) **[Documented]**
 • Web UI limit per project: "The Web UI normally allows one LLM-enabled custom entity per project because each entity adds processing time." (Cloak Guide, FAQs) **[Documented]**
@@ -270,7 +276,7 @@ Detail:
 • The offline package covers only "Cloak's tabular anonymisation features", so free-text custom entities have no offline route (premise: package page text) **[Inferred]**
 • Cross-reference: see Presidio: Custom-recognizer detection (regex patterns, deny lists, ad-hoc recognizers); no GovTech page says Cloak's custom entities are Presidio recognisers (premise for any link: the shared terms "custom recognisers" and "context words") **[Inferred]**
 ### R5
-Summary: **Transformed text for each custom match.** Each match is replaced, redacted, masked or otherwise transformed with the technique chosen for that entity. The result is anonymised text or a file, and an email says when an LLM entity job completes. **[Documented]**
+Summary: **Transformed text for each custom match.** Each match is replaced or otherwise transformed with the technique chosen for that entity. The result is anonymised text or a file, and an email says when an LLM entity job completes. **[Documented]**
 Detail:
 • Technique per custom entity: "Select your anonymisation technique of choice." (Custom page) **[Documented]**
 • Default replacement text: "By default, it would be <ENTITY_NAME>." (Cloak Guide, Replace page) **[Documented]**
@@ -286,7 +292,7 @@ Detail:
 • Download: "An email containing the password required to unzip the folder will be sent to you." (usage guide) **[Documented]**
 • Vendor claim ">97% recall for key PIIs like Name, NRIC and Email" covers built-in entities, with no method, data set or precision stated (Cloak Guide, home page) **[Documented]**
 • Precision, recall or F1 for list, regex or LLM custom entities (checked the home, overview and FAQ pages, the custom entity pages, the samples and the 2023 deck) **[Not disclosed]**
-• API response format for custom entities (the API guide and OpenAPI pages redirect to a login page, HTTP 200 at docs.developer.tech.gov.sg/auth/otp-login with reason not_logged_in, observed 2026-10-10) **[Not disclosed]**
+• API response format for custom entities (the API guide and OpenAPI pages redirect to a login page, HTTP 302 then a 200 login page at docs.developer.tech.gov.sg/auth/otp-login with reason not_logged_in, observed 2026-10-10) **[Not disclosed]**
 ### R6
 Summary: **A list, a regex or examples.** A list takes up to 500 (words or entries; the docs differ), a regex takes a pattern, and the LLM entity takes a definition and 3 to 5 examples. Context words and per-pattern scores are API only. **[Documented]**
 Detail:
@@ -374,6 +380,8 @@ Detail:
 Summary: **Encrypts chosen entities and decrypts them later.** The Encrypt technique replaces each detected value with AES-256 CBC ciphertext under a key kept in the Secrets Manager, and free-text decryption restores one value at a time in the Web UI. Pseudonymise is one-way. **[Documented]**
 Detail:
 • Anonymise side: "The encryption uses AES cypher in CBC mode and requires a cryptographic key as an input for both encryption and decryption." (Cloak Guide, Encrypt page, read 2026-10-10) **[Documented]**
+• Anonymise side, mode: "Due to security reasons, we have restricted encryption to only AES-256 CBC Mode Encryption." (Cloak Guide, Encrypt page) **[Documented]**
+• Anonymise side, scope: the settings drawer sets "the corresponding anonymisation technique to be applied for each entity type" (Cloak Guide, usage guide) **[Documented]**
 • Anonymise side, one-way contrast: Pseudonymisation values "are generated by irreversible hashing (SHA-256) or (SHA-512) with a random salt applied to prevent brute-force attacks" (Cloak Guide, Pseudonymisation page) **[Documented]**
 • Restore side: "The Web UI currently supports decrypting one value at a time (paste into the text field)." (Cloak Guide, free-text decryption page) **[Documented]**
 • Restore side, bulk: for "multiple values or a file of encrypted data" the page points to the Free-Text Decryption API, "which supports looping through rows in a CSV" (free-text decryption page; the API page is behind login) **[Documented]**
@@ -390,6 +398,7 @@ Detail:
 • The page says this "replaces insecure practices like storing keys in spreadsheets or emailing them between colleagues" (same page) **[Documented]**
 • Home use case: "Multiple data owners anonymise independently using the same secret, producing data that can still be linked on a common encrypted identifier" (Cloak Guide, home page) **[Documented]**
 • Pseudonyms persist but cannot be undone: "irreversible and persistent pseudonyms" that are the same "within and across different datasets, conditioned on using the same salt value" (Pseudonymisation page) **[Documented]**
+• Encrypt is the reversible side: the cipher "requires a cryptographic key as an input for both encryption and decryption" (Cloak Guide, Encrypt page) **[Documented]**
 • LLM leakage framing: "Potential privacy leakages from usage of LLM products in the public sector." and "Outgoing prompt does not leak PII to overseas servers or ChatGPT" (USENIX PEPR 2023 slides, slides 21 and 22, 11 Sep 2023) **[Documented]**
 • Whether Replace, Redact, Mask or Alias output can be reversed (checked the Replace, Redact, Masking and Alias pages, which describe the transformation only) **[Not disclosed]**
 • Residual risk: "the data owner must assess the final output for remaining direct identifiers, quasi-identifier combinations, missed free-text entities and linkage risk." (Cloak Guide, FAQs) **[Documented]**
@@ -403,6 +412,7 @@ Detail:
 • Anonymise side vendor use: "Strip PII in real-time via API before data reaches external LLMs or other WOG products" (home page use cases) **[Documented]**
 • Restore side Web UI: "Input your encrypted value into the left text field." and the secret is selected in step 2 (free-text decryption page) **[Documented]**
 • Restore side scope: the guide's own link text is "Free-text Decryption Guide - Decrypt individual encrypted values" (Secret Sharing and Decryption page) **[Documented]**
+• Restore side, bulk: for "multiple values or a file of encrypted data" the page points to the Free-Text Decryption API, "which supports looping through rows in a CSV" (free-text decryption page; the API page is behind a login) **[Documented]**
 • Restore side, whole text: whether one call can restore a full reply that holds several ciphertext tokens (checked the free-text decryption page, the decryption intro and the home page) **[Not disclosed]**
 • Restore side in the deck: the "Anonymised Response" returns from the "Gen AI Magic!" box to the agency product with the placeholder "<hash value 1>" still in it (USENIX PEPR 2023 slides, slide 22, layout read from the rendered slide) **[Documented]**
 • Restore side in the deck: the slide does not say where or how placeholders are restored from the mapping table (checked slide 22 and the text of all 32 slides) **[Not disclosed]**
@@ -419,12 +429,13 @@ Detail:
 • Example row on the page: original "Jason" becomes "pX09dIQ4X3gU1FC3r8pZXA==" (Encrypt page) **[Documented]**
 • That example decodes to 16 bytes, one AES block, so the token seems to carry no separate initialisation vector, which the Secrets Manager holds with the key (premise: base64 arithmetic and the Secrets Manager text "secret key and IV value") **[Inferred]**
 • Key sharing: "Members of shared secrets will not be able to view or access the secret key and IV value, but will be able to use it to decrypt data." (Cloak Guide, Secrets Manager page) **[Documented]**
+• Key and salt protection: "Keys and salts are stored securely and never exposed to shared users" (Cloak Guide, Secrets Manager page) **[Documented]**
 • Sharing limits: "up to 10 other users per operation, and with a maximum of 50 users per secret" (Secrets Manager page) **[Documented]**
 • Audit: the audit view shows "the member's email, time of usage and activity type"; one activity is "Decrypt Free Text: Users decrypts a singular encrypted value" (Secrets Manager page) **[Documented]**
 • Storage: "Salts and Secret Keys within Cloak are stored in encrypted format, and usage of salts/secret keys are audited." (Cloak Guide, FAQs) **[Documented]**
 • Transport and rest: "All data is encrypted in transit and at rest." (www.cloak.gov.sg FAQ, read 2026-10-10) **[Documented]**
 • Pseudonymise: SHA-256 or SHA-512 "with a random salt"; the same salt gives the same pseudonym (Pseudonymisation page) **[Documented]**
-• Salts, page text: "Custom salt values will be included in the future." (Pseudonymisation page); the release notes list custom salts in v2.1.0 and v2.1.4 **[Documented]**
+• Salts, page text: "Custom salt values will be included in the future." (Pseudonymisation page); the release notes list a salt parameter in v2.1.0 and custom salts in v2.1.4 **[Documented]**
 • Salts, release notes: v2.1.0, 19 March 2024, "[FTA] Added salt parameter for Pseudonymisation transformation" and v2.1.4, 4 June 2024, "[FTA] Support for custom salts and user managed salts" (Cloak Guide, release notes) **[Documented]**
 • Decryption release: v2.1.0, 19 March 2024: "[Decryption] Decrypt encrypted free-text or tabular data using secret keys." (release notes) **[Documented]**
 • Techstack: "AWS GCC 2.0" (developer portal, Features and Roadmap, last updated 21 Aug 2026) **[Documented]**
@@ -449,7 +460,7 @@ Detail:
 • Free-text failure output for a wrong secret or damaged token (checked the free-text decryption page and Secrets Manager page) **[Not disclosed]**
 • Tabular decryption, for contrast: "a separate csv file named "failed_cells.csv" will be provided" for values that failed to decrypt (Cloak Guide, tabular decryption page; tabular is outside this column) **[Documented]**
 • Round-trip accuracy or failure rate (checked the home, overview and FAQ pages, the Encrypt and decryption pages and the 2023 deck) **[Not disclosed]**
-• API response format for encrypt and decrypt (the API guide and OpenAPI pages redirect to login, HTTP 200 at docs.developer.tech.gov.sg/auth/otp-login with reason not_logged_in, observed 2026-10-10) **[Not disclosed]**
+• API response format for encrypt and decrypt (the API guide and OpenAPI pages redirect to login, HTTP 302 then a 200 login page at docs.developer.tech.gov.sg/auth/otp-login with reason not_logged_in, observed 2026-10-10) **[Not disclosed]**
 ### R6
 Summary: **A secret, plus a ciphertext to restore.** Encrypting needs a key made or chosen in the Secrets Manager; Pseudonymise needs a salt. Decrypting needs the encrypted value and access to the same secret, as owner or shared member. **[Documented]**
 Detail:
@@ -471,7 +482,7 @@ Summary: **Minimum setup:** documentation only today; a trial needs an approved 
 Detail:
 • **Minimum setup:** the public pages are documentation only; a suggested first step is a Web UI project that encrypts synthetic entities under one new secret, then decrypts each ciphertext one at a time with that secret **[Inferred]**
 • Access to try it: Web UI needs WOG-AD or a TechPass account approved by Cloak Ops; the API needs the Onboarding Form and a key; non-public-sector use needs GovTech's written consent to a stated purpose (Terms clause 3.3) (Cloak Guide, registration guide and FAQs; Terms PDF) **[Documented]**
-• Terms clause 3.4.7 bars "perform any benchmarking tests or analyses of the Service", and 3.4.9 and 3.4.11 bar sharing licence keys or access with third parties; a bench could first seek GovTech's written view (the clauses are quoted in R8) **[Inferred]**
+• Terms clause 3.4 lists "perform any benchmarking tests or analyses of the Service" (3.4.7), "transfer assign or permit the sharing of license keys to or with a third party" (3.4.9) and "provide third party access to the Service" (3.4.11) among the things the user shall not do, so a bench could first seek GovTech's written view **[Inferred]**
 • Possible round trip: made-up names and IDs, encrypt, decrypt, and compare with the originals across lengths and non-ASCII names **[Inferred]**
 • Possible checks: the same value twice in one text and across two jobs under the same secret, and under a different secret **[Inferred]**
 • Possible failure cases: a changed or truncated token, a wrong secret, a secret not shared with the user, and a mock model reply that edits or drops the token **[Inferred]**
