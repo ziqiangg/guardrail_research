@@ -105,3 +105,4 @@
 - 2026-10-10 purplellama P8 done: BE–BK (PL1–PL7) + '3j. Purple Llama Inventory' (88) + '3k. CyberSecEval Eval Tooling'; products.py multi-prefix (old/new HDR_RE identical on 125 existing headings); build_eval_sheet generalised (3c unchanged); inventory_sheet block_rows start arg; build_two_level imports extra eval sheets; PL3 R7 trimmed 1 word; verify 59/59; uncapped compare 794 diffs = BE–BK + 3 structural; 184 URLs → P9
 - 2026-10-10 purplellama P10 diagram written (14 SVGs; checklist ticked; no overflow at 375); diagram verifier started
 - 2026-10-10 purplellama P9 done: 184 URLs: 132 ok, 51 github blob 429/503 (raw at same ref 200), 1 expected-404; 0 broken
+- 2026-10-10 purplellama P10 review: PASS WITH FIXES (8 required: PDF scanner mapping, Measuring row, AgentDojo, Semgrep LGPL 2.1, PG1 licence, rail 8 attribution, PyPI sentence, verbatim Llama Guard caption); 18/18 MATCH; fix loop → diagrammer
