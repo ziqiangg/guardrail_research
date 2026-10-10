@@ -141,3 +141,4 @@
 - 2026-10-11 litmus post-P8 re-apply: exactly 3 cells changed (3m!A3, 3n!B8, 3n!B59); verify 45/46 (one-shot check only); litmus_urls.txt 36→35 (malformed URL removed, tree URL)
 - 2026-10-11 litmus P10 review: PASS WITH FIXES (8 required: title/h1/legend per ruling, Kaleidoscope status, advice item, test case quote, footer source); 20/20 MATCH; fix loop → diagrammer
 - 2026-10-11 cloak P10 review: PASS WITH FIXES (7 required); 25/25 MATCH; fix loop → diagrammer
+- 2026-10-11 B3 P10 fix loops done: litmus 8 required + 9 optional (+ hedged Edits text cell); cloak 7 required + 12 optional; base CSS identical; awaiting user review

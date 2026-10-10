@@ -33,6 +33,7 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| cloak P10 fix Q1/Q2; litmus P10 O6/O9 | "MOHH (not spelled out there)" acceptable (honest gap); overview arrow label suffices; litmus "Edits text" cell hedged "(our reading)"; dev-swatch colour mismatch across pages → final-summary follow-up | main |
 | cloak P10 review Q1/Q2 | footer playbook link → deployed page (200, in drafts); fix 6 gate→box required (README §4: blue = check done by the product) | main |
 | litmus P10 review Q1/Q2 | Kaleidoscope = one body mention + footer source (limits item 8 deleted, 7 items OK); "test case" wording made consistent (O1 applied) | main |
 | cloak P10 Q1–Q4 | legend swatch reads "Not disclosed" (README §8 note) → verifier required fix; Output Partly and reversible Partly stand (drafts [Inferred]); planned Sentinel box stays in the access diagram only | main |

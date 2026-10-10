@@ -44,7 +44,7 @@ cloak_cells = {
  "Decides where checks run": "No. Your app chooses what to send; no input or output setting was found, and the API details are behind a login.",
  "Your own rules and fixed replies": "Your own entity types: word lists, patterns and, in beta, AI-model examples. You choose the replacement text.",
  "Edits text": "Yes: replace, redact, mask, alias, pseudonymise or encrypt",
- "Singapore languages": "Tuned for Singapore (NRICs, local phone numbers, UENs, addresses, postal codes); names in roman characters. Other languages are not stated.",
+ "Singapore languages": "Tuned for Singapore (NRICs, local phone numbers, UENs (business registration numbers), addresses, postal codes); names in roman characters. Other languages are not stated.",
  "Who can use it": "Government users, and select non-government entities that Cloak approves; the Terms limit others to a purpose GovTech agrees in writing. Free for approved users in FY26.",
 }
 out_rows = []
@@ -78,8 +78,9 @@ links = [
  ("Portal: use cases", "https://www.developer.tech.gov.sg/products/categories/data-and-apis/cloak/use-cases"),
  ("Portal: FAQs", "https://www.developer.tech.gov.sg/products/categories/data-and-apis/cloak/faqs"),
  ("Terms of Use", "https://file.go.gov.sg/cloak-terms.pdf"),
+ ("Privacy Statement", "https://go.gov.sg/cloak-privacy"),
  ("2023 USENIX PEPR slides", "https://www.usenix.org/system/files/pepr23_slides-tang.pdf"),
- ("Playbook: privacy improvements", "https://github.com/govtech-responsibleai/playbook/blob/45908b48c0a8b6d3855a154c0e41a12958a99205/website/docs/improving-ai-systems/privacy-improvements.mdx"),
+ ("Playbook: privacy improvements", "https://govtech-responsibleai.github.io/playbook/improving-ai-systems/privacy-improvements/"),
  ("Sentinel guardrails (checked, no mention of Cloak)", "https://www.aiguardian.gov.sg/docs/wiki/Sentinel-Guardrails"),
 ]
 body = body.replace("@@LINKS@@", " · ".join('<a href="%s">%s</a>' % (u, l) for l, u in links))

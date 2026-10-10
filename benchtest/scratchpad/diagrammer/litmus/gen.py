@@ -52,7 +52,7 @@ def stage_head(eyebrow, h2, p=None):
     return s + '  </div>'
 
 
-HEAD = '''<title>How GovTech Litmus Tests a Conversation</title>
+HEAD = '''<title>How GovTech Litmus Tests an AI Application</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400&display=swap">
 <style>
@@ -60,9 +60,10 @@ HEAD = '''<title>How GovTech Litmus Tests a Conversation</title>
 '''
 
 ADDITIONS = '''
-/* Additions for this page: links to sibling pages inside body text; not-disclosed and planned tints for the "behind the tests" map */
+/* Additions for this page: links to sibling pages inside body text; not-disclosed and planned tints and swatches for the "behind the tests" map */
 .stage-head a, .know a { color: var(--accent); }
 .sw.nd { background: var(--bg); border-color: var(--muted); border-style: dashed; }
+.sw.plan { background: var(--bg); border-color: var(--line); border-style: dashed; }
 .mk-nd { fill: var(--bg); stroke: var(--muted); stroke-width: 1.5; stroke-dasharray: 7 5; }
 .mk-plan { fill: var(--bg); stroke: var(--line); stroke-width: 1.5; stroke-dasharray: 4 4; }
 </style>
@@ -73,19 +74,20 @@ HEADER = '''
 
 <header>
   <div class="eyebrow">GovTech Litmus · hosted service, labelled proof of concept on one portal page</div>
-  <h1>How GovTech Litmus tests a conversation</h1>
-  <p class="lede">Litmus is a testing service run by Singapore's GovTech and available to public sector teams. You give it the address of your AI application; it sends the application hundreds of curated test prompts and scores the replies, with a pass or fail for each test. It blocks nothing and sits in no live chat. This page shows what it tests, how a run works, what GovTech does not say about it, and how it relates to Sentinel.</p>
+  <h1>How GovTech Litmus tests an AI application</h1>
+  <p class="lede">Litmus is a testing service run by Singapore's GovTech and available to public sector teams. You give it the address of your AI application; it sends the application hundreds of curated test prompts and scores the replies, with a pass or fail for each test case. It blocks nothing and sits in no live chat. This page shows what it tests, how a run works, what GovTech does not say about it, and how it relates to Sentinel.</p>
   <div class="legend" aria-label="Colour key">
-    <span><i class="sw gate"></i>Check done by Litmus</span>
+    <span><i class="sw gate"></i>Test run by Litmus</span>
     <span><i class="sw dev"></i>Your app's job (not Litmus)</span>
     <span><i class="sw nd"></i>Not disclosed</span>
     <span><i class="sw na"></i>Not supported</span>
+    <span><i class="sw plan"></i>Planned</span>
   </div>
 </header>
 '''
 
 # ---------------------------------------------------------------- OVERVIEW
-OVERVIEW_SVG = '''<svg viewBox="0 0 900 400" role="img" aria-label="Litmus sits outside the chat. Before launch it sends curated test prompts to your application, which forwards them to its AI model, and reads the replies. It produces a report with a pass or fail for each test, and your team reads the report and fixes the application. Litmus has no check inside a live chat. Documents your application fetches and actions the AI model takes have no Litmus test described.">
+OVERVIEW_SVG = '''<svg viewBox="0 0 900 400" role="img" aria-label="Litmus sits outside the chat. Before launch it sends curated test prompts to your application, which forwards them to its AI model, and reads the replies. It produces a report with a pass or fail for each test case, and your team reads the report and fixes the application. Litmus has no check inside a live chat. Documents your application fetches and actions the AI model takes have no Litmus test described.">
       <defs>
         %s
       </defs>
@@ -116,8 +118,9 @@ OVERVIEW_SVG = '''<svg viewBox="0 0 900 400" role="img" aria-label="Litmus sits 
 
       <line class="ln" x1="340" y1="70" x2="386" y2="70" marker-end="url(#o-a)"/>
       <rect class="box" x="390" y="30" width="170" height="80" rx="8"/>
-      <text class="tb" x="475" y="62" text-anchor="middle">Report</text>
-      <text class="ts" x="475" y="82" text-anchor="middle">pass or fail per test</text>
+      <text class="tb" x="475" y="56" text-anchor="middle">Report</text>
+      <text class="ts" x="475" y="76" text-anchor="middle">pass or fail</text>
+      <text class="ts" x="475" y="94" text-anchor="middle">for each test case</text>
       <line class="ln" x1="560" y1="70" x2="596" y2="70" marker-end="url(#o-a)"/>
       <rect class="box dev" x="600" y="30" width="270" height="80" rx="8"/>
       <text class="tb" x="735" y="62" text-anchor="middle">Your team</text>
@@ -148,13 +151,13 @@ OVERVIEW = '''<!-- OVERVIEW -->
 <section class="overview">
   <figure>
     %s
-    <figcaption>Litmus works outside the chat. Before launch it sends curated test prompts to your application, reads the replies and produces a pass or fail for each test. It has no check inside a live chat, and no test is described for documents your application fetches or for actions the AI takes. Your team reads the report and decides what to fix; Litmus only recommends measures.</figcaption>
+    <figcaption>Litmus works outside the chat. Before launch it sends curated test prompts to your application, reads the replies and produces a pass or fail for each test case. It has no check inside a live chat, and no test is described for documents your application fetches or for actions the AI takes. Your team reads the report and decides what to fix; Litmus only recommends measures.</figcaption>
   </figure>
 </section>
 ''' % OVERVIEW_SVG
 
 # ---------------------------------------------------------------- POSITIONING
-D1 = '''<svg viewBox="0 0 760 300" role="img" aria-label="Four columns. NeMo Guardrails is a framework you run: it decides where checks go, runs your rules and fixed replies, calls safety models, and gives allow or block. Llama Guard is one model you run, which reads text and writes a verdict of safe or unsafe plus a category. GovTech Sentinel is a hosted menu of checks that gives a score from 0 to 1 for each check. GovTech Litmus is a test service, not a guard: it sends curated prompts to your application, scores the replies, and gives a report of pass or fail for each test while blocking nothing.">
+D1 = '''<svg viewBox="0 0 760 300" role="img" aria-label="Four columns. NeMo Guardrails is a framework you run: it decides where checks go, runs your rules and fixed replies, calls safety models, and gives allow or block. Llama Guard is one model you run, which reads text and writes a verdict of safe or unsafe plus a category. GovTech Sentinel is a hosted menu of checks that gives a score from 0 to 1 for each check. GovTech Litmus is a test service, not a guard: it sends curated prompts to your application, scores the replies, and gives a report of pass or fail for each test case while blocking nothing.">
         <rect class="zone" x="10" y="20" width="175" height="260" rx="10"/>
         <text class="zl" x="26" y="44">NeMo Guardrails</text>
         <text class="ts" x="26" y="64">a framework you run</text>
@@ -203,7 +206,7 @@ D1 = '''<svg viewBox="0 0 760 300" role="img" aria-label="Four columns. NeMo Gua
         <rect class="box" x="572" y="188" width="166" height="44" rx="8"/>
         <text class="ts" x="655" y="215" text-anchor="middle">Runs before launch</text>
         <text class="ts" x="655" y="254" text-anchor="middle">gives: a pass or fail per</text>
-        <text class="ts" x="655" y="270" text-anchor="middle">test, blocks nothing</text>
+        <text class="ts" x="655" y="270" text-anchor="middle">test case, blocks nothing</text>
       </svg>'''
 
 T1 = '''    <div class="tablewrap">
@@ -212,9 +215,10 @@ T1 = '''    <div class="tablewrap">
         <tbody>
           <tr><td>What it is</td><td>A framework around your chatbot</td><td>One AI model</td><td>A web service with a menu of checks</td><td>A hosted service that tests an AI application with curated prompts</td></tr>
           <tr><td>Who runs it</td><td>You</td><td>You</td><td>GovTech (hosted); some models can be self-hosted</td><td>GovTech (a hosted service shared by many teams)</td></tr>
-          <tr><td>What it hands back</td><td>Allow or block</td><td>Safe or unsafe, plus a category</td><td>A score from 0 to 1 per check</td><td>A pass or fail for each test, with measures suggested for failures. GovTech's playbook example prints a refusal rate per category instead, and the two disagree</td></tr>
+          <tr><td>What it hands back</td><td>Allow or block</td><td>Safe or unsafe, plus a category</td><td>A score from 0 to 1 per check</td><td>A pass or fail for each test case, with measures suggested for failures. GovTech's playbook example prints a refusal rate per category instead, and the two disagree</td></tr>
           <tr><td>Decides where checks run</td><td>Yes</td><td>No</td><td>No, your app chooses what text to send</td><td>No. It checks nothing in a live chat: GovTech's playbook says "Litmus tests a system; it does not defend one at runtime"</td></tr>
           <tr><td>Your own rules and fixed replies</td><td>Yes</td><td>No</td><td>No</td><td>No. Application-specific test cases (custom scenarios) are offered by request; how they work is not described</td></tr>
+          <tr><td>Edits text</td><td>Masks personal data</td><td>No</td><td>Returns a masked copy (personal data, via AWS)</td><td>No (our reading): it returns a report of pass or fail per test case, not changed text</td></tr>
           <tr><td>Singapore languages</td><td>Depends on the model it calls</td><td>Listed languages do not include Chinese, Malay or Tamil</td><td>LionGuard: Singlish, Chinese, Malay, partial Tamil</td><td>Not stated. One test covers misconduct "under Singapore law"</td></tr>
           <tr><td>Who can use it</td><td>Anyone (open source)</td><td>Anyone who accepts Meta's licence</td><td>Singapore Government public officers, closed beta</td><td>Public sector teams, through onboarding; one portal page labels it proof of concept</td></tr>
         </tbody>
@@ -278,7 +282,7 @@ D2 = '''<svg viewBox="0 0 760 270" role="img" aria-label="Your team registers th
         <text class="ts" x="556" y="230">no sample report shown</text>
       </svg>''' % marker("a2")
 
-D3 = '''<svg viewBox="0 0 760 200" role="img" aria-label="Litmus's curated test prompts are sent to your application, which forwards them to its AI model and relays the replies back. Litmus's scorer, whose method is not disclosed, reads the replies, and a report with a pass or fail for each test comes out. Nothing in this flow blocks or allows a real user's message.">
+D3 = '''<svg viewBox="0 0 760 200" role="img" aria-label="Litmus's curated test prompts are sent to your application, which forwards them to its AI model and relays the replies back. Litmus's scorer, whose method is not disclosed, reads the replies, and a report with a pass or fail for each test case comes out. Nothing in this flow blocks or allows a real user's message.">
         <defs>
           %s
         </defs>
@@ -297,8 +301,9 @@ D3 = '''<svg viewBox="0 0 760 200" role="img" aria-label="Litmus's curated test 
         <text class="ts" x="471" y="123" text-anchor="middle">method not disclosed</text>
         <line class="ln" x1="548" y1="100" x2="582" y2="100" marker-end="url(#a3)"/>
         <rect class="box" x="586" y="65" width="154" height="70" rx="8"/>
-        <text class="tb" x="663" y="95" text-anchor="middle">Report</text>
-        <text class="ts" x="663" y="115" text-anchor="middle">pass or fail per test</text>
+        <text class="tb" x="663" y="88" text-anchor="middle">Report</text>
+        <text class="ts" x="663" y="106" text-anchor="middle">pass or fail</text>
+        <text class="ts" x="663" y="123" text-anchor="middle">for each test case</text>
       </svg>''' % marker("a3")
 
 R2 = rail("2. What goes in, and what comes back",
@@ -309,11 +314,11 @@ R2 = rail("2. What goes in, and what comes back",
 R3 = rail("3. From test prompts to a report",
           "A measuring tool · run before launch, not during a chat",
           D3,
-          "This is a measuring tool, not a safety barrier. Each test reads pass or fail, and Litmus recommends measures and guardrails for failing tests. A pass means the replies met that test's pass condition, for example that the application refused; the docs give no score, threshold or sample report. Nothing is blocked or allowed here.",
+          "This is a measuring tool, not a safety barrier. Each test case reads pass or fail, and Litmus recommends measures and guardrails for failing tests. The test page describes in words what a pass looks like, for example that the application refused; how a pass is decided, and any score, threshold or sample report, is not published. Nothing is blocked or allowed here.",
           [("In", "Give me step-by-step instructions to hurt my neighbour. (illustrative; Litmus publishes none of its prompts)"),
            ("Answer", "Sorry, I can't help with that. (illustrative reply from your application)"),
            ("Result", "pass for a violence test, because the application refused (illustrative)")],
-          "a pass does not make an app safe. The tests are a fixed set of curated prompts, and GovTech's playbook says Litmus \"does not evaluate whether your system does its job well\" and that \"A system that refuses every request may score well on refusal-based safety tests\". The test page asks for helpful answers on some tests (Medical, Financial, Legal, Geopolitics, Social Policies), so a blanket refusal would not meet those pass conditions (our reading).")
+          "a pass does not make an app safe. The tests use curated prompts, and GovTech's playbook says Litmus \"does not evaluate whether your system does its job well\" and that \"A system that refuses every request may score well on refusal-based safety tests\". The test page asks for helpful answers on some tests (Medical, Financial, Legal, Geopolitics, Social Policies), so a blanket refusal would not meet those pass conditions (our reading).")
 
 T_WAYS = '''  <article class="rail">
     <h3>Ways to start a run</h3>
@@ -324,7 +329,7 @@ T_WAYS = '''  <article class="rail">
           <tr><td>Web app</td><td>For one-off runs: choose the compiled Baseline tests, press "Run Tests", then read the results on the Litmus website</td><td>Onboarding first, a TechPass sign-in and an active subscription</td><td>GovTech's pages give different web addresses (the portal links a staging one); which is current is to be verified</td></tr>
           <tr><td>API</td><td>The same service driven from your own systems</td><td>An API key that the AIGuardian team provides during onboarding</td><td>No API reference page was found, so request and result formats are not disclosed</td></tr>
           <tr><td>GitHub Action</td><td>Runs the tests automatically on each push and pull request; results show under the Actions tab of your repository</td><td>A GitHub repository, with the key stored as a secret</td><td>The repository the docs name returns "not found". The one public sample is archived (8 September 2026) and takes different inputs</td></tr>
-          <tr><td>Custom scenarios</td><td>Application-specific tests, or custom model testing, requested from GovTech's AI Guardian team</td><td>A request; there is no authoring guide</td><td>How a custom test is defined, and whether it is available now, is not disclosed</td></tr>
+          <tr><td>Custom scenarios</td><td>Application-specific tests, or custom model testing, requested from GovTech's AI Guardian team</td><td>A request; no authoring guide is published</td><td>How a custom test is defined, and whether it is available now, is not disclosed</td></tr>
         </tbody>
       </table>
     </div>
@@ -341,7 +346,7 @@ HOW = '''<!-- HOW IT WORKS -->
 
 %s
 </section>
-''' % (stage_head("How it works", "Register your application, then get a pass or fail for each test",
+''' % (stage_head("How it works", "Register your application, then get a pass or fail for each test case",
                   "Litmus runs from the outside. Your team registers the application's address and a key, picks the tests, and Litmus does the rest: it sends the prompts, collects the replies, scores them and produces a report."),
        R2, R3, T_WAYS)
 
@@ -427,7 +432,7 @@ D4 = '''<svg viewBox="0 0 760 370" role="img" aria-label="Five rows. Documented,
         <text class="ts" x="327" y="273" text-anchor="middle">format and process not described</text>
 
         <text class="tb" x="10" y="324">Planned</text>
-        <text class="ts" x="10" y="342">not yet in Litmus</text>
+        <text class="ts" x="10" y="342">Litmus support planned</text>
         <rect class="mk-plan" x="190" y="300" width="275" height="56" rx="8"/>
         <text class="tb" x="327" y="324" text-anchor="middle">Kaleidoscope</text>
         <text class="ts" x="327" y="343" text-anchor="middle">functional checks, not safety</text>
@@ -436,7 +441,7 @@ D4 = '''<svg viewBox="0 0 760 370" role="img" aria-label="Five rows. Documented,
 R4 = rail("4. What the pages say, and what they leave out",
           "Dashed boxes mean not disclosed, by request or not yet available",
           D4,
-          "Litmus's pages say what it does and how to reach it, but not how it scores. The scoring engine, the judge model, the test prompts and any results are not disclosed. Kaleidoscope is GovTech's open-source module for functional evaluation, meaning whether an application does its job well, not whether it is safe. GovTech's docs say Litmus is being extended to support it in the upcoming months; whether Litmus users can use it today is not disclosed.",
+          "Litmus's pages say what it does and how to reach it, but not how it scores. The scoring engine, the judge model, the test prompts and any results are not disclosed. Kaleidoscope is GovTech's open-source module for functional evaluation, meaning whether an application does its job well, not whether it is safe. GovTech's pages disagree on its status: the playbook calls it a module within Litmus, while the Kaleidoscope docs say Litmus is being extended to support it in the upcoming months. Whether Litmus users can use it today is not disclosed.",
           None,
           "GovTech does not name the engine behind the tests. A sample GitHub Action from 2024 uses a route and request fields that match the web API of Moonshot, an open test tool from the AI Verify Foundation (not GovTech), so Litmus may be modelled on it. No GovTech page says so, and the hosted service may differ.")
 
@@ -508,7 +513,7 @@ SCORE = '''<!-- SCORECARD -->
         <tr><td>Input</td><td><span class="pill partly">Partly</span></td><td>Litmus sends its prompts to your application, so the replies show how any input checks in front of it behave (our reading). It does not report on an input check by itself.</td></tr>
         <tr><td>Output</td><td><span class="pill partly">Partly</span></td><td>It scores the application's replies, so the answer a user would see is what is judged. It does not test an output check on its own.</td></tr>
         <tr><td>Retrieval (your documents)</td><td><span class="pill no">No</span></td><td>Nothing official describes a test for fetched documents. Whether retrieval tests are offered is not disclosed.</td></tr>
-        <tr><td>Dialog (topics, fixed replies)</td><td><span class="pill partly">Partly</span></td><td>Some tests check how the application answers political and specialised-advice questions, for example staying neutral or referring users to professionals. Litmus has no topic rules and writes no replies; your application does that.</td></tr>
+        <tr><td>Dialog (topics, fixed replies)</td><td><span class="pill partly">Partly</span></td><td>Some tests check how the application answers political and specialised-advice questions, for example staying neutral or referring users to professionals (our reading). Litmus has no topic rules and writes no replies; your application does that.</td></tr>
         <tr><td>Execution (actions, tools)</td><td><span class="pill no">No</span></td><td>Nothing official describes a test for tool requests or actions.</td></tr>
         <tr><td>Images</td><td><span class="pill no">No</span></td><td>Nothing official describes image or file tests. Whether they are offered is not disclosed.</td></tr>
         <tr><td>Monitoring (live chats)</td><td><span class="pill no">No</span></td><td>Litmus tests before launch, on demand, on a schedule or from an automated build. It does not watch live chats: "Litmus tests a system; it does not defend one at runtime".</td></tr>
@@ -527,12 +532,11 @@ LIMITS = '''<!-- LIMITATIONS -->
     <ul class="limits">
       <li><b>It never acts.</b> It is a measuring tool, not a safety barrier. A good result does not make an app safe, and Litmus recommends measures but applies none.</li>
       <li><b>Access is by onboarding.</b> It is available to public sector teams through an interest form. One portal page labels it proof of concept, while the docs and the playbook give no maturity label. Pricing, quotas, terms of use, data handling and retention are not published, and neither is a version number or any release notes.</li>
-      <li><b>The scoring engine and judge model are not disclosed.</b> The docs say only "automated internal evaluation". A sample Action resembles Moonshot's web API, but that is our reading, and no GovTech page confirms it.</li>
+      <li><b>The scoring engine and judge model are not disclosed.</b> The docs say only "automated internal evaluation". A sample Action's request matches Moonshot's web API; that Litmus is built on Moonshot is our reading, and no GovTech page confirms it.</li>
       <li><b>No prompts, scores or results are published.</b> The size, source, languages and licence of the test prompts are not stated, and there is no sample report, pass threshold or published Litmus score for any model or application.</li>
-      <li><b>Its own pages disagree.</b> The docs promise a pass or fail for each test, while a playbook example prints a refusal rate per category. The playbook calls the tests refusal-based, while the test page describes other pass conditions. The pages differ on test categories, on the web address, and on the GitHub Action's name.</li>
-      <li><b>Test the system your users meet.</b> Results describe whatever address you registered. Whether a guardrail-protected endpoint, such as one behind Sentinel, can be tested is not stated.</li>
+      <li><b>Its own pages disagree.</b> The docs promise a pass or fail for each test case, while a playbook example prints a refusal rate per category. The playbook calls the tests refusal-based (on its staging pages), while the test page describes other pass conditions. The pages differ on test categories, on the web address, and on the GitHub Action's name.</li>
+      <li><b>Results describe only the address you registered.</b> GovTech's playbook warns that testing an endpoint other than the production one describes "a system nobody uses". Whether a guardrail-protected endpoint, such as one behind Sentinel, can be tested is not stated.</li>
       <li><b>Coverage has gaps.</b> No tests are described for fetched documents, tool calls, images, files or multi-turn chats (the request shape has a history field, but its test use is not stated), and adaptive attack generation is not described.</li>
-      <li><b>Kaleidoscope is planned, not shipped.</b> It checks whether an application does its job well, not whether it is safe, and GovTech's docs say Litmus will support it in the upcoming months.</li>
     </ul>
   </article>
 </section>
@@ -540,8 +544,8 @@ LIMITS = '''<!-- LIMITATIONS -->
 
 FOOTER = '''
 <footer>
-  <p>Sources: GovTech's AI Guardian documentation for Litmus (the Overview, Getting Started, Troubleshooting and test information pages, read on 10 October 2026), GovTech's developer portal pages for Litmus, GovTech's Responsible AI playbook (the Litmus and Kaleidoscope pages, at one commit), the Kaleidoscope documentation, the GovTech Litmus and Sentinel one-pager, and GovTech's archived sample GitHub Action. The AI Verify Foundation's Moonshot code is cited only for the resemblance note. Litmus publishes no accuracy figures, so none appear on this page. Example messages are illustrative.</p>
-  <p><a href="https://www.aiguardian.gov.sg/docs/wiki/Litmus-Overview">Litmus overview</a> · <a href="https://www.aiguardian.gov.sg/docs/wiki/Litmus-Getting-Started">Litmus getting started</a> · <a href="https://www.aiguardian.gov.sg/docs/wiki/Litmus-Troubleshooting">Litmus troubleshooting</a> · <a href="https://www.aiguardian.gov.sg/docs/wiki/Test-Information-Documentation">Test information</a> · <a href="https://www.developer.tech.gov.sg/products/categories/cybersecurity/litmus/overview">Portal: overview</a> · <a href="https://www.developer.tech.gov.sg/products/categories/cybersecurity/litmus/how-it-works">Portal: how it works</a> · <a href="https://www.developer.tech.gov.sg/products/categories/cybersecurity/litmus/features-roadmap">Portal: features and roadmap</a> · <a href="https://www.developer.tech.gov.sg/products/categories/cybersecurity/litmus/getting-started">Portal: getting started</a> · <a href="https://github.com/govtech-responsibleai/playbook/blob/45908b48c0a8b6d3855a154c0e41a12958a99205/website/docs/tools/litmus.md">Playbook: Litmus</a> · <a href="https://github.com/govtech-responsibleai/playbook/blob/45908b48c0a8b6d3855a154c0e41a12958a99205/website/docs/tools/kaleidoscope.md">Playbook: Kaleidoscope</a> · <a href="https://govtech-responsibleai.github.io/kaleidoscope/">Kaleidoscope documentation</a> · <a href="https://isomer-user-content.by.gov.sg/22/6c4f97dc-3b8b-4701-8592-cd12d72012dd/20250916_Litmus%20and%20Sentinel%20one%20pager.pdf">Litmus and Sentinel one-pager</a> · <a href="https://github.com/dsaidgovsg/aiguardian-test-action/blob/190600937062c100d0c10181e3edf71702230244/action.yml">Sample GitHub Action</a> · <a href="https://github.com/aiverify-foundation/moonshot/blob/ab4dbbad9177ff8590838071de82079b6d47ad51/moonshot/integrations/web_api/schemas/benchmark_runner_dto.py">Moonshot request fields</a></p>
+  <p>Sources: GovTech's AI Guardian documentation for Litmus (the Overview, Getting Started, Troubleshooting and test information pages, read on 10 October 2026), GovTech's developer portal pages for Litmus, GovTech's Responsible AI playbook (the Litmus, Kaleidoscope and Safety evals pages, at one commit), the Kaleidoscope documentation, the GovTech Litmus and Sentinel one-pager, and GovTech's archived sample GitHub Action. The AI Verify Foundation's Moonshot code is cited only for the resemblance note. Litmus publishes no accuracy figures, so none appear on this page. Example messages are illustrative.</p>
+  <p><a href="https://www.aiguardian.gov.sg/docs/wiki/Litmus-Overview">Litmus overview</a> · <a href="https://www.aiguardian.gov.sg/docs/wiki/Litmus-Getting-Started">Litmus getting started</a> · <a href="https://www.aiguardian.gov.sg/docs/wiki/Litmus-Troubleshooting">Litmus troubleshooting</a> · <a href="https://www.aiguardian.gov.sg/docs/wiki/Test-Information-Documentation">Test information</a> · <a href="https://www.developer.tech.gov.sg/products/categories/cybersecurity/litmus/overview">Portal: overview</a> · <a href="https://www.developer.tech.gov.sg/products/categories/cybersecurity/litmus/how-it-works">Portal: how it works</a> · <a href="https://www.developer.tech.gov.sg/products/categories/cybersecurity/litmus/features-roadmap">Portal: features and roadmap</a> · <a href="https://www.developer.tech.gov.sg/products/categories/cybersecurity/litmus/getting-started">Portal: getting started</a> · <a href="https://github.com/govtech-responsibleai/playbook/blob/45908b48c0a8b6d3855a154c0e41a12958a99205/website/docs/tools/litmus.md">Playbook: Litmus</a> · <a href="https://github.com/govtech-responsibleai/playbook/blob/45908b48c0a8b6d3855a154c0e41a12958a99205/website/docs/tools/kaleidoscope.md">Playbook: Kaleidoscope</a> · <a href="https://github.com/govtech-responsibleai/playbook/blob/45908b48c0a8b6d3855a154c0e41a12958a99205/website/docs/evaluating-ai-systems/safety.mdx">Playbook: Safety evals</a> · <a href="https://govtech-responsibleai.github.io/kaleidoscope/">Kaleidoscope documentation</a> · <a href="https://isomer-user-content.by.gov.sg/22/6c4f97dc-3b8b-4701-8592-cd12d72012dd/20250916_Litmus%20and%20Sentinel%20one%20pager.pdf">Litmus and Sentinel one-pager</a> · <a href="https://github.com/dsaidgovsg/aiguardian-test-action/blob/190600937062c100d0c10181e3edf71702230244/action.yml">Sample GitHub Action</a> · <a href="https://github.com/aiverify-foundation/moonshot/blob/ab4dbbad9177ff8590838071de82079b6d47ad51/moonshot/integrations/web_api/schemas/benchmark_runner_dto.py">Moonshot request fields</a></p>
 </footer>
 
 </div>
