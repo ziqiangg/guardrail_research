@@ -33,6 +33,7 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| groups_v3 review Q1–Q4 | split C14 (docx §4 same-ground-truth not met: O exploit strings vs Code Shield "insecure coding practices, not exploitable vulnerabilities"; XSS no Code Shield evidence) → 34 groups, shown to user at approval; C7 one-group reasoning covers AS; carried pre-B1 rows keep wording, line 3 qualified; C30 stays single | main |
 | groups_v3 Q1/Q2/Q3/Q5/Q6 | marker → "Single-product: no comparator among the ten products yet" (build matches prefix only; formatting); C7 images one group (no direction flag on any member; R037 CK3 precedent) — flagged to user at approval; multi-product = members from ≥2 different products (C14 qualifies via NeMo O); builder update by xlsx-writer after approval; SDP AUP already recorded (SD6), Google AUP list → final summary | main |
 | B3 P10 user review | R041 approved; B3 closed | user |
 | cloak P10 fix Q1/Q2; litmus P10 O6/O9 | "MOHH (not spelled out there)" acceptable (honest gap); overview arrow label suffices; litmus "Edits text" cell hedged "(our reading)"; dev-swatch colour mismatch across pages → final-summary follow-up | main |

@@ -145,3 +145,4 @@
 - 2026-10-11 B3 CLOSED (R041): cloak and litmus done; ALL TEN PRODUCTS DONE. Next: sheet-4 regroup (needs user go-ahead)
 - 2026-10-11 sheet-4 regroup started (user: 'conduct the regroup'); gr-grouper drafting groups_v3.md over columns E..BN
 - 2026-10-11 groups_v3 drafted: 33 groups (15 multi, 18 single), all 62 columns covered, self-check 0 errors; suggested first C1 (input PII); main rulings Q1–Q3, Q5, Q6; fresh verifier started
+- 2026-10-11 groups_v3 review: PASS WITH FIXES (11 required incl. C14 split, marker, BM context rules, AM spaCy, Cloak engine independence, R032 wording, AS AUP, C13/C11 caveats, C31 reason); 19/25 MATCH; fix loop → grouper
