@@ -58,8 +58,8 @@ The source brief is `benchtest/AI Guardrails Research and Comparison.docx`. Its 
 | presidio | Presidio (created by Microsoft; moved to the independent `data-privacy-stack` org in 2026; data-privacy-stack sources are official and the prefix is `Presidio:` per R016) | done (AH–AM, 3f, diagram) |
 | modelarmor | Google Cloud Model Armor | done (AT–BC, 3h, diagram) |
 | sdp | Google Cloud Sensitive Data Protection (Cloud DLP) | done (AN–AS, 3g, diagram) |
-| purplellama | Meta Purple Llama: Prompt Guard 2, LlamaFirewall, Code Shield (columns); CyberSecEval (eval sheet); Llama Guard (existing, cross-referenced) | in progress (B2) |
-| lionguard | GovTech LionGuard (self-hosted models; cross-ref Sentinel AA) | in progress (B2) |
+| purplellama | Meta Purple Llama: Prompt Guard 2, LlamaFirewall, Code Shield (columns); CyberSecEval (eval sheet); Llama Guard (existing, cross-referenced) | done (BE–BK, 3j, 3k eval, diagram) |
+| lionguard | GovTech LionGuard (self-hosted models; cross-ref Sentinel AA) | done (BD, 3i, diagram) |
 | cloak | GovTech Cloak | to do (B3) |
 | litmus | GovTech Litmus (evaluation tool → eval sheet only, no Table 3 columns) | to do (B3) |
 

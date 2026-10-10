@@ -107,3 +107,4 @@
 - 2026-10-10 purplellama P9 done: 184 URLs: 132 ok, 51 github blob 429/503 (raw at same ref 200), 1 expected-404; 0 broken
 - 2026-10-10 purplellama P10 review: PASS WITH FIXES (8 required: PDF scanner mapping, Measuring row, AgentDojo, Semgrep LGPL 2.1, PG1 licence, rail 8 attribution, PyPI sentence, verbatim Llama Guard caption); 18/18 MATCH; fix loop → diagrammer
 - 2026-10-10 purplellama P10 fix loop done: RF1–RF8 + 13 optional; base CSS identical; awaiting user review
+- 2026-10-10 B2 CLOSED (R036): purplellama done; lionguard done (R035); CLAUDE.md Products table, status, handover updated. Next: B3 (cloak, litmus).
