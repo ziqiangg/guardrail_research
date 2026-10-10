@@ -29,6 +29,7 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| purplellama P10 Q1/Q2 (Retrieval Partly; AlignmentCheck own section) | Partly stands under R026 (Meta documents untrusted web content / PDF hidden-text example); section order accepted; Q3/Q4 → diagram verifier | main |
 | purplellama P8 Q1 (BG16 PL3 R7 Summary 61 words incl. label) | trim one word via gr-merger, rebuild before commit (word-limit auto-default); no new known non-failure | main |
 | purplellama P8 Q2 (3j panel layout Components/Scanners/Roles/Access paths) | accepted | main |
 | purplellama CP2 | R034 approved | user |
