@@ -99,3 +99,4 @@
 - 2026-10-10 lionguard post-P8 draft fix: R5 comparability [Inferred] → blog quote [Documented] + test-set identity [Not disclosed]; inventory (a) 2.1 threshold cell aligned; checks 0/0 (in 8ae4df7); xlsx re-apply next
 - 2026-10-10 lionguard P10 fix loop done: RF1–RF6 + O1–O10; old strings gone; base CSS identical; awaiting user review
 - 2026-10-10 lionguard post-P8 re-apply: compare vs HEAD exactly BD13 (value, runs) + 3i!I7 (value); verify 46/47 (one-shot check only); lionguard URLs file unchanged in content
+- 2026-10-10 purplellama P7: PASS WITH FIXES (7 required: PL7 threshold logic, PL3 R4 support, INV(b) REGEX, INV(g) labels, PL1 languages conflict, eval line ref, label leftovers); 30/32 MATCH; 186 URLs 0 real failures; fix loop sent to same merger

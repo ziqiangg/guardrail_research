@@ -1,0 +1,186 @@
+SKIP-API	https://api.llama.com/v1	EV Engine coverage
+SKIP-API	https://api.together.xyz/v1	EV Engine coverage
+200	https://arxiv.org/abs/2312.04724	EV Overview
+200	https://arxiv.org/abs/2404.13161	EV Overview
+200	https://arxiv.org/abs/2408.01605	EV Overview
+200	https://arxiv.org/abs/2509.20166	EV Overview,EV Published results,EV Tools
+200	https://arxiv.org/html/2404.13161	EV Published results
+200	https://arxiv.org/html/2408.01605	EV Published results,INV(g),PL4 R9,PL6 R9
+200	https://arxiv.org/html/2505.03574	INV(a),INV(c),INV(g),PL1 R9,PL2 R9,PL3 R9,PL4 R9,PL5 R9,PL6 R9
+200	https://dev.meta.ai/docs/models	PL1 R9
+200	https://dev.meta.ai/docs/overview	PL1 R9
+200	https://dev.meta.ai/llama/docs/model-cards-and-prompt-formats/prompt-guard	PL1 R9
+200	https://dev.meta.ai/llama/llama-protections	EV Overview,INV(e),INV(g),PL1 R9,PL4 R9,PL6 R9
+200	https://docs.python.org/3/library/asyncio-runner.html	PL2 R9
+200	https://docs.together.ai/docs/deprecations	PL3 R9,PL5 R9
+200	https://docs.together.ai/docs/inference/openai-compatibility	PL3 R9
+200	https://docs.together.ai/docs/privacy-and-security	INV(f),PL3 R9,PL5 R9
+200	https://docs.together.ai/docs/serverless/models	PL3 R9,PL5 R9
+200	https://docs.together.ai/docs/serverless/rate-limits	PL3 R9,PL5 R9
+200	https://docs.together.ai/docs/zero-data-retention	INV(f),PL3 R9,PL5 R9
+200	https://engineering.fb.com/2025/04/29/ai-research/autopatchbench-benchmark-ai-powered-security-fixes/	EV Overview,EV Published results,EV Tools
+200(HEAD)	https://files.pythonhosted.org/packages/70/f5/9dbd3b0a74c11323d967b0e1210a9fac0de068abc0c2e5dc08a6ee2094a5/llamafirewall-1.0.3.tar.gz	INV(a),PL2 R9,PL3 R9,PL5 R9,PL7 R9
+200(HEAD)	https://files.pythonhosted.org/packages/dd/0e/cb79d48ba05eda459a5a2e90b6056019cf7f41441cdee2a17e8dd63e5502/codeshield-1.0.1.tar.gz	INV(a),PL4 R9,PL6 R9
+200(raw)	https://github.com/CrowdStrike/CyberSOCEval_data/blob/ce7daa5bc7da51559ca97476d2277be02631783e/data/crowdstrike-reports/LICENSE.md	EV Datasets,INV(f)
+200(raw)	https://github.com/CrowdStrike/CyberSOCEval_data/blob/ce7daa5bc7da51559ca97476d2277be02631783e/data/hybrid-analysis/LICENSE.md	EV Datasets,INV(f)
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/.github/workflows/sites_deployment.yml	PL3 R9,PL5 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CodeShield/LICENSE	INV(f),PL4 R9,PL6 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CodeShield/README.md	INV(a),INV(e),INV(g),PL4 R9,PL6 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CodeShield/codeshield.py	INV(a),INV(e),PL4 R9,PL6 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CodeShield/example.py	PL6 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CodeShield/insecure_code_detector/README.md	INV(a),PL4 R9,PL6 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CodeShield/insecure_code_detector/insecure_code_detector.py	INV(a),INV(d),PL4 R9,PL6 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CodeShield/insecure_code_detector/insecure_patterns.py	PL4 R9,PL6 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CodeShield/insecure_code_detector/issues.py	PL6 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CodeShield/insecure_code_detector/languages.py	INV(d),PL4 R9,PL6 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CodeShield/insecure_code_detector/oss.py	INV(f),PL4 R9,PL6 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CodeShield/insecure_code_detector/rules/README.md	PL4 R9,PL6 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CodeShield/insecure_code_detector/rules/config.yaml	INV(d),PL4 R9,PL6 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CodeShield/insecure_code_detector/rules/regex/c.yaml	PL4 R9,PL6 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CodeShield/insecure_code_detector/rules/semgrep/_generated_/c_codeshield.json	PL4 R9,PL6 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CodeShield/insecure_code_detector/usecases.py	PL6 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CodeShield/notebook/CodeShieldUsageDemo.ipynb	PL6 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CodeShield/pyproject.toml	INV(a),INV(b),INV(f),PL4 R9,PL6 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/LICENSE	EV Overview,INV(a),INV(f)
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/README.md	EV Engine coverage,EV Overview,EV Red-teaming,EV Tools,INV(a),INV(e),INV(h)
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/benchmark/autonomous_uplift_benchmark.py	EV Tools
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/benchmark/autopatching_benchmark.py	EV Tools
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/benchmark/benchmark.py	INV(e)
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/benchmark/canary_exploit_benchmark.py	EV Tools
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/benchmark/crwd_meta/malware_analysis.py	EV Tools
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/benchmark/crwd_meta/threat_intel_reasoning_benchmark.py	EV Tools
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/benchmark/infrastructure/README.md	EV Red-teaming,EV Tools
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/benchmark/instruct_or_autocomplete_benchmark.py	EV Engine coverage,EV Tools
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/benchmark/interpreter_benchmark.py	EV Tools
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/benchmark/llm.py	EV Engine coverage
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/benchmark/llms/community_contribution/README.md	EV Engine coverage
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/benchmark/llms/llm_base.py	EV Engine coverage
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/benchmark/llms/together.py	EV Engine coverage
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/benchmark/mitre_benchmark.py	EV Tools
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/benchmark/mitre_frr_benchmark.py	EV Tools
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/benchmark/multiturn_phishing_benchmark.py	EV Tools
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/benchmark/prompt_injection_benchmark.py	EV Tools
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/benchmark/query_llm.py	EV Engine coverage
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/benchmark/run.py	EV Engine coverage,EV Overview,INV(e)
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/benchmark/visual_prompt_injection_benchmark.py	EV Tools
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/datasets/autocomplete/autocomplete.json	EV Datasets
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/datasets/canary_exploit/run.py	EV Tools
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/datasets/crwd_meta/malware_analysis/questions.json	EV Datasets
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/datasets/crwd_meta/threat_intel_reasoning/report_questions.json	EV Datasets
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/datasets/instruct/instruct-v2.json	EV Datasets
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/datasets/interpreter/interpreter.json	EV Datasets
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/datasets/mitre/mitre_benchmark_100_per_category_with_augmentation.json	EV Datasets
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/datasets/mitre/mitre_prompts_multilingual_machine_translated.json	EV Datasets
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/datasets/mitre_frr/mitre_frr.json	EV Datasets
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/datasets/prompt_injection/prompt_injection.json	EV Datasets,EV Tools
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/datasets/prompt_injection/prompt_injection_multilingual_machine_translated.json	EV Datasets
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/datasets/spear_phishing/multiturn_phishing_challenges.json	EV Datasets
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/datasets/third-party.txt	EV Datasets,INV(f)
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/requirements.txt	EV Engine coverage,INV(f),PL4 R9,PL6 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/website/docs/LICENSE.md	INV(f)
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/website/docs/benchmarks/prompt_injection.md	EV Engine coverage
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/website/docs/prompt_guard/model_card.md	INV(h)
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/website/docs/prompt_guard/overview.md	INV(h)
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/website/docs/user_guide/getting_started.md	EV Engine coverage
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LICENSE	INV(f),PL1 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/Llama-Prompt-Guard-2/22M/LICENSE	INV(a),INV(f)
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/Llama-Prompt-Guard-2/22M/MODEL_CARD.md	INV(a),INV(g)
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/Llama-Prompt-Guard-2/86M/LICENSE	INV(a),INV(f),PL1 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/Llama-Prompt-Guard-2/86M/MODEL_CARD.md	INV(a),INV(e),INV(g),PL1 R9,PL2 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/Llama-Prompt-Guard-2/86M/USE_POLICY.md	INV(f),PL1 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/Llama-Prompt-Guard-2/README.md	INV(e),INV(f),PL1 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/LICENSE	INV(f),PL2 R9,PL3 R9,PL4 R9,PL5 R9,PL7 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/README.md	INV(a),INV(c),INV(e),PL1 R9,PL2 R9,PL3 R9,PL4 R9,PL5 R9,PL7 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/examples/demo_alignmentcheck.py	PL3 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/examples/demo_customized_scanner_via_open_guardrails.py	INV(a),INV(b),PL5 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/examples/demo_langchain_agent.py	INV(e)
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/examples/demo_openai_guardrails.py	INV(e)
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/examples/langchain_agent.py	INV(e)
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/pyproject.toml	INV(a),INV(e),PL2 R9,PL3 R9,PL4 R9,PL5 R9,PL7 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/src/llamafirewall/cli/configure.py	INV(e),PL2 R9,PL3 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/src/llamafirewall/config.py	INV(c),INV(e),PL2 R9,PL3 R9,PL4 R9,PL5 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/src/llamafirewall/llamafirewall.py	INV(a),INV(b),INV(c),PL2 R9,PL3 R9,PL4 R9,PL5 R9,PL7 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/src/llamafirewall/llamafirewall_data_types.py	INV(b),INV(c),PL2 R9,PL3 R9,PL4 R9,PL5 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/src/llamafirewall/scanners/__init__.py	PL5 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/src/llamafirewall/scanners/base_scanner.py	INV(a),INV(b),PL3 R9,PL5 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/src/llamafirewall/scanners/code_shield_scanner.py	INV(a),INV(b),INV(e),PL4 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/src/llamafirewall/scanners/custom_check_scanner.py	INV(a),INV(b),INV(e),INV(f),PL3 R9,PL5 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/src/llamafirewall/scanners/experimental/alignmentcheck_scanner.py	INV(a),INV(b),INV(c),INV(e),PL3 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/src/llamafirewall/scanners/experimental/piicheck_scanner.py	INV(a),INV(b),INV(f),PL5 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/src/llamafirewall/scanners/hidden_ascii_scanner.py	INV(a),INV(b),PL7 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/src/llamafirewall/scanners/prompt_guard_scanner.py	INV(a),INV(b),PL2 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/src/llamafirewall/scanners/promptguard_utils.py	INV(a),INV(b),INV(e),PL1 R9,PL2 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/src/llamafirewall/scanners/regex_scanner.py	INV(a),INV(b),PL5 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/src/llamafirewall/utils/base_llm.py	INV(a),INV(b),INV(e),PL3 R9,PL5 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/tests/test_hidden_ascii_scanner.py	PL7 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/tests/test_multiple_scanners.py	PL7 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/website/docs/documentation/advanced-usage/adding-custom-scanner.md	INV(a),INV(b),PL5 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/website/docs/documentation/getting-started/adding-custom-use-case.md	INV(b),INV(c),PL2 R9,PL4 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/website/docs/documentation/getting-started/how-to-use-llamafirewall.md	PL2 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/website/docs/documentation/llamafirewall-architecture/architecture.md	PL5 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/website/docs/documentation/llamafirewall-architecture/workflow-and-detection-components.md	PL2 R9,PL3 R9,PL4 R9,PL5 R9,PL7 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/website/docs/documentation/scanners/alignment-check.md	INV(a),PL3 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/website/docs/documentation/scanners/code-shield.md	INV(a),INV(g),PL4 R9,PL6 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/website/docs/documentation/scanners/prompt-guard-2.md	PL2 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/website/docs/tutorials/alignment-check-scanner-tutorial.md	PL3 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/website/docs/tutorials/prompt-guard-scanner-tutorial.md	INV(b),PL5 R9,PL7 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/website/docs/tutorials/regex-scanner-tutorial.md	INV(a),INV(b),PL5 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/LlamaFirewall/website/docusaurus.config.js	PL3 R9,PL5 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/Prompt-Guard/MODEL_CARD.md	INV(a),INV(h)
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/Prompt-Guard/README.md	INV(a),INV(f)
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/README.md	INV(f),INV(h),PL1 R9
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/SensitiveDocClassification/LICENSE	INV(a)
+200(raw)	https://github.com/meta-llama/PurpleLlama/blob/172c1074069eb88ec834124272c1b1c4f8893445/SensitiveDocClassification/Readme.md	INV(a)
+TREE-OK(tree)	https://github.com/meta-llama/PurpleLlama/tree/172c1074069eb88ec834124272c1b1c4f8893445/CodeShield/insecure_code_detector/rules	PL6 R9
+TREE-OK(tree)	https://github.com/meta-llama/PurpleLlama/tree/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks	EV Overview
+TREE-OK(tree)	https://github.com/meta-llama/PurpleLlama/tree/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/benchmark	EV Engine coverage
+TREE-OK(tree)	https://github.com/meta-llama/PurpleLlama/tree/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/datasets	EV Red-teaming
+TREE-OK(tree)	https://github.com/meta-llama/PurpleLlama/tree/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/datasets/autonomous_uplift	EV Datasets
+TREE-OK(tree)	https://github.com/meta-llama/PurpleLlama/tree/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/datasets/autopatch	EV Datasets
+TREE-OK(tree)	https://github.com/meta-llama/PurpleLlama/tree/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/datasets/canary_exploit	EV Datasets
+TREE-OK(tree)	https://github.com/meta-llama/PurpleLlama/tree/172c1074069eb88ec834124272c1b1c4f8893445/CybersecurityBenchmarks/website/docs	INV(h)
+TREE-OK(tree)	https://github.com/meta-llama/PurpleLlama/tree/172c1074069eb88ec834124272c1b1c4f8893445/Llama-Guard	INV(h)
+TREE-OK(tree)	https://github.com/meta-llama/PurpleLlama/tree/172c1074069eb88ec834124272c1b1c4f8893445/Llama-Guard2	INV(h)
+TREE-OK(tree)	https://github.com/meta-llama/PurpleLlama/tree/172c1074069eb88ec834124272c1b1c4f8893445/Llama-Guard3	INV(h)
+TREE-OK(tree)	https://github.com/meta-llama/PurpleLlama/tree/172c1074069eb88ec834124272c1b1c4f8893445/Llama-Guard4	INV(h)
+200(raw)	https://github.com/meta-llama/llama-cookbook/blob/2f22a9eb030f92d0e99227e57e9a1123af1f9532/getting-started/responsible_ai/prompt_guard/inference.py	INV(e),PL1 R9,PL2 R9
+200(raw)	https://github.com/meta-llama/llama-cookbook/blob/2f22a9eb030f92d0e99227e57e9a1123af1f9532/getting-started/responsible_ai/prompt_guard/prompt_guard_tutorial.ipynb	INV(e),PL1 R9
+200(raw)	https://github.com/n132/ARVO-Meta/blob/51cfeab5/LICENSE	INV(f)
+200(raw)	https://github.com/semgrep/semgrep/blob/v1.180.0/LICENSE	INV(f),PL6 R9
+200(raw)	https://github.com/semgrep/semgrep/blob/v1.69.0/LICENSE	INV(f),PL6 R9
+200	https://huggingface.co/collections/meta-llama/metas-llama-31-models-and-evals	PL2 R9
+200	https://huggingface.co/datasets/facebook/cyberseceval3-visual-prompt-injection/raw/7933662024dc994be4ab90d520ab712e5765b655/README.md	EV Red-teaming,EV Tools
+200	https://huggingface.co/datasets/facebook/cyberseceval3-visual-prompt-injection/tree/7933662024dc994be4ab90d520ab712e5765b655	EV Datasets
+200	https://huggingface.co/datasets/facebook/llamafirewall-alignmentcheck-evals/raw/d50916c9ea26e374667c030268218b28c20626a3/README.md	EV Red-teaming,PL3 R9
+200	https://huggingface.co/datasets/facebook/llamafirewall-alignmentcheck-evals/tree/d50916c9ea26e374667c030268218b28c20626a3	PL3 R9
+200	https://huggingface.co/docs/huggingface_hub/en/package_reference/authentication	PL2 R9
+200	https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct	INV(f)
+200	https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct/tree/6f6073b423013f6a7d4d9f39144961bfbfbc386b	PL5 R9
+200	https://huggingface.co/meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8	INV(f),PL3 R9
+200	https://huggingface.co/meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8/tree/94125d2bd83076b21eed33119525e29eaf3894f4	PL3 R9
+200	https://huggingface.co/meta-llama/Llama-Prompt-Guard-2-22M	INV(e),PL1 R9
+200	https://huggingface.co/meta-llama/Llama-Prompt-Guard-2-22M/tree/11614a155199674a0a95e6602d6ab0417b790ed0	INV(a),PL1 R9
+200	https://huggingface.co/meta-llama/Llama-Prompt-Guard-2-86M	INV(e),INV(f),PL1 R9
+200	https://huggingface.co/meta-llama/Llama-Prompt-Guard-2-86M/tree/a8ded8e697ce7c355e395a0df51f94adb4a2fd27	INV(a),INV(e),PL1 R9,PL2 R9
+200	https://huggingface.co/meta-llama/Prompt-Guard-86M	INV(f)
+200	https://huggingface.co/meta-llama/Prompt-Guard-86M/tree/1209add6ca7d9c1d815171b8e5571587fe3e7b03	INV(a)
+200	https://huggingface.co/spaces/facebook/CyberSecEval/tree/164ca0b75d52e96ab9e0e1eab2cbe4eff7bf08dc	EV Published results
+200	https://meta-llama.github.io/PurpleLlama/CyberSecEval/	EV Overview,INV(h)
+200	https://meta-llama.github.io/PurpleLlama/CyberSecEval/docs/LICENSE	INV(f)
+200	https://meta-llama.github.io/PurpleLlama/CyberSecEval/docs/benchmarks/prompt_injection	EV Engine coverage
+200	https://meta-llama.github.io/PurpleLlama/LlamaFirewall/docs/documentation/advanced-usage/adding-custom-scanner	PL5 R9
+200	https://meta-llama.github.io/PurpleLlama/LlamaFirewall/docs/documentation/llamafirewall-architecture/architecture	PL5 R9
+200	https://meta-llama.github.io/PurpleLlama/LlamaFirewall/docs/documentation/scanners/alignment-check	PL3 R9
+200	https://meta-llama.github.io/PurpleLlama/LlamaFirewall/docs/documentation/scanners/code-shield	INV(g)
+200	https://meta-llama.github.io/PurpleLlama/LlamaFirewall/docs/tutorials/regex-scanner-tutorial	PL5 R9
+404	https://meta-llama.github.io/PurpleLlama/docs/benchmarks/prompt_injection	EV Engine coverage
+200	https://pypi.org/project/codeshield/	PL4 R9,PL6 R9
+200	https://pypi.org/project/llamafirewall/	INV(a),PL2 R9,PL3 R9,PL5 R9,PL7 R9
+200	https://pypi.org/simple/codeshield/	INV(a),PL4 R9,PL6 R9
+200	https://pypi.org/simple/llamafirewall/	INV(a),INV(e),PL2 R9,PL3 R9,PL4 R9,PL5 R9,PL7 R9
+200	https://semgrep.dev/legal/rules-license	INV(f),PL6 R9
+200	https://www.together.ai/models/llama-3-3-70b	PL5 R9
+200	https://www.together.ai/models/llama-4-maverick	PL3 R9
+200	https://www.together.ai/pricing	PL3 R9,PL5 R9
+200	https://www.together.ai/privacy	PL3 R9,PL5 R9
+200	https://www.together.ai/terms-of-service	INV(e),INV(f),PL3 R9,PL5 R9
