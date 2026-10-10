@@ -117,3 +117,4 @@
 - 2026-10-10 cloak P2 cols_a done (CK1): 157 bullets, check 0/0; Terms 3.4.7 quoted in R7 + R8 question
 - 2026-10-10 litmus P2 inventory done (option a): 4/5/6 = 15 rows, all inventory-only, check 0/0; P8 note: BLOCKS 4/5/6, panel with no Table 3 counts; optional playbooks.aip.gov.sg host not used (dropped, auto-default)
 - 2026-10-10 cloak P2 cols_b done (CK2 140, CK3 116 bullets), check 0/0; anonymise/restore sides as separate bullets
+- 2026-10-10 litmus P2 eval done: 8 sections (Tools 6, Datasets 16, Results 7), parse OK; P3 pass (eval parse + inventory 0/0). Minor slip disclosed: one unauthenticated GET to huggingface.co/api/datasets (public Hub listing; allowed category under P4 HF-metadata ruling but outside this brief; nothing used). P4 started
