@@ -31,6 +31,10 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| cloak P1 Q2 (Terms 3.4.7 "shall not … perform any benchmarking tests or analyses of the Service") | class (c) licensing at P4; clause recorded [Documented]; permitted-use stays an open R8 question decided before bench testing (R025 pattern, R032 wording) | main |
+| cloak P1 Q4 header tweaks | accepted for accuracy: CK2 `Cloak: Custom entity detection in free text (lists, regex and LLM)`; CK3 `Cloak: Reversible anonymisation and decryption (encrypt and restore)` (salts feed the one-way hash) | main |
+| cloak P1 sheet letter / block counts | letter at P8 (R003); counts fixed by the finals | main |
+| cloak P1 MDG ownership (Cloak portal vs Mirage) | inventory-only, both claims recorded; no contact with GovTech (read-only) | main |
 | explorer/20261010_cloak_q03 (prefix; Presidio overlap) | `Cloak:` (R009 owner's name as used in its docs; R031 precedent LionGuard:); cross-reference Presidio columns, never duplicate | main |
 | explorer/20261010_cloak_q02 (bench cannot self-serve access) | bench design → R032: drafts report "documented only; testing would need agency onboarding / GovTech written consent (Terms 3.3)" as a suggestion; not a user decision now | main |
 | explorer/20261010_litmus_q02 (Moonshot link from the sample Action) | record as [Inferred] with premise; engine stays [Not disclosed] (CLAUDE.md rule 2/3) | main |
