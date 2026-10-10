@@ -26,3 +26,7 @@ benchtest/scratchpad/**/cookbook/
 benchtest/scratchpad/**/hist/
 benchtest/scratchpad/**/purplellama_code/
 benchtest/scratchpad/drafter/litmus_p1/ata/
+# downloaded PDFs in drafter/resolver/verifier scratch (explorer keeps one evidence copy)
+benchtest/scratchpad/drafter/**/*.pdf
+benchtest/scratchpad/resolver/**/*.pdf
+benchtest/scratchpad/verifier/**/*.pdf
