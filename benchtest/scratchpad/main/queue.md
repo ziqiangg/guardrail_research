@@ -8,7 +8,7 @@
 | 3 | modelarmor | R024 (+ R025 pre-P8 merger edit first) | 2026-10-09 | bf4a66d |
 | 4 | lionguard | R033 | 2026-10-10 | 45f47e2 (+ fix 7078fa3) |
 | 5 | purplellama | R034 | 2026-10-10 | d51c79d |
-| 6 | cloak | R039 | 2026-10-10 | |
+| 6 | cloak | R039 | 2026-10-10 | b0e9698 |
 | 7 | litmus | R040 | 2026-10-10 | |
 
 ## Open questions (from agents)
