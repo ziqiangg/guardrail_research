@@ -33,6 +33,7 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| litmus P10 Q1–Q3 (title pattern; .sw.nd swatch; gate-role label) | evaluation-tool pages: title "How GovTech Litmus Tests an AI Application"; legend "Test run by Litmus"; .sw.nd allowed on any page (diagrams README §8 note) | main |
 | cloak CP2 | R039 approved | user |
 | litmus CP2 | R040 approved | user |
 | litmus P7 Q1/Q2 (org size source; bare /docs/wiki/ base path) | absence checks quoting an org size cite GitHub's organisation listing (more primary than search counts); add https://www.aiguardian.gov.sg/docs/wiki/ (403) to P9 expected non-200 | main |
