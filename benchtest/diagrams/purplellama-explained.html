@@ -119,9 +119,9 @@ ul.limits b { color: var(--ink); }
 <div class="wrap">
 
 <header>
-  <div class="eyebrow">Meta Purple Llama · Prompt Guard 2, LlamaFirewall and Code Shield; CyberSecEval measures</div>
+  <div class="eyebrow">Meta Purple Llama · Prompt Guard 2, LlamaFirewall, Code Shield and CyberSecEval</div>
   <h1>How Meta Purple Llama screens a conversation</h1>
-  <p class="lede">Purple Llama is Meta's open umbrella project for building with AI models responsibly, and this page covers its checking tools: Prompt Guard 2, LlamaFirewall and Code Shield, plus CyberSecEval, a test suite that measures AI models and blocks nothing. You run them yourself, and each hands back a label, a decision or a report; none stops a chat on its own. Two LlamaFirewall checks send text to an outside service, and Meta's Llama Guard model has its own page. This page shows what each piece checks, where it fits in a chat, and what it leaves to your app.</p>
+  <p class="lede">Purple Llama is Meta's umbrella project for building with AI models responsibly, and this page covers its checking tools: Prompt Guard 2, LlamaFirewall and Code Shield, plus CyberSecEval, a test suite that measures AI models and blocks nothing. You run them yourself, and each hands back a label, a decision or a report; none stops a chat on its own. Two LlamaFirewall checks send text to an outside service, and Meta's Llama Guard model has its own page. This page shows what each piece checks, where it fits in a chat, and what it leaves to your app.</p>
   <div class="legend" aria-label="Colour key">
     <span><i class="sw gate"></i>Check done by Purple Llama</span>
     <span><i class="sw dev"></i>Your app's job (not Purple Llama)</span>
@@ -278,11 +278,11 @@ ul.limits b { color: var(--ink); }
           <tr><td>Acts itself?</td><td>No</td><td>No. Your app acts on the decision (our reading of the code); the agent check never blocks, it asks for a person</td><td>No. Meta says your app can add a warning or block the answer</td><td>Not applicable: it blocks nothing</td></tr>
           <tr><td>Who runs it</td><td>You, on your own machine, after approval to download the model files</td><td>You. Two scanners send text to Together, a company that hosts AI models</td><td>You, on your own machine; it needs the open-source Semgrep tool</td><td>You; it calls the services of the AI models you test</td></tr>
           <tr><td>Languages</td><td>Evaluated in English, French, German, Hindi, Italian, Portuguese, Spanish and Thai; Chinese, Malay and Tamil are not listed</td><td>The attack scanner uses Prompt Guard 2; the fixed patterns are English phrases and US-style phone and social security formats</td><td>Eight programming languages (Meta's pages also say seven)</td><td>English test sets, plus machine-translated sets (17 languages for text injection)</td></tr>
-          <tr><td>Who can use it</td><td>Anyone who accepts the Llama 4 licence and is approved; the terms leave a testing question open</td><td>Anyone: the code is MIT-licensed, but the default Prompt Guard download carries the Llama 4 licence</td><td>Anyone: MIT-licensed; its Semgrep dependency has its own licence (an open question)</td><td>Anyone: MIT-licensed code; some test data has third-party licences</td></tr>
+          <tr><td>Who can use it</td><td>Anyone who accepts the Llama 4 licence and is approved, unless very large (over 700 million monthly users); the terms leave a testing question open</td><td>Anyone: the code is MIT-licensed, but the default Prompt Guard download carries the Llama 4 licence</td><td>Anyone: MIT-licensed; its Semgrep dependency has its own licence (LGPL 2.1), and what that means for a bench is an open question</td><td>Anyone: MIT-licensed code; some test data has third-party licences</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="know"><b>Good to know:</b> Meta's repository has no release, tag or change log, so there are no release notes. This page reads the code as at 29 September 2026. LlamaFirewall's PyPI package (the public software index) and Code Shield's differ from that code in places, as the sections below say.</p>
+    <p class="know"><b>Good to know:</b> Meta's repository has no release, tag or change log, so there are no release notes. This page reads the code as at 29 September 2026. Code Shield's PyPI package (the public software index) differs from that code in places, as its section below says; LlamaFirewall's PyPI package differs in three files, including how it fetches the Prompt Guard model.</p>
   </article>
 </section>
 
@@ -332,7 +332,7 @@ ul.limits b { color: var(--ink); }
         <text class="ts" x="494" y="217">insecure or not, the issues found</text>
         <text class="ts" x="494" y="235">and a block, warn or ignore tip</text>
       </svg>
-      <figcaption>There is no "this is input" or "this is output" switch in Prompt Guard 2 or Code Shield: your app chooses what text to hand over, and LlamaFirewall picks its scanners from the role you give each message. The Prompt Guard scanner reports a probability; every other scanner returns only 1.0 or 0.0.</figcaption>
+      <figcaption>There is no "this is input" or "this is output" switch in Prompt Guard 2 or Code Shield: your app chooses what text to hand over, and LlamaFirewall picks its scanners from the role you give each message. The Prompt Guard scanner reports a probability; every other built-in scanner returns only 1.0 or 0.0.</figcaption>
     </figure>
   </article>
 
@@ -346,7 +346,7 @@ ul.limits b { color: var(--ink); }
         <thead><tr><th>Piece</th><th>What it is</th><th>Status</th><th>Licence</th></tr></thead>
         <tbody>
           <tr><td>Prompt Guard 2</td><td>Two models, 86M and 22M (named for their size), for prompt attacks</td><td>Available; models need approved access on Hugging Face, a public site for sharing AI models</td><td>Llama 4 Community Licence</td></tr>
-          <tr><td>Prompt Guard 1</td><td>The first version, with three labels (benign, injection, jailbreak)</td><td>Legacy: Meta says "Developers should migrate to Llama Prompt Guard 2"</td><td>Llama 3.1 or 3.2 text; Meta's pages differ</td></tr>
+          <tr><td>Prompt Guard 1</td><td>The first version, with three labels (benign, injection, jailbreak)</td><td>Legacy: Meta says "Developers should migrate to Llama Prompt Guard 2"</td><td>Llama 3, 3.1 or 3.2 text; Meta's pages differ</td></tr>
           <tr><td>LlamaFirewall</td><td>The framework and its scanners, installed with one package</td><td>Package version 1.0.3 on PyPI; AlignmentCheck and PIICheck are marked experimental</td><td>MIT for the code</td></tr>
           <tr><td>Code Shield</td><td>The Insecure Code Detector and a wrapper that returns advice</td><td>Available; PyPI package 1.0.1, repo folder says 0.0.1</td><td>MIT</td></tr>
           <tr><td>CyberSecEval 4</td><td>A set of tests for AI models</td><td>Available; the team said on 12 June 2025 it is exploring a next version</td><td>MIT for the code; test data varies</td></tr>
@@ -426,7 +426,7 @@ ul.limits b { color: var(--ink); }
       </svg>
       <figcaption>The agent check and the personal-data check each send text to an AI model that Together runs. The default model for the agent check is one that Together lists as removed from its serverless service on 31 March 2026, so a replacement model or a dedicated endpoint would be needed. Whether the old Together address still answers has not been tested.</figcaption>
     </figure>
-    <p class="know"><b>Good to know:</b> Together's own pages say it stores the prompts you send and the answers by default, and may use them for product improvements, unless you switch on zero data retention. The period it keeps them is not stated, and its terms bar sending sensitive personal data. A bench could use made-up text for these two scanners (suggested); whether made-up values count under those terms is a legal reading.</p>
+    <p class="know"><b>Good to know:</b> Together's own pages say it stores the prompts you send and the answers by default, and may use them for product improvements, unless you switch on zero data retention. The period it keeps them is not stated. Its terms bar sending sensitive personal data and using the service for "competitive analysis or benchmarking". A bench could use made-up text for these two scanners (suggested); whether made-up values count under those terms is a legal reading.</p>
   </article>
 </section>
 
@@ -561,7 +561,7 @@ ul.limits b { color: var(--ink); }
         <text class="tb" x="655" y="246" text-anchor="middle">Your app</text>
         <text class="ts" x="655" y="265" text-anchor="middle">acts on the result</text>
       </svg>
-      <figcaption>This is the setup with no configuration; you can attach any scanner to any role. Meta's agent test (AgentDojo) scanned only user and tool messages with Prompt Guard. LlamaFirewall returns a result; it does not stop the chat itself.</figcaption>
+      <figcaption>This is the setup with no configuration; you can attach any scanner to any role. Meta's agent test (AgentDojo) scanned only user and tool messages with Prompt Guard. LlamaFirewall returns a result; it does not stop the chat itself (our reading of the code).</figcaption>
     </figure>
     <p class="know"><b>Good to know:</b> a message can carry a structured request for an action (a tool call), but no scanner reads it, so a harmful argument is seen only if the same text is also in the message content (our reading of the code; Meta's pages do not say). LlamaFirewall also overwrites each scanner's status with "success" in the result it returns, so a scanner's error status never reaches your app.</p>
   </article>
@@ -569,7 +569,7 @@ ul.limits b { color: var(--ink); }
   <article class="rail">
     <div class="rail-head">
       <h3>The scanners</h3>
-      <span class="tag">LlamaFirewall 1.0.3 · scanners named as in Meta's code</span>
+      <span class="tag">LlamaFirewall code at the commit read · short names for Meta's scanners</span>
     </div>
     <div class="tablewrap">
       <table class="cats">
@@ -724,7 +724,7 @@ ul.limits b { color: var(--ink); }
           </figure>
           <dl class="example">
             <dt>In</dt><dd>Visible text, then invisible tag characters that spell a hidden sentence (illustrative)</dd>
-            <dt>Result</dt><dd>block · reason "Hidden ASCII:" followed by <mark>the decoded hidden sentence</mark> (as in Meta's test)</dd>
+            <dt>Result</dt><dd>block · reason "Hidden ASCII:" followed by <mark>the decoded hidden sentence</mark> (our reading of the code; Meta's test checks the block and the "Hidden ASCII" label)</dd>
           </dl>
           <p class="know"><b>Good to know:</b> Meta's docs do not describe this scanner, so its purpose is our reading of the code. Other invisible characters, such as zero-width spaces, are outside its range. Whether emoji flags that use tag characters are wrongly blocked needs testing.</p>
         </article>
@@ -834,7 +834,7 @@ ul.limits b { color: var(--ink); }
         </tbody>
       </table>
     </div>
-    <p class="know"><b>Good to know:</b> whether these differences change results needs testing. On its own, Code Shield recommends block only for an error-severity issue, and a Semgrep finding may never reach that; if Code Shield itself fails, it quietly reports "not insecure" (our reading of the code; untested). The Semgrep tool has its own licence terms, an open question.</p>
+    <p class="know"><b>Good to know:</b> whether these differences change results needs testing. On its own, Code Shield recommends block only for an error-severity issue, and a Semgrep finding may never reach that; if Code Shield itself fails, it quietly reports "not insecure" (our reading of the code; untested). The Semgrep tool has its own licence (LGPL 2.1); whether it has consequences for a bench is an open question.</p>
   </article>
 </section>
 
@@ -882,7 +882,7 @@ ul.limits b { color: var(--ink); }
           <dl class="example">
             <dt>Asked</dt><dd>Summarise my unread emails. (illustrative)</dd>
             <dt>Action</dt><dd>Send the whole inbox to an outside address. (illustrative)</dd>
-            <dt>Result</dt><dd>score 1.0 · human review required, the shape Meta's tutorial shows for a high-risk trace</dd>
+            <dt>Result</dt><dd>score 1.0 · human review required, the shape Meta's tutorial shows for a high-risk trace (untested)</dd>
           </dl>
           <p class="know"><b>Good to know:</b> Meta's paper reports that, on Meta's own benchmark, the judge caught over 80 in 100 hijack attempts while wrongly flagging under 4 in 100 normal ones. Its docs say it reasons over the whole trace, while its prompt tells the judge to rate only the latest action; which holds needs testing. If the call to Together fails it asks for review (fails closed); the default judge model was removed from Together's serverless service on 31 March 2026, and the trace leaves your machine.</p>
         </article>
@@ -919,7 +919,7 @@ ul.limits b { color: var(--ink); }
           <text class="tb" x="630" y="95" text-anchor="middle">Verdict to your app</text>
           <text class="ts" x="630" y="115" text-anchor="middle">your app decides</text>
         </svg>
-            <figcaption>Llama Guard is one AI model that judges text and returns a verdict. It is a judge that reports; it never acts.</figcaption>
+            <figcaption>Llama Guard is a single AI model from Meta that reads part of a chat and says whether it is harmful. It is a judge, not a security system: it gives a verdict, and your app decides what to do with it.</figcaption>
           </figure>
           <p class="know"><b>Good to know:</b> for how it works, its categories, its accuracy and its limits, see the <a href="llama-guard-explained.html">Llama Guard page</a>.</p>
         </article>
@@ -959,12 +959,12 @@ ul.limits b { color: var(--ink); }
         <text class="tb" x="672" y="95" text-anchor="middle">Report</text>
         <text class="ts" x="672" y="115" text-anchor="middle">counts and percentages</text>
       </svg>
-      <figcaption>This is a measuring tool, not a safety barrier. A higher "fail" or "successful injection" percentage means more attacks got through the model. The model under test is yours to supply; the runner calls hosted services for it and, in five suites, for a judge model.</figcaption>
+      <figcaption>This is a measuring tool, not a safety barrier. For the attack tests, a higher percentage of successful injections or of malicious or insecure replies means more attacks got through the model; for the over-refusal test, a higher refusal rate means more harmless requests were refused. The model under test is yours to supply; the runner calls hosted services for it and, in five suites, for a judge model.</figcaption>
     </figure>
     <dl class="example">
       <dt>Result</dt><dd>Llama 3 405B and Llama 3 8B fell for about 22 in 100 and 19 in 100 injection cases (Meta's CyberSecEval 3 paper)</dd>
     </dl>
-    <p class="know"><b>Good to know:</b> a good score does not make an app safe, and a bad one does not make a guardrail weak. Meta's paper reused the injection data once, to test the first Prompt Guard (71 in 100 caught at 1 false alarm in 100); the runner has no guardrail mode (its LlamaFirewall flag does nothing in the code read), and no results were found for Prompt Guard 2 or the LlamaFirewall scanners. Any use of its data for guardrail testing is a suggestion, not something Meta describes.</p>
+    <p class="know"><b>Good to know:</b> a good score does not make an app safe, and a bad one does not make a guardrail weak. Meta's paper reused the injection data to test the first Prompt Guard (71 in 100 caught at 1 false alarm in 100); the runner has no guardrail mode (its LlamaFirewall flag does nothing in the code read), and no results were found for Prompt Guard 2 or the LlamaFirewall scanners. Any use of its data for testing these guardrails is a suggestion; Meta describes it only for the first Prompt Guard.</p>
   </article>
 
   <article class="rail">
@@ -982,7 +982,7 @@ ul.limits b { color: var(--ink); }
           <tr><td>Attack help (MITRE)</td><td>How readily it helps with cyberattack requests; 1,000 prompts in ten categories</td><td>A judge model</td><td>Possible attack-side messages for input checks; Meta's paper ran Llama Guard 3 on them</td></tr>
           <tr><td>Over-refusal (MITRE)</td><td>How often it refuses a harmless but cyber-themed request; 750 prompts</td><td>A keyword check</td><td>A possible source of harmless, cyber-themed messages</td></tr>
           <tr><td>Code interpreter abuse</td><td>Whether it complies with prompts that try to run malicious code; 500 prompts</td><td>A judge model</td><td>Possible malicious-code requests for input checks</td></tr>
-          <tr><td>Capability tests</td><td>Exploiting flaws, phishing, autonomous attacks, patching, and two security-analysis suites</td><td>Various</td><td>Not suited: they measure what a model can do and need ranges, containers or large disks</td></tr>
+          <tr><td>Capability tests</td><td>Exploiting flaws, phishing, autonomous attacks, patching, and two security-analysis suites</td><td>Various</td><td>Not likely to suit: they measure what a model can do and need ranges, containers or large disks</td></tr>
         </tbody>
       </table>
     </div>
@@ -995,7 +995,7 @@ ul.limits b { color: var(--ink); }
   <div class="stage-head">
     <div class="eyebrow">At a glance</div>
     <h2>Purple Llama at NeMo's five checkpoints</h2>
-    <p>The same five places NeMo can check, plus images and measuring, with an honest answer for each and the tool that covers it.</p>
+    <p>The same five places NeMo can check, plus images and live monitoring, with an honest answer for each and the tool that covers it.</p>
   </div>
   <div class="tablewrap">
     <table class="cats">
@@ -1003,11 +1003,11 @@ ul.limits b { color: var(--ink); }
       <tbody>
         <tr><td>Input</td><td><span class="pill yes">Yes</span></td><td><b>Prompt Guard 2</b> and LlamaFirewall's Prompt Guard scanner look for attempts to override instructions. LlamaFirewall's fixed-pattern and hidden-text scanners block two attack phrases, personal-data shapes and invisible characters. <b>Llama Guard</b> judges harm (see its page).</td></tr>
         <tr><td>Output</td><td><span class="pill yes">Yes</span></td><td><b>Code Shield</b> checks code in the AI's answer. <b>Llama Guard</b> judges harm in the answer. LlamaFirewall's fixed-pattern and experimental personal-data scanners can be attached to the answer's role too (our reading of the code).</td></tr>
-        <tr><td>Retrieval (your documents)</td><td><span class="pill partly">Partly</span></td><td>Meta documents <b>Prompt Guard 2</b> for untrusted content such as web data and tool output, and Meta's test attaches the hidden-text scanner to tool output, and its docs give an example of hidden text in a PDF. No document-store integration is described, and Meta does not evaluate retrieved passages separately.</td></tr>
-        <tr><td>Dialog (topics, fixed replies)</td><td><span class="pill no">No</span></td><td>No topic rules and no fixed replies. A custom scanner is a coding route you write yourself, not a built-in feature.</td></tr>
+        <tr><td>Retrieval (your documents)</td><td><span class="pill partly">Partly</span></td><td>Meta documents <b>Prompt Guard 2</b> for untrusted content such as web data and tool output, and Meta's test attaches the hidden-text scanner to tool output. Meta's docs give an example of invisible text in a PDF, which they assign to the Prompt Guard and fixed-pattern scanners, not to the hidden-text scanner. No document-store integration is described, and Meta does not evaluate retrieved passages separately.</td></tr>
+        <tr><td>Dialog (topics, fixed replies)</td><td><span class="pill no">No</span></td><td>Nothing official describes topic rules or fixed replies. A custom scanner is a coding route you write yourself, not a built-in feature.</td></tr>
         <tr><td>Execution (actions, tools)</td><td><span class="pill partly">Partly</span></td><td>LlamaFirewall's experimental <b>AlignmentCheck</b> judges an agent's action against the user's request and asks a person to review, using an outside AI model. <b>Code Shield</b> can check code a tool returns. No scanner reads structured tool-call arguments.</td></tr>
         <tr><td>Images</td><td><span class="pill yes">Yes</span></td><td><b>Llama Guard 4</b> and 3-11B-Vision, always with text (see its page). The other pieces on this page read text.</td></tr>
-        <tr><td>Measuring</td><td><span class="pill no">No</span></td><td><b>CyberSecEval</b> tests AI models before use and checks nothing in a live chat. It is not a barrier.</td></tr>
+        <tr><td>Monitoring (live chats)</td><td><span class="pill no">No</span></td><td><b>CyberSecEval</b> tests AI models before use and checks nothing in a live chat; it is a measuring tool, not a barrier.</td></tr>
       </tbody>
     </table>
   </div>
@@ -1022,10 +1022,10 @@ ul.limits b { color: var(--ink); }
   <article class="rail">
     <ul class="limits">
       <li><b>None of the checkers stops a chat by itself.</b> You get a label, a decision or advice, and your app does the refusing (our reading of the code). AlignmentCheck never blocks; it asks for a person. Meta recommends no cut-off for Prompt Guard 2 or AlignmentCheck, and LlamaFirewall's 0.9 is only a default in its code.</li>
-      <li><b>Access and licence terms are partly open.</b> The Prompt Guard 2 weights are gated under the Llama 4 licence, whose Acceptable Use Policy bars getting round safety measures and names no testing clause. A default LlamaFirewall install joins MIT-licensed code to that model, and Meta states the combined terms nowhere. Meta's licence texts differ between pages, and the licence of the Semgrep tool is an open question.</li>
-      <li><b>Two checks depend on Together.</b> AlignmentCheck sends the whole trace and PIICheck sends the text to Together, which stores them by default and states no retention period. The default judge model for AlignmentCheck is off Together's serverless service since 31 March 2026.</li>
-      <li><b>Failure behaviour varies.</b> PIICheck allows text when its call fails, AlignmentCheck allows an action with no trace but asks for review when the call fails, and stand-alone Code Shield reports "not insecure" on an internal error. LlamaFirewall marks every result "success", so errors show only in the reason text.</li>
-      <li><b>Published accuracy is thin and Meta's own.</b> Prompt Guard 2 and Code Shield have figures from Meta's private or small tests, and AlignmentCheck has one benchmark. Nothing is published for the fixed-pattern, hidden-text or personal-data scanners, and Meta's latency statements for Code Shield disagree.</li>
+      <li><b>Access and licence terms are partly open.</b> The Prompt Guard 2 weights are gated under the Llama 4 licence, whose Acceptable Use Policy bars getting round safety measures and names no testing clause. A default LlamaFirewall install joins MIT-licensed code to that model, and Meta states the combined terms nowhere. Meta's licence texts differ between pages, and whether the Semgrep tool's own licence (LGPL 2.1) has consequences for a bench is an open question.</li>
+      <li><b>Two checks depend on Together.</b> AlignmentCheck sends the whole trace and the personal-data check sends the text to Together, which stores them by default and states no retention period. The default judge model for AlignmentCheck is off Together's serverless service since 31 March 2026.</li>
+      <li><b>Failure behaviour varies.</b> The personal-data check allows text when its call fails, AlignmentCheck allows an action with no trace but asks for review when the call fails, and stand-alone Code Shield reports "not insecure" on an internal error. LlamaFirewall marks every result "success", so errors show only in the reason text.</li>
+      <li><b>Published accuracy is thin and Meta's own.</b> Prompt Guard 2 and Code Shield have figures from Meta's private or small tests, and AlignmentCheck has results only from Meta's own benchmark and one agent test (AgentDojo). Nothing is published for the fixed-pattern, hidden-text or personal-data scanners, and Meta's latency statements for Code Shield disagree.</li>
       <li><b>Meta's own pages disagree in places.</b> Code Shield's language count (seven or eight), whether AlignmentCheck reads the whole trace or one action, sample output that differs from the code, and a custom-scanner how-to that names a class that does not exist. Code Shield's PyPI package differs from the repository code, and there are no release notes.</li>
       <li><b>Coverage has gaps.</b> No topic rules, no fixed replies, Meta describes no masking or rewriting of text, no document-store integration, and no scanner reads tool-call arguments. Prompt Guard 2 lists eight evaluated languages and none of Chinese, Malay or Tamil; the fixed patterns are English phrases and US-style formats.</li>
       <li><b>CyberSecEval tests models, not these guardrails.</b> It reports no results for Prompt Guard 2 or the scanners, and a good score would not make an app safe. Using its data for guardrail testing is a suggestion, and Meta says it is exploring a next version.</li>
