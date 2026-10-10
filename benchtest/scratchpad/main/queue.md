@@ -31,6 +31,7 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| litmus P5 Q1–Q5 | Open-question bullets: [To be verified]/[Not disclosed] only (NeMo/CyberSecEval precedent); keep playbook staging pin + production-vs-staging note in EV:3/INV:5 (Sentinel 3e note → final-summary follow-up, product done); Overview Summary = recommended text with eligibility + proof-of-concept qualifiers (44 w); Baseline⊂Baseline+ [Documented] in both files, id mapping stays [Inferred]; non-vendor reads logged (unrelated `litmus` PyPI wheel read as zip only) | main |
 | cloak P5 Q1–Q5 | accept 3 INV(e) Terms/Privacy rows (blocks 10/8/26/9/28/4 = 85); presidio.dataprivacystack.org URLs official (R016), Cloak's own 404 link kept as HTTP fact; Sentinel PII column = AF (sheet 3); T66 default-on rows stay [Inferred] (page shows SG_ADDRESS_STREET off, so "all available" is loose); local PyMuPDF install to render a vendor PDF logged as acceptable (third-party tool, scratch only, deleted) | main |
 | cloak CP1 (three columns; CK3 one column) | R037 | user |
 | litmus CP1 (small inventory sheet; Kaleidoscope one Tools row) | R038 | user |

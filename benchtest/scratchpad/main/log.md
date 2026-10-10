@@ -123,3 +123,4 @@
 - 2026-10-10 cloak P4 done: 75 items (a 27, b 36, c 12), H 13; Q2–Q6 ruled by main; CP1 Q01 + CK3 split → user (batched with litmus)
 - 2026-10-10 CP1 (user) B3: cloak R037 (CK1–CK3, CK3 one column), litmus R038 (inventory sheet yes, Kaleidoscope one row). P5 started
 - 2026-10-10 cloak P5 done: 39 items (36 resolved, 2 partly, 1 correction T57 deck shows no restore step); 4 Summary changes; inventory → 85 rows; Q1–Q5 ruled by main; P6 started
+- 2026-10-10 litmus P5 done: 63 items (35 resolved, 5 partly, 21 open, 2 corrections T11 locators, T55 three hosts/five sources); Overview + Engine Summaries rewritten; staging vs production playbook wording (C14); Q1–Q5 ruled by main; P6 started
