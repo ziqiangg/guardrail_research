@@ -33,6 +33,7 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| litmus P10 review Q1/Q2 | Kaleidoscope = one body mention + footer source (limits item 8 deleted, 7 items OK); "test case" wording made consistent (O1 applied) | main |
 | cloak P10 Q1–Q4 | legend swatch reads "Not disclosed" (README §8 note) → verifier required fix; Output Partly and reversible Partly stand (drafts [Inferred]); planned Sentinel box stays in the access diagram only | main |
 | litmus P10 Q1–Q3 (title pattern; .sw.nd swatch; gate-role label) | evaluation-tool pages: title "How GovTech Litmus Tests an AI Application"; legend "Test run by Litmus"; .sw.nd allowed on any page (diagrams README §8 note) | main |
 | cloak CP2 | R039 approved | user |
