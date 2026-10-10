@@ -31,6 +31,8 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| cloak P4 Q2–Q6 | Pseudonymise row stays CK1; CK3 (salt bullets in CK3); Inclusion row CK1; CK2; P5 may read Terms 4.2, 6.1, definitions and Privacy Statement (R019); login-gated pages keep [Not disclosed] + HTTP fact (R007 item 6) uniformly; list-limit Summary "500 (words or entries; the docs differ)" with the R8 question open | main |
+| cloak P4 Q1 (CK3 direction split) | → user at CP1 (R002 is a user ruling) | main |
 | litmus P4 Q1 (browser User-Agent on public GETs; huggingface.co/api/datasets listing) | UA header on public GET reads is acceptable (no sign-in; fetch_text precedent); HF listing covered by P4 Hub-metadata ruling; log, don't repeat | main |
 | litmus P4 Q2 (read-only residual checks: PyPI page, Moonshot/AIVF pages, real Sentinel getting-started + playbook Sentinel page) | allowed, no installs/runs | main |
 | litmus P4 Q3 (Summary text T20/T21/T4/T51) | resolver proposes exact text with counts ≤ limit−1 excl. label (lessons 18); merger applies; verifier checks | main |
