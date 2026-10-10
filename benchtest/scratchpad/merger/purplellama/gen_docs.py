@@ -20,6 +20,7 @@ open(D + "purplellama_inventory_final.md", "w", encoding="utf-8").write(V.render
 n_inv = len(L.LOG)
 E = L.Ev(D + "purplellama_eval_tooling.md")
 M.ops_ev.apply(E)
+M.ops_p7.apply_ev(E)
 open(D + "purplellama_eval_tooling_final.md", "w", encoding="utf-8").write(
     E.render("## Topic: Meta CyberSecEval 4 evaluation tooling (reuse assessment for the test bench)"))
 LOG = list(L.LOG)
@@ -555,6 +556,20 @@ for x in chk_inv:
 w("```")
 w("")
 w("Exit codes: columns %d, inventory %d. The one warning is 'several prefixes used', expected for three per-tool prefixes." % (r1.returncode, r2.returncode))
+w("")
+w("")
+w("## 9. Verifier fixes")
+w("")
+w("Source: purplellama_review.md (gr-verifier, 2026-10-10), verdict PASS WITH FIXES, 7 required fixes and the optional suggestions, all applied by gr-merger in the P7 fix loop through the same scripts (ops_p7.py, called by merge_pl.py and gen_docs.py), so the finals, this log and the Summary preview stay in sync. Each change also appears in the section 2, 3 or 3b tables with the reason 'P7 fix n' or 'P7 opt'. Block counts are unchanged (16, 8, 11, 16, 12, 8, 12, 5) and no Covered-by value changed. Summaries changed: PL1 R2 (fix 5) and PL1 R4 (optional), so the changed-Summary count is %d of 63." % len(changed))
+w("")
+w("| Fix | Location | Before | After | Reason |")
+w("|---|---|---|---|---|")
+for x in LOG:
+    if x["reason"].startswith("P7"):
+        m = re.match(r"P7 (fix \d+|opt)", x["reason"])
+        w("| %s | %s (%s) | %s | %s | %s |" % (m.group(1), x["loc"], x["kind"], short(x["before"]), short(x["after"]), short(x["reason"], 260)))
+w("")
+w("Checker output after the fixes: columns '%s'; inventory '%s'; eval file parses (8 sections). The columns line carries the expected 'several prefixes' warning only." % (chk_cols[-1], chk_inv[-1]))
 w("")
 open(D + "purplellama_changes.md", "w", encoding="utf-8").write("\n".join(O).rstrip("\n") + "\n")
 print("changes written; cols/inv/eval edits:", len(COLLOG), len(INVLOG), len(EVLOG), "changed summaries:", len(changed))

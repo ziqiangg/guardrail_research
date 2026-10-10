@@ -10,7 +10,7 @@ Detail:
 • Model type: "Llama Prompt Guard 2 are BERT models that output only labels; unlike Llama Guard, Llama Prompt Guard 2 doesn't need a specific prompt structure or configuration." (dev.meta.ai Prompt Guard page, read 2026-10-09) **[Documented]**
 • Meta writes the name three ways: "Llama Prompt Guard 2" (model card and docs page), "Prompt Guard 2" (protections page) and "PromptGuard 2" (LlamaFirewall docs and paper) (pages named, read 2026-10-09) **[Documented]**
 ### R2
-Summary: **Explicit instruction-override attempts.** The model flags prompts that explicitly try to override earlier instructions, whether jailbreaks or injected instructions in untrusted text, regardless of harm. There is no injection sub-label, and eight languages were evaluated. **[Documented]**
+Summary: **Explicit instruction-override attempts.** The model flags prompts that explicitly try to override earlier instructions, whether jailbreaks or injected instructions in untrusted text, regardless of harm. There is no injection sub-label, and the card lists eight evaluated languages. **[Documented]**
 Detail:
 • Attack types: prompt injections "manipulate untrusted third-party and user data in the context window to make a model execute unintended instructions"; jailbreaks are "malicious instructions designed to override the safety and security features directly built into a model" (86M/MODEL_CARD.md@172c1074:8-9) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
 • Scope: "classify prompts as 'malicious' if the prompt explicitly attempts to override prior instructions embedded into or seen by an LLM" (86M/MODEL_CARD.md@172c1074:22) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
@@ -20,6 +20,7 @@ Detail:
 • Wording differs by source: the LlamaFirewall README calls it a detector of "direct prompt injection attempts" and the LlamaFirewall docs page says "direct jailbreak attempts", while the model card says both injection and jailbreak (LlamaFirewall/README.md@172c1074:27) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
 • Examples named by the card: "variants of 'ignore previous instructions'" and DAN prompts (86M/MODEL_CARD.md@172c1074:98-99) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
 • Languages evaluated: "English, French, German, Hindi, Italian, Portuguese, Spanish, and Thai"; the 86M model "uses a multilingual base model and is trained to detect both English and non-English injections and jailbreaks" (86M/MODEL_CARD.md@172c1074:25) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
+• Source conflict, language count (paper side): the paper's multilingual set is "the same dataset machine-translated into eight additional languages", one more than the seven non-English languages the card lists; the paper names none of them (arXiv 2505.03574 appendix A.2) **[Documented]**
 • 22M is weaker on other languages: "There is no version of deberta-xsmall with multilingual pretraining available" (86M/MODEL_CARD.md@172c1074:106) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
 • Meta advice on language fit: "Developers in resource constrained environments and focused only on English text will likely prefer the 22M model" (dev.meta.ai Prompt Guard page, read 2026-10-09) **[Documented]**
 • Adversarial tokenisation is addressed: the tokenizer was refined "to mitigate adversarial tokenization attacks, such as whitespace manipulations and fragmented tokens" (86M/MODEL_CARD.md@172c1074:17) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
@@ -40,7 +41,7 @@ Detail:
 • Contrast with Llama Guard (columns V to Z): Prompt Guard 2 "doesn't need a specific prompt structure or configuration" (dev.meta.ai Prompt Guard page, read 2026-10-09) **[Documented]**
 • Long inputs must be split by the caller: "For longer inputs, split prompts into segments and scan them in parallel to ensure violations are detected." (86M/MODEL_CARD.md@172c1074:24) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
 ### R4
-Summary: **Small DeBERTa classifiers, run locally.** Two fine-tuned models, 86M on mDeBERTa-base and 22M on DeBERTa-xsmall, trained with an energy-based loss. Training used a mix of open-source and synthetic data. **[Documented]**
+Summary: **Small DeBERTa classifiers, run locally (the 86M model is also on Hugging Face's hosted inference).** Two fine-tuned models, 86M on mDeBERTa-base and 22M on DeBERTa-xsmall, trained with an energy-based loss. Training used a mix of open-source and synthetic data. **[Documented]**
 Detail:
 • Base models: "mDeBERTa-base for the base version of Llama Prompt Guard 2 86M, and DeBERTa-xsmall as the base model for Llama Prompt Guard 2 22M. Both are open-source, MIT-licensed models from Microsoft." (86M/MODEL_CARD.md@172c1074:63) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
 • Paper confirms the families: "mDeBERTa-base (86M parameters) and DeBERTa-xsmall (22M parameters)" (arXiv 2505.03574 section 4.1) **[Documented]**
@@ -108,6 +109,7 @@ Detail:
 • The cookbook inference.py splits each text into chunks of 512 tokens, scores the chunks in batches (default batch size 16, default device "cpu") and takes the highest chunk score as the text's score (inference.py:18-21,168-188) **[Documented: repo meta-llama/llama-cookbook@2f22a9eb]**
 • Libraries in the card's examples: transformers (pipeline, `AutoTokenizer`, `AutoModelForSequenceClassification`) and torch; versions are not stated (86M/MODEL_CARD.md@172c1074:31-56) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
 • Access: the weights are gated, "Log in or Sign Up to review the conditions and access this model content" (HF 86M gate page, read 2026-10-09) **[Documented]**
+• Access is approved manually ("manual" gate in the Hub metadata) **[Documented: repo meta-llama/Llama-Prompt-Guard-2-86M@a8ded8e6]**
 • The gate requires accepting the Llama 4 Community License Agreement, which incorporates the Acceptable Use Policy by reference (HF 86M gate page, read 2026-10-09) **[Documented]**
 • Hardware: the published latency is for an A100 GPU at 512 tokens; the paper says the models run locally "on both CPU and GPU" (86M/MODEL_CARD.md@172c1074:71) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
 • Input language: the evaluated set is English, French, German, Hindi, Italian, Portuguese, Spanish and Thai (86M/MODEL_CARD.md@172c1074:25) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
@@ -132,6 +134,7 @@ Detail:
 • Actual 22M versus 86M gap on non-English prompts, since only the 22M multilingual weakness is stated in words and the card gives AUC .942 against .995 (needs testing)
 • CPU latency, memory use and throughput (needs testing)
 • The paper prints an 86M English AUC of ".98" and the card prints ".998"; which is correct is not stated (checked both card copies and the single paper version)
+• Which languages the paper's "eight additional languages" are, given that the card lists seven besides English (checked the card and the paper; not stated)
 • Why the Hugging Face parameter totals (278.8M and 70.8M) exceed the card's 86M and 22M backbone figures (checked the card and paper; no explanation)
 • Whether the Llama 4 Acceptable Use Policy permits using attack and jailbreak prompts to test the model: section 1 item h bars intentionally circumventing or removing safety measures, and no clause names security testing (licensing question; the full licence and policy text were searched)
 • Whether the Additional Commercial Terms clause (more than 700 million monthly active users of the licensee and its affiliates on the Llama 4 release date) applies to the bench owner's organisation (licensing question)
@@ -224,7 +227,7 @@ Detail:
 • The 1.0.3 sdist (PyPI sdist llamafirewall-1.0.3, sha256 54fe55c8, read 2026-10-09) has promptguard_utils.py calling HfFolder.get_token() and loading the tokenizer without fix_mistral_regex (src/llamafirewall/scanners/promptguard_utils.py lines 12, 59, 66, 73) **[Documented]**
 • At the pin, promptguard_utils.py uses huggingface_hub get_token and passes fix_mistral_regex=True (promptguard_utils.py@172c1074:12,57,64-66,73-75) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
 • The sdist has the same PromptGuard scanner file as the pin, so the model loader is the one behavioural difference found in this scanner's files (premise: file-by-file comparison of the unpacked sdist with LlamaFirewall/ at the pin, line endings ignored) **[Inferred]**
-• The pinned code is newer than release 1.0.3: the version was set on 2025-05-28 (commit 55ff24c) and promptguard_utils.py changed on 2026-01-16 (e4c281b) and 2026-03-26 (9a3d175) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
+• The pinned code is newer than release 1.0.3: the version was set on 2025-05-28 (commit 55ff24c) and promptguard_utils.py changed on 2026-01-16 (e4c281b) and 2026-03-26 (9a3d175), among other commits **[Documented: repo meta-llama/PurpleLlama@172c1074]**
 • Dependencies include torch>=2.4.1, transformers>=4.51.3 and `huggingface_hub`>=0.30.2 (LlamaFirewall/pyproject.toml@172c1074:15-22) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
 • Python 3.10 or later is required (LlamaFirewall/README.md@172c1074:53) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
 • LlamaFirewall code is MIT licensed (LlamaFirewall/LICENSE@172c1074:1) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
@@ -385,6 +388,7 @@ Detail:
 • Licence of the scanner code: MIT (`LlamaFirewall/LICENSE@172c1074:1`) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
 • Licence of the default judge model: the Hugging Face metadata for the FP8 repo shows `license_name: llama4`, gated "manual" (Hugging Face Hub model metadata JSON, public, observed 2026-10-09); this is a separate Llama licence, not the MIT licence of the scanner **[Documented: repo meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8@94125d2b]**
 • Hosting: the code points at Together AI, a third-party service; Meta documents only that the Together key is needed (Meta docs, not Together docs) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
+• Together's deprecation history (not Meta docs, read 2026-10-09) lists `meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8` among models removed from serverless inference, removal date 2026-03-31; R6 gives the details **[Documented]**
 • Engine and wrapper: `CustomCheckScanner` is the shared LLM-prompt base class (also used by PIICheckScanner); AlignmentCheck adds the prompt, the schema and the score rule. The base class is described in the "LlamaFirewall: Regex pattern blocking and custom scanners (Regex scanner)" column **[Inferred]**
 ### R5
 Summary: **Binary verdict that never blocks.** The score is 1.0 or 0.0, and the decision is human-in-the-loop required or allow, never block. Meta reports over 80% recall at under 4% false positives on its own benchmark. **[Documented]**
@@ -407,6 +411,7 @@ Detail:
 • The paper links the dataset facebook/llamafirewall-alignmentcheck-evals for this benchmark (arXiv 2505.03574 Appendix A.1, footnote) **[Documented]**
 • Source conflict, benchmark size (card side): the dataset card says "577 test cases" and "577 (test cases) * 6 (models) = 3462 cases", with a label field is_malicious and no stated benign and malicious split; licence mit, not gated (dataset card at revision d50916c9) **[Documented: repo facebook/llamafirewall-alignmentcheck-evals@d50916c9]**
 • The card lists per-case fields: system prompt, prompts, the model's response, is_malicious, injected tool, attack type and category, whether the injection succeeded, and the AlignmentCheck judge decision with its system and user prompts; the JSON file is 315,677,456 bytes (HTTP HEAD, 2026-10-09) and was not downloaded **[Documented: repo facebook/llamafirewall-alignmentcheck-evals@d50916c9]**
+• The dataset card says "This dataset should not be used to train models and should be for evaluation purposes only" (dataset card at revision d50916c9) **[Documented: repo facebook/llamafirewall-alignmentcheck-evals@d50916c9]**
 • Published number, AgentDojo: baseline "attack success rate (ASR) of 17.6% and a task utility of 47.7%"; AlignmentCheck with Maverick "reduction in ASR to 2.89% - an 84% drop relative to baseline, but at the cost of lower utility (43.1%)" (arXiv 2505.03574 section 4.3.2) **[Documented]**
 • The same paper gives a different rounding in section 4.2: "83% reduction in attack success rate, lowering it from 0.18 (no defenses) to 0.03"; the two are consistent within rounding but the percentages differ (arXiv 2505.03574 sections 4.2 and 4.3.2) **[Documented]**
 • Combined with PromptGuard 2 86M the paper reports ASR 1.75% and utility 42.7% (arXiv 2505.03574 section 4.3.2) **[Documented]**
@@ -537,7 +542,7 @@ Detail:
 • Limit: ICD "operates on a 'best guess' basis" and "can lead to false positives" (CodeShield/insecure_code_detector/README.md@172c1074:36) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
 • Paper limit: CodeShield "is not comprehensive and may miss nuanced or context-dependent vulnerabilities" (arXiv 2505.03574 section 4.4) **[Documented]**
 • Rules enabled for the CODESHIELD use case: config.yaml lists 38 regex rule ids (8 of them language-agnostic) and 77 Semgrep rule ids for the eight default languages; Rust lists none of its own (premise: counted by parsing CodeShield/insecure_code_detector/rules/config.yaml@172c1074:1-407) **[Inferred]**
-• A count of distinct cwe_id values in the rules enabled for this scanner use case gives 46 across the eight default languages, below the "over 50" claim; the CyberSecEval rule set gives 62 and all rule files 64 (premise: parsing the regex YAML files and the generated Semgrep JSON files; one rule, vulnerable-strcpy, has no cwe_id) **[Inferred]**
+• A count of distinct cwe_id values in the rules enabled for this scanner use case gives 46 across the eight default languages, below the "over 50" claim; the CyberSecEval rule set gives 62 for the eight default languages (64 over all its languages) and all rule files 64 (premise: parsing the regex YAML files and the generated Semgrep JSON files; one rule, vulnerable-strcpy, has no cwe_id) **[Inferred]**
 ### R3
 Summary: **Assistant and tool text, as plain strings.** The scanner reads only the message content and scans it as code in all default languages. It is attached to the assistant and tool roles by default and by the coding-assistant use case. **[Documented]**
 Detail:
@@ -563,7 +568,7 @@ Detail:
 • llamafirewall 1.0.3 in the repo requires "codeshield>=1.0.1" (LlamaFirewall/pyproject.toml@172c1074:7,15) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
 • PyPI simple index lists codeshield up to 1.0.1 and llamafirewall up to 1.0.3 (PyPI simple index, observed 2026-10-09) **[Documented]**
 • The repo CodeShield folder declares version "0.0.1" (CodeShield/pyproject.toml@172c1074:3) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
-• The PyPI 1.0.1 sdist differs from the pinned CodeShield folder in nine Python files and the Kotlin generated files, with identical rule YAML and config files (see the Code Shield column, R4; premise: file-by-file comparison of the unpacked sdist PyPI sdist codeshield-1.0.1, sha256 61866b92, read 2026-10-09 with the pin) **[Inferred]**
+• The PyPI 1.0.1 sdist differs from the pinned CodeShield folder in nine Python files and the Kotlin generated files, with identical rule YAML and config files (see the Code Shield column, R4; premise: file-by-file comparison of the unpacked sdist (PyPI sdist codeshield-1.0.1, sha256 61866b92, read 2026-10-09) with the pin) **[Inferred]**
 • Use case: the scanner calls the engine with UseCase.CODESHIELD, the fast mode (code_shield_scanner.py@172c1074:49) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
 • In that mode regex runs first and returns on any match, and Semgrep runs only if a quick regex pre-scan recommends it (insecure_code_detector.py@172c1074:126-137) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
 • Two-tier design per Meta: "The first tier utilizes lightweight pattern matching and static analysis, completing scans in under 100 milliseconds" (code-shield.md@172c1074:11) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
@@ -862,7 +867,7 @@ Detail:
 • Rule messages enabled for C regex include "Potential buffer overflow due to insecure usage of scanf" (CWE-119) and "Potential buffer overflow risk due to use of strcat" (CWE-120) (rules/regex/c.yaml@172c1074:6-10,18-22; enabled in rules/config.yaml@172c1074:5-8) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
 • The generated C Semgrep rules include "The MD5 hash function is considered insecure" (CWE-328) and the rule id potential-command-injection (CWE-78) (rules/semgrep/_generated_/c_codeshield.json@172c1074) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
 • CWE coverage claim: "covering more than 50+ CWEs" (CodeShield/README.md@172c1074:11) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
-• A count of distinct cwe_id values in the rules enabled for the CODESHIELD use case gives 46 across the eight default languages, below the "over 50" claim; the CyberSecEval rule set gives 62 and all rule files 64 (premise: parsing the regex YAML files and the generated Semgrep JSON files; one rule, vulnerable-strcpy, has no cwe_id) **[Inferred]**
+• A count of distinct cwe_id values in the rules enabled for the CODESHIELD use case gives 46 across the eight default languages, below the "over 50" claim; the CyberSecEval rule set gives 62 for the eight default languages (64 over all its languages) and all rule files 64 (premise: parsing the regex YAML files and the generated Semgrep JSON files; one rule, vulnerable-strcpy, has no cwe_id) **[Inferred]**
 • The Code Shield README says "across 7 programming languages" (CodeShield/README.md@172c1074:11) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
 • The Meta protections page says "7 programming languages" (dev.meta.ai llama-protections, read 2026-10-09) **[Documented]**
 • The CyberSecEval 3 paper says "7 programming languages" (arXiv 2408.01605 section 5.2) **[Documented]**
@@ -1056,7 +1061,8 @@ Detail:
 Summary: **Pure Python code-point test.** No model, key or download is involved. The block threshold of 1.0 is the default, and the score is only ever 0.0 or 1.0. **[Documented]**
 Detail:
 • Mechanism: a generator over the characters of the content with a range comparison; no model, no network, no key (`hidden_ascii_scanner.py@172c1074:28-32`) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
-• The constructor takes `scanner_name` and `block_threshold` (default 1.0); the score is 1.0 or 0.0, so a threshold of 1.0 or lower behaves the same and a value above 1.0 would never block (`hidden_ascii_scanner.py@172c1074:20-26,50-56`) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
+• The constructor takes `scanner_name` and `block_threshold` (default 1.0), and the scan returns `BLOCK` when the score is at or above the threshold (`hidden_ascii_scanner.py@172c1074:20-26,50-56`) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
+• Because the score is only 1.0 or 0.0, any threshold above 0.0 and up to 1.0 behaves like the default, a threshold above 1.0 never blocks, and a threshold of 0.0 or below blocks every message (premise: the comparison score >= block_threshold at line 55) **[Inferred]**
 • Pin of code and repo docs: commit 172c1074 (author date 2026-09-29) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
 • PyPI package: llamafirewall 1.0.3 is the newest sdist in the PyPI simple index (observed 2026-10-09) and LlamaFirewall/pyproject.toml@172c1074:7 also says 1.0.3 **[Documented]**
 • The PyPI llamafirewall 1.0.3 sdist (sha256 54fe55c8, read 2026-10-09) holds the same hidden_ascii_scanner.py as the pinned commit (premise: file-by-file comparison with LlamaFirewall/ at the pin) **[Inferred]**
@@ -1065,7 +1071,7 @@ Detail:
 ### R5
 Summary: **Block at score 1.0 with decoded text.** A hit returns block with the reason Hidden ASCII followed by the decoded characters; no hit returns allow at 0.0. **[Documented]**
 Detail:
-• Result: `BLOCK`, score 1.0, status `SUCCESS`, reason "Hidden ASCII: <decoded text>" on a hit; `ALLOW`, score 0.0, reason "No hidden ASCII detected" otherwise (`hidden_ascii_scanner.py@172c1074:19,52-72`) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
+• Result: `BLOCK`, score 1.0, status `SUCCESS`, reason "Hidden ASCII: <decoded text>" on a hit; `ALLOW`, score 0.0, reason "No hidden ASCII detected" otherwise (`hidden_ascii_scanner.py@172c1074:19,52-69`) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
 • Meta's test asserts a block, a score of at least 0.8 and "Hidden ASCII" in the reason for a tag-character string, and an allow with the allow reason for ordinary text (`tests/test_hidden_ascii_scanner.py@172c1074:30-52`) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
 • The reason text carries the decoded hidden content back to the caller, so logs and any user-facing message built from the reason would repeat the hidden text **[Inferred]**
 • Multi-scanner aggregation as in the other scanners: `BLOCK` wins, else the highest-score decision (`llamafirewall.py@172c1074:143-160`) **[Documented: repo meta-llama/PurpleLlama@172c1074]**
