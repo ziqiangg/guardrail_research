@@ -14,4 +14,4 @@ Phases: P0 explore · P1 brief · P2 drafts · P3 mechanical · P4 triage · CP1
 | lionguard | B2 | done (R035) | BD (LN1) | 3i | — | lionguard-explained.html | 26eea36 | post-P8 fix 7078fa3 |
 | cloak | B3 | done (R041) | BL–BN (CK1–CK3) | 3l | — | cloak-explained.html | 750fb74 | Terms clauses recorded, open |
 | litmus | B3 | done (R041) | — (R003) | 3m | 3n Litmus | litmus-explained.html | 750fb74 | post-P8 URL fix 00b6f7c |
-| groups (sheet 4) | final | done v2 (24 groups) | | | | | baseline-2026-10-09 | regroup after all products (R006) |
+| groups (sheet 4) | final | regroup running (gr-grouper → groups_v3.md) | | | | | | R006: user approval before write |
