@@ -6,6 +6,7 @@ D = "benchtest/drafts/"
 log = json.load(open("benchtest/scratchpad/merger/litmus/log.json", encoding="utf-8"))
 EV, INV, CONF = log["ev"], log["inv"], log["conf"]
 VF = log["vfix"]
+PF = log["pfix"]
 evt = open(D + "litmus_eval_tooling_final.md", encoding="utf-8").read()
 invt = open(D + "litmus_inventory_final.md", encoding="utf-8").read()
 ev0 = open(D + "litmus_eval_tooling.md", encoding="utf-8").read().split("\n")
@@ -424,6 +425,17 @@ for e in VF:
 a("")
 cvf = collections.Counter(e["kind"] for e in VF)
 a("Verifier-fix edits: %d (%s); required fixes 1 to 4 and 10 optional groups. Also corrected in this log: the T8 line in section 7c (11 to 12 public repositories), the section 5b URL notes (docs/wiki base path 403; github.com 503 or 504 transients) and the sheet 3e wording. Main ruling recorded: absence checks that quote an organisation size cite GitHub's organisation listing. Re-run after the fixes: see section 8e." % (len(VF), ", ".join("%s %d" % (k, cvf[k]) for k in sorted(cvf))))
+a("")
+a("## 10. Post-P8 fixes (P9 URL check, main)")
+a("")
+a("Two malformed citation forms found by the P9 URL check. Only these cells change; nothing else in either final differs from the P7 state. (The P7 optional-1 edit for the safety.mdx line 17 locator had put the locator inside the URL; it now ends the URL at safety.mdx.)")
+a("")
+a("| Location | Before (shortened) | After (shortened) | Reason |")
+a("|---|---|---|---|")
+for e in PF:
+    a("| %s %s | %s | %s | %s (%s) |" % (e["file"], esc(e["loc"]), esc(e["before"]), esc(e["after"]), esc(e["why"]), e["kind"]))
+a("")
+a("Post-P8 edits: %d (url %d). Re-run: inventory checker and eval parse in section 8e." % (len(PF), len(PF)))
 open(D + "litmus_changes.md", "w", encoding="utf-8", newline="\n").write("\n".join(L) + "\n")
 
 # ------------------------------------------------------------------ summaries preview

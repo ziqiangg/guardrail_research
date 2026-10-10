@@ -6,7 +6,7 @@ Short names (defined once): DOCS = https://www.aiguardian.gov.sg/docs/wiki/ page
 
 ## (a) Access paths
 
-Four ways to reach Litmus are named in official pages. All rows are inventory only: Litmus tests an application; it does not defend one at runtime [Documented: repo govtech-responsibleai/playbook@45908b48] (PB tools/litmus.md@45908b48:46). A bench could treat Litmus as a reference rather than a tool it can run, because access is by onboarding [Inferred]. Short names in the cells: DOCS = the AI Guardian docs at https://www.aiguardian.gov.sg/docs/wiki/; PORTAL = https://www.developer.tech.gov.sg/products/categories/cybersecurity/litmus/; PB = playbook files at 45908b48 under https://github.com/govtech-responsibleai/playbook/blob/45908b48c0a8b6d3855a154c0e41a12958a99205/website/docs/; ACT = the sample Action action.yml at v0.0.1.
+Four ways to reach Litmus are named in official pages. All rows are inventory only: Litmus tests an application; it does not defend one at runtime [Documented: repo govtech-responsibleai/playbook@45908b48] (PB tools/litmus.md@45908b48:46). A bench could treat Litmus as a reference rather than a tool it can run, because access is by onboarding [Inferred]. Short names in the cells: DOCS = the AI Guardian docs at https://www.aiguardian.gov.sg/docs/wiki/; PORTAL = https://www.developer.tech.gov.sg/products/categories/cybersecurity/litmus/; PB = playbook files at 45908b48 under https://github.com/govtech-responsibleai/playbook/tree/45908b48c0a8b6d3855a154c0e41a12958a99205/website/docs; ACT = the sample Action action.yml at v0.0.1.
 
 | Path | What it is | Needs | Host or address as published | Status | Caveats | Covered by Table 3 column | Source URL |
 |---|---|---|---|---|---|---|---|

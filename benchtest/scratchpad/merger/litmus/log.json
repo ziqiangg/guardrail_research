@@ -1197,7 +1197,7 @@
    "loc": "Red-teaming, safety-testing bullet (line 111)",
    "kind": "style",
    "before": "safety.mdx, line 17)",
-   "after": "safety.mdx@45908b48:17)",
+   "after": "safety.mdx, locator safety.mdx@45908b48:17)",
    "why": "Optional 1: uniform file@ref:line locator (changes section 1 said all locators use this form)"
   },
   {
@@ -1327,6 +1327,40 @@
    "before": "Kaleidoscope is recorded as one row and its repository was not researched.",
    "after": "Kaleidoscope is one row, from GovTech pages only.",
    "why": "Optional 10: process wording removed"
+  }
+ ],
+ "pfix": [
+  {
+   "file": "EV",
+   "loc": "Version scope, PB short-name URL (unparsed line 3)",
+   "kind": "url",
+   "before": "https://github.com/govtech-responsibleai/playbook/blob/45908b48c0a8b6d3855a154c0e41a12958a99205/website/docs/ ;",
+   "after": "https://github.com/govtech-responsibleai/playbook/tree/45908b48c0a8b6d3855a154c0e41a12958a99205/website/docs ;",
+   "why": "Post-P8: the PB base is a directory, so a tree URL without a trailing slash replaces the blob URL"
+  },
+  {
+   "file": "EV",
+   "loc": "Tools note, PB short-name URL (parsed note, Tools section)",
+   "kind": "url",
+   "before": "https://github.com/govtech-responsibleai/playbook/blob/45908b48c0a8b6d3855a154c0e41a12958a99205/website/docs/;",
+   "after": "https://github.com/govtech-responsibleai/playbook/tree/45908b48c0a8b6d3855a154c0e41a12958a99205/website/docs;",
+   "why": "Post-P8: blob URL of a directory replaced by the tree URL"
+  },
+  {
+   "file": "INV",
+   "loc": "Block (a) intro, PB short-name URL (parsed note)",
+   "kind": "url",
+   "before": "https://github.com/govtech-responsibleai/playbook/blob/45908b48c0a8b6d3855a154c0e41a12958a99205/website/docs/;",
+   "after": "https://github.com/govtech-responsibleai/playbook/tree/45908b48c0a8b6d3855a154c0e41a12958a99205/website/docs;",
+   "why": "Post-P8: blob URL of a directory replaced by the tree URL"
+  },
+  {
+   "file": "EV",
+   "loc": "Red-teaming, safety-testing bullet (line 111)",
+   "kind": "url",
+   "before": "https://…/safety.mdx@45908b48:17) (malformed URL created by the P7 locator fix)",
+   "after": "https://…/safety.mdx, locator safety.mdx@45908b48:17)",
+   "why": "Post-P8: the URL ends at safety.mdx; the line locator stays in the citation text only (corrects the P7 optional-1 edit, which had appended the locator inside the URL)"
   }
  ]
 }

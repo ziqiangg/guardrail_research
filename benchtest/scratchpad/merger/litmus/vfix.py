@@ -46,7 +46,7 @@ loc_fixes = [
     ("EV", "(PB tools/litmus.md line 57)", "(PB tools/litmus.md@45908b48:57)", "Overview, TechPass bullet (line 19)"),
     ("EV", "(PB tools/litmus.md line 46 and the Where it fits section)", "(PB tools/litmus.md@45908b48:46 and the Where it fits section)", "Overview, Sentinel relation bullet (line 24)"),
     ("EV", "(PB tools/litmus.md line 9)", "(PB tools/litmus.md@45908b48:9)", "Red-teaming, curated prompts bullet (line 105)"),
-    ("EV", "safety.mdx, line 17)", "safety.mdx@45908b48:17)", "Red-teaming, safety-testing bullet (line 111)"),
+    ("EV", "safety.mdx, line 17)", "safety.mdx, locator safety.mdx@45908b48:17)", "Red-teaming, safety-testing bullet (line 111)"),
     ("EV", "(PB tools/kaleidoscope.md line 22 ", "(PB tools/kaleidoscope.md@45908b48:22 ", "Red-teaming, Kaleidoscope bullet (line 112)"),
     ("EV", "(PB tools/litmus.md line 52)", "(PB tools/litmus.md@45908b48:52)", "Engine coverage, playbook caution bullet (line 124)"),
     ("EV", "(PB tools/litmus.md line 46) **[Documented", "(PB tools/litmus.md@45908b48:46) **[Documented", "Engine coverage, pairing bullet (line 125)"),
@@ -82,9 +82,22 @@ fx("EV", "guide\" (no capture of the guide found)? **[To be verified]**", "guide
 fx("EV", "Kaleidoscope is recorded as one row and its repository was not researched.", "Kaleidoscope is one row, from GovTech pages only.",
    "Tools note (line 49)", "style", "Optional 10: process wording removed")
 
+# ---- post-P8 fixes (P9 URL check): malformed citation forms
+PB = "https://github.com/govtech-responsibleai/playbook/"
+SHA = "45908b48c0a8b6d3855a154c0e41a12958a99205"
+n0 = len(LOG)
+fx("EV", PB + "blob/" + SHA + "/website/docs/ ;", PB + "tree/" + SHA + "/website/docs ;",
+   "Version scope, PB short-name URL (unparsed line 3)", "url", "Post-P8: the PB base is a directory, so a tree URL without a trailing slash replaces the blob URL")
+fx("EV", PB + "blob/" + SHA + "/website/docs/;", PB + "tree/" + SHA + "/website/docs;",
+   "Tools note, PB short-name URL (parsed note, Tools section)", "url", "Post-P8: blob URL of a directory replaced by the tree URL")
+fx("INV", PB + "blob/" + SHA + "/website/docs/;", PB + "tree/" + SHA + "/website/docs;",
+   "Block (a) intro, PB short-name URL (parsed note)", "url", "Post-P8: blob URL of a directory replaced by the tree URL")
+POST = LOG[n0:]
+
 open(EVP, "w", encoding="utf-8", newline="\n").write(ev)
 open(INVP, "w", encoding="utf-8", newline="\n").write(inv)
 lg = json.load(open("benchtest/scratchpad/merger/litmus/log.json", encoding="utf-8"))
-lg["vfix"] = LOG
+lg["vfix"] = LOG[:n0]
+lg["pfix"] = POST + [dict(file="EV", loc="Red-teaming, safety-testing bullet (line 111)", kind="url", before="https://…/safety.mdx@45908b48:17) (malformed URL created by the P7 locator fix)", after="https://…/safety.mdx, locator safety.mdx@45908b48:17)", why="Post-P8: the URL ends at safety.mdx; the line locator stays in the citation text only (corrects the P7 optional-1 edit, which had appended the locator inside the URL)")]
 json.dump(lg, open("benchtest/scratchpad/merger/litmus/log.json", "w", encoding="utf-8"), indent=1, ensure_ascii=False)
 print("vfix", len(LOG))

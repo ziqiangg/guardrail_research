@@ -137,3 +137,4 @@
 - 2026-10-10 litmus P9 done: 36 URLs: 20 ok, 3 expected-403, 1 expected-404, 11 github 503 (raw/tree 200), 1 other (malformed safety.mdx@…:17 URL); 0 broken; 2 malformed URL forms → merger post-P8 fix then xlsx re-apply; 6 URLs skipped by rule (form.gov.sg, litmus.* hosts) by design
 - 2026-10-11 session limit (reset 02:50 SGT) stopped cloak/litmus P10 diagrammers and the litmus post-P8 URL fix; pages committed as WIP; all resumed
 - 2026-10-11 litmus P10 diagram written (6 SVGs, checklist ticked); README §8 note for evaluation-tool pages; diagram verifier started
+- 2026-10-11 litmus post-P8 URL fix: 4 text edits (eval Red-teaming bullet + Tools note, inventory (a) intro, unparsed scope line); checks pass; xlsx re-apply next. cloak P10 diagram written (10 SVGs, checklist ticked); verifier started
