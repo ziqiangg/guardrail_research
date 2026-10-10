@@ -1,6 +1,9 @@
-"""Sheet '3c. NeMo Evaluation Tooling' from drafts/eval_tooling.md. Called by build_two_level.main().
+"""Evaluation-tooling sheets: '3c. NeMo Evaluation Tooling' from drafts/eval_tooling.md (the default config, called by
+build_two_level.main()) and, through a config dict, any later eval sheet (3k CyberSecEval, build_purplellama_eval.py).
 
-Public API: add_sheet(wb) -> ws ; verify(wb, bak=None)
+A config is a dict with keys: md (path), sheet, after (sheet name to insert after), title, note.
+Public API: add_sheet(wb, cfg=None) -> ws ; verify(wb, bak=None, xlsx=None, cfg=None)   (cfg None = NEMO_CFG = sheet 3c)
+Section order and the skipped 'Revision' section are the same for every eval draft (SECTION_ORDER).
 """
 import re
 from openpyxl.cell.rich_text import CellRichText, TextBlock
@@ -17,6 +20,7 @@ S3, S3B, S3C, S4 = ("3. Guardrail Research Table", "3b. NeMo Rail Inventory",
 TITLE = "3c. NeMo Guardrails Evaluation Tooling (v0.24.1)"
 NOTE = ("Built-in evaluation tools, datasets, published results and reuse assessment for the test bench. "
         "Labels as in sheet 3.")
+NEMO_CFG = dict(md=MD, sheet=S3C, after=S3B, title=TITLE, note=NOTE)
 SKIP = {"Revision"}
 MIN_W = 6
 thin = Side(style="thin", color="8EA9DB")
@@ -132,16 +136,17 @@ def _text_row(ws, r, label, text, W, where):
     ws.merge_cells(start_row=r, start_column=2, end_row=r, end_column=W)
 
 
-def add_sheet(wb):
-    secs = parse_md()
+def add_sheet(wb, cfg=None):
+    cfg = cfg or NEMO_CFG
+    secs = parse_md(cfg["md"])
     ncols = max(len(it[1]) for s in secs for it in s["items"] if it[0] == "table")
     W = max(MIN_W, ncols)
-    if S3C in wb.sheetnames:
-        wb.remove(wb[S3C])
-    ws = wb.create_sheet(S3C, wb.sheetnames.index(S3B) + 1)
-    ws["A1"] = TITLE
+    if cfg["sheet"] in wb.sheetnames:
+        wb.remove(wb[cfg["sheet"]])
+    ws = wb.create_sheet(cfg["sheet"], wb.sheetnames.index(cfg["after"]) + 1)
+    ws["A1"] = cfg["title"]
     ws["A1"].font = Font(name="Arial", size=13, bold=True)
-    ws["A2"] = NOTE
+    ws["A2"] = cfg["note"]
     ws["A2"].font = Font(name="Arial", size=10, italic=True, color="808080")
     r = 3
     for s in secs:
@@ -261,9 +266,11 @@ def xml_non_arial(xlsx, sheet_name):
     return n, bad
 
 
-def verify(wb, bak=None, xlsx=None):
-    print("\n=== build_eval_sheet verification (3c) ===")
-    secs = parse_md()
+def verify(wb, bak=None, xlsx=None, cfg=None):
+    cfg = cfg or NEMO_CFG
+    S3C = cfg["sheet"]
+    print("\n=== build_eval_sheet verification (%s) ===" % S3C)
+    secs = parse_md(cfg["md"])
     exp = expected_texts(secs)
     exp_order = ORDER
     print("sheet order:", wb.sheetnames, "OK" if wb.sheetnames == exp_order else "FAIL (want %s)" % exp_order)

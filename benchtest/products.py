@@ -3,6 +3,8 @@
 HOW TO ADD A PRODUCT
   1. Add one dict to PRODUCTS below (slug, name, header_prefix, two_level_md, inventory_sheet, inventory_builder_module).
      header_prefix is the text before the colon in the "## Column ...: <Prefix>: <name>" headings of the draft.
+     A product whose columns carry several prefixes (Purple Llama: Prompt Guard 2 / LlamaFirewall / Code Shield)
+     gives header_prefix as a tuple of prefixes; every prefix is accepted by HDR_RE (see prefixes()).
   2. Write the drafts: drafts/<slug>_two_level.md (the Table 3 columns) and the inventory draft the builder reads.
   3. Write benchtest/build_<slug>_inventory.py exposing CFG (see build_lg_inventory.py / build_sentinel_inventory.py)
      plus build(wb)/verify(wb, xlsx) as those modules do; build_two_level.main() imports and calls it.
@@ -35,12 +37,20 @@ PRODUCTS = [
     dict(slug="lionguard", name="LionGuard", header_prefix="LionGuard:",
          two_level_md=DRAFTS / "lionguard_two_level.md", inventory_sheet="3i. LionGuard Inventory",
          inventory_builder_module="build_lionguard_inventory", notes="inventory via inventory_sheet; LN1"),
+    dict(slug="purplellama", name="Purple Llama",
+         header_prefix=("Prompt Guard 2:", "LlamaFirewall:", "Code Shield:"),  # R030: three prefixes, PL1-PL7
+         two_level_md=DRAFTS / "purplellama_two_level.md", inventory_sheet="3j. Purple Llama Inventory",
+         inventory_builder_module="build_purplellama_inventory",
+         notes="inventory via inventory_sheet; PL1-PL7; eval sheet 3k via build_purplellama_eval"),
 ]
 
 SHEET3 = "3. Guardrail Research Table"
 # sheets that are not per-product inventories; "after" is the sheet they are inserted after (None = last)
+# build_eval_sheet is the original NeMo sheet and the generic eval builder; later eval sheets are thin config modules.
 EXTRA_SHEETS = [dict(key="3c", sheet="3c. NeMo Evaluation Tooling", builder_module="build_eval_sheet",
-                     after="3b. NeMo Rail Inventory")]
+                     after="3b. NeMo Rail Inventory"),
+                dict(key="3k", sheet="3k. CyberSecEval Eval Tooling", builder_module="build_purplellama_eval",
+                     after="3j. Purple Llama Inventory")]
 SHEET4 = dict(sheet="4. Candidate Comparison Groups", builder_module="build_groups_sheet", after=None)
 
 
@@ -57,5 +67,13 @@ def _sheet_order():
 
 ORDER = _sheet_order()
 MDS = [p["two_level_md"] for p in PRODUCTS]
+
+
+def prefixes(p):
+    """All header prefixes of a product (header_prefix is a string or a tuple of strings)."""
+    hp = p["header_prefix"]
+    return (hp,) if isinstance(hp, str) else tuple(hp)
+
+
 HDR_RE = re.compile(r"^## Column[^:]*:\s*((?:%s):.*)$"
-                    % "|".join(re.escape(p["header_prefix"].rstrip(":")) for p in PRODUCTS))
+                    % "|".join(re.escape(x.rstrip(":")) for p in PRODUCTS for x in prefixes(p)))

@@ -7,7 +7,7 @@
 | 2 | sdp | R023 | 2026-10-09 | 6710895 |
 | 3 | modelarmor | R024 (+ R025 pre-P8 merger edit first) | 2026-10-09 | bf4a66d |
 | 4 | lionguard | R033 | 2026-10-10 | 45f47e2 (+ fix 7078fa3) |
-| 5 | purplellama | R034 | 2026-10-10 | |
+| 5 | purplellama | R034 | 2026-10-10 | (purplellama P8 commit) |
 
 ## Open questions (from agents)
 | Q file | Product | Routed to | State | Ruling |

@@ -52,6 +52,7 @@ def build():
     ops_pl64.apply(K)
     ops_pl357.apply(K)
     ops_p7.apply_cols(K)
+    ops_p7.apply_p8(K)
     global_cols(K)
     global_cols2(K)
     return K

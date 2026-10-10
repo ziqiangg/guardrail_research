@@ -188,6 +188,11 @@ def main(md=None):
                 for p in products.PRODUCTS if p["inventory_builder_module"] != "build_inventory"]
     for m in inv_mods:
         m.add_sheet(wb, ws)
+    # later evaluation-tooling sheets (3k ...): thin config modules over build_eval_sheet, placed after their inventory
+    eval_mods = [importlib.import_module(e["builder_module"])
+                 for e in products.EXTRA_SHEETS if e["builder_module"] != "build_eval_sheet"]
+    for m in eval_mods:
+        m.add_sheet(wb, ws)
     import build_groups_sheet
     build_groups_sheet.add_sheet(wb)
     wb.save(XLSX)
@@ -294,7 +299,7 @@ def main(md=None):
     print("F10:", plain_of(ws["F10"].value))
     print("F11:", plain_of(ws["F11"].value))
     build_eval_sheet.verify(wb2, BAK3, XLSX)
-    for m in inv_mods:
+    for m in inv_mods + eval_mods:
         m.verify(wb2, XLSX)
     build_inventory.verify(XLSX, wb2, BAK, post_check=post_check)
     # sheet 4 is no longer the docx template: verified against drafts/groups_v2.md (and v7 for title/header)

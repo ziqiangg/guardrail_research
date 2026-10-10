@@ -230,9 +230,10 @@ def verify_panel(wb, cfg, ws, ws3, blocks, pos):
 
 
 # ------------------------------------------------------------------ verification
-def block_rows(ws, first_hdr_col_a):
-    """(header row, data rows) of the table whose header has column A == first_hdr_col_a (rows until a blank A)."""
-    h = next(r for r in range(3, ws.max_row + 1) if ws.cell(row=r, column=1).value == first_hdr_col_a)
+def block_rows(ws, first_hdr_col_a, start=3):
+    """(header row, data rows) of the first table at or below row `start` whose header has column A == first_hdr_col_a
+    (rows until a blank A). `start` lets a sheet repeat a first-column heading in a later block (Purple Llama 3j)."""
+    h = next(r for r in range(start, ws.max_row + 1) if ws.cell(row=r, column=1).value == first_hdr_col_a)
     rows, k = [], h + 1
     while k <= ws.max_row and ws.cell(row=k, column=1).value:
         rows.append(k)
@@ -257,7 +258,7 @@ def verify(wb, cfg, xlsx=None):
     mism = total = 0
     pos = []
     for b in blocks:
-        h, rows = block_rows(ws, b["hdr"][0])
+        h, rows = block_rows(ws, b["hdr"][0], pos[-1][1][-1] + 1 if pos else 3)
         pos.append((h, rows))
         got = [[ws.cell(row=r, column=c).value for c in range(1, len(b["hdr"]) + 1)] for r in [h] + rows]
         want = [b["hdr"]] + b["rows"]

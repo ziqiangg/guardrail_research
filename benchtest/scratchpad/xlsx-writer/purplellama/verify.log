@@ -1,0 +1,79 @@
+previous-commit sheet names: ['3. Guardrail Research Table', '3b. NeMo Rail Inventory', '3c. NeMo Evaluation Tooling', '3d. Llama Guard Inventory', '3e. GovTech Sentinel Inventory', '3f. Presidio Inventory', '3g. SDP Inventory', '3h. Model Armor Inventory', '3i. LionGuard Inventory', '4. Candidate Comparison Groups']
+PASS - sheet order (3j and 3k right after 3i, sheet 4 last) ['3. Guardrail Research Table', '3b. NeMo Rail Inventory', '3c. NeMo Evaluation Tooling', '3d. Llama Guard Inventory', '3e. GovTech Sentinel Inventory', '3f. Presidio Inventory', '3g. SDP Inventory', '3h. Model Armor Inventory', '3i. LionGuard Inventory', '3j. Purple Llama Inventory', '3k. CyberSecEval Eval Tooling', '4. Candidate Comparison Groups']
+PASS - previous sheets all present, in order, plus only 3j and 3k 
+derived: old last col BD (56), Purple Llama BE-BK (7), last col 63
+PASS - sheet 3: 63 columns (A-BK) 63
+PASS - sheet 3: max_row 21 21
+PASS - 27 merges equal to previous commit 
+PASS - outline levels (rows 5,7,..,21 level 1) [5, 7, 9, 11, 13, 15, 17, 19, 21]
+PASS - freeze panes E4 (as previous) 
+PASS - summaryBelow False 
+PASS - column widths 6/28/32/10 then 48 [48.0, 48.0, 48.0]
+PASS - old column widths A-BD identical to previous commit 
+PASS - BE3:BK3 are the seven Purple Llama headers in md order with the R030 prefixes (PL1, PL2-5, PL6, PL7) ['Prompt Guard 2: Input-leve', 'LlamaFirewall: Input-level', 'LlamaFirewall: Trace-level', 'LlamaFirewall: Output-leve', 'LlamaFirewall: Regex patte', 'Code Shield: Output-level ', 'LlamaFirewall: Hidden Unic']
+PASS - old header row identical (A3:BD3) 
+PASS - A-BD plain text vs previous commit: 0 diffs (0 diffs)
+PASS - F-BD rows 4-21 rich-text runs (text+bold) vs previous commit: 0 diffs (0 diffs)
+PASS - A-BD cell styles vs previous commit: 0 diffs (0 diffs)
+PASS - BE-BK plain text vs purplellama_two_level.md parse: 0 mismatches (126 cells) (0)
+   word-limit named exceptions (count incl. trailing label, count excl. label): []
+PASS - BE-BK Summary style checks (63 cells; first bold, bold label R1-R7, no markers, <=60 words, no newline) (0 failing; 0 exception(s) counted only because of the trailing label: [])
+PASS - BE-BK no ** or backticks (rows 4-21) []
+PASS - BE-BK non-Arial cells / rich runs: 0 ([], rich runs 0)
+PASS - BE-BK cell styles equal the BD styles row by row (same house format) 
+PASS - 3b. NeMo Rail Inventory: values (incl. formulas), rich text, styles identical to previous commit (1430 cells, 0 diffs)
+PASS - 3b. NeMo Rail Inventory: merges, freeze, autofilter, widths, row heights/outline, extents identical 
+PASS - 3c. NeMo Evaluation Tooling: values (incl. formulas), rich text, styles identical to previous commit (760 cells, 0 diffs)
+PASS - 3c. NeMo Evaluation Tooling: merges, freeze, autofilter, widths, row heights/outline, extents identical 
+PASS - 3d. Llama Guard Inventory: values (incl. formulas), rich text, styles identical to previous commit (832 cells, 0 diffs)
+PASS - 3d. Llama Guard Inventory: merges, freeze, autofilter, widths, row heights/outline, extents identical 
+PASS - 3e. GovTech Sentinel Inventory: values (incl. formulas), rich text, styles identical to previous commit (1424 cells, 0 diffs)
+PASS - 3e. GovTech Sentinel Inventory: merges, freeze, autofilter, widths, row heights/outline, extents identical 
+PASS - 3f. Presidio Inventory: values (incl. formulas), rich text, styles identical to previous commit (776 cells, 0 diffs)
+PASS - 3f. Presidio Inventory: merges, freeze, autofilter, widths, row heights/outline, extents identical 
+PASS - 3g. SDP Inventory: values (incl. formulas), rich text, styles identical to previous commit (984 cells, 0 diffs)
+PASS - 3g. SDP Inventory: merges, freeze, autofilter, widths, row heights/outline, extents identical 
+PASS - 3h. Model Armor Inventory: values (incl. formulas), rich text, styles identical to previous commit (1368 cells, 0 diffs)
+PASS - 3h. Model Armor Inventory: merges, freeze, autofilter, widths, row heights/outline, extents identical 
+PASS - 3i. LionGuard Inventory: values (incl. formulas), rich text, styles identical to previous commit (780 cells, 0 diffs)
+PASS - 3i. LionGuard Inventory: merges, freeze, autofilter, widths, row heights/outline, extents identical 
+PASS - 4. Candidate Comparison Groups: values (incl. formulas), rich text, styles identical to previous commit (544 cells, 0 diffs)
+PASS - 4. Candidate Comparison Groups: merges, freeze, autofilter, widths, row heights/outline, extents identical 
+PASS - 3j block row counts 16/8/11/16/12/8/12/5 = 88 [16, 8, 11, 16, 12, 8, 12, 5] sum 88
+PASS - 3j every cell equals cleaned md text (690 cells) (0 mismatches)
+PASS - 3j autofilter = block (a) only A3:I19
+PASS - 3j Covered-by column only in blocks (a), (b), (c), (e) [True, True, True, False, True, False, False, False]
+PASS - 3j Covered-by values valid (real sheet-3 header or legacy/inventory-only marker; no marker mixed) (68 values; bad [])
+PASS - 3j markers: legacy 1 (Prompt Guard 1), inventory only 3 (CyberSecEval 4, ClassifyIt, CyberSecEval CLI) (legacy 1, inventory only 3)
+PASS - 3j amber fill exactly on marker cells 
+PASS - 3j validator validate_markers | markers: 4 marker cells; invalid or mixed values: 0 []
+panel: title row 118 (last block row 115 + 3 = 2 blank rows), 45 cells, equal to the specified formulas: OK
+two rows above the title empty: True | non-Arial panel cells: 0
+Python mirror counts per Table 3 column ['Components covering it', 'Scanners covering it', 'Roles and use cases covering it', 'Access paths covering it']
+    [2, 0, 0, 3] Prompt Guard 2: Input-level prompt-attack detection (jailbreak and injection)
+    [3, 1, 7, 6] LlamaFirewall: Input-level prompt-attack detection (PromptGuard scanner)
+    [2, 1, 1, 3] LlamaFirewall: Trace-level agent goal-hijacking detection (AlignmentCheck)
+    [3, 1, 5, 4] LlamaFirewall: Output-level insecure-code detection (CodeShield scanner)
+    [5, 4, 2, 2] LlamaFirewall: Regex pattern blocking and custom scanners (Regex scanner)
+    [2, 0, 0, 1] Code Shield: Output-level insecure-code detection (LLM-generated code)
+    [2, 1, 2, 1] LlamaFirewall: Hidden Unicode tag-character detection (Hidden ASCII scanner)
+    total Rows marked inventory only                           3
+    total Rows marked legacy                                   1
+Table 3 columns with a zero count: []
+PASS - 3j coverage panel equals spec; all 7 Table 3 columns covered; inventory-only 3, legacy 1 {'Rows marked inventory only': 3, 'Rows marked legacy': 1}
+PASS - 3j no ** or backticks []
+PASS - 3j all Arial (cells + raw XML <c> check) (openpyxl 0, raw XML 0 of 757)
+PASS - 3j A1 bold 13; A2 italic grey; freeze A4 
+   (build_eval_sheet.verify on 3k, 22 output lines; FAIL/MISMATCH lines: [])
+PASS - 3k md parses into the 8 eval sections 
+PASS - 3k plain text of every section equals the md (build_eval_sheet.verify mismatches 0, no FAIL lines) (mismatches 0)
+PASS - 3k title/note/freeze/size 
+PASS - 3k all Arial (cells + raw XML <c> check) (openpyxl 0, raw XML 0 of 848)
+PASS - 3k no ** or backticks []
+PASS - registry: purplellama has the three R030 prefixes and HDR_RE matches exactly its 7 column headings 
+PASS - registry: every other product still has exactly its one string prefix 
+PASS - XML hygiene (all parts well-formed; worksheets + sharedStrings) (unpreserved <t>=0, <r> without rPr=0, empty <t>=0, parts checked=12, well-formed=True)
+urls: 184 unique (104 from BE20:BK21, 31 new from 3j Source URL cells, 49 new from 3k) -> C:\Users\cys-c\Desktop\gzqr\gitubrepo\misc\researchrail\guardrail_research\benchtest\drafts\purplellama_urls.txt
+PASS - URL list written, no skipped host/template entries (184 URLs)
+
+SUMMARY: 59/59 checks passed

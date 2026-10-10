@@ -48,6 +48,11 @@ def apply_cols(K):
           "and promptguard_utils.py changed on 2026-01-16 (e4c281b) and 2026-03-26 (9a3d175), among other commits", "P7 opt: the list of later changes is not exhaustive (a formatting commit e9983e6 also exists)", kind="edit")
 
 
+def apply_p8(K):
+    K.summary_text("PL3", 7, "build short traces", "build traces",
+                   "P8 trim: word-limit trim found by the workbook build, which counts the trailing label (61 words with it, limit 60); 'short' dropped, meaning unchanged (auto-default, main)")
+
+
 def apply_inv(V):
     # fix 3
     V.sub("b", "REGEX", "Mechanism",
