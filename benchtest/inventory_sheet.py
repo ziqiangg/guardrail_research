@@ -111,6 +111,8 @@ def add_sheet(wb, cfg):
 # ------------------------------------------------------------------ coverage panel (below the last block)
 def panel_cols(ws3, pnl):
     """Sheet-3 column indexes of the product (row-3 header prefix); checks the COUNTIF criteria are safe."""
+    if pnl["n"] == 0:  # product without Table 3 columns (Litmus): nothing to look up on sheet 3
+        return [], []
     cols = [c for c in range(1, ws3.max_column + 1)
             if str(ws3.cell(row=3, column=c).value or "").startswith(pnl["prefix"])]
     assert len(cols) == pnl["n"] and cols == list(range(cols[0], cols[0] + pnl["n"])), cols
@@ -142,12 +144,19 @@ def panel_cells(ws3, cfg, blocks, pos):
     for k, (lab, _bi) in enumerate(pnl["counts"]):
         cells[(start + 1, 2 + k)] = lab
     first = start + 2
+    first_tot = None
+    if pnl["n"] == 0:
+        # zero Table 3 columns: one row per block (label, live row count of the block's first column)
+        for i, (lab, bi) in enumerate(pnl["block_rows"]):
+            cells[(first + i, 1)] = lab
+            cells[(first + i, 2)] = f"=COUNTA({panel_range(blocks, pos, bi, blocks[bi]['hdr'][0])})"
+        first_tot = first + len(pnl["block_rows"])
     for i, c in enumerate(cols):
         r = first + i
         cells[(r, 1)] = f"='{BI.S3}'!{get_column_letter(c)}3"
         for k, (_lab, bi) in enumerate(pnl["counts"]):
             cells[(r, 2 + k)] = f'=COUNTIF({panel_range(blocks, pos, bi, cov)},"*"&$A{r}&"*")'
-    r = first + len(cols)
+    r = first_tot if first_tot is not None else first + len(cols)
     tot_rows = []
     for lab, terms in pnl["totals"]:
         cells[(r, 1)] = lab
@@ -190,12 +199,14 @@ def python_panel(cfg, ws, ws3, blocks, pos):
     """Python mirror of every panel value: ({header: [count per count column]}, {total label: value})."""
     pnl, cov = cfg["panel"], cfg["covered"]
     cols, hd = panel_cols(ws3, pnl)
+    counts = {lab: [len(pos[bi][1])] for lab, bi in pnl["block_rows"]} if pnl["n"] == 0 else None
 
     def col_vals(bi, header):
         ci = blocks[bi]["hdr"].index(header) + 1
         return [str(ws.cell(row=r, column=ci).value) for r in pos[bi][1]]
-    counts = {h: [sum(bool(_crit_re("*" + h + "*").fullmatch(v)) for v in col_vals(bi, cov))
-                  for _lab, bi in pnl["counts"]] for h in hd}
+    if counts is None:
+        counts = {h: [sum(bool(_crit_re("*" + h + "*").fullmatch(v)) for v in col_vals(bi, cov))
+                      for _lab, bi in pnl["counts"]] for h in hd}
     totals = {lab: sum(bool(_crit_re(crit).fullmatch(v)) for bi, h, crit in terms for v in col_vals(bi, h))
               for lab, terms in pnl["totals"]}
     return counts, totals
@@ -223,7 +234,7 @@ def verify_panel(wb, cfg, ws, ws3, blocks, pos):
         print("   ", v, h)
     for lab, v in totals.items():
         print("    total %-52s %d" % (lab, v))
-    unc = [h for h, v in counts.items() if v[-1] == 0]  # last count column: variants (3d) / guardrail IDs (3e)
+    unc = [] if pnl["n"] == 0 else [h for h, v in counts.items() if v[-1] == 0]  # last count column: variants (3d) / guardrail IDs (3e)
     print("Table 3 columns with a zero count:", unc)
     ok = ok and blank and not fonts and not unc
     return ok, counts, totals

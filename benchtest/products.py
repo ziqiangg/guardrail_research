@@ -45,6 +45,10 @@ PRODUCTS = [
     dict(slug="cloak", name="Cloak", header_prefix="Cloak:",  # R037; CK1-CK3
          two_level_md=DRAFTS / "cloak_two_level.md", inventory_sheet="3l. Cloak Inventory",
          inventory_builder_module="build_cloak_inventory", notes="inventory via inventory_sheet; CK1-CK3"),
+    # R003/R038: Litmus is an evaluation tool with NO Table 3 columns: header_prefix and two_level_md are None
+    dict(slug="litmus", name="Litmus", header_prefix=None, two_level_md=None,
+         inventory_sheet="3m. Litmus Inventory", inventory_builder_module="build_litmus_inventory",
+         notes="inventory via inventory_sheet (zero-column panel); eval sheet 3n via build_litmus_eval"),
 ]
 
 SHEET3 = "3. Guardrail Research Table"
@@ -53,7 +57,9 @@ SHEET3 = "3. Guardrail Research Table"
 EXTRA_SHEETS = [dict(key="3c", sheet="3c. NeMo Evaluation Tooling", builder_module="build_eval_sheet",
                      after="3b. NeMo Rail Inventory"),
                 dict(key="3k", sheet="3k. CyberSecEval Eval Tooling", builder_module="build_purplellama_eval",
-                     after="3j. Purple Llama Inventory")]
+                     after="3j. Purple Llama Inventory"),
+                dict(key="3n", sheet="3n. Litmus Eval Tooling", builder_module="build_litmus_eval",
+                     after="3m. Litmus Inventory")]
 SHEET4 = dict(sheet="4. Candidate Comparison Groups", builder_module="build_groups_sheet", after=None)
 
 
@@ -69,12 +75,14 @@ def _sheet_order():
 
 
 ORDER = _sheet_order()
-MDS = [p["two_level_md"] for p in PRODUCTS]
+MDS = [p["two_level_md"] for p in PRODUCTS if p["two_level_md"] is not None]  # products with Table 3 columns
 
 
 def prefixes(p):
     """All header prefixes of a product (header_prefix is a string or a tuple of strings)."""
     hp = p["header_prefix"]
+    if hp is None:  # no Table 3 columns (Litmus)
+        return ()
     return (hp,) if isinstance(hp, str) else tuple(hp)
 
 

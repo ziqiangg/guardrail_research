@@ -133,3 +133,4 @@
 - 2026-10-10 CP2 (user): cloak R039, litmus R040 → P8 queue #6, #7
 - 2026-10-10 cloak P8 done: BL–BN (CK1–CK3) + '3l. Cloak Inventory' (85; markers legacy 1, inventory-only 7, planned 1); verify 57/57; uncapped compare 342 diffs = BL–BN + 3 structural; 84 URLs → P9
 - 2026-10-10 cloak P9 done: 84 URLs: 73 ok, 2 redirect-ok, 4 expected-login, 5 github 503 (raw 200); 0 broken
+- 2026-10-10 litmus P8 done: '3m. Litmus Inventory' (15) + '3n. Litmus Eval Tooling'; products.py supports products with no Table 3 columns; inventory_sheet panel n=0 branch (3d–3l unchanged); verify 46/46; uncapped compare 1 diff (sheet order); 36 URLs → P9
