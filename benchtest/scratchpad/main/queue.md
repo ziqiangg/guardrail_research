@@ -31,6 +31,8 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| cloak P2 cols_b Q1–Q3 (Terms clauses; 500 words/entries and "documents" wording; tabular contrast bullet) | clauses verbatim, decided before bench testing (R025 pattern); limit wording stays R8 (triage: needs-testing); tabular bullet as contrast only, confirmed | main |
+| cloak P2 cols_b note (unauthenticated GitHub search API for org repo search) | acceptable: GitHub is not the vendor and code search is a sanctioned locator (CLAUDE.md tool bootstrap); not a hard-rule-5 vendor API call | main |
 | cloak P2 cols_a (Inclusion list bullet CK1 vs CK2; R2 Summary 17 groups vs 20+) | Inclusion list: triage checks against inventory mapping, merger reconciles; R2 keeps documented 17 groups, 20+/17+ stay two bullets | main |
 | litmus P1 Q-B (Kaleidoscope) | one Tools row, no repo research (default); treating it as its own evaluation tool would need a new sheet → offered to the user at CP1 | main |
 | litmus P1 Q-C (inventory panel with no Table 3 columns) | P8 writer note: panel/Covered-by logic must accept all-inventory-only rows | main |
