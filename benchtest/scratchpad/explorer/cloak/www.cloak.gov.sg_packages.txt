@@ -1,0 +1,9 @@
+# status 200  final_url https://www.cloak.gov.sg/sign-in  content-type text/html; charset=utf-8
+Anonymise your data in minutes.
+For gov.sg accounts with WOG AD
+Sign in with WOG AD
+For non gov.sg accounts
+Sign in with TechPass
+No WOG AD account and not registered for TechPass? Register here.
+This is a Government of Singapore system. Unauthorised use is strictly prohibited and subject to the Computer Misuse Act. Use of the system indicates consent to the Terms of Use and monitoring for security/audit purposes. Users are responsible for complying with the relevant data governance/security guidelines when using Cloak. Classified data should not be transferred out of Government systems without proper authorisation.
+Privacy StatementTerms of UseReport VulnerabilityContact Us

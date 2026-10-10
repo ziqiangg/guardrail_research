@@ -1,0 +1,61 @@
+# status 200  final_url https://www.developer.tech.gov.sg/products/categories/data-and-apis/cloak/getting-started  content-type text/html;charset=utf-8
+Products
+Guidelines
+Run and deliver great digital services
+Guidelines and best practices based on the experiences of Government development teams
+Project Inception
+Development and Iteration
+Measuring Success
+Technology Choice
+Building the Right Team
+Procurement
+Standards and Best Practices
+SG Tech Stack
+Communities
+Co-create innovative digital solutions with the Government
+Discover events, blogs, open-source technologies and other collaboration opportunities
+Overview
+Building a Community
+Events
+Newsletter
+Blogs
+GovBuy
+Documentation
+Cloak
+OverviewFeatures & RoadmapHow It WorksUse CasesFAQsGetting StartedResourcesMeet the TeamLogin to Cloak
+Home
+Products
+Data and Apis
+Cloak
+Getting Started
+Getting Started
+Login Today
+For WOG users: Log in immediately at cloak.gov.sg using WOG-AD. No onboarding required for the Web UI. API access can be requested.
+For Non-Government entities: Access is approved on a case by case basis for entities in service for public sector outcomes. Contact Cloak team at cloak@tech.gov.sg for inquire.
+Read our Documentation
+Our documentation is open to the public here.
+Last updated 21 Aug 2026
+Was this article useful?
+Yes No
+Provide Feedback
+The Singapore Public Sector's Anonymisation Toolkit that Makes Sensitive Data Safe to Share and Use
+Contact Us
+Singapore Government Developer Portal
+Contribute content
+Have a product or technology to share? Fill in the form here.
+Blogs and Forums
+GovTech TechNews
+GovTech Singapore
+ai@govtech
+Open-source
+Data.gov.sg
+Data and Artificial Intelligence Platforms
+Government Digital Products
+Open Government Products
+GovTech SingaporeContact
+Report Vulnerability
+Privacy Statement
+Terms of Use
+© 2026 Government of Singapore. Last Updated 08 Oct 2026
+© 2026 Government of Singapore
+Last Updated 08 Oct 2026

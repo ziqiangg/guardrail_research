@@ -1,0 +1,92 @@
+# status 200  final_url https://www.developer.tech.gov.sg/products/categories/data-and-apis/cloak/features-roadmap  content-type text/html;charset=utf-8
+Products
+Guidelines
+Run and deliver great digital services
+Guidelines and best practices based on the experiences of Government development teams
+Project Inception
+Development and Iteration
+Measuring Success
+Technology Choice
+Building the Right Team
+Procurement
+Standards and Best Practices
+SG Tech Stack
+Communities
+Co-create innovative digital solutions with the Government
+Discover events, blogs, open-source technologies and other collaboration opportunities
+Overview
+Building a Community
+Events
+Newsletter
+Blogs
+GovBuy
+Documentation
+Cloak
+OverviewFeatures & RoadmapHow It WorksUse CasesFAQsGetting StartedResourcesMeet the TeamLogin to Cloak
+Home
+Products
+Data and Apis
+Cloak
+Features & Roadmap
+Features & Roadmap
+Features
+Tabular Anonymisation
+Diverse transformation techniques: Generalisation, masking, hashing, encryption, pseudonymisation, suppression, and more
+K-anonymity testing: Test against IM8 WOG Access Modes A and B with privacy risk scoring
+Utility analysis: Assess information loss before committing to transformations
+Templates: Save, reuse, and share anonymisation configurations across your team for repeatable jobs
+Data tagging: Tag columns as direct identifiers, indirect identifiers, or sensitive attributes with guided sensitivity classification
+Free text Anonymisation
+Auto-detection of 20+ entity types including names, NRICs, phone numbers, addresses, emails, dates of birth, bank accounts, and more
+Multiple input formats : Supports CSV, PDF, and DOCX files
+Custom entities: Define your own detection rules using inclusion lists, regex patterns, or privately-hosted LLMs for domain-specific terms
+Confidence tuning: Adjust detection sensitivity per entity type to balance recall and precision for your dataset
+Flexible anonymisation techniques: Redact, Replace with unique consistent tokens, Alias, Encrypt, Pseudonymise and more
+Mock Data Generation
+Generate mock data that mimics the structure and format of real datasets.
+Singapore-specific fields: Names, NRICs, addresses, phone numbers, and other locally relevant formats
+Custom fields: Define your own data categories for domain-specific generation
+Field categories: Person, location, business, healthcare, and custom
+Encryption and Secret/ Salt Management
+Enable multi-party collaboration without exposing raw data.
+Secrets Manager: Create, store, share, and audit encryption keys and salts in a secure, centralised location
+Consistent encryption across datasets: Multiple data owners anonymise independently using a shared secret, producing data that can be linked on a common encrypted identifier
+Decryption: Authorised users with access to the secret can decrypt data when needed through the Web UI or API
+Audit trail: Full visibility of who used which secret and when
+Tabular Anonymisation modules offered by Cloak
+API Integration
+The same anonymisation capabilities available through the Web UI, designed for system-to-system integration.
+Three security levels: L2 (personalised token for integrated platforms), L3 (system token for GCC), L4 (signature-based for internet)
+Batch processing: Handle large volumes programmatically
+Advanced parameters: Custom recognisers, fine-grained confidence tuning, and allow lists via code
+Roadmap
+Improve performance of free-text anonymisation through novel LLM-based approaches
+Extend modalities of access to serve a wider range of users, including non-government
+Incorporation of other privacy technologies, e.g., Homomorphic Encryption and Searchable Symmetric Encryption to process and search data even when encrypted
+Techstack
+AWS GCC 2.0
+Last updated 21 Aug 2026
+Was this article useful?
+Yes No
+Provide Feedback
+The Singapore Public Sector's Anonymisation Toolkit that Makes Sensitive Data Safe to Share and Use
+Contact Us
+Singapore Government Developer Portal
+Contribute content
+Have a product or technology to share? Fill in the form here.
+Blogs and Forums
+GovTech TechNews
+GovTech Singapore
+ai@govtech
+Open-source
+Data.gov.sg
+Data and Artificial Intelligence Platforms
+Government Digital Products
+Open Government Products
+GovTech SingaporeContact
+Report Vulnerability
+Privacy Statement
+Terms of Use
+© 2026 Government of Singapore. Last Updated 08 Oct 2026
+© 2026 Government of Singapore
+Last Updated 08 Oct 2026

@@ -12,6 +12,7 @@
 ## Open questions (from agents)
 | Q file | Product | Routed to | State | Ruling |
 |---|---|---|---|---|
+| explorer/20261010_cloak_q01: columns CK1 free-text PII anonymisation, CK2 custom entities (regex + beta LLM), CK3 reversible anonymisation/decryption (option a) vs CK1 only (b) vs inventory only (c); tabular/MDG/package inventory-only | cloak | user at cloak CP1 | open | |
 | explorer/20261010_litmus_q01: separate small 3x inventory sheet (~13 rows: access paths, test suites, integration parameters) vs fold into eval sheet | litmus | user at litmus CP1 (brief records default + alternative) | open | |
 | purplellama P2 eval Q2: PL1/PL2 dataset reuse needs "injection-removed" negatives Meta does not ship — may the bench build its own negative set? | purplellama (bench design) | P4 triage → user at purplellama CP1 | resolved | |
 | purplellama P2 eval Q1: P8 eval builder MD/TITLE/NOTE; proposed "3j. CyberSecEval Eval Tooling" (letter assigned at P8, ≤31 chars) | purplellama | P8 xlsx-writer note | noted | |
@@ -30,6 +31,8 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| explorer/20261010_cloak_q03 (prefix; Presidio overlap) | `Cloak:` (R009 owner's name as used in its docs; R031 precedent LionGuard:); cross-reference Presidio columns, never duplicate | main |
+| explorer/20261010_cloak_q02 (bench cannot self-serve access) | bench design → R032: drafts report "documented only; testing would need agency onboarding / GovTech written consent (Terms 3.3)" as a suggestion; not a user decision now | main |
 | explorer/20261010_litmus_q02 (Moonshot link from the sample Action) | record as [Inferred] with premise; engine stays [Not disclosed] (CLAUDE.md rule 2/3) | main |
 | explorer/20261010_litmus_q03 (3 aiguardian pages 403) | retry at P1 via WebFetch verbatim or archived official page (auto-default); else "checked, not reachable" | main |
 | purplellama P10 user review | R036 approved; B2 closed | user |

@@ -1,0 +1,7 @@
+# status 200  final_url https://docs.developer.tech.gov.sg/docs/cloak-guide/  content-type text/html; charset=utf-8
+A Singapore Government Agency Website
+About
+Documentation
+Feedback
+Login
+Please wait...

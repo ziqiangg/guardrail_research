@@ -1,0 +1,54 @@
+# status 200  final_url https://mirage.gov.sg  content-type text/html; charset=utf-8
+A Singapore Government Agency Website. Beware of government impersonation scams. How to identify
+Official website links end with .gov.sg
+Government agencies communicate via .gov.sg websites (e.g. go.gov.sg/open). Trusted websites
+Secure websites use HTTPS
+Look for a lock () or https:// as an added precaution.
+Share sensitive information only on official, secure websites.
+Scam alert
+Government officers will never ask you to send money or share your details over the phone. When unsure, hang up and call Scamshield at 1799.
+👾 Mirage is best experienced with Chrome browser.
+Sign In
+Elevate your
+needs with Mock and Synthetic Data Generation
+Mirage offers mock and synthetic data generation to enable agencies to generate alternative forms of data when the original dataset is too sensitive to use or share, or where more data is needed for software testing or machine learning applications.
+Explore our toolkit
+Enrich and unlock your data with Synthetic Data Generation
+What is synthetic data?
+Synthetic data is generated using statistical models and generative AI techniques that learn patterns and relationships in real-world data. It is suitable for scenarios where statistical patterns in an existing dataset need to be retained, or if you require a more realistic dataset.
+Empowering Government Innovation with Synthetic Data
+Secure Data Sharing
+Preserve privacy and meet stringent compliance standards with synthetic data. By replicating the statistical integrity of real data without exposing sensitive details, it provides a robust framework for secure testing and development within government projects.
+Advance AI/ML Models
+Enhance the accuracy and fairness of machine learning models with synthetic data. Overcome data scarcity and class imbalance issues, ensuring your algorithms perform optimally across diverse scenarios and improve service delivery for all citizens.
+Software Testing and Development
+Accelerate digital transformation in government services through generating datasets needed for development/ operations, where data has to be highly realistic. Synthetic data allows for rapid prototyping and testing, reducing development time and ensuring robust, scalable solutions.
+New to synthetic data?
+Read our Synthetic Data Generation guide for an introduction to methodologies, applications, and best practices for government use. Read the guide →
+Boost your productivity with Mock Data Generation
+What is mock data?
+Mock data is created using rule-based approaches, designed to mimic the structure and format of real-world data, with support for SG-specific entities. Unlike Synthetic Data Generation, Mock Data Generation does not learn from real-world data patterns. It is suitable for scenarios requiring predictable and repeatable datasets that do not have to be very realistic.
+Boosting productivity in the public sector with Mock Data Generation
+Software Testing and Development
+Accelerate digital transformation in government services through quickly generating datasets needed for development/operations, where data does not have to be highly realistic. Mock data allows for rapid prototyping and testing, reducing development time and ensuring robust, scalable solutions. Generate diverse datasets to simulate various edge cases, stress test systems, and validate data handling processes.
+Training and Education
+Enhance learning experiences and skills development. Mock data allows learners to practice basic data analysis and database management without compromising sensitive information.
+Data Preview or Exploratory Data Analysis
+Facilitate early-stage data exploration by generating representative mock datasets. This allows data scientists and analysts to develop and test hypotheses, design visualisations, and plan analytical approaches before accessing actual data.
+Frequently Asked Questions
+Who can use Mirage? Is it free?
+Mirage is currently free for all approved users (no charge for FY26). It is available to Whole-of-Government (WOG) users, as well as select non-WOG users including public healthcare institutions and non-government data contributors on a case-by-case basis. WOG users can log in directly with WOG-AD or TechPass. For access issues, contact us at https://go.gov.sg/mirage-support.
+Does Mirage store my data?
+Mirage does not retain data. Raw data is purged upon completion of data generation. All data is encrypted in transit and at rest. Note: Mock data generation does not require any input data and therefore does not pose a data-transfer concern.
+What data classification can Mirage handle?
+Mirage supports Government data classified up to Confidential Cloud-Eligible (CCE), Sensitive-High (SH). This applies to synthetic data generation, which requires uploading real data for model training. The data owner remains responsible for use-case approval and residual-risk acceptance. Mock data generation does not require any input data and therefore does not pose a data classification concern.
+Is the synthetic output automatically safe to share?
+No. While synthetic data is generated from statistical patterns rather than copied directly, the data owner must assess the output for residual privacy risk using the privacy report. Classification and sharing approval must be reassessed based on the output and its intended use.
+Is an API available?
+Mock Data Generation is available via API through Cloak (https://cloak.gov.sg). Synthetic Data Generation is currently available through the Web UI only. If you have a use case requiring SDG API integration, please raise a support ticket at https://go.gov.sg/mirage-support.
+Interested to collaborate or have questions?
+Reach out to us at mirage@tech.gov.sg or raise a support ticket at https://go.gov.sg/mirage-support — we’d love to hear from you.
+Mirage
+A mock and synthetic data generation toolkit
+Privacy StatementTerms of UseReport VulnerabilityContact Us
+© 2024 - 2026 Data Engineering Practice, Data Engineering and Data Infrastructure Program, Government Technology Agency Singapore

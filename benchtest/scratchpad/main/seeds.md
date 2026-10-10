@@ -46,7 +46,7 @@ Each entry gives the explorer a starting point. **UNVERIFIED** marks a starting 
 - **Playbook:** https://govtech-responsibleai.github.io/playbook/tools/lionguard/ (source `govtech-responsibleai/playbook`, staging branch @45908b48).
 - **Existing work to reuse:** `drafts/sentinel_*` (SN1, sheet 3e blocks (a) and (c)). Re-check at source; don't copy blindly.
 
-## cloak (B3) — UNVERIFIED
+## cloak (B3) — VERIFIED at P0 2026-10-10: public docsify Cloak Guide https://docs.developer.tech.gov.sg/docs/cloak-guide/ (read `<path>.md`, 75 sections), developer portal overview, Terms https://file.go.gov.sg/cloak-terms.pdf; formerly enCRYPT (renamed 2023-11-20); no public repo/HF/PyPI; API guide/OpenAPI login-only; use www. forms of hosts
 - **Owner:** GovTech, a PII service. Known mention: the playbook privacy-improvements page says the Sentinel integration is "coming soon" (`sentinel_resolutions_2.md` T59).
 - **What to confirm:** whether any public docs exist (developer.tech.gov.sg product pages, aiguardian.gov.sg, the playbook). Expect sparse docs; honest gaps (R007 item 6).
 
