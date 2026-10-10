@@ -25,3 +25,4 @@ benchtest/scratchpad/**/crwd_data/
 benchtest/scratchpad/**/cookbook/
 benchtest/scratchpad/**/hist/
 benchtest/scratchpad/**/purplellama_code/
+benchtest/scratchpad/drafter/litmus_p1/ata/

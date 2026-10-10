@@ -13,7 +13,7 @@
 | Q file | Product | Routed to | State | Ruling |
 |---|---|---|---|---|
 | explorer/20261010_cloak_q01: columns CK1 free-text PII anonymisation, CK2 custom entities (regex + beta LLM), CK3 reversible anonymisation/decryption (option a) vs CK1 only (b) vs inventory only (c); tabular/MDG/package inventory-only | cloak | user at cloak CP1 | open | |
-| explorer/20261010_litmus_q01: separate small 3x inventory sheet (~13 rows: access paths, test suites, integration parameters) vs fold into eval sheet | litmus | user at litmus CP1 (brief records default + alternative) | open | |
+| explorer/20261010_litmus_q01 (+ brief Q-A, 15 rows in 3 blocks; + Kaleidoscope scope option): separate small 3x inventory sheet (~13 rows: access paths, test suites, integration parameters) vs fold into eval sheet | litmus | user at litmus CP1 (brief records default + alternative) | open | |
 | purplellama P2 eval Q2: PL1/PL2 dataset reuse needs "injection-removed" negatives Meta does not ship — may the bench build its own negative set? | purplellama (bench design) | P4 triage → user at purplellama CP1 | resolved | |
 | purplellama P2 eval Q1: P8 eval builder MD/TITLE/NOTE; proposed "3j. CyberSecEval Eval Tooling" (letter assigned at P8, ≤31 chars) | purplellama | P8 xlsx-writer note | noted | |
 | explorer/20261009_lionguard_q01–q03 + triage T4 (embedder third-party terms vs harmful test text): single column LN1 vs per-variant; prefix `LionGuard:` vs `GovTech LionGuard:`; "self-hosted" framing given OpenAI/Gemini embedder keys and gated Gemma (Lite) | lionguard | user at lionguard CP1 (brief records default + alternative) | resolved | |
@@ -31,6 +31,8 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| litmus P1 Q-B (Kaleidoscope) | one Tools row, no repo research (default); treating it as its own evaluation tool would need a new sheet → offered to the user at CP1 | main |
+| litmus P1 Q-C (inventory panel with no Table 3 columns) | P8 writer note: panel/Covered-by logic must accept all-inventory-only rows | main |
 | cloak P1 Q2 (Terms 3.4.7 "shall not … perform any benchmarking tests or analyses of the Service") | class (c) licensing at P4; clause recorded [Documented]; permitted-use stays an open R8 question decided before bench testing (R025 pattern, R032 wording) | main |
 | cloak P1 Q4 header tweaks | accepted for accuracy: CK2 `Cloak: Custom entity detection in free text (lists, regex and LLM)`; CK3 `Cloak: Reversible anonymisation and decryption (encrypt and restore)` (salts feed the one-way hash) | main |
 | cloak P1 sheet letter / block counts | letter at P8 (R003); counts fixed by the finals | main |
