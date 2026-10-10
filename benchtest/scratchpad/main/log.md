@@ -96,3 +96,4 @@
 - 2026-10-10 lionguard P10 diagram written (7 SVGs; checklist all ticked; no overflow at 375); diagram verifier started
 - 2026-10-10 lionguard P10 review: PASS WITH FIXES (6 required: 'open' wording, lede hedge, F1 gloss, limits 4, comparability, 'Sentinel users only'); 16/20 MATCH; 18/18 URLs; fix loop → diagrammer; draft error R5 comparability → merger post-P8 fix then xlsx re-apply
 - 2026-10-10 session limit (reset 11:50 SGT) stopped purplellama P7 verifier, lionguard post-P8 merger fix and lionguard diagram fix loop; WIP committed; resumed
+- 2026-10-10 lionguard post-P8 draft fix: R5 comparability [Inferred] → blog quote [Documented] + test-set identity [Not disclosed]; inventory (a) 2.1 threshold cell aligned; checks 0/0 (in 8ae4df7); xlsx re-apply next
