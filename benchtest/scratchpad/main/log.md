@@ -119,3 +119,4 @@
 - 2026-10-10 cloak P2 cols_b done (CK2 140, CK3 116 bullets), check 0/0; anonymise/restore sides as separate bullets
 - 2026-10-10 litmus P2 eval done: 8 sections (Tools 6, Datasets 16, Results 7), parse OK; P3 pass (eval parse + inventory 0/0). Minor slip disclosed: one unauthenticated GET to huggingface.co/api/datasets (public Hub listing; allowed category under P4 HF-metadata ruling but outside this brief; nothing used). P4 started
 - 2026-10-10 cloak P2 inventory done: 10/7/26/9/25/4 = 81 rows; P3: cols_a+cols_b 0/0, inventory --headers combined 0/0; Q1–Q4 ruled by main; P4 started
+- 2026-10-10 litmus P4 done: 63 items (a 38, b 20, c 5), H 11; C12–C21 new conflicts; Q1–Q3 ruled by main; CP1 Q-A/Q-B → user (batched with cloak CP1)
