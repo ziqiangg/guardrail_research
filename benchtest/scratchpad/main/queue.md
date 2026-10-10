@@ -29,6 +29,8 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| purplellama P8 Q1 (BG16 PL3 R7 Summary 61 words incl. label) | trim one word via gr-merger, rebuild before commit (word-limit auto-default); no new known non-failure | main |
+| purplellama P8 Q2 (3j panel layout Components/Scanners/Roles/Access paths) | accepted | main |
 | purplellama CP2 | R034 approved | user |
 | lionguard P10 user review | R035 approved, done | user |
 | lionguard P10 Q2 (eyebrow wording) | "GovTech LionGuard · LionGuard 2, 2.1 and 2 Lite on Hugging Face" (auto-default: equivalent wordings) | main |
