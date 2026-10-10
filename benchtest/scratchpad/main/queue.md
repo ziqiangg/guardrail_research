@@ -31,6 +31,7 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| cloak P2 cols_a (Inclusion list bullet CK1 vs CK2; R2 Summary 17 groups vs 20+) | Inclusion list: triage checks against inventory mapping, merger reconciles; R2 keeps documented 17 groups, 20+/17+ stay two bullets | main |
 | litmus P1 Q-B (Kaleidoscope) | one Tools row, no repo research (default); treating it as its own evaluation tool would need a new sheet → offered to the user at CP1 | main |
 | litmus P1 Q-C (inventory panel with no Table 3 columns) | P8 writer note: panel/Covered-by logic must accept all-inventory-only rows | main |
 | cloak P1 Q2 (Terms 3.4.7 "shall not … perform any benchmarking tests or analyses of the Service") | class (c) licensing at P4; clause recorded [Documented]; permitted-use stays an open R8 question decided before bench testing (R025 pattern, R032 wording) | main |
