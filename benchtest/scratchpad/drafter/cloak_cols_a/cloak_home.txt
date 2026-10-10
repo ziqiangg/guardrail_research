@@ -1,0 +1,64 @@
+# status 200  final_url https://www.cloak.gov.sg  content-type text/html; charset=utf-8
+View GuidesSign in
+📣 Cloak will undergo scheduled maintenance every Wednesday from 6 PM to 12 AM. Please avoid running any jobs during this period.
+Anonymise your
+dataset in minutes.
+The Central Privacy-Preserving Toolkit
+Cloak is a WOG data anonymisation toolkit that enables agency users and system implementors to transform and anonymise data for secure and IM-compliant data utilisation — for policy analysis, operations, and Gen AI applications. Available as a Web UI for public officers, and as API integrations for platforms, pipelines, and workflows.
+Explore our toolkit
+Tabular Data Anonymisation
+Anonymisation in minutes
+Transform your datasets quickly and with confidence
+Policy-tech integration
+Automate IM compliance with policy-aligned recommendations
+Secrets management
+Manage and share encryption salts/secret keys securely across teams, with full audit trail
+How it works
+Upload your data
+Tag your data fields according to their type/sensitivity
+Transform your data
+Review and rectify your data’s re-identification risk
+Download your anonymised data
+Learn more
+Free Text Anonymisation
+Singapore-optimised detection
+Automatically detect PII from text data, optimised for Singaporean data (NRICs, local phone numbers, UENs, addresses, postal codes)
+LLM-powered custom entities
+Define custom sensitive entities using LLM-powered detection — add organisation-specific terms or domain-specific identifiers without re-training a model
+Highly configurable
+Select what to keep private or visible, choose redaction or replacement strategies, and fine-tune detection sensitivity to your use case
+How it works
+Upload or paste your text
+Customise your desired transformation settings
+Review and compare the transformed data
+Download your anonymised data
+Learn more
+Sister Product
+Need data but can't use real records?
+Mirage is our sister product for Synthetic Data Generation — creating realistic, statistically faithful datasets without any real personal data.
+Where Cloak protects data you already have, Mirage creates data you can freely use.
+Visit Mirage
+Frequently Asked Questions
+What privacy features does Cloak offer?
+Cloak provides:
+Tabular data anonymisation — transform structured datasets using masking, hashing, pseudonymisation, generalisation, perturbation, suppression, and k-anonymity assessment
+Free text anonymisation — automatically detect and redact PII from unstructured text, optimised for Singaporean data with support for LLM-powered custom entities
+Secrets and salts management — securely store, share, and audit encryption keys across teams
+What kind of data can I use with Cloak?
+Cloak supports Government data classified up to Confidential Cloud-Eligible (CCE) and Sensitive-High (SH).
+Supported file formats:
+Tabular: CSV
+Free text: CSV, DOCX, PDF
+Does Cloak store my data?
+Cloak does not retain data. Raw data is purged upon anonymisation and anonymised data is purged within 24 hours or upon user request. All data is encrypted in transit and at rest.
+Ways to access Cloak
+Cloak is available through multiple access modalities:
+Web UI — No-code, point-and-click web app with k-anonymity and WOG Mode A/B recommendations
+APIs — Intranet (from Analytics.gov or GCC) and Secure Internet API for system-to-system integration
+Who can use Cloak? Is it free?
+Cloak is currently free for all public sector users and approved non-public sector users. It is also available to Non-Government Entities (NGEs) on a case-by-case basis.
+Interested to collaborate or have questions?
+Reach out to us at cloak@tech.gov.sg — we'd love to hear from you.
+Cloak
+Privacy StatementTerms of UseReport VulnerabilityContact Us
+© 2026 Data Programme, Government Technology Agency Singapore

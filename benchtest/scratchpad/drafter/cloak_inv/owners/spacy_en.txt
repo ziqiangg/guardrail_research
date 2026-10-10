@@ -1,0 +1,144 @@
+# status 200  final_url https://spacy.io/models/en  content-type text/html; charset=UTF-8
+spaCy
+💥 Beta test our new tool for agentic NLP development!
+MenuUsageModelsAPIUniverse
+Usage
+Models
+API
+Universe
+Search
+Trained Pipelines
+Select page...Models › OverviewTrained Pipelines › CatalanTrained Pipelines › ChineseTrained Pipelines › CroatianTrained Pipelines › DanishTrained Pipelines › DutchTrained Pipelines › EnglishTrained Pipelines › FinnishTrained Pipelines › FrenchTrained Pipelines › GermanTrained Pipelines › GreekTrained Pipelines › ItalianTrained Pipelines › JapaneseTrained Pipelines › KoreanTrained Pipelines › LithuanianTrained Pipelines › MacedonianTrained Pipelines › Multi-languageTrained Pipelines › Norwegian BokmålTrained Pipelines › PolishTrained Pipelines › PortugueseTrained Pipelines › RomanianTrained Pipelines › RussianTrained Pipelines › SlovenianTrained Pipelines › SpanishTrained Pipelines › SwedishTrained Pipelines › Ukrainian
+Models
+Overview
+Trained Pipelines
+Catalan
+Chinese
+Croatian
+Danish
+Dutch
+English
+en_core_web_sm
+en_core_web_md
+en_core_web_lg
+en_core_web_trf
+Finnish
+French
+German
+Greek
+Italian
+Japanese
+Korean
+Lithuanian
+Macedonian
+Multi-language
+Norwegian Bokmål
+Polish
+Portuguese
+Romanian
+Russian
+Slovenian
+Spanish
+Swedish
+Ukrainian
+English
+Available trained pipelines for English
+en_core_web_sm
+Release Details
+Installation
+Unable to load model details from GitHub
+To find out more about this model, see the overview of the latest model releases.
+| Language
+| enEnglish
+| Type
+| coreVocabulary, syntax, entities
+| Genre
+| webwritten text (blogs, news, comments)
+| Size
+| sm
+| Components
+|
+| Pipeline
+|
+| Sources
+|
+en_core_web_md
+Release Details
+Installation
+Unable to load model details from GitHub
+To find out more about this model, see the overview of the latest model releases.
+| Language
+| enEnglish
+| Type
+| coreVocabulary, syntax, entities, vectors
+| Genre
+| webwritten text (blogs, news, comments)
+| Size
+| md
+| Components
+|
+| Pipeline
+|
+| Sources
+|
+en_core_web_lg
+Release Details
+Installation
+Unable to load model details from GitHub
+To find out more about this model, see the overview of the latest model releases.
+| Language
+| enEnglish
+| Type
+| coreVocabulary, syntax, entities, vectors
+| Genre
+| webwritten text (blogs, news, comments)
+| Size
+| lg
+| Components
+|
+| Pipeline
+|
+| Sources
+|
+en_core_web_trf
+Release Details
+Installation
+Unable to load model details from GitHub
+To find out more about this model, see the overview of the latest model releases.
+| Language
+| enEnglish
+| Type
+| coreVocabulary, syntax, entities
+| Genre
+| webwritten text (blogs, news, comments)
+| Size
+| trf
+| Components
+|
+| Pipeline
+|
+| Sources
+|
+Read nextFinnish
+spaCy
+Usage
+Models
+API Reference
+Online Course
+Custom Solutions
+Community
+Universe
+GitHub Discussions
+Issue Tracker
+Stack Overflow
+Merchandise
+Connect
+Bluesky
+GitHub
+Live Stream
+YouTube
+Blog
+Stay in the loop!
+Receive updates about new releases, tutorials and more.
+Sign up
+© 2016-2026 ExplosionLegal / Imprint

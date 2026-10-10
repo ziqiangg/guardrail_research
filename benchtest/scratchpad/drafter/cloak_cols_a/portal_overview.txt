@@ -1,0 +1,77 @@
+# status 200  final_url https://www.developer.tech.gov.sg/products/categories/data-and-apis/cloak/overview  content-type text/html;charset=utf-8
+Products
+Guidelines
+Run and deliver great digital services
+Guidelines and best practices based on the experiences of Government development teams
+Project Inception
+Development and Iteration
+Measuring Success
+Technology Choice
+Building the Right Team
+Procurement
+Standards and Best Practices
+SG Tech Stack
+Communities
+Co-create innovative digital solutions with the Government
+Discover events, blogs, open-source technologies and other collaboration opportunities
+Overview
+Building a Community
+Events
+Newsletter
+Blogs
+GovBuy
+Documentation
+Cloak
+OverviewFeatures & RoadmapHow It WorksUse CasesFAQsGetting StartedResourcesMeet the TeamLogin to Cloak
+Home
+Products
+Data and Apis
+Cloak
+Overview
+Cloak
+PROOF OF VALUE
+Cloak provides free-text and tabular data anonymisation so agencies can safely share, analyse, or send sensitive data to AI products. It is approved to handle data up to Confidential Cloud-Eligible, Sensitive-High, and is optimised for Singaporean PIIs with >97% recall like Names, NRICs, and Emails. Access via the Cloak Web UI or integrate through the API. Open to WOG users and select non-government entities including public healthcare.
+View Features Sign in
+Key Benefits
+Safe for Sensitive Data
+Able to handle up to Confidential Cloud-Eligible, Sensitive-High data. No data retention
+Automated Policy Compliance
+Designed to enable IM8 compliance with guided access-mode selection and k-anonymity testing against WOG Modes A and B.
+Highly Customisable
+Add any custom entity using inclusion lists, pattern-matching (regex), or privately-hosted LLMs to improve detection for your specific dataset.
+Scalable
+Integrate via API into platforms, pipelines, and workflows. Currently processing >5 million PIIs removed per month across WOG.
+Collaborative
+Share encryption secrets across data owners so anonymisation can occur independently but data can still be fused using a common encrypted identifier.
+Statistics
+>600M
+Datasets Transformed
+> 140
+Onboarded Agencies
+> 3,000
+Onboarded Users
+Last updated 26 Aug 2026
+Was this article useful?
+Yes No
+Provide Feedback
+The Singapore Public Sector's Anonymisation Toolkit that Makes Sensitive Data Safe to Share and Use
+Contact Us
+Singapore Government Developer Portal
+Contribute content
+Have a product or technology to share? Fill in the form here.
+Blogs and Forums
+GovTech TechNews
+GovTech Singapore
+ai@govtech
+Open-source
+Data.gov.sg
+Data and Artificial Intelligence Platforms
+Government Digital Products
+Open Government Products
+GovTech SingaporeContact
+Report Vulnerability
+Privacy Statement
+Terms of Use
+© 2026 Government of Singapore. Last Updated 08 Oct 2026
+© 2026 Government of Singapore
+Last Updated 08 Oct 2026

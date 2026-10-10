@@ -12,8 +12,8 @@
 ## Open questions (from agents)
 | Q file | Product | Routed to | State | Ruling |
 |---|---|---|---|---|
-| explorer/20261010_cloak_q01: columns CK1 free-text PII anonymisation, CK2 custom entities (regex + beta LLM), CK3 reversible anonymisation/decryption (option a) vs CK1 only (b) vs inventory only (c); tabular/MDG/package inventory-only | cloak | user at cloak CP1 | open | |
-| explorer/20261010_litmus_q01 (+ brief Q-A, 15 rows in 3 blocks; + Kaleidoscope scope option): separate small 3x inventory sheet (~13 rows: access paths, test suites, integration parameters) vs fold into eval sheet | litmus | user at litmus CP1 (brief records default + alternative) | open | |
+| explorer/20261010_cloak_q01: columns CK1 free-text PII anonymisation, CK2 custom entities (regex + beta LLM), CK3 reversible anonymisation/decryption (option a) vs CK1 only (b) vs inventory only (c); tabular/MDG/package inventory-only | cloak | user at cloak CP1 | resolved | |
+| explorer/20261010_litmus_q01 (+ brief Q-A, 15 rows in 3 blocks; + Kaleidoscope scope option): separate small 3x inventory sheet (~13 rows: access paths, test suites, integration parameters) vs fold into eval sheet | litmus | user at litmus CP1 (brief records default + alternative) | resolved | |
 | purplellama P2 eval Q2: PL1/PL2 dataset reuse needs "injection-removed" negatives Meta does not ship — may the bench build its own negative set? | purplellama (bench design) | P4 triage → user at purplellama CP1 | resolved | |
 | purplellama P2 eval Q1: P8 eval builder MD/TITLE/NOTE; proposed "3j. CyberSecEval Eval Tooling" (letter assigned at P8, ≤31 chars) | purplellama | P8 xlsx-writer note | noted | |
 | explorer/20261009_lionguard_q01–q03 + triage T4 (embedder third-party terms vs harmful test text): single column LN1 vs per-variant; prefix `LionGuard:` vs `GovTech LionGuard:`; "self-hosted" framing given OpenAI/Gemini embedder keys and gated Gemma (Lite) | lionguard | user at lionguard CP1 (brief records default + alternative) | resolved | |
@@ -31,6 +31,8 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| cloak CP1 (three columns; CK3 one column) | R037 | user |
+| litmus CP1 (small inventory sheet; Kaleidoscope one Tools row) | R038 | user |
 | cloak P4 Q2–Q6 | Pseudonymise row stays CK1; CK3 (salt bullets in CK3); Inclusion row CK1; CK2; P5 may read Terms 4.2, 6.1, definitions and Privacy Statement (R019); login-gated pages keep [Not disclosed] + HTTP fact (R007 item 6) uniformly; list-limit Summary "500 (words or entries; the docs differ)" with the R8 question open | main |
 | cloak P4 Q1 (CK3 direction split) | → user at CP1 (R002 is a user ruling) | main |
 | litmus P4 Q1 (browser User-Agent on public GETs; huggingface.co/api/datasets listing) | UA header on public GET reads is acceptable (no sign-in; fetch_text precedent); HF listing covered by P4 Hub-metadata ruling; log, don't repeat | main |

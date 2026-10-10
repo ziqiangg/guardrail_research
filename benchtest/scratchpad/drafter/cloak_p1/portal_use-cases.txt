@@ -1,0 +1,64 @@
+# status 200  final_url https://www.developer.tech.gov.sg/products/categories/data-and-apis/cloak/use-cases  content-type text/html;charset=utf-8
+Products
+Guidelines
+Run and deliver great digital services
+Guidelines and best practices based on the experiences of Government development teams
+Project Inception
+Development and Iteration
+Measuring Success
+Technology Choice
+Building the Right Team
+Procurement
+Standards and Best Practices
+SG Tech Stack
+Communities
+Co-create innovative digital solutions with the Government
+Discover events, blogs, open-source technologies and other collaboration opportunities
+Overview
+Building a Community
+Events
+Newsletter
+Blogs
+GovBuy
+Documentation
+Cloak
+OverviewFeatures & RoadmapHow It WorksUse CasesFAQsGetting StartedResourcesMeet the TeamLogin to Cloak
+Home
+Products
+Data and Apis
+Cloak
+Use Cases
+Use Cases
+Real-time Anonymisation for AI Products
+Agencies integrate Cloak via API into chatbot services and WOG AI platforms to strip PII from user prompts in real-time before they reach external LLMs.
+Bulk Anonymisation for Policy Analysis and LLM training
+The healthcare and social sectors use Cloak to anonymise large volumes of sensitive data (clinical notes, citizen correspondences, case files) for policy research, model fine-tuning, and inter-agency analysis.
+Data Sharing and Fusion across Agencies
+Multiple data owners across sectors anonymise their datasets independently using shared encryption secrets, producing data that can still be linked on a common encrypted identifier for cross-agency data lakes.
+Daily Operations and Dashboarding
+Agencies anonymise operational data so dashboards, reports, and daily workflows do not expose PII to unauthorised staff.
+Last updated 21 Aug 2026
+Was this article useful?
+Yes No
+Provide Feedback
+The Singapore Public Sector's Anonymisation Toolkit that Makes Sensitive Data Safe to Share and Use
+Contact Us
+Singapore Government Developer Portal
+Contribute content
+Have a product or technology to share? Fill in the form here.
+Blogs and Forums
+GovTech TechNews
+GovTech Singapore
+ai@govtech
+Open-source
+Data.gov.sg
+Data and Artificial Intelligence Platforms
+Government Digital Products
+Open Government Products
+GovTech SingaporeContact
+Report Vulnerability
+Privacy Statement
+Terms of Use
+© 2026 Government of Singapore. Last Updated 08 Oct 2026
+© 2026 Government of Singapore
+Last Updated 08 Oct 2026

@@ -1,0 +1,57 @@
+# status 200  final_url https://www.aiguardian.gov.sg/docs/wiki/Sentinel-Overview  content-type text/html
+Skip to main content
+AI GuardianDocs
+Products
+Litmus
+Sentinel
+Sentinel Overview
+Sentinel Getting Started
+Sentinel APIs Overview
+Sentinel Guardrails
+Sentinel Demo
+Products
+Sentinel
+Sentinel Overview
+On this page
+Sentinel Overview
+What is Sentinel?​
+Sentinel is a multi-tenant SaaS service that enables development teams to implement real-time security and compliance guardrails for their applications. It provides continuous monitoring and automated enforcement within the deployment environment, offering immediate awareness of policy deviations and potential risks. The objective is to provide a "Guardrails as a Service" platform, ensuring applications consistently adhere to predefined standards and regulations. Key goals include delivering baseline assurance that applications are secure and compliant, and empowering teams to address deviations promptly.
+Why use Sentinel?​
+Sentinel acts as the first line of defence, shielding Singapore's government AI applications from fundamental risks inherent in all generative AI models, ensuring the protection of citizen data and maintaining public trust.
+Multi-tenant SaaS platform adhering to government data protection regulations
+Protection against prompt injection in citizen-facing AI services
+Toxicity detection and prevention in public communication channels
+Safeguards against PII leakage of citizen data
+How does Sentinel work?​
+AI App without Sentinel Guardrails
+The following diagram illustrates the standard workflow of an AI application operating without Sentinel’s guardrails for safety and security:
+Key Challenges of AI App processes without Sentinel Guardrails:
+Checks the user input against safety thresholds before passing to the model
+Analyses LLM responses for safety violations before delivering them back to the user
+Uses specialised guardrails (LionGuard, Off-Topic, System-Prompt Leakage) for focused analysis
+AI App with Sentinel Guardrails
+The following diagram shows how Sentinel adds both input and output guardrails to enhance the safety and security of an AI application:
+Benefits of AI App with Sentinel Guardrails:
+Safety checks are fully automated, significantly reducing manual effort
+Sentinel evaluates both user inputs and LLM responses using a wide array of safety criteria
+Clear guardrail scoring determines whether to allow, deny, or flag content
+Reports and evaluations are automatically generated, increasing reliability and traceability
+Breakdown of AI App with Sentinel Guardrails
+1: The user enters a prompt into the application, which is then forwarded to Sentinel for guardrail validation.
+2: Once Sentinel completes the guardrail checks, it returns a score to the tenant’s application. If the score exceeds the threshold set by the AI app, the user’s prompt is rejected; otherwise, the prompt is forwarded to the LLM.
+3: (Only if 4b executes)The LLM processes the prompt and sends the response back to the tenant’s application, which then forwards it to Sentinel for a second round of guardrail checks.
+4: After Sentinel completes the guardrail checks, it returns a score to the tenant’s application. If the score is below the threshold, the bot response should be replaced with a safe message; if it passes, the user receives the response.
+Previous
+Test Information Documentation
+Next
+Sentinel Getting Started
+What is Sentinel?
+Why use Sentinel?
+How does Sentinel work?
+Docs
+Docs
+Community
+TBA
+More
+Report Vulnerability
+© 2026 AI Programme, GovTech

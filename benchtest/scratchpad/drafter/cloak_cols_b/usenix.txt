@@ -1,0 +1,609 @@
+=====PAGE 1
+Left_Shape_01
+    Privacy in the Public Sector : 
+Lessons Learned and Strategies For Success 
+Alan Tang, Anshu Singh 
+Syahri Ikram, Zul Yang, Ivan Wang, Toh Wang Ting,
+ Ameera Adam, Jason Chew, Raine Tan, Xuanhui Lee
+Government Technology Agency, Singapore 
+Sep 11, 2023
+1
+=====PAGE 2
+GovTech spearheads digital transformation within Singapore’s public sector.
+2
+CLOAK (former “enCRYPT”) empowers public to implement policy-compliant 
+PII detection and data anonymization quickly and with conﬁdence. 
+CLOAK: 
+A one-stop PET toolkit for 
+customisable and 
+scalable data protection
+Tabular Data 
+Anonymization
+PII Anonymization 
+for Free Text
+Synthetic
+Data Generation*
+Mock Data 
+Generation
+Differential 
+Privacy*
+…and more!
+* in development
+
+=====PAGE 3
+CLOAK serves as the 
+privacy backbone for 
+the Singapore public 
+sector – supporting 
+both individual and 
+enterprise use cases. 
+3
+
+=====PAGE 4
+User friendly web interface designed for 
+non-experts, with built in policy guardrails for 
+automated compliance. 
+4
+=====PAGE 5
+Used by over 80 Singapore 
+government agencies. 
+ >1000 datasets anonymized 
+>1 million API calls
+… supporting dozens of LLM and 
+data analytics use cases
+>10 million PII detected and replaced
+Est >10,000 man hours saved
+5
+=====PAGE 6
+Left_Shape_01
+#1. 
+Privacy is Hard, 
+But The Risks Are Real 
+Good privacy explainability is just 
+as important as good privacy 
+engineering.  
+6
+=====PAGE 7
+What We Learned: The average user ﬁnds data anonymization slow and 
+technically challenging - but necessary.
+So… can I share 
+my data? 
+What does 
+“hashing” or 
+“tokenization” 
+mean?
+Which laws / 
+policies / 
+guidelines are 
+relevant?
+I can’t run Python 
+on my work PC! 
+Not familiar with data 
+privacy or security 
+concepts
+Just wants to get   
+the job done!
+Lack access to 
+commercial statistical 
+tools
+Confused by ambiguous 
+and evolving policy 
+environmentWe need to protect our citizens’ 
+privacy! 
+(and I don’t want 
+to get in trouble)
+Intuitively 
+understands the need 
+for data privacy
+7
+
+=====PAGE 8
+What we did:
+•User-friendly interface 
+•Policy guardrails and 
+recommendations
+•Basic vs ‘advanced’ workflows
+•Automated policy compliance, 
+recommendations and validation 
+•Built in (but optional) privacy 
+explainability 
+•+workshops, clinics, user 
+engagements 
+•Screenshots of enCRYPT tabular 
+– glossary, guide, 
+recommendations, report, Step 3 
+advanced view (data loss etc.), 
+“apply all” 
+What We Did: Built a no-code web interface for non-experts focusing on 
+explainability and simplicity. 
+Policy guardrails and 
+recommendations
+8
+
+=====PAGE 9
+What we did:
+•ser-friendly interface 
+•Policy guardrails and 
+recommendations
+•Basic vs ‘advanced’ workflows
+•Automated policy compliance, 
+recommendations and validation 
+•Built in (but optional) privacy 
+explainability 
+•+workshops, clinics, user 
+engagements 
+•Screenshots of enCRYPT tabular 
+– glossary, guide, 
+recommendations, report, Step 3 
+advanced view (data loss etc.), 
+“apply all” 
+What We Did: Built a no-code web interface for non-experts focusing on 
+explainability and simplicity. 
+9
+“One click” policy 
+compliance 
+=====PAGE 10
+What we did:
+•User-friendly interface 
+•Policy guardrails and 
+recommendations
+•Basic vs ‘advanced’ workflows
+•Automated policy compliance, 
+recommendations and validation 
+•Built in (but optional) privacy 
+explainability 
+•+workshops, clinics, user 
+engagements 
+•Screenshots of enCRYPT tabular 
+– glossary, guide, 
+recommendations, report, Step 3 
+advanced view (data loss etc.), 
+“apply all” 
+What We Did: Built a no-code web interface for non-experts focusing on 
+explainability and simplicity. 
+10
+Validation and 
+risk /utility metrics
+=====PAGE 11
+What we did:
+•User-friendly interface 
+•Policy guardrails and 
+recommendations
+•Basic vs ‘advanced’ workflows
+•Automated policy compliance, 
+recommendations and validation 
+•Built in (but optional) privacy 
+explainability 
+•+workshops, clinics, user 
+engagements 
+•Screenshots of enCRYPT tabular 
+– glossary, guide, 
+recommendations, report, Step 3 
+advanced view (data loss etc.), 
+“apply all” 
+What We Did: Built a no-code web interface for non-experts focusing on 
+explainability and simplicity. 
+11
+Self-help privacy guides
+=====PAGE 12
+What We Did: Built a no-code web interface for non-experts focusing on 
+explainability and simplicity. 
+12
+Privacy workshops and 
+clinics 
+=====PAGE 13
+Left_Shape_01
+#2. 
+  Strong Policy-Tech 
+Integration Is Key 
+Data governance regimes often 
+dictate privacy use cases; 
+working with policymakers should 
+be a two-way conversation.
+13
+=====PAGE 14
+Public-Private Data Sharing
+Public-Public Data Sharing
+Private-Private Data Sharing
+Private-Public Data Sharing
+Other Data Privacy, Risk and 
+Security Recommendations
+What We Learned: Evolving data privacy regime in Singapore and 
+globally - creates opportunity for a “virtuous cycle” for policy to shape 
+technology solutions, and vice versa.
+14
+=====PAGE 15
+What We Did: Worked with policymakers to clarify and reﬁne 
+implementation of anonymization framework for public-private sharing. 
+Anonymization Framework
+Personal Data
+Step 1: Standardised 
+Anonymization Treatment
+Step 2: Testing of 
+Re-identiﬁcation Risks
+Anonymized Data
+Further 
+anonymization 
+required
+15
+✔Guided walkthroughs 
+based on use case 
+and environment.
+✔“One click” automated 
+compliance.
+Implement
+✔Co-create guidelines 
+✔Explore and 
+prototype alternative 
+PET s . 
+Ideate
+✔User feedback for 
+policy review (e.g. 
+k-anon erodes utility).
+✔Discuss technical 
+approach and 
+risk/utility trade-offs.
+Iterate
+=====PAGE 16
+Left_Shape_01
+#3. 
+Optimise For Use Cases, 
+Then Technology
+Traditional anonymization can be 
+complemented by cutting-edge 
+PET s which may not yet be ready for 
+mass adoption.
+16
+=====PAGE 17
+What We Learned: Most users are PET-agnostic; traditional 
+anonymization remains the de facto choice. 
+Is 
+synthetic 
+data OK 
+to use?
+Can I store 
+encrypted 
+classiﬁed data 
+on the cloud? 
+What epsilon 
+value is safe? 
+17
+
+=====PAGE 18
+Economic 
+Sector Agency
+Agency Use Case
+Objective: De-risking data prior to 
+sharing with research partners. 
+Short term: Explore optimal anonymization 
+approach to be policy compliant, while preserving 
+value of the data. 
+Medium term: Experiment with alternative PET s (e.g. 
+synthetic data generation) - potentially as part of 
+“policy sandboxes”.  
+What We Did: Adopt a bespoke and measured approach to demonstrate 
+value of PET s to users. 
+Experiment 
+Test drive and evaluate industry and 
+open-sourced offerings.
+Proof of Concept
+Partner agencies on speciﬁc use cases 
+to validate risk vs. utility trade-off. 
+Implement at Scale
+Incorporate as central feature in CLOAK 
+Central Privacy Toolkit.
+18
+=====PAGE 19
+Left_Shape_01
+#4. 
+Privacy Should Be ‘Baked In’ 
+To The Product Lifecycle.
+Privacy-by-design as a rule of 
+thumb for effective adoption and 
+integration. 
+19
+=====PAGE 20
+TRUST: Improving health outcomes 
+through trusted data exchange. 
+Analytics.Gov: Central secured data 
+exploitation platform for government.
+What We Learned: Privacy tools need to be tightly integrated with 
+users’ workﬂows in order to scale. 
+20
+
+=====PAGE 21
+The Challenge: Potential privacy leakages from usage of LLM 
+products in the public sector. 
+21
+Data leaving jurisdiction
+Ingested by LLMs
+Original Prompt: 
+John Smith (Passport No. 
+S7783718A) wants to appeal his 
+parking ﬁne. Draft a response.  
+
+=====PAGE 22
+What We Did: Designed API workﬂow to mitigate potential privacy 
+leakages for Generative AI use cases 
+Agency Product CLOAK GenAI Product
+Original Prompt: 
+John Smith (Passport No. S7783718A) wants to 
+appeal his parking ﬁne. Draft a response.  
+Detect PII
+Anonymise PII
+Anonymised Prompt: 
+<hash value 1> (Passport No. <hash value 2>) 
+wants to appeal his parking ﬁne. Draft a 
+response.  
+<<Gen AI Magic!>>
+Mapping Table 
+<hash value 1> | John Tan
+<hash value 2> | S7783718A
+Outgoing prompt does 
+not leak PII to overseas 
+servers or ChatGPT
+Transformer Module
+Government Commercial Cloud Environment
+Anonymised Response
+Dear <hash value 1>, we regret to inform.. 
+API: Takes in unstructured text, 
+returns mapping table and 
+anonymized result.
+22
+=====PAGE 23
+Cloak’s Free Text Anon API is currently used to support 
+>20 LLM products and use cases; >1m API calls made to date. 
+23
+=====PAGE 24
+Left_Shape_01
+#5. 
+Bridge the Usability Gap 
+For Widespread Adoption 
+Of PET s
+24
+Case Study: Developing Usable 
+Differential Privacy (DP) Tools, 
+from Theory to Practice
+=====PAGE 25
+Benchmarking 
+Tools 
+(e.g., libraries, 
+frameworks) 
+Taking 
+Stakeholders’ 
+Perspectives
+ (e.g., data handlers, 
+product managers, 
+policymakers)  
+Developing 
+Usable Tools
+Differential 
+Privacy Homomorphic 
+encryption
+Synthetic 
+data 
+generation
+…
+25
+Guidance for 
+potential adopters
+Identifying 
+engineering gaps 
+and future 
+research 
+directions
+Understand the 
+practical and 
+organisational 
+challenges, 
+opportunities and 
+perceptions
+
+=====PAGE 26
+Key Desiderata For Benchmarking Differential Privacy Libraries and Frameworks 
+ANALYTICS 
+DIVERSE SUMMARY 
+STATISTICS
+GROUP BY AND FILTERS
+JOIN ON 
+PUBLIC/PRIVATE 
+DATASETS
+ADAPTIVE/INTERACTIVE 
+QUERYING
+USER-DEFINED 
+FUNCTIONS
+DETERMINISTIC 
+FUNCTIONS 
+(TRANSFORMATIONS)
+CRYPTOGRAPHICALLY 
+SECURE RANDOM 
+NUMBER GENERATION
+PREVENTS TIMING 
+ATTACKS
+PREVENTS FLOATING 
+POINT VULNERABILITY
+PREVENTS OTHER 
+KNOWN/UNDERLYING 
+LIBRARIES   
+VULNERABILITIES
+MATURITY
+TRANSPARENCY ON 
+UNADDRESSED 
+VULNERABILITIES
+ROBUSTNESS TO 
+PRIVACY GUARANTEES
+SECURITY & 
+RELIABILITY USABILITY DIFFERENTIAL PRIVACY FEATURES PERFORMANCE
+DISTRIBUTED 
+COMPUTING FOR LARGE 
+DATASETS
+ACCURACY 
+ADJUSTMENTS
+UNCERTAINTY 
+ESTIMATION
+RISK ESTIMATION
+EASE-OF-USE 
+(FAMILIAR PYTHON/SQL 
+APIS and ECOSYSTEM)
+PROTECTED OUTPUT 
+CONSISTENCY
+AUTOMATED BOUNDS 
+COMPUTATIONS
+HANDLING 
+NULLs/NaNs/INFINITE 
+VALUES
+PRE/POST PROCESSING 
+FUNCTIONS
+AUTOMATED PRIVATE 
+PARTITIONS SELECTION 
+FOR GROUP BY 
+PRIVACY BUDGET 
+ACCOUNTING
+DIVERSE MECHANISMS
+STRICT AND RELAXED 
+PRIVACY DEFINITIONS
+BASIC AND ADVANCED 
+COMPOSITIONS
+CONFIGURE PROTECTED 
+CHANGE
+CONFIGURE 
+CONTRIBUTION 
+BOUNDING 
+PRIVACY DEFINITION 
+CASTING
+POPULATION 
+AMPLIFICATION
+SCALABILITY ON 
+ARBITRARY DATASET SIZES
+(TIME AND MEMORY 
+CONSUMPTION)
+ACCURACY ON DATASETS 
+OF DIVERSE 
+CHARACTERISTICS
+Built on top of work by Garrido, Gonzalo Munilla, et al. "Lessons 
+learned: Surveying the practicality of differential privacy in the 
+industry." (2022.
+Tumult Analytics
+Diﬀprivlib  
+We curated DP Python 
+libraries and frameworks* 
+developed by prominent 
+researchers and 
+institutions that have the 
+potential for wider 
+adoption.
+*Based-on the latest version available at the time of 
+development 26
+=====PAGE 27
+27
+Signiﬁcant changes are expected as they continue to 
+evolve with new features, improvements, and research in 
+differential privacy 
+●Spark interest in practitioners, investors, library creators and 
+research community 
+●Differences among the tools can be bridged with 
+engineering efforts
+●Implementation can impact the computational and utility 
+performance of the outputs 
+●Abstractions can be catalyst for adoption but building blocks 
+(core libraries) can be needed for further optimizations  
+https://medium.com/dsaid-govtech
+
+=====PAGE 28
+Developing A Usable General-Purpose Web Interface To 
+Generate Private Statistics  DP Creator From Harvard’s OpenDP 
+Privacy Team (2022)
+PSI*: a Private Data Sharing Interface (2016)
+ViP : Visualizing Privacy-Utility Trade-Offs in 
+Differentially Private Data Releases (2022)
+DPP : Decision Support for Sharing Data 
+Using Differential Privacy (2021)
+Usable Differential Privacy (2020)
+*DP Creator evolved from PSI 28
+Risk, accuracy, uncertainty estimation 
+and visualisation 
+Privacy budget splitting 
+Privacy parameter recommendations 
+Can provide post-processing 
+functionality to get consistent output?
+Can automate or provide 
+recommendations on 
+hyperparameters computations? 
+Can minimise user inputs?
+…
+=====PAGE 29
+29
+User Study To Gather Perceptions From Various Government Agencies
+#PARTICIPANTS: 18 
+Stakeholders from various 
+government agencies and teams 
+Unfamiliar with differential 
+privacy 
+Our preliminary web interface design used for the study
+STUDY DURATION: 1h 
+Semi-structured interview 
+Educating, followed by conducting think-aloud 
+experiments on the step-by-step preliminary 
+design
+
+=====PAGE 30
+30
+Key Findings/Recommendations From The User Study 
+on Government Agencies
+●Awareness and engagements to try out the technology 
+●Designing to build conﬁdence in decision-making
+ (e.g., optimisation and guidance for error minimisation, 
+uncertainty estimation and providing metadata) 
+●Guidelines for privacy budgeting based on risk, data sensitivity and trust 
+●Designing for different user modes: data depositor, 
+data analyst, and negotiation to address data sharing 
+and requesting requirements
+Need for : 
+●Communicating clear expectations around the use cases 
+(e.g., requires shift in data science practices)
+Data Analysts Negotiation.
+Data Depositor
+=====PAGE 31
+31
+●The Singapore government is advancing towards adopting differential 
+privacy by
+○expanding user education to raise awareness
+○surfacing use cases from various agencies
+○creating policy on suitable privacy parameters
+○developing tools to get data holder/analysts started with 
+differential privacy  
+Next Steps
+●Exploring other advanced PET s like Synthetic Data Generation and 
+Homomorphic Encryption to overcome our data sharing challenges. 
+○analysing whether the 
+application of differential 
+privacy is sufficiently 
+private
+=====PAGE 32
+Thank You 
+Alan Tang
+Lead Product Manager 
+alantang@dsaid.gov.sg
+32
+Anshu Singh
+Research Engineer
+anshu@dsaid.gov.sg
+Syhari Ikram
+Data Engineer
+syahri@dsaid.gov.sg
+     
+Zul Yang
+Software Engineer
+zul@dsaid.gov.sg
+    
+Ivan Wang
+Data Engineer
+ivan@dsaid.gov.sg
+Ameera Adam
+Data Engineer
+ameera@dsaid.gov.sg
+Wang Ting
+Data Engineer
+wangting@dsaid.gov.sg
+ 
+Meet our data privacy team!

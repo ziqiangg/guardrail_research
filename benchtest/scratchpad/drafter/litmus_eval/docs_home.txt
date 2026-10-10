@@ -1,0 +1,44 @@
+# status 200  final_url https://www.aiguardian.gov.sg/docs/  content-type text/html
+Skip to main content
+AI GuardianDocs
+On this page
+AI Guardian Products
+In Singapore's drive towards a Smart Nation, the responsible and safe use of Generative AI in government services is crucial. AI Guardian offers two products tailored for public sector needs: Litmus and Sentinel.
+Litmus: Comprehensive AI Safety Testing for Government Applications​
+Ensuring Safe use of AI for Singapore's Public Service​
+Empowering government development teams to build safe and reliable Generative AI applications through:
+Comprehensive safety testing and assessment of AI applications
+Seamless integration with application CI/CD processes to identify risks in near real-time
+Contextualised risk assessment specific to use cases
+Why Use Litmus?​
+Litmus ensures that AI applications used in Singapore's public services meet the highest safety standards, providing confidence to both government agencies and citizens in the reliability of AI-powered solutions.
+Multi-tenant SaaS architecture compliant with government security standards
+Frequent and automated safety checks for all public sector AI applications
+Comprehensive risk and behaviour analysis aligned with public sector AI ethics, policies, and guidelines
+Customisable testing scenarios for diverse government use cases (e.g., chatbots, document processing, policy analysis)
+Sentinel: Robust AI Guardrails for Government AI Systems​
+Guardrails as a Service to Protect Singapore’s Public Service​
+Providing essential protection for Government Generative AI applications with:
+Input and Output Guardrails tailored towards sensitive government data
+Detection and quantification of AI risks in public sector contexts
+Mitigation of common AI vulnerabilities in government systems
+Curation of both best-in-class and in-house created guardrails to comprehensively protect government applications
+Why Use Sentinel​
+Sentinel acts as the first line of defence, shielding Singapore's government AI applications from fundamental risks inherent in all generative AI models, ensuring the protection of citizen data and maintaining public trust.
+Multi-tenant SaaS platform adhering to government data protection regulations
+Protection against prompt injection in citizen-facing AI services
+Toxicity detection and prevention in public communication channels
+Safeguards against PII leakage of citizen data
+Litmus: Comprehensive AI Safety Testing for Government Applications
+Ensuring Safe use of AI for Singapore's Public Service
+Why Use Litmus?
+Sentinel: Robust AI Guardrails for Government AI Systems
+Guardrails as a Service to Protect Singapore’s Public Service
+Why Use Sentinel
+Docs
+Docs
+Community
+TBA
+More
+Report Vulnerability
+© 2026 AI Programme, GovTech

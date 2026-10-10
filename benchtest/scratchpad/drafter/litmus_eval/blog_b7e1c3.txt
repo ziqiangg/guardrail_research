@@ -1,0 +1,43 @@
+# status 200  final_url https://blog.ai.gov.sg/tag/evals/  content-type text/html; charset=utf-8
+Skip to content
+ai@govtech
+Home
+About
+The Lab
+The Studio
+The People
+Subscribe
+Evals
+A collection of 4 posts
+The Studio
+Behind VEILED Expressions: A Singapore-context benchmark for mental-health AI evaluation
+We built VEILED-SH to evaluate indirect self-harm/suicide language in the Singapore context, shaped by local language, privacy safeguards and practitioner insight.
+Keith Chua Zhi Qiang, Leanne Tan
+25 Sep 2026
+11 min read
+Responsible AIEvals
+The Studio
+Building a Smart and Safe Whole-of-Government Chatbot for Singaporeans
+How we build custom policy guardrails and balance safety with helpfulness for chat.gov.sg
+Jia Yi Goh
+11 Sep 2026
+19 min read
+Responsible AIEvals
+The Lab
+MetaEvaluator: Systematically Evaluate Your LLM Judges
+Measure how well your app is performing and more importantly where it's failing.
+Leanne Tan
+27 Oct 2025
+7 min read
+Evals
+The Lab
+Benchmarking GPT-5 & GPT-OSS: A Responsible AI Approach
+Evaluating dimensions often overlooked by traditional benchmarks.
+Leanne Tan
+08 Aug 2025
+5 min read
+Responsible AIEvals
+Page 1 of 1
+All Articles
+Contributors
+GovTech Singapore © 2026

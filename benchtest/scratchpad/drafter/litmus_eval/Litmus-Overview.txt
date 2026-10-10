@@ -1,0 +1,54 @@
+# status 200  final_url https://www.aiguardian.gov.sg/docs/wiki/Litmus-Overview  content-type text/html
+Skip to main content
+AI GuardianDocs
+Products
+Litmus
+Litmus Overview
+Litmus Getting Started
+Litmus Troubleshooting
+Test Information Documentation
+Sentinel
+Products
+Litmus
+Litmus Overview
+On this page
+Litmus Overview
+What is Litmus?​
+Litmus provides a multi-tenant SaaS service enabling development teams to perform frequent and seamless AI safety and security testing for Generative AI applications. It allows testing within the CI/CD pipeline and via a Web App, offering near real-time awareness of AI application and model risks. The objective is to provide a "Testing as a Service" platform for WOG application developers with an automated tool informing teams about safety and security risks. Key goals include providing baseline assurance that AI applications mitigate risks and empowering teams to react to risks in an agile manner.
+Why use Litmus?​
+Litmus ensures that AI applications used in Singapore's public services meet the highest safety standards, providing confidence to both government agencies and citizens in the reliability of AI-powered solutions.
+Multi-tenant SaaS architecture compliant with government security standards.
+Frequent and automated safety checks for all public sector AI applications.
+Integrate Litmus into your CI/CD pipelines to automatically run tests on every code commit or deployment.
+Comprehensive risk and behaviour analysis aligned with public sector AI ethics, policies, and National AI Group (NAIG) guidelines.
+Customisable testing scenarios for diverse government use cases (e.g., chatbots, document processing, policy analysis).
+How does Litmus work?​
+Overview of Manual Safety Testing without Litmus
+The following diagram illustrates the manual safety testing process when the user’s application is run without using Litmus, across both non-production and production environments.
+Key Challenges of Manual Safety Testing:
+Testing must be conducted manually, increasing time and effort
+Prompt coverage may be limited and lack thoroughness
+Response evaluation and reporting require manual effort
+Overview of Automated Safety Testing with Litmus
+The diagram above illustrates how Litmus enables automated safety testing through its dedicated UI, allowing users to test their applications efficiently.
+Benefits of Automated Safety Testing with Litmus:
+Safety testing is fully automated, saving time and resources
+Litmus runs a wide and diverse set of safety prompts
+Evaluations and reports are generated automatically from the responses
+Breakdown of Automated Safety Testing with Litmus
+1: The tenant begins by setting up with Litmus, followed by integrating their application CI/CD pipeline, which subsequently schedules an automatic trigger.
+2: Litmus sends hundreds of curated prompts to the tenant’s application, which then forwards them to the LLM. The LLM responds, and the tenant’s application relays these responses back to Litmus.
+3: Litmus performs an automated internal evaluation of these responses and automatically generates a report.
+4: Litmus sends the report to the tenant’s application CI/CD pipeline for storage. Tenants can access the report directly from Litmus to analyse trends and make comparisons, or retrieve it from their application’s CI/CD system.
+Next
+Litmus Getting Started
+What is Litmus?
+Why use Litmus?
+How does Litmus work?
+Docs
+Docs
+Community
+TBA
+More
+Report Vulnerability
+© 2026 AI Programme, GovTech

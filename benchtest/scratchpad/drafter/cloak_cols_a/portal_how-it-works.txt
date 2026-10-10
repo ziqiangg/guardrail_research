@@ -1,0 +1,58 @@
+# status 200  final_url https://www.developer.tech.gov.sg/products/categories/data-and-apis/cloak/how-it-works  content-type text/html;charset=utf-8
+Products
+Guidelines
+Run and deliver great digital services
+Guidelines and best practices based on the experiences of Government development teams
+Project Inception
+Development and Iteration
+Measuring Success
+Technology Choice
+Building the Right Team
+Procurement
+Standards and Best Practices
+SG Tech Stack
+Communities
+Co-create innovative digital solutions with the Government
+Discover events, blogs, open-source technologies and other collaboration opportunities
+Overview
+Building a Community
+Events
+Newsletter
+Blogs
+GovBuy
+Documentation
+Cloak
+OverviewFeatures & RoadmapHow It WorksUse CasesFAQsGetting StartedResourcesMeet the TeamLogin to Cloak
+Home
+Products
+Data and Apis
+Cloak
+How It Works
+How It Works
+Cloak is a web application designed for public service officers to upload, tag, and transform data while managing re-identification risks. It also offers API access. Below is a step-by-step guide for using Cloak to anonymise tabular datasets. For free-text anonymisation, there is no need for manual data tagging, as Cloak automatically identifies entities within the text.
+Step-by-step guide on how public officers can use Cloak to anonymise tabular datasets.
+Last updated 07 Mar 2025
+Was this article useful?
+Yes No
+Provide Feedback
+The Singapore Public Sector's Anonymisation Toolkit that Makes Sensitive Data Safe to Share and Use
+Contact Us
+Singapore Government Developer Portal
+Contribute content
+Have a product or technology to share? Fill in the form here.
+Blogs and Forums
+GovTech TechNews
+GovTech Singapore
+ai@govtech
+Open-source
+Data.gov.sg
+Data and Artificial Intelligence Platforms
+Government Digital Products
+Open Government Products
+GovTech SingaporeContact
+Report Vulnerability
+Privacy Statement
+Terms of Use
+© 2026 Government of Singapore. Last Updated 08 Oct 2026
+© 2026 Government of Singapore
+Last Updated 08 Oct 2026

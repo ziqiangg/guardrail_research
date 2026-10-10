@@ -1,0 +1,100 @@
+# status 200  final_url https://blog.ai.gov.sg/  content-type text/html; charset=utf-8
+Skip to content
+ai@govtech
+Home
+About
+The Lab
+The Studio
+The People
+Subscribe
+How we build AI for public good
+A technical blog for AI science and engineering
+The People
+Leading AI Engineering in Government
+Reflections on building reusable capabilities, empowering teams and staying relevant in a fast-moving field
+Tan Tai Kia
+09 Oct 2026
+5 min read
+The Lab
+Strengthening Chatbot Safeguards with Red-Teaming Agents
+How we used agentic AI to proactively test and strengthen chatbot safeguards for chat.gov.sg
+Watson Chua, Jia Yi Goh
+02 Oct 2026
+10 min read
+AgenticSecurity
+The Lab
+Decision Models for Guardrails: Exploring Jev and Kev for Moderation
+A closer look at the new paradigm of frontier models, and how we explored Jev and adapted its open-source interpretation - Kev, for Singapore-context moderation.
+Leanne Tan, Jia Yi Goh
+28 Sep 2026
+7 min read
+Responsible AI
+The Studio
+Behind VEILED Expressions: A Singapore-context benchmark for mental-health AI evaluation
+We built VEILED-SH to evaluate indirect self-harm/suicide language in the Singapore context, shaped by local language, privacy safeguards and practitioner insight.
+Keith Chua Zhi Qiang, Leanne Tan
+25 Sep 2026
+11 min read
+Responsible AIEvals
+The Lab
+Building a Serverless GenAI Platform on AWS
+Balancing real-time performance, model cost and structured multi-agent workflows
+Ryan Lin
+18 Sep 2026
+4 min read
+Infrastructure
+The Studio
+Building a Smart and Safe Whole-of-Government Chatbot for Singaporeans
+How we build custom policy guardrails and balance safety with helpfulness for chat.gov.sg
+Jia Yi Goh
+11 Sep 2026
+19 min read
+Responsible AIEvals
+The People
+Stewarding What Was Entrusted
+No Forward-Deployed Team really starts from zero, every achievement begins with a foundation laid by someone before us. Looking back on my journey, I realise what I inherited matters just as much as what I've accomplished.
+Lois Ji
+04 Sep 2026
+7 min read
+The Lab
+When Agent Skills Evolve: The Need for a Layer of Control
+What we learnt from building Rhizomatic, a human-in-the-loop proof of concept for reviewing, versioning and rolling back changes to reusable agent skills.
+Raymond Harris
+27 Aug 2026
+7 min read
+AgenticInfrastructure
+The Lab
+Guardrails in the Wild: Closing the Retraining Loop for LionGuard 2
+Operationalising MLOps with production feedback to continuously evaluate, retrain, and improve our guardrails.
+Jia Yi Goh, Hugh Le
+21 Aug 2026
+11 min read
+Responsible AI
+The Lab
+What is a Mixture-of-Experts model, really?
+An experiment reveals how different layers shape what a model understands, retrieves and ultimately generates.
+Ryan Lin
+14 Aug 2026
+7 min read
+Machine LearningLLMs
+The People
+One Year in Multimodal AI at GovTech
+“I came here expecting to build models for people who already knew what they wanted. I discovered that the harder work is figuring out what should be built, who it is for, and whether it solves a real problem.”
+Sumiko Teng
+07 Aug 2026
+6 min read
+Multimodal
+The Studio
+ORCA Part 2: Under the Hood
+How ORCA works under the hood: routing each request to the right agent, running generated code in an isolated sandbox, and turning repeat chat tasks into reusable workflows.
+Ethan Mak, Shaun Ang
+31 Jul 2026
+7 min read
+Agentic
+Browse all articles →
+We're building a community around AI science and engineering at GovTech Singapore.
+Subscribe to receive updates when we post new articles or update this blog.
+Subscribe
+All Articles
+Contributors
+GovTech Singapore © 2026

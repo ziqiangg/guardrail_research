@@ -121,3 +121,4 @@
 - 2026-10-10 cloak P2 inventory done: 10/7/26/9/25/4 = 81 rows; P3: cols_a+cols_b 0/0, inventory --headers combined 0/0; Q1–Q4 ruled by main; P4 started
 - 2026-10-10 litmus P4 done: 63 items (a 38, b 20, c 5), H 11; C12–C21 new conflicts; Q1–Q3 ruled by main; CP1 Q-A/Q-B → user (batched with cloak CP1)
 - 2026-10-10 cloak P4 done: 75 items (a 27, b 36, c 12), H 13; Q2–Q6 ruled by main; CP1 Q01 + CK3 split → user (batched with litmus)
+- 2026-10-10 CP1 (user) B3: cloak R037 (CK1–CK3, CK3 one column), litmus R038 (inventory sheet yes, Kaleidoscope one row). P5 started

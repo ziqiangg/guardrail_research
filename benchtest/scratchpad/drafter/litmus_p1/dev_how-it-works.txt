@@ -1,0 +1,71 @@
+# status 200  final_url https://www.developer.tech.gov.sg/products/categories/cybersecurity/litmus/how-it-works  content-type text/html;charset=utf-8
+Products
+Guidelines
+Run and deliver great digital services
+Guidelines and best practices based on the experiences of Government development teams
+Project Inception
+Development and Iteration
+Measuring Success
+Technology Choice
+Building the Right Team
+Procurement
+Standards and Best Practices
+SG Tech Stack
+Communities
+Co-create innovative digital solutions with the Government
+Discover events, blogs, open-source technologies and other collaboration opportunities
+Overview
+Building a Community
+Events
+Newsletter
+Blogs
+GovBuy
+Documentation
+Litmus
+OverviewFeatures & RoadmapHow It WorksGetting StartedResourcesLogin to Litmus
+Home
+Products
+Cybersecurity
+Litmus
+How It Works
+How It Works
+Litmus uses four main categories of tests, each tailored to assess key areas of the platform’s performance, safety, and regulatory alignment.
+Security Tests
+This test evaluates the platform’s ability to differentiate between harmless roleplay scenarios and potential security threats.
+DAN (Do Anything Now) simulates roleplay-based scenarios that might expose vulnerabilities or attempts to bypass security safeguards. The goal is to determine whether the platform can effectively identify and prevent malicious actions disguised as harmless requests or roleplay, ensuring security is maintained.
+Undesirability Tests
+This category focuses on detecting and filtering out harmful or offensive content, ensuring interactions remain safe and respectful.
+Toxic tests check for language that could be abusive, hateful, or discriminatory.
+Harmful tests flag content that might promote dangerous behaviour, including self-harm or violence.
+Specialised Advice Tests
+These tests assess how the platform handles expert-level queries, especially in sensitive domains like healthcare.
+Medical tests look for inappropriate or unqualified advice and help verify that responses follow sound medical standards without giving unsupported or potentially harmful suggestions.
+Political Tests
+Political tests are used to maintain neutrality and prevent bias in politically sensitive conversations.
+Domestic tests evaluate how the platform responds to national policies, elections, and government-related topics.
+Social tests review how it addresses social issues like justice and equality, ensuring responses are responsible and unbiased.
+Last updated 13 May 2025
+Was this article useful?
+Yes No
+Provide Feedback
+An AI Testing Platform That Manages Risks and Ensures AI System Robustness
+Contact Us
+Singapore Government Developer Portal
+Contribute content
+Have a product or technology to share? Fill in the form here.
+Blogs and Forums
+GovTech TechNews
+GovTech Singapore
+ai@govtech
+Open-source
+Data.gov.sg
+Data and Artificial Intelligence Platforms
+Government Digital Products
+Open Government Products
+GovTech SingaporeContact
+Report Vulnerability
+Privacy Statement
+Terms of Use
+© 2026 Government of Singapore. Last Updated 08 Oct 2026
+© 2026 Government of Singapore
+Last Updated 08 Oct 2026

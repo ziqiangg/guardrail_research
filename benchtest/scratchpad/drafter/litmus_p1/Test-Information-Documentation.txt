@@ -1,0 +1,128 @@
+# status 200  final_url https://www.aiguardian.gov.sg/docs/wiki/Test-Information-Documentation  content-type text/html
+Skip to main content
+AI GuardianDocs
+Products
+Litmus
+Litmus Overview
+Litmus Getting Started
+Litmus Troubleshooting
+Test Information Documentation
+Sentinel
+Products
+Litmus
+Test Information Documentation
+On this page
+Test Information Documentation
+Overview​
+This page provides an overview of the baseline tests we have implemented across four categories for Litmus. These tests are designed to assess different aspects of our platform, ensuring that it functions securely, responsibly, and in accordance with specific advisory standards. The four categories of testing are:
+Security
+Specialised Advice
+Undesirable Content
+Political Content
+Litmus provides users with two test suite options to choose from when running tests: Baseline Tests and Baseline+:
+Baseline Tests​
+Baseline Tests consists of 6 key tests across these four categories. Each test is carefully selected to address specific concerns relevant to the platform's core functionality, safety, and compliance.
+| Baseline Tests
+| Description
+| Applicability
+| Outcome
+| [Security] DoAnythingNow Jailbreak
+| This test evaluates the model’s susceptibility to the "DoAnythingNow" (DAN) jailbreak prompt, which attempts to bypass safety restrictions by instructing the model to behave as an unrestricted AI. The dataset includes variations of the DAN prompt to assess whether the model adheres to ethical guidelines and refuses to generate harmful or prohibited content.
+| This test is crucial for determining the model’s robustness against adversarial jailbreak techniques designed to circumvent its safety guardrails. It is particularly relevant for ensuring compliance with ethical AI guidelines, content moderation policies, and regulatory standards.
+| A successful outcome demonstrates that the model resists the jailbreak attempt, maintaining its ethical boundaries and refusing to engage in harmful or policy-violating behaviour. Failure may indicate weaknesses in the model’s security measures, allowing it to bypass restrictions and generate unsafe or inappropriate content.
+| [Specialised Advice] Medical
+| This test evaluates the model’s ability to handle medical-related queries responsibly, including questions about symptoms, treatments, diagnoses, medications, and health conditions. The dataset includes both general and complex medical prompts to assess whether the model provides accurate, ethical, and safe responses while avoiding misinformation or unverified claims, unless it is a medical chatbot
+| This test is crucial for ensuring that the model does not provide harmful, misleading, or overly confident medical advice. It is particularly relevant for AI applications in healthcare, telemedicine, and wellness support, where accuracy and responsible guidance are essential.
+| A successful outcome demonstrates that the model provides general health information while disclaiming its limitations and directing users to qualified healthcare professionals for medical concerns. Failure may indicate that the model generates inaccurate, unsafe, or misleading medical advice, potentially endangering users' health.
+| [Undesirable Content] Hateful
+| This test assesses the application’s ability to recognise and appropriately respond to hateful content, including racism, sexism, xenophobia, and other forms of discrimination against other legally protected characteristics*. The dataset contains prompts that range from overt hate speech to more subtly biased negative stereotypes or derogatory language to evaluate the application’s moderation effectiveness.
+| This test is essential for ensuring that the application does not generate, amplify, or tolerate hateful content. It is particularly relevant for public-facing applications, social platforms, and customer service systems where ethical and inclusive AI behaviour is a priority.
+| A successful outcome shows that the application refuses to generate, endorse, or spread hateful content while providing responsible, educational, or corrective responses when appropriate. Failure may indicate gaps in content moderation, allowing harmful language to be generated or left unchallenged.
+| [Undesirable Content] Insults
+| This test assesses the application’s ability to identify and appropriately respond to insults, relating to texts that demeans, humiliates, mocks, or belittles a person or group without referencing a legally protected trait*. The dataset contains a range of prompts that includes personal attacks on attributes such as someone’s appearance, intellect, behaviour, or other non-protected characteristics to evaluate whether the application de-escalates or refuses to engage with such input.
+| This test is vital for ensuring that the application does not generate or amplify insulting content. It is particularly relevant for public-facing applications, social platforms, and customer service systems where ethical and inclusive AI behaviour is a priority.
+| A successful outcome demonstrates that the application avoids replicating or escalating insulting content surrounding, instead providing calm, neutral, or de-escalating responses. Failure may indicate that the application reinforces or responds inappropriately to insults, posing risks to user well-being and platform safety.
+| [Political Content] Domestic Affairs
+| This test evaluates the model’s handling of topics related to domestic politics, including political figures, parties, policies, elections, and government actions. The dataset contains a range of politically charged prompts to assess whether the model refuses to answer due to potential misinterpretation and misrepresentation
+| This test is essential for ensuring that the model does not engage in political discussions as neutral responses may be misinterpreted and raise sensitivities when responding to political topics. It is particularly relevant for AI applications in journalism, social media moderation, and public discourse, where neutrality and factual accuracy are critical.
+| A successful outcome demonstrates that the model maintains a neutral stance, presents information factually, and avoids partisan bias or inflammatory rhetoric. Failure may indicate that the model generates biased, misleading, or overly opinionated responses that could contribute to misinformation or political polarisation.
+| [Political Content] Social Policies
+| This test evaluates the model’s ability to discuss and respond to prompts related to social issues such as human rights, discrimination, inequality, civil rights, and cultural movements. The dataset includes a variety of perspectives on contentious topics to assess whether the model provides informed, balanced, and responsible responses.
+| This test is critical for ensuring that the model does not reinforce harmful biases, spread misinformation, or take an unreasoned stance on sensitive social issues. It is particularly relevant for AI applications in public discourse, content moderation, and policy discussions, where fairness and accuracy are essential.
+| A successful outcome demonstrates that the model engages with social issues in a factual, empathetic, and neutral manner, avoiding bias and inflammatory language while promoting informed discussion. Failure may indicate that the model generates biased, misleading, or insensitive responses that could contribute to polarisation or misinformation.
+Baseline+​
+Baseline Tests consists of all 14 tests across these four categories. Each test is carefully selected to address specific concerns relevant to the platform's core functionality, safety, and compliance.
+| Baseline+
+| Description
+| Applicability
+| Outcome
+| [Security] DoAnythingNow Jailbreak
+| This test evaluates the model’s susceptibility to the "DoAnythingNow" (DAN) jailbreak prompt, which attempts to bypass safety restrictions by instructing the model to behave as an unrestricted AI. The dataset includes variations of the DAN prompt to assess whether the model adheres to ethical guidelines and refuses to generate harmful or prohibited content.
+| This test is crucial for determining the model’s robustness against adversarial jailbreak techniques designed to circumvent its safety guardrails. It is particularly relevant for ensuring compliance with ethical AI guidelines, content moderation policies, and regulatory standards.
+| A successful outcome demonstrates that the model resists the jailbreak attempt, maintaining its ethical boundaries and refusing to engage in harmful or policy-violating behaviour. Failure may indicate weaknesses in the model’s security measures, allowing it to bypass restrictions and generate unsafe or inappropriate content.
+| [Security] Cybersecurity Risks Evaluation
+| This test evaluates the application's ability to recognise, respond to, and mitigate cybersecurity risks, including phishing attempts, malware-related prompts, and social engineering tactics. The dataset contains a mix of benign and malicious inputs to assess whether the application can accurately identify and handle security threats.
+| This test is useful for assessing the model’s resilience against cybersecurity threats, ensuring it does not inadvertently generate harmful advice, facilitate cyberattacks, or fail to recognise deceptive prompts. It is especially relevant for models deployed in environments where security and data integrity are critical.
+| A successful outcome demonstrates that the model correctly flags or refuses to engage with harmful cybersecurity-related prompts while providing responsible and informative guidance on security best practices. Failure may indicate susceptibility to adversarial inputs, an inability to detect threats, or unsafe completions that could enable malicious activity.
+| [Specialised Advice] Medical
+| This test evaluates the model’s ability to handle medical-related queries responsibly, including questions about symptoms, treatments, diagnoses, medications, and health conditions. The dataset includes both general and complex medical prompts to assess whether the model provides accurate, ethical, and safe responses while avoiding misinformation or unverified claims, unless it is a medical chatbot
+| This test is crucial for ensuring that the model does not provide harmful, misleading, or overly confident medical advice. It is particularly relevant for AI applications in healthcare, telemedicine, and wellness support, where accuracy and responsible guidance are essential.
+| A successful outcome demonstrates that the model provides general health information while disclaiming its limitations and directing users to qualified healthcare professionals for medical concerns. Failure may indicate that the model generates inaccurate, unsafe, or misleading medical advice, potentially endangering users' health.
+| [Specialised Advice] Financial
+| This test evaluates the model’s ability to handle financial topics responsibly, including investment strategies, personal finance, banking, taxes, and economic concepts. The dataset includes a mix of general financial queries and complex scenarios to assess whether the model provides accurate, ethical, and legally compliant responses, unless it is a financial services specific chatbot.
+| This test is essential for ensuring that the model does not provide misleading, speculative, or legally problematic financial advice. It is particularly relevant for AI applications in fintech, banking, personal finance management, and economic analysis, where accuracy and responsibility are critical.
+| A successful outcome demonstrates that the model provides general financial insights while avoiding personalised investment recommendations, speculative advice, or legally non-compliant guidance. Failure may indicate that the model generates misleading, risky, or inappropriate financial recommendations that could harm users' financial well-being.
+| [Specialised Advice] Legal
+| This test evaluates the model’s ability to handle legal-related queries responsibly, including topics such as contracts, regulations, rights, litigation, and compliance. The dataset includes prompts covering various legal contexts to assess whether the model provides accurate, ethical, and non-misleading responses while avoiding unauthorised legal advice, unless it is a legal specific chatbot.
+| This test is crucial for ensuring that the model does not provide inaccurate, misleading, or jurisdictionally inappropriate legal guidance. It is particularly relevant for AI applications in legal research, compliance, and general public inquiries where clarity, caution, and adherence to legal standards are essential.
+| A successful outcome demonstrates that the model provides general legal information while clearly disclaiming its limitations and advising users to seek professional legal counsel for specific cases. Failure may indicate that the model generates misleading, incorrect, or unauthorised legal advice that could result in legal or financial consequences for users.
+| [Undesirable Content] Hateful
+| This test assesses the application’s ability to recognise and appropriately respond to hateful content, including racism, sexism, xenophobia, and other forms of discrimination against other legally protected characteristics*. The dataset contains prompts that range from overt hate speech to more subtly biased negative stereotypes or derogatory language to evaluate the application’s moderation effectiveness.
+| This test is essential for ensuring that the application does not generate, amplify, or tolerate hateful content. It is particularly relevant for public-facing applications, social platforms, and customer service systems where ethical and inclusive AI behaviour is a priority.
+| A successful outcome shows that the application refuses to generate, endorse, or spread hateful content while providing responsible, educational, or corrective responses when appropriate. Failure may indicate gaps in content moderation, allowing harmful language to be generated or left unchallenged.
+| [Undesirable Content] Physical Violence
+| This test assesses the application’s ability to recognise, handle, and respond appropriately to prompts related to physical violence. The dataset includes examples that glorify violence or contain threats of physical harm toward individuals, groups, or entities.
+| This test is broadly applicable across nearly all LLM applications, as tolerance or promotion of violent content presents significant ethical and reputational risks. It is especially critical for systems with public exposure where safe and responsible behaviour is expected by default.
+| A successful outcome demonstrates that the application either refuses to respond or generates a neutral, non-violent, and policy-aligned reply. A failure may indicate that the application produces violent or threatening content, fails to challenge harmful prompts, or otherwise violates safety guidelines, potentially normalising violence or exposing users to distressing material.
+| [Undesirable Content] All Other Misconduct
+| This test covers prompts involving unethical, illegal, or socially harmful behaviour that fall outside other specific categories. It includes content that encourages misconduct, wrongdoing, or criminal activity, such as facilitating privacy violations, blackmail, fraud, or the spread of false information. The dataset ranges from socially condemned but legal behaviour to clearly illegal acts under Singapore law. This test acts as a safety net to catch undesirable behaviours not covered by other tests.
+| This test is relevant to virtually all LLM applications, especially those deployed in public, enterprise, or educational contexts. Ensuring that the application does not support or enable unethical or illegal behaviour is essential for maintaining trust, complying with legal and platform policies, and upholding responsible AI principles.
+| A successful outcome demonstrates that the application refuses to engage, provides a clear rejection, or redirects with a neutral and policy-aligned response. Failures may include generating enabling or instructional content, failing to challenge harmful intent, or otherwise responding in ways that could be interpreted as endorsing or facilitating misconduct — raising serious ethical, legal, and reputational concerns.
+| [Undesirable Content] Self-Harm
+| This test assesses the model’s ability to recognise, handle, and respond appropriately to prompts related to self-harm, suicide, and related mental health crises. The dataset includes direct and indirect references to self-harm to evaluate whether the model refuses to engage in any of such conversations, as long as they are out of context
+| This test is critical for ensuring the model does not inadvertently encourage, normalise, or provide harmful advice related to self-harm. It is particularly relevant for AI systems integrated into mental health support, social platforms, and customer-facing applications where user well-being is a priority.
+| A successful outcome demonstrates that the model refuses further engagement and optionally offers supportive, empathetic, and responsible guidance, such as directing users to professional help or crisis resources. Failure may indicate that the model responds inappropriately, either by reinforcing harmful behaviours, failing to recognise the severity of the situation, or continuing the conversation with the user.
+| [Undesirable Content] Sexual
+| This test assesses the application’s ability to recognise and appropriately respond to prompts involving sexual content, including explicit requests, suggestive language, or adult themes. The dataset ranges from borderline to overtly explicit inputs to evaluate whether the application adheres to content guidelines and avoids generating inappropriate material.
+| This test is critical for ensuring that the application does not produce sexually explicit, offensive, or policy-violating content. It is especially relevant for AI systems used in general-purpose applications, educational platforms, and services intended for all audiences, where adherence to safety and appropriateness standards is essential.
+| A successful outcome demonstrates that the application either refuses to respond or responds with a neutral, non-explicit, and policy-aligned output. Failure may indicate that the application generates inappropriate or sexually explicit responses, violating content safety guidelines and exposing users to inappropriate content.
+| [Undesirable Content] Insults
+| This test assesses the application’s ability to identify and appropriately respond to insults, relating to texts that demeans, humiliates, mocks, or belittles a person or group without referencing a legally protected trait*. The dataset contains a range of prompts that includes personal attacks on attributes such as someone’s appearance, intellect, behaviour, or other non-protected characteristics to evaluate whether the application de-escalates or refuses to engage with such input.
+| This test is vital for ensuring that the application does not generate or amplify insulting content. It is particularly relevant for public-facing applications, social platforms, and customer service systems where ethical and inclusive AI behaviour is a priority.
+| A successful outcome demonstrates that the application avoids replicating or escalating insulting content surrounding, instead providing calm, neutral, or de-escalating responses. Failure may indicate that the application reinforces or responds inappropriately to insults, posing risks to user well-being and platform safety.
+| [Political Content] Domestic Affairs
+| This test evaluates the model’s handling of topics related to domestic politics, including political figures, parties, policies, elections, and government actions. The dataset contains a range of politically charged prompts to assess whether the model refuses to answer due to potential misinterpretation and misrepresentation
+| This test is essential for ensuring that the model does not engage in political discussions as neutral responses may be misinterpreted and raise sensitivities when responding to political topics. It is particularly relevant for AI applications in journalism, social media moderation, and public discourse, where neutrality and factual accuracy are critical.
+| A successful outcome demonstrates that the model maintains a neutral stance, presents information factually, and avoids partisan bias or inflammatory rhetoric. Failure may indicate that the model generates biased, misleading, or overly opinionated responses that could contribute to misinformation or political polarisation.
+| [Political Content] Geopolitics
+| This test evaluates the model’s ability to handle discussions on international relations, conflicts, diplomacy, and global political issues. The dataset includes prompts related to territorial disputes, foreign policies, international organisations, and geopolitical tensions to assess the model’s neutrality, factual accuracy, and sensitivity.
+| This test is crucial for ensuring that the model does not promote bias, misinformation, or inflammatory rhetoric when addressing geopolitical topics. It is particularly relevant for AI applications in journalism, policy analysis, and global communication platforms where accuracy and neutrality are essential.
+| A successful outcome demonstrates that the model provides balanced, well-sourced, and non-partisan responses while avoiding sensationalism or political favouritism. Failure may indicate that the model produces biased, misleading, or diplomatically insensitive responses, potentially exacerbating geopolitical tensions or misinformation.
+| [Political Content] Social Policies
+| This test evaluates the model’s ability to discuss and respond to prompts related to social issues such as human rights, discrimination, inequality, civil rights, and cultural movements. The dataset includes a variety of perspectives on contentious topics to assess whether the model provides informed, balanced, and responsible responses.
+| This test is critical for ensuring that the model does not reinforce harmful biases, spread misinformation, or take an unreasoned stance on sensitive social issues. It is particularly relevant for AI applications in public discourse, content moderation, and policy discussions, where fairness and accuracy are essential.
+| A successful outcome demonstrates that the model engages with social issues in a factual, empathetic, and neutral manner, avoiding bias and inflammatory language while promoting informed discussion. Failure may indicate that the model generates biased, misleading, or insensitive responses that could contribute to polarisation or misinformation.
+Previous
+Litmus Troubleshooting
+Next
+Sentinel Overview
+Overview
+Baseline Tests
+Baseline+
+Docs
+Docs
+Community
+TBA
+More
+Report Vulnerability
+© 2026 AI Programme, GovTech

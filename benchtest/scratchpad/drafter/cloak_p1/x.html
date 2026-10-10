@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    
+                    <!-- Google Tag Manager -->
+                    <script nonce="5bdc1753d30f4087">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                    })(window,document,'script','dataLayer','GTM-KX8DHSKG');</script>
+                    <!-- End Google Tag Manager -->
+    
+                <script nonce="5bdc1753d30f4087">
+                    window.__APP_CONFIG__ = {
+                        postHogProjectToken: "phc_aDHMLYFS2B99J4y5UbKiPMiUptBN0QQRUsRSAliMWV",
+                        postHogApiHost: "https://phog.console.developer.tech.gov.sg",
+                        enablePostHogSubdomainCookie: true,
+                    };
+                    !function (t, e) { var o, n, p, r; e.__SV || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.crossOrigin = "anonymous", p.async = !0, p.src = s.api_host.replace(".i.posthog.com", "-assets.i.posthog.com") + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], u.toString = function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e }, u.people.toString = function () { return u.toString(1) + ".people (stub)" }, o = "init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []);
+                    posthog.init(window.__APP_CONFIG__.postHogProjectToken, {
+                        api_host: window.__APP_CONFIG__.postHogApiHost,
+                        cross_subdomain_cookie: window.__APP_CONFIG__.enablePostHogSubdomainCookie,
+                        capture_performance: false,
+                        disable_session_recording: true,
+                        disable_surveys: true,
+                        prepare_external_dependency_script: (script) => {
+                            script.nonce = '5bdc1753d30f4087'
+                            return script
+                        },
+                        prepare_external_dependency_stylesheet: (stylesheet) => {
+                            stylesheet.nonce = '5bdc1753d30f4087'
+                            return stylesheet
+                        }
+                    });
+    
+                    const userEmail = 'undefined' != 'undefined' && 'undefined';
+    
+                    // there's an internal function _isIdentified, but not public hence not reliable
+                    // not good to use get_distinct_id and test if is email as well
+                    const isIdentified =
+                        localStorage.getItem("ph_is_identified") === "true";
+                    if (userEmail && isIdentified) {
+                        // do nothing
+                    } else if (userEmail && !isIdentified) {
+                        posthog.identify(userEmail);
+                        localStorage.setItem("ph_is_identified", "true");
+                    } else if (!userEmail && isIdentified) {
+                        posthog.reset();
+                        localStorage.setItem("ph_is_identified", "false");
+                    } else {
+                        // do nothing
+                    }
+                </script>
+                
+    
+            <!-- Google tag (gtag.js) -->
+            <script nonce="5bdc1753d30f4087"async src="https://www.googletagmanager.com/gtag/js?id=G-2S6PT3L5LS"></script>
+            <script nonce="5bdc1753d30f4087">
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+    
+              gtag('config', 'G-2S6PT3L5LS');
+            </script>
+    
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Documentation Portal</title>
+    
+    
+    
+    <link rel="icon" type="image/svg+xml" href="/static/images/favicon.ico" />
+    
+    <!-- Wogga -->
+    <script nonce="5bdc1753d30f4087" src="https://assets.wogaa.sg/scripts/wogaa.js"></script>
+    <!-- End Wogga -->
+    
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@100;300;400;700;900&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/fontawesome.min.css"
+        integrity="sha256-CuUPKpitgFmSNQuPDL5cEfPOOJT/+bwUlhfumDJ9CI4=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/solid.min.css"
+        integrity="sha256-pIAzc/BIIo/hSvtNEDIiMTBtR9EfK3COmnH2pt8cPDY=" crossorigin="anonymous" />
+    <link href="https://webchat.vica.gov.sg/static/css/chat.css" referrerpolicy="origin" rel="stylesheet" />
+    
+    <script type="module" async src="https://assets.developer.tech.gov.sg/search/1.4.7/index.js"></script>
+    
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.2.7/purify.min.js"
+        integrity="sha512-srKA/HGYuusMcB2uqsvHKmqqE39vHU74WIuPBaKS5+wtfI6NquGXQtby+eM7o139a7Gt3szcHS09wou8GK4IJQ=="
+        crossorigin="anonymous"></script>
+    <script type="module" id="dev-console-gateway"
+        src="https://assets.developer.tech.gov.sg/bundled-scripts/dev-console-gateway.bundle.js"></script>    <link rel="stylesheet" href="/static/dist/portal.0ab9095e.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css"
+        integrity="sha256-FdatTf20PQr/rWg+cAKfl6j4/IY3oohFAJ7gVC3M34E=" crossorigin="anonymous">
+</head>
+
+<body>
+    
+                <!-- Google Tag Manager (noscript) -->
+                <noscript nonce="5bdc1753d30f4087"><iframe nonce="5bdc1753d30f4087" src="https://www.googletagmanager.com/ns.html?id=GTM-KX8DHSKG"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+                <!-- End Google Tag Manager (noscript) -->
+
+    <main>
+        <div class="sgds-masthead" style="z-index: 21;">
+          <div class="sgds-container is-fluid">
+            <a href="https://www.gov.sg" target="_blank">
+              <span class="sgds-icon sgds-icon-sg-crest"></span>
+              <span class="is-text">A Singapore Government Agency Website</span>
+            </a>
+          </div>
+        </div>        <nav class="sgds-navbar" role="navigation">
+            <div class="sgds-container is-fluid">
+                <div class="sgds-navbar-brand">
+                    <a class="sgds-navbar-item is-hidden-touch" href="/">
+                        <img src="/static/images/logo_color.svg" alt="documentation service logo">
+                    </a>
+                    <a class="is-hidden-desktop" href="/" style="display: flex; align-items: center; padding-right: 12px">
+                        <img src="/static/images/logo_color.svg" alt="documentation service logo">
+                    </a>
+                    <div class="navbar-mobile-end">
+                        <dev-console-widget variant="mobile" id="dev-console-widget-mobile" class="is-hidden-desktop"
+                            iconColor="black" iconWidth="24px" iconHeight="24px"></dev-console-widget>
+                        <div class="sgds-navbar-burger">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="sgds-navbar-menu" style="margin-right: 0;">
+                    <div class="sgds-navbar-start">
+                        <a class="sgds-navbar-item " href="/about">
+                            About
+                        </a>
+                        <a class="sgds-navbar-item " href="/docs">
+                            Documentation
+                        </a>
+                    </div>
+                    <div class="sgds-navbar-search">
+                        <div class="sgds-navbar-item">
+                            <search-bar class="search-bar" default-source="documentation"></search-bar>
+                        </div>
+                    </div>
+                    <div class="sgds-navbar-end">
+                        <div class="sgds-navbar-item">
+                            <a href="https://go.gov.sg/developer-portal-documentation-service-support" target="_blank">
+                                Feedback
+                                <span class="sgds-icon sgds-icon-external" aria-label="external" role="img"
+                                    style="margin: 0;"></span>
+                            </a>
+                        </div>
+                        <div class="sgds-navbar-item">
+                            <a class="sgds-button is-primary" id="navLoginBtn" href="/auth/otp-login#">Login</a>
+                        </div>
+                        <dev-console-widget variant="desktop" class="sgds-navbar-item is-mega is-hidden-touch" iconColor="black"
+                            iconWidth="28px" iconHeight="28px"></dev-console-widget>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        
+                <script nonce="5bdc1753d30f4087">
+                const navLogInBtn = document.getElementById("navLoginBtn");
+                if(navLogInBtn){
+                    navLogInBtn.addEventListener("click", function(e) {
+                        e.preventDefault();
+                        const targetUrl = new URL(this.href, window.location.origin);
+        
+                        if (window.location.pathname === '/auth/otp-login') {
+                            targetUrl.hash = window.location.hash;
+                        } else {
+                            const currentUrl = window.location.pathname + window.location.search + window.location.hash;
+                            const params = new URLSearchParams();
+                            params.set('originalPath', currentUrl);
+                            targetUrl.hash = '/?' + params.toString();
+                        }
+        
+                        window.location.href = targetUrl.href;
+                    });
+                }
+                </script>        <!-- TODO : Layout for breadcrumbs and header -->
+
+        <div class="content has-default-header-styles">
+  <section>
+    <div class="sgds-container">
+      <div id="login-app">Please wait...</div>
+      <script async defer src="/static/dist/loginApp.0ab9095e.bundle.js"></script>
+    </div>
+  </section>
+</div>
+    </main>
+
+    <div id="webchat" app-id="ship-hats-ask-ce" app-name="Ask Spoon"
+        app-color="#67BFE2" app-icon="/static/images/vica-icon-spoon3.png"
+        app-subtitle="" app-welcome-message="Chat with me!"
+        app-base-font-size="16"
+        app-position-right="40"
+        app-position-bottom="40" app-enable-auto-complete="false"
+        app-enable-recommendations="false"
+        app-auto-launch="false" app-bot-response-trigger-event="false"
+        app-quick-launch-event="welcome"
+        app-foreground-color1="#FFFFFF" app-foreground-color-2="#2E2E2E" app-background-color2="#FFFFFF"
+        app-canvas-background-color="#DCDCDC" app-button-border-color="#6BC1FF80" app-quick-reply-button-background-color="#ECECEC" app-auto-complete-background-color="#FFE0DC" app-auto-complete-foreground-color="#2E2E2E" app-auto-complete-hover-color="#F3A49A" app-auto-complete-divider-color="#D81800" app-recommendations-background-color="#FFE0DC" app-recommendations-foreground-color="#2E2E2E" app-recommendations-hover-color="#F3A49A" app-launcher-animation-iteration="0"  
+        app-font-family="Arial, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif" />
+    
+    
+    <script type="text/javascript" src="https://webchat.vica.gov.sg/static/js/chat.js" referrerpolicy="origin"></script>    <footer class="sgds-footer">
+        <div class="top-section">
+            <div class="sgds-container">
+                <div class="row">
+                    <div class="col">
+                        <h5>
+                            <strong>Singapore Government Developer Portal</strong>
+                        </h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col is-3 contribute">
+                        <p><strong>Contribute content</strong></p>
+                        <p class="external-link">
+                            Have a project or technology to share?
+                            <a class="has-text-link external-link"
+                                href="https://go.gov.sg/developer-portal-documentation-service-support">Fill in the form
+                                here.</a>
+                        </p>
+                    </div>
+                    <div class="col is-3">
+                        <p><strong>Blogs and Forums</strong></p>
+                        <p>
+                            <a href="https://www.tech.gov.sg/technews" target="_blank" class="external-link">
+                                GovTech TechNews
+                            </a>
+                        </p>
+                        <p>
+                            <a href="https://medium.com/govtechsingapore" target="_blank" class="external-link">
+                                GovTech Singapore
+                            </a>
+                        </p>
+                        <p>
+                            <a href="https://blog.ai.gov.sg/" target="_blank" class="external-link">
+                                ai@govtech
+                            </a>
+                        </p>
+                    </div>
+                    <div class="col is-3">
+                        <p><strong>Open-source</strong></p>
+                        <p>
+                            <a href="https://github.com/datagovsg" target="_blank" class="external-link">
+                                Data.gov.sg
+                            </a>
+                        </p>
+                        <p>
+                            <a href="https://github.com/dsaidgovsg" target="_blank" class="external-link">
+                                Data and Artificial Intelligence Platforms
+                            </a>
+                        </p>
+                        <p>
+                            <a href="https://github.com/GovTechSG" target="_blank" class="external-link">
+                                Government Digital Products
+                            </a>
+                        </p>
+                        <p>
+                            <a href="https://github.com/opengovsg" target="_blank" class="external-link">
+                                Open Government Products
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col is-right-desktop-only">
+                        <ul>
+                            <li class="is-inline-block-desktop-only">
+                                <p>
+                                    <a class="has-text-white external-link" href="https://www.tech.gov.sg"
+                                        target="_blank"><strong>GovTech Singapore</strong></a>
+                                    <a href="https://go.gov.sg/developer-portal-documentation-service-support"
+                                        target="_blank" class="external-link">Contact</a>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-section">
+            <div class="sgds-container">
+                <div class="row is-multiline">
+                    <div class="col is-12">
+                        <ul>
+                            <li>
+                                <a href="https://tech.gov.sg/report_vulnerability" target="_blank"
+                                    class="external-link">Report Vulnerability</a>
+                            </li>
+                            <li><a href="/terms-of-use">Terms of Use</a></li>
+                        </ul>
+                    </div>
+                    <div class="col is-12 has-text-right-desktop has-text-right-tablet has-text-left-mobile">
+                        <p class="is-hidden-touch">
+                            © 2026 Government of Singapore. Last
+                            Updated 30 Sep 2026
+                        </p>
+                        <p class="is-hidden-desktop">
+                            © 2026 Government of Singapore
+                        </p>
+                        <p class="is-hidden-desktop last-updated">
+                            Last Updated 30 Sep 2026
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Make sure jQuery is loaded first -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.19.2/URI.min.js"
+        integrity="sha512-YQAqeLT4VuAZV80lmk6OE3XtmMW3eDxUtNf2V2w16eypX21CDtelaVsFD1QLUBCQuJEenK3jPqYPmpNUasdktA=="
+        crossorigin="anonymous"></script>
+    <script src="/static/dist/portal.0ab9095e.bundle.js"></script>
+    <script id="session-manager-script-bundle" src="/static/dist/sessionManager.0ab9095e.bundle.js"
+        data-sessionTtl="86400000" data-isAuthenticated="false"></script>
+</body>
+
+</html>

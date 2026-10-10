@@ -1,0 +1,43 @@
+# status 200  final_url https://www.aiguardian.gov.sg/docs/wiki/Litmus-Troubleshooting  content-type text/html
+Skip to main content
+AI GuardianDocs
+Products
+Litmus
+Litmus Overview
+Litmus Getting Started
+Litmus Troubleshooting
+Test Information Documentation
+Sentinel
+Products
+Litmus
+Litmus Troubleshooting
+On this page
+Litmus Troubleshooting
+1. Test Failed​
+Check the detailed test report for errors and issues
+Ensure configurations (devices, browsers) are correctly set
+If tests fail for specific browsers, verify compatibility or use manual testing to isolate the problem
+2. Test Not Starting​
+Ensure your account setup is complete and subscription is active
+Verify the accessibility of the URL or app under test
+3. API Integration Issues​
+Verify your API key and ensure you're using the correct endpoint
+Ensure proper authorisation headers are included with requests
+For additional support, contact our team
+Contact Us​
+For any questions or support inquiries, feel free to reach out to our team: aiguardian@tech.gov.sg
+Previous
+Litmus Getting Started
+Next
+Test Information Documentation
+1. Test Failed
+2. Test Not Starting
+3. API Integration Issues
+Contact Us
+Docs
+Docs
+Community
+TBA
+More
+Report Vulnerability
+© 2026 AI Programme, GovTech

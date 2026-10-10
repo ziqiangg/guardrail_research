@@ -1,0 +1,43 @@
+# status 200  final_url https://govtech-responsibleai.github.io/playbook/tools/responsible-ai-benchmark/  content-type text/html; charset=utf-8
+Skip to main content
+Responsible AI Playbook
+Search
+Start Here
+Getting started
+About Responsible AI
+Evaluating AI Systems
+Improving AI Systems
+Tools & Resources
+Overview
+WOG Products
+Benchmarks
+RabakBench
+MinorBench
+Responsible AI Benchmark
+Guardrails
+Frameworks
+Tools
+External resources
+Glossary
+Tools & Resources
+Benchmarks
+Responsible AI Benchmark
+On this page
+Responsible AI Benchmark
+The Responsible AI Benchmark consolidates several of the key benchmarks and guardrails to give a baseline view of how the newest LLMs behave. A common set of tests runs across many models, reporting where they cluster on three dimensions:
+Safety: refusal on unsafe prompts, from RabakBench and our WOG risk taxonomy.
+Robustness: factual grounding and abstention on RAG tasks, from KnowOrNot.
+Fairness: differential treatment across groups.
+When to use​
+Early model and guardrail comparison.
+A baseline view of safety, robustness, and fairness before tuning.
+For launch readiness, combine results with Designing an evaluation plan.
+Last updated on Jul 25, 2026
+Was this page helpful?
+Previous
+MinorBench
+Next
+LionGuard
+When to use
+Blog·Hugging Face·GitHub·LinkedIn·X·Email
+Copyright © 2025–2026 Government Technology Agency of Singapore
