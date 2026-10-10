@@ -8,6 +8,8 @@
 | 3 | modelarmor | R024 (+ R025 pre-P8 merger edit first) | 2026-10-09 | bf4a66d |
 | 4 | lionguard | R033 | 2026-10-10 | 45f47e2 (+ fix 7078fa3) |
 | 5 | purplellama | R034 | 2026-10-10 | d51c79d |
+| 6 | cloak | R039 | 2026-10-10 | |
+| 7 | litmus | R040 | 2026-10-10 | |
 
 ## Open questions (from agents)
 | Q file | Product | Routed to | State | Ruling |
@@ -31,6 +33,8 @@
 ## Resolved questions
 | Q file | Ruling | Decided by |
 |---|---|---|
+| cloak CP2 | R039 approved | user |
+| litmus CP2 | R040 approved | user |
 | litmus P7 Q1/Q2 (org size source; bare /docs/wiki/ base path) | absence checks quoting an org size cite GitHub's organisation listing (more primary than search counts); add https://www.aiguardian.gov.sg/docs/wiki/ (403) to P9 expected non-200 | main |
 | cloak P7 Q1/Q2 (entailment strictness; FTA "no verdict" label) | entailment fixes stay required (README §4; lionguard P7 precedent); R020 governs absences → [Not disclosed] | main |
 | cloak P6 Q1–Q3 | brief is a historical P1 file, finals govern (purplellama P6 Q5 precedent); go.gov.sg/cloak-open-source not added to Source cells (optional dropped); expected non-200 URLs passed to P9 | main |

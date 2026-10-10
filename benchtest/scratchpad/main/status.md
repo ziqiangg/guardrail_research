@@ -12,6 +12,6 @@ Phases: P0 explore · P1 brief · P2 drafts · P3 mechanical · P4 triage · CP1
 | sdp | B1 | done (R029) | AN–AS (SD1–SD6) | 3g. SDP Inventory | — | sdp-explained.html | a3962a3 | dates MEDICAL_ID ~2026-10-11, PERSON_NAME ~2026-11-02 |
 | purplellama | B2 | done (R036) | BE–BK (PL1–PL7) | 3j | 3k CyberSecEval | purplellama-explained.html | 0f61bff | licence clauses recorded, open |
 | lionguard | B2 | done (R035) | BD (LN1) | 3i | — | lionguard-explained.html | 26eea36 | post-P8 fix 7078fa3 |
-| cloak | B3 | P0 running | | | | | | cross-ref Sentinel AF |
-| litmus | B3 | P0 running | — (R003) | ? (CP1) | Litmus | | | R003 |
+| cloak | B3 | CP2 approved (R039) → P8 #6 | CK1–CK3 | | | | 8459191 | Terms clauses recorded |
+| litmus | B3 | CP2 approved (R040) → P8 #7 | — (R003) | 15 rows | Litmus | | aef84e2 | |
 | groups (sheet 4) | final | done v2 (24 groups) | | | | | baseline-2026-10-09 | regroup after all products (R006) |
