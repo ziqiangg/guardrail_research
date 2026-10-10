@@ -115,3 +115,4 @@
 - 2026-10-10 cloak P1 done: brief CK1–CK3 (CP1 default a), inventory (a)–(f) 10/7/25/16/9/3; P0 corrections incl. Terms 3.4.7 benchmarking ban, Schedule 4.6; Q2–Q5 ruled by main (headers CK2/CK3 tweaked); P2 started
 - 2026-10-10 litmus P1 done: brief eval 8 sections (Tools 6, Datasets 16), inventory option (a) 4/5/6 = 15; 403 pages confirmed unreachable (S3 AccessDenied for any path; Wayback empty); playbook Litmus page added (refusal-based scoring, Kaleidoscope); Moonshot DTO match still [Inferred]; Q-B/Q-C ruled by main; nested clone gitignored; P2 started
 - 2026-10-10 cloak P2 cols_a done (CK1): 157 bullets, check 0/0; Terms 3.4.7 quoted in R7 + R8 question
+- 2026-10-10 litmus P2 inventory done (option a): 4/5/6 = 15 rows, all inventory-only, check 0/0; P8 note: BLOCKS 4/5/6, panel with no Table 3 counts; optional playbooks.aip.gov.sg host not used (dropped, auto-default)
