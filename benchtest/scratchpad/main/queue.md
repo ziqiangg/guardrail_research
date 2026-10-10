@@ -9,7 +9,7 @@
 | 4 | lionguard | R033 | 2026-10-10 | 45f47e2 (+ fix 7078fa3) |
 | 5 | purplellama | R034 | 2026-10-10 | d51c79d |
 | 6 | cloak | R039 | 2026-10-10 | b0e9698 |
-| 7 | litmus | R040 | 2026-10-10 | |
+| 7 | litmus | R040 | 2026-10-10 | 5b843ca |
 
 ## Open questions (from agents)
 | Q file | Product | Routed to | State | Ruling |
