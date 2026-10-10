@@ -1,0 +1,1122 @@
+{
+ "ev": [
+  {
+   "loc": "Title (EV:1)",
+   "kind": "style",
+   "before": "## Topic: GovTech Litmus evaluation tooling (draft, reuse assessment for the test bench)",
+   "after": "## Topic: GovTech Litmus evaluation tooling (reuse assessment for the test bench)",
+   "why": "'draft,' removed from the title; finals are not drafts (T62)"
+  },
+  {
+   "loc": "Version scope (EV:3)",
+   "kind": "edit",
+   "before": "AI Guardian docs pages (Docusaurus site, source repository not located)",
+   "after": "AI Guardian docs pages (Docusaurus v3.10.0 per the page's generator tag, deployed 2026-10-08 08:42 UTC per th…",
+   "why": "T8: docs pages stay unpinned; evidence for the absence of a source repository stated"
+  },
+  {
+   "loc": "Version scope (EV:3)",
+   "kind": "edit",
+   "before": "(full SHA 45908b48c0a8b6d3855a154c0e41a12958a99205, committed 2026-09-14; the pinned website/docs/tools/litmu…",
+   "after": "(full SHA 45908b48c0a8b6d3855a154c0e41a12958a99205, committed 2026-09-14). The repository README lists two de…",
+   "why": "A1 (CORRECTION): the pinned branch is the staging deployment; production-versus-staging note per main P5 ruling"
+  },
+  {
+   "loc": "Version scope (EV:3)",
+   "kind": "style",
+   "before": "nothing was signed in to, submitted or called (R019).",
+   "after": "nothing was signed in to, submitted or called.",
+   "why": "T59: ruling id removed from the text"
+  },
+  {
+   "loc": "Overview Summary (EV:6)",
+   "kind": "summary",
+   "before": "Summary: Litmus is a hosted testing service for AI applications, not a guardrail. It sends curated prompts to…",
+   "after": "Summary: Litmus is a hosted testing service for AI applications, not a runtime defence. It scores an applicat…",
+   "why": "T20 + T4 + T21 (main P5 ruling): resolver's RECOMMENDED text with eligibility and proof-of-concept qualifiers; 'not a guardrail' and 'before launch' dropped (44 words excluding the label)"
+  },
+  {
+   "loc": "Overview, bullet 'Litmus tests a system' (EV:15)",
+   "kind": "replace",
+   "before": "• Litmus tests a system and is not a runtime defence: \"Litmus tests a system; it does not defend one at runti…",
+   "after": "• Litmus tests a system and is not a runtime defence: \"Litmus tests a system; it does not defend one at runti…",
+   "why": "T20: split into two one-fact bullets; second quote is on line 17; locators in file@ref:line form (T11)"
+  },
+  {
+   "loc": "Overview, after EV:15",
+   "kind": "add",
+   "before": "(none)",
+   "after": "• Runs can be triggered \"manually from the web application, on a schedule, or from a CI/CD job on each commit…",
+   "why": "T20: backs 'from a web app or CI/CD' in the Summary and removes the 'before launch' reading"
+  },
+  {
+   "loc": "Overview, direction bullet (EV:16)",
+   "kind": "replace",
+   "before": "• Direction note (R002): Litmus is not an inline guardrail. It sends prompts to a tenant endpoint and judges…",
+   "after": "• Direction: Litmus is not an inline guardrail. It sends prompts to a tenant endpoint and judges the applicat…",
+   "why": "T20 + T59: ruling id (R002) and 'in this draft' removed"
+  },
+  {
+   "loc": "Overview, after EV:17",
+   "kind": "add",
+   "before": "(none)",
+   "after": "• The Kaleidoscope documentation calls Litmus \"AI Guardian’s testing and evaluation platform for Whole-of-Gov…",
+   "why": "T4: audience statement from the Kaleidoscope docs"
+  },
+  {
+   "loc": "Overview, interest-form bullet (EV:18)",
+   "kind": "style",
+   "before": "the form was not opened, R019)",
+   "after": "the form was not opened)",
+   "why": "T59: ruling id removed"
+  },
+  {
+   "loc": "Overview, status source two (EV:20)",
+   "kind": "replace",
+   "before": "• Status, source two (conflict C4, not resolved): the docs Overview, Getting Started, the one-pager and the p…",
+   "after": "• Status, source two (conflict C4, not resolved): the docs Overview, Getting Started and Troubleshooting page…",
+   "why": "T21 + T22: checked list widened; Sentinel clause dropped (one fact per bullet)"
+  },
+  {
+   "loc": "Overview, one-pager bullet (EV:23)",
+   "kind": "edit",
+   "before": "(a \"Global Overview Document\", dated by its file name 20250916)",
+   "after": "(titled \"AI Guardian: Litmus & Sentinel Global Overview Document\"; created 2025-09-16 per the PDF metadata, t…",
+   "why": "T10: provenance from the PDF itself"
+  },
+  {
+   "loc": "Overview, one-pager bullet (EV:23)",
+   "kind": "edit",
+   "before": "text read with pdftotext)",
+   "after": "text read with pdftotext and checked with a second extractor)",
+   "why": "T10: second extraction (pypdf) found all nine phrases"
+  },
+  {
+   "loc": "Overview, Kaleidoscope playbook-side bullet (EV:24)",
+   "kind": "replace",
+   "before": "• Relation to Kaleidoscope, playbook side: Kaleidoscope is \"the contextual evaluation module within Litmus\" a…",
+   "after": "• Kaleidoscope, playbook Litmus page: \"Kaleidoscope, which is the contextual evaluation module within Litmus\"…",
+   "why": "T32: split into the two playbook statements that differ; the 'stay tuned' quote added"
+  },
+  {
+   "loc": "Overview, alignment bullet (EV:26)",
+   "kind": "replace",
+   "before": "• Alignment claim: the docs Overview says Litmus gives \"Comprehensive risk and behaviour analysis aligned wit…",
+   "after": "• Alignment, conflict C9 first side: the docs Overview says \"aligned with public sector AI ethics, policies,…",
+   "why": "T23: one fact per bullet; AI Guardian home page added as a second source of the shorter wording"
+  },
+  {
+   "loc": "Overview, after EV:27 (owner)",
+   "kind": "add",
+   "before": "(none)",
+   "after": "• No licence or reuse statement was found for the quoted GovTech material: the playbook repository at 45908b4…",
+   "why": "T5: licence of the quoted material (class c; absence)"
+  },
+  {
+   "loc": "Overview, 'No model, judge ...' bullet (EV:28)",
+   "kind": "replace",
+   "before": "• No model, judge, dataset size, licence, terms of use, pricing, quota, data-handling or retention statement…",
+   "after": "• Evaluator or judge and backing model: not published; the Overview says only \"automated internal evaluation\"…",
+   "why": "T22 + T3: one bullet with six absences split into separate bullets, each with its own checked list; the Terms clause is its own [Documented] bullet (one label per fact)"
+  },
+  {
+   "loc": "Overview, 'No open-source Litmus' bullet (EV:29)",
+   "kind": "replace",
+   "before": "• No open-source Litmus server or client: dsaidgovsg/aiguardian-litmus-test, the Action name the docs give, r…",
+   "after": "• No public repository for the Action name the docs give: git ls-remote https://github.com/dsaidgovsg/aiguard…",
+   "why": "T17 + T18 + T22: the HTTP facts become a [Documented] bullet; the repository search is a separate [Not disclosed] bullet naming the method"
+  },
+  {
+   "loc": "Overview, after EV:30 (four new bullets)",
+   "kind": "add",
+   "before": "(none)",
+   "after": "• Two Litmus addresses return HTTP 403 AccessDenied (Server AmazonS3, X-Cache \"Error from cloudfront\"): https…",
+   "why": "T14 + T13: HTTP facts moved from Open questions to Detail as [Documented]; the conclusion stays [Inferred] with its premise; Wayback scope narrowed; Sentinel wiki path dropped"
+  },
+  {
+   "loc": "Tools note (EV:34)",
+   "kind": "style",
+   "before": "Litmus has no Table 3 column (R003).",
+   "after": "Litmus has no Table 3 column.",
+   "why": "T59: ruling id removed"
+  },
+  {
+   "loc": "Tools note (EV:34)",
+   "kind": "edit",
+   "before": "DOCS, PORTAL, PB, ACT and MS are defined in the Version scope line.",
+   "after": "DOCS = the AI Guardian docs at https://www.aiguardian.gov.sg/docs/wiki/; PORTAL = https://www.developer.tech.…",
+   "why": "T60: legend in a parsed note so it reaches the sheet"
+  },
+  {
+   "loc": "Tools note (EV:34)",
+   "kind": "add",
+   "before": "its repository was not researched.",
+   "after": "its repository was not researched. Table 3 headers named: GovTech Sentinel: Prompt-attack detection; GovTech…",
+   "why": "T30: the exact headers named in the Evaluates cell of row 1 are listed in the note"
+  },
+  {
+   "loc": "Tools row 1 (Litmus web app), Evaluates cell (EV:38)",
+   "kind": "replace",
+   "before": "A possible reuse: the test themes could serve as a reference list when planning tests for GovTech Sentinel: P…",
+   "after": "A possible reuse: the six Undesirable Content test names (Hateful, Insults, Sexual, Physical Violence, Self-H…",
+   "why": "T30: prose with two Sentinel headers inside replaced; headers listed in the note; LionGuard column named"
+  },
+  {
+   "loc": "Tools row 2 (Litmus API), Inputs cell (EV:39)",
+   "kind": "edit",
+   "before": "(not called) [Documented]. The route /api/v1/benchmarks and a request body appear only in the sample Action (…",
+   "after": "(link target read from the page HTML with curl and the Python standard-library parser, 2026-10-10; not called…",
+   "why": "T9 (triage location EV:39) + T11: link-target method named; locators in file@ref:line form"
+  },
+  {
+   "loc": "Tools row 2, Judge cell (EV:39)",
+   "kind": "style",
+   "before": "/ Not disclosed [Not disclosed]. / [Not disclosed]; the sample Action",
+   "after": "/ [Not disclosed] (see Engine coverage). / [Not disclosed]; the sample Action",
+   "why": "T61: repeated absence points to Engine coverage"
+  },
+  {
+   "loc": "Tools row 3 (CI/CD), Inputs cell (EV:40)",
+   "kind": "edit",
+   "before": "That repository returns \"Repository not found\" (observed 2026-10-10) [Documented].",
+   "after": "That repository returns \"Repository not found\" and HTTP 404 on github.com (observed 2026-10-10) [Documented].",
+   "why": "T18: both methods for one fact stated alike in all places"
+  },
+  {
+   "loc": "Tools row 3, Inputs cell (EV:40)",
+   "kind": "add",
+   "before": "(conflict C2) [Documented: repo dsaidgovsg/aiguardian-test-action@v0.0.1].",
+   "after": "(conflict C2) [Documented: repo dsaidgovsg/aiguardian-test-action@v0.0.1]. The step is headed \"Push Changes t…",
+   "why": "T26: platform wording conflict recorded in the eval sheet (the inventory already carried it)"
+  },
+  {
+   "loc": "Tools row 3, Judge and Engine cells (EV:40)",
+   "kind": "style",
+   "before": "/ Not disclosed [Not disclosed]. / [Not disclosed]. / DOCS",
+   "after": "/ [Not disclosed] (see Engine coverage). / [Not disclosed] (see Engine coverage). / DOCS",
+   "why": "T61"
+  },
+  {
+   "loc": "Tools row 4 (custom scenarios), Judge and Engine cells (EV:41)",
+   "kind": "style",
+   "before": "/ Not disclosed [Not disclosed]. / [Not disclosed]. / DOCS",
+   "after": "/ [Not disclosed] (see Engine coverage). / [Not disclosed] (see Engine coverage). / DOCS",
+   "why": "T61"
+  },
+  {
+   "loc": "Tools row 5, Tool cell (EV:42)",
+   "kind": "edit",
+   "before": "Playbook LitmusClient Python example (illustrative)",
+   "after": "Playbook LitmusClient Python example (Code example tab)",
+   "why": "T28: 'illustrative' was the drafter's word; the page labels the tab 'Litmus' under 'Code example'"
+  },
+  {
+   "loc": "Tools row 5, Evaluates cell (EV:42)",
+   "kind": "edit",
+   "before": "The code comment says it \"returns category-level refusal scores\" (conflict C8 with the docs' pass/fail per te…",
+   "after": "The code comment (safety.mdx@45908b48:429-430) says it \"returns category-level refusal scores\" (conflict C8 w…",
+   "why": "T11: comment lines located"
+  },
+  {
+   "loc": "Tools row 5, Inputs cell (EV:42)",
+   "kind": "edit",
+   "before": "(safety.mdx lines 432 to 437)",
+   "after": "(safety.mdx@45908b48:432-438)",
+   "why": "T11: locator corrected to file@ref:line"
+  },
+  {
+   "loc": "Tools row 5, Outputs cell (EV:42)",
+   "kind": "edit",
+   "before": "(safety.mdx line 440)",
+   "after": "(safety.mdx@45908b48:440)",
+   "why": "T11: locator form"
+  },
+  {
+   "loc": "Tools row 5, Judge and Engine cells (EV:42)",
+   "kind": "style",
+   "before": "/ Not disclosed. / [Not disclosed]. / https://github.com",
+   "after": "/ [Not disclosed] (see Engine coverage). / [Not disclosed] (see Engine coverage). / https://github.com",
+   "why": "T61"
+  },
+  {
+   "loc": "Tools row 6 (Kaleidoscope), Judge cell (EV:43)",
+   "kind": "replace",
+   "before": "Yes: LLM judges, kept only when reliable [Documented: repo govtech-responsibleai/playbook@45908b48]",
+   "after": "Yes: LLM judges \"calibrated against human annotations\"; \"Only reliable judges are kept for wider scoring\" [Do…",
+   "why": "T31: paraphrase replaced by the page's own words"
+  },
+  {
+   "loc": "Tools row 6, Engine cell (EV:43)",
+   "kind": "edit",
+   "before": "no tags; not researched here)",
+   "after": "no tags; its licence and code were not read, GovTech pages only)",
+   "why": "T6 (R038): licence of the Kaleidoscope repository not researched, stated as such"
+  },
+  {
+   "loc": "Tools, note after the table",
+   "kind": "add",
+   "before": "(none)",
+   "after": "// Judge needed and Engine cells: the evaluator and the scoring engine are not published for any Litmus row (…",
+   "why": "T61: one note replaces the repeated 'Not disclosed [Not disclosed]' cells"
+  },
+  {
+   "loc": "Datasets note (EV:47)",
+   "kind": "replace",
+   "before": "Typo (conflict C5): the Baseline+ introduction says \"Baseline Tests consists of all 14 tests\"; the heading an…",
+   "after": "Wording (conflict C5): under the Baseline+ heading the page says \"Baseline Tests consists of all 14 tests acr…",
+   "why": "T42: 'typo' was an inference; page text stated plainly, reading labelled [Inferred]"
+  },
+  {
+   "loc": "Datasets, three standalone bullets after the note",
+   "kind": "add",
+   "before": "(none)",
+   "after": "• Taxonomy, docs test page (primary, most detailed): four categories Security, Specialised Advice, Undesirabl…",
+   "why": "T41: the three taxonomies written side by side in the eval sheet (they were an Open question only)"
+  },
+  {
+   "loc": "Datasets row 1 (Baseline Tests), Dataset cell (EV:51)",
+   "kind": "edit",
+   "before": "Baseline Tests (suite; suite id aiguardian-baseline-tests)",
+   "after": "Baseline Tests (suite)",
+   "why": "T35: the id-to-suite mapping is not stated by any page, so it leaves the name cell"
+  },
+  {
+   "loc": "Datasets row 1, Contents cell (EV:51)",
+   "kind": "edit",
+   "before": "The Getting Started table says \"Use aiguardian-baseline-tests for our baseline tests\".",
+   "after": "The Getting Started table says \"Use aiguardian-baseline-tests for our baseline tests\" [Documented]; that this…",
+   "why": "T35: same label as the inventory (id mapping [Inferred])"
+  },
+  {
+   "loc": "Datasets row 1, Label cell (EV:51)",
+   "kind": "edit",
+   "before": "/ [Documented]; size, licence, origin [Not disclosed] /",
+   "after": "/ [Documented]; id-to-suite mapping [Inferred]; size, licence, origin [Not disclosed] /",
+   "why": "T35"
+  },
+  {
+   "loc": "Datasets row (EV:53), Contents cell",
+   "kind": "hygiene",
+   "before": "Security",
+   "after": "/ Category: \\1.",
+   "why": "T43: look-alike bracket prefix replaced by 'Category: X.'"
+  },
+  {
+   "loc": "Datasets row (EV:54), Contents cell",
+   "kind": "hygiene",
+   "before": "Security",
+   "after": "/ Category: \\1.",
+   "why": "T43: look-alike bracket prefix replaced by 'Category: X.'"
+  },
+  {
+   "loc": "Datasets row (EV:55), Contents cell",
+   "kind": "hygiene",
+   "before": "Specialised Advice",
+   "after": "/ Category: \\1.",
+   "why": "T43: look-alike bracket prefix replaced by 'Category: X.'"
+  },
+  {
+   "loc": "Datasets row (EV:56), Contents cell",
+   "kind": "hygiene",
+   "before": "Specialised Advice",
+   "after": "/ Category: \\1.",
+   "why": "T43: look-alike bracket prefix replaced by 'Category: X.'"
+  },
+  {
+   "loc": "Datasets row (EV:57), Contents cell",
+   "kind": "hygiene",
+   "before": "Specialised Advice",
+   "after": "/ Category: \\1.",
+   "why": "T43: look-alike bracket prefix replaced by 'Category: X.'"
+  },
+  {
+   "loc": "Datasets row (EV:58), Contents cell",
+   "kind": "hygiene",
+   "before": "Undesirable Content",
+   "after": "/ Category: \\1.",
+   "why": "T43: look-alike bracket prefix replaced by 'Category: X.'"
+  },
+  {
+   "loc": "Datasets row (EV:59), Contents cell",
+   "kind": "hygiene",
+   "before": "Undesirable Content",
+   "after": "/ Category: \\1.",
+   "why": "T43: look-alike bracket prefix replaced by 'Category: X.'"
+  },
+  {
+   "loc": "Datasets row (EV:60), Contents cell",
+   "kind": "hygiene",
+   "before": "Undesirable Content",
+   "after": "/ Category: \\1.",
+   "why": "T43: look-alike bracket prefix replaced by 'Category: X.'"
+  },
+  {
+   "loc": "Datasets row (EV:61), Contents cell",
+   "kind": "hygiene",
+   "before": "Undesirable Content",
+   "after": "/ Category: \\1.",
+   "why": "T43: look-alike bracket prefix replaced by 'Category: X.'"
+  },
+  {
+   "loc": "Datasets row (EV:62), Contents cell",
+   "kind": "hygiene",
+   "before": "Undesirable Content",
+   "after": "/ Category: \\1.",
+   "why": "T43: look-alike bracket prefix replaced by 'Category: X.'"
+  },
+  {
+   "loc": "Datasets row (EV:63), Contents cell",
+   "kind": "hygiene",
+   "before": "Undesirable Content",
+   "after": "/ Category: \\1.",
+   "why": "T43: look-alike bracket prefix replaced by 'Category: X.'"
+  },
+  {
+   "loc": "Datasets row (EV:64), Contents cell",
+   "kind": "hygiene",
+   "before": "Political Content",
+   "after": "/ Category: \\1.",
+   "why": "T43: look-alike bracket prefix replaced by 'Category: X.'"
+  },
+  {
+   "loc": "Datasets row (EV:65), Contents cell",
+   "kind": "hygiene",
+   "before": "Political Content",
+   "after": "/ Category: \\1.",
+   "why": "T43: look-alike bracket prefix replaced by 'Category: X.'"
+  },
+  {
+   "loc": "Datasets row (EV:66), Contents cell",
+   "kind": "hygiene",
+   "before": "Political Content",
+   "after": "/ Category: \\1.",
+   "why": "T43: look-alike bracket prefix replaced by 'Category: X.'"
+  },
+  {
+   "loc": "Datasets row 12 (Domestic Affairs), Contents cell (EV:64)",
+   "kind": "replace",
+   "before": "The description says the test checks whether the model \"refuses to answer\", while the Outcome column says suc…",
+   "after": "Description, conflict C13: the test assesses \"whether the model refuses to answer due to potential misinterpr…",
+   "why": "T39: both sides quoted in full, each labelled"
+  },
+  {
+   "loc": "Published results row 2 (one-pager), Conditions cell (EV:75)",
+   "kind": "edit",
+   "before": "(dated by file name, 2025-09-16)",
+   "after": "(created 2025-09-16 per the PDF metadata)",
+   "why": "T10"
+  },
+  {
+   "loc": "Published results row 3 (per-test pass condition), Numbers cell (EV:76)",
+   "kind": "add",
+   "before": "playbook page). / Test Information Documentation, \"Outcome\" column",
+   "after": "playbook page). Conflict C14: the playbook warns that \"A system that refuses every request may score well on…",
+   "why": "T40: the playbook's refusal-based wording set beside the test-page pass conditions, both playbook deployments quoted"
+  },
+  {
+   "loc": "Published results row 4 (category-level refusal scores), Label cell (EV:77)",
+   "kind": "replace",
+   "before": "/ [To be verified] (premise for doubt: no Litmus page shows this output; the example is a code sample) /",
+   "after": "/ Code and comment [Documented: repo govtech-responsibleai/playbook@45908b48]; that Litmus returns this outpu…",
+   "why": "T46: one label per thing"
+  },
+  {
+   "loc": "Published results row 4, Conditions cell (EV:77)",
+   "kind": "edit",
+   "before": "Illustrative code in the playbook Safety evals page, tab Litmus",
+   "after": "Code example in the playbook Safety evals page, tab Litmus",
+   "why": "T28: 'illustrative' was the drafter's word, the page gives no such label"
+  },
+  {
+   "loc": "Published results row 5 (ASR), Label cell (EV:78)",
+   "kind": "edit",
+   "before": "the playbook calls Litmus tests \"refusal-based\"",
+   "after": "the playbook calls safety tests \"refusal-based\" on its staging page",
+   "why": "T40: the 'refusal-based' sentence is on the staging page only"
+  },
+  {
+   "loc": "Red-teaming, custom scenarios bullet (EV:89)",
+   "kind": "replace",
+   "before": "• \"Custom scenarios\" and \"user simulation\" exist as feature names only: \"Custom workflow and user simulation…",
+   "after": "• \"Custom scenarios\" and \"user simulation\" exist as feature names: \"Custom workflow and user simulation / Des…",
+   "why": "T48: quote [Documented] and absence [Not disclosed] split"
+  },
+  {
+   "loc": "Engine coverage Summary (EV:94)",
+   "kind": "summary",
+   "before": "Summary: Litmus tests an application endpoint over HTTP; its scoring engine is not disclosed. The docs ask fo…",
+   "after": "Summary: Litmus tests an application endpoint over HTTP; its scoring engine is not disclosed. Setup needs an…",
+   "why": "T51 + T50 (main P5 ruling: resolver's new text): 'over HTTP' now backed by a Detail bullet; 'no statement on guardrailed endpoints' narrowed to 'no support statement' because the playbook speaks to guardrails in front of the tested endpoint (43 words excluding the label)"
+  },
+  {
+   "loc": "Engine coverage, example request bullet (EV:97)",
+   "kind": "replace",
+   "before": "• The example request body has the fields question, topic (empty list) and history (empty list), sent with an…",
+   "after": "• The Getting Started example is a curl request with a Content-Type: application/json header, an x-api-key he…",
+   "why": "T51: the bullet now carries the HTTP fact"
+  },
+  {
+   "loc": "Engine coverage, after EV:97 (two bullets)",
+   "kind": "add",
+   "before": "(none)",
+   "after": "• The Getting Started page names an API key twice: step 2 lists \"API key for authentication\" among the tenant…",
+   "why": "T49: two API keys under one name written side by side; the reading is [Inferred]"
+  },
+  {
+   "loc": "Engine coverage, after EV:102 (two bullets)",
+   "kind": "add",
+   "before": "(none)",
+   "after": "• Playbook on Sentinel and testing: \"A guardrail in front of a system does not tell you what the system does…",
+   "why": "T50: the two adjacent documented statements and the reading drawn from them"
+  },
+  {
+   "loc": "Engine coverage, guardrailed-endpoint bullet (EV:103)",
+   "kind": "replace",
+   "before": "• An explicit statement that a guardrailed (for example Sentinel-protected) endpoint can be registered and te…",
+   "after": "• An explicit statement that a guardrailed (for example Sentinel-protected) endpoint can be registered and te…",
+   "why": "T50: checked list widened"
+  },
+  {
+   "loc": "Engine coverage, sample Action bullet (EV:105)",
+   "kind": "edit",
+   "before": "(action.yml line 28)",
+   "after": "(action.yml@190600937062:28)",
+   "why": "T11: locator form"
+  },
+  {
+   "loc": "Engine coverage, sample Action bullet (EV:105)",
+   "kind": "edit",
+   "before": "(lines 31 to 45; code read, not run)",
+   "after": "(action.yml@190600937062:31-44, headers at 45; code read, not run)",
+   "why": "T11: the JSON body is lines 31-44, headers line 45"
+  },
+  {
+   "loc": "Engine coverage, Moonshot tag bullets (EV:106-108)",
+   "kind": "replace",
+   "before": "• Moonshot fact, MS at tag 0.5.0 (AI Verify Foundation repo, not a GovTech source): BenchmarkRunnerDTO has th…",
+   "after": "• Moonshot fact, MS at tag 0.4.11 (2024-10-25, the last tag before the sample Action commit of 2024-10-29; AI…",
+   "why": "T12 + T11: tag 0.4.11 (the tag in force at the sample Action commit) replaces 0.4.0; 0.5.0 shortened; 0.7.6 locator corrected (line 10, not 11); file@ref:line locators"
+  },
+  {
+   "loc": "Engine coverage, Moonshot tag 0.4.0 bullet (EV:107)",
+   "kind": "delete",
+   "before": "• Moonshot fact, MS at tag 0.4.0: the same DTO file text and the same route line as 0.5.0 (code read, not run…",
+   "after": "(deleted)",
+   "why": "T12: replaced by the 0.4.11 bullet above (DTO file byte-identical at 0.4.0, 0.4.11 and 0.5.0)"
+  },
+  {
+   "loc": "Engine coverage, Moonshot tag 0.7.6 bullet (EV:108)",
+   "kind": "delete",
+   "before": "• Moonshot fact, MS at tag 0.7.6 (latest tag, 2026-02-05): the route takes a required type of BenchmarkCollec…",
+   "after": "(deleted)",
+   "why": "T12: merged into the three-bullet replacement at EV:106"
+  },
+  {
+   "loc": "Engine coverage, after the Moonshot tag bullets",
+   "kind": "add",
+   "before": "(none)",
+   "after": "• Licence of the cited code: Apache License 2.0 (LICENSE.md at 0.7.6; the same text at 0.5.0 and 0.4.11; AI V…",
+   "why": "T7: licence of the cited third-party repository (R019)"
+  },
+  {
+   "loc": "Engine coverage, possible-link bullet (EV:109)",
+   "kind": "style",
+   "before": "(premise: the matches in the three bullets above;",
+   "after": "(premise: the matches in the sample Action bullet and the Moonshot tag bullets above;",
+   "why": "reference to 'the three bullets above' kept true after the new licence bullet was inserted between"
+  },
+  {
+   "loc": "Engine coverage, after EV:109",
+   "kind": "add",
+   "before": "(none)",
+   "after": "• Name resemblance only: moonshot-data@0.7.6 has the recipe jailbreak-dan (\"assesses whether the system will…",
+   "why": "T53: name resemblances with AI Verify data, no GovTech statement links them"
+  },
+  {
+   "loc": "Engine coverage, engine bullet (EV:110)",
+   "kind": "edit",
+   "before": "(checked the docs, portal, playbook, one-pager, sample Action and the two GovTech GitHub organisations)",
+   "after": "(checked the docs, portal, playbook, one-pager, sample Action, a GitHub repository search of the two GovTech…",
+   "why": "T17 + T52: method of the organisation check named; Moonshot and AI Verify pages added"
+  },
+  {
+   "loc": "Engine coverage, host bullet portal (EV:111)",
+   "kind": "edit",
+   "before": "(PORTAL overview, read 2026-10-10; the staging host; not visited)",
+   "after": "(PORTAL overview, read 2026-10-10; link target read from the page HTML with curl and the Python standard-libr…",
+   "why": "T9: method for link-target facts"
+  },
+  {
+   "loc": "Engine coverage, host bullet Getting Started (EV:113)",
+   "kind": "edit",
+   "before": "(href in the page HTML; the visible text",
+   "after": "(href in the page HTML read with curl and the Python standard-library parser, 2026-10-10; the visible text",
+   "why": "T9: method for link-target facts"
+  },
+  {
+   "loc": "Engine coverage, host bullet sample Action (EV:114)",
+   "kind": "edit",
+   "before": "(action.yml line 28; the development host; not called)",
+   "after": "(action.yml@190600937062:28; the development host; not called)",
+   "why": "T11: locator form"
+  },
+  {
+   "loc": "Engine coverage, after EV:114",
+   "kind": "add",
+   "before": "(none)",
+   "after": "• Host conflict C6, AI Guardian home page: the \"Try Litmus Now\" button links https://litmus.aiguardian.gov.sg…",
+   "why": "T9 + T54 + T55 (CORRECTION: three hosts in five sources): fifth source of the production host"
+  },
+  {
+   "loc": "Reuse, WOG taxonomy bullet (EV:120)",
+   "kind": "edit",
+   "before": "(for example Graphic Content, Race and Religion)",
+   "after": "(by name: Graphic Content and Race & Religion; compared by name only)",
+   "why": "T44: names as the playbook writes them; comparison by name only"
+  },
+  {
+   "loc": "Reuse, design-cautions bullet (EV:122)",
+   "kind": "edit",
+   "before": "may score well on refusal-based safety tests\".",
+   "after": "may score well on refusal-based safety tests\" (PB tools/litmus.md@45908b48:53).",
+   "why": "T40: the staging quote keeps its locator"
+  },
+  {
+   "loc": "Reuse, onboarding bullet (EV:124)",
+   "kind": "replace",
+   "before": "• Litmus is offered to public sector teams through onboarding, so a bench could treat it as a reference and n…",
+   "after": "• Litmus is offered to public sector teams through onboarding, so a bench could treat it as a reference and n…",
+   "why": "T58 (R032): proposal wording with its premise; 'any run would be a user decision' dropped"
+  },
+  {
+   "loc": "Open questions, Moonshot (EV:130)",
+   "kind": "replace",
+   "before": "• Is Litmus built on or compatible with Moonshot (route and body fields match in the sample Action; no GovTec…",
+   "after": "• Is Litmus built on or compatible with Moonshot (route and body fields match in the sample Action; no GovTec…",
+   "why": "T52: no public source can answer it, so [Not disclosed] replaces [To be verified]"
+  },
+  {
+   "loc": "Open questions, AI Verify reuse (EV:131)",
+   "kind": "replace",
+   "before": "• Do any of the 14 tests reuse AI Verify cookbooks or datasets (a Jailbreak-DAN name resemblance only; not ch…",
+   "after": "• Do any of the 14 tests reuse AI Verify cookbooks or datasets (name resemblances only, see Engine coverage;…",
+   "why": "T53: relabelled; text points to the Engine coverage name-resemblance bullet"
+  },
+  {
+   "loc": "Open questions, host (EV:135)",
+   "kind": "edit",
+   "before": "production hosts in the playbook and Getting Started,",
+   "after": "production hosts in the playbook, the Getting Started link and the AI Guardian home page,",
+   "why": "T54: the AI Guardian home page also links the production host"
+  },
+  {
+   "loc": "Open questions, LitmusClient (EV:137)",
+   "kind": "replace",
+   "before": "• Does the LitmusClient Python example in the playbook exist as a package or API (conflict C7 on the suite na…",
+   "after": "• Does the LitmusClient Python example in the playbook exist as a package or API (conflict C7 on the suite na…",
+   "why": "T28: PyPI check recorded; still open"
+  },
+  {
+   "loc": "Open questions, guardrailed endpoint (EV:138)",
+   "kind": "edit",
+   "before": "(checked Getting Started, Overview, Troubleshooting, playbook page)",
+   "after": "(checked Getting Started, Overview, Troubleshooting, the Sentinel docs pages and both playbook pages)",
+   "why": "T50"
+  },
+  {
+   "loc": "Open questions, eligibility (EV:139)",
+   "kind": "replace",
+   "before": "• Who may use Litmus: the playbook says \"available to public sector teams\" and the one-pager invites collabor…",
+   "after": "• Who else may use Litmus: the playbook says \"available to public sector teams\", the Kaleidoscope docs say \"f…",
+   "why": "T4"
+  },
+  {
+   "loc": "Open questions, maturity and terms (EV:140)",
+   "kind": "edit",
+   "before": "(checked the docs, portal, one-pager, playbook)",
+   "after": "(checked the docs, portal, the developer portal Terms of Use and Privacy Statement, one-pager, playbook)",
+   "why": "T3: Terms of Use and Privacy Statement added to the checked list"
+  },
+  {
+   "loc": "Open questions, Domestic Affairs (EV:143)",
+   "kind": "edit",
+   "before": "[To be verified]",
+   "after": "[Not disclosed]",
+   "why": "T39: no source can answer it; [Not disclosed]"
+  },
+  {
+   "loc": "Open questions, Kaleidoscope (EV:144)",
+   "kind": "replace",
+   "before": "• When does Kaleidoscope reach Litmus (\"upcoming months\"; the docs page shows no date)? [Not disclosed]",
+   "after": "• Can Litmus tenants use Kaleidoscope today, and when will it reach Litmus (the playbook Litmus page calls it…",
+   "why": "T32: one question aligned with the inventory caveat"
+  },
+  {
+   "loc": "Open questions, taxonomy (EV:145)",
+   "kind": "delete",
+   "before": "• Taxonomy: the portal lists four categories (Security, Undesirability, Specialised Advice, Political), the d…",
+   "after": "(deleted)",
+   "why": "T41: the three taxonomies are now Datasets bullets"
+  },
+  {
+   "loc": "Open questions, three 403 pages (EV:146)",
+   "kind": "delete",
+   "before": "• The pages https://www.aiguardian.gov.sg/litmus, https://www.aiguardian.gov.sg/docs/wiki/Litmus-Onboarding-G…",
+   "after": "(deleted)",
+   "why": "T14: the HTTP facts moved to Overview Detail; Open questions carry only [To be verified] or [Not disclosed]"
+  },
+  {
+   "loc": "Open questions, onboarding guide (EV:147)",
+   "kind": "replace",
+   "before": "• Is the Getting Started page the \"Litmus Onboarding Guide\" that the portal links to? The portal says \"To beg…",
+   "after": "• Is the Getting Started page the \"Litmus Onboarding Guide\" that the portal links to? The portal says \"To beg…",
+   "why": "T15: [Inferred] is not an Open-question label (README section 6); relabelled [To be verified]"
+  },
+  {
+   "loc": "Open questions, last (new)",
+   "kind": "add",
+   "before": "(none)",
+   "after": "• Licence of the open-source Kaleidoscope repository and terms of the arXiv paper (not stated on the playbook…",
+   "why": "T6: licence of the Kaleidoscope repository (class c, not researched per R038)"
+  },
+  {
+   "loc": "Reviewer notes (EV:149-158), 9 notes",
+   "kind": "delete",
+   "before": "## Reviewer notes (9 notes)",
+   "after": "(moved to the change log, section 7a)",
+   "why": "T62: README section 7 item 2; finals carry no Reviewer notes"
+  }
+ ],
+ "inv": [
+  {
+   "loc": "Title (INV:1)",
+   "kind": "style",
+   "before": "# Litmus inventory (draft, sheet 3x)",
+   "after": "# Litmus inventory (final, sheet 3x)",
+   "why": "'draft' removed from the title (T62)"
+  },
+  {
+   "loc": "Scope paragraph (INV:3)",
+   "kind": "style",
+   "before": "so it has no Table 3 columns (R003) and every Covered by cell carries the inventory-only marker (R011).",
+   "after": "so it has no Table 3 columns and every Covered by cell carries the inventory-only marker.",
+   "why": "T59: ruling ids removed"
+  },
+  {
+   "loc": "Scope paragraph (INV:3)",
+   "kind": "style",
+   "before": "Nothing was signed in to, submitted or called (R019): the web app,",
+   "after": "Nothing was signed in to, submitted or called: the web app,",
+   "why": "T59: ruling id removed"
+  },
+  {
+   "loc": "Short-name legend, AIG/DOCS (INV:5)",
+   "kind": "edit",
+   "before": "(the AI Guardian Docusaurus site, no source repository found, unpinned)",
+   "after": "(the AI Guardian Docusaurus site, v3.10.0 per the page's generator tag, deployed 2026-10-08 per the Last-Modi…",
+   "why": "T8: evidence for the absence of a source repository and for the missing pin"
+  },
+  {
+   "loc": "Short-name legend, PB (INV:5)",
+   "kind": "edit",
+   "before": "the staging branch commit that matches the deployed page text \"Last updated on Sep 14, 2026\", as for Sentinel…",
+   "after": "the staging branch commit, committed 2026-09-14; the README lists two deployments, staging at govtech-respons…",
+   "why": "A1 (CORRECTION) + main P5 ruling: staging pin with a production-versus-staging note; T59: 'R007 item 7' removed"
+  },
+  {
+   "loc": "Short-name legend, hosts (INV:5)",
+   "kind": "edit",
+   "before": "Host names appear in four forms across pages (see the Litmus web app and Litmus API rows); none was visited.",
+   "after": "Three hosts (production, staging, development) appear across five sources (see the Litmus web app and Litmus…",
+   "why": "T55 (CORRECTION): three hosts in five sources, not 'four forms'"
+  },
+  {
+   "loc": "Block (a) intro (INV:9)",
+   "kind": "edit",
+   "before": "because access is by onboarding (a proposal, R032).",
+   "after": "because access is by onboarding [Inferred]. Short names in the cells: DOCS = the AI Guardian docs at https://…",
+   "why": "T58 (R032): proposal wording with its label, ruling id removed; T60: legend in the parsed intro so it reaches the sheet"
+  },
+  {
+   "loc": "(a) Litmus web app / Host or address (INV:13)",
+   "kind": "edit",
+   "before": "The DEV pages carry a \"Login to Litmus\" link to https://litmus.stg.aiguardian.gov.sg/login [Documented] (link…",
+   "after": "The DEV pages carry a \"Login to Litmus\" link to https://litmus.stg.aiguardian.gov.sg/login [Documented] (link…",
+   "why": "T9: method for link-target facts; home-page host added (same fact as the Engine coverage bullet)"
+  },
+  {
+   "loc": "(a) Litmus web app / Status (INV:13)",
+   "kind": "edit",
+   "before": "The AIG pages, the one-pager and the playbook describe an onboarding service and give no maturity label [Not…",
+   "after": "The AIG pages, the AI Guardian home page, the one-pager and the playbook describe an onboarding service and g…",
+   "why": "T21: checked list matches the eval sheet (all pages checked, no date or withdrawal of the portal label)"
+  },
+  {
+   "loc": "(a) Litmus web app / Caveats (INV:13)",
+   "kind": "edit",
+   "before": "is [To be verified]: the playbook names litmus.aiguardian.gov.sg and the portal link names litmus.stg.aiguard…",
+   "after": "is [To be verified]: the playbook names litmus.aiguardian.gov.sg, the AI Guardian home page links the same pr…",
+   "why": "T3 (checked list) + T54 (home page also links the production host)"
+  },
+  {
+   "loc": "(a) Litmus web app / Source URL (INV:13)",
+   "kind": "url",
+   "before": "/ Litmus web app / A web application for ad hoc testing: \"For ad hoc application testing, choose from compile…",
+   "after": "/ Litmus web app / A web application for ad hoc testing: \"For ad hoc application testing, choose from compile…",
+   "why": "T9: the AI Guardian home page is cited for the home-page login link"
+  },
+  {
+   "loc": "(a) Litmus API / Host or address (INV:14)",
+   "kind": "edit",
+   "before": "(link target read from the page, 2026-10-10). The sample Action posts",
+   "after": "(link target read from the page HTML with curl and the Python standard-library parser, 2026-10-10). The sampl…",
+   "why": "T9: method for link-target facts"
+  },
+  {
+   "loc": "(a) CI/CD integration / Host or address (INV:15)",
+   "kind": "edit",
+   "before": "returns HTTP 404 on github.com (checked 2026-10-10) [Documented]",
+   "after": "returns HTTP 404 on github.com and \"Repository not found\" on git ls-remote (observed 2026-10-10; a private re…",
+   "why": "T18: both methods for one fact, worded as in the eval sheet"
+  },
+  {
+   "loc": "(a) CI/CD integration / Source URL (INV:15)",
+   "kind": "url",
+   "before": "; https://github.com/dsaidgovsg/aiguardian-test-action ; https://github.com/dsaidgovsg/aiguardian-test-action…",
+   "after": "; https://github.com/dsaidgovsg/aiguardian-test-action/blob",
+   "why": "T63: unpinned URL dropped; the pinned action.yml URL stays"
+  },
+  {
+   "loc": "(a) Onboarding and access request / Needs (INV:16)",
+   "kind": "replace",
+   "before": "A public sector team, per the playbook sentence above [Documented: repo govtech-responsibleai/playbook@45908b…",
+   "after": "The playbook states availability for public sector teams, not as a requirement: \"Litmus is available to publi…",
+   "why": "T4 (C15): removes the label mismatch with the eval sheet's eligibility question"
+  },
+  {
+   "loc": "(a) Onboarding and access request / Host or address (INV:16)",
+   "kind": "edit",
+   "before": "[Documented] (link target read from the page); the DEV Resources page links the same target [Documented]",
+   "after": "[Documented] (link target read from the page HTML with curl and the Python standard-library parser, 2026-10-1…",
+   "why": "T9: method for link-target facts"
+  },
+  {
+   "loc": "(a) Onboarding and access request / Status (INV:16)",
+   "kind": "edit",
+   "before": "The three addresses https://www.aiguardian.gov.sg/litmus, https://www.aiguardian.gov.sg/docs/wiki/Litmus-Onbo…",
+   "after": "The two addresses https://www.aiguardian.gov.sg/litmus and https://www.aiguardian.gov.sg/docs/wiki/Litmus-Onb…",
+   "why": "T14: the Sentinel wiki path is not a Litmus page and is dropped (the real Sentinel page is in the eval sheet)"
+  },
+  {
+   "loc": "(a) Onboarding and access request / Status (INV:16)",
+   "kind": "edit",
+   "before": "The Wayback availability API returned no snapshot for the three addresses (archived_snapshots empty, 2026-10-…",
+   "after": "The Wayback availability API returned no snapshot for the two addresses (archived_snapshots empty, 2026-10-10…",
+   "why": "T13: CDX result added; scope narrowed to the two addresses"
+  },
+  {
+   "loc": "(a) Onboarding and access request / Caveats (INV:16)",
+   "kind": "edit",
+   "before": "The three 403 pages most likely do not exist",
+   "after": "The two 403 pages most likely do not exist",
+   "why": "T14"
+  },
+  {
+   "loc": "(a) Onboarding and access request / Caveats (INV:16)",
+   "kind": "edit",
+   "before": "(checked the AIG pages, the DEV pages, the playbook page and the one-pager)",
+   "after": "(checked the AIG pages, the DEV pages and their Terms of Use and Privacy Statement, the playbook page and the…",
+   "why": "T3: checked list"
+  },
+  {
+   "loc": "(b) Baseline+ / Caveats (INV:25)",
+   "kind": "replace",
+   "before": "under the Baseline+ heading, which looks like a copy error [Documented]. That the six Baseline Tests are all…",
+   "after": "under the Baseline+ heading [Documented]. A copy error is the likely reading [Inferred] (premise: the Baselin…",
+   "why": "T42 (copy error is a reading, labelled [Inferred]) + T35 (main P5 ruling: Baseline subset of Baseline+ is [Documented] in both files)"
+  },
+  {
+   "loc": "(b) wog-baseline-v1 / Where published (INV:26)",
+   "kind": "edit",
+   "before": "(website/docs/evaluating-ai-systems/safety.mdx, lines 427 to 440)",
+   "after": "(safety.mdx@45908b48:429-440)",
+   "why": "T11: locator in file@ref:line form; lines corrected to 429-440"
+  },
+  {
+   "loc": "(b) wog-baseline-v1 / Caveats (INV:26)",
+   "kind": "replace",
+   "before": "Illustrative code. No package, client library or API page confirms that LitmusClient or this suite name exist…",
+   "after": "The page presents it as a code example. No package, client library or API page confirms that LitmusClient or…",
+   "why": "T28: 'illustrative' was the drafter's word; PyPI check recorded"
+  },
+  {
+   "loc": "(b) wog-baseline-v1 / Source URL (INV:26)",
+   "kind": "url",
+   "before": "; https://govtech-responsibleai.github.io/playbook/evaluating-ai-systems/safety/ /",
+   "after": "/",
+   "why": "T63: unpinned duplicate of the pinned safety.mdx URL dropped"
+  },
+  {
+   "loc": "(b) Kaleidoscope / Tests included (INV:28)",
+   "kind": "edit",
+   "before": "\"Kaleidoscope is a contextual, functional evaluation module within Litmus\" [Documented] (playbook Kaleidoscop…",
+   "after": "\"Kaleidoscope is a contextual, functional evaluation module within Litmus\" [Documented: repo govtech-responsi…",
+   "why": "T63: playbook Kaleidoscope page pinned to 45908b48 (passages matched), repo label"
+  },
+  {
+   "loc": "(b) Kaleidoscope / Tests included (INV:28)",
+   "kind": "edit",
+   "before": "stay tuned for more updates to access it via Litmus\" [Documented].",
+   "after": "stay tuned for more updates to access it via Litmus\" [Documented: repo govtech-responsibleai/playbook@45908b4…",
+   "why": "T63: repo label"
+  },
+  {
+   "loc": "(b) Kaleidoscope / Identifier (INV:28)",
+   "kind": "edit",
+   "before": "the repository was not researched here) [Documented]",
+   "after": "the repository's licence and code were not read, GovTech pages only) [Documented]",
+   "why": "T6 (R038): consistent with the eval sheet"
+  },
+  {
+   "loc": "(b) Kaleidoscope / Caveats (INV:28)",
+   "kind": "edit",
+   "before": "Whether it is already available to Litmus tenants is [To be verified]:",
+   "after": "Whether Litmus tenants can use it today is [Not disclosed]:",
+   "why": "T32: one question, one label across both files (no source can answer it)"
+  },
+  {
+   "loc": "(b) Kaleidoscope / Source URL (INV:28)",
+   "kind": "url",
+   "before": "https://govtech-responsibleai.github.io/playbook/tools/kaleidoscope/ ;",
+   "after": "https://github.com/govtech-responsibleai/playbook/blob/45908b48c0a8b6d3855a154c0e41a12958a99205/website/docs/…",
+   "why": "T63: pinned URL replaces the live staging URL"
+  },
+  {
+   "loc": "(c) base_url / Description (INV:36)",
+   "kind": "edit",
+   "before": "(link target read from the page, 2026-10-10)",
+   "after": "(link target read from the page HTML with curl and the Python standard-library parser, 2026-10-10)",
+   "why": "T9: method for link-target facts"
+  },
+  {
+   "loc": "INV line 5: short names",
+   "kind": "hygiene",
+   "before": "AIG x1, DEV x1",
+   "after": "DOCS x1, PORTAL x1",
+   "why": "T60: one name set (DOCS, PORTAL, PB, ACT) in both files"
+  },
+  {
+   "loc": "INV line 13: short names",
+   "kind": "hygiene",
+   "before": "AIG x6, DEV x3",
+   "after": "DOCS x6, PORTAL x3",
+   "why": "T60: one name set (DOCS, PORTAL, PB, ACT) in both files"
+  },
+  {
+   "loc": "INV line 14: short names",
+   "kind": "hygiene",
+   "before": "AIG x3, DEV x2",
+   "after": "DOCS x3, PORTAL x2",
+   "why": "T60: one name set (DOCS, PORTAL, PB, ACT) in both files"
+  },
+  {
+   "loc": "INV line 15: short names",
+   "kind": "hygiene",
+   "before": "AIG x7, DEV x0",
+   "after": "DOCS x7, PORTAL x0",
+   "why": "T60: one name set (DOCS, PORTAL, PB, ACT) in both files"
+  },
+  {
+   "loc": "INV line 16: short names",
+   "kind": "hygiene",
+   "before": "AIG x3, DEV x4",
+   "after": "DOCS x3, PORTAL x4",
+   "why": "T60: one name set (DOCS, PORTAL, PB, ACT) in both files"
+  },
+  {
+   "loc": "INV line 24: short names",
+   "kind": "hygiene",
+   "before": "AIG x5, DEV x1",
+   "after": "DOCS x5, PORTAL x1",
+   "why": "T60: one name set (DOCS, PORTAL, PB, ACT) in both files"
+  },
+  {
+   "loc": "INV line 25: short names",
+   "kind": "hygiene",
+   "before": "AIG x3, DEV x1",
+   "after": "DOCS x3, PORTAL x1",
+   "why": "T60: one name set (DOCS, PORTAL, PB, ACT) in both files"
+  },
+  {
+   "loc": "INV line 26: short names",
+   "kind": "hygiene",
+   "before": "AIG x1, DEV x0",
+   "after": "DOCS x1, PORTAL x0",
+   "why": "T60: one name set (DOCS, PORTAL, PB, ACT) in both files"
+  },
+  {
+   "loc": "INV line 27: short names",
+   "kind": "hygiene",
+   "before": "AIG x5, DEV x5",
+   "after": "DOCS x5, PORTAL x5",
+   "why": "T60: one name set (DOCS, PORTAL, PB, ACT) in both files"
+  },
+  {
+   "loc": "INV line 28: short names",
+   "kind": "hygiene",
+   "before": "AIG x1, DEV x0",
+   "after": "DOCS x1, PORTAL x0",
+   "why": "T60: one name set (DOCS, PORTAL, PB, ACT) in both files"
+  },
+  {
+   "loc": "INV line 38: short names",
+   "kind": "hygiene",
+   "before": "AIG x1, DEV x0",
+   "after": "DOCS x1, PORTAL x0",
+   "why": "T60: one name set (DOCS, PORTAL, PB, ACT) in both files"
+  },
+  {
+   "loc": "INV line 40: short names",
+   "kind": "hygiene",
+   "before": "AIG x1, DEV x0",
+   "after": "DOCS x1, PORTAL x0",
+   "why": "T60: one name set (DOCS, PORTAL, PB, ACT) in both files"
+  },
+  {
+   "loc": "INV line 41: short names",
+   "kind": "hygiene",
+   "before": "AIG x1, DEV x0",
+   "after": "DOCS x1, PORTAL x0",
+   "why": "T60: one name set (DOCS, PORTAL, PB, ACT) in both files"
+  },
+  {
+   "loc": "Reviewer notes (INV:43-50), 6 notes",
+   "kind": "delete",
+   "before": "## Reviewer notes (6 notes)",
+   "after": "(moved to the change log, section 7b)",
+   "why": "T62"
+  }
+ ],
+ "conf": [
+  [
+   " per test case (conflict C8).",
+   " per test case.",
+   1
+  ],
+  [
+   "(conflict C4, not resolved)",
+   "(the sources conflict; not resolved)",
+   1
+  ],
+  [
+   "(conflict C8 with the docs' pass/fail per test case)",
+   "(this conflicts with the docs' pass/fail per test case)",
+   1
+  ],
+  [
+   "(conflict C11; DOCS Test-Information-Documentation)",
+   "(the page mixes both words; DOCS Test-Information-Documentation)",
+   1
+  ],
+  [
+   "(no test_suites line, conflict C3)",
+   "(no test_suites line, although the parameter table marks it required)",
+   1
+  ],
+  [
+   "(conflict C2) [Documented: repo dsaidgovsg/aiguardian-test-action@v0.0.1]",
+   "(the two Actions differ) [Documented: repo dsaidgovsg/aiguardian-test-action@v0.0.1]",
+   1
+  ],
+  [
+   "with different inputs (conflict C2); and does the Getting Started example need `test_suites` (conflict C3)?",
+   "with different inputs; and does the Getting Started example need `test_suites`, which the parameter table marks required?",
+   1
+  ],
+  [
+   "(conflict C18)",
+   "(the step heading and the text differ)",
+   1
+  ],
+  [
+   "Wording (conflict C5):",
+   "Wording:",
+   1
+  ],
+  [
+   "\"wog-baseline-v1\", conflict C7)",
+   "\"wog-baseline-v1\", which differs from the id above)",
+   1
+  ],
+  [
+   "(conflict C7 on the suite name `wog-baseline-v1` against `aiguardian-baseline-tests`)",
+   "(the suite name `wog-baseline-v1` differs from `aiguardian-baseline-tests`)",
+   1
+  ],
+  [
+   "Description, conflict C13:",
+   "Description (the two texts differ):",
+   1
+  ],
+  [
+   "Conflict C14:",
+   "Conflict:",
+   1
+  ],
+  [
+   "(conflict C20)",
+   "(the two descriptions differ)",
+   1
+  ],
+  [
+   "(conflict C6: staging login link",
+   "(the hosts differ: staging login link",
+   1
+  ],
+  [
+   "(conflict C4: portal",
+   "(the sources differ: portal",
+   1
+  ],
+  [
+   "since the docs describe prompt testing only (conflict C10)?",
+   "since the docs describe prompt testing only?",
+   1
+  ],
+  [
+   "playbook example), conflict C8?",
+   "playbook example)?",
+   1
+  ],
+  [
+   "Alignment, conflict C9 first side:",
+   "Alignment, first side of a minor difference:",
+   1
+  ],
+  [
+   "Alignment, conflict C9 second side:",
+   "Alignment, second side:",
+   1
+  ],
+  [
+   "Host conflict C6, ",
+   "Host conflict, ",
+   5
+  ],
+  [
+   "Taxonomy, conflict C1, developer portal:",
+   "Taxonomy, developer portal (differs from the docs test page):",
+   1
+  ],
+  [
+   "Taxonomy, conflict C1, one-pager:",
+   "Taxonomy, one-pager (differs from both pages):",
+   1
+  ],
+  [
+   "Kaleidoscope, conflict C12, playbook Kaleidoscope page:",
+   "Kaleidoscope, playbook Kaleidoscope page (it differs from the Litmus page):",
+   1
+  ]
+ ]
+}

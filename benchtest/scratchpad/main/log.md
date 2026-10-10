@@ -125,3 +125,4 @@
 - 2026-10-10 cloak P5 done: 39 items (36 resolved, 2 partly, 1 correction T57 deck shows no restore step); 4 Summary changes; inventory → 85 rows; Q1–Q5 ruled by main; P6 started
 - 2026-10-10 litmus P5 done: 63 items (35 resolved, 5 partly, 21 open, 2 corrections T11 locators, T55 three hosts/five sources); Overview + Engine Summaries rewritten; staging vs production playbook wording (C14); Q1–Q5 ruled by main; P6 started
 - 2026-10-10 cloak P6 done: 102 edits, 4/27 Summaries changed, BLOCKS 10/8/26/9/28/4 = 85; checks 0/0; P7 started
+- 2026-10-10 litmus P6 done: 166 edits (122 eval, 44 inv), 2/3 Summaries changed, eval 8 sections, inventory 4/5/6; checks pass; P7 started
