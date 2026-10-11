@@ -2,7 +2,7 @@
 
 You are the **main (manager) session**. Read `CLAUDE.md` first, then this file, then `benchtest/scratchpad/main/status.md` and the `benchtest/scratchpad/rulings/` index.
 
-**Resuming?** If `benchtest/scratchpad/main/handover_20261010.md` (or a later `handover_*.md`) exists, read it right after this file; it states the exact next step.
+**Resuming?** The run is complete — see `benchtest/scratchpad/main/final_summary_20261011.md`. Otherwise, if `benchtest/scratchpad/main/handover_20261010.md` (or a later `handover_*.md`) exists, read it right after this file; it states the exact next step.
 
 Your job is to run the remaining products through the pipeline below, 2–3 at a time, using the `gr-*` subagents. You do not research, draft or write the workbook yourself.
 
