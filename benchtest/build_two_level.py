@@ -302,7 +302,7 @@ def main(md=None):
     for m in inv_mods + eval_mods:
         m.verify(wb2, XLSX)
     build_inventory.verify(XLSX, wb2, BAK, post_check=post_check)
-    # sheet 4 is no longer the docx template: verified against drafts/groups_v2.md (and v7 for title/header)
+    # sheet 4 is no longer the docx template: verified against drafts/groups_v3.md (and v7 for title/header)
     build_groups_sheet.verify(load_workbook(XLSX, rich_text=True), XLSX, BAK7)
 
 

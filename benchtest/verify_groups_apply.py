@@ -1,5 +1,6 @@
 """Independent verification of the sheet-4 readability update (bulleted groups_v2.md, bands, panel below) against .v7.xlsx.
 
+NOTE (2026-10-11): pinned to the v7 baseline and the 24-row groups_v2 layout; superseded by verify_groups_v3_apply.py. Do not run against the current workbook.
 Run: python verify_groups_apply.py     (exit code 0 when every check passes)
 Expected formulas are spelled out here from scratch (not taken from the builders) so the check is independent.
 """

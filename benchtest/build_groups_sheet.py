@@ -1,4 +1,4 @@
-"""Sheet '4. Candidate Comparison Groups' from drafts/groups_v2.md Section A (bulleted rich text), section bands,
+"""Sheet '4. Candidate Comparison Groups' from drafts/groups_v3.md Section A (bulleted rich text), section bands,
 plus a formula coverage panel below the table.
 Called by build_two_level.main().  The sheet is rebuilt in place (title A1, header row 3, widths, freeze are kept).
 
@@ -17,28 +17,55 @@ import inventory_sheet as IS
 from build_eval_sheet import split_row
 
 DIR = BI.DIR
-MD = str(P.DRAFTS / "groups_v2.md")
+MD = str(P.DRAFTS / "groups_v3.md")
 S3, S4 = BI.S3, BI.S4
 R1 = 4  # first row after the header (the first band)
-NMULTI = 6  # C1-C6 are comparison groups (2+ products); C7-C24 are single-product
-BAND1, BAND2 = R1, R1 + NMULTI + 1  # band rows 4 and 11
+NMULTI = 14  # C1-C14 are comparison groups (2+ products); C15-C34 are single-product
+NROWS = 34
+NFN = 62
+BAND1, BAND2 = R1, R1 + NMULTI + 1  # band rows 4 and 19
 BAND_TXT = {BAND1: "Comparison groups (2+ products)", BAND2: "Single-product functions (no comparator yet)"}
-LAST_ROW = 29
+LAST_ROW = 39
 WIDTHS = [28, 40] + [42] * 6
 BANDFILL = PatternFill("solid", fgColor="D9D9D9")
 SGREY, RGREY = "595959", "808080"
-FIRST_FN_COL, LAST_FN_COL = 5, 33  # sheet 3 function columns E..AG
+FIRST_FN_COL, LAST_FN_COL = 5, 66  # sheet 3 function columns E..BN
 SHADE = PatternFill("solid", fgColor="DCE6F2")
 ALIGN = Alignment(wrap_text=True, vertical="top")
 PANEL_TITLE = "Coverage of sheet 3 functions"
 PANEL_HDR = ["Sheet 3 column", "Function (live link)", "Groups listing it"]
+# (label, header-prefix substring counted in the group Function column B).  Prompt Guard 2, LlamaFirewall and
+# Code Shield count as one product (Meta Purple Llama).
+PRODUCT_TOTALS = [
+    ("Groups including NeMo Guardrails", ["NeMo Guardrails:"]),
+    ("Groups including Llama Guard", ["Llama Guard:"]),
+    ("Groups including GovTech Sentinel", ["GovTech Sentinel:"]),
+    ("Groups including Presidio", ["Presidio:"]),
+    ("Groups including Sensitive Data Protection", ["Sensitive Data Protection:"]),
+    ("Groups including Model Armor", ["Model Armor:"]),
+    ("Groups including LionGuard", ["LionGuard:"]),
+    ("Groups including Purple Llama", ["Prompt Guard 2:", "LlamaFirewall:", "Code Shield:"]),
+    ("Groups including Cloak", ["Cloak:"]),
+    ("Groups including Amazon Bedrock", ["Amazon Bedrock"]),
+]
+
+
+def _plain_pat(pats):
+    return pats
+
+
+def _formula_for(pats):
+    """COUNTIF for one prefix; for several prefixes a sum of per-row OR (SUMPRODUCT, ISNUMBER(SEARCH))."""
+    if len(pats) == 1:
+        return '=COUNTIF({B},"*%s*")' % pats[0]
+    terms = "+".join('ISNUMBER(SEARCH("%s",{B}))' % q for q in pats)
+    return "=SUMPRODUCT(--((%s)>0))" % terms
+
+
 TOTALS = [  # (label, formula template; {B}=group Function range, {C}=panel count range, {H}=last column range)
     ("Functions in no group", '=COUNTIF({C},0)'),
     ("Functions in more than one group", '=COUNTIF({C},">1")'),
-    ("Groups including NeMo Guardrails", '=COUNTIF({B},"*NeMo Guardrails:*")'),
-    ("Groups including Llama Guard", '=COUNTIF({B},"*Llama Guard:*")'),
-    ("Groups including GovTech Sentinel", '=COUNTIF({B},"*GovTech Sentinel:*")'),
-    ("Groups including Amazon Bedrock", '=COUNTIF({B},"*Amazon Bedrock*")'),
+] + [(lab, _formula_for(p)) for lab, p in PRODUCT_TOTALS] + [
     ("Single-product rows", '=COUNTIF({H},"*Single-product:*")'),
 ]
 
@@ -69,7 +96,7 @@ def _parse(path):
         j += 1
     hdr, rows = tbl[0], tbl[2:]
     assert all(set(c) <= set("-: ") for c in tbl[1]), tbl[1]
-    assert len(hdr) == 8 and len(rows) == 24, (len(hdr), len(rows))
+    assert len(hdr) == 8 and len(rows) == NROWS, (len(hdr), len(rows))
     out, lns = [], []
     for k, r in enumerate(rows):
         assert len(r) == 8, (len(r), r[0][:30])
@@ -98,14 +125,14 @@ def _parse(path):
 def fn_headers(ws3):
     """Sheet-3 row-3 headers E..AG with the COUNTIF safety guards."""
     hd = [ws3.cell(row=3, column=c).value for c in range(FIRST_FN_COL, LAST_FN_COL + 1)]
-    assert all(isinstance(h, str) and h for h in hd) and len(hd) == 29, hd
+    assert all(isinstance(h, str) and h for h in hd) and len(hd) == NFN, hd
     for h in hd:
         assert not any(ch in h for ch in "*?~") and len(h) + 2 <= 255, h
         assert not any(h != o and h.lower() in o.lower() for o in hd), ("header is a substring of another", h)
     return hd
 
 
-def panel_cells(ws3, nrows=24):
+def panel_cells(ws3, nrows=NROWS):
     """{(row, col): value} of the coverage panel, and its layout (below the table; ranges include the band rows)."""
     last = LAST_ROW
     B, H = f"$B${R1 + 1}:$B${last}", f"$H${R1 + 1}:$H${last}"
@@ -136,13 +163,11 @@ def python_panel(rows, hd):
     """Python mirror of the panel: per-function group counts and the totals (COUNTIF semantics: case-insensitive)."""
     B = [r[1].lower() for r in rows]
     cnt = [sum(h.lower() in b for b in B) for h in hd]
-    nem = lambda s: sum(s.lower() in b for b in B)
-    tot = {"Functions in no group": cnt.count(0), "Functions in more than one group": sum(c > 1 for c in cnt),
-           "Groups including NeMo Guardrails": nem("NeMo Guardrails:"),
-           "Groups including Llama Guard": nem("Llama Guard:"),
-           "Groups including GovTech Sentinel": nem("GovTech Sentinel:"),
-           "Groups including Amazon Bedrock": nem("Amazon Bedrock"),
-           "Single-product rows": sum("single-product:" in r[7].lower() for r in rows)}
+    grp = lambda pats: sum(any(q.lower() in b for q in pats) for b in B)
+    tot = {"Functions in no group": cnt.count(0), "Functions in more than one group": sum(c > 1 for c in cnt)}
+    for lab, pats in PRODUCT_TOTALS:
+        tot[lab] = grp(pats)
+    tot["Single-product rows"] = sum("single-product:" in r[7].lower() for r in rows)
     return cnt, tot
 
 
@@ -154,7 +179,7 @@ def check_letters(rows, hd):
             m = re.match(r"^([A-Z]{1,2}): ", line)
             assert m, line
             L = m.group(1)
-            c = next(i for i in range(1, 40) if get_column_letter(i) == L)
+            c = next(i for i in range(1, 80) if get_column_letter(i) == L)
             assert FIRST_FN_COL <= c <= LAST_FN_COL, line
             assert line.startswith(f"{L}: {hd[c - FIRST_FN_COL]}"), ("line does not carry its column header", line)
             by.setdefault(L, set()).add(gi)
@@ -181,7 +206,7 @@ def add_sheet(wb):
     hdr, rows, lns = parse_lines()
     ws = wb[S4]
     assert wb.sheetnames[-1] == S4
-    assert [ws.cell(row=3, column=c).value for c in range(1, 9)] == hdr, "sheet 4 header differs from groups_v2.md"
+    assert [ws.cell(row=3, column=c).value for c in range(1, 9)] == hdr, "sheet 4 header differs from groups_v3.md"
     for m in list(ws.merged_cells.ranges):  # idempotent: drop a previous panel's merges, then all rows from 4
         ws.unmerge_cells(str(m))
     ws.delete_rows(R1, max(ws.max_row - R1 + 1, 1))
@@ -243,7 +268,7 @@ def _rgb(c):
 
 
 def verify(wb, xlsx=None, bak=None):
-    """Checks sheet 4 against groups_v2.md (wb must be loaded with rich_text=True); if bak (the v7 xlsx path) is given
+    """Checks sheet 4 against groups_v3.md (wb must be loaded with rich_text=True); if bak (the v7 xlsx path) is given
     also title/header row identical to v7."""
     from openpyxl import load_workbook
     print("\n=== build_groups_sheet verification (sheet 4) ===")
@@ -257,17 +282,17 @@ def verify(wb, xlsx=None, bak=None):
     hdr, rows, lns = parse_lines()
     chk("sheet 4 is the last sheet", wb.sheetnames[-1] == S4, str(wb.sheetnames))
     chk("A1 title", ws["A1"].value == "4. Forming Candidate Comparison Groups" and ws["A1"].font.b)
-    chk("row 3 header equals groups_v2.md header", [ws.cell(row=3, column=c).value for c in range(1, 9)] == hdr)
+    chk("row 3 header equals groups_v3.md header", [ws.cell(row=3, column=c).value for c in range(1, 9)] == hdr)
     chk("header style (Arial 10 bold white, fill 4472C4)",
         all(ws.cell(row=3, column=c).font.name == "Arial" and ws.cell(row=3, column=c).font.b
             and ws.cell(row=3, column=c).fill.fgColor.rgb.endswith("4472C4") for c in range(1, 9)))
     w = [ws.column_dimensions[get_column_letter(i)].width for i in range(1, 9)]
     chk("widths A=28, B=40, C-H=42", w == [28, 40] + [42] * 6, str(w))
     chk("freeze B4", ws.freeze_panes == "B4")
-    chk("autofilter A3:H29", ws.auto_filter.ref == "A3:H29", str(ws.auto_filter.ref))
-    grows = [group_row(i) for i in range(24)]
-    chk("group rows: C1-C6 = rows 5-10, C7-C24 = rows 12-29", grows == list(range(5, 11)) + list(range(12, 30)))
-    chk("last table row is 29", grows[-1] == 29 == LAST_ROW)
+    chk("autofilter A3:H39", ws.auto_filter.ref == f"A3:H{LAST_ROW}", str(ws.auto_filter.ref))
+    grows = [group_row(i) for i in range(NROWS)]
+    chk("group rows: C1-C14 = rows 5-18, C15-C34 = rows 20-39", grows == list(range(5, 19)) + list(range(20, 40)))
+    chk("last table row is 39", grows[-1] == 39 == LAST_ROW)
     # bands
     for br, txt in BAND_TXT.items():
         cs = ws[br][:8]
@@ -283,11 +308,11 @@ def verify(wb, xlsx=None, bak=None):
     for i, row in enumerate(rows):
         for c, v in enumerate(row, 1):
             mism += _plain(ws.cell(row=grows[i], column=c).value) != v
-    chk("rows 5-10 and 12-29: plain text of all 24 x 8 cells equals groups_v2.md Section A (newline joins)",
-        mism == 0 and len(rows) == 24, f"({mism} mismatches)")
+    chk("rows 5-18 and 20-39: plain text of all 34 x 8 cells equals groups_v3.md Section A (newline joins)",
+        mism == 0 and len(rows) == NROWS, f"({mism} mismatches)")
     # fonts / fills / style
     bad_font, bad_fill, bad_sty, nrich, nrefs = [], [], [], 0, 0
-    for i in range(24):
+    for i in range(NROWS):
         single = i >= NMULTI
         col = SGREY if single else None
         k = i if not single else i - NMULTI
@@ -318,9 +343,9 @@ def verify(wb, xlsx=None, bak=None):
                         bad_font.append(x.coordinate + f":run{n}")
             elif c == 2 and _plain(x.value).count("\n") != rows[i][1].count("\n"):
                 bad_font.append(x.coordinate + ":B")
-    chk("fonts: A bold, text runs Arial 10 (black rows 5-10, 595959 rows 12-29), 'Refs:' runs Arial 8 808080",
+    chk("fonts: A bold, text runs Arial 10 (black rows 5-18, 595959 rows 20-39), 'Refs:' runs Arial 8 808080",
         not bad_font, f"({nrich} rich cells, {nrefs} refs runs; bad: {bad_font[:4]})")
-    chk("fills: DCE6F2 alternating within each section (rows 5,7,9 / 12,14,...), none on the others", not bad_fill,
+    chk("fills: DCE6F2 alternating within each section (rows 5,7,... / 20,22,...), none on the others", not bad_fill,
         str(bad_fill[:4]))
     chk("cells: wrap, top, thin 8EA9DB borders", not bad_sty, str(bad_sty[:4]))
     extra = [c.coordinate for row in ws.iter_rows(min_row=4) for c in row if c.column > 8 and c.value is not None]
@@ -341,14 +366,14 @@ def verify(wb, xlsx=None, bak=None):
     chk("panel cells equal the specified formulas", got == cells,
         "" if got == cells else str([(k, got.get(k), cells.get(k)) for k in sorted(set(got) | set(cells))
                                      if got.get(k) != cells.get(k)][:4]))
-    chk("panel title row = last table row + 2 (31, one blank row between)", L["title"] == LAST_ROW + 2 == 31 and
+    chk("panel title row = last table row + 2 (41, one blank row between)", L["title"] == LAST_ROW + 2 == 41 and
         all(c.value is None for c in ws[LAST_ROW + 1]))
     chk("panel title merged across A:C", f"A{L['title']}:C{L['title']}" in {str(m) for m in ws.merged_cells.ranges})
-    chk("panel formulas A-letters are E..AG", [cells[(L["first"] + i, 1)] for i in range(29)] ==
-        [get_column_letter(c) for c in range(5, 34)])
-    chk("panel ranges: groups $B$5:$B$29, single-product $H$5:$H$29 with \"*Single-product:*\"",
-        cells[(L["tot"]["Single-product rows"], 3)] == '=COUNTIF($H$5:$H$29,"*Single-product:*")' and
-        cells[(L["first"], 3)] == f'=COUNTIF($B$5:$B$29,"*"&$B{L["first"]}&"*")')
+    chk("panel formulas A-letters are E..BN", [cells[(L["first"] + i, 1)] for i in range(NFN)] ==
+        [get_column_letter(c) for c in range(5, 67)])
+    chk("panel ranges: groups $B$5:$B$39, single-product $H$5:$H$39 with \"*Single-product:*\"",
+        cells[(L["tot"]["Single-product rows"], 3)] == '=COUNTIF($H$5:$H$39,"*Single-product:*")' and
+        cells[(L["first"], 3)] == f'=COUNTIF($B$5:$B$39,"*"&$B{L["first"]}&"*")')
     chk("no dynamic-array functions in panel", not any(re.search(r"FILTER|UNIQUE|XLOOKUP|LET\(|SORT|SEQUENCE", str(v))
                                                        for v in got.values()))
     pfonts = [c.coordinate for row in ws.iter_rows(min_row=LAST_ROW + 1) for c in row
@@ -358,7 +383,7 @@ def verify(wb, xlsx=None, bak=None):
     by = check_letters(rows, hd)
     cnt, tot = python_panel(rows, hd)
     chk("mirror counts equal the lines naming each column (no accidental substring matches)",
-        cnt == [len(by.get(get_column_letter(FIRST_FN_COL + i), ())) for i in range(29)])
+        cnt == [len(by.get(get_column_letter(FIRST_FN_COL + i), ())) for i in range(NFN)])
     print("  Python mirror, groups listing each sheet-3 function:")
     for i, h in enumerate(hd):
         print("    %-3s %d  %s" % (get_column_letter(FIRST_FN_COL + i), cnt[i], h))
@@ -367,14 +392,19 @@ def verify(wb, xlsx=None, bak=None):
     print("  functions in more than one group:", multi, "| in no group:",
           [get_column_letter(FIRST_FN_COL + i) for i, c in enumerate(cnt) if c == 0])
     chk("every sheet-3 function is in at least one group", tot["Functions in no group"] == 0)
-    chk("mirror totals: >1 group 7, NeMo 17, Llama Guard 7, Sentinel 8, Bedrock 2, single-product 18",
-        (tot["Functions in more than one group"], tot["Groups including NeMo Guardrails"],
-         tot["Groups including Llama Guard"], tot["Groups including GovTech Sentinel"],
-         tot["Groups including Amazon Bedrock"], tot["Single-product rows"]) == (7, 17, 7, 8, 2, 18))
-    if bak:
+    # expected values computed from groups_v3.md: lines of column B name each function by its letter
+    exp_multi = sum(len(v) > 1 for v in by.values())
+    exp_prod = {lab: sum(any(q.lower() in r[1].lower() for q in pats) for r in rows) for lab, pats in PRODUCT_TOTALS}
+    chk("mirror totals equal values computed from groups_v3.md (letters lines + product prefixes)",
+        tot["Functions in more than one group"] == exp_multi and
+        all(tot[k] == v for k, v in exp_prod.items()) and
+        tot["Single-product rows"] == NROWS - NMULTI == 20 and len(by) == NFN, str(tot))
+    chk("groups_v3.md accounting line: 62 functions, 0 in no group, 23 in more than one group",
+        NFN == 62 and tot["Functions in no group"] == 0 and exp_multi == 23, f"(multi={exp_multi})")
+    if bak:  # optional: pass a workbook path to compare title and header row with
         old = load_workbook(bak)[S4]
         same = (old["A1"].value == ws["A1"].value and _snap_row(old, 3) == _snap_row(ws, 3))
-        chk("title and header row identical to v7", same)
+        chk("title and header row identical to the baseline", same)
     print("sheet 4 overall:", "PASS" if ok else "FAIL")
     assert ok
     return cnt, tot
