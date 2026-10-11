@@ -9,7 +9,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "..", "..", ".."))
 MD = os.path.join(ROOT, "benchtest", "drafts", "groups_v3.md")
 XLSX = os.path.join(ROOT, "benchtest", "AI Guardrails Research and Comparison.xlsx")
-MARKER = "• Single-product: no comparator among NeMo / Llama Guard / Sentinel yet"
+MARKER = "• Single-product: no comparator among the ten products yet"
 MAXW = 12
 errors, warns = [], []
 
@@ -121,8 +121,12 @@ for k, r in enumerate(rows):
             err(f"{cid}: no functions")
     elif seen_single:
         err(f"{cid}: multi-product row after a single-product row (band order)")
-    if not single and len(letters) < 2:
-        err(f"{cid}: marked multi-product but has {len(letters)} function(s)")
+    PROD = {"LlamaFirewall": "Purple Llama", "Code Shield": "Purple Llama", "Prompt Guard 2": "Purple Llama"}
+    prods = {PROD.get(HDR[L].split(":")[0], HDR[L].split(":")[0]) for L in letters}
+    if not single and len(prods) < 2:
+        err(f"{cid}: marked multi-product but spans only {prods}")
+    if single and len(prods) != 1:
+        err(f"{cid}: single-product row spans {prods}")
     if single:
         prefixes = {HDR[L].split(":")[0] for L in letters}
         if len(prefixes) > 1 and not all(p in ("LlamaFirewall", "Code Shield", "Prompt Guard 2") for p in prefixes):

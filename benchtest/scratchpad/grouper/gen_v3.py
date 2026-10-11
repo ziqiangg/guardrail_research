@@ -13,7 +13,7 @@ from build_eval_sheet import split_row  # parser helper only
 import data_multi_a, data_multi_b, data_single_new, data_rationale
 
 OUT = os.path.join(ROOT, "benchtest", "drafts", "groups_v3.md")
-MARKER = "Single-product: no comparator among NeMo / Llama Guard / Sentinel yet"
+MARKER = "Single-product: no comparator among the ten products yet"
 ALSO = "Also checked against the later columns (AH to BN): no comparator"
 TXT = ["inputs", "truth", "outputs", "metrics", "arch", "diffs"]
 HDRS = ["Common test inputs", "Ground truth", "Outputs to capture", "Common metrics",
@@ -22,7 +22,7 @@ S3 = json.load(open(os.path.join(HERE, "sheet3.json"), encoding="utf-8"))
 SUFFIX = {"E": " (template example column)"}
 
 # v2 -> v3 carried rows: v3 id -> v2 id
-CARRY = {"C12": "C6", "C16": "C7", "C17": "C8", "C18": "C11", "C19": "C13", "C20": "C14", "C21": "C15",
+CARRY = {"C12": "C6", "C15": "C7", "C16": "C8", "C17": "C11", "C18": "C12", "C19": "C13", "C20": "C14", "C21": "C15",
          "C22": "C16", "C23": "C17", "C24": "C19", "C25": "C20", "C26": "C21", "C27": "C22", "C28": "C23",
          "C29": "C24"}
 # Refs added to carried cells that had none in v2
@@ -31,6 +31,7 @@ ADD_REFS = {
  ("C7", "truth"): "J R2, J R5, 3c Datasets",
  ("C8", "truth"): "M R2, M R5", ("C8", "metrics"): "M R5, 3c Tools",
  ("C11", "truth"): "P R2, P R5", ("C11", "metrics"): "P R5, 3c Published results",
+ ("C12", "truth"): "O R2, O R5", ("C12", "metrics"): "O R5, 3c Published results",
  ("C13", "truth"): "Q R2, Q R5", ("C13", "metrics"): "Q R5, 3c Published results",
  ("C14", "truth"): "R R2, R R5", ("C14", "metrics"): "R R5, 3c Published results",
  ("C15", "truth"): "U R2, U R5", ("C15", "metrics"): "U R5, 3c Tools",
@@ -104,16 +105,16 @@ GROUPS.update(data_multi_b.G)
 GROUPS.update(data_single_new.G)
 for v3, v2 in CARRY.items():
     GROUPS[v3] = carried(v3, v2)
-ORDER = [f"C{i}" for i in range(1, 34)]
-NMULTI = 15
+ORDER = [f"C{i}" for i in range(1, 35)]
+NMULTI = 14
 assert set(ORDER) == set(GROUPS), set(ORDER) ^ set(GROUPS)
 for i, cid in enumerate(ORDER):
     single = i >= NMULTI
     d = GROUPS[cid]
     if single:
         b, r = d["diffs"]
-        b = [x for x in b if not x.startswith("Single-product:") and x != ALSO]
-        d["diffs"] = ([MARKER, ALSO] + b, r)
+        b = [x for x in b if not x.startswith("Single-product:")]
+        d["diffs"] = ([MARKER] + b, r)
     d["single"] = single
 
 
@@ -202,8 +203,8 @@ def main():
     L = []
     L.append("# Sheet 4 — Candidate Comparison Groups (draft v3, bulleted)")
     L.append("")
-    L.append("Regrouped once across all ten products (R006), from the sheet 3 columns E to BN. Bench content in columns C to G is "
-             "worded as proposals (R032); nothing here decides the bench design. Evaluation tools CyberSecEval (3k) and Litmus (3n) have no "
+    L.append("Regrouped once across all ten products (R006), from the sheet 3 columns E to BN. Bench content in new and changed rows (columns C to G) is "
+             "worded as proposals (R032); rows carried from v2 keep their v2 wording (see D2). Nothing here decides the bench design. Evaluation tools CyberSecEval (3k) and Litmus (3n) have no "
              "sheet 3 columns and are cited only as possible sources of test inputs or ground truth.")
     L.append("")
     L.append("## A. Group table")

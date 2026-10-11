@@ -18,7 +18,8 @@ G["C1"] = dict(
         ["E R2","K R2","AF R2","AH R2","AN R2","AX R2","BL R2"]),
  outputs=(["Decision where exposed: blocked, masked or allowed (E, K, AF)",
            "Findings with type and span where exposed (AH, AN, AX, AF)",
-           "Score: AH 0 to 1; AN five levels; AF 0.0 or 1.0",
+           "Score: AH 0 to 1; AN five levels; AF 0 to 1",
+           "AF scores seen so far were 0.0 or 1.0",
            "Masked text or change list (AI, AP, AX, BL)",
            "Latency; error"],
           ["K R5","AF R5","AH R5","AI R5","AN R5","AP R5","AX R5","BL R5"]),
@@ -38,6 +39,7 @@ G["C1"] = dict(
        ["AH R7","AI R7","AN R7","AP R7","AX R7","BL R7","K R7","3e (d) access paths","3f (d) integration paths","3g (d) integration and access paths","3h (b) integration paths","3l (b) access and integration paths","3c Tools"]),
  diffs=(["Entity lists differ: AWS types, Presidio recognizers, SDP infoTypes, Cloak groups",
          "Shared backends, not independent: K-AH, AF-E, AX-AN",
+         "BL may reuse Presidio recognisers; GovTech does not say",
          "AH, AN return findings only; AI masks only supplied spans",
          "AX basic mode uses a short, US-leaning fixed list",
          "BL needs approved access; Terms clause 3.4.7 benchmarking question open",
@@ -45,7 +47,7 @@ G["C1"] = dict(
          "AF returns raw matches; Sentinel is closed beta; E has summary-level research",
          "BI regex scanner covers four PII shapes: see C3",
          "Output side is C2"],
-        ["E R4","K R4","AF R4","AH R5","AI R3","AX R2","AX R8","BL R8","AN R8","3g (d) integration and access paths","3l (e) limits and terms"]),
+        ["E R4","K R4","AF R4","AH R5","AI R3","AX R2","AX R8","BL R4","BL R8","AN R8","3g (d) integration and access paths","3l (e) limits and terms"]),
 )
 
 G["C2"] = dict(
@@ -119,11 +121,12 @@ G["C3"] = dict(
  diffs=(["Authored patterns for N, AM, AO, BM, E; BI, BK rules fixed",
          "BI, BK rules could be re-expressed as regex for the other products",
          "Regex dialects, limits and matching methods differ; AO caps regex at 1000",
-         "AM and AO add context or hotword rules; the others do not",
+         "AM, AO and BM (API only) add context or hotword rules",
+         "BK compares only if the others get the tag-block regex",
          "BM LLM entity is Beta and not pattern matching: test apart",
          "BM Terms clause 3.4.7 benchmarking question is an open item",
-         "Output side is C4; the N retrieval variant is C17"],
-        ["AO R6","BI R6","BK R2","BM R4","BM R8","N R3","N R8","AM R4"]),
+         "Output side is C4; the N retrieval variant is C16"],
+        ["AO R6","BI R6","BK R2","BM R4","BM R6","BM R8","N R3","N R8","AM R4"]),
 )
 
 G["C4"] = dict(
@@ -188,12 +191,13 @@ G["C5"] = dict(
         "BN: approved Cloak account and a Secrets Manager secret"],
        ["AJ R7","AQ R7","BN R7","3f (d) integration paths","3g (d) integration and access paths","3l (b) access and integration paths"]),
  diffs=(["Keys differ: caller-held (AJ), Cloud KMS wrapped (AQ), Secrets Manager (BN)",
+         "BN Encrypt may be Presidio's encrypt operator; GovTech does not say",
          "AJ uses a random vector per entity; AQ repeats tokens per key",
          "AQ docs disagree on whether AES-SIV keeps length",
          "BN needs approved access; Terms clause 3.4.7 benchmarking question open",
          "Entity detection differs: AJ uses the Analyzer, AQ and BN their own",
          "Restore side is C6"],
-        ["AJ R4","AQ R4","BN R8","AJ R3","AQ R2","3l (e) limits and terms"]),
+        ["AJ R4","AQ R4","BN R4","BN R8","AJ R3","AQ R2","3l (e) limits and terms"]),
 )
 
 G["C6"] = dict(
@@ -268,7 +272,7 @@ G["C7"] = dict(
          "Format and size limits are stated for AR and BC only",
          "No direction flag: one group kept; BC response-side images not shown",
          "Google AUP testing clause is recorded for BC as an open item"],
-        ["AK R4","AK R5","AR R6","BC R3","BC R4","BC R8","AK R3"]),
+        ["AK R1","AK R4","AK R5","AR R6","BC R3","BC R4","BC R8","AK R3"]),
 )
 
 G["C8"] = dict(
