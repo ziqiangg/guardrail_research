@@ -147,3 +147,4 @@
 - 2026-10-11 groups_v3 drafted: 33 groups (15 multi, 18 single), all 62 columns covered, self-check 0 errors; suggested first C1 (input PII); main rulings Q1–Q3, Q5, Q6; fresh verifier started
 - 2026-10-11 groups_v3 review: PASS WITH FIXES (11 required incl. C14 split, marker, BM context rules, AM spaCy, Cloak engine independence, R032 wording, AS AUP, C13/C11 caveats, C31 reason); 19/25 MATCH; fix loop → grouper
 - 2026-10-11 groups_v3 fix loop done: 11 required + 12 optional; 34 groups (14 multi, 20 single); check_v3 0 errors; awaiting user approval (R006)
+- 2026-10-11 user approved groups_v3 (R042) → sheet-4 write
